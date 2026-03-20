@@ -8,6 +8,7 @@ import random
 import re
 import requests
 from scholarly import scholarly
+import sys
 import time
 
 
@@ -195,6 +196,7 @@ def activate_title_scholar_search(author_search_yielded_results, author, title, 
                     pub_year = int(current_search_result['bib']['pub_year'])
                     if pub_year == year:
                         print("     -> SUCCESS: Title, authors, and year matched; reference checks out. :)")
+                        # TODO: Maybe also get other data while we have the match (like abstract or similar)
                         p.stop()
                         return f"Found: {current_search_result['pub_url']}"
                     else:
@@ -359,6 +361,7 @@ def main(doc, ref_starting_page):
     #==========================================================================
     print(f"Checking references on pages: {ref_starting_page} -- {doc.page_count}")
     references = []
+    ref_starting_index = 0
 
     # NOTE: doc[page_number] is 0-based
     page_text = doc[ref_starting_page-1].get_text()
@@ -366,27 +369,44 @@ def main(doc, ref_starting_page):
     # Check if the page contains "References" or "Literature"
     if page_text.find("References") != -1 or page_text.find("Literature") != -1:
 
-        # Find the starting index of the reference section and cut the text before
+        # Find the starting index of the reference section
         if page_text.find("References") != -1:
             ref_starting_index = page_text.find("References")
         else:
             ref_starting_index = page_text.find("Literature")
-        page_text = page_text[ref_starting_index:]
-
-        # Extract the references from the first page of the reference section
-        references = check_page_text([], page_text, 1)
-
-        # Iterate over all remaining pages and check for remaining references
-        for page_no in range(ref_starting_page, doc.page_count):
-            page_text = doc[page_no].get_text()
-            references = check_page_text(references, page_text, 2)
-            page_no += 1
 
     else:
         print(f"""Could not find 'References'/'Literature' on page {ref_starting_page}. 
-                Please check the page number and try again.""")
-        # TODO: Maybe ask the user as a fallback for a page number and the header name 
-        #       indicating the reference section
+                Please check the page number and try inputting it manually:""")
+        
+        # Loop to give user the chance to retry if they messed up the inputs
+        while True:
+            ref_starting_page = int(input(" -> Please enter the page number where the reference section starts: ").strip())
+            ref_section_name = input(" -> Please enter the name of the reference section (e.g., 'Literature'): ").strip()
+
+            # Find the starting index of the reference section and cut the text before
+            if page_text.find(ref_section_name) != -1:
+                ref_starting_index = page_text.find(ref_section_name)
+                break
+            else:
+                print(f"Could not find '{ref_section_name}' on page {ref_starting_page}...")
+                retry = input(" -> If you want to retry, enter 'y' or 'yes': ").strip()
+                if not (retry.lower() == "y" or retry.lower() == "yes"):
+                    # Since the references are essential, just quit the whole program
+                    print("Ok, thanks for trying. Good luck on your own! :)")
+                    sys.exit(0)
+
+    # Cut the text before the reference section; we don't need it
+    page_text = page_text[ref_starting_index:]
+
+    # Extract the references from the first page of the reference section
+    references = check_page_text([], page_text, 1)
+
+    # Iterate over all remaining pages and check for remaining references
+    for page_no in range(ref_starting_page, doc.page_count):
+        page_text = doc[page_no].get_text()
+        references = check_page_text(references, page_text, 2)
+        page_no += 1
     
     # Log the results
     TOTAL_NO_OF_REFERENCES = len(references)
