@@ -3,6 +3,11 @@ TestScripts/
 TestPaper/
 
 
+## Pycache
+__pycache__/
+*.pyc
+
+
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
