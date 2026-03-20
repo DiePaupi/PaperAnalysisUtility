@@ -37,13 +37,34 @@ invalid_link_counter = 0
 skipped_searches_counter = 0
 mismatching_infos_counter = 0
 no_entry_found_counter = 0
-invalid_entries = []
+invalid_link_entries = []
+mismatching_entries = []
+unfound_entries = []
 
 
 
 ###############################################################################
 # Helper functions
 ###############################################################################
+
+def append_line_to_references(page_references, line):
+    """
+    append_line_to_references takes a list of already found references and a 
+    line and checks if the last reference of the list contains a link; 
+    if so, it appends the line to the last reference without a space, 
+    otherwise with a space in between.
+    """
+
+    if len(page_references) > 0:
+        last_reference = page_references[len(page_references)-1].lower()
+        if "http" in last_reference:
+            return line.strip()
+        else:
+            return ' ' + line.strip()
+    else:
+        print(f"""WARNING: Trying to append a line to references, but no  
+              reference found yet! Line: '{line}'""")
+
 
 def check_page_text(page_references, page_text, line_skip):
     """
@@ -74,11 +95,9 @@ def check_page_text(page_references, page_text, line_skip):
             # If this schema is not found, but we already have at least one reference,
             # append the line to the last reference
             else:
-                if len(page_references) > 0:
-                    page_references[len(page_references)-1] += ' ' + line.strip()
+                page_references[len(page_references)-1] += append_line_to_references(page_references, line)
         else:
-            if len(page_references) > 0:
-                page_references[len(page_references)-1] += ' ' + line.strip()
+            page_references[len(page_references)-1] += append_line_to_references(page_references, line)
 
     return page_references
 
@@ -197,6 +216,11 @@ def activate_title_scholar_search(author_search_yielded_results, author, title, 
                     if pub_year == year:
                         print("     -> SUCCESS: Title, authors, and year matched; reference checks out. :)")
                         # TODO: Maybe also get other data while we have the match (like abstract or similar)
+                            #current_search_result['bib']['abstract']
+                            #current_search_result['bib']['venue']
+                            #current_search_result['num_citations']
+                            #current_search_result['pub_url']
+                            #current_search_result['eprint_url']
                         p.stop()
                         return f"Found: {current_search_result['pub_url']}"
                     else:
@@ -295,7 +319,8 @@ def search_on_scholar(references_df, index):
     global mismatching_infos_counter
     global skipped_searches_counter
     global no_entry_found_counter
-    global invalid_entries
+    global mismatching_entries
+    global unfound_entries
 
     search_skipped, search_result = activate_author_scholar_search(references_df['authors'].iloc[index], 
                                                                    references_df['title'].iloc[index], 
@@ -311,12 +336,11 @@ def search_on_scholar(references_df, index):
         elif search_result.startswith("CHECK -"):
             mismatching_infos_counter += 1
             references_df.loc[index, 'valid'] = search_result
-            invalid_entries.append(f"{references_df['full_reference'].iloc[index]}; {search_result}")
+            mismatching_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> {search_result}")
         else:
             no_entry_found_counter += 1
-            references_df.loc[index, 'valid'] = "NOT FOUND"
-            invalid_entries.append(references_df['full_reference'].iloc[index])
-    
+            references_df.loc[index, 'valid'] = search_result
+            unfound_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> {search_result}")
     return references_df
 
 
@@ -334,7 +358,9 @@ def main(doc, ref_starting_page):
     3) checks if provided reference links are valid, and if not, 
        searches for the author and/or title on Scholar
     4) returns a dataframe with all found references and their 
-       parsed information, as well as some counters for statistics.
+       parsed information, as well as a dict of counters for statistics.
+
+    ---
 
     The returned dataframe contains the following columns:
     - 'full_reference', the full reference string before parsing
@@ -345,6 +371,19 @@ def main(doc, ref_starting_page):
     - 'link', a string containing the reference's link (otherwise it's '')
     - 'valid', a string message indicating the results concering 
                the reference's validity check
+    
+    The returned dict of counters contains the following keys:
+    - "total_no_of_references": the total number of found references
+    - "no_link_provided": count of references for which no link was provided
+    - "invalid_links": count of references with invalid links
+    - "skipped_searches": count of references where search was skipped
+    - "mismatching_infos": count of references with mismatching information
+    - "no_entry_found": count of references for which no entry was found
+
+    The returned list of entries contains three lists with the following entries:
+    - [0]: invalid_link_entries - list of all references with invalid links
+    - [1]: mismatching_entries - list of all references with mismatching information
+    - [2]: unfound_entries - list of all references for which no entry was found
     """
 
     global no_link_provided_counter
@@ -352,7 +391,10 @@ def main(doc, ref_starting_page):
     global skipped_searches_counter
     global mismatching_infos_counter
     global no_entry_found_counter
-    global invalid_entries
+
+    global invalid_link_entries
+    global mismatching_entries
+    global unfound_entries
 
 
     #==========================================================================
@@ -437,6 +479,7 @@ def main(doc, ref_starting_page):
             # Catch invalid links and search for the reference on Scholar instead
             except:
                 invalid_link_counter += 1
+                invalid_link_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> Link caused an exception!")
                 local_references_df = search_on_scholar(references_df, index)
                 references_df = local_references_df
             # Otherwise, if the link is valid, check its status code after sleeping
@@ -450,6 +493,7 @@ def main(doc, ref_starting_page):
                 # Otherwise, if the link is not valid, search for the reference on Scholar instead
                 else:
                     invalid_link_counter += 1
+                    invalid_link_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> Returned with status code {request.status_code}!")
                     local_references_df = search_on_scholar(references_df, index)
                     references_df = local_references_df
         else:
@@ -461,4 +505,15 @@ def main(doc, ref_starting_page):
     #==========================================================================
     # Return the final dataframe and values
     #==========================================================================
-    return references_df, TOTAL_NO_OF_REFERENCES, no_link_provided_counter, invalid_link_counter, skipped_searches_counter, mismatching_infos_counter, no_entry_found_counter, invalid_entries
+    stats = {
+        "total_no_of_references": TOTAL_NO_OF_REFERENCES,
+        "no_link_provided": no_link_provided_counter,
+        "invalid_links": invalid_link_counter,
+        "skipped_searches": skipped_searches_counter,
+        "mismatching_infos": mismatching_infos_counter,
+        "no_entry_found": no_entry_found_counter
+    }
+    #print(stats["invalid_links"])
+
+    entries = [invalid_link_entries, mismatching_entries, unfound_entries]
+    return references_df, stats, entries

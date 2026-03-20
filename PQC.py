@@ -5,6 +5,7 @@ import os
 import plotly.graph_objects as go
 import pymupdf
 import re
+import sys
 
 import SubScripts.ReferenceChecker as rc
 
@@ -13,6 +14,9 @@ import SubScripts.ReferenceChecker as rc
 ###############################################################################
 # INFO
 ###############################################################################
+
+# NOTE: To save the results as .md file you'll need to habe the 'tabulate' 
+#       package installed
 
 # TODOs:
 # - Paper Quality:
@@ -35,13 +39,12 @@ headings = []
 #    starts; it is 0 if no references section was found
 references_starting_page_no = 0
 
-# Counters delivered by the ReferenceChecker
-no_link_provided_counter = 0
-invalid_link_counter = 0
-skipped_searches_counter = 0
-mismatching_infos_counter = 0
-no_entry_found_counter = 0
-invalid_entries = []
+# Paper template - formatting specifications
+springer_template = {
+    # Always skip first two lines in the springer template as they are: 
+    #   page_lines[0] = Shortitle; page_lines[1] = page number
+    "header_lines": 2, 
+}
 
 
 
@@ -50,9 +53,17 @@ invalid_entries = []
 # Helper functions
 ###############################################################################
 
-def check_document_structure(doc):
+def check_document_structure(doc, template_name):
     global headings
     global references_starting_page_no
+
+    if template_name == "springer":
+        global springer_template
+        lineskip = springer_template["header_lines"]
+    else:
+        print(f"ERROR: Template '{template_name}' not supported yet!")
+        print(" -> The programm will exit now. :)")
+        sys.exit(0)
 
     # NOTE: doc[page_number] is 0-based
     for page_no in range(0, doc.page_count):
@@ -63,23 +74,37 @@ def check_document_structure(doc):
 
         # Iterate over all page lines to check headings and find the refrences
         page_lines = page_text.split("\n")
-        for line in page_lines:
-            line = line.strip()
-    
-            # Check for heading pattern with capturing groups: (number) and (text)
-            heading_match = re.match(r'^(\d)\s+([a-zA-Z0-9\s]+)$', line)
+
+        # NOTE: Lineskip for headers is template-specific
+        for line_index in range(lineskip, len(page_lines)):
+            line = page_lines[line_index].strip()
+
+            # Springer headings are parsed as a single number in one line
+            #   and the heading in the next
+            heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
             if heading_match:
-                number = heading_match.group(1)
-                text = heading_match.group(2).strip()
-                print(f"Found heading '{number} - {text}' on page {page_no + 1}")
-                headings.append((number, text, page_no + 1))
-            
+                number = heading_match.group(0)
+
+                # Check if the current line is not the last
+                if line_index + 1 < len(page_lines):
+                    if len(headings) > 0:
+                        last_index = len(headings) - 1
+                        last_heading_no = int(headings[last_index][0].strip())
+                        if int(number.strip())-1 == last_heading_no:
+                            text = page_lines[line_index + 1].strip()
+                            print(f"Found following heading '{number} - {text}' on page {page_no + 1}")
+                            headings.append((number, text, page_no + 1))
+                    else:
+                        text = page_lines[line_index + 1].strip()
+                        print(f"Found first heading '{number} - {text}' on page {page_no + 1}")
+                        headings.append((number, text, page_no + 1))
+                
             # Check for "References" or "Literature" (case-insensitive)
             elif line.lower() in ["references", "literature"]:
                 print(f"Found references/literature section on page {page_no + 1}")
                 headings.append(('R', line, page_no + 1))
                 references_starting_page_no = page_no + 1
-                break
+                return
 
         page_no += 1
 
@@ -93,13 +118,8 @@ def main():
     """
     x
     """
-    
-    global no_link_provided_counter
-    global invalid_link_counter
-    global skipped_searches_counter
-    global mismatching_infos_counter
-    global no_entry_found_counter
-    global invalid_entries
+    global headings
+    global references_starting_page_no
 
 
     #==========================================================================
@@ -108,7 +128,8 @@ def main():
     path_to_pdf = input("Enter the path to the PDF file: ").strip().strip('"')
     doc = pymupdf.open(path_to_pdf, filetype="txt")
 
-    check_document_structure(doc)
+    # TODO: Make multiple templates possible
+    check_document_structure(doc, "springer")
 
 
     #==========================================================================
@@ -120,11 +141,32 @@ def main():
     #==========================================================================
     # Extract and check references
     #==========================================================================
+    # NOTE: Check out rc.main() doc. for details on the dict's ('stats') keys
+    stats = {}
+    # NOTE: 'entries' is a list of three lists: 
+    #       [invalid_link_entries, mismatching_entries, unfound_entries]
+    entries = [[], [], []]
+
     if references_starting_page_no <= 0:
         print("ERROR: No references section found in the document.")
+        print(" -> The programm will exit now. :)")
+        sys.exit(0)
     else:
         global references_df
-        references_df, total_no_of_references, no_link_provided_counter, invalid_link_counter, skipped_searches_counter, mismatching_infos_counter, no_entry_found_counter, invalid_entries = rc.main(doc, references_starting_page_no)
+        references_df, stats, entries = rc.main(doc, references_starting_page_no)
+    
+    extracted_references = references_df.drop('full_reference', axis=1)
+
+    TOTAL_NO_OF_REFERENCES = stats["total_no_of_references"]
+    no_link_provided_counter = stats["no_link_provided"]
+    invalid_link_counter = stats["invalid_links"]
+    skipped_searches_counter = stats["skipped_searches"]
+    mismatching_infos_counter = stats["mismatching_infos"]
+    no_entry_found_counter = stats["no_entry_found"]
+
+    invalid_entries = entries[0]
+    mismatching_entries = entries[1]
+    unfound_entries = entries[2]
 
 
     #==========================================================================
@@ -156,15 +198,31 @@ def main():
             f.write("No references section found in the document.\n")
         else:
             f.write(f"References section starts on page {references_starting_page_no}.\n\n")
-            f.write(f"- No link provided: {no_link_provided_counter}/{total_no_of_references}={no_link_provided_counter/total_no_of_references*100:.2f}%\n")
-            f.write(f"- Invalid link: {invalid_link_counter}/{total_no_of_references}={invalid_link_counter/total_no_of_references*100:.2f}%\n")
-            f.write(f"- Skipped searches: {skipped_searches_counter}/{total_no_of_references}={skipped_searches_counter/total_no_of_references*100:.2f}%\n")
-            f.write(f"- Mismatching infos: {mismatching_infos_counter}/{total_no_of_references}={mismatching_infos_counter/total_no_of_references*100:.2f}%\n")
-            f.write(f"- No entry found: {no_entry_found_counter}/{total_no_of_references}={no_entry_found_counter/total_no_of_references*100:.2f}%\n")
+            f.write(f"- No link provided: {no_link_provided_counter}/{TOTAL_NO_OF_REFERENCES}={no_link_provided_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Invalid link: {invalid_link_counter}/{TOTAL_NO_OF_REFERENCES}={invalid_link_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             if invalid_entries:
-                f.write("- Invalid entries:\n")
+                f.write("  - Invalid entries:\n")
                 for entry in invalid_entries:
-                    f.write(f"  - {entry}\n")
+                    f.write(f"    - {entry}\n")
+            f.write(f"- Skipped searches: {skipped_searches_counter}/{TOTAL_NO_OF_REFERENCES}={skipped_searches_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Mismatching infos: {mismatching_infos_counter}/{TOTAL_NO_OF_REFERENCES}={mismatching_infos_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            if mismatching_entries:
+                f.write("  - Mismatching entries:\n")
+                for entry in mismatching_entries:
+                    f.write(f"    - {entry}\n")
+            f.write(f"- No entry found: {no_entry_found_counter}/{TOTAL_NO_OF_REFERENCES}={no_entry_found_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            if unfound_entries:
+                f.write("  - Unfound entries:\n")
+                for entry in unfound_entries:
+                    f.write(f"    - {entry}\n")
+
+        # Print the references DF using df.to_markdown(tablefmt="grid")
+        f.write("\n## Extracted References\n\n")
+        f.write(extracted_references.to_markdown(tablefmt="grid"))
+    
+    print("---")
+    print("FINISHED!")
+    print(f" -> Results saved to {results_path}")
 
 
     #==========================================================================
