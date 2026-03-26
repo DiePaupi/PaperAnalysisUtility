@@ -8,6 +8,7 @@ import re
 import sys
 
 import SubScripts.ReferenceChecker as rc
+import SubScripts.AuthorsChecker as ac
 
 
 
@@ -23,6 +24,9 @@ import SubScripts.ReferenceChecker as rc
 #    + Check the uniformity of used chars like apostrophes, quotes, and dashes
 #    + Check if references match the statement they are supposed to support
 #        (e.g., by checking the abstract on Scholar)
+#    + Sind alle Referenzen im Text auch im Literaturverzeichnis hinterlegt??
+#        + Ist die Referenzierung sinnvoll (zB nur a und b hinter einem Jahr, 
+#          wenn auch zwei Paper vom Auhtor aus dem, selben jahr zitiert werden)?
 # - Literature:
 #    + Check if an author is refereced with multiple papers (>=5?)
 
@@ -39,10 +43,14 @@ headings = []
 #    starts; it is 0 if no references section was found
 references_starting_page_no = 0
 
+# Template to use for references
+# NOTE: Currently only "springer" is supported
+template = "springer"
+
 # Paper template - formatting specifications
 springer_template = {
     # Always skip first two lines in the springer template as they are: 
-    #   page_lines[0] = Shortitle; page_lines[1] = page number
+    #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
     "header_lines": 2, 
 }
 
@@ -129,7 +137,7 @@ def main():
     doc = pymupdf.open(path_to_pdf, filetype="txt")
 
     # TODO: Make multiple templates possible
-    check_document_structure(doc, "springer")
+    check_document_structure(doc, template)
 
 
     #==========================================================================
@@ -172,8 +180,11 @@ def main():
     #==========================================================================
     # Check how often an author appears in the references
     #==========================================================================
-    # TODO: Ask user if author references should be counted
-    # TODO: Count how often an auhtor appears in the references
+    # TODO: Ask user if author references should be counted?
+
+    # NOTE: This dict is unsorted
+    frequent_authors = ac.main(references_df, template)
+
 
 
     #==========================================================================
@@ -215,10 +226,19 @@ def main():
                 f.write("  - Unfound entries:\n")
                 for entry in unfound_entries:
                     f.write(f"    - {entry}\n")
+        
+        # Print frequently referenced authors sorted by value (count) descending
+        f.write("\n## Frequently Referenced Authors\n\n")
+        for author, count in sorted(
+            frequent_authors.items(),
+            key=lambda x: x[1],
+            reverse=True
+        ):
+            f.write(f"- {author}: {count}\n")
 
         # Print the references DF using df.to_markdown(tablefmt="grid")
         f.write("\n## Extracted References\n\n")
-        f.write(extracted_references.to_markdown(tablefmt="grid"))
+        f.write(extracted_references.to_markdown())
     
     print("---")
     print("FINISHED!")

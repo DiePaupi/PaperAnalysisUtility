@@ -21,6 +21,7 @@ import time
 
 # Springer Nature (LaTeX) Template for references:
     # 1. Lastname, Firstname-FirstLetter.: Title. OutletName, PageRange (Year). URL/DOI
+    # header_lines = 2
 
 # Google Scholar API:
     # https://stackoverflow.com/questions/62938110/does-google-scholar-have-an-api-available-that-we-can-use-in-our-research-applic
@@ -245,8 +246,20 @@ def activate_title_scholar_search(author_search_yielded_results, author, title, 
 
 
 def activate_author_scholar_search(author, title, year):
-    # NOTE: https://scholarly.readthedocs.io/en/stable/quickstart.html#search-for-articles-publications-and-return-generator-of-publication-objects
+    """
+    activate_author_scholar_search takes a string containing the author(s), the paper's title (str), and 
+    it's publication year (int) as input.
+    After the user explicitly give permission for the online search, the given author-string is searched
+    via Scholarly and min(total_results, 25) results are checked for a matching title and year. 
+    - If a match is found, the function returns False (indicating that the search was not skipped) and 
+      a message containing the found link.
+    - If no match is found, an alternative search with the title is activated. 
+    - If the user does not give permission for the search, the function returns True (indicating that the 
+      search was skipped).
 
+    # NOTE: https://scholarly.readthedocs.io/en/stable/quickstart.html#search-for-articles-publications-and-return-generator-of-publication-objects
+    """
+    
     # User must give permission to search the defined query on Scholar
     query = f"{author}"
     search_permission = input(f"Permission to search for '{query}' on Scholar using scholarly? ").strip().strip('"')
@@ -316,6 +329,15 @@ def activate_author_scholar_search(author, title, year):
     
 
 def search_on_scholar(references_df, index):
+    """
+    search_on_scholar takes the dataframe containing the reference information and the index of 
+    the current reference as input and calls activate_author_scholar_search with the reference's 
+    author, title, and year.
+    After the search, it checks the returned message and updates the 'valid' column of the 
+    reference accordingly, as well as the global counters and lists of entries for the final log.
+    The updated dataframe is returned.
+    """
+
     global mismatching_infos_counter
     global skipped_searches_counter
     global no_entry_found_counter
