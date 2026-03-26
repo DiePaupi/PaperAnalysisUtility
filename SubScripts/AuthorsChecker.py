@@ -10,7 +10,8 @@ import pandas as pd
 # INFO
 ###############################################################################
 
-# Springer Nature (LaTeX) Template for references:
+# APA Style
+# - Springer Nature (LaTeX) Template for references
     # Lastname, Firstname-FirstLetter.:
 
     # Examples:
@@ -19,7 +20,7 @@ import pandas as pd
     # van der Staay, A., Markic, M., Nebel, M., Poeppelbuss, J., Janiesch, C.:
 
 # ACM Template for references:
-    # x
+    # Firstname Lastname.
 
     # Examples:
     # Boris A Galitsky.
@@ -34,7 +35,7 @@ import pandas as pd
 ###############################################################################
 
 # Constants:
-MAX_AUTHOR_REFERENCES = 3
+MAX_AUTHOR_REFERENCES = 2
 
 
 
@@ -122,6 +123,10 @@ def main(references_df: pd.DataFrame, template: str):
     
     RETURN: a dictionary of these authors along with their reference counts.
     """
+
+    print("###############################")
+    print("# Starting Author Check")
+    print("###############################")
 
     author_counter = Counter()
 

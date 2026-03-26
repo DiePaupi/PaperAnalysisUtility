@@ -19,9 +19,19 @@ import time
 
 # NOTE: The references section needs to be named "References" or "Literature"
 
-# Springer Nature (LaTeX) Template for references:
-    # 1. Lastname, Firstname-FirstLetter.: Title. OutletName, PageRange (Year). URL/DOI
+# APA Style
+# - Springer Nature (LaTeX) Template for references:
+    # 1. <Lastname>, <Firstname-FirstLetter>.: <Title>. <OutletName>, <PageRange> (<Year>). <URL/DOI>
+    # Examples:
+    # 16. Meyer, C., Schneider, T.: Automated detection of hallucinated academic references using neural consistency models. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024). https://doi.org/10.1234/jsks.2024.03145
     # header_lines = 2
+
+# Numeric Style
+# - ACM Template for references:
+    # [1] <Firstname> <Lastname>. <Year>. <Title>. <Outlet>. (<Date>), <PageRange>. <URL/DOI>
+    # Examples:
+    # [5] Virginia Braun and Victoria Clarke. 2006. Using thematic analysis in psychology. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101. https://doi.org/10.1191/1478088706qp063oa
+
 
 # Google Scholar API:
     # https://stackoverflow.com/questions/62938110/does-google-scholar-have-an-api-available-that-we-can-use-in-our-research-applic
@@ -262,12 +272,12 @@ def activate_author_scholar_search(author, title, year):
     
     # User must give permission to search the defined query on Scholar
     query = f"{author}"
-    search_permission = input(f"Permission to search for '{query}' on Scholar using scholarly? ").strip().strip('"')
+    search_permission = input(f"   -> Permission to search for '{query}' on Scholar using scholarly? ").strip().strip('"')
     if search_permission.lower() == "yes" or search_permission.lower() == "y":
     
         # Get the search results and check if at least one result is found
         search_query = scholarly.search_pubs(query)
-        print(f"INFO: Found {search_query.total_results} results for '{query}'.")
+        print(f"   -> INFO: Found {search_query.total_results} results for '{query}'.")
 
         if search_query.total_results >= 1:
             
@@ -275,7 +285,7 @@ def activate_author_scholar_search(author, title, year):
 
             # Cool progress bar to look at while all results are being checked
             with Progress() as p:
-                task = p.add_task("Processing author search...", total=no_of_results_to_check)
+                task = p.add_task("   -> Processing author search...", total=no_of_results_to_check)
                     
                 # Loop over all results and check if the title (and year) matches
                 print(f"   -> INFO: Now checking {no_of_results_to_check} results for matching title: '{title}'")
@@ -324,7 +334,7 @@ def activate_author_scholar_search(author, title, year):
             print(f"   -> ERROR: Non results were found through the author-search on Scholar; now trying title search instead.")
             return False, activate_title_scholar_search(False, author, title, year)
     else:
-        print("Search skipped by user.")
+        print("   -> Search skipped by user.")
         return True, "Not searched; skipped by user"
     
 
@@ -418,6 +428,10 @@ def main(doc, ref_starting_page):
     global mismatching_entries
     global unfound_entries
 
+    print("###############################")
+    print("# Starting Literature Check")
+    print("###############################")
+
 
     #==========================================================================
     # Get all references from the reference section as separate stings in the 
@@ -492,9 +506,12 @@ def main(doc, ref_starting_page):
     #==========================================================================
     for index in range(len(references_df)):
         current_link = references_df['link'].iloc[index]
+        print(f"- Checking reference {index + 1}/{len(references_df)}:")
 
         # Check if a link is provided; if not, search on Scholar
-        if current_link != '':
+        # NOTE: For now skip .pdf links
+        if current_link != '' and not current_link.endswith(".pdf"):
+            print(f"  -> Checking provided link: {current_link}")
             # Try to send a HEAD request to the provided link
             try:
                 request = requests.head(current_link)
@@ -511,6 +528,7 @@ def main(doc, ref_starting_page):
                 time.sleep(sleep_time)
                 # Check if site is reachable and set 'valid' column accordingly
                 if request.status_code != 404:
+                    # TODO: valid_link_counter ??
                     references_df.loc[index, 'valid'] = f"Link return code = {request.status_code}"
                 # Otherwise, if the link is not valid, search for the reference on Scholar instead
                 else:

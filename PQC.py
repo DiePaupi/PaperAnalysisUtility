@@ -1,14 +1,16 @@
 ###############################################################################
 # Imports
 ###############################################################################
+from collections import Counter
 import os
 import plotly.graph_objects as go
 import pymupdf
 import re
 import sys
 
-import SubScripts.ReferenceChecker as rc
 import SubScripts.AuthorsChecker as ac
+import SubScripts.ReferenceChecker as rc
+import SubScripts.UnicodeChecker as uc
 
 
 
@@ -27,8 +29,6 @@ import SubScripts.AuthorsChecker as ac
 #    + Sind alle Referenzen im Text auch im Literaturverzeichnis hinterlegt??
 #        + Ist die Referenzierung sinnvoll (zB nur a und b hinter einem Jahr, 
 #          wenn auch zwei Paper vom Auhtor aus dem, selben jahr zitiert werden)?
-# - Literature:
-#    + Check if an author is refereced with multiple papers (>=5?)
 
 
 
@@ -42,6 +42,16 @@ headings = []
 # 'references_starting_page_no' is the page number where the references section
 #    starts; it is 0 if no references section was found
 references_starting_page_no = 0
+# 'unicode_counter' counts the occurences of different Unicode chars like 
+#    apostrophes, quotes, and dashes in the document
+unicode_counter = Counter()
+# 'unicode_lines' is a list of four lists, where the inner lists contain tuples
+#    of (line: str, page_no: int) of their respective occurences
+#   [0] lines with Unicode apostrophes, 
+#   [1] lines with Unicode quotes,
+#   [2] lines with Unicode dashes,
+#   [3] lines with Unicode non-breakingspaces
+unicode_lines = [[], [], [], []]
 
 # Template to use for references
 # NOTE: Currently only "springer" is supported
@@ -64,7 +74,16 @@ springer_template = {
 def check_document_structure(doc, template_name):
     global headings
     global references_starting_page_no
+    global unicode_counter
+    global unicode_lines
 
+    print("###############################")
+    print("# Starting Structure Check")
+    print("###############################")
+
+    #==========================================================================
+    # Check template and get specifics
+    #==========================================================================
     if template_name == "springer":
         global springer_template
         lineskip = springer_template["header_lines"]
@@ -72,7 +91,10 @@ def check_document_structure(doc, template_name):
         print(f"ERROR: Template '{template_name}' not supported yet!")
         print(" -> The programm will exit now. :)")
         sys.exit(0)
-
+    
+    #==========================================================================
+    # Iterate pages AND per page all lines
+    #==========================================================================
     # NOTE: doc[page_number] is 0-based
     for page_no in range(0, doc.page_count):
         page_text = doc[page_no].get_text()
@@ -86,7 +108,23 @@ def check_document_structure(doc, template_name):
         # NOTE: Lineskip for headers is template-specific
         for line_index in range(lineskip, len(page_lines)):
             line = page_lines[line_index].strip()
+            
+            #==================================================================
+            # Check Unicode characters
+            #==================================================================
+            line_counter = uc.count_occurences(line)
+            unicode_counter.update(line_counter)
 
+            # If any of the Unicode chars were found:
+            if line_counter:                
+                # Extend unicode_lines respectivly
+                temp_unicode_lines = uc.get_unicode_line_lists(line, page_no)
+                unicode_lines = [a + b for a, b in zip(unicode_lines, temp_unicode_lines)]
+
+
+            #==================================================================
+            # Check line for headings
+            #==================================================================
             # Springer headings are parsed as a single number in one line
             #   and the heading in the next
             heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
@@ -100,17 +138,18 @@ def check_document_structure(doc, template_name):
                         last_heading_no = int(headings[last_index][0].strip())
                         if int(number.strip())-1 == last_heading_no:
                             text = page_lines[line_index + 1].strip()
-                            print(f"Found following heading '{number} - {text}' on page {page_no + 1}")
+                            print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
                             headings.append((number, text, page_no + 1))
                     else:
                         text = page_lines[line_index + 1].strip()
-                        print(f"Found first heading '{number} - {text}' on page {page_no + 1}")
+                        print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
                         headings.append((number, text, page_no + 1))
                 
             # Check for "References" or "Literature" (case-insensitive)
             elif line.lower() in ["references", "literature"]:
-                print(f"Found references/literature section on page {page_no + 1}")
-                headings.append(('R', line, page_no + 1))
+                print(f"=> Found references/literature section on page {page_no + 1}")
+                last_number =headings[len(headings)-1][0]
+                headings.append((int(last_number) + 1, line, page_no + 1))
                 references_starting_page_no = page_no + 1
                 return
 
@@ -128,6 +167,7 @@ def main():
     """
     global headings
     global references_starting_page_no
+    global unicode_lines
 
 
     #==========================================================================
@@ -141,16 +181,10 @@ def main():
 
 
     #==========================================================================
-    # Check paper quality:
-    #==========================================================================
-    # TODO: Check the uniformity of used chars like apostrophes, quotes, and dashes
-
-
-    #==========================================================================
     # Extract and check references
     #==========================================================================
-    # NOTE: Check out rc.main() doc. for details on the dict's ('stats') keys
-    stats = {}
+    # NOTE: Check out rc.main() doc. for details on the dict's ('ref_stats') keys
+    ref_stats = {}
     # NOTE: 'entries' is a list of three lists: 
     #       [invalid_link_entries, mismatching_entries, unfound_entries]
     entries = [[], [], []]
@@ -161,30 +195,36 @@ def main():
         sys.exit(0)
     else:
         global references_df
-        references_df, stats, entries = rc.main(doc, references_starting_page_no)
+        references_df, ref_stats, entries = rc.main(doc, references_starting_page_no)
     
     extracted_references = references_df.drop('full_reference', axis=1)
 
-    TOTAL_NO_OF_REFERENCES = stats["total_no_of_references"]
-    no_link_provided_counter = stats["no_link_provided"]
-    invalid_link_counter = stats["invalid_links"]
-    skipped_searches_counter = stats["skipped_searches"]
-    mismatching_infos_counter = stats["mismatching_infos"]
-    no_entry_found_counter = stats["no_entry_found"]
-
+    TOTAL_NO_OF_REFERENCES = ref_stats["total_no_of_references"]
     invalid_entries = entries[0]
     mismatching_entries = entries[1]
     unfound_entries = entries[2]
 
 
     #==========================================================================
+    # Check paper quality:
+    #==========================================================================
+    # Check the uniformity of used chars like apostrophes, quotes, and dashes
+    invalid_unicode_lines, unicode_stats = uc.check_if_unicode_is_sus(unicode_lines)
+    total_no_of_nonbreaking_spaces = unicode_stats["valid_nonbreaking_spaces"] + unicode_stats["invalid_nonbreaking_spaces"]
+    
+    if not unicode_counter['\u00A0'] == total_no_of_nonbreaking_spaces:
+        print(f"Error: The unicode_stats counted {total_no_of_nonbreaking_spaces} which is not equal to the unicode_counter's count.")
+
+    # TODO: Check if all references used in the text are also listed in the references
+    
+    # TODO: Check if all references support the statements made in the paper
+
+
+    #==========================================================================
     # Check how often an author appears in the references
     #==========================================================================
-    # TODO: Ask user if author references should be counted?
-
     # NOTE: This dict is unsorted
     frequent_authors = ac.main(references_df, template)
-
 
 
     #==========================================================================
@@ -204,28 +244,21 @@ def main():
             for number, text, page_no in headings:
                 f.write(f"{number}) '{text}' -- p. {page_no}\n")
         
-        f.write("\n## Reference Checker Results\n\n")
-        if references_starting_page_no <= 0:
-            f.write("No references section found in the document.\n")
+        # Print Unicode Checker results
+        f.write("\n## Unicode Character Usage\n\n")
+        if all(not sublist for sublist in invalid_unicode_lines):
+            f.write("No invalid seeming Unicode characters found in the document.\n\n")
         else:
-            f.write(f"References section starts on page {references_starting_page_no}.\n\n")
-            f.write(f"- No link provided: {no_link_provided_counter}/{TOTAL_NO_OF_REFERENCES}={no_link_provided_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Invalid link: {invalid_link_counter}/{TOTAL_NO_OF_REFERENCES}={invalid_link_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            if invalid_entries:
-                f.write("  - Invalid entries:\n")
-                for entry in invalid_entries:
-                    f.write(f"    - {entry}\n")
-            f.write(f"- Skipped searches: {skipped_searches_counter}/{TOTAL_NO_OF_REFERENCES}={skipped_searches_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Mismatching infos: {mismatching_infos_counter}/{TOTAL_NO_OF_REFERENCES}={mismatching_infos_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            if mismatching_entries:
-                f.write("  - Mismatching entries:\n")
-                for entry in mismatching_entries:
-                    f.write(f"    - {entry}\n")
-            f.write(f"- No entry found: {no_entry_found_counter}/{TOTAL_NO_OF_REFERENCES}={no_entry_found_counter/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            if unfound_entries:
-                f.write("  - Unfound entries:\n")
-                for entry in unfound_entries:
-                    f.write(f"    - {entry}\n")
+            # TODO: Extend for other Unicode lists
+            if invalid_unicode_lines[3]:
+                f.write("Non-breaking spaces:\n")
+                f.write("- Stats:\n")
+                f.write(f"  - Valid uses: {unicode_stats['valid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['valid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
+                f.write(f"  - Invalid uses: {unicode_stats['invalid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['invalid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
+                f.write("- Lines containing invalid non-breaking spaces:\n")
+                for line, page_no in invalid_unicode_lines[3]:
+                    f.write(f"  - Page {page_no}: {line}\n")
+            f.write("")
         
         # Print frequently referenced authors sorted by value (count) descending
         f.write("\n## Frequently Referenced Authors\n\n")
@@ -235,10 +268,45 @@ def main():
             reverse=True
         ):
             f.write(f"- {author}: {count}\n")
+        
+        # Print Reference Checker results        
+        f.write("\n## Reference Checker Results\n\n")
+        if references_starting_page_no <= 0:
+            f.write("No references section found in the document.\n")
+        else:
+            f.write(f"References section starts on page {references_starting_page_no}.\n\n")
+            f.write(f"- No link provided: {ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            valid_links = TOTAL_NO_OF_REFERENCES - ref_stats['no_link_provided'] - ref_stats['invalid_links']
+            f.write(f"- Valid links: {valid_links}/{TOTAL_NO_OF_REFERENCES}={valid_links/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Invalid link: {ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            if invalid_entries:
+                f.write("  - Invalid entries:\n")
+                for entry in invalid_entries:
+                    f.write(f"    - {entry}\n")
+            successful_searches = TOTAL_NO_OF_REFERENCES - ref_stats['skipped_searches'] - ref_stats['mismatching_infos'] - ref_stats['no_entry_found']
+            f.write(f"- Successful searches: {successful_searches}/{TOTAL_NO_OF_REFERENCES}={successful_searches/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Skipped searches: {ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Mismatching infos: {ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            if mismatching_entries:
+                f.write("  - Mismatching entries:\n")
+                for entry in mismatching_entries:
+                    f.write(f"    - {entry}\n")
+            f.write(f"- No entry found: {ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            if unfound_entries:
+                f.write("  - Unfound entries:\n")
+                for entry in unfound_entries:
+                    f.write(f"    - {entry}\n")
 
         # Print the references DF using df.to_markdown(tablefmt="grid")
         f.write("\n## Extracted References\n\n")
-        f.write(extracted_references.to_markdown())
+        for index, row in extracted_references.iterrows():
+            f.write(f"- Number {index + 1}:\n")
+            f.write(f"  - Authors: {row['authors']}\n")
+            f.write(f"  - Title: {row['title']}\n")
+            f.write(f"  - Year: {row['year']}\n")
+            f.write(f"  - Outlet: {row['outlet']}\n")
+            f.write(f"  - Link: {row['link']}\n")
+            f.write(f"  - Valid?: {row['valid']}\n")
     
     print("---")
     print("FINISHED!")
@@ -248,12 +316,15 @@ def main():
     #==========================================================================
     # Create Pie Chart, 'cause Pie Charts are cool
     #==========================================================================
-    labels = ['No link provided','Invalid link','Skipped searches',
-              'Mismatching infos', 'NO ENTRY FOUND']
-    values = [no_link_provided_counter, invalid_link_counter, skipped_searches_counter, 
-              mismatching_infos_counter, no_entry_found_counter]
+    # TODO: Was ist eigentlich mit erfolgreich gesucht-und-gefundenen Einträgen??
+    # UND mit valid links??
+    link_labels = ['No link provided', 'Valid link', 'Invalid link']
+    link_values = [ref_stats["no_link_provided"], valid_links, ref_stats["invalid_links"]]
+    
+    searches_labels = ['Skipped searches', 'Successful searches', 'Mismatching infos', 'NO ENTRY FOUND']
+    searches_values = [ref_stats["skipped_searches"], successful_searches, ref_stats["mismatching_infos"], ref_stats["no_entry_found"]]
 
-    fig = go.Figure(data=[go.Pie(labels=labels, values=values)])
+    fig = go.Figure(data=[go.Pie(labels=link_labels, values=link_values), go.Pie(labels=searches_labels, values=searches_values)])
     fig.show()
 
 
