@@ -53,7 +53,7 @@ def extract_authors_springer(authors_str: str):
     if not authors_str:
         return []
     
-    # NOTE: In some cases removing training colons or similar might be necessary
+    # NOTE: In some cases removing trailing colons or similar might be necessary
     
     # Split auhtors_str by comma
     parts = [p.strip() for p in authors_str.split(",")]

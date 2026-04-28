@@ -276,15 +276,13 @@ def main():
         else:
             f.write(f"References section starts on page {references_starting_page_no}.\n\n")
             f.write(f"- No link provided: {ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            valid_links = TOTAL_NO_OF_REFERENCES - ref_stats['no_link_provided'] - ref_stats['invalid_links']
-            f.write(f"- Valid links: {valid_links}/{TOTAL_NO_OF_REFERENCES}={valid_links/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Valid links: {ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Invalid link: {ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             if invalid_entries:
                 f.write("  - Invalid entries:\n")
                 for entry in invalid_entries:
                     f.write(f"    - {entry}\n")
-            successful_searches = TOTAL_NO_OF_REFERENCES - ref_stats['skipped_searches'] - ref_stats['mismatching_infos'] - ref_stats['no_entry_found']
-            f.write(f"- Successful searches: {successful_searches}/{TOTAL_NO_OF_REFERENCES}={successful_searches/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Successful searches: {ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Skipped searches: {ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Mismatching infos: {ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             if mismatching_entries:
@@ -316,13 +314,11 @@ def main():
     #==========================================================================
     # Create Pie Chart, 'cause Pie Charts are cool
     #==========================================================================
-    # TODO: Was ist eigentlich mit erfolgreich gesucht-und-gefundenen Einträgen??
-    # UND mit valid links??
     link_labels = ['No link provided', 'Valid link', 'Invalid link']
-    link_values = [ref_stats["no_link_provided"], valid_links, ref_stats["invalid_links"]]
+    link_values = [ref_stats["no_link_provided"], ref_stats["valid_links"], ref_stats["invalid_links"]]
     
     searches_labels = ['Skipped searches', 'Successful searches', 'Mismatching infos', 'NO ENTRY FOUND']
-    searches_values = [ref_stats["skipped_searches"], successful_searches, ref_stats["mismatching_infos"], ref_stats["no_entry_found"]]
+    searches_values = [ref_stats["skipped_searches"], ref_stats['successful_searches'], ref_stats["mismatching_infos"], ref_stats["no_entry_found"]]
 
     fig = go.Figure(data=[go.Pie(labels=link_labels, values=link_values), go.Pie(labels=searches_labels, values=searches_values)])
     fig.show()

@@ -3,13 +3,13 @@
 ###############################################################################
 import pandas as pd
 from rich.progress import Progress
-import pymupdf
 import random
 import re
 import requests
-from scholarly import scholarly
 import sys
 import time
+
+import SubScripts.ScholarSearcher as scholar_searcher
 
 
 
@@ -33,24 +33,26 @@ import time
     # [5] Virginia Braun and Victoria Clarke. 2006. Using thematic analysis in psychology. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101. https://doi.org/10.1191/1478088706qp063oa
 
 
-# Google Scholar API:
-    # https://stackoverflow.com/questions/62938110/does-google-scholar-have-an-api-available-that-we-can-use-in-our-research-applic
-    # NOTE: Prefer DOIs and URLs over a google scholar search
-
-
 
 ###############################################################################
 # Gloal Variables
 ###############################################################################
 
 no_link_provided_counter = 0
+valid_link_counter = 0
 invalid_link_counter = 0
+
 skipped_searches_counter = 0
+successful_searches_counter = 0
 mismatching_infos_counter = 0
 no_entry_found_counter = 0
+
 invalid_link_entries = []
 mismatching_entries = []
 unfound_entries = []
+
+# NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
+MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
 
 
@@ -75,9 +77,10 @@ def append_line_to_references(page_references, line):
     else:
         print(f"""WARNING: Trying to append a line to references, but no  
               reference found yet! Line: '{line}'""")
+        return line.strip()
 
 
-def check_page_text(page_references, page_text, line_skip):
+def check_page_text(p_page_references, p_page_text, line_skip):
     """
     check_page_text takes
         1) a list of already found references (empty for the first page),
@@ -87,8 +90,10 @@ def check_page_text(page_references, page_text, line_skip):
     is just one string parsed from the given file
     """
 
+    page_references = p_page_references
+
     # Replace "-\n" with nothing to remove obvious mid-sentence line breaks
-    page_text = page_text.replace("-\n", "")
+    page_text = p_page_text.replace("-\n", "")
 
     page_lines = page_text.split("\n")
 
@@ -113,6 +118,7 @@ def check_page_text(page_references, page_text, line_skip):
     return page_references
 
 
+# TODO: Is this specific for the Springer Template?
 def parse_reference(ref: str) -> dict:
     """
     parse_reference converts a list of reference strings into a list of dicts
@@ -121,6 +127,7 @@ def parse_reference(ref: str) -> dict:
     - 'authors', a string containing all authors
     - 'title', a string containing the reference's title
     - 'year', an int containing the reference's year (otherwise it's 0)
+    - 'abstract', is always None for now
     - 'outlet', a string containing the reference's outlet
     - 'link', a string containing the reference's link (otherwise it's '')
     - 'valid', is always None for now
@@ -175,205 +182,11 @@ def parse_reference(ref: str) -> dict:
         'authors': authors,
         'title': title,
         'year': year,
+        'abstract': None,
         'outlet': outlet,
         'link': link,
         'valid': None,
     }
-
-
-def activate_title_scholar_search(author_search_yielded_results, author, title, year):
-    query = f"{title}"
-    # Get the search results and check if at least one result is found
-    search_query = scholarly.search_pubs(query)
-    print(f"   => INFO: Found {search_query.total_results} results for '{query}'.")
-
-    if search_query.total_results >= 1:
-        no_of_results_to_check = min(search_query.total_results, 15)
-
-        # Cool progress bar to look at while all results are being checked
-        with Progress() as p:
-            task = p.add_task("Processing title search...", total=no_of_results_to_check)
-
-            # Loop over all results and check if the title (and year) matches
-            print(f"     -> INFO: Now checking {no_of_results_to_check} results for matching title and authors")
-            for res_i in range(1, no_of_results_to_check):
-                try:
-                    # Sleep to avoid getting Bot blocked
-                    sleep_time = float(f"0.{random.randint(1, 9)}")
-                    time.sleep(sleep_time)
-                    current_search_result = next(search_query)
-                except Exception as e:
-                    print(f"     -> ERROR - Iterating search results failed: {e}")
-                    p.stop()
-                    break
-
-                pub_title = current_search_result['bib']['title']
-
-                # During parsing spaces may go missing, so we ignore them when comparing titles
-                if pub_title.replace(" ", "").lower() == title.replace(" ", "").lower():
-                    print("     -> INFO: Titles matched!")
-
-                    # NOTE: current_search_result['author_id'] is a list of Google Scholar IDs
-                    #pub_authors = current_search_result['author_id']
-                    # NOTE: current_search_result['author_id'] is a list where each entry has the form "C Janiesch"
-                    pub_bib_authors = current_search_result['bib']['author']
-                    for pub_author in pub_bib_authors:
-                        lastname = pub_author.split(" ")[1].strip().lower()
-                        if not lastname in author.lower():
-                            print(f"     -> ERROR: Lastname ({lastname}) does not match any expected authors' ({author.lower()})!")
-                            break
-
-                    pub_year = int(current_search_result['bib']['pub_year'])
-                    if pub_year == year:
-                        print("     -> SUCCESS: Title, authors, and year matched; reference checks out. :)")
-                        # TODO: Maybe also get other data while we have the match (like abstract or similar)
-                            #current_search_result['bib']['abstract']
-                            #current_search_result['bib']['venue']
-                            #current_search_result['num_citations']
-                            #current_search_result['pub_url']
-                            #current_search_result['eprint_url']
-                        p.stop()
-                        return f"Found: {current_search_result['pub_url']}"
-                    else:
-                        print(f"     -> ERROR: Year ({pub_year}) does not match expected year ({year})!")
-                        print(f"        Manual check required: {current_search_result['pub_url']}")
-                        p.stop()
-                        return f"CHECK - Year did not match: {current_search_result['pub_url']}"
-            
-            p.update(task, advance=1)
-
-        p.stop()
-            
-        # If none of them match, do an alternative search with the title
-        print(f"     -> ERROR: None of the {no_of_results_to_check} searched title-search-results on Scholar matched!")
-        return "NO match found; Both the author and the title search query on Scholar did not yield any match!"
-
-    else:
-        if not author_search_yielded_results:
-            return "NO results found; Both the author and the title search query on Scholar did not yield any results"
-        else:
-            return "No title search results found; Author search didn't yield a positive match and title search didn't yield any results"
-
-
-def activate_author_scholar_search(author, title, year):
-    """
-    activate_author_scholar_search takes a string containing the author(s), the paper's title (str), and 
-    it's publication year (int) as input.
-    After the user explicitly give permission for the online search, the given author-string is searched
-    via Scholarly and min(total_results, 25) results are checked for a matching title and year. 
-    - If a match is found, the function returns False (indicating that the search was not skipped) and 
-      a message containing the found link.
-    - If no match is found, an alternative search with the title is activated. 
-    - If the user does not give permission for the search, the function returns True (indicating that the 
-      search was skipped).
-
-    # NOTE: https://scholarly.readthedocs.io/en/stable/quickstart.html#search-for-articles-publications-and-return-generator-of-publication-objects
-    """
-    
-    # User must give permission to search the defined query on Scholar
-    query = f"{author}"
-    search_permission = input(f"   -> Permission to search for '{query}' on Scholar using scholarly? ").strip().strip('"')
-    if search_permission.lower() == "yes" or search_permission.lower() == "y":
-    
-        # Get the search results and check if at least one result is found
-        search_query = scholarly.search_pubs(query)
-        print(f"   -> INFO: Found {search_query.total_results} results for '{query}'.")
-
-        if search_query.total_results >= 1:
-            
-            no_of_results_to_check = min(search_query.total_results, 25)
-
-            # Cool progress bar to look at while all results are being checked
-            with Progress() as p:
-                task = p.add_task("   -> Processing author search...", total=no_of_results_to_check)
-                    
-                # Loop over all results and check if the title (and year) matches
-                print(f"   -> INFO: Now checking {no_of_results_to_check} results for matching title: '{title}'")
-                for res_i in range(1, no_of_results_to_check):
-                    try:
-                        # Sleep to avoid getting Bot blocked
-                        sleep_time = float(f"0.{random.randint(1, 9)}")
-                        time.sleep(sleep_time)
-                        current_search_result = next(search_query)
-                    except Exception as e:
-                        print(f"   -> ERROR - Iterating search results failed: {e}")
-                        break
-
-                    pub_title = current_search_result['bib']['title']
-
-                    # During parsing spaces may go missing, so we ignore them when comparing titles
-                    if pub_title.replace(" ", "").lower() == title.replace(" ", "").lower():
-                        print("   -> INFO: Titles matched!")
-
-                        pub_year = int(current_search_result['bib']['pub_year'].strip())
-                        if pub_year == year:
-                            print("   -> SUCCESS: Years mateched; reference checks out. :)")
-                            p.stop()
-                            return False, f"Found: {current_search_result['pub_url']}"
-                        else:
-                            print(f"   -> ERROR: Year ({pub_year}) does not match expected year ({year})!")
-                            print(f"      Manual check required: {current_search_result['pub_url']}")
-                            p.stop()
-                            return False, f"CHECK - Year did not match: {current_search_result['pub_url']}"
-                        
-                    #else:
-                    #    print(f"   -> ERROR: Title does not match expected title! Trying next search result (if any).")
-                    #    print(f"      Expected title: '{title}'")
-                    #    print(f"      Current search result's title: '{pub_title}'")
-
-                    p.update(task, advance=1)
-
-                p.stop()
-
-                # If none of them match, do an alternative search with the title
-                print(f"   -> ERROR: None of the {no_of_results_to_check} searched author-search-results on Scholar matched the expected title!")
-                print(f"   -> Trying a title search now...")
-                return False, activate_title_scholar_search(True, author, title, year)
-
-        else:
-            print(f"   -> ERROR: Non results were found through the author-search on Scholar; now trying title search instead.")
-            return False, activate_title_scholar_search(False, author, title, year)
-    else:
-        print("   -> Search skipped by user.")
-        return True, "Not searched; skipped by user"
-    
-
-def search_on_scholar(references_df, index):
-    """
-    search_on_scholar takes the dataframe containing the reference information and the index of 
-    the current reference as input and calls activate_author_scholar_search with the reference's 
-    author, title, and year.
-    After the search, it checks the returned message and updates the 'valid' column of the 
-    reference accordingly, as well as the global counters and lists of entries for the final log.
-    The updated dataframe is returned.
-    """
-
-    global mismatching_infos_counter
-    global skipped_searches_counter
-    global no_entry_found_counter
-    global mismatching_entries
-    global unfound_entries
-
-    search_skipped, search_result = activate_author_scholar_search(references_df['authors'].iloc[index], 
-                                                                   references_df['title'].iloc[index], 
-                                                                   references_df['year'].iloc[index])
-    
-    # Check return message and set 'valid' column accordingly
-    if search_skipped:
-        skipped_searches_counter += 1
-        references_df.loc[index, 'valid'] = "NOT SEARCHED"
-    else:
-        if search_result == "Not searched" or search_result.startswith("Found: "):
-            references_df.loc[index, 'valid'] = search_result
-        elif search_result.startswith("CHECK -"):
-            mismatching_infos_counter += 1
-            references_df.loc[index, 'valid'] = search_result
-            mismatching_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> {search_result}")
-        else:
-            no_entry_found_counter += 1
-            references_df.loc[index, 'valid'] = search_result
-            unfound_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> {search_result}")
-    return references_df
 
 
 
@@ -399,6 +212,7 @@ def main(doc, ref_starting_page):
     - 'authors', a string containing all authors
     - 'title', a string containing the reference's title
     - 'year', an int containing the reference's year (otherwise it's 0)
+    - 'abstract', a String containing the found reference's abstract (otherwise it's None)
     - 'outlet', a string containing the reference's outlet
     - 'link', a string containing the reference's link (otherwise it's '')
     - 'valid', a string message indicating the results concering 
@@ -409,6 +223,7 @@ def main(doc, ref_starting_page):
     - "no_link_provided": count of references for which no link was provided
     - "invalid_links": count of references with invalid links
     - "skipped_searches": count of references where search was skipped
+    - "successful_searches": count of references where search was successful
     - "mismatching_infos": count of references with mismatching information
     - "no_entry_found": count of references for which no entry was found
 
@@ -419,8 +234,10 @@ def main(doc, ref_starting_page):
     """
 
     global no_link_provided_counter
+    global valid_link_counter
     global invalid_link_counter
     global skipped_searches_counter
+    global successful_searches_counter
     global mismatching_infos_counter
     global no_entry_found_counter
 
@@ -496,21 +313,21 @@ def main(doc, ref_starting_page):
     #==========================================================================
     reference_components = [parse_reference(e) for e in references]
     # NOTE: The references_df contains the following columns: 
-    #       'full_reference', 'authors', 'title', 'year', 'outlet', 'link', 
-    #       and 'valid'
+    #       'full_reference', 'authors', 'title', 'year', 'abstract', 'outlet', 
+    #       'link', and 'valid'
     references_df = pd.DataFrame(reference_components)
 
 
     #==========================================================================
-    # Check if provided links are valid
+    # Check if provided references are valid
     #==========================================================================
     for index in range(len(references_df)):
-        current_link = references_df['link'].iloc[index]
+        current_link = references_df.at[index, 'link']
         print(f"- Checking reference {index + 1}/{len(references_df)}:")
 
         # Check if a link is provided; if not, search on Scholar
         # NOTE: For now skip .pdf links
-        if current_link != '' and not current_link.endswith(".pdf"):
+        if current_link and not current_link.endswith(".pdf"):
             print(f"  -> Checking provided link: {current_link}")
             # Try to send a HEAD request to the provided link
             try:
@@ -518,8 +335,8 @@ def main(doc, ref_starting_page):
             # Catch invalid links and search for the reference on Scholar instead
             except:
                 invalid_link_counter += 1
-                invalid_link_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> Link caused an exception!")
-                local_references_df = search_on_scholar(references_df, index)
+                invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Link caused an exception!")
+                local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
                 references_df = local_references_df
             # Otherwise, if the link is valid, check its status code after sleeping
             else:
@@ -528,18 +345,29 @@ def main(doc, ref_starting_page):
                 time.sleep(sleep_time)
                 # Check if site is reachable and set 'valid' column accordingly
                 if request.status_code != 404:
-                    # TODO: valid_link_counter ??
-                    references_df.loc[index, 'valid'] = f"Link return code = {request.status_code}"
+                    local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, current_link)
+                    references_df = local_references_df
                 # Otherwise, if the link is not valid, search for the reference on Scholar instead
                 else:
                     invalid_link_counter += 1
-                    invalid_link_entries.append(f"{references_df['full_reference'].iloc[index]}\n      -> Returned with status code {request.status_code}!")
-                    local_references_df = search_on_scholar(references_df, index)
+                    invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Returned with status code {request.status_code}!")
+                    local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
                     references_df = local_references_df
+        elif current_link and current_link.endswith(".pdf"):
+            print(f"  -> INFO: Skipping validity check of link ending with '.pdf': {current_link}")
+            local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+            references_df = local_references_df
         else:
             no_link_provided_counter += 1
-            local_references_df = search_on_scholar(references_df, index)
+            local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
             references_df = local_references_df
+        
+        valid_link_counter += local_stats["valid_links"]
+        invalid_link_counter += local_stats["invalid_links"]
+        skipped_searches_counter += local_stats["skipped_searches"]
+        successful_searches_counter += local_stats["successful_searches"]
+        mismatching_infos_counter += local_stats["mismatching_infos"]
+        no_entry_found_counter += local_stats["no_entry_found"]
     
 
     #==========================================================================
@@ -548,8 +376,10 @@ def main(doc, ref_starting_page):
     stats = {
         "total_no_of_references": TOTAL_NO_OF_REFERENCES,
         "no_link_provided": no_link_provided_counter,
+        'valid_links': valid_link_counter,
         "invalid_links": invalid_link_counter,
         "skipped_searches": skipped_searches_counter,
+        "successful_searches": successful_searches_counter,
         "mismatching_infos": mismatching_infos_counter,
         "no_entry_found": no_entry_found_counter
     }
