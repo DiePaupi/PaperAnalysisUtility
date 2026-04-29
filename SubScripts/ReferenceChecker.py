@@ -118,6 +118,39 @@ def check_page_text(p_page_references, p_page_text, line_skip):
     return page_references
 
 
+def check_outlet(outlet: str) -> str:
+    """
+    check_outlet takes an outlet string and checks for common patterns to clean it up,
+    such as removing leading "In: ", trailing page numbers, or specific page references.
+    """
+
+    # Remove leading "In: "
+    if outlet[0:4].lower() == "in: ":
+        outlet = outlet[4:]
+    
+    # Split a , to remove trailing page numbers
+    if "," in outlet:
+        outlet_splitted = outlet.split(",")
+        if "Tech. rep." in outlet_splitted[0]:
+            outlet = outlet_splitted[1].strip()
+        else:
+            outlet = outlet_splitted[0].strip()
+    
+    # Remove specific page references
+    if "pp." in outlet:
+        outlet = outlet.split("pp.")[0].strip()
+    if "p." in outlet:
+        outlet = outlet.split("p.")[0].strip()
+
+    # Remove tailing issue references "XX(X)"
+    if "(" in outlet and ")" in outlet:
+        outlet_splitted = outlet.split(" ")
+        if "(" in outlet_splitted[-1]:
+            outlet = ' '.join(outlet_splitted[:-1])
+
+    return outlet
+
+
 # TODO: Is this specific for the Springer Template?
 def parse_reference(ref: str) -> dict:
     """
@@ -168,6 +201,7 @@ def parse_reference(ref: str) -> dict:
             title, outlet = rest.split('. ', 1)
             title = str(title.strip())
             outlet = str(outlet.strip().rstrip('.'))
+            outlet = check_outlet(outlet)
         else:
             title = str(rest)
     else:
@@ -176,6 +210,7 @@ def parse_reference(ref: str) -> dict:
         if parts:
             title = str(parts[0].strip())
             outlet = str(' '.join(parts[1:]).strip().rstrip('.'))
+            outlet = check_outlet(outlet)
 
     return {
         'full_reference': full_reference,
@@ -321,54 +356,59 @@ def main(doc, ref_starting_page):
     #==========================================================================
     # Check if provided references are valid
     #==========================================================================
-    for index in range(len(references_df)):
-        current_link = references_df.at[index, 'link']
-        print(f"- Checking reference {index + 1}/{len(references_df)}:")
+    skip_validation = input(" -> To skip the validation (Scholar Search) and the abstract retrival, type 'skip': ").strip()
+    if skip_validation.lower() != "skip":
 
-        # Check if a link is provided; if not, search on Scholar
-        # NOTE: For now skip .pdf links
-        if current_link and not current_link.endswith(".pdf"):
-            print(f"  -> Checking provided link: {current_link}")
-            # Try to send a HEAD request to the provided link
-            try:
-                request = requests.head(current_link)
-            # Catch invalid links and search for the reference on Scholar instead
-            except:
-                invalid_link_counter += 1
-                invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Link caused an exception!")
-                local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
-                references_df = local_references_df
-            # Otherwise, if the link is valid, check its status code after sleeping
-            else:
-                # Sleep to avoid getting Bot blocked
-                sleep_time = float(f"0.{random.randint(1, 9)}")
-                time.sleep(sleep_time)
-                # Check if site is reachable and set 'valid' column accordingly
-                if request.status_code != 404:
-                    local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, current_link)
-                    references_df = local_references_df
-                # Otherwise, if the link is not valid, search for the reference on Scholar instead
-                else:
+        for index in range(len(references_df)):
+            current_link = references_df.at[index, 'link']
+            print(f"- Checking reference {index + 1}/{len(references_df)}:")
+
+            # Check if a link is provided; if not, search on Scholar
+            # NOTE: For now skip .pdf links
+            if current_link and not current_link.endswith(".pdf"):
+                print(f"  -> Checking provided link: {current_link}")
+                # Try to send a HEAD request to the provided link
+                try:
+                    request = requests.head(current_link)
+                # Catch invalid links and search for the reference on Scholar instead
+                except:
                     invalid_link_counter += 1
-                    invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Returned with status code {request.status_code}!")
+                    invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Link caused an exception!")
                     local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
                     references_df = local_references_df
-        elif current_link and current_link.endswith(".pdf"):
-            print(f"  -> INFO: Skipping validity check of link ending with '.pdf': {current_link}")
-            local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
-            references_df = local_references_df
-        else:
-            no_link_provided_counter += 1
-            local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
-            references_df = local_references_df
+                # Otherwise, if the link is valid, check its status code after sleeping
+                else:
+                    # Sleep to avoid getting Bot blocked
+                    sleep_time = float(f"0.{random.randint(1, 9)}")
+                    time.sleep(sleep_time)
+                    # Check if site is reachable and set 'valid' column accordingly
+                    if request.status_code != 404:
+                        local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, current_link)
+                        references_df = local_references_df
+                    # Otherwise, if the link is not valid, search for the reference on Scholar instead
+                    else:
+                        invalid_link_counter += 1
+                        invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Returned with status code {request.status_code}!")
+                        local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+                        references_df = local_references_df
+            elif current_link and current_link.endswith(".pdf"):
+                print(f"  -> INFO: Skipping validity check of link ending with '.pdf': {current_link}")
+                local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+                references_df = local_references_df
+            else:
+                no_link_provided_counter += 1
+                local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+                references_df = local_references_df
+            
+            valid_link_counter += local_stats["valid_links"]
+            invalid_link_counter += local_stats["invalid_links"]
+            skipped_searches_counter += local_stats["skipped_searches"]
+            successful_searches_counter += local_stats["successful_searches"]
+            mismatching_infos_counter += local_stats["mismatching_infos"]
+            no_entry_found_counter += local_stats["no_entry_found"]
+    else:
+        print(f" -> The whole validation process was skipped!")
         
-        valid_link_counter += local_stats["valid_links"]
-        invalid_link_counter += local_stats["invalid_links"]
-        skipped_searches_counter += local_stats["skipped_searches"]
-        successful_searches_counter += local_stats["successful_searches"]
-        mismatching_infos_counter += local_stats["mismatching_infos"]
-        no_entry_found_counter += local_stats["no_entry_found"]
-    
 
     #==========================================================================
     # Return the final dataframe and values
