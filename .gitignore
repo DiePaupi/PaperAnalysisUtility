@@ -2,12 +2,12 @@
 TestScripts/
 TestPaper/
 
+# Enviornment variables
+.env
 
 ## Pycache
 __pycache__/
 *.pyc
-
-
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

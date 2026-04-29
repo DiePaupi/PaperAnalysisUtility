@@ -9,7 +9,8 @@ import re
 import sys
 
 import SubScripts.AuthorsChecker as ac
-import SubScripts.ReferenceChecker as rc
+import SubScripts.RankingChecker as ran_c
+import SubScripts.ReferenceChecker as ref_c
 import SubScripts.UnicodeChecker as uc
 
 
@@ -183,7 +184,7 @@ def main():
     #==========================================================================
     # Extract and check references
     #==========================================================================
-    # NOTE: Check out rc.main() doc. for details on the dict's ('ref_stats') keys
+    # NOTE: Check out ref_c.main() doc. for details on the dict's ('ref_stats') keys
     ref_stats = {}
     # NOTE: 'entries' is a list of three lists: 
     #       [invalid_link_entries, mismatching_entries, unfound_entries]
@@ -195,7 +196,7 @@ def main():
         sys.exit(0)
     else:
         global references_df
-        references_df, ref_stats, entries = rc.main(doc, references_starting_page_no)
+        references_df, ref_stats, entries = ref_c.main(doc, references_starting_page_no)
     
     extracted_references = references_df.drop('full_reference', axis=1)
 
@@ -212,10 +213,13 @@ def main():
     invalid_unicode_lines, unicode_stats = uc.check_if_unicode_is_sus(unicode_lines)
     total_no_of_nonbreaking_spaces = unicode_stats["valid_nonbreaking_spaces"] + unicode_stats["invalid_nonbreaking_spaces"]
     
-    if not unicode_counter['\u00A0'] == total_no_of_nonbreaking_spaces:
-        print(f"Error: The unicode_stats counted {total_no_of_nonbreaking_spaces} which is not equal to the unicode_counter's count.")
+    #if not unicode_counter['\u00A0'] == total_no_of_nonbreaking_spaces:
+    #    print(f"WARNING: The unicode_stats counted {total_no_of_nonbreaking_spaces} which is not equal to the unicode_counter's count.")
 
     # TODO: Check if all references used in the text are also listed in the references
+
+    # TODO: Check the references rankings
+    outlet_dict_list = ran_c.main(extracted_references)
     
     # TODO: Check if all references support the statements made in the paper
 
@@ -224,6 +228,7 @@ def main():
     # Check how often an author appears in the references
     #==========================================================================
     # NOTE: This dict is unsorted
+    # TODO: Use extracted_references here?
     frequent_authors = ac.main(references_df, template)
 
 
@@ -260,6 +265,14 @@ def main():
                     f.write(f"  - Page {page_no}: {line}\n")
             f.write("")
         
+        # Print the rankings of the outlets
+        f.write("\n## Outlet Rankings\n\n")
+        for outlet_dict in outlet_dict_list:
+            f.write(f"- {outlet_dict['outlet_name']}: {outlet_dict['ranking']}\n")
+            f.write(f"  - References count from this outlet: {outlet_dict['references']}\n")
+            if outlet_dict['impact_factor'] and outlet_dict['impact_factor'] != "Non" and outlet_dict['impact_factor'] > 0:
+                f.write(f"  - Journal Impact Factor Without Self-Cites: {outlet_dict['impact_factor']}\n")
+
         # Print frequently referenced authors sorted by value (count) descending
         f.write("\n## Frequently Referenced Authors\n\n")
         for author, count in sorted(
