@@ -351,12 +351,16 @@ def main(doc, ref_starting_page):
     #       'full_reference', 'authors', 'title', 'year', 'abstract', 'outlet', 
     #       'link', and 'valid'
     references_df = pd.DataFrame(reference_components)
+    
+    #print("-----------")
+    #print(" -> Parsed references DataFrame:")
+    #print(references_df.drop('full_reference', axis=1))
 
 
     #==========================================================================
     # Check if provided references are valid
     #==========================================================================
-    skip_validation = input(" -> To skip the validation (Scholar Search) and the abstract retrival, type 'skip': ").strip()
+    skip_validation = input("=> To skip the validation (Scholar Search) and the abstract retrival, type 'skip': ").strip()
     if skip_validation.lower() != "skip":
 
         for index in range(len(references_df)):

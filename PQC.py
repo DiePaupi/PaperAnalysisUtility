@@ -219,7 +219,7 @@ def main():
     # TODO: Check if all references used in the text are also listed in the references
 
     # TODO: Check the references rankings
-    outlet_dict_list = ran_c.main(extracted_references)
+    outlets_df = ran_c.main(extracted_references)
     
     # TODO: Check if all references support the statements made in the paper
 
@@ -233,18 +233,64 @@ def main():
 
 
     #==========================================================================
-    # Log results into a markdown file
+    # RESULTS
     #==========================================================================
     # NOTE: Results will be saved in the same folder as the input PDF
     #       with the name "PQC_results.md"
     results_folder_dir = os.path.dirname(path_to_pdf)
+
+
+    #--------------------------------------------------------------------------
+    # Create Pie Chart with the literature validation results
+    #--------------------------------------------------------------------------
+    link_labels = ['No link provided', 'Valid link', 'Invalid link']
+    link_values = [ref_stats["no_link_provided"], ref_stats["valid_links"], ref_stats["invalid_links"]]
+    
+    searches_labels = ['Skipped searches', 'Successful searches', 'Mismatching infos', 'NO ENTRY FOUND']
+    searches_values = [ref_stats["skipped_searches"], ref_stats['successful_searches'], ref_stats["mismatching_infos"], ref_stats["no_entry_found"]]
+
+    lit_fig = go.Figure(data=[go.Pie(labels=link_labels, values=link_values), go.Pie(labels=searches_labels, values=searches_values)])
+    literature_validation_results_fig_path = os.path.join(results_folder_dir, "literature_validation_results_fig.jpg")
+    lit_fig.write_image(literature_validation_results_fig_path)
+
+
+    #--------------------------------------------------------------------------
+    # Create Pie Chart with the outlet ranking results
+    #--------------------------------------------------------------------------
+    jq_rating_labels = ['A+', 'A', 'B', 'C', 'D', 'unkonwn']
+    jq_rating = [len(outlets_df[outlets_df["jq_ranking"] == 'A+']), \
+                 len(outlets_df[outlets_df["jq_ranking"] == 'A']), \
+                 len(outlets_df[outlets_df["jq_ranking"] == 'B']), \
+                 len(outlets_df[outlets_df["jq_ranking"] == 'C']), \
+                 len(outlets_df[outlets_df["jq_ranking"] == 'D']), \
+                 len(outlets_df[outlets_df["jq_ranking"] == 'unkown'])
+                ]
+    
+    core_rating_labels = ['A*', 'A', 'B', 'C', 'D', 'unkonwn']
+    core_rating_values = [len(outlets_df[outlets_df["jq_ranking"] == 'A*']), \
+                          len(outlets_df[outlets_df["jq_ranking"] == 'A']), \
+                          len(outlets_df[outlets_df["jq_ranking"] == 'B']), \
+                          len(outlets_df[outlets_df["jq_ranking"] == 'C']), \
+                          len(outlets_df[outlets_df["jq_ranking"] == 'D']), \
+                          len(outlets_df[outlets_df["jq_ranking"] == 'unkown'])
+                         ]
+    
+    rank_fig = go.Figure(data=[go.Pie(labels=jq_rating_labels, values=jq_rating), \
+                          go.Pie(labels=core_rating_labels, values=core_rating_values)])
+    ranking_results_fig_path = os.path.join(results_folder_dir, "ranking_results_fig.jpg")
+    rank_fig.write_image(ranking_results_fig_path)
+
+
+    #--------------------------------------------------------------------------
+    # Log results into a markdown file
+    #--------------------------------------------------------------------------
     results_path = os.path.join(results_folder_dir, "PQC_results.md")
 
     with open(results_path, "x", encoding="utf-8") as f:
-        f.write("# Paper Quality Check Results\n\n")
-        f.write("## Document Structure\n\n")
+        f.write("# Paper Quality Check Results\n\n\n")
+        f.write("## Document Structure\n\n\n")
         if not headings:
-            f.write("No headings found in the document.\n\n")
+            f.write("No headings found in the document.\n\n\n")
         else:
             for number, text, page_no in headings:
                 f.write(f"{number}) '{text}' -- p. {page_no}\n")
@@ -263,15 +309,28 @@ def main():
                 f.write("- Lines containing invalid non-breaking spaces:\n")
                 for line, page_no in invalid_unicode_lines[3]:
                     f.write(f"  - Page {page_no}: {line}\n")
-            f.write("")
+            f.write("\n\n")
         
         # Print the rankings of the outlets
         f.write("\n## Outlet Rankings\n\n")
-        for outlet_dict in outlet_dict_list:
-            f.write(f"- {outlet_dict['outlet_name']}: {outlet_dict['ranking']}\n")
-            f.write(f"  - References count from this outlet: {outlet_dict['references']}\n")
-            if outlet_dict['impact_factor'] and outlet_dict['impact_factor'] != "Non" and outlet_dict['impact_factor'] > 0:
-                f.write(f"  - Journal Impact Factor Without Self-Cites: {outlet_dict['impact_factor']}\n")
+        for i, row in outlets_df.iterrows():
+            # outlets_df layout: 0=index, 1=parsed_name, 2=outlet_name, 3=jq_ranking,
+            #                    4=core_ranking, 5=impact_factor, 6=references_count
+            if row['outlet_name'] and row['outlet_name'] != "unknown":
+                f.write(f"- {row['outlet_name']}\n")
+                f.write(f"	- Parsed as: {row['parsed_name']}\n")
+            else:
+                f.write(f"- {row['parsed_name']}\n")
+            if row['jq_ranking'] and row['jq_ranking'] != "unknown":
+                f.write(f"	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = {row['jq_ranking']}\n")
+            if row['core_ranking'] and row['core_ranking'] != "unknown":
+                f.write(f"	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = {row['core_ranking']}\n")
+            if row['impact_factor'] and row['impact_factor'] != "unknown":
+                f.write(f"	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = {row['impact_factor']}\n")
+            f.write(f"	- References count from this outlet: {row['references_count']}\n")
+        f.write("")
+        f.write(f"![Outlet Ranking Results]({ranking_results_fig_path})")
+        f.write("\n\n")
 
         # Print frequently referenced authors sorted by value (count) descending
         f.write("\n## Frequently Referenced Authors\n\n")
@@ -292,49 +351,39 @@ def main():
             f.write(f"- Valid links: {ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Invalid link: {ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             if invalid_entries:
-                f.write("  - Invalid entries:\n")
+                f.write("	- Invalid entries:\n")
                 for entry in invalid_entries:
-                    f.write(f"    - {entry}\n")
+                    f.write(f"		- {entry}\n")
             f.write(f"- Successful searches: {ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Skipped searches: {ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Mismatching infos: {ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             if mismatching_entries:
-                f.write("  - Mismatching entries:\n")
+                f.write("	- Mismatching entries:\n")
                 for entry in mismatching_entries:
-                    f.write(f"    - {entry}\n")
+                    f.write(f"		- {entry}\n")
             f.write(f"- No entry found: {ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             if unfound_entries:
-                f.write("  - Unfound entries:\n")
+                f.write("	- Unfound entries:\n")
                 for entry in unfound_entries:
-                    f.write(f"    - {entry}\n")
+                    f.write(f"		- {entry}\n")
+            f.write("")
+            f.write(f"![References Validation Results]({literature_validation_results_fig_path})")
+            f.write("\n\n")
 
         # Print the references DF using df.to_markdown(tablefmt="grid")
         f.write("\n## Extracted References\n\n")
         for index, row in extracted_references.iterrows():
             f.write(f"- Number {index + 1}:\n")
-            f.write(f"  - Authors: {row['authors']}\n")
-            f.write(f"  - Title: {row['title']}\n")
-            f.write(f"  - Year: {row['year']}\n")
-            f.write(f"  - Outlet: {row['outlet']}\n")
-            f.write(f"  - Link: {row['link']}\n")
-            f.write(f"  - Valid?: {row['valid']}\n")
+            f.write(f"	- Authors: *{row['authors']}*\n")
+            f.write(f"	- Title: *{row['title']}*\n")
+            f.write(f"	- Year: *{row['year']}*\n")
+            f.write(f"	- Outlet: *{row['outlet']}*\n")
+            f.write(f"	- Link: *{row['link']}*\n")
+            f.write(f"	- **Valid?**: *{row['valid']}*\n")
     
     print("---")
     print("FINISHED!")
     print(f" -> Results saved to {results_path}")
-
-
-    #==========================================================================
-    # Create Pie Chart, 'cause Pie Charts are cool
-    #==========================================================================
-    link_labels = ['No link provided', 'Valid link', 'Invalid link']
-    link_values = [ref_stats["no_link_provided"], ref_stats["valid_links"], ref_stats["invalid_links"]]
-    
-    searches_labels = ['Skipped searches', 'Successful searches', 'Mismatching infos', 'NO ENTRY FOUND']
-    searches_values = [ref_stats["skipped_searches"], ref_stats['successful_searches'], ref_stats["mismatching_infos"], ref_stats["no_entry_found"]]
-
-    fig = go.Figure(data=[go.Pie(labels=link_labels, values=link_values), go.Pie(labels=searches_labels, values=searches_values)])
-    fig.show()
 
 
 

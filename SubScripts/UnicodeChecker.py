@@ -2,7 +2,6 @@
 # Imports
 ###############################################################################
 from collections import Counter
-from email.mime import text
 
 
 
@@ -25,14 +24,21 @@ from email.mime import text
 # - ‟   U+201F  double high-reversed-9
 
 # Dashes
+# See https://jakubmarian.com/hyphen-minus-en-dash-and-em-dash-difference-and-usage-in-english/
 # - -   U+002D  hyphen-minus
+# - ‐   U+2010  HYPHEN
+# - ‑   U+2011  NON-BREAKING HYPHEN
 # - –   U+2013  en dash
 # - —   U+2014  em dash
 # - −   U+2212  minus sign
 
 # Non-breaking Space
+# -     U+0020  normal space
 # -     U+00A0  non-breaking space
-
+# -     U+2009  thin space
+# Other spaces u2002=en space, u2003=em space, u2004=three-per-em space, 
+# u2005=four-per-em space, u2006=six-per-em space, u2007=figure space, 
+# u2008=punctuation space, u200A=hair space, u205f=MMSP, u3000=ideographic space
 
 
 ###############################################################################
@@ -41,8 +47,22 @@ from email.mime import text
 
 unicode_aphostrophes = ['\u0027', '\u2018', '\u2019', '\u201B', '\u2032']
 unicode_quotes = ['\u0022', '\u201C', '\u201D', '\u201E', '\u201F']
-unicode_dashes = ['\u002D', '\u2013', '\u2014', '\u2212']
-unicode_spaces = ['\u00A0']
+unicode_dashes = ['\u002D', '\u2010', '\u2011', '\u2013', '\u2014', '\u2212']
+dash_map = {
+    "\u002D": "HYPHEN-MINUS",
+    "\u2010": "HYPHEN",
+    "\u2011": "NON-BREAKING HYPHEN",
+    "\u2013": "EN DASH",
+    "\u2014": "EM DASH",
+    "\u2212": "MINUS SIGN",
+}
+unicode_spaces = ['\u0020', '\u00A0']
+space_map = {
+    "\u0020": "NORMAL SPACE",
+    "\u00A0": "NON-BREAKING SPACE",
+    "\u2009": "THIN SPACE"
+}
+
 unicode_characters = set().union(
     unicode_aphostrophes
     + unicode_quotes
@@ -55,6 +75,49 @@ unicode_characters = set().union(
 ###############################################################################
 # Helper functions
 ###############################################################################
+
+def check_hyphen_minus_validity(text: str, hyphen_minus_index: int, page_no: int):
+    print("TODO")
+
+
+def check_hyphen_validity(text: str, hyphen_index: int, page_no: int):
+    print("TODO")
+
+
+def check_en_dash_validity(text: str, en_dash_index: int, page_no: int):
+    print("TODO")
+
+
+def check_em_dash_validity(text: str, em_dash_index: int, page_no: int):
+    print("TODO")
+
+
+def check_minus_sign_validity(text: str, minus_sign_index: int, page_no: int):
+    """
+    As the name suggests, the minus sign is only used to mean the difference of 
+    two mathematical objects, usually numbers, e.g. a − b, or as the unary minus 
+    sign, e.g. −5. In practice, most computer users type the hyphen-minus in 
+    place of the minus sign, compare −5 (minus sign) and -5 (hyphen-minus). 
+    If the minus sign is not available, I recommend to use the en-dash instead, 
+    compare “6 – 5” (en-dash) and “6 - 5” (hyphen-minus, too short).
+
+    Note: Most programming languages require the user to use the hyphen-minus 
+          sign in place of a minus.
+    """
+
+    print("TODO")
+    # Check if the minus sign is used between two digits, e.g. '5−6' or '5 - 6'
+    if minus_sign_index-1>=0 and minus_sign_index+1<len(text):
+        # Case: 5−6; valid
+        if text[minus_sign_index-1].isdigit() and text[minus_sign_index+1].isdigit():
+            return True
+        elif minus_sign_index-2>=0 and minus_sign_index+2<len(text):
+            # Case: 5 − 6; valid
+            if text[minus_sign_index-2].isdigit() and text[minus_sign_index+2].isdigit():
+                if text[minus_sign_index-1] in unicode_spaces and text[minus_sign_index+1] in unicode_spaces:
+                    return True
+    return False
+
 
 def check_nonbreaking_space_validity(text: str, space_index: int, page_no: int):
     """
@@ -76,7 +139,7 @@ def check_nonbreaking_space_validity(text: str, space_index: int, page_no: int):
         else:
             print(f" -> WARNING: Found a non-breaking space between 'p.' and a non-digit in the line: {text} (page {page_no})")
             return False
-    # Check if its correctly used between a word and a reference
+    # Check if its correctly used between a word and a reference / bracket in general
     elif space_index+1<len(text):
         if text[space_index+1] == "(" or text[space_index+1] == "[":
             print(f" -> INFO: Found a correctly used non-breaking space to connect a word and a reference")
@@ -141,7 +204,8 @@ def get_unicode_line_lists(text: str, page_no: int):
         unicode_lines[1].append((text, page_no))
     if any(char in text for char in unicode_dashes):
         unicode_lines[2].append((text, page_no))
-    if any(char in text for char in unicode_spaces):
+    # The first entry of unicode_spaces is the normal space, which we want to ignore here
+    if any(char in text for char in unicode_spaces[1:]):
         unicode_lines[3].append((text, page_no))
 
     return unicode_lines
@@ -154,6 +218,7 @@ def check_if_unicode_is_sus(unicode_lines: list):
     global unicode_aphostrophes
     global unicode_quotes
     global unicode_dashes
+    global dash_map
     global unicode_spaces
 
     print("###############################")
@@ -166,21 +231,133 @@ def check_if_unicode_is_sus(unicode_lines: list):
 
     # TODO: Check lines with Unicode apostrophes
     # TODO: Check lines with Unicode quotes
-    # TODO: Check lines with Unicode dashes
+
+
+    #==========================================================================
+    # Check validity of Unicode dashes spaces
+    #==========================================================================
+    valid_hyphen_uses = 0
+    invalid_hyphen_uses = 0
+    valid_nonbreaking_hyphen_uses = 0
+    invalid_nonbreaking_hyphen_uses = 0
+    valid_hyphen_minus_uses = 0
+    invalid_hyphen_minus_uses = 0
+    valid_en_dash_uses = 0
+    invalid_en_dash_uses = 0
+    valid_em_dash_uses = 0
+    invalid_em_dash_uses = 0
+    valid_minus_sign_uses = 0
+    invalid_minus_sign_uses = 0
+
+    valid_space_uses = 0
+    invalid_space_uses = 0
+    
+    skip_validation = input("=> To skip the unicode check, type 'skip': ").strip()
+    if skip_validation.lower() == "skip":
+        stats = {
+            "valid_hyphen_uses": valid_hyphen_uses,
+            "invalid_hyphen_uses": invalid_hyphen_uses,
+            "valid_nonbreaking_hyphen_uses": valid_nonbreaking_hyphen_uses,
+            "invalid_nonbreaking_hyphen_uses": invalid_nonbreaking_hyphen_uses,
+            "valid_hyphen_minus_uses": valid_hyphen_minus_uses,
+            "invalid_hyphen_minus_uses": invalid_hyphen_minus_uses,
+            "valid_en_dash_uses": valid_en_dash_uses,
+            "invalid_en_dash_uses": invalid_en_dash_uses,
+            "valid_em_dash_uses": valid_em_dash_uses,
+            "invalid_em_dash_uses": invalid_em_dash_uses,
+            "valid_minus_sign_uses": valid_minus_sign_uses,
+            "invalid_minus_sign_uses": invalid_minus_sign_uses,
+            "valid_nonbreaking_spaces": valid_space_uses,
+            "invalid_nonbreaking_spaces": invalid_space_uses
+        }
+        return invalid_unicode_lines, stats
+    
+    for line_pageno_tupel in unicode_lines[2]:
+        line, page_no = line_pageno_tupel
+
+        # Always find the fist occurence of the dash, check it,
+        # and then remove it from the line and check for the next one
+        line_contains_min_one_invalid_use = False
+        rest_line = line
+        while True:
+
+            # Check if any of the dashes are in the line and sort them ascending by their 
+            # index in the line, so we can check the first one
+            found_dash = {}
+            for index, char in enumerate(line):
+                if char in dash_map:
+                    found_dash = {
+                        "name": dash_map[char],
+                        "char": char,
+                        "index": index
+                    }
+            # If a dash-char was found, check its validity and remove it from the line, 
+            # otherwise break the loop
+            if found_dash:
+                match found_dash["name"]:
+                    case "HYPHEN-MINUS":
+                        if check_hyphen_minus_validity(rest_line, found_dash['index'], page_no):
+                            valid_hyphen_minus_uses += 1
+                        else:
+                            line_contains_min_one_invalid_use = True
+                            invalid_hyphen_minus_uses += 1
+                    case "HYPHEN":
+                        if check_hyphen_validity(rest_line, found_dash['index'], page_no):
+                            valid_hyphen_uses += 1
+                        else:
+                            line_contains_min_one_invalid_use = True
+                            invalid_hyphen_uses += 1
+                    case "NON-BREAKING HYPHEN":
+                        if check_hyphen_validity(rest_line, found_dash['index'], page_no):
+                            valid_nonbreaking_hyphen_uses += 1
+                        else:
+                            line_contains_min_one_invalid_use = True
+                            invalid_nonbreaking_hyphen_uses += 1
+                    case "EN DASH":
+                        if check_en_dash_validity(rest_line, found_dash['index'], page_no):
+                            valid_en_dash_uses += 1
+                        else:
+                            line_contains_min_one_invalid_use = True
+                            invalid_en_dash_uses += 1
+                    case "EM DASH":
+                        if check_em_dash_validity(rest_line, found_dash['index'], page_no):
+                            valid_em_dash_uses += 1
+                        else:
+                            line_contains_min_one_invalid_use = True
+                            invalid_em_dash_uses += 1
+                    case "MINUS SIGN":
+                        if check_minus_sign_validity(rest_line, found_dash['index'], page_no):
+                            valid_minus_sign_uses += 1
+                        else:
+                            line_contains_min_one_invalid_use = True
+                            invalid_minus_sign_uses += 1
+
+                    case _:
+                        print(f"Something's wrong with the dash matching in rest-line {rest_line} on p. {page_no}!")
+                    
+                rest_line = rest_line[found_dash['index']+1:]
+            else:
+                break
+        
+        # A line needs only to be added once
+        if line_contains_min_one_invalid_use:
+            invalid_unicode_lines[2].append((line, page_no))
+
 
     #==========================================================================
     # Check validity of Unicode non-breaking spaces
     #==========================================================================
-    valid_space_uses = 0
-    invalid_space_uses = 0
+    #valid_space_uses = 0
+    #invalid_space_uses = 0
     for line_pageno_tupel in unicode_lines[3]:
         line, page_no = line_pageno_tupel
 
         # Always find the fist occurence of the non-breaking space, check it,
         # and then remove it from the line and check for the next one
         line_contains_min_one_invalid_use = False
+        rest_line = line
         while True:
-            space_index = rest_line.find(unicode_spaces[0])
+            space_index = rest_line.find(unicode_spaces[1])
             if space_index != -1:
                 if check_nonbreaking_space_validity(rest_line, space_index, page_no):
                     valid_space_uses += 1
@@ -193,6 +370,7 @@ def check_if_unicode_is_sus(unicode_lines: list):
         
         # A line needs only to be added once
         if line_contains_min_one_invalid_use:
+            # TODO: Maybe replace the invisible non-breaking space with a °
             invalid_unicode_lines[3].append((line, page_no))
     
 
@@ -200,6 +378,18 @@ def check_if_unicode_is_sus(unicode_lines: list):
     # Create a dict of stats and return
     #==========================================================================
     stats = {
+        "valid_hyphen_uses": valid_hyphen_uses,
+        "invalid_hyphen_uses": invalid_hyphen_uses,
+        "valid_nonbreaking_hyphen_uses": valid_nonbreaking_hyphen_uses,
+        "invalid_nonbreaking_hyphen_uses": invalid_nonbreaking_hyphen_uses,
+        "valid_hyphen_minus_uses": valid_hyphen_minus_uses,
+        "invalid_hyphen_minus_uses": invalid_hyphen_minus_uses,
+        "valid_en_dash_uses": valid_en_dash_uses,
+        "invalid_en_dash_uses": invalid_en_dash_uses,
+        "valid_em_dash_uses": valid_em_dash_uses,
+        "invalid_em_dash_uses": invalid_em_dash_uses,
+        "valid_minus_sign_uses": valid_minus_sign_uses,
+        "invalid_minus_sign_uses": invalid_minus_sign_uses,
         "valid_nonbreaking_spaces": valid_space_uses,
         "invalid_nonbreaking_spaces": invalid_space_uses
     }
