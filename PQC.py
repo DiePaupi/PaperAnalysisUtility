@@ -4,6 +4,7 @@
 from collections import Counter
 import os
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
 import pymupdf
 import re
 import sys
@@ -54,16 +55,41 @@ unicode_counter = Counter()
 #   [3] lines with Unicode non-breakingspaces
 unicode_lines = [[], [], [], []]
 
-# Template to use for references
-# NOTE: Currently only "springer" is supported
-template = "springer"
+# Formatting template to use for parsing
+# NOTE: These are only used in this file by the "check_document_structure" function
+supported_formatting_templates = ["springer", "aaai_acm", "acm"]
+formatting_template = "springer"
 
 # Paper template - formatting specifications
-springer_template = {
+springer_formatting_template = {
     # Always skip first two lines in the springer template as they are: 
     #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
-    "header_lines": 2, 
+    'name': "springer",
+    "header_lines": 2,
 }
+aaai_acm_formatting_template = {
+    # Always skip first X lines in the AAAI/ACM template as they are: 
+    #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
+    'name': "aaai_acm",
+    "header_lines": 2,
+}
+acm_formatting_template = {
+    # Always skip first X lines in the ACM template as they are: 
+    #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
+    'name': "acm",
+    "header_lines": 2,
+}
+
+# Bibliography template to use for parsing
+# NOTE: These are used in the AuhtorChecker and the ReferenceChecker
+supported_bib_templates = ["springer", "aaai_acm", "acm"]
+bib_template = "springer"
+
+
+# Referencing template to use for parsing
+# NOTE: These are used in the ReferenceChecker
+supported_referencing_templates = ["numeric", "authoryear"]
+referencing_template = "numeric"
 
 
 
@@ -72,7 +98,9 @@ springer_template = {
 # Helper functions
 ###############################################################################
 
-def check_document_structure(doc, template_name):
+def check_document_structure(doc):
+    global formatting_template
+    global supported_formatting_templates
     global headings
     global references_starting_page_no
     global unicode_counter
@@ -85,13 +113,11 @@ def check_document_structure(doc, template_name):
     #==========================================================================
     # Check template and get specifics
     #==========================================================================
-    if template_name == "springer":
-        global springer_template
-        lineskip = springer_template["header_lines"]
-    else:
-        print(f"ERROR: Template '{template_name}' not supported yet!")
-        print(" -> The programm will exit now. :)")
-        sys.exit(0)
+    lineskip = 0
+    for template in supported_formatting_templates:
+        if template['name'] == formatting_template:
+            lineskip = template["header_lines"]
+    
     
     #==========================================================================
     # Iterate pages AND per page all lines
@@ -166,19 +192,53 @@ def main():
     """
     x
     """
+    global supported_formatting_templates
+    global formatting_template
+    global supported_bib_templates
+    global bib_template
+    global supported_referencing_templates
+    global referencing_template
+
     global headings
     global references_starting_page_no
     global unicode_lines
 
 
     #==========================================================================
-    # Read input PDF
+    # Get Input Infos
     #==========================================================================
     path_to_pdf = input("Enter the path to the PDF file: ").strip().strip('"')
-    doc = pymupdf.open(path_to_pdf, filetype="txt")
 
-    # TODO: Make multiple templates possible
-    check_document_structure(doc, template)
+    input_formatting_template = input(f"Enter a supported formatting template ({supported_formatting_templates}): ").strip().strip('"')
+    if input_formatting_template not in supported_formatting_templates:
+        print(f"ERROR: Formatting template '{input_formatting_template}' not supported yet!")
+        print(" -> The programm will exit now. :)")
+        sys.exit(0)
+    else:
+        formatting_template = input_formatting_template
+    
+    input_bib_template = input(f"Enter a supported bibliography template ({supported_bib_templates}): ").strip().strip('"')
+    if input_bib_template not in supported_bib_templates:
+        print(f"ERROR: Biblography template '{input_bib_template}' not supported yet!")
+        print(" -> The programm will exit now. :)")
+        sys.exit(0)
+    else:
+        bib_template = input_bib_template
+    
+    input_ref_template = input(f"Enter a supported referencing template ({supported_referencing_templates}): ").strip().strip('"')
+    if input_ref_template not in supported_referencing_templates:
+        print(f"ERROR: Referencing template '{input_ref_template}' not supported yet!")
+        print(" -> The programm will exit now. :)")
+        sys.exit(0)
+    else:
+        referencing_template = input_ref_template
+
+
+    #==========================================================================
+    # Read input PDF
+    #==========================================================================
+    doc = pymupdf.open(path_to_pdf, filetype="txt")
+    check_document_structure(doc)
 
 
     #==========================================================================
@@ -218,7 +278,7 @@ def main():
 
     # TODO: Check if all references used in the text are also listed in the references
 
-    # TODO: Check the references rankings
+    # Check the references rankings
     outlets_df = ran_c.main(extracted_references)
     
     # TODO: Check if all references support the statements made in the paper
@@ -229,7 +289,7 @@ def main():
     #==========================================================================
     # NOTE: This dict is unsorted
     # TODO: Use extracted_references here?
-    frequent_authors = ac.main(references_df, template)
+    frequent_authors = ac.main(references_df, bib_template)
 
 
     #==========================================================================
@@ -274,9 +334,24 @@ def main():
                           len(outlets_df[outlets_df["jq_ranking"] == 'D']), \
                           len(outlets_df[outlets_df["jq_ranking"] == 'unkown'])
                          ]
-    
-    rank_fig = go.Figure(data=[go.Pie(labels=jq_rating_labels, values=jq_rating), \
-                          go.Pie(labels=core_rating_labels, values=core_rating_values)])
+
+    # Create subplots: use 'domain' type for Pie subplot
+    rank_fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]])
+    rank_fig.add_trace(go.Pie(labels=jq_rating_labels, values=jq_rating, name="JQ Ranking"),
+                1, 1)
+    rank_fig.add_trace(go.Pie(labels=core_rating_labels, values=core_rating_values, name="CORE Ranking"),
+                1, 2)
+
+    # Use `hole` to create a donut-like pie chart
+    rank_fig.update_traces(hole=.4)
+
+    rank_fig.update_layout(
+        title_text="Outlet Ranking Results",
+        # Add annotations in the center of the donut pies.
+        annotations=[dict(text='JQ', x=sum(rank_fig.get_subplot(1, 1).x) / 2, y=0.5,
+                        font_size=20, showarrow=False, xanchor="center"),
+                    dict(text='CORE', x=sum(rank_fig.get_subplot(1, 2).x) / 2, y=0.5,
+                        font_size=20, showarrow=False, xanchor="center")])
     ranking_results_fig_path = os.path.join(results_folder_dir, "ranking_results_fig.jpg")
     rank_fig.write_image(ranking_results_fig_path)
 
@@ -374,6 +449,7 @@ def main():
         f.write("\n## Extracted References\n\n")
         for index, row in extracted_references.iterrows():
             f.write(f"- Number {index + 1}:\n")
+            f.write(f"	- Ref. ID: *{row['ref_id']}*\n")
             f.write(f"	- Authors: *{row['authors']}*\n")
             f.write(f"	- Title: *{row['title']}*\n")
             f.write(f"	- Year: *{row['year']}*\n")

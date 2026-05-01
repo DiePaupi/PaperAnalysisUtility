@@ -2,7 +2,6 @@
 # Imports
 ###############################################################################
 import pandas as pd
-from rich.progress import Progress
 import random
 import re
 import requests
@@ -19,18 +18,37 @@ import SubScripts.ScholarSearcher as scholar_searcher
 
 # NOTE: The references section needs to be named "References" or "Literature"
 
-# APA Style
-# - Springer Nature (LaTeX) Template for references:
-    # 1. <Lastname>, <Firstname-FirstLetter>.: <Title>. <OutletName>, <PageRange> (<Year>). <URL/DOI>
-    # Examples:
-    # 16. Meyer, C., Schneider, T.: Automated detection of hallucinated academic references using neural consistency models. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024). https://doi.org/10.1234/jsks.2024.03145
-    # header_lines = 2
 
-# Numeric Style
-# - ACM Template for references:
-    # [1] <Firstname> <Lastname>. <Year>. <Title>. <Outlet>. (<Date>), <PageRange>. <URL/DOI>
+#==============================================================================
+# Bibliography Styles
+#==============================================================================
+
+# Springer Nature (LaTeX) Template for references
+# - DESRIST Conference:
+    # 1. <Lastname>, <Firstname-FirstLetter>.: <Title>. <Outlet + Volume/Issue>, <PageRange> (<Year>). <URL/DOI>
     # Examples:
-    # [5] Virginia Braun and Victoria Clarke. 2006. Using thematic analysis in psychology. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101. https://doi.org/10.1191/1478088706qp063oa
+    #   16. Meyer, C., Schneider, T.: Automated detection of hallucinated academic references using neural consistency models. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024). https://doi.org/10.1234/jsks.2024.03145
+    # Specifics:
+    #   header_lines = 2
+    #   author_separator = ,
+
+# AAAI/ACM 
+# - AIES Conference Template
+    # <Lastname>, <Firstname-FirstLetter>. <Year>. <Title>. <Outlet + "," + Volume/Issue>: <PageRange>
+    # Examples:
+    #   Kim, D. J.; Yim, M.-S.; Sugumaran, V.; and Rao, H. R. 2016. Web assurance seal services, trust and consumers’ concerns: An investigation of e-commerce transaction intentions across two nations. European Journal of Information Systems, 25(3): 252–273
+    # Specifics:
+    #   header_lines = ?
+    #   auhtor_separator = ;
+
+# ACM General?
+# - CHI Conference Template
+    # [1] <Firstname> <Lastname>. <Year>. <Title>. <Outlet + Volume/Issue>. (<Date>), <PageRange>. <URL/DOI>
+    # Examples:
+    #   [5] Virginia Braun and Victoria Clarke. 2006. Using thematic analysis in psychology. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101. https://doi.org/10.1191/1478088706qp063oa
+    # Specifics:
+    #   header_lines = ?
+    #   author_separator = ,
 
 
 
@@ -38,6 +56,31 @@ import SubScripts.ScholarSearcher as scholar_searcher
 # Gloal Variables
 ###############################################################################
 
+# NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
+MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
+
+# Bibliography Style Specifics
+SPRINGER_BIB_STYLE = "springer"
+springer_bib = {
+    "name": SPRINGER_BIB_STYLE,
+    "authors_rest_separator": ":",
+    "author_separator": ","
+}
+AAAIACM_BIB_STYLE = "aaai_acm"
+aaai_acm_bib = {
+    "name": AAAIACM_BIB_STYLE,
+    "authors_rest_separator": ".",
+    "author_separator": ";"
+}
+ACM_BIB_STYLE = "acm"
+acm_bib = {
+    "name": ACM_BIB_STYLE,
+    "authors_rest_separator": ".",
+    "author_separator": ","
+}
+inferred_bib_template = SPRINGER_BIB_STYLE
+
+# Counters
 no_link_provided_counter = 0
 valid_link_counter = 0
 invalid_link_counter = 0
@@ -50,9 +93,6 @@ no_entry_found_counter = 0
 invalid_link_entries = []
 mismatching_entries = []
 unfound_entries = []
-
-# NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
-MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
 
 
@@ -127,6 +167,8 @@ def check_outlet(outlet: str) -> str:
     # Remove leading "In: "
     if outlet[0:4].lower() == "in: ":
         outlet = outlet[4:]
+    elif outlet[0:3].lower() == "in ":
+        outlet = outlet[3:]
     
     # Split a , to remove trailing page numbers
     if "," in outlet:
@@ -151,12 +193,12 @@ def check_outlet(outlet: str) -> str:
     return outlet
 
 
-# TODO: Is this specific for the Springer Template?
 def parse_reference(ref: str) -> dict:
     """
     parse_reference converts a list of reference strings into a list of dicts
     with the following keys:
     - 'full_reference', the full reference string before parsing
+    - 'ref_id', a string as how the reference is referenced in-text
     - 'authors', a string containing all authors
     - 'title', a string containing the reference's title
     - 'year', an int containing the reference's year (otherwise it's 0)
@@ -166,54 +208,178 @@ def parse_reference(ref: str) -> dict:
     - 'valid', is always None for now
     """
 
-    # save the full reference before parsing, since we will be removing parts of it during parsing
-    full_reference = ref
+    global inferred_bib_template
 
-    # remove leading index and any surrounding whitespace
-    ref = ref.strip()
-    ref = re.sub(r'^\d+\.\s*', '', ref)
+    # Save the full reference before parsing
+    full_reference = ref
+    reference = ref
+
+
+    # ---------------------------------------------------------------
+    # Get the reference's leading reference ID
+    # ---------------------------------------------------------------
+
+    reference = reference.strip()
+    # Case of number being in square brackets
+    # (10 chars should be more than enough for the ref. no.)
+    if reference[0] == "[" and "]" in reference[0:11]:
+        inferred_bib_template = ACM_BIB_STYLE
+
+        pattern = r"$$(.*?)$$"
+        pattern_match = re.search(pattern, reference[0:11])
+        if pattern_match:
+            ref_id = str(pattern_match.group(1))
+        
+            # Cleanup reference string
+            reference = reference[pattern_match.end():].strip().lstrip("]")
+        else:
+            # Example: "[13]"
+            #      i =  0123
+            no_length = 0
+            for char in reference[1:11]:
+                if char != "]":
+                    no_length += 1
+                else:
+                    break
+            ref_id = reference[1:no_length+1]
+        
+            # Cleanup reference string
+            reference = reference[no_length+2:].strip()
+
+    # Case of number being in no brackets
+    # ref_id needs to be purly numerical for this
+    elif reference[0].isdigit():
+        inferred_bib_template = SPRINGER_BIB_STYLE
+
+        no_length = 0
+        for char in reference:
+            if char.isdigit():
+                no_length += 1
+            else:
+                break
+        ref_id = reference[0:no_length+1]
+        
+        # Cleanup reference string
+        reference = reference[no_length+2:].strip()
+    
+    # Case of there being no number
+    # NOTE: Currently we assume that the pattern is lastname, firstname
+    #       -> Malterud, K.; Siersma, V. D.; and Guassora, A. D.
+    #           -> Referenced as: (Malterud, Siersma, and Guassora 2016)
+    #       -> Lins, S.; Pandl, K. D.; Teigeler, H.; Thiebes, S.; Bayer, C.; and Sunyaev, A. 2021.
+    #           -> Referenced as: (Lins et al. 2021)
+    else:
+        inferred_bib_template = AAAIACM_BIB_STYLE
+        
+        if ";" not in reference:
+            ref_id = reference.split(",")[0].strip()
+            ref_id = f"{ref_id} "
+        else:
+            authors = reference.split(";")
+            if len(authors) <= 3:
+                ref_id = ""
+                for i in range(0, len(authors)):
+                    ref_id += authors[i].split(",")[0].strip()
+                    if i <= len(authors)-2:
+                        ref_id += ", "
+                    else:
+                        ref_id += ", and "
+            else:
+                parts = reference.split(",")
+                ref_id = f"{parts[0]} et al. "
+
+
+    # ---------------------------------------------------------------
+    # Get the rest of the reference
+    # ---------------------------------------------------------------
 
     # try to extract link (doi or http) at end
     link = ''
-    m = re.search(r'(https?://\S+)', ref)
+    m = re.search(r'(https?://\S+)', reference)
     if m:
         link = str(m.group(1))
-        ref = ref[: m.start()].strip()
+        # Cleanup reference string (the link is usually the last part)
+        reference = reference[: m.start()].strip()
 
-    # year in parentheses
+    # year and authors
     year = 0
-    m = re.search(r'\((\d{4})\)', ref)
-    if m:
-        year = int(m.group(1))
-        # optionally remove the year from ref so it doesn't pollute outlet
-        ref = ref[: m.start()].strip()
-
-    # authors and the rest are split by first colon
     authors = ''
+    if inferred_bib_template == SPRINGER_BIB_STYLE:
+        # E.g.: reference = "Meyer, C., Schneider, T.: Title. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024)."
+        m = re.search(r'\((\d{4})\)', ref)
+        if m:
+            year = int(m.group(1))
+            # Cleanup reference string (the year should be the last part)
+            reference = reference[: m.start()].strip()
+        else:
+            print(f"-> Warning: Could not parse year in reference '{reference}'!")
+        
+        separator = springer_bib["authors_rest_separator"]
+        if separator in reference:
+            authors, rest = reference.split(separator, 1)
+            authors = str(authors.strip())
+
+            # Cleanup reference string
+            reference = rest.strip()
+            # E.g.: reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
+    
+    else:
+        # E.g.: ACM-reference = "Virginia Braun and Victoria Clarke. 2006. Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
+        # E.g.: AAAI/ACM-reference = "Kim, D. J.; Yim, M.-S.; Sugumaran, V.; and Rao, H. R. 2016. Title. European Journal of Information Systems, 25(3): 252–273"
+    
+        m = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
+        if m:
+            year = int(m.group(1))
+            # In AAAI/ACM & ACM bib style, the year comes directly after the authors
+            authors = reference[: m.start()].strip()
+
+            # Cleanup reference string
+            # E.g.: ACM-reference = ". Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
+            # E.g.: AAAI/ACM-reference = ". Title. European Journal of Information Systems, 25(3): 252–273"
+            reference = reference[m.end():].strip().strip(".")
+            reference = reference.strip()
+            # E.g.: ACM-reference = "Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101"
+            # E.g.: AAAI/ACM-reference = "Title. European Journal of Information Systems, 25(3): 252–273"
+        else:
+            print(f"-> Warning: Could not parse year (and authors) in reference '{reference}'!")
+            # TODO: Handle this case
+
+    # Finish natural ref_id
+    if inferred_bib_template == AAAIACM_BIB_STYLE:
+        ref_id += year
+
+
+    # ---------------------------------------------------------------
+    # Get the title and outlet
+    # ---------------------------------------------------------------
+
     title = ''
     outlet = ''
-    if ':' in ref:
-        authors, rest = ref.split(':', 1)
-        authors = str(authors.strip())
-        rest = rest.strip()
-        # title ends with a period before the outlet (if present)
-        if '. ' in rest:
-            title, outlet = rest.split('. ', 1)
+    # E.g.: Springer-reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
+    # E.g.: ACM-reference      = "Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101"
+    # E.g.: AAAI/ACM-reference = "Title. European Journal of Information Systems, 25(3): 252–273"
+
+    # title ends with a period before the outlet (if present)
+    if '. ' in reference:
+        title, outlet = reference.split('. ', 1)
+        if title and outlet:
             title = str(title.strip())
             outlet = str(outlet.strip().rstrip('.'))
             outlet = check_outlet(outlet)
         else:
-            title = str(rest)
+            # fallback: try to split on period
+            parts = reference.split('. ')
+            if parts:
+                title = str(parts[0].strip())
+                outlet = str(' '.join(parts[1:]).strip().rstrip('.'))
+                outlet = check_outlet(outlet)
     else:
-        # fallback: try to split on period
-        parts = ref.split('. ')
-        if parts:
-            title = str(parts[0].strip())
-            outlet = str(' '.join(parts[1:]).strip().rstrip('.'))
-            outlet = check_outlet(outlet)
+        title = str(rest)
+
 
     return {
         'full_reference': full_reference,
+        'ref_id': ref_id,
         'authors': authors,
         'title': title,
         'year': year,
@@ -244,6 +410,7 @@ def main(doc, ref_starting_page):
 
     The returned dataframe contains the following columns:
     - 'full_reference', the full reference string before parsing
+    - 'ref_id', a string as how the reference is referenced in-text
     - 'authors', a string containing all authors
     - 'title', a string containing the reference's title
     - 'year', an int containing the reference's year (otherwise it's 0)
@@ -348,13 +515,13 @@ def main(doc, ref_starting_page):
     #==========================================================================
     reference_components = [parse_reference(e) for e in references]
     # NOTE: The references_df contains the following columns: 
-    #       'full_reference', 'authors', 'title', 'year', 'abstract', 'outlet', 
+    #       'full_reference', 'ref_id', 'authors', 'title', 'year', 'abstract', 'outlet', 
     #       'link', and 'valid'
     references_df = pd.DataFrame(reference_components)
     
-    #print("-----------")
-    #print(" -> Parsed references DataFrame:")
-    #print(references_df.drop('full_reference', axis=1))
+    print("-----------")
+    print(" -> Parsed references DataFrame:")
+    print(references_df.drop('full_reference', axis=1))
 
 
     #==========================================================================
