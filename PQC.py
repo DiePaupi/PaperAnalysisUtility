@@ -12,6 +12,7 @@ import sys
 import SubScripts.AuthorsChecker as ac
 import SubScripts.RankingChecker as ran_c
 import SubScripts.ReferenceChecker as ref_c
+import SubScripts.RefIntextChecker as rit_c
 import SubScripts.UnicodeChecker as uc
 
 
@@ -26,11 +27,6 @@ import SubScripts.UnicodeChecker as uc
 # TODOs:
 # - Paper Quality:
 #    + Check the uniformity of used chars like apostrophes, quotes, and dashes
-#    + Check if references match the statement they are supposed to support
-#        (e.g., by checking the abstract on Scholar)
-#    + Sind alle Referenzen im Text auch im Literaturverzeichnis hinterlegt??
-#        + Ist die Referenzierung sinnvoll (zB nur a und b hinter einem Jahr, 
-#          wenn auch zwei Paper vom Auhtor aus dem, selben jahr zitiert werden)?
 
 
 
@@ -55,41 +51,36 @@ unicode_counter = Counter()
 #   [3] lines with Unicode non-breakingspaces
 unicode_lines = [[], [], [], []]
 
-# Formatting template to use for parsing
-# NOTE: These are only used in this file by the "check_document_structure" function
-supported_formatting_templates = ["springer", "aaai_acm", "acm"]
-formatting_template = "springer"
-
 # Paper template - formatting specifications
 springer_formatting_template = {
     # Always skip first two lines in the springer template as they are: 
     #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
-    'name': "springer",
+    "name": "springer",
     "header_lines": 2,
 }
 aaai_acm_formatting_template = {
-    # Always skip first X lines in the AAAI/ACM template as they are: 
-    #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
-    'name': "aaai_acm",
-    "header_lines": 2,
+    "name": "aaai_acm",
+    "header_lines": 0,
 }
 acm_formatting_template = {
-    # Always skip first X lines in the ACM template as they are: 
-    #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
-    'name': "acm",
-    "header_lines": 2,
+    "name": "acm",
+    "header_lines": 0,
 }
+
+# Formatting template to use for parsing
+# NOTE: These are only used in this file by the "check_document_structure" function
+supported_formatting_templates = [springer_formatting_template, aaai_acm_formatting_template, acm_formatting_template]
+formatting_template = ""
 
 # Bibliography template to use for parsing
 # NOTE: These are used in the AuhtorChecker and the ReferenceChecker
-supported_bib_templates = ["springer", "aaai_acm", "acm"]
-bib_template = "springer"
-
+supported_bib_templates = ref_c.get_supported_bib_templates()
+bib_template = ""
 
 # Referencing template to use for parsing
 # NOTE: These are used in the ReferenceChecker
-supported_referencing_templates = ["numeric", "authoryear"]
-referencing_template = "numeric"
+supported_referencing_templates = rit_c.get_supported_ref_templates()
+referencing_template = ""
 
 
 
@@ -118,6 +109,7 @@ def check_document_structure(doc):
         if template['name'] == formatting_template:
             lineskip = template["header_lines"]
     
+    text_begin_reached = False
     
     #==========================================================================
     # Iterate pages AND per page all lines
@@ -152,33 +144,72 @@ def check_document_structure(doc):
             #==================================================================
             # Check line for headings
             #==================================================================
+
             # Springer headings are parsed as a single number in one line
             #   and the heading in the next
-            heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
-            if heading_match:
-                number = heading_match.group(0)
+            if formatting_template == springer_formatting_template["name"] \
+                or formatting_template == acm_formatting_template["name"]:
+                heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
+                if heading_match:
+                    number = heading_match.group(0)
 
-                # Check if the current line is not the last
-                if line_index + 1 < len(page_lines):
-                    if len(headings) > 0:
-                        last_index = len(headings) - 1
-                        last_heading_no = int(headings[last_index][0].strip())
-                        if int(number.strip())-1 == last_heading_no:
+                    # Check if the current line is not the last
+                    if line_index + 1 < len(page_lines):
+                        if len(headings) > 0:
+                            last_index = len(headings) - 1
+                            last_heading_no = int(headings[last_index][0].strip())
+                            if int(number.strip())-1 == last_heading_no:
+                                text = page_lines[line_index + 1].strip()
+                                print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
+                                headings.append((number, text, page_no + 1))
+                        else:
                             text = page_lines[line_index + 1].strip()
-                            print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
+                            print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
                             headings.append((number, text, page_no + 1))
-                    else:
-                        text = page_lines[line_index + 1].strip()
-                        print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
-                        headings.append((number, text, page_no + 1))
+                    
+                # Check for "References" or "Literature" (case-insensitive)
+                elif line.lower() in ["references", "literature"]:
+                    print(f"=> Found references/literature section on page {page_no + 1}")
+                    last_number = headings[len(headings)-1][0]
+                    headings.append((int(last_number) + 1, line, page_no + 1))
+                    references_starting_page_no = page_no + 1
+                    return
+            
+            # AAAI/ACM headings are parsed as just the title - no other indicator
+            elif formatting_template == aaai_acm_formatting_template["name"]:
+
+                line_lower = line.lower()
+                if line_lower == "abstract" or line_lower == "introduction":
+                    text_begin_reached = True
+                    print(f"- Found {line} on page {page_no + 1}")
+                    headings.append((len(headings)+1, line, page_no + 1))
+
+
+                elif line_lower == "related work" \
+                    or line_lower == "methods" or line_lower == "methodology" \
+                    or line_lower == "results" or line_lower == "discussion" \
+                    or line_lower == "conclusion" or line_lower == "ethical statement" \
+                    or line_lower == "positionality statement" or line_lower == "broader impact" \
+                    or line_lower == "acknowledgments":
+                    print(f"- Found {line} on page {page_no + 1}")
+                    headings.append((len(headings)+1, line, page_no + 1))
                 
-            # Check for "References" or "Literature" (case-insensitive)
-            elif line.lower() in ["references", "literature"]:
-                print(f"=> Found references/literature section on page {page_no + 1}")
-                last_number =headings[len(headings)-1][0]
-                headings.append((int(last_number) + 1, line, page_no + 1))
-                references_starting_page_no = page_no + 1
-                return
+                # Check for "References" or "Literature" (case-insensitive)
+                elif line_lower in ["references", "literature"]:
+                    print(f"=> Found references/literature section on page {page_no + 1}")
+                    headings.append((len(headings)+1, line, page_no + 1))
+                    references_starting_page_no = page_no + 1
+                    return
+
+                #elif text_begin_reached or page_no > 0:
+                    # TODO: Title headings etc. also match these conditions
+                    #if line.istitle() and line[-1] not in [".", ",", ";", ":"]:
+                        #print(f"- Found titlecase line '{line}' on page {page_no + 1}")
+                        #headings.append((len(headings)+1, line, page_no + 1))
+
+            
+            #elif formatting_template == acm_formatting_template["name"]:
+            #    print("TODO, SORRY")
 
         page_no += 1
 
@@ -208,25 +239,33 @@ def main():
     # Get Input Infos
     #==========================================================================
     path_to_pdf = input("Enter the path to the PDF file: ").strip().strip('"')
+    lineskip = 0
 
-    input_formatting_template = input(f"Enter a supported formatting template ({supported_formatting_templates}): ").strip().strip('"')
-    if input_formatting_template not in supported_formatting_templates:
+    input_formatting_template = input(f"Enter a supported formatting template ({[t['name'] for t in supported_formatting_templates]}): ").strip().strip('"')
+    res = next((ft for ft in supported_formatting_templates if ft['name'] == input_formatting_template), None)
+    if not res:
         print(f"ERROR: Formatting template '{input_formatting_template}' not supported yet!")
         print(" -> The programm will exit now. :)")
         sys.exit(0)
     else:
         formatting_template = input_formatting_template
+        for form_temp in supported_formatting_templates:
+            if form_temp['name'] == input_formatting_template:
+                lineskip = form_temp['header_lines']
     
-    input_bib_template = input(f"Enter a supported bibliography template ({supported_bib_templates}): ").strip().strip('"')
-    if input_bib_template not in supported_bib_templates:
+    input_bib_template = input(f"Enter a supported bibliography template ({[t['name'] for t in supported_bib_templates]}): ").strip().strip('"')
+    res = next((bt for bt in supported_bib_templates if bt['name'] == input_bib_template), None)
+    if not res:
         print(f"ERROR: Biblography template '{input_bib_template}' not supported yet!")
         print(" -> The programm will exit now. :)")
         sys.exit(0)
     else:
         bib_template = input_bib_template
+        ref_c.set_given_bib_type(input_bib_template, lineskip)
     
-    input_ref_template = input(f"Enter a supported referencing template ({supported_referencing_templates}): ").strip().strip('"')
-    if input_ref_template not in supported_referencing_templates:
+    input_ref_template = input(f"Enter a supported referencing template ({[t['name'] for t in supported_referencing_templates]}): ").strip().strip('"')
+    res = next((rt for rt in supported_referencing_templates if rt['name'] == input_ref_template), None)
+    if not res:
         print(f"ERROR: Referencing template '{input_ref_template}' not supported yet!")
         print(" -> The programm will exit now. :)")
         sys.exit(0)
@@ -276,19 +315,21 @@ def main():
     #if not unicode_counter['\u00A0'] == total_no_of_nonbreaking_spaces:
     #    print(f"WARNING: The unicode_stats counted {total_no_of_nonbreaking_spaces} which is not equal to the unicode_counter's count.")
 
-    # TODO: Check if all references used in the text are also listed in the references
-
+    # Check if all references used in the text are also listed in the references
+    sentences_and_ref_df_indexes, sentences_with_unfound_refs = rit_c.compare_intext_references_to_bib(doc, references_starting_page_no, extracted_references, referencing_template)
+    
+    # Check if all references support the statements made in the paper
+    ref_and_sentences_df = rit_c.validate_sentence_references(references_df, sentences_and_ref_df_indexes)
+    related_statements, unrelated_statements = rit_c.get_statement_relevance_dicts(ref_and_sentences_df, references_df)
+    
     # Check the references rankings
     outlets_df = ran_c.main(extracted_references)
-    
-    # TODO: Check if all references support the statements made in the paper
 
 
     #==========================================================================
     # Check how often an author appears in the references
     #==========================================================================
     # NOTE: This dict is unsorted
-    # TODO: Use extracted_references here?
     frequent_authors = ac.main(references_df, bib_template)
 
 
@@ -317,29 +358,27 @@ def main():
     #--------------------------------------------------------------------------
     # Create Pie Chart with the outlet ranking results
     #--------------------------------------------------------------------------
-    jq_rating_labels = ['A+', 'A', 'B', 'C', 'D', 'unkonwn']
+    rating_labels = ['A+', 'A', 'B', 'C', 'D', 'unkonwn']
     jq_rating = [len(outlets_df[outlets_df["jq_ranking"] == 'A+']), \
                  len(outlets_df[outlets_df["jq_ranking"] == 'A']), \
                  len(outlets_df[outlets_df["jq_ranking"] == 'B']), \
                  len(outlets_df[outlets_df["jq_ranking"] == 'C']), \
                  len(outlets_df[outlets_df["jq_ranking"] == 'D']), \
-                 len(outlets_df[outlets_df["jq_ranking"] == 'unkown'])
+                 len(outlets_df[outlets_df["jq_ranking"] == 'unknown'])
                 ]
-    
-    core_rating_labels = ['A*', 'A', 'B', 'C', 'D', 'unkonwn']
-    core_rating_values = [len(outlets_df[outlets_df["jq_ranking"] == 'A*']), \
-                          len(outlets_df[outlets_df["jq_ranking"] == 'A']), \
-                          len(outlets_df[outlets_df["jq_ranking"] == 'B']), \
-                          len(outlets_df[outlets_df["jq_ranking"] == 'C']), \
-                          len(outlets_df[outlets_df["jq_ranking"] == 'D']), \
-                          len(outlets_df[outlets_df["jq_ranking"] == 'unkown'])
+    core_rating_values = [len(outlets_df[outlets_df["core_ranking"] == 'A*']), \
+                          len(outlets_df[outlets_df["core_ranking"] == 'A']), \
+                          len(outlets_df[outlets_df["core_ranking"] == 'B']), \
+                          len(outlets_df[outlets_df["core_ranking"] == 'C']), \
+                          len(outlets_df[outlets_df["core_ranking"] == 'D']), \
+                          len(outlets_df[outlets_df["core_ranking"] == 'unknown'])
                          ]
 
     # Create subplots: use 'domain' type for Pie subplot
     rank_fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]])
-    rank_fig.add_trace(go.Pie(labels=jq_rating_labels, values=jq_rating, name="JQ Ranking"),
+    rank_fig.add_trace(go.Pie(labels=rating_labels, values=jq_rating, name="JQ Ranking"),
                 1, 1)
-    rank_fig.add_trace(go.Pie(labels=core_rating_labels, values=core_rating_values, name="CORE Ranking"),
+    rank_fig.add_trace(go.Pie(labels=rating_labels, values=core_rating_values, name="CORE Ranking"),
                 1, 2)
 
     # Use `hole` to create a donut-like pie chart
@@ -363,7 +402,7 @@ def main():
 
     with open(results_path, "x", encoding="utf-8") as f:
         f.write("# Paper Quality Check Results\n\n\n")
-        f.write("## Document Structure\n\n\n")
+        f.write("## Document Structure\n\n")
         if not headings:
             f.write("No headings found in the document.\n\n\n")
         else:
@@ -386,6 +425,41 @@ def main():
                     f.write(f"  - Page {page_no}: {line}\n")
             f.write("\n\n")
         
+        # Print RefIntextChecker results
+        f.write("\n## References not in Bibliography\n\n")
+        if len(sentences_with_unfound_refs) == 0:
+            f.write(f"All references used in the document's text were also found in the 'References' section.\n\n")
+        else:
+            f.write("*The sentences listed below contain references that were not found in the 'References' section*\n")
+            f.write("*Please note that this list may contain false positives as the content of a normal bracket might have been mistaken for a reference:*\n")
+            for sen in sentences_with_unfound_refs:
+                f.write(f"- {sen}\n")
+            f.write("\n\n")
+
+        f.write("\n## References Support for Statements\n\n")
+        f.write("Thematically related / relevant papers that refute the sentence they are referenced in:\n")
+        for tuple in related_statements['refuted']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("\n")
+        f.write("Thematically unrelated / irrelevant papers:\n")
+        for tuple in unrelated_statements['refuted']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        for tuple in unrelated_statements['not_enough_info']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        for tuple in unrelated_statements['supported']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("\n\n\n")
+        f.write("---")
+        
+        
         # Print the rankings of the outlets
         f.write("\n## Outlet Rankings\n\n")
         for i, row in outlets_df.iterrows():
@@ -402,7 +476,7 @@ def main():
                 f.write(f"	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = {row['core_ranking']}\n")
             if row['impact_factor'] and row['impact_factor'] != "unknown":
                 f.write(f"	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = {row['impact_factor']}\n")
-            f.write(f"	- References count from this outlet: {row['references_count']}\n")
+            f.write(f"	- References literatures count from this outlet: {row['references_count']}\n")
         f.write("")
         f.write(f"![Outlet Ranking Results]({ranking_results_fig_path})")
         f.write("\n\n")
@@ -441,10 +515,11 @@ def main():
                 f.write("	- Unfound entries:\n")
                 for entry in unfound_entries:
                     f.write(f"		- {entry}\n")
-            f.write("")
+            f.write("\n")
             f.write(f"![References Validation Results]({literature_validation_results_fig_path})")
             f.write("\n\n")
 
+        f.write("---")
         # Print the references DF using df.to_markdown(tablefmt="grid")
         f.write("\n## Extracted References\n\n")
         for index, row in extracted_references.iterrows():
@@ -456,6 +531,52 @@ def main():
             f.write(f"	- Outlet: *{row['outlet']}*\n")
             f.write(f"	- Link: *{row['link']}*\n")
             f.write(f"	- **Valid?**: *{row['valid']}*\n")
+        f.write("\n\n\n")
+        
+        f.write("---")
+        f.write("\n## Full List of Reference Support Check\n\n")
+        f.write("Thematically related / relevant papers that refute the sentence they are referenced in:\n")
+        for tuple in related_statements['refuted']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("Thematically related / relevant papers that we had not enough info about:\n")
+        for tuple in related_statements['not_enough_info']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("Thematically related / relevant papers that support the sentence they are referenced in:\n")
+        for tuple in related_statements['supported']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("Thematically related / relevant papers that have the stance 'unknown':\n")
+        for tuple in related_statements['not_enough_info']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("\n")
+        f.write("Thematically unrelated / irrelevant papers that refute the sentence they are referenced in:\n")
+        for tuple in unrelated_statements['refuted']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("Thematically unrelated / irrelevant papers that we had not enough info about:\n")
+        for tuple in unrelated_statements['not_enough_info']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("Thematically unrelated / irrelevant papers that support the sentence they are referenced in:\n")
+        for tuple in unrelated_statements['supported']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("Thematically unrelated / irrelevant papers that have the stance 'unknown':\n")
+        for tuple in unrelated_statements['not_enough_info']:
+            # [0] = sentence
+            f.write(f"- {tuple[0]}\n")
+            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        f.write("\n\n\n")
     
     print("---")
     print("FINISHED!")

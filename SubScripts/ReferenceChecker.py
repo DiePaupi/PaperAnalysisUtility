@@ -1,6 +1,7 @@
 ###############################################################################
 # Imports
 ###############################################################################
+import copy
 import pandas as pd
 import random
 import re
@@ -9,6 +10,7 @@ import sys
 import time
 
 import SubScripts.ScholarSearcher as scholar_searcher
+import SubScripts.UnicodeChecker as uc
 
 
 
@@ -60,6 +62,9 @@ import SubScripts.ScholarSearcher as scholar_searcher
 MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
 # Bibliography Style Specifics
+given_bib_type = ""
+given_line_skip = 0
+
 SPRINGER_BIB_STYLE = "springer"
 springer_bib = {
     "name": SPRINGER_BIB_STYLE,
@@ -78,6 +83,7 @@ acm_bib = {
     "authors_rest_separator": ".",
     "author_separator": ","
 }
+supported_bib_templates = [springer_bib, aaai_acm_bib, acm_bib]
 inferred_bib_template = SPRINGER_BIB_STYLE
 
 # Counters
@@ -99,6 +105,17 @@ unfound_entries = []
 ###############################################################################
 # Helper functions
 ###############################################################################
+
+def get_supported_bib_templates():
+    global supported_bib_templates
+    return supported_bib_templates
+
+def set_given_bib_type(bib_type, lineskip):
+    global given_bib_type
+    global given_line_skip
+    given_bib_type = bib_type
+    given_line_skip = lineskip
+
 
 def append_line_to_references(page_references, line):
     """
@@ -130,7 +147,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
     is just one string parsed from the given file
     """
 
-    page_references = p_page_references
+    page_references = copy.deepcopy(p_page_references)
 
     # Replace "-\n" with nothing to remove obvious mid-sentence line breaks
     page_text = p_page_text.replace("-\n", "")
@@ -138,22 +155,103 @@ def check_page_text(p_page_references, p_page_text, line_skip):
     page_lines = page_text.split("\n")
 
     # Skip first (and second) line, since this is the header, PDF author, or PDF page number
-    for line in page_lines[line_skip:]:
+    #for line in page_lines[line_skip:]: 
+    for line_index in range(line_skip, len(page_lines)):
         # Ensure that the line is long enough to check for the reference schema, 
         # otherwise append it to the last reference if it exists
-        if len(line) > 4:
-            # Matches the Springer Nature Template for references, where
-            # each reference starts with, e.g., "1. " or "12. "
-            if line[0].isdigit() and line[1] == "." and line[2] == " ":
-                page_references.append(line.strip())
-            elif line[0].isdigit() and line[1].isdigit() and line[2] == "." and line[3] == " ":
-                page_references.append(line.strip())
-            # If this schema is not found, but we already have at least one reference,
-            # append the line to the last reference
+        if len(page_lines[line_index]) > 4:
+
+            if given_bib_type == SPRINGER_BIB_STYLE:
+                # Matches the Springer Nature Template for references, where
+                # each reference starts with, e.g., "1. " or "12. "
+                if page_lines[line_index][0].isdigit() and page_lines[line_index][1] == "." and page_lines[line_index][2] == " ":
+                    page_references.append(page_lines[line_index].strip())
+                elif page_lines[line_index][0].isdigit() and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "." and page_lines[line_index][3] == " ":
+                    page_references.append(page_lines[line_index].strip())
+                # If this schema is not found, but we already have at least one reference,
+                # append the line to the last reference
+                else:
+                    if not page_references:
+                        page_references.append(page_lines[line_index].strip())
+                    else:
+                        page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
+
+            elif given_bib_type == AAAIACM_BIB_STYLE:
+                # Matches the AAAI/ACM Template for references, where
+                # each reference starts with the authornames
+                current_line = page_lines[line_index].strip()
+
+                if not page_references:
+                    page_references.append(current_line)
+                    continue
+
+                # Usual case, as a new reference starts with mostly multiple auhtors that
+                # are seperated by ; which is also a char very unlikely to be used in the
+                # title / outlet / etc. 
+                sep = aaai_acm_bib['author_separator']
+                year_cl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', current_line)
+                if year_cl and year_cl.start()-2 >= 0:
+                    if current_line[year_cl.start()-2:year_cl.start()+1].lower() == "in " \
+                       or current_line[year_cl.start()-2:year_cl.start()+1].lower() == "n: ":
+                        year_cl = None
+                year_pl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_lines[line_index-1])
+                if re.search(r'\bin\s', page_lines[line_index-1].lower()):
+                    year_pl = None
+
+                # If both lines (previous and this) contain years -> new reference
+                if year_cl and year_pl:
+                    page_references.append(current_line)
+                    continue
+                # If the current line contains ; and the previous doesn't contain a ; nor a year
+                elif sep in current_line and sep not in page_lines[line_index-1] and not year_pl:
+                    page_references.append(current_line)
+                    continue
+                # If the current line contains a year and the previous doesn't contain a ;
+                elif year_cl and sep not in page_lines[line_index-1]:
+                    page_references.append(current_line)
+                    continue
+                
+                year_pr = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_references[len(page_references)-1])
+                ed_cl = re.search(r'\b(in\s|eds\.)', current_line.lower())
+
+                # If the current contains a ; and not "In " / "eds.", and the previous reference contains a year
+                # NOTE: Here, a line that should be added to the previous reference might be recognized as new
+                #       -> Its fine for about >85% of the cases, but yeah, can happen
+                if sep in current_line and not ed_cl and year_pr:
+                    # If a firstname is alone at the beginning, append to prev. ref.
+                    if current_line[1] == "." and (current_line[2] == " " or current_line[2] == ";"):
+                        page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                    else:
+                        page_references.append(current_line)
+                # Otherwise, append to previous line's reference
+                else:
+                    page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+            
+            elif given_bib_type == ACM_BIB_STYLE:
+                # Matches the ACM Template for references, where
+                # each reference starts with the [xx]
+                if page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "]":
+                    page_references.append(page_lines[line_index].strip())
+                elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3] == "]":
+                    page_references.append(page_lines[line_index].strip())
+                elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3].isdigit and page_lines[line_index][43] == "]":
+                    page_references.append(page_lines[line_index].strip())
+                # If this schema is not found, but we already have at least one reference,
+                # append the line to the last reference
+                else:
+                    if not page_references:
+                        page_references.append(page_lines[line_index].strip())
+                    else:
+                        page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
+
             else:
-                page_references[len(page_references)-1] += append_line_to_references(page_references, line)
+                print(f"=> ERROR: given_bib_tye = {given_bib_type} not recognized!")
+
         else:
-            page_references[len(page_references)-1] += append_line_to_references(page_references, line)
+            if line_index == line_skip:
+                page_references.append(page_lines[line_index].strip())
+            else:
+                page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
 
     return page_references
 
@@ -173,10 +271,34 @@ def check_outlet(outlet: str) -> str:
     # Split a , to remove trailing page numbers
     if "," in outlet:
         outlet_splitted = outlet.split(",")
-        if "Tech. rep." in outlet_splitted[0]:
-            outlet = outlet_splitted[1].strip()
+        if len(outlet_splitted) == 1:
+            pass
+        elif len(outlet_splitted) == 2:
+            if "Tech. rep." in outlet_splitted[0]:
+                outlet = outlet_splitted[1].strip()
+            else:
+                outlet = outlet_splitted[0].strip()
         else:
-            outlet = outlet_splitted[0].strip()
+            # Delete everything before "eds."
+            if outlet.find("eds.,") != -1:
+                eds_i = outlet.find("eds.,")
+                outlet = outlet[eds_i+5:].strip()
+
+            # 
+            outlet_point_split = outlet.split(". ")
+            temp_outlet = ""
+            for part in outlet_point_split:
+                part = part.strip()
+                if "ISSN" in part.upper() or "ISBN" in part.upper():
+                    pass
+                elif "event-place" in part.lower() or part.isnumeric():
+                    pass
+                else:
+                 temp_outlet += " " + part
+            temp_outlet = temp_outlet.strip()
+            outlet_splitted = temp_outlet.split(",")
+            outlet = ','.join(outlet_splitted[:-1])
+        
     
     # Remove specific page references
     if "pp." in outlet:
@@ -210,9 +332,8 @@ def parse_reference(ref: str) -> dict:
 
     global inferred_bib_template
 
-    # Save the full reference before parsing
-    full_reference = ref
-    reference = ref
+    # Deepcopy the full reference before parsing
+    reference = copy.deepcopy(ref)
 
 
     # ---------------------------------------------------------------
@@ -224,6 +345,8 @@ def parse_reference(ref: str) -> dict:
     # (10 chars should be more than enough for the ref. no.)
     if reference[0] == "[" and "]" in reference[0:11]:
         inferred_bib_template = ACM_BIB_STYLE
+        if inferred_bib_template != given_bib_type:
+            print(f"-> Warning: Bib template mismatch!")
 
         pattern = r"$$(.*?)$$"
         pattern_match = re.search(pattern, reference[0:11])
@@ -241,15 +364,17 @@ def parse_reference(ref: str) -> dict:
                     no_length += 1
                 else:
                     break
-            ref_id = reference[1:no_length+1]
+            ref_id = reference[1:no_length]
         
             # Cleanup reference string
-            reference = reference[no_length+2:].strip()
+            reference = reference[no_length+1:].strip()
 
     # Case of number being in no brackets
     # ref_id needs to be purly numerical for this
     elif reference[0].isdigit():
         inferred_bib_template = SPRINGER_BIB_STYLE
+        if inferred_bib_template != given_bib_type:
+            print(f"-> Warning: Bib template mismatch!")
 
         no_length = 0
         for char in reference:
@@ -257,10 +382,10 @@ def parse_reference(ref: str) -> dict:
                 no_length += 1
             else:
                 break
-        ref_id = reference[0:no_length+1]
+        ref_id = reference[0:no_length]
         
         # Cleanup reference string
-        reference = reference[no_length+2:].strip()
+        reference = reference[no_length+1:].strip()
     
     # Case of there being no number
     # NOTE: Currently we assume that the pattern is lastname, firstname
@@ -270,23 +395,53 @@ def parse_reference(ref: str) -> dict:
     #           -> Referenced as: (Lins et al. 2021)
     else:
         inferred_bib_template = AAAIACM_BIB_STYLE
+        if inferred_bib_template != given_bib_type:
+            print(f"-> Warning: Bib template mismatch!")
         
-        if ";" not in reference:
-            ref_id = reference.split(",")[0].strip()
-            ref_id = f"{ref_id} "
-        else:
-            authors = reference.split(";")
-            if len(authors) <= 3:
-                ref_id = ""
-                for i in range(0, len(authors)):
-                    ref_id += authors[i].split(",")[0].strip()
-                    if i <= len(authors)-2:
-                        ref_id += ", "
-                    else:
-                        ref_id += ", and "
+        # To avoid mixups with potential editors, cut off reference after year!
+        year = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
+        if year:
+            first_ref_part = reference[:year.start()].strip()
+        
+            # Case single authors (only take lastname)
+            if ";" not in first_ref_part:
+                ref_id = first_ref_part.split(",")[0].strip()
+                ref_id = ref_id.strip(".")
+                ref_id = f"{ref_id} "
+            # Case multiple authors
             else:
-                parts = reference.split(",")
-                ref_id = f"{parts[0]} et al. "
+                authors_list = first_ref_part.split(";")
+                if len(authors_list) == 2:
+                    ref_id = authors_list[0].split(",")[0].strip()
+                    if "et al" in authors_list[1] :
+                        ref_id += " et al. "
+                    else:
+                        if "and" in authors_list[1]:
+                            ref_id += " "
+                        else:
+                            ref_id += " and "
+                        ref_id += authors_list[1].split(",")[0].strip()
+                        ref_id += " "
+                elif len(authors_list) == 3:
+                    ref_id = authors_list[0].split(",")[0].strip()
+                    ref_id += ", "
+                    ref_id += authors_list[1].split(",")[0].strip()
+                    if "et al" in authors_list[2]:
+                        ref_id += " et al. "
+                    else:
+                        if "and" in authors_list[2]:
+                            ref_id += ", "
+                        else:
+                            ref_id += ", and "
+                        ref_id += authors_list[2].split(",")[0].strip()
+                        ref_id += " "
+                else:
+                    parts = first_ref_part.split(",")
+                    ref_id = f"{parts[0]} et al. "
+        else:
+            print(f"-> Warning: No year recognized in reference '{reference}'")
+            parts = reference.split(",")
+            ref_id = f"{parts[0]} et al. "
 
 
     # ---------------------------------------------------------------
@@ -310,18 +465,25 @@ def parse_reference(ref: str) -> dict:
         if m:
             year = int(m.group(1))
             # Cleanup reference string (the year should be the last part)
-            reference = reference[: m.start()].strip()
+            reference = reference[:m.start()-3].strip()
         else:
-            print(f"-> Warning: Could not parse year in reference '{reference}'!")
+            m = re.search(r'\s(\d{4})\)', ref)
+            if m:
+                year = int(m.group(1))
+                # Cleanup reference string (the year should be the last part)
+                reference = reference[:m.start()-2].strip()
+            else:
+                print(f"-> Warning: Could not parse year in reference '{reference}'!")
         
         separator = springer_bib["authors_rest_separator"]
         if separator in reference:
             authors, rest = reference.split(separator, 1)
-            authors = str(authors.strip())
+            authors = uc.replace_accent_marks(authors.strip())
 
             # Cleanup reference string
             reference = rest.strip()
             # E.g.: reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
+        # TODO: What else?
     
     else:
         # E.g.: ACM-reference = "Virginia Braun and Victoria Clarke. 2006. Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
@@ -332,6 +494,7 @@ def parse_reference(ref: str) -> dict:
             year = int(m.group(1))
             # In AAAI/ACM & ACM bib style, the year comes directly after the authors
             authors = reference[: m.start()].strip()
+            authors = uc.replace_accent_marks(authors)
 
             # Cleanup reference string
             # E.g.: ACM-reference = ". Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
@@ -342,11 +505,21 @@ def parse_reference(ref: str) -> dict:
             # E.g.: AAAI/ACM-reference = "Title. European Journal of Information Systems, 25(3): 252–273"
         else:
             print(f"-> Warning: Could not parse year (and authors) in reference '{reference}'!")
-            # TODO: Handle this case
+            return {
+                'full_reference': ref,
+                'ref_id': "NOT PARSED",
+                'authors': "NOT PARSED",
+                'title': "NOT PARSED",
+                'year': "NOT PARSED",
+                'abstract': None,
+                'outlet': "NOT PARSED",
+                'link': link,
+                'valid': None,
+            }
 
     # Finish natural ref_id
     if inferred_bib_template == AAAIACM_BIB_STYLE:
-        ref_id += year
+        ref_id += str(year)
 
 
     # ---------------------------------------------------------------
@@ -364,8 +537,12 @@ def parse_reference(ref: str) -> dict:
         title, outlet = reference.split('. ', 1)
         if title and outlet:
             title = str(title.strip())
-            outlet = str(outlet.strip().rstrip('.'))
-            outlet = check_outlet(outlet)
+            # Check a last accessed date was parsed as outlet
+            if "accessed:" in outlet.lower():
+                outlet = ""
+            else:
+                outlet = str(outlet.strip().rstrip('.'))
+                outlet = check_outlet(outlet)
         else:
             # fallback: try to split on period
             parts = reference.split('. ')
@@ -374,11 +551,11 @@ def parse_reference(ref: str) -> dict:
                 outlet = str(' '.join(parts[1:]).strip().rstrip('.'))
                 outlet = check_outlet(outlet)
     else:
-        title = str(rest)
+        title = str(reference)
 
 
     return {
-        'full_reference': full_reference,
+        'full_reference': ref,
         'ref_id': ref_id,
         'authors': authors,
         'title': title,
@@ -502,7 +679,10 @@ def main(doc, ref_starting_page):
     # Iterate over all remaining pages and check for remaining references
     for page_no in range(ref_starting_page, doc.page_count):
         page_text = doc[page_no].get_text()
-        references = check_page_text(references, page_text, 2)
+        if given_bib_type == SPRINGER_BIB_STYLE:
+            references = check_page_text(references, page_text, 2)
+        else:
+            references = check_page_text(references, page_text, 0)
         page_no += 1
     
     # Log the results
@@ -544,7 +724,7 @@ def main(doc, ref_starting_page):
                 # Catch invalid links and search for the reference on Scholar instead
                 except:
                     invalid_link_counter += 1
-                    invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Link caused an exception!")
+                    invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n			-> Link caused an exception!")
                     local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
                     references_df = local_references_df
                 # Otherwise, if the link is valid, check its status code after sleeping
@@ -559,7 +739,7 @@ def main(doc, ref_starting_page):
                     # Otherwise, if the link is not valid, search for the reference on Scholar instead
                     else:
                         invalid_link_counter += 1
-                        invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n      -> Returned with status code {request.status_code}!")
+                        invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n			-> Returned with status code {request.status_code}!")
                         local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
                         references_df = local_references_df
             elif current_link and current_link.endswith(".pdf"):
@@ -570,6 +750,13 @@ def main(doc, ref_starting_page):
                 no_link_provided_counter += 1
                 local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
                 references_df = local_references_df
+
+            if scholar_searcher.get_skip_all_remaining_validations():
+                print(f" -> The remaining validation process was skipped!")
+                search_sum = skipped_searches_counter + successful_searches_counter + mismatching_infos_counter + no_entry_found_counter
+                skipped_searches = TOTAL_NO_OF_REFERENCES - search_sum
+                skipped_searches_counter += skipped_searches
+                break
             
             valid_link_counter += local_stats["valid_links"]
             invalid_link_counter += local_stats["invalid_links"]

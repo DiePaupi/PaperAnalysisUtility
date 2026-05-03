@@ -2,10 +2,11 @@
 # Imports
 ###############################################################################
 import pandas as pd
-from rich.progress import Progress
 import random
-from scholarly import scholarly
+from scholarly import scholarly, ProxyGenerator
 import time
+
+import SubScripts.UnicodeChecker as uc
 
 
 
@@ -35,12 +36,53 @@ import time
 # NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
 MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
+skip_all_remaining_validations = False
+
 
 ###############################################################################
 # Helper functions
 ###############################################################################
 
-def activate_scholar_search(query, title, authors, year, entries_to_check):
+def get_skip_all_remaining_validations() -> bool:
+    global skip_all_remaining_validations
+    return skip_all_remaining_validations
+
+def manual_search(query, title, authors, year):
+    """
+    TODO
+    """
+    global skip_all_remaining_validations
+    UNKNOWN = "unknown"
+    
+    if "pub_url" in query:
+        url = query[8:].strip('"')
+    else:
+        url = "https://scholar.google.com/scholar?hl=en&q="
+        url += query.replace(" ", "+").replace(",", "%2C")
+
+    print(f"     -> You could also open {url} manually and check the results.")
+    print(f"        -> Author(s): {authors}")
+    print(f"        -> Title:     {title}")
+    print(f"        -> Year:      {year}")
+
+    manual_search = input(f"     -> Enter 'n' to skip this, or enter 'FALSE' if the results don't add up, or enter the abstract if this checks out: ").strip().strip('"')
+    
+    if manual_search.strip().upper() == "FALSE":
+        print(f"     -> Mismatching infos registered, thanks!")
+        return f"CHECK - Manual Check via {url}; Reference didn't add up", UNKNOWN
+    elif  manual_search.strip().lower() == "n" or manual_search.strip().lower() == "":
+        message = "Manual search was skipped by the user."
+        print(f"     -> {message}")
+        return message, UNKNOWN
+    elif manual_search.strip().lower() == "skip all":
+        skip_all_remaining_validations = True
+        return "Manual an all remaining searches were skipped by the user.", UNKNOWN
+    else:
+        print(f"     -> Abstract registered, thanks!")
+        return f"Found: Manual Check via {url} - Reference checked out", manual_search.strip()
+
+
+def activate_scholar_search(query, title, authors, year, entries_to_check, is_title_search):
     """
     activate_scholar_search takes:
        - A query (str) to be searched on Scholar
@@ -49,6 +91,7 @@ def activate_scholar_search(query, title, authors, year, entries_to_check):
        - The expected year (int) of the paper to be found
        - A number of entries to check (int) that defines how many of the 
          search results should be checked for a match
+       - A bool indicating is this is the title search (last search for a reference)
     The function searches the query on Scholar, checks max. entries_to_check 
       for a matching title, then for matching authors, and finally for a
       matching year.
@@ -59,88 +102,118 @@ def activate_scholar_search(query, title, authors, year, entries_to_check):
        - The abstract of the found paper (if any) to be logged in the
          'abstract' column of the reference's entry in the dataframe
     """
+
+    UNKNOWN = "unknown"
     
     # User must give permission to search the defined query on Scholar
-    search_permission = input(f"   -> Permission to search for '{query}' on Scholar using scholarly? ").strip().strip('"')
-    if search_permission.lower() == "yes" or search_permission.lower() == "y":
-    
-        # Get the search results and check if at least one result is found
-        search_query = scholarly.search_pubs(query)
-        print(f"   -> INFO: Found {search_query.total_results} results for '{query}'.")
+    #search_permission = input(f"   -> Permission to search for '{query}' on Scholar using scholarly? Type 'y': ").strip().strip('"')
+    #if search_permission.lower() == "yes" or search_permission.lower() == "y":
+    print("   -> Started new search process; this may take one or two minutes!")
 
-        if search_query.total_results >= 1:
-            
-            no_of_results_to_check = min(search_query.total_results, entries_to_check)
-            print(f"   -> INFO: Now checking {no_of_results_to_check} results for matching title: '{title}'")
-
-            # Cool progress bar to look at while all results are being checked
-            with Progress() as p:
-                task = p.add_task("   -> Processing scholar search...", total=no_of_results_to_check)
-                    
-                # Loop over all results and check if the title (and year) matches
-                for res_i in range(0, no_of_results_to_check):
-                    try:
-                        # Sleep to avoid getting Bot blocked
-                        sleep_time = float(f"0.{random.randint(1, 9)}")
-                        time.sleep(sleep_time)
-                        current_search_result = next(search_query)
-                    except Exception as e:
-                        message = f"ERROR - Getting search results failed: {e}"
-                        print(f"   -> {message}")
-                        return False, message, None
-
-                    # Compare titles
-                    pub_title = current_search_result['bib']['title']
-                    # NOTE: During parsing spaces may go missing, so we ignore them when comparing titles
-                    if pub_title.replace(" ", "").lower() == title.replace(" ", "").lower():
-                        print("   -> INFO: Titles matched!")
-
-                        # Compare authors
-                        # NOTE: current_search_result['bib']['author'] -> Each entry has the form "C Janiesch"
-                        pub_bib_authors = current_search_result['bib']['author']
-                        for pub_author in pub_bib_authors:
-                            lastname = pub_author.split(" ")[1].strip().lower()
-                            if not lastname in authors.lower():
-                                print(f"     -> ERROR: Lastname ({lastname}) does not match any expected authors' ({authors.lower()})!")
-                                print(f"        Manual check required: {current_search_result['pub_url']}")
-                                p.stop()
-                                return False, f"CHECK - Authors did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
-
-                        # Compare years
-                        pub_year = int(current_search_result['bib']['pub_year'].strip())
-                        if pub_year == year:
-                            print("   -> SUCCESS: Years mateched; reference checks out. :)")
-                            p.stop()
-                            # TODO: Outlet Quality Check
-                            return False, f"Found: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
-                        else:
-                            print(f"   -> ERROR: Year ({pub_year}) does not match expected year ({year})!")
-                            print(f"      Manual check required: {current_search_result['pub_url']}")
-                            p.stop()
-                            return False, f"CHECK - Years did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
-                        
-                    #else:
-                    #    print(f"   -> ERROR: Title does not match expected title! Trying next search result (if any).")
-                    #    print(f"      Expected title: '{title}'")
-                    #    print(f"      Current search result's title: '{pub_title}'")
-
-                    p.update(task, advance=1)
-
-                p.stop()
-
-                # If none of them match, return False
-                message = f"ERROR: None of the {no_of_results_to_check} searched Scholar-results matched the expected title!"
-                print(f"   -> {message}")
-                return False, message, None
-
+    # Get the search results via proxy
+    try:
+        pg = ProxyGenerator()
+        if pg.FreeProxies():
+            pg.FreeProxies()
+            scholarly.use_proxy(pg)
+            search_query = scholarly.search_pubs(query)
+            print(f"     -> INFO: Found {search_query.total_results} results for '{query}'.")
         else:
-            #message = f"ERROR: No results were found through the search on Scholar!"
-            print(f"   -> {message}")
-            return False, message, None
+            message = "Warning: No free proxy for the scholar search available!"
+            print(f"     => {message}")
+            if is_title_search:
+                m_message, abstract = manual_search(query, title, authors, year)
+                return False, m_message, abstract
+            else:
+                return False, message, UNKNOWN
+    except Exception as e:
+        message = "ERROR: Retriving scholarly search results failed"
+        print(f"     => {message}: {e}")
+        if is_title_search:
+            m_message, abstract = manual_search(query, title, authors, year)
+            return False, m_message, abstract
+        else:
+            return False, message, UNKNOWN
+
+
+    # Check if at least one result is found
+    if search_query.total_results and search_query.total_results >= 1:
+        
+        no_of_results_to_check = min(search_query.total_results, entries_to_check)
+        print(f"     -> INFO: Now checking {no_of_results_to_check} results for matching title: '{title}'")
+                
+        # Loop over all results and check if the title (and year) matches
+        for res_i in range(0, no_of_results_to_check):
+            try:
+                # Sleep to avoid getting Bot blocked
+                sleep_time = float(f"0.{random.randint(1, 9)}")
+                time.sleep(sleep_time)
+                current_search_result = next(search_query)
+            except Exception as e:
+                message = f"ERROR - Getting search results failed: {e}"
+                print(f"   -> {message}")
+                return False, message, UNKNOWN
+
+            # Compare titles
+            pub_title = current_search_result['bib']['title']
+            # NOTE: During parsing spaces may go missing, so we ignore them when comparing titles
+            #       -> Different apostophies or similar may also lead to a false comparison, so replace them
+            pub_title_for_comparison = uc.replace_all_unicode(pub_title)
+            pub_title_for_comparison = pub_title.replace(" ", "").lower()
+            given_title_for_comparison = uc.replace_all_unicode(title)
+            given_title_for_comparison = pub_title.replace(" ", "").lower()
+
+            if pub_title_for_comparison == given_title_for_comparison:
+                print("     -> INFO: Titles matched!")
+
+                # Compare authors
+                # NOTE: current_search_result['bib']['author'] -> Each entry has the form "C Janiesch"
+                pub_bib_authors = current_search_result['bib']['author']
+                for pub_author in pub_bib_authors:
+                    if pub_author:
+
+                        # Specific accent marks may lead to a false comparison!
+                        # Note: The authors' string had accent marks already replaced during parsing
+                        lastname = pub_author.split(" ")[1].strip()
+                        lastname = uc.replace_accent_marks(lastname)
+                        if not lastname.lower() in authors.lower():
+                            print(f"       -> ERROR: Lastname ({lastname}) does not match any expected authors' ({authors.lower()})!")
+                            print(f"          Manual check required: {current_search_result['pub_url']}")
+                            return False, f"CHECK - Authors did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
+
+                # Compare years
+                pub_year = int(current_search_result['bib']['pub_year'].strip())
+                if pub_year == year:
+                    print("     -> SUCCESS: Years matched; reference checks out. :)")
+                    return False, f"Found: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
+                else:
+                    print(f"       -> ERROR: Year ({pub_year}) does not match expected year ({year})!")
+                    print(f"          Manual check required: {current_search_result['pub_url']}")
+                    return False, f"CHECK - Years did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
+                
+            #else:
+            #    print(f"   -> ERROR: Title does not match expected title! Trying next search result (if any).")
+            #    print(f"      Expected title: '{title}'")
+            #    print(f"      Current search result's title: '{pub_title}'")
+
+            # If none of them match, return False
+            message = f"ERROR: None of the {no_of_results_to_check} searched Scholar-results matched the expected title!"
+            print(f"     -> {message}")
+            return False, message, UNKNOWN
+
     else:
-        message = "Search was skipped by the user."
-        print(f"   -> {message}")
-        return True, message, None
+        message = f"ERROR: No results were found through the search on Scholar!"
+        print(f"     -> {message}")
+        if is_title_search:
+            m_message, abstract = manual_search(query, title, authors, year)
+            return False, m_message, abstract
+        else:
+            return False, message, UNKNOWN
+    
+    #else:
+    #    message = "Search was skipped by the user."
+    #    print(f"   -> {message}")
+    #    return True, message, UNKNOWN
 
 
 
@@ -192,12 +265,14 @@ def search_on_scholar(p_references_df, index, link):
                                                                       title_to_find,
                                                                       authors_to_find,
                                                                       year_to_find,
-                                                                      entries_to_check)
+                                                                      entries_to_check,
+                                                                      False)
 
     # Check if the search was skipped by the user, otherwise, check the search results
     if search_skipped:
         skipped_searches_counter += 1
         p_references_df.at[index, 'valid'] = "NOT SEARCHED"
+        p_references_df.at[index, 'abstract'] = abstract
     else:
         # If the search was successful:
         if search_message.startswith("Found: "):
@@ -225,23 +300,27 @@ def search_on_scholar(p_references_df, index, link):
                 query = f'{authors_to_find} {year_to_find}'
                 entries_to_check = MAX_SCHOLAR_ENTRIES_TO_CHECK
                 snd_skipped_message = "The authors+year search was skipped"
+                is_title_search = False
             # Otherwise do a title search
             else:
                 query = f'{title_to_find}'
                 entries_to_check = MAX_SCHOLAR_ENTRIES_TO_CHECK-10
                 snd_skipped_message = "The title search was skipped"
+                is_title_search = True
 
             # Execute the auhtors+year or title Scholar search
             snd_search_skipped, snd_search_message, snd_abstract = activate_scholar_search(query,
                                                                                            title_to_find,
                                                                                            authors_to_find,
                                                                                            year_to_find,
-                                                                                           entries_to_check)
+                                                                                           entries_to_check,
+                                                                                           is_title_search)
 
             # Check if the search was skipped by the user, otherwise, check the search results
             if snd_search_skipped:
                 skipped_searches_counter += 1
                 p_references_df.at[index, 'valid'] = f"{snd_skipped_message}; the previous did not yield any results"
+                p_references_df.at[index, 'abstract'] = snd_abstract
             else:
                 # If the 2nd search was successful:
                 if snd_search_message.startswith("Found: "):
@@ -268,12 +347,14 @@ def search_on_scholar(p_references_df, index, link):
                                                                                                     title_to_find,
                                                                                                     authors_to_find,
                                                                                                     year_to_find,
-                                                                                                    entries_to_check)
+                                                                                                    entries_to_check,
+                                                                                                    True)
 
                         # Check if the search was skipped by the user, otherwise, check the search results
                         if trd_search_skipped:
                             skipped_searches_counter += 1
                             p_references_df.at[index, 'valid'] = f"{trd_skipped_message}; the previous did not yield any results"
+                            p_references_df.at[index, 'abstract'] = trd_abstract
                         else:
                             # If the 3rd search was successful:
                             if trd_search_message.startswith("Found: "):

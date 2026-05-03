@@ -2,6 +2,7 @@
 # Imports
 ###############################################################################
 from collections import Counter
+import copy
 
 
 
@@ -76,20 +77,73 @@ unicode_characters = set().union(
 # Helper functions
 ###############################################################################
 
+def replace_all_unicode(input: str) -> str:
+    input_str = copy.deepcopy(input)
+
+    for a in unicode_aphostrophes:
+        input_str = input_str.replace(a, "'")
+    for q in unicode_quotes:
+        input_str = input_str.replace(q, '"')
+    for d in unicode_dashes:
+        input_str = input_str.replace(d, '-')
+    for s in unicode_spaces:
+        input_str = input_str.replace(s, ' ')
+
+    return input_str
+
+
+def replace_accent_marks(input: str) -> str:
+    input_str = copy.deepcopy(input)
+
+    # ¨a / ¨o / ¨u
+    if "¨" in input_str:
+        input_str = input_str.replace("¨a", 'ä')
+        input_str = input_str.replace("¨A", 'Ä')
+        input_str = input_str.replace("¨o", 'ö')
+        input_str = input_str.replace("¨O", 'Ö')
+        input_str = input_str.replace("¨u", 'ü')
+        input_str = input_str.replace("¨U", 'Ü')
+    # ˜n
+    if "˜" in input_str:
+        input_str = input_str.replace("˜n", 'ñ')
+        input_str = input_str.replace("˜N", 'Ñ')
+    # ´a / ´ı / ´o
+    if "´" in input_str:
+        input_str = input_str.replace("´a", 'á')
+        input_str = input_str.replace("´A", 'Á')
+        input_str = input_str.replace("´i", 'í')
+        input_str = input_str.replace("´ı", 'í')
+        input_str = input_str.replace("´I", 'Í')
+        input_str = input_str.replace("´o", 'ó')
+        input_str = input_str.replace("´O", 'Ó')
+    # °
+    if "°" in input_str:
+        input_str = input_str.replace("°a", 'å')
+        input_str = input_str.replace("°A", 'Å')
+
+    return input_str
+
+
+
+
 def check_hyphen_minus_validity(text: str, hyphen_minus_index: int, page_no: int):
-    print("TODO")
+    # TODO!
+    pass
 
 
 def check_hyphen_validity(text: str, hyphen_index: int, page_no: int):
-    print("TODO")
+    # TODO!
+    pass
 
 
 def check_en_dash_validity(text: str, en_dash_index: int, page_no: int):
-    print("TODO")
+    # TODO!
+    pass
 
 
 def check_em_dash_validity(text: str, em_dash_index: int, page_no: int):
-    print("TODO")
+    # TODO!
+    pass
 
 
 def check_minus_sign_validity(text: str, minus_sign_index: int, page_no: int):
@@ -105,7 +159,7 @@ def check_minus_sign_validity(text: str, minus_sign_index: int, page_no: int):
           sign in place of a minus.
     """
 
-    print("TODO")
+    # TODO
     # Check if the minus sign is used between two digits, e.g. '5−6' or '5 - 6'
     if minus_sign_index-1>=0 and minus_sign_index+1<len(text):
         # Case: 5−6; valid
@@ -278,13 +332,13 @@ def check_if_unicode_is_sus(unicode_lines: list):
         # Always find the fist occurence of the dash, check it,
         # and then remove it from the line and check for the next one
         line_contains_min_one_invalid_use = False
-        rest_line = line
+        rest_line = copy.deepcopy(line)
         while True:
 
             # Check if any of the dashes are in the line and sort them ascending by their 
             # index in the line, so we can check the first one
             found_dash = {}
-            for index, char in enumerate(line):
+            for index, char in enumerate(rest_line):
                 if char in dash_map:
                     found_dash = {
                         "name": dash_map[char],
@@ -355,7 +409,7 @@ def check_if_unicode_is_sus(unicode_lines: list):
         # Always find the fist occurence of the non-breaking space, check it,
         # and then remove it from the line and check for the next one
         line_contains_min_one_invalid_use = False
-        rest_line = line
+        rest_line = copy.deepcopy(line)
         while True:
             space_index = rest_line.find(unicode_spaces[1])
             if space_index != -1:
