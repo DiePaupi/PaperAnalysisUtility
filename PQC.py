@@ -89,6 +89,97 @@ referencing_template = ""
 # Helper functions
 ###############################################################################
 
+def parse_numbered_headings(page_no: int, page_lines: list, line_index: int, \
+                            headings: list) -> list:
+    """
+    parse_numbered_headings checks for lines with only a number in it
+    assesses if the number is the last heading's number +1, and if so,
+    appends the *next* line (where the title should be) to the
+    headings list.
+
+    Returns:
+      - The updated headings list
+    """
+    
+    global references_starting_page_no
+
+    line = page_lines[line_index].strip()
+
+    heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
+    if heading_match:
+        number = heading_match.group(0)
+
+        # Check if the current line is not the last
+        if line_index + 1 < len(page_lines):
+            if len(headings) > 0:
+                last_index = len(headings) - 1
+                last_heading_no = int(headings[last_index][0])
+                if int(number.strip())-1 == last_heading_no:
+                    text = page_lines[line_index + 1].strip()
+                    print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
+                    headings.append((number, text, page_no + 1))
+            else:
+                text = page_lines[line_index + 1].strip()
+                print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
+                headings.append((number, text, page_no + 1))
+        
+    # Check for "References" or "Literature" (case-insensitive)
+    elif line.lower() in ["references", "literature"]:
+        print(f"=> Found references/literature section on page {page_no + 1}")
+        last_number = int(headings[len(headings)-1][0])
+        headings.append((last_number + 1, line, page_no + 1))
+        references_starting_page_no = page_no + 1
+    
+    return headings
+
+
+def parse_unnumbered_headings(page_no: int, line: str, headings: list) -> list:
+    """
+    parse_unnumbered_headings checks lines for common heading titles
+
+    Returns:
+      - The updated headings list
+    """
+
+    global references_starting_page_no
+
+    line_lower = line.lower()
+    if line_lower in ["related work", "related works",
+                      "background", "literature review",
+                      "background and literature review",
+                      "problem definition", "research questions",
+                      "problem definition and research questions"
+                      "methods", "methodology",
+                      "research agenda", "survey", "survey methods",
+                      "data", "data and methods",
+                      "implementation", "implementation details", 
+                      "experiments", "experimental setup", "case studies",
+                      "experimental setup and case studies",
+                      "results", "results and analysis",
+                      "discussion", "discussion and conclusion",
+                      "discussion and future work",
+                      "limitations", "limitations and future work",
+                      "implications", "theoretical implications",
+                      "practical relevance",
+                      "conclusion", "future work",
+                      "conclusion and future work",
+                      "conclusion, limitations, and future work",
+                      "ethical statement", "positionality statement",
+                      "broader impact", "acknowledgments"
+                     ]:
+
+        print(f"- Found {line} on page {page_no + 1}")
+        headings.append((len(headings)+1, line, page_no + 1))
+    
+    # Check for "References" or "Literature" (case-insensitive)
+    elif line_lower in ["references", "literature"]:
+        print(f"=> Found references/literature section on page {page_no + 1}")
+        headings.append((len(headings)+1, line, page_no + 1))
+        references_starting_page_no = page_no + 1
+    
+    return headings
+
+
 def check_document_structure(doc):
     global formatting_template
     global supported_formatting_templates
@@ -110,6 +201,7 @@ def check_document_structure(doc):
             lineskip = template["header_lines"]
     
     text_begin_reached = False
+    numbered_headings = 2
     
     #==========================================================================
     # Iterate pages AND per page all lines
@@ -145,71 +237,39 @@ def check_document_structure(doc):
             # Check line for headings
             #==================================================================
 
-            # Springer headings are parsed as a single number in one line
-            #   and the heading in the next
-            if formatting_template == springer_formatting_template["name"] \
-                or formatting_template == acm_formatting_template["name"]:
-                heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
-                if heading_match:
-                    number = heading_match.group(0)
-
-                    # Check if the current line is not the last
-                    if line_index + 1 < len(page_lines):
-                        if len(headings) > 0:
-                            last_index = len(headings) - 1
-                            last_heading_no = int(headings[last_index][0].strip())
-                            if int(number.strip())-1 == last_heading_no:
-                                text = page_lines[line_index + 1].strip()
-                                print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
-                                headings.append((number, text, page_no + 1))
-                        else:
-                            text = page_lines[line_index + 1].strip()
-                            print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
-                            headings.append((number, text, page_no + 1))
-                    
-                # Check for "References" or "Literature" (case-insensitive)
-                elif line.lower() in ["references", "literature"]:
-                    print(f"=> Found references/literature section on page {page_no + 1}")
-                    last_number = headings[len(headings)-1][0]
-                    headings.append((int(last_number) + 1, line, page_no + 1))
-                    references_starting_page_no = page_no + 1
-                    return
-            
-            # AAAI/ACM headings are parsed as just the title - no other indicator
-            elif formatting_template == aaai_acm_formatting_template["name"]:
-
-                line_lower = line.lower()
-                if line_lower == "abstract" or line_lower == "introduction":
+            # First, find the introduction (every paper has it), and check if
+            # the headings are numbered or not
+            if line_index > 0 and numbered_headings == 2:
+                if "Introduction" in line:
                     text_begin_reached = True
-                    print(f"- Found {line} on page {page_no + 1}")
-                    headings.append((len(headings)+1, line, page_no + 1))
 
+                    # If the there is nothing prefixing "Introduction"
+                    if line.find("Introduction") == 0:
+                        previous_line = page_lines[line_index-1].strip()
+                        heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', previous_line)
+                        if heading_match:
+                            numbered_headings = 1
+                            print(f"- Found {line} on page {page_no + 1}")
+                            headings.append((len(headings)+1, line, page_no + 1))
+                        else:
+                            numbered_headings = 0
+                    else:
+                        prefix = line[0:line.find("Introduction")]
+                        if prefix.strip().isdigit():
+                            # TODO: Numberes are in the same line as the heading!!
+                            print(f"=> Error: Inline numbered headings are not supported yet!")
 
-                elif line_lower == "related work" \
-                    or line_lower == "methods" or line_lower == "methodology" \
-                    or line_lower == "results" or line_lower == "discussion" \
-                    or line_lower == "conclusion" or line_lower == "ethical statement" \
-                    or line_lower == "positionality statement" or line_lower == "broader impact" \
-                    or line_lower == "acknowledgments":
-                    print(f"- Found {line} on page {page_no + 1}")
-                    headings.append((len(headings)+1, line, page_no + 1))
-                
-                # Check for "References" or "Literature" (case-insensitive)
-                elif line_lower in ["references", "literature"]:
-                    print(f"=> Found references/literature section on page {page_no + 1}")
-                    headings.append((len(headings)+1, line, page_no + 1))
-                    references_starting_page_no = page_no + 1
-                    return
-
-                #elif text_begin_reached or page_no > 0:
-                    # TODO: Title headings etc. also match these conditions
-                    #if line.istitle() and line[-1] not in [".", ",", ";", ":"]:
-                        #print(f"- Found titlecase line '{line}' on page {page_no + 1}")
-                        #headings.append((len(headings)+1, line, page_no + 1))
-
+            # If the headings are numbered
+            elif numbered_headings == 1:
+                headings = parse_numbered_headings(page_no, page_lines, \
+                                                   line_index, headings)
             
-            #elif formatting_template == acm_formatting_template["name"]:
-            #    print("TODO, SORRY")
+            # If the headings are not numbered
+            elif numbered_headings == 0:
+                headings = parse_unnumbered_headings(page_no, line, headings)
+            
+            if references_starting_page_no != 0:
+                return
 
         page_no += 1
 
