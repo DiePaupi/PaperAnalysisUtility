@@ -14,6 +14,10 @@ import urllib.request
 # INFO
 ###############################################################################
 
+# LLM is called in
+#  1) RankingChecker.py -> check_with_llm()
+#  2) RefIntextChecker.py -> check_with_llm()
+
 
 
 ###############################################################################
@@ -72,14 +76,18 @@ def call_campuski(user_message):
         raise RuntimeError("CKI_API_KEY not set in the loaded environment. Set it or load your .env before starting server.")
 
 
-    request = urllib.request.Request(URL, data=json.dumps(data).encode("utf-8"),
-                                     headers={"Authorization": f"Bearer {CKI_API_KEY}",
-                                              "Content-Type": "application/json"},
-                                     method="POST")
+    try:
+        request = urllib.request.Request(URL, data=json.dumps(data).encode("utf-8"),
+                                        headers={"Authorization": f"Bearer {CKI_API_KEY}",
+                                                "Content-Type": "application/json"},
+                                        method="POST")
 
-    with urllib.request.urlopen(request) as response:
-        result = json.loads(response.read().decode("utf-8"))
-        return result["choices"][0]["message"]["content"]
+        with urllib.request.urlopen(request) as response:
+            result = json.loads(response.read().decode("utf-8"))
+            return result["choices"][0]["message"]["content"]
+    except Exception as e:
+        print(f"  => ERROR while trying to reach CampusKI: {e}")
+        return ""
 
 
 def call_openai(user_message):
@@ -97,12 +105,15 @@ def call_openai(user_message):
     if not OPENAI_API_KEY:
         raise RuntimeError("OPENAI_API_KEY not set in the loaded environment. Set it or load your .env before starting server.")
 
-    client = OpenAI(api_key=OPENAI_API_KEY)
-    response = client.chat.completions.create(
-        model=model,
-        temperature=temp,
-        messages=user_message
-    )
-
-    # return just the text response
-    return response.choices[0].message.content
+    try:
+        client = OpenAI(api_key=OPENAI_API_KEY)
+        response = client.chat.completions.create(
+            model=model,
+            temperature=temp,
+            messages=user_message
+        )
+        # return just the text response
+        return response.choices[0].message.content
+    except Exception as e:
+        print(f"  => ERROR while trying to reach ChatGPT: {e}")
+        return ""

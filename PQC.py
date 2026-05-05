@@ -24,10 +24,6 @@ import SubScripts.UnicodeChecker as uc
 # NOTE: To save the results as .md file you'll need to habe the 'tabulate' 
 #       package installed
 
-# TODOs:
-# - Paper Quality:
-#    + Check the uniformity of used chars like apostrophes, quotes, and dashes
-
 
 
 ###############################################################################
@@ -73,7 +69,7 @@ supported_formatting_templates = [springer_formatting_template, aaai_acm_formatt
 formatting_template = ""
 
 # Bibliography template to use for parsing
-# NOTE: These are used in the AuhtorChecker and the ReferenceChecker
+# NOTE: These are used in the AuthorChecker and the ReferenceChecker
 supported_bib_templates = ref_c.get_supported_bib_templates()
 bib_template = ""
 
@@ -322,6 +318,7 @@ def main():
     else:
         bib_template = input_bib_template
         ref_c.set_given_bib_type(input_bib_template, lineskip)
+        ac.set_given_bib_type(input_bib_template)
     
     input_ref_template = input(f"Enter a supported referencing template ({[t['name'] for t in supported_referencing_templates]}): ").strip().strip('"')
     res = next((rt for rt in supported_referencing_templates if rt['name'] == input_ref_template), None)
@@ -390,7 +387,7 @@ def main():
     # Check how often an author appears in the references
     #==========================================================================
     # NOTE: This dict is unsorted
-    frequent_authors = ac.main(references_df, bib_template)
+    frequent_authors = ac.get_frequent_authors(references_df)
 
 
     #==========================================================================
@@ -404,13 +401,29 @@ def main():
     #--------------------------------------------------------------------------
     # Create Pie Chart with the literature validation results
     #--------------------------------------------------------------------------
-    link_labels = ['No link provided', 'Valid link', 'Invalid link']
-    link_values = [ref_stats["no_link_provided"], ref_stats["valid_links"], ref_stats["invalid_links"]]
+    link_labels = ['No link provided', 'Unchecked links', 'Valid links', 'Invalid links', 'Mismatching links']
+    link_values = [ref_stats["no_link_provided"], ref_stats["unchecked_links"], ref_stats["valid_links"], ref_stats["invalid_links"], ref_stats["different_links"]]
     
     searches_labels = ['Skipped searches', 'Successful searches', 'Mismatching infos', 'NO ENTRY FOUND']
     searches_values = [ref_stats["skipped_searches"], ref_stats['successful_searches'], ref_stats["mismatching_infos"], ref_stats["no_entry_found"]]
 
-    lit_fig = go.Figure(data=[go.Pie(labels=link_labels, values=link_values), go.Pie(labels=searches_labels, values=searches_values)])
+    # Create subplots: use 'domain' type for Pie subplot
+    lit_fig = make_subplots(rows=1, cols=2, specs=[[{'type':'domain'}, {'type':'domain'}]])
+    lit_fig.add_trace(go.Pie(labels=link_labels, values=link_values, name="Links"),
+                1, 1)
+    lit_fig.add_trace(go.Pie(labels=searches_labels, values=searches_values, name="Searches"),
+                1, 2)
+
+    # Use `hole` to create a donut-like pie chart
+    lit_fig.update_traces(hole=.4)
+
+    lit_fig.update_layout(
+        title_text="Outlet Ranking Results",
+        # Add annotations in the center of the donut pies.
+        annotations=[dict(text='Links', x=sum(lit_fig.get_subplot(1, 1).x) / 2, y=0.5,
+                        font_size=20, showarrow=False, xanchor="center"),
+                    dict(text='Searches', x=sum(lit_fig.get_subplot(1, 2).x) / 2, y=0.5,
+                        font_size=20, showarrow=False, xanchor="center")])
     literature_validation_results_fig_path = os.path.join(results_folder_dir, "literature_validation_results_fig.jpg")
     lit_fig.write_image(literature_validation_results_fig_path)
 
@@ -557,8 +570,10 @@ def main():
         else:
             f.write(f"References section starts on page {references_starting_page_no}.\n\n")
             f.write(f"- No link provided: {ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Unchecked links: {ref_stats['unchecked_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['unchecked_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Valid links: {ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             f.write(f"- Invalid link: {ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Mismatching links: {ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
             if invalid_entries:
                 f.write("	- Invalid entries:\n")
                 for entry in invalid_entries:

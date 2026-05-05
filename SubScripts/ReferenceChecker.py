@@ -9,7 +9,7 @@ import requests
 import sys
 import time
 
-import SubScripts.ScholarSearcher as scholar_searcher
+import SubScripts.BibSearcher as bib_searcher
 import SubScripts.UnicodeChecker as uc
 
 
@@ -88,8 +88,10 @@ inferred_bib_template = SPRINGER_BIB_STYLE
 
 # Counters
 no_link_provided_counter = 0
+link_not_checked_counter = 0
 valid_link_counter = 0
 invalid_link_counter = 0
+different_link_found_counter = 0
 
 skipped_searches_counter = 0
 successful_searches_counter = 0
@@ -613,8 +615,11 @@ def main(doc, ref_starting_page):
     """
 
     global no_link_provided_counter
+    global link_not_checked_counter
     global valid_link_counter
     global invalid_link_counter
+    global different_link_found_counter
+
     global skipped_searches_counter
     global successful_searches_counter
     global mismatching_infos_counter
@@ -714,18 +719,18 @@ def main(doc, ref_starting_page):
             current_link = references_df.at[index, 'link']
             print(f"- Checking reference {index + 1}/{len(references_df)}:")
 
-            # Check if a link is provided; if not, search on Scholar
+            # Check if a link is provided
             # NOTE: For now skip .pdf links
             if current_link and not current_link.endswith(".pdf"):
                 print(f"  -> Checking provided link: {current_link}")
                 # Try to send a HEAD request to the provided link
                 try:
                     request = requests.head(current_link)
-                # Catch invalid links and search for the reference on Scholar instead
+                # Catch invalid links and search for the reference on online
                 except:
                     invalid_link_counter += 1
                     invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n			-> Link caused an exception!")
-                    local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+                    local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
                     references_df = local_references_df
                 # Otherwise, if the link is valid, check its status code after sleeping
                 else:
@@ -734,32 +739,34 @@ def main(doc, ref_starting_page):
                     time.sleep(sleep_time)
                     # Check if site is reachable and set 'valid' column accordingly
                     if request.status_code != 404:
-                        local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, current_link)
+                        local_references_df, local_stats = bib_searcher.search_bib(references_df, index, current_link)
                         references_df = local_references_df
-                    # Otherwise, if the link is not valid, search for the reference on Scholar instead
+                    # Otherwise, if the link is not valid, search for the reference on online
                     else:
                         invalid_link_counter += 1
                         invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n			-> Returned with status code {request.status_code}!")
-                        local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+                        local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
                         references_df = local_references_df
             elif current_link and current_link.endswith(".pdf"):
                 print(f"  -> INFO: Skipping validity check of link ending with '.pdf': {current_link}")
-                local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+                local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
                 references_df = local_references_df
             else:
                 no_link_provided_counter += 1
-                local_references_df, local_stats = scholar_searcher.search_on_scholar(references_df, index, None)
+                local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
                 references_df = local_references_df
 
-            if scholar_searcher.get_skip_all_remaining_validations():
+            if bib_searcher.get_skip_all_remaining_validations():
                 print(f" -> The remaining validation process was skipped!")
                 search_sum = skipped_searches_counter + successful_searches_counter + mismatching_infos_counter + no_entry_found_counter
                 skipped_searches = TOTAL_NO_OF_REFERENCES - search_sum
                 skipped_searches_counter += skipped_searches
                 break
             
+            link_not_checked_counter += local_stats["unchecked_links"]
             valid_link_counter += local_stats["valid_links"]
             invalid_link_counter += local_stats["invalid_links"]
+            different_link_found_counter += local_stats["different_links"]
             skipped_searches_counter += local_stats["skipped_searches"]
             successful_searches_counter += local_stats["successful_searches"]
             mismatching_infos_counter += local_stats["mismatching_infos"]
@@ -774,8 +781,10 @@ def main(doc, ref_starting_page):
     stats = {
         "total_no_of_references": TOTAL_NO_OF_REFERENCES,
         "no_link_provided": no_link_provided_counter,
-        'valid_links': valid_link_counter,
+        "unchecked_links": link_not_checked_counter,
+        "valid_links": valid_link_counter,
         "invalid_links": invalid_link_counter,
+        "different_links": different_link_found_counter,
         "skipped_searches": skipped_searches_counter,
         "successful_searches": successful_searches_counter,
         "mismatching_infos": mismatching_infos_counter,

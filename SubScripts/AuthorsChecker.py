@@ -37,11 +37,18 @@ import pandas as pd
 # Constants:
 MAX_AUTHOR_REFERENCES = 2
 
+given_bib_type = ""
+
 
 
 ###############################################################################
 # Helper functions
 ###############################################################################
+
+def set_given_bib_type(bib_type):
+    global given_bib_type
+    given_bib_type = bib_type
+
 
 def extract_authors_springer(authors_str: str):
     """
@@ -115,7 +122,7 @@ def extract_authors_aaai_acm(authors_str: str):
     # Cases of "et al" not being in authors
     elif "et al" not in authors and not ";" in authors:
         # Example: "Dignum, V."
-        authors_list = [first_author]
+        authors_list = [authors]
     else:
         # Example: "Duran, P.; Castano, J.; Gómez, C.; and Martínez-Fernández, S."
         handle_multiple_authors = True
@@ -134,7 +141,8 @@ def extract_authors_aaai_acm(authors_str: str):
         parts = author.split(",")
         if len(parts) >= 2:
             last_name = parts[0].strip()
-            first_initial = parts[1][0]
+            first_initial = parts[1].strip()
+            first_initial = first_initial[0]
             normalized_authors.append(f"{last_name} {first_initial}.")
         else:
             print(f"-> Warning: Author '{author}' has no firstname?")
@@ -196,7 +204,19 @@ def extract_authors_acm(authors_str: str):
 # Main code
 ###############################################################################
 
-def main(references_df: pd.DataFrame, template: str):
+def get_normalized_authors(authors_str: str) -> list:
+    if given_bib_type == "springer":
+        return extract_authors_springer(authors_str)
+    elif given_bib_type == "aaai_acm":
+        return extract_authors_aaai_acm(authors_str)
+    elif given_bib_type == "acm":
+        return extract_authors_acm(authors_str)
+    else:
+        print(f"Warning: Unknown template '{given_bib_type}' for author extraction.")
+        return []
+
+
+def get_frequent_authors(references_df: pd.DataFrame):
     """
     The AuthorsChecker module takes a dataframe containing the references
     as input and counts how often each author appears in the references.
@@ -214,14 +234,14 @@ def main(references_df: pd.DataFrame, template: str):
 
     # Extract authors from each reference and count their occurrences
     for authors_str in references_df["authors"]:
-        if template == "springer":
+        if given_bib_type == "springer":
             author_counter.update(extract_authors_springer(authors_str))
-        elif template == "aaai_acm":
+        elif given_bib_type == "aaai_acm":
             author_counter.update(extract_authors_aaai_acm(authors_str))
-        elif template == "acm":
+        elif given_bib_type == "acm":
             author_counter.update(extract_authors_acm(authors_str))
         else:
-            print(f"Warning: Unknown template '{template}' for author extraction.")
+            print(f"Warning: Unknown template '{given_bib_type}' for author extraction.")
             return {}
 
     # Get authors that are referenced more than MAX_AUTHOR_REFERENCES
