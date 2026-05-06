@@ -454,7 +454,8 @@ def search_bib(p_references_df, index, link):
         year_to_find = int(year_to_find)
 
     # Each author listed in the reference, without "et al.", ist listed as one String
-    # of form "Lastname F." in normalized_authors 
+    # of form "Lastname F." in normalized_authors_list
+    # -> normalized_authors only contains the lastnames
     normalized_authors = []
     normalized_author_list = ac.get_normalized_authors(authors_to_find)
     for author in normalized_author_list:

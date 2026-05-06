@@ -116,6 +116,8 @@ def replace_accent_marks(input: str) -> str:
         input_str = input_str.replace("´I", 'Í')
         input_str = input_str.replace("´o", 'ó')
         input_str = input_str.replace("´O", 'Ó')
+    # ò ?
+    # TODO
     # °
     if "°" in input_str:
         input_str = input_str.replace("°a", 'å')

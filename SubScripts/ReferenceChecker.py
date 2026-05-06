@@ -52,6 +52,18 @@ import SubScripts.UnicodeChecker as uc
     #   header_lines = ?
     #   author_separator = ,
 
+# ??
+# - NeurIPS Conference Template
+    # [1] <Firstname> <Lastname>. <Title>. <Outlet + Volume/Issue>, <PageRange>, <Year>
+    # [1] <Firstname> <Lastname>. <Title>, <Year>
+    # Examples:
+    #   [1] Erfan Aghasian, Shai Avidan, Piotr Dollar, and Justin Johnson. Hierarchical protocols for multi-agent 3d scene understanding. In CVPR, pages 7664–7673, 2021.
+    #   [5] Angel X. Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu. Shapenet: An information-rich 3d model repository, 2015.
+    # Specifics:
+    #   header_lines = ?
+    #   authors_rest_separator = .
+    #   author_separator = ,
+
 
 
 ###############################################################################
@@ -83,7 +95,13 @@ acm_bib = {
     "authors_rest_separator": ".",
     "author_separator": ","
 }
-supported_bib_templates = [springer_bib, aaai_acm_bib, acm_bib]
+NEURIPS_BIB_STYLE = "neurips"
+neurips_bib = {
+    "name": NEURIPS_BIB_STYLE,
+    "authors_rest_separator": ".",
+    "author_separator": ","
+}
+supported_bib_templates = [springer_bib, aaai_acm_bib, acm_bib, neurips_bib]
 inferred_bib_template = SPRINGER_BIB_STYLE
 
 # Counters
@@ -229,7 +247,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 else:
                     page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
             
-            elif given_bib_type == ACM_BIB_STYLE:
+            elif given_bib_type == ACM_BIB_STYLE or given_bib_type == NEURIPS_BIB_STYLE:
                 # Matches the ACM Template for references, where
                 # each reference starts with the [xx]
                 if page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "]":
@@ -346,11 +364,10 @@ def parse_reference(ref: str) -> dict:
     # Case of number being in square brackets
     # (10 chars should be more than enough for the ref. no.)
     if reference[0] == "[" and "]" in reference[0:11]:
-        inferred_bib_template = ACM_BIB_STYLE
-        if inferred_bib_template != given_bib_type:
-            print(f"-> Warning: Bib template mismatch!")
 
-        pattern = r"$$(.*?)$$"
+        # NOTE: This clould be ACM or NeurIPS Template
+
+        pattern = r"\[(.*?)\]"
         pattern_match = re.search(pattern, reference[0:11])
         if pattern_match:
             ref_id = str(pattern_match.group(1))
@@ -449,7 +466,7 @@ def parse_reference(ref: str) -> dict:
 
 
     # ---------------------------------------------------------------
-    # Get the rest of the reference
+    # Get the link
     # ---------------------------------------------------------------
 
     # try to extract link (doi or http) at end
@@ -460,10 +477,15 @@ def parse_reference(ref: str) -> dict:
         # Cleanup reference string (the link is usually the last part)
         reference = reference[: m.start()].strip()
 
+
+    # ---------------------------------------------------------------
+    # Get the year and authors
+    # ---------------------------------------------------------------
+
     # year and authors
     year = 0
     authors = ''
-    if inferred_bib_template == SPRINGER_BIB_STYLE:
+    if given_bib_type == SPRINGER_BIB_STYLE:
         # E.g.: reference = "Meyer, C., Schneider, T.: Title. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024)."
         m = re.search(r'\((\d{4})\)', ref)
         if m:
@@ -488,6 +510,44 @@ def parse_reference(ref: str) -> dict:
             reference = rest.strip()
             # E.g.: reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
         # TODO: What else?
+    
+    elif given_bib_type == NEURIPS_BIB_STYLE:
+        # E.g.: reference = "Damjan Pecioski, Viktor Gavriloski, Simona Domazetovska, and Anastasija Ignjatovska. Title. In 2023 12th Mediterranean Conference on Embedded Computing (MECO), pages 1–4"
+
+        m = re.findall(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
+        if m:
+            year = int(m[-1])
+            # Cleanup reference string (the year should be the last part)
+            year_starting_indexes = [y.start() for y in re.finditer(str(year), reference)]
+            reference = reference[:year_starting_indexes[-1]].strip(" ,")
+        else:
+            m = re.search(r'\s(\d{4}).', ref)
+            if m:
+                year = int(m.group(1))
+                # Cleanup reference string (the year should be the last part)
+                reference = reference[:m.start()-2].strip()
+            else:
+                print(f"-> Warning: Could not parse year in reference '{reference}'!")
+        
+        separator = neurips_bib["authors_rest_separator"]
+        if separator in reference:
+
+            # Since the separator here is a . we need to get rid of all other points
+            # -> E.g., in names like "Leonidas J. Guibas"
+            reference_split = reference.split(separator)
+            reference_without_single_letter_points = ""
+            for element in reference_split:
+                if len(element) > 1 and element[-1].isupper() and element[-2] == " ":
+                    reference_without_single_letter_points += " " + element
+                else:
+                    reference_without_single_letter_points += " " + element + separator
+            
+            reference_without_single_letter_points = reference_without_single_letter_points.strip()
+            authors, rest = reference_without_single_letter_points.split(separator, 1)
+            authors = uc.replace_accent_marks(authors.strip())
+
+            # Cleanup reference string
+            reference = rest.strip()
     
     else:
         # E.g.: ACM-reference = "Virginia Braun and Victoria Clarke. 2006. Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
@@ -520,6 +580,7 @@ def parse_reference(ref: str) -> dict:
                 'link': link,
                 'valid': None,
             }
+        
 
     # Finish natural ref_id
     if inferred_bib_template == AAAIACM_BIB_STYLE:
@@ -535,6 +596,7 @@ def parse_reference(ref: str) -> dict:
     # E.g.: Springer-reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
     # E.g.: ACM-reference      = "Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101"
     # E.g.: AAAI/ACM-reference = "Title. European Journal of Information Systems, 25(3): 252–273"
+    # E.g.: NeurIPS-reference  = "Title. In 2023 12th Mediterranean Conference on Embedded Computing (MECO), pages 1–4"
 
     # title ends with a period before the outlet (if present)
     if '. ' in reference:
@@ -576,7 +638,7 @@ def parse_reference(ref: str) -> dict:
 # Main code
 ###############################################################################
 
-def main(doc, ref_starting_page):
+def main(doc, ref_starting_page, references_ending_page, heading_after_references):
     """
     The ReferenceChecker receives a document and the page number where the 
     reference section starts as input and
@@ -640,7 +702,7 @@ def main(doc, ref_starting_page):
     # Get all references from the reference section as separate stings in the 
     # 'references' list
     #==========================================================================
-    print(f"Checking references on pages: {ref_starting_page} -- {doc.page_count}")
+    print(f"Checking references on pages: {ref_starting_page} -- {references_ending_page}")
     references = []
     ref_starting_index = 0
 
@@ -684,8 +746,30 @@ def main(doc, ref_starting_page):
     references = check_page_text([], page_text, 1)
 
     # Iterate over all remaining pages and check for remaining references
-    for page_no in range(ref_starting_page, doc.page_count):
+    for page_no in range(ref_starting_page, references_ending_page):
         page_text = doc[page_no].get_text()
+
+        # Check if there is a this is the last page of the references and there 
+        # are more normal sections to come
+        if page_no == references_ending_page-1 and heading_after_references:
+            # Find the starting index of the next section
+            if page_text.find(heading_after_references) != -1:
+                ref_ending_index = page_text.find(heading_after_references)
+            else:
+                print(f"=> ERROR: There should be the heading '{heading_after_references}' on this page, but it can't be found!")
+                ref_ending_index = len(page_text)
+            
+            # Handle the final references page before the next normal section
+            # Cut the text before the reference section; we don't need it
+            page_text = page_text[:ref_ending_index]
+
+            # If this first heading after the reference section begins on a 
+            # new page, skip the whole thing
+            page_text_without_linebreaks = page_text.replace("\n", "")
+            if len(page_text_without_linebreaks) <= 3 and page_text_without_linebreaks.isdigit():
+                continue
+
+        # TODO: Adjust the hardcoded lineskip based on bibstyle
         if given_bib_type == SPRINGER_BIB_STYLE:
             references = check_page_text(references, page_text, 2)
         else:

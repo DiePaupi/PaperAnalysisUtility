@@ -211,6 +211,9 @@ def get_normalized_authors(authors_str: str) -> list:
         return extract_authors_aaai_acm(authors_str)
     elif given_bib_type == "acm":
         return extract_authors_acm(authors_str)
+    elif given_bib_type == "neurips":
+        # The acm authors format matches the neurips one :)
+        return extract_authors_acm(authors_str)
     else:
         print(f"Warning: Unknown template '{given_bib_type}' for author extraction.")
         return []
@@ -234,15 +237,7 @@ def get_frequent_authors(references_df: pd.DataFrame):
 
     # Extract authors from each reference and count their occurrences
     for authors_str in references_df["authors"]:
-        if given_bib_type == "springer":
-            author_counter.update(extract_authors_springer(authors_str))
-        elif given_bib_type == "aaai_acm":
-            author_counter.update(extract_authors_aaai_acm(authors_str))
-        elif given_bib_type == "acm":
-            author_counter.update(extract_authors_acm(authors_str))
-        else:
-            print(f"Warning: Unknown template '{given_bib_type}' for author extraction.")
-            return {}
+        author_counter.update(get_normalized_authors(authors_str))
 
     # Get authors that are referenced more than MAX_AUTHOR_REFERENCES
     frequent_authors = {

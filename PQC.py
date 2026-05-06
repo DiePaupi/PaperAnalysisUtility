@@ -36,6 +36,10 @@ headings = []
 # 'references_starting_page_no' is the page number where the references section
 #    starts; it is 0 if no references section was found
 references_starting_page_no = 0
+# 'references_ending_page_no' is the page number where the references section
+#    ends; it is 0 if no references section was found
+references_ending_page_no = 0
+heading_after_references = ""
 # 'unicode_counter' counts the occurences of different Unicode chars like 
 #    apostrophes, quotes, and dashes in the document
 unicode_counter = Counter()
@@ -98,6 +102,8 @@ def parse_numbered_headings(page_no: int, page_lines: list, line_index: int, \
     """
     
     global references_starting_page_no
+    global references_ending_page_no
+    global heading_after_references
 
     line = page_lines[line_index].strip()
 
@@ -105,15 +111,37 @@ def parse_numbered_headings(page_no: int, page_lines: list, line_index: int, \
     if heading_match:
         number = heading_match.group(0)
 
-        # Check if the current line is not the last
-        if line_index + 1 < len(page_lines):
+        # Check if the current line is not the last, and
+        #       if the next line is non-empty & not only numerical
+        if line_index + 1 < len(page_lines) and page_lines[line_index + 1] \
+            and not page_lines[line_index + 1].strip().isdigit():
+            # If this is not the first heading found
             if len(headings) > 0:
                 last_index = len(headings) - 1
                 last_heading_no = int(headings[last_index][0])
-                if int(number.strip())-1 == last_heading_no:
-                    text = page_lines[line_index + 1].strip()
+                text = page_lines[line_index + 1].strip()
+
+                # If the parsed heading number matches the last found heading's number +1
+                if references_starting_page_no == 0 \
+                    and int(number.strip())-1 == last_heading_no \
+                    and text[0].isupper():
                     print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
                     headings.append((number, text, page_no + 1))
+                # If the parsed heading number does NOT match
+                # -> Might be the case for sections after the References section
+                elif references_starting_page_no > 0 \
+                    and (int(number.strip())-1 == last_heading_no
+                         or int(number.strip()) == last_heading_no) \
+                    and text[0].isupper():
+                    print(f"- Found heading after References '{number} - {text}' on page {page_no + 1}")
+                    headings.append((number, text, page_no + 1))
+
+                    # Only update the references_ending_page_no for the first heading
+                    # after the reference section
+                    if references_ending_page_no == 0:
+                        references_ending_page_no = page_no + 1
+                        heading_after_references = text
+            # If this is the first heading found
             else:
                 text = page_lines[line_index + 1].strip()
                 print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
@@ -181,6 +209,7 @@ def check_document_structure(doc):
     global supported_formatting_templates
     global headings
     global references_starting_page_no
+    global references_ending_page_no
     global unicode_counter
     global unicode_lines
 
@@ -254,6 +283,8 @@ def check_document_structure(doc):
                         if prefix.strip().isdigit():
                             # TODO: Numberes are in the same line as the heading!!
                             print(f"=> Error: Inline numbered headings are not supported yet!")
+                            print(" -> The programm will exit now. :)")
+                            sys.exit(0)
 
             # If the headings are numbered
             elif numbered_headings == 1:
@@ -264,10 +295,13 @@ def check_document_structure(doc):
             elif numbered_headings == 0:
                 headings = parse_unnumbered_headings(page_no, line, headings)
             
-            if references_starting_page_no != 0:
-                return
+            #if references_starting_page_no != 0:
+            #    return
 
         page_no += 1
+    
+    if references_ending_page_no == 0:
+        references_ending_page_no = doc.page_count
 
 
 
@@ -288,6 +322,8 @@ def main():
 
     global headings
     global references_starting_page_no
+    global references_ending_page_no
+    global heading_after_references
     global unicode_lines
 
 
@@ -352,7 +388,7 @@ def main():
         sys.exit(0)
     else:
         global references_df
-        references_df, ref_stats, entries = ref_c.main(doc, references_starting_page_no)
+        references_df, ref_stats, entries = ref_c.main(doc, references_starting_page_no, references_ending_page_no, heading_after_references)
     
     extracted_references = references_df.drop('full_reference', axis=1)
 
@@ -580,19 +616,19 @@ def main():
             if invalid_entries:
                 f.write("	- Invalid entries:\n")
                 for entry in invalid_entries:
-                    f.write(f"		- {entry}\n")
+                    f.write(f"		- {entry.replace("[", "\[").replace("]", "\]")}\n")
             f.write(f"- Successful searches: ${ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Skipped searches: ${ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Mismatching infos: ${ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if mismatching_entries:
                 f.write("	- Mismatching entries:\n")
                 for entry in mismatching_entries:
-                    f.write(f"		- {entry}\n")
+                    f.write(f"		- {entry.replace("[", "\[").replace("]", "\]")}\n")
             f.write(f"- No entry found: ${ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if unfound_entries:
                 f.write("	- Unfound entries:\n")
                 for entry in unfound_entries:
-                    f.write(f"		- {entry}\n")
+                    f.write(f"		- {entry.replace("[", "\[").replace("]", "\]")}\n")
             f.write("\n")
             f.write(f"![References Validation Results]({literature_validation_results_fig_path})")
             f.write("\n\n")
@@ -691,7 +727,7 @@ def main():
         f.write("\n")
 
         f.write("Papers that we didn't have an abstract for to check against:\n")
-        if len(related_statements['unknown']) > 0 or len(unrelated_statements['unknown'] > 0):
+        if len(related_statements['unknown']) > 0 or len(unrelated_statements['unknown']) > 0:
             for tuple in related_statements['unknown']:
                 # [0] = sentence
                 f.write(f"- '{tuple[0]}'\n")

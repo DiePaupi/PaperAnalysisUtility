@@ -439,7 +439,7 @@ def validate_sentence_references(references_df, sentences_and_ref_df_indexes):
                 llm_answer_list = check_with_llm(abstract, sentences)
                 ref_and_sentences_df.at[row_index, 'sentences'] = llm_answer_list
             else:
-                print(f"-> WARNING: Reference with index {row['index_in_refdf']} ({references_df.at[row['index_in_refdf'], 'ref_id']}) has no associated sentence!")
+                print(f"-> WARNING: Reference with index {row['index_in_refdf']} (Ref. ID = {references_df.at[row['index_in_refdf'], 'ref_id']}) has no associated sentence!")
         else:
             print(f"-> Missing an abstract for reference with index {row['index_in_refdf']} (Ref. ID = {references_df.at[row['index_in_refdf'], 'ref_id']}); Skipping LLM check...")
 
