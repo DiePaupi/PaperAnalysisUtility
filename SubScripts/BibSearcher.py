@@ -1,6 +1,7 @@
 ###############################################################################
 # Imports
 ###############################################################################
+import copy
 import pandas as pd
 import random
 from scholarly import scholarly, ProxyGenerator
@@ -38,9 +39,19 @@ import SubScripts.UnicodeChecker as uc
 # NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
 MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
-USE_GS_AS_FALLBACK = True
+UNKNOWN = "unknown"
 
 skip_all_remaining_validations = False
+
+
+#==========================================================================
+# NOTE: You COULD use Google Scholar as backup here but since that is
+#       explicitly forbidden by Google, this code is for educational 
+#       purposes only!
+#       DO NOT CHANGE 'USE_GS_AS_FALLBACK' TO 'True'!
+#==========================================================================
+USE_GS_AS_FALLBACK = False
+
 
 
 ###############################################################################
@@ -56,7 +67,6 @@ def manual_search(query, title, authors, year):
     TODO
     """
     global skip_all_remaining_validations
-    UNKNOWN = "unknown"
     
     if "pub_url" in query:
         url = query[8:].strip('"')
@@ -108,13 +118,11 @@ def activate_scholar_search(query, title, authors, year, entries_to_check, is_ti
        - The abstract of the found paper (if any) to be logged in the
          'abstract' column of the reference's entry in the dataframe
     """
-
-    UNKNOWN = "unknown"
     
     # User must give permission to search the defined query on Scholar
     #search_permission = input(f"   -> Permission to search for '{query}' on Scholar using scholarly? Type 'y': ").strip().strip('"')
     #if search_permission.lower() == "yes" or search_permission.lower() == "y":
-    print("   -> Started new search process; this may take one or two minutes!")
+    print("   -> Started new GS search process; this may take one or two minutes!")
 
     # Get the search results via proxy
     try:
@@ -183,7 +191,7 @@ def activate_scholar_search(query, title, authors, year, entries_to_check, is_ti
                         lastname = pub_author.split(" ")[1].strip()
                         lastname = uc.replace_accent_marks(lastname)
                         if not lastname.lower() in authors.lower():
-                            print(f"       -> ERROR: Lastname ({lastname}) does not match any expected authors' ({authors.lower()})!")
+                            print(f"       -> WARNING: Lastname ({lastname}) does not match any expected authors' ({authors.lower()})!")
                             print(f"          Manual check required: {current_search_result['pub_url']}")
                             return False, f"CHECK - Authors did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
 
@@ -193,22 +201,22 @@ def activate_scholar_search(query, title, authors, year, entries_to_check, is_ti
                     print("     -> SUCCESS: Years matched; reference checks out. :)")
                     return False, f"Found: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
                 else:
-                    print(f"       -> ERROR: Year ({pub_year}) does not match expected year ({year})!")
+                    print(f"       -> WARNING: Year ({pub_year}) does not match expected year ({year})!")
                     print(f"          Manual check required: {current_search_result['pub_url']}")
                     return False, f"CHECK - Years did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
                 
             #else:
-            #    print(f"   -> ERROR: Title does not match expected title! Trying next search result (if any).")
+            #    print(f"   -> WARNING: Title does not match expected title! Trying next search result (if any).")
             #    print(f"      Expected title: '{title}'")
             #    print(f"      Current search result's title: '{pub_title}'")
 
             # If none of them match, return False
-            message = f"ERROR: None of the {no_of_results_to_check} searched Scholar-results matched the expected title!"
+            message = f"WARNING: None of the {no_of_results_to_check} searched Scholar-results matched the expected title!"
             print(f"     -> {message}")
             return False, message, UNKNOWN
 
     else:
-        message = f"ERROR: No results were found through the search on Scholar!"
+        message = f"WARNING: No results were found through the search on Scholar!"
         print(f"     -> {message}")
         if is_title_search:
             m_message, abstract = manual_search(query, title, authors, year)
@@ -222,46 +230,49 @@ def activate_scholar_search(query, title, authors, year, entries_to_check, is_ti
     #    return True, message, UNKNOWN
 
 
-def compare_dblp_dicts_to_reference(authors: str, title: str, year: int, p_link: str):
-    """
-    TODO
-    """
+def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
+                                  author_count: int, title: str, year: int):
 
     link_check = ""
-    
-    # Try to find the publication via author+year search in dblp
-    keywords = []
-    normalized_author_list = ac.get_normalized_authors(authors)
-    for author in normalized_author_list:
-        keywords.append(author.split(" ")[0])
-    keywords.append(str(year))
-    dblp_results_df = dblp_caller.get_dblp_result_df(keywords, None)
+    found_abstract = ""
+    check_message = ""
 
     # Check if at least one result is found
-    if dblp_results_df.shape[0] >= 1:
-        print(f"     -> INFO: Now checking {dblp_results_df.shape[0]} dblp results for matching title: '{title}'")
+    if dicts_df.shape[0] >= 1:
+        print(f"  -> INFO: Now checking {dicts_df.shape[0]} results for matching title: '{title}'")
                 
         # Loop over all results and check if the title (and year) matches
-        # NOTE: dblp_results_df has these keys: 'title' (str), 'year' (int), 'authors' (list), 'outlet' (str),
-        #       'pages' (str), 'access' (str), 'link' (str)
-        for row_i, row in dblp_results_df.iterrows():
-            
+        # NOTE: sem_scholar_results_df has these keys: 'title' (str), 'year' (int),
+        #       'authors' (list), 'abstract' (str)
+        # NOTE: dblp_results_df has these keys: 'title' (str), 'year' (int), 'authors' (list), 
+        #       'outlet' (str), 'pages' (str), 'access' (str), 'link' (str)
+        for row_i, row in dicts_df.iterrows():
+
+            # -----------------------------------------------------------------
             # Compare titles
-            pub_title = row['title']
+            # -----------------------------------------------------------------
             # Note: During parsing spaces may go missing, so we ignore them when comparing titles
             #       -> Different apostophies or similar may also lead to a false comparison, so replace them
+
+            pub_title = row['title']
             pub_title_for_comparison = uc.replace_all_unicode(pub_title)
             pub_title_for_comparison = pub_title.replace(" ", "").lower()
             given_title_for_comparison = uc.replace_all_unicode(title)
             given_title_for_comparison = pub_title.replace(" ", "").lower()
 
             if pub_title_for_comparison == given_title_for_comparison:
-                print("     -> INFO: Titles matched!")
+                if not check_message:
+                    print("     -> INFO: Titles matched!")
 
+                # -------------------------------------------------------------
                 # Compare authors
+                # -------------------------------------------------------------
                 matched_author_count = 0
                 unmatched_author_count = 0
+                unmatched_lastnames = ""
+                authors_str_contains_etal = True if "et al" in authors_str else False
                 pub_bib_authors = row['authors']
+
                 for pub_author in pub_bib_authors:
                     if pub_author:
 
@@ -269,61 +280,114 @@ def compare_dblp_dicts_to_reference(authors: str, title: str, year: int, p_link:
                         #       -> The authors' string had accent marks already replaced during parsing
                         lastname = pub_author.split(" ")[-1].strip()
                         lastname = uc.replace_accent_marks(lastname)
-                        if lastname.lower() in authors.lower():
+
+                        if lastname.lower() in authors_str.lower():
                             matched_author_count += 1
                         else:
-                            unmatched_author_count += 1
+                            replaced_lastname = lastname.replace("ö","oe").replace("ä","ae").replace("ü","ue")
+                            replaced_lastname = replaced_lastname.replace("Ö","Oe").replace("Ä","Ae").replace("Ü","Ue")
 
-                if unmatched_author_count > 0:
-                    print(f"       -> WARNING: {unmatched_author_count} authors were not matched to any of the expected authors ({authors.lower()})!")
-                    if row['link'] == "unknown":
-                        print(f"          Manual check required: {row['title']}")
-                        return f"CHECK - Authors did not match: {row['title']}", link_check
-                    else:
-                        print(f"          Manual check required: {row['link']}")
-                        if p_link and p_link == row['link']:
-                            link_check = "valid link"
-                        else:
+                            if replaced_lastname.lower() in authors_str.lower() \
+                                or replaced_lastname.replace("ß","ss").lower() in authors_str.lower():
+                                matched_author_count += 1
+                            else:
+                                unmatched_author_count += 1
+                                unmatched_lastnames += lastname + " "
+                
+                # Check if authors actually match
+                if matched_author_count == author_count and unmatched_author_count == 0:
+                    print(f"       -> INFO: All authors matched!")
+                elif matched_author_count == author_count and authors_str_contains_etal:
+                    print(f"       -> INFO: All named authors matched; rest may fall under 'et al.'.")
+                elif matched_author_count == 0:
+                    if not check_message:
+                        print(f"       -> WARNING: No authors matched...")
+                    continue
+                else:
+                    unmatched_lastnames = unmatched_lastnames.strip()
+                    print(f"       -> WARNING: Not all {len(pub_bib_authors)} authors from the found ref. were matched (only {matched_author_count})")
+                    print(f"                   Unmatched authors = '{unmatched_lastnames}'")
+                    # Temporaly save results to check if another entry of dicts_df 
+                    # is a better or worse match
+                    if not found_abstract:
+                        if "abstract" in dicts_df.columns and row['abstract'] and row['abstract'] != UNKNOWN:
+                            found_abstract = row['abstract']
+                        if "link" in dicts_df.columns and row['link'] and row['link'] != UNKNOWN:
                             link_check = row['link']
-                        return f"CHECK - Authors did not match: {row['link']}", link_check
-
+                            check_message = f"CHECK - Authors ({unmatched_lastnames}) did not match found information: {row['link']}"
+                        else:
+                            link_check = UNKNOWN
+                            check_message = f"CHECK - Authors ({unmatched_lastnames}) did not match found publication titled '{row['title']}'"
+                    continue
+            
+                # -------------------------------------------------------------
                 # Compare years
+                # -------------------------------------------------------------
                 pub_year = row['year']
                 if pub_year == year:
-                    print("     -> SUCCESS: Years matched; reference checks out. :)")
-                    if row['link'] == "unknown":
-                        return f"Found: {row['title']}", link_check
+                    if "abstract" in dicts_df.columns and row['abstract'] and row['abstract'] != UNKNOWN:
+                        found_abstract = row['abstract']
                     else:
-                        if p_link and p_link == row['link']:
-                            link_check = "valid link"
-                        else:
-                            link_check = row['link']
-                        return f"Found: {row['link']}", link_check
+                        found_abstract = UNKNOWN
+                    if "link" in dicts_df.columns and row['link'] and row['link'] != UNKNOWN:
+                        link_check = row['link']
+                        check_message = f"Found: Years matched; reference ({row['link']}) checks out :)"
+                    else:
+                        link_check = UNKNOWN
+                        check_message = f"Found: Years matched; reference checks out :)"
+                    return check_message, found_abstract, link_check
                 else:
-                    print(f"       -> ERROR: Year ({pub_year}) does not match expected year ({year})!")
-                    if row['link'] == "unknown":
-                        print(f"          Manual check required: {row['title']}")
-                        return f"CHECK - Year did not match: {row['title']}", link_check
+                    print(f"       -> WARNING: Year ({pub_year}) does not match expected year ({year})!")
+                    # Temporaly save results to check if another entry of dicts_df 
+                    # is a better or worse match
+                    if "abstract" in dicts_df.columns and row['abstract'] and row['abstract'] != UNKNOWN:
+                        found_abstract = row['abstract']
                     else:
-                        print(f"          Manual check required: {row['link']}")
-                        if p_link and p_link == row['link']:
-                            link_check = "valid link"
-                        else:
-                            link_check = row['link']
-                        return f"CHECK - Year did not match: {row['link']}", link_check
+                        found_abstract = UNKNOWN
+                    if "link" in dicts_df.columns and row['link'] and row['link'] != UNKNOWN:
+                        link_check = row['link']
+                        check_message = f"CHECK - Year ({pub_year}, {row['link']}) does not match expected year ({year})"
+                    else:
+                        link_check = UNKNOWN
+                        check_message = f"CHECK - Year ({pub_year}) does not match expected year ({year})"
+                    continue
 
-            # If none of them match, return False
-            message = f"ERROR: None of the {dblp_results_df.shape[0]} dblp results matched the expected title!"
-            print(f"     -> {message}")
-            return message, link_check
-
+        # After iterating gicts_df, check if anything matched at all
+        if not check_message:
+            message = f"WARNING: None of the {dicts_df.shape[0]} results matched the expected title!"
+            print(f"  -> {message}")
+            return message, "", ""
+        else:
+            print(f"  -> INFO: No perfect match found; taking the next best!")
+            return check_message, found_abstract, link_check
+    
     else:
-        message = f"ERROR: No results were found through the dblp search!"
-        print(f"     -> {message}")
-        return message, link_check
+        message = f"WARNING: No results were found through the dblp search!"
+        print(f"  -> {message}")
+        return message, "", ""
 
 
-def compare_sem_scholar_dicts_to_reference(authors: str, title: str, year: int):
+def compare_dblp_dicts_to_reference(authors_str: str, normalized_authors: list, title: str, year: int, p_link: str):
+    """
+    TODO
+    """
+    
+    # Try to find the publication via author+year search in dblp
+    keywords = copy.deepcopy(normalized_authors)
+    keywords.append(str(year))
+    dblp_results_df = dblp_caller.get_dblp_result_df(keywords, None)
+
+    check_message, abstract, link_check = compare_dicts_df_to_reference(dblp_results_df, authors_str, len(normalized_authors), title, year)
+
+    if p_link == link_check:
+        return check_message, "valid"
+    elif not link_check or link_check == UNKNOWN:
+        return check_message, ""
+    else:
+        return check_message, link_check
+
+
+def compare_sem_scholar_dicts_to_reference(authors_str: str, title: str, year: int, author_count: int):
     """
     TODO
     """
@@ -331,67 +395,9 @@ def compare_sem_scholar_dicts_to_reference(authors: str, title: str, year: int):
     # Try to find the publication via title search with SemanticScholar
     sem_scholar_results_df = sem_scholar_caller.get_semantic_scholar_result_df(title, True, None)
 
-    # Check if at least one result is found
-    if sem_scholar_results_df.shape[0] >= 1:
-        print(f"     -> INFO: Now checking {sem_scholar_results_df.shape[0]} Semantic Scholar results for matching title: '{title}'")
-                
-        # Loop over all results and check if the title (and year) matches
-        # NOTE: sem_scholar_results_df has these keys: 'title' (str), 'year' (int),
-        #       'authors' (list), 'abstract' (str)
-        for row_i, row in sem_scholar_results_df.iterrows():
-            
-            # Compare titles
-            pub_title = row['title']
-            # Note: During parsing spaces may go missing, so we ignore them when comparing titles
-            #       -> Different apostophies or similar may also lead to a false comparison, so replace them
-            pub_title_for_comparison = uc.replace_all_unicode(pub_title)
-            pub_title_for_comparison = pub_title.replace(" ", "").lower()
-            given_title_for_comparison = uc.replace_all_unicode(title)
-            given_title_for_comparison = pub_title.replace(" ", "").lower()
+    check_message, abstract, link_check = compare_dicts_df_to_reference(sem_scholar_results_df, authors_str, author_count, title, year)
 
-            if pub_title_for_comparison == given_title_for_comparison:
-                print("     -> INFO: Titles matched!")
-
-                # Compare authors
-                matched_author_count = 0
-                unmatched_author_count = 0
-                pub_bib_authors = row['authors']
-                for pub_author in pub_bib_authors:
-                    if pub_author:
-
-                        # Note: Specific accent marks may lead to a false comparison
-                        #       -> The authors' string had accent marks already replaced during parsing
-                        lastname = pub_author.split(" ")[-1].strip()
-                        lastname = uc.replace_accent_marks(lastname)
-                        if lastname.lower() in authors.lower():
-                            matched_author_count += 1
-                        else:
-                            unmatched_author_count += 1
-
-                if unmatched_author_count > 0:
-                    print(f"       -> WARNING: {unmatched_author_count} authors were not matched to any of the expected authors ({authors.lower()})!")
-                    print(f"          Manual check required: {row['title']}")
-                    return f"CHECK - Authors did not match: {row['title']}", row['abstract']
-
-                # Compare years
-                pub_year = row['year']
-                if pub_year == year:
-                    print("     -> SUCCESS: Years matched; reference checks out. :)")
-                    return f"Found: {row['title']}", row['abstract']
-                else:
-                    print(f"       -> ERROR: Year ({pub_year}) does not match expected year ({year})!")
-                    print(f"          Manual check required: {row['title']}")
-                    return f"CHECK - Year did not match: {row['title']}", row['abstract']
-
-            # If none of them match, return False
-            message = f"ERROR: None of the {sem_scholar_results_df.shape[0]} Semantic Scholar results matched the expected title!"
-            print(f"     -> {message}")
-            return message, row['abstract']
-
-    else:
-        message = f"ERROR: No results were found through the dblp search!"
-        print(f"     -> {message}")
-        return message, "unknown"
+    return check_message, abstract
 
 
 ###############################################################################
@@ -441,11 +447,19 @@ def search_bib(p_references_df, index, link):
             "mismatching_infos": mismatching_infos_counter,
             "no_entry_found": no_entry_found_counter
         }
-        return p_references_df, stats
+        return p_references_df, stats, [], []
     elif year_to_find == "NOT PARSED":
         year_to_find = 0
     else:
         year_to_find = int(year_to_find)
+
+    # Each author listed in the reference, without "et al.", ist listed as one String
+    # of form "Lastname F." in normalized_authors 
+    normalized_authors = []
+    normalized_author_list = ac.get_normalized_authors(authors_to_find)
+    for author in normalized_author_list:
+        normalized_authors.append(author.split(" ")[0])
+    author_count = len(normalized_authors)
 
 
     #==========================================================================
@@ -453,7 +467,7 @@ def search_bib(p_references_df, index, link):
     #==========================================================================
 
     # Try to find the publication via author+year search in dblp
-    sem_scholar_result_message, sem_scholar_abstract = compare_sem_scholar_dicts_to_reference(authors_to_find, title_to_find, year_to_find)
+    sem_scholar_result_message, sem_scholar_abstract = compare_sem_scholar_dicts_to_reference(authors_to_find, title_to_find, year_to_find, author_count)
     
     # If the search was successful:
     if sem_scholar_result_message.startswith("Found: "):
@@ -462,7 +476,17 @@ def search_bib(p_references_df, index, link):
         
         successful_searches_counter += 1
         p_references_df.at[index, 'valid'] = sem_scholar_result_message
-        p_references_df.at[index, 'abstract'] = sem_scholar_abstract
+        if (not sem_scholar_abstract and sem_scholar_abstract != UNKNOWN):
+            p_references_df.at[index, 'abstract'] = sem_scholar_abstract
+        elif USE_GS_AS_FALLBACK:
+            search_skipped, search_message, abstract = activate_scholar_search(title_to_find,
+                                                                                title_to_find,
+                                                                                authors_to_find,
+                                                                                year_to_find,
+                                                                                MAX_SCHOLAR_ENTRIES_TO_CHECK,
+                                                                                True)
+            if abstract and abstract != "None" and abstract != UNKNOWN:
+                p_references_df.at[index, 'abstract'] = abstract
 
     # If the search revealed mismatching entries:
     elif sem_scholar_result_message.startswith("CHECK -"):
@@ -483,7 +507,7 @@ def search_bib(p_references_df, index, link):
         #==========================================================================
 
         # Try to find the publication via author+year search in dblp
-        dblp_result_message, dblp_link_check = compare_dblp_dicts_to_reference(authors_to_find, title_to_find, year_to_find, link)
+        dblp_result_message, dblp_link_check = compare_dblp_dicts_to_reference(authors_to_find, normalized_authors, title_to_find, year_to_find, link)
         
         # If the search was successful:
         if dblp_result_message.startswith("Found: "):
@@ -505,6 +529,17 @@ def search_bib(p_references_df, index, link):
 
             successful_searches_counter += 1
             p_references_df.at[index, 'valid'] = dblp_result_message
+            p_references_df.at[index, 'valid'] = sem_scholar_result_message
+
+            if USE_GS_AS_FALLBACK:
+                search_skipped, search_message, abstract = activate_scholar_search(title_to_find,
+                                                                                    title_to_find,
+                                                                                    authors_to_find,
+                                                                                    year_to_find,
+                                                                                    MAX_SCHOLAR_ENTRIES_TO_CHECK,
+                                                                                    True)
+                if abstract and abstract != "None" and abstract != UNKNOWN:
+                    p_references_df.at[index, 'abstract'] = abstract
 
         # If the search revealed mismatching entries:
         elif dblp_result_message.startswith("CHECK -"):
@@ -565,14 +600,9 @@ def search_bib(p_references_df, index, link):
                     p_references_df.at[index, 'valid'] = f"{sem_scholar_result_message} | {dblp_result_message}"
                     unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {sem_scholar_result_message} | {dblp_result_message}")
 
-            
-            #==========================================================================
-            # NOTE: You COULD use Google Scholar as backup here but since that is
-            #       explicitly forbidden by Google, this code is for educational 
-            #       purposes only!
-            #       DO NOT CHANGE 'USE_GS_AS_FALLBACK' TO 'True'!
-            #==========================================================================
-
+            # -----------------------------------------------------------------
+            # FALLBACK
+            # -----------------------------------------------------------------
             if USE_GS_AS_FALLBACK:
 
                 # If a link is given, we want to search for it first, otherwise we search for the author and year
@@ -713,4 +743,4 @@ def search_bib(p_references_df, index, link):
         "mismatching_infos": mismatching_infos_counter,
         "no_entry_found": no_entry_found_counter
     }
-    return p_references_df, stats
+    return p_references_df, stats, mismatching_entries, unfound_entries

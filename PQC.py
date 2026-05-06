@@ -184,9 +184,9 @@ def check_document_structure(doc):
     global unicode_counter
     global unicode_lines
 
-    print("###############################")
+    print("##########################################################")
     print("# Starting Structure Check")
-    print("###############################")
+    print("##########################################################")
 
     #==========================================================================
     # Check template and get specifics
@@ -368,7 +368,9 @@ def main():
     # Check the uniformity of used chars like apostrophes, quotes, and dashes
     invalid_unicode_lines, unicode_stats = uc.check_if_unicode_is_sus(unicode_lines)
     total_no_of_nonbreaking_spaces = unicode_stats["valid_nonbreaking_spaces"] + unicode_stats["invalid_nonbreaking_spaces"]
+    total_no_of_minus_signs = unicode_stats["valid_minus_sign_uses"] + unicode_stats["invalid_minus_sign_uses"]
     
+    # Sanity Check
     #if not unicode_counter['\u00A0'] == total_no_of_nonbreaking_spaces:
     #    print(f"WARNING: The unicode_stats counted {total_no_of_nonbreaking_spaces} which is not equal to the unicode_counter's count.")
 
@@ -376,6 +378,9 @@ def main():
     sentences_and_ref_df_indexes, sentences_with_unfound_refs = rit_c.compare_intext_references_to_bib(doc, references_starting_page_no, extracted_references, referencing_template)
     
     # Check if all references support the statements made in the paper
+    # -> ref_and_sentences_df['sentences'] contains a list of tuples of the form (sentence, thematically related/relevant: bool, stance: str)
+    # -> if stance = "unknown", that it wasn't checked by the LLM due to a missing abstract
+    # -> TODO: List them!
     ref_and_sentences_df = rit_c.validate_sentence_references(references_df, sentences_and_ref_df_indexes)
     related_statements, unrelated_statements = rit_c.get_statement_relevance_dicts(ref_and_sentences_df, references_df)
     
@@ -488,15 +493,24 @@ def main():
             f.write("No invalid seeming Unicode characters found in the document.\n\n")
         else:
             # TODO: Extend for other Unicode lists
+            if invalid_unicode_lines[2]:
+                f.write("Dashes:\n")
+                f.write("- Stats for minus signs ():\n")
+                f.write(f"	- Valid uses: {unicode_stats['valid_minus_sign_uses']}/{total_no_of_minus_signs}={unicode_stats['valid_minus_sign_uses']/total_no_of_minus_signs*100:.2f}%\n")
+                f.write(f"	- Invalid uses: {unicode_stats['invalid_minus_sign_uses']}/{total_no_of_minus_signs}={unicode_stats['invalid_minus_sign_uses']/total_no_of_minus_signs*100:.2f}%\n")
+                f.write("- Sentences with invalid dahes:\n")
+                f.write("	- Lines containing invalid dashes:\n")
+                for line, page_no in invalid_unicode_lines[2]:
+                    f.write(f"		- Page {page_no}: {line}\n")
             if invalid_unicode_lines[3]:
                 f.write("Non-breaking spaces:\n")
                 f.write("- Stats:\n")
                 f.write(f"  - Valid uses: {unicode_stats['valid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['valid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
                 f.write(f"  - Invalid uses: {unicode_stats['invalid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['invalid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
-                f.write("- Lines containing invalid non-breaking spaces:\n")
+                f.write("	- Lines containing invalid non-breaking spaces:\n")
                 for line, page_no in invalid_unicode_lines[3]:
-                    f.write(f"  - Page {page_no}: {line}\n")
-            f.write("\n\n")
+                    f.write(f"		- Page {page_no}: {line}\n")
+            f.write("\n")
         
         # Print RefIntextChecker results
         f.write("\n## References not in Bibliography\n\n")
@@ -510,49 +524,38 @@ def main():
             f.write("\n\n")
 
         f.write("\n## References Support for Statements\n\n")
+        f.write("*Please note that only references with a retrieved abstract can be checked here.*\n")
+        f.write("*You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*\n")
+        f.write("\n")
         f.write("Thematically related / relevant papers that refute the sentence they are referenced in:\n")
-        for tuple in related_statements['refuted']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(related_statements['refuted']) > 0:
+            for tuple in related_statements['refuted']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
         f.write("\n")
         f.write("Thematically unrelated / irrelevant papers:\n")
-        for tuple in unrelated_statements['refuted']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
-        for tuple in unrelated_statements['not_enough_info']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
-        for tuple in unrelated_statements['supported']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(unrelated_statements['refuted']) > 0 \
+            or len(unrelated_statements['not_enough_info']) > 0 \
+            or len(unrelated_statements['supported']) > 0:
+            for tuple in unrelated_statements['refuted']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+            for tuple in unrelated_statements['not_enough_info']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+            for tuple in unrelated_statements['supported']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
         f.write("\n\n\n")
         f.write("---")
-        
-        
-        # Print the rankings of the outlets
-        f.write("\n## Outlet Rankings\n\n")
-        for i, row in outlets_df.iterrows():
-            # outlets_df layout: 0=index, 1=parsed_name, 2=outlet_name, 3=jq_ranking,
-            #                    4=core_ranking, 5=impact_factor, 6=references_count
-            if row['outlet_name'] and row['outlet_name'] != "unknown":
-                f.write(f"- {row['outlet_name']}\n")
-                f.write(f"	- Parsed as: {row['parsed_name']}\n")
-            else:
-                f.write(f"- {row['parsed_name']}\n")
-            if row['jq_ranking'] and row['jq_ranking'] != "unknown":
-                f.write(f"	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = {row['jq_ranking']}\n")
-            if row['core_ranking'] and row['core_ranking'] != "unknown":
-                f.write(f"	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = {row['core_ranking']}\n")
-            if row['impact_factor'] and row['impact_factor'] != "unknown":
-                f.write(f"	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = {row['impact_factor']}\n")
-            f.write(f"	- References literatures count from this outlet: {row['references_count']}\n")
-        f.write("")
-        f.write(f"![Outlet Ranking Results]({ranking_results_fig_path})")
-        f.write("\n\n")
 
         # Print frequently referenced authors sorted by value (count) descending
         f.write("\n## Frequently Referenced Authors\n\n")
@@ -569,23 +572,23 @@ def main():
             f.write("No references section found in the document.\n")
         else:
             f.write(f"References section starts on page {references_starting_page_no}.\n\n")
-            f.write(f"- No link provided: {ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Unchecked links: {ref_stats['unchecked_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['unchecked_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Valid links: {ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Invalid link: {ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Mismatching links: {ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- No link provided: ${ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Unchecked links: ${ref_stats['unchecked_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['unchecked_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Valid links: ${ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Invalid link: ${ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Mismatching links: ${ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if invalid_entries:
                 f.write("	- Invalid entries:\n")
                 for entry in invalid_entries:
                     f.write(f"		- {entry}\n")
-            f.write(f"- Successful searches: {ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Skipped searches: {ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
-            f.write(f"- Mismatching infos: {ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- Successful searches: ${ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Skipped searches: ${ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Mismatching infos: ${ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if mismatching_entries:
                 f.write("	- Mismatching entries:\n")
                 for entry in mismatching_entries:
                     f.write(f"		- {entry}\n")
-            f.write(f"- No entry found: {ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}%\n")
+            f.write(f"- No entry found: ${ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if unfound_entries:
                 f.write("	- Unfound entries:\n")
                 for entry in unfound_entries:
@@ -593,6 +596,29 @@ def main():
             f.write("\n")
             f.write(f"![References Validation Results]({literature_validation_results_fig_path})")
             f.write("\n\n")
+        
+        # Print the rankings of the outlets
+        f.write("\n## Outlet Rankings\n\n")
+        f.write("### References and Their Rankings\n\n")
+        for i, row in outlets_df.iterrows():
+            # outlets_df layout: 0=index, 1=parsed_name, 2=outlet_name, 3=jq_ranking,
+            #                    4=core_ranking, 5=impact_factor, 6=references_count
+            if row['outlet_name'] and row['outlet_name'] != "unknown":
+                f.write(f"- {row['outlet_name']}\n")
+                f.write(f"	- Parsed as: {row['parsed_name']}\n")
+            else:
+                f.write(f"- {row['parsed_name']}\n")
+            if row['jq_ranking'] and row['jq_ranking'] != "unknown":
+                f.write(f"	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = {row['jq_ranking']}\n")
+            if row['core_ranking'] and row['core_ranking'] != "unknown":
+                f.write(f"	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = {row['core_ranking']}\n")
+            if row['impact_factor'] and row['impact_factor'] != "unknown":
+                f.write(f"	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = {row['impact_factor']}\n")
+            f.write(f"	- References literatures count from this outlet: {row['references_count']}\n")
+        f.write("\n")
+        f.write("### Outlet Ranking Results\n\n")
+        f.write(f"![Outlet Ranking Results]({ranking_results_fig_path})")
+        f.write("\n\n")
 
         f.write("---")
         # Print the references DF using df.to_markdown(tablefmt="grid")
@@ -611,46 +637,71 @@ def main():
         f.write("---")
         f.write("\n## Full List of Reference Support Check\n\n")
         f.write("Thematically related / relevant papers that refute the sentence they are referenced in:\n")
-        for tuple in related_statements['refuted']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(related_statements['refuted']) > 0:
+            for tuple in related_statements['refuted']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
         f.write("Thematically related / relevant papers that we had not enough info about:\n")
-        for tuple in related_statements['not_enough_info']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(related_statements['not_enough_info']) > 0:
+            for tuple in related_statements['not_enough_info']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
         f.write("Thematically related / relevant papers that support the sentence they are referenced in:\n")
-        for tuple in related_statements['supported']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
-        f.write("Thematically related / relevant papers that have the stance 'unknown':\n")
-        for tuple in related_statements['not_enough_info']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(related_statements['supported']) > 0:
+            for tuple in related_statements['supported']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
+
         f.write("\n")
+
         f.write("Thematically unrelated / irrelevant papers that refute the sentence they are referenced in:\n")
-        for tuple in unrelated_statements['refuted']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(unrelated_statements['refuted']) > 0:
+            for tuple in unrelated_statements['refuted']:
+                # [0] = sentence
+                f.write(f"- {tuple[0]}\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
         f.write("Thematically unrelated / irrelevant papers that we had not enough info about:\n")
-        for tuple in unrelated_statements['not_enough_info']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(unrelated_statements['not_enough_info']) > 0:
+            for tuple in unrelated_statements['not_enough_info']:
+                # [0] = sentence
+                f.write(f"- {tuple[0]}\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
         f.write("Thematically unrelated / irrelevant papers that support the sentence they are referenced in:\n")
-        for tuple in unrelated_statements['supported']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
-        f.write("Thematically unrelated / irrelevant papers that have the stance 'unknown':\n")
-        for tuple in unrelated_statements['not_enough_info']:
-            # [0] = sentence
-            f.write(f"- {tuple[0]}\n")
-            f.write(f"	- Ref. ID: {tuple[3]}\n")
+        if len(unrelated_statements['supported']) > 0:
+            for tuple in unrelated_statements['supported']:
+                # [0] = sentence
+                f.write(f"- {tuple[0]}\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
+
+        f.write("\n")
+
+        f.write("Papers that we didn't have an abstract for to check against:\n")
+        if len(related_statements['unknown']) > 0 or len(unrelated_statements['unknown'] > 0):
+            for tuple in related_statements['unknown']:
+                # [0] = sentence
+                f.write(f"- '{tuple[0]}'\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+            for tuple in unrelated_statements['unknown']:
+                # [0] = sentence
+                f.write(f"- {tuple[0]}\n")
+                f.write(f"	- Ref. ID: {tuple[3]}\n")
+        else:
+            f.write(f"- None\n")
         f.write("\n\n\n")
     
     print("---")

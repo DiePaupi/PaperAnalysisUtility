@@ -128,22 +128,22 @@ def replace_accent_marks(input: str) -> str:
 
 def check_hyphen_minus_validity(text: str, hyphen_minus_index: int, page_no: int):
     # TODO!
-    pass
+    return True
 
 
 def check_hyphen_validity(text: str, hyphen_index: int, page_no: int):
     # TODO!
-    pass
+    return True
 
 
 def check_en_dash_validity(text: str, en_dash_index: int, page_no: int):
     # TODO!
-    pass
+    return True
 
 
 def check_em_dash_validity(text: str, em_dash_index: int, page_no: int):
     # TODO!
-    pass
+    return True
 
 
 def check_minus_sign_validity(text: str, minus_sign_index: int, page_no: int):
@@ -275,9 +275,9 @@ def check_if_unicode_is_sus(unicode_lines: list):
     global dash_map
     global unicode_spaces
 
-    print("###############################")
+    print("##########################################################")
     print("# Starting Unicode Check")
-    print("###############################")
+    print("##########################################################")
 
     # NOTE: This needs to have the same format as the one used in PQC.py
     invalid_unicode_lines = [[], [], [], []]
@@ -396,6 +396,7 @@ def check_if_unicode_is_sus(unicode_lines: list):
         # A line needs only to be added once
         if line_contains_min_one_invalid_use:
             invalid_unicode_lines[2].append((line, page_no))
+            print(f"-> Invalid unicode use found on p. {page_no}: {line}")
 
 
     #==========================================================================

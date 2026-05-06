@@ -395,6 +395,8 @@ def parse_reference(ref: str) -> dict:
     #           -> Referenced as: (Malterud, Siersma, and Guassora 2016)
     #       -> Lins, S.; Pandl, K. D.; Teigeler, H.; Thiebes, S.; Bayer, C.; and Sunyaev, A. 2021.
     #           -> Referenced as: (Lins et al. 2021)
+    # NOTE: We need to get rid of points behind "et al." so the parsing in the RefIntextChecker
+    #       works
     else:
         inferred_bib_template = AAAIACM_BIB_STYLE
         if inferred_bib_template != given_bib_type:
@@ -416,7 +418,7 @@ def parse_reference(ref: str) -> dict:
                 if len(authors_list) == 2:
                     ref_id = authors_list[0].split(",")[0].strip()
                     if "et al" in authors_list[1] :
-                        ref_id += " et al. "
+                        ref_id += " et al "
                     else:
                         if "and" in authors_list[1]:
                             ref_id += " "
@@ -429,7 +431,7 @@ def parse_reference(ref: str) -> dict:
                     ref_id += ", "
                     ref_id += authors_list[1].split(",")[0].strip()
                     if "et al" in authors_list[2]:
-                        ref_id += " et al. "
+                        ref_id += " et al "
                     else:
                         if "and" in authors_list[2]:
                             ref_id += ", "
@@ -439,11 +441,11 @@ def parse_reference(ref: str) -> dict:
                         ref_id += " "
                 else:
                     parts = first_ref_part.split(",")
-                    ref_id = f"{parts[0]} et al. "
+                    ref_id = f"{parts[0]} et al "
         else:
             print(f"-> Warning: No year recognized in reference '{reference}'")
             parts = reference.split(",")
-            ref_id = f"{parts[0]} et al. "
+            ref_id = f"{parts[0]} et al "
 
 
     # ---------------------------------------------------------------
@@ -629,9 +631,9 @@ def main(doc, ref_starting_page):
     global mismatching_entries
     global unfound_entries
 
-    print("###############################")
+    print("##########################################################")
     print("# Starting Literature Check")
-    print("###############################")
+    print("##########################################################")
 
 
     #==========================================================================
@@ -730,7 +732,7 @@ def main(doc, ref_starting_page):
                 except:
                     invalid_link_counter += 1
                     invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n			-> Link caused an exception!")
-                    local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
+                    local_references_df, local_stats, local_mismatching_entries, local_unfound_entries = bib_searcher.search_bib(references_df, index, None)
                     references_df = local_references_df
                 # Otherwise, if the link is valid, check its status code after sleeping
                 else:
@@ -739,21 +741,21 @@ def main(doc, ref_starting_page):
                     time.sleep(sleep_time)
                     # Check if site is reachable and set 'valid' column accordingly
                     if request.status_code != 404:
-                        local_references_df, local_stats = bib_searcher.search_bib(references_df, index, current_link)
+                        local_references_df, local_stats, local_mismatching_entries, local_unfound_entries  = bib_searcher.search_bib(references_df, index, current_link)
                         references_df = local_references_df
                     # Otherwise, if the link is not valid, search for the reference on online
                     else:
                         invalid_link_counter += 1
                         invalid_link_entries.append(f"{references_df.at[index, 'full_reference']}\n			-> Returned with status code {request.status_code}!")
-                        local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
+                        local_references_df, local_stats, local_mismatching_entries, local_unfound_entries  = bib_searcher.search_bib(references_df, index, None)
                         references_df = local_references_df
             elif current_link and current_link.endswith(".pdf"):
                 print(f"  -> INFO: Skipping validity check of link ending with '.pdf': {current_link}")
-                local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
+                local_references_df, local_stats, local_mismatching_entries, local_unfound_entries  = bib_searcher.search_bib(references_df, index, None)
                 references_df = local_references_df
             else:
                 no_link_provided_counter += 1
-                local_references_df, local_stats = bib_searcher.search_bib(references_df, index, None)
+                local_references_df, local_stats, local_mismatching_entries, local_unfound_entries  = bib_searcher.search_bib(references_df, index, None)
                 references_df = local_references_df
 
             if bib_searcher.get_skip_all_remaining_validations():
@@ -771,6 +773,9 @@ def main(doc, ref_starting_page):
             successful_searches_counter += local_stats["successful_searches"]
             mismatching_infos_counter += local_stats["mismatching_infos"]
             no_entry_found_counter += local_stats["no_entry_found"]
+
+            mismatching_entries += local_mismatching_entries
+            unfound_entries += local_unfound_entries 
     else:
         print(f" -> The whole validation process was skipped!")
         

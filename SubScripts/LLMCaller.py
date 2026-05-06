@@ -23,6 +23,8 @@ import urllib.request
 ###############################################################################
 # Gloal Variables
 ###############################################################################
+USE_CAMPUS_KI = True
+
 call_counter = 0
 
 cwd = os.getcwd()
@@ -43,11 +45,6 @@ def get_llm_call_counter():
     global call_counter
     return call_counter
 
-
-
-###############################################################################
-# Main code
-###############################################################################
 
 def call_campuski(user_message):
     global call_counter
@@ -117,3 +114,14 @@ def call_openai(user_message):
     except Exception as e:
         print(f"  => ERROR while trying to reach ChatGPT: {e}")
         return ""
+
+
+###############################################################################
+# Main code
+###############################################################################
+
+def call_llm(user_message):
+    if USE_CAMPUS_KI:
+        return call_campuski(user_message)
+    else:
+        return call_openai(user_message)

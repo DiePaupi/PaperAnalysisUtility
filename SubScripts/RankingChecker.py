@@ -118,7 +118,7 @@ def check_with_llm(outlets: str, ranking_df: pd.DataFrame, rating_col: str, rank
                 {ranking_df.to_string(index=True)}"""
 
     try:
-        response = ask_llm.call_campuski(prompt)
+        response = ask_llm.call_llm(prompt)
     except Exception as e:
         print(f"  => ERROR calling LLM: {e}")
         return pd.DataFrame()
@@ -178,11 +178,16 @@ def check_with_llm(outlets: str, ranking_df: pd.DataFrame, rating_col: str, rank
             else:
                 thirds.append(element)
 
-        df = pd.DataFrame({
-            'parsed_name': parsed_names,
-            'outlet_name': outlet_names,
-            ranking_type: thirds
-        })
+        if len(parsed_names) == len(outlet_names) == len(thirds):
+            df = pd.DataFrame({
+                'parsed_name': parsed_names,
+                'outlet_name': outlet_names,
+                ranking_type: thirds
+            })
+        else:
+            print(f"    -> WARNING: The lists parsed from the LLM's response have different lengths: (parsed_names={len(parsed_names)}, outlet_names={len(outlet_names)}, thirds={len(thirds)})")
+            print("                Returning empty DF...")
+            return pd.DataFrame()
 
     #print("  -> LLM DF extracted as follows:")
     #print(df)
@@ -435,8 +440,8 @@ def main(references_df: pd.DataFrame):
         outlets_df = fallback_check_ranking(core_rest_df, 'Rating', outlets_df, 'core_ranking')
         
         # TODO: The impact_factor-2025 Excel seems to large to be processed by the LLM!
-        print(f"-> Now matching the journal impact factors and the parsed outlets using an LLM:")
-        outlets_df = fallback_check_ranking(impact_factors_df, 'JIF Without Self-Cites', outlets_df, 'impact_factor')
+        #print(f"-> Now matching the journal impact factors and the parsed outlets using an LLM:")
+        #outlets_df = fallback_check_ranking(impact_factors_df, 'JIF Without Self-Cites', outlets_df, 'impact_factor')
             
 
     #print("---")
