@@ -57,24 +57,22 @@ springer_formatting_template = {
     #   page_lines[0] = Shortitle/Author; page_lines[1] = page number
     "name": "springer",
     "header_lines": 2,
-}
-aaai_acm_formatting_template = {
-    "name": "aaai_acm",
-    "header_lines": 0,
+    "footer_lines": 0
 }
 acm_formatting_template = {
     "name": "acm",
     "header_lines": 0,
+    "footer_lines": 2
 }
 
 # Formatting template to use for parsing
 # NOTE: These are only used in this file by the "check_document_structure" function
-supported_formatting_templates = [springer_formatting_template, aaai_acm_formatting_template, acm_formatting_template]
+supported_formatting_templates = [springer_formatting_template, acm_formatting_template]
 formatting_template = ""
 
 # Bibliography template to use for parsing
 # NOTE: These are used in the AuthorChecker and the ReferenceChecker
-supported_bib_templates = ref_c.get_supported_bib_templates()
+supported_bib_layouts = ref_c.get_supported_bib_templates()
 bib_template = ""
 
 # Referencing template to use for parsing
@@ -88,6 +86,14 @@ referencing_template = ""
 ###############################################################################
 # Helper functions
 ###############################################################################
+
+def get_letter_pos_in_alphabet(letter: str) -> int:
+    if len(letter) == 1:
+        return ord(letter.lower()) - 96
+    else:
+        print(f"-> Warning: The given string '{letter}' is not a single char!")
+        return -1
+    
 
 def parse_numbered_headings(page_no: int, page_lines: list, line_index: int, \
                             headings: list) -> list:
@@ -107,51 +113,92 @@ def parse_numbered_headings(page_no: int, page_lines: list, line_index: int, \
 
     line = page_lines[line_index].strip()
 
-    heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
-    if heading_match:
-        number = heading_match.group(0)
+    if len(line) <= 2:
 
-        # Check if the current line is not the last, and
-        #       if the next line is non-empty & not only numerical
-        if line_index + 1 < len(page_lines) and page_lines[line_index + 1] \
-            and not page_lines[line_index + 1].strip().isdigit():
-            # If this is not the first heading found
+        heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', line)
+        if heading_match:
+            number = heading_match.group(0)
+
+            # Check if the current line is not the last, and
+            #       if the next line is non-empty & not only numerical
+            if line_index + 1 < len(page_lines) and page_lines[line_index + 1] \
+                and not page_lines[line_index + 1].strip().isdigit():
+                # If this is not the first heading found
+                if len(headings) > 0:
+                    last_index = len(headings) - 1
+                    last_heading_no = headings[last_index][0]
+                    text = page_lines[line_index + 1].strip()
+
+                    # If the parsed heading number matches the last found heading's number +1
+                    if references_starting_page_no == 0 \
+                        and str(int(number.strip())-1) == last_heading_no \
+                        and text[0].isupper():
+                        print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
+                        headings.append((number, text, page_no + 1))
+                    # If the parsed heading number does NOT match
+                    # -> Might be the case for sections after the References section
+                    elif references_starting_page_no > 0 \
+                        and (str(int(number.strip())-1) == last_heading_no
+                            or number.strip() == last_heading_no) \
+                        and text[0].isupper():
+                        print(f"- Found heading after References '{number} - {text}' on page {page_no + 1}")
+                        headings.append((number, text, page_no + 1))
+
+                        # Only update the references_ending_page_no for the first heading
+                        # after the reference section
+                        if references_ending_page_no == 0:
+                            references_ending_page_no = page_no + 1
+                            heading_after_references = text
+                # If this is the first heading found
+                else:
+                    text = page_lines[line_index + 1].strip()
+                    print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
+                    headings.append((number, text, page_no + 1))
+                    
+        # Check for Apendix match
+        elif len(line) == 1 and references_starting_page_no > 0 \
+            and not line.isdigit() and line.isupper():
+
+            # Get the numerical representation of that letter
+            num = get_letter_pos_in_alphabet(line)
+
+            # Check if this would be the first section after References
             if len(headings) > 0:
                 last_index = len(headings) - 1
-                last_heading_no = int(headings[last_index][0])
+                last_heading_no = headings[last_index][0]
                 text = page_lines[line_index + 1].strip()
 
-                # If the parsed heading number matches the last found heading's number +1
-                if references_starting_page_no == 0 \
-                    and int(number.strip())-1 == last_heading_no \
-                    and text[0].isupper():
-                    print(f"- Found following heading '{number} - {text}' on page {page_no + 1}")
-                    headings.append((number, text, page_no + 1))
-                # If the parsed heading number does NOT match
-                # -> Might be the case for sections after the References section
-                elif references_starting_page_no > 0 \
-                    and (int(number.strip())-1 == last_heading_no
-                         or int(number.strip()) == last_heading_no) \
-                    and text[0].isupper():
-                    print(f"- Found heading after References '{number} - {text}' on page {page_no + 1}")
-                    headings.append((number, text, page_no + 1))
+                if isinstance(last_heading_no, int) or str(last_heading_no).isdigit():
+                    # Match 'A'
+                    if line == "A":
+                        print(f"- Found first appendix '{line} - {text}' on page {page_no + 1}")
+                        headings.append((line, text, page_no + 1))
 
-                    # Only update the references_ending_page_no for the first heading
-                    # after the reference section
-                    if references_ending_page_no == 0:
-                        references_ending_page_no = page_no + 1
-                        heading_after_references = text
-            # If this is the first heading found
-            else:
-                text = page_lines[line_index + 1].strip()
-                print(f"- Found first heading '{number} - {text}' on page {page_no + 1}")
-                headings.append((number, text, page_no + 1))
+                        # Only update the references_ending_page_no for the first heading
+                        # after the reference section
+                        if references_ending_page_no == 0:
+                            references_ending_page_no = page_no + 1
+                            heading_after_references = text
+
+                else:
+                    # Check if this is the next letter
+                    last_num = get_letter_pos_in_alphabet(last_heading_no)
+                    if last_num+1 == num:
+                        print(f"- Found following appendix '{line} - {text}' on page {page_no + 1}")
+                        headings.append((line, text, page_no + 1))
+
+                        # Only update the references_ending_page_no for the first heading
+                        # after the reference section
+                        if references_ending_page_no == 0:
+                            references_ending_page_no = page_no + 1
+                            heading_after_references = text
+
         
     # Check for "References" or "Literature" (case-insensitive)
     elif line.lower() in ["references", "literature"]:
         print(f"=> Found references/literature section on page {page_no + 1}")
         last_number = int(headings[len(headings)-1][0])
-        headings.append((last_number + 1, line, page_no + 1))
+        headings.append((str(last_number + 1), line, page_no + 1))
         references_starting_page_no = page_no + 1
     
     return headings
@@ -225,7 +272,6 @@ def check_document_structure(doc):
         if template['name'] == formatting_template:
             lineskip = template["header_lines"]
     
-    text_begin_reached = False
     numbered_headings = 2
     
     #==========================================================================
@@ -266,16 +312,16 @@ def check_document_structure(doc):
             # the headings are numbered or not
             if line_index > 0 and numbered_headings == 2:
                 if "Introduction" in line:
-                    text_begin_reached = True
 
                     # If the there is nothing prefixing "Introduction"
                     if line.find("Introduction") == 0:
                         previous_line = page_lines[line_index-1].strip()
                         heading_match = re.match(r'^(?:[1-9]|[1-9]\d)$', previous_line)
                         if heading_match:
+                            number = heading_match.group(0)
                             numbered_headings = 1
                             print(f"- Found {line} on page {page_no + 1}")
-                            headings.append((len(headings)+1, line, page_no + 1))
+                            headings.append((str(number), line, page_no + 1))
                         else:
                             numbered_headings = 0
                     else:
@@ -315,7 +361,7 @@ def main():
     """
     global supported_formatting_templates
     global formatting_template
-    global supported_bib_templates
+    global supported_bib_layouts
     global bib_template
     global supported_referencing_templates
     global referencing_template
@@ -333,6 +379,10 @@ def main():
     path_to_pdf = input("Enter the path to the PDF file: ").strip().strip('"')
     lineskip = 0
 
+    print("---")
+    print("INFO:")
+    print(" - 'springer' = Has two headerlines to skip (1st = Shortitle/Author; 2nd = page number)")
+    print(" - 'acm'      = Has no headerlines to skip")
     input_formatting_template = input(f"Enter a supported formatting template ({[t['name'] for t in supported_formatting_templates]}): ").strip().strip('"')
     res = next((ft for ft in supported_formatting_templates if ft['name'] == input_formatting_template), None)
     if not res:
@@ -345,17 +395,51 @@ def main():
             if form_temp['name'] == input_formatting_template:
                 lineskip = form_temp['header_lines']
     
-    input_bib_template = input(f"Enter a supported bibliography template ({[t['name'] for t in supported_bib_templates]}): ").strip().strip('"')
-    res = next((bt for bt in supported_bib_templates if bt['name'] == input_bib_template), None)
+    print("---")
+    print("INFO:")
+    print(" - 'LFflTOY' = Lastname, Firstname (firstletter), Title, Outlet, Year")
+    print("            -> This is, for example, used by Springer Nature")
+    print(" - 'LFflYTO' = Lastname, Firstname (firstletter), Year, Title, Outlet")
+    print("            -> This is, for example, used by the AAAI/ACM Conference")
+    print(" - 'FLYTO'   = Firstname, Lastname, Year, Title, Outlet")
+    print("            -> This is, for example, used by ACM")
+    print(" - 'FLTOY'  = Firstname, Lastname, Title, Outlet, Year")
+    print("            -> This is, for example, used by the NeurIPS Conference")
+    input_bib_layout = input(f"Enter a supported bibliography layout ({[t['name'] for t in supported_bib_layouts]}): ").strip().strip('"')
+    res = next((bt for bt in supported_bib_layouts if bt['name'] == input_bib_layout), None)
     if not res:
-        print(f"ERROR: Biblography template '{input_bib_template}' not supported yet!")
+        print(f"ERROR: Biblography layout '{input_bib_layout}' not supported yet!")
         print(" -> The programm will exit now. :)")
         sys.exit(0)
     else:
-        bib_template = input_bib_template
-        ref_c.set_given_bib_type(input_bib_template, lineskip)
-        ac.set_given_bib_type(input_bib_template)
+        bib_template = input_bib_layout
+        ref_c.set_given_bib_layout(input_bib_layout, lineskip)
     
+    print("---")
+    print("INFO:")
+    print(" - 'natbib'           = No numbering; reference in 'References' section starts with the authors' names")
+    print(" - 'numbered_squares' = Reference in 'References' section starts with, e.g., '[1]'")
+    print(" - 'number_with_dot'  = Reference in 'References' section starts with, e.g., '1.'")
+    supported_bib_numberings = ref_c.get_supported_bib_numberings()
+    input_bib_numbering = input(f"Enter a supported bibliography numbering ({[t['name'] for t in supported_bib_numberings]}): ").strip().strip('"')
+    res = next((bt for bt in supported_bib_numberings if bt['name'] == input_bib_numbering), None)
+    if not res:
+        print(f"ERROR: Biblography numbering '{input_bib_layout}' not supported yet!")
+        print(" -> The programm will exit now. :)")
+        sys.exit(0)
+    else:
+        ref_c.set_given_given_bib_numbering(input_bib_numbering)
+
+    print("---")
+    print("INFO:")
+    print(" - 'numeric'           = A number placed inside square brackets (e.g., [28])")
+    print("                      -> Multiple references are separated by a comma (e.g., [28,29])")
+    print(" - 'authoryear_round'  = Authors' names and the year places insince round brackets (e.g., (Speckmann et al., 2025))")
+    print("                      -> Multiple references are separated by a semicolon (e.g., (Speckmann et al. 2025; Janiesch et al. 2021))")
+    print("                      -> Please note that the author and year are *not* separated")
+    print(" - 'authoryear_square' = Authors' names and the year places insince square brackets (e.g., [Speckmann et al., 2025])")
+    print("                      -> Multiple references are separated by a comma (e.g., [Speckmann et al., 2025, Janiesch et al., 2021])")
+    print("                      -> Please note that the author and year are also separated by a comma")
     input_ref_template = input(f"Enter a supported referencing template ({[t['name'] for t in supported_referencing_templates]}): ").strip().strip('"')
     res = next((rt for rt in supported_referencing_templates if rt['name'] == input_ref_template), None)
     if not res:
@@ -364,6 +448,7 @@ def main():
         sys.exit(0)
     else:
         referencing_template = input_ref_template
+        rit_c.set_given_ref_style(input_ref_template)
 
 
     #==========================================================================
@@ -459,7 +544,7 @@ def main():
     lit_fig.update_traces(hole=.4)
 
     lit_fig.update_layout(
-        title_text="Outlet Ranking Results",
+        title_text="Literature Search Results",
         # Add annotations in the center of the donut pies.
         annotations=[dict(text='Links', x=sum(lit_fig.get_subplot(1, 1).x) / 2, y=0.5,
                         font_size=20, showarrow=False, xanchor="center"),
@@ -515,7 +600,10 @@ def main():
     results_path = os.path.join(results_folder_dir, "PQC_results.md")
 
     with open(results_path, "x", encoding="utf-8") as f:
-        f.write("# Paper Quality Check Results\n\n\n")
+        f.write("# Paper Quality Check Results\n\n")
+        f.write(os.path.basename(path_to_pdf).split('/')[-1])
+        f.write("\n\n\n")
+
         f.write("## Document Structure\n\n")
         if not headings:
             f.write("No headings found in the document.\n\n\n")
@@ -554,9 +642,54 @@ def main():
             f.write(f"All references used in the document's text were also found in the 'References' section.\n\n")
         else:
             f.write("*The sentences listed below contain references that were not found in the 'References' section*\n")
-            f.write("*Please note that this list may contain false positives as the content of a normal bracket might have been mistaken for a reference:*\n")
+            f.write("*Please note that this list may contain false positives as, e.g., the content of a normal bracket might have been mistaken for a reference, ")
+            f.write("or a natural reference (Authorname in text and year in brackets) might have been mismatched:*\n")
             for sen in sentences_with_unfound_refs:
                 f.write(f"- {sen}\n")
+            f.write("\n\n")
+
+        # Print frequently referenced authors sorted by value (count) descending
+        f.write("\n## Frequently Referenced Authors\n\n")
+        for author, count in sorted(
+            frequent_authors.items(),
+            key=lambda x: x[1],
+            reverse=True
+        ):
+            f.write(f"- {author}: {count}\n")
+        
+        # Print Reference Checker results        
+        f.write("\n## Reference Checker Results\n\n")
+        if references_starting_page_no <= 0:
+            f.write("No references section found in the document.\n")
+        else:
+            f.write(f"References section starts on page {references_starting_page_no}.\n\n")
+            f.write(f"- No link provided: ${ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Unchecked links: ${ref_stats['unchecked_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['unchecked_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Valid links: ${ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Mismatching links: ${ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Invalid link: ${ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            if invalid_entries:
+                f.write("	- Invalid entries:\n")
+                for entry in invalid_entries:
+                    entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
+                    f.write(f"		- {entry_no_sb}\n")
+            f.write("\n")
+            f.write(f"- Successful searches: ${ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Skipped searches: ${ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Mismatching infos: ${ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            if mismatching_entries:
+                f.write("	- Mismatching entries:\n")
+                for entry in mismatching_entries:
+                    entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
+                    f.write(f"		- {entry_no_sb}\n")
+            f.write(f"- No entry found: ${ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            if unfound_entries:
+                f.write("	- Unfound entries:\n")
+                for entry in unfound_entries:
+                    entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
+                    f.write(f"		- {entry_no_sb}\n")
+            f.write("\n")
+            f.write(f"![References Validation Results]({literature_validation_results_fig_path})")
             f.write("\n\n")
 
         f.write("\n## References Support for Statements\n\n")
@@ -592,46 +725,6 @@ def main():
             f.write(f"- None\n")
         f.write("\n\n\n")
         f.write("---")
-
-        # Print frequently referenced authors sorted by value (count) descending
-        f.write("\n## Frequently Referenced Authors\n\n")
-        for author, count in sorted(
-            frequent_authors.items(),
-            key=lambda x: x[1],
-            reverse=True
-        ):
-            f.write(f"- {author}: {count}\n")
-        
-        # Print Reference Checker results        
-        f.write("\n## Reference Checker Results\n\n")
-        if references_starting_page_no <= 0:
-            f.write("No references section found in the document.\n")
-        else:
-            f.write(f"References section starts on page {references_starting_page_no}.\n\n")
-            f.write(f"- No link provided: ${ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            f.write(f"- Unchecked links: ${ref_stats['unchecked_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['unchecked_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            f.write(f"- Valid links: ${ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            f.write(f"- Invalid link: ${ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            f.write(f"- Mismatching links: ${ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            if invalid_entries:
-                f.write("	- Invalid entries:\n")
-                for entry in invalid_entries:
-                    f.write(f"		- {entry.replace("[", "\[").replace("]", "\]")}\n")
-            f.write(f"- Successful searches: ${ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            f.write(f"- Skipped searches: ${ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            f.write(f"- Mismatching infos: ${ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            if mismatching_entries:
-                f.write("	- Mismatching entries:\n")
-                for entry in mismatching_entries:
-                    f.write(f"		- {entry.replace("[", "\[").replace("]", "\]")}\n")
-            f.write(f"- No entry found: ${ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            if unfound_entries:
-                f.write("	- Unfound entries:\n")
-                for entry in unfound_entries:
-                    f.write(f"		- {entry.replace("[", "\[").replace("]", "\]")}\n")
-            f.write("\n")
-            f.write(f"![References Validation Results]({literature_validation_results_fig_path})")
-            f.write("\n\n")
         
         # Print the rankings of the outlets
         f.write("\n## Outlet Rankings\n\n")

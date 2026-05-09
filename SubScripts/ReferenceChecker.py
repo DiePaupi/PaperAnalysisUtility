@@ -9,7 +9,9 @@ import requests
 import sys
 import time
 
+import SubScripts.AuthorsChecker as ac
 import SubScripts.BibSearcher as bib_searcher
+import SubScripts.RefIntextChecker as rit_c
 import SubScripts.UnicodeChecker as uc
 
 
@@ -73,36 +75,83 @@ import SubScripts.UnicodeChecker as uc
 # NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
 MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
-# Bibliography Style Specifics
-given_bib_type = ""
+# Bibliography Layout Specifics
+given_bib_layout = ""
+given_bib_numbering = ""
 given_line_skip = 0
 
-SPRINGER_BIB_STYLE = "springer"
-springer_bib = {
-    "name": SPRINGER_BIB_STYLE,
+
+# LFTOY = Lastname, Firstname, Title, Outlet, Year
+# lastname_firstletter_title_outlet_year
+# E.g., Springer
+LFTOY_BIB_STYLE = "LFflTOY"
+lftoy_bib = {
+    "name": LFTOY_BIB_STYLE,
     "authors_rest_separator": ":",
-    "author_separator": ","
+    "author_separator": ",",
+    "is_firstname_first": False,
+    "is_comma_sep": True
 }
-AAAIACM_BIB_STYLE = "aaai_acm"
-aaai_acm_bib = {
-    "name": AAAIACM_BIB_STYLE,
+
+# LFYTO = Lastname, Firstname (firstletter), Year, Title, Outlet
+# lastname_firstletter_year_title_outlet
+# E.g., AAAI/ACM
+LFYTO_BIB_STYLE = "LFflYTO"
+lfyto_bib = {
+    "name": LFYTO_BIB_STYLE,
     "authors_rest_separator": ".",
-    "author_separator": ";"
+    "author_separator": ";",
+    "is_firstname_first": False,
+    "is_comma_sep": True
 }
-ACM_BIB_STYLE = "acm"
-acm_bib = {
-    "name": ACM_BIB_STYLE,
+# FLYTO = Firstname, Lastname, Year, Title, Outlet
+# firstname_lastname_year_title_outlet
+# E.g., ACM
+FLYTO_BIB_STYLE = "FLYTO"
+flyto_bib = {
+    "name": FLYTO_BIB_STYLE,
     "authors_rest_separator": ".",
-    "author_separator": ","
+    "author_separator": ",",
+    "is_firstname_first": True,
+    "is_comma_sep": False
 }
-NEURIPS_BIB_STYLE = "neurips"
-neurips_bib = {
-    "name": NEURIPS_BIB_STYLE,
+
+# FLTOY = Firstname, Lastname, Title, Outlet, Year
+# firstname_lastname_title_outlet_year
+# E.g., NeurIPS
+FLTOY_BIB_STYLE = "FLTOY"
+fltoy_bib = {
+    "name": FLTOY_BIB_STYLE,
     "authors_rest_separator": ".",
-    "author_separator": ","
+    "author_separator": ",",
+    "is_firstname_first": True,
+    "is_comma_sep": False
 }
-supported_bib_templates = [springer_bib, aaai_acm_bib, acm_bib, neurips_bib]
-inferred_bib_template = SPRINGER_BIB_STYLE
+supported_bib_layouts = [lftoy_bib, lfyto_bib, flyto_bib, fltoy_bib]
+
+
+# Bib Number Style
+BIB_NUM_NATBIB = "natbib"
+natbib = {
+    "name": BIB_NUM_NATBIB,
+    "opening": "",
+    "closing": "",
+}
+BIB_NUM_NUMBERED_SQUARES = "numbered_squares"
+numbered_squares = {
+    "name": BIB_NUM_NUMBERED_SQUARES,
+    "opening": "[",
+    "closing": "]",
+}
+BIB_NUM_NUMBERED_WITH_DOT = "number_with_dot"
+number_with_dot = {
+    "name": BIB_NUM_NUMBERED_WITH_DOT,
+    "opening": "",
+    "closing": ".",
+}
+supported_bib_numberings = [natbib, numbered_squares, number_with_dot]
+
+
 
 # Counters
 no_link_provided_counter = 0
@@ -127,14 +176,37 @@ unfound_entries = []
 ###############################################################################
 
 def get_supported_bib_templates():
-    global supported_bib_templates
-    return supported_bib_templates
+    global supported_bib_layouts
+    return supported_bib_layouts
 
-def set_given_bib_type(bib_type, lineskip):
-    global given_bib_type
+def get_supported_bib_numberings():
+    global supported_bib_numberings
+    return supported_bib_numberings
+
+def set_given_bib_layout(bib_layout: str, lineskip: int):
+    global given_bib_layout
     global given_line_skip
-    given_bib_type = bib_type
+    given_bib_layout = bib_layout
     given_line_skip = lineskip
+
+    # Set the given bib dict in the AuthorsChecker
+    for bib in supported_bib_layouts:
+        if given_bib_layout == bib["name"]:
+            ac.set_given_bib_type(bib)
+            break
+
+def set_given_given_bib_numbering(bib_numbering: str):
+    global given_bib_numbering
+    given_bib_numbering = bib_numbering
+
+
+
+def get_letter_from_pos_in_alphabet(pos: int) -> str:
+    if pos >= 0 and pos <= 26:
+        return chr(pos+96)
+    else:
+        print(f"-> Warning: The given int '{pos}' is outside of the alphabet's range (1-26)!")
+        return ""
 
 
 def append_line_to_references(page_references, line):
@@ -161,7 +233,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
     """
     check_page_text takes
         1) a list of already found references (empty for the first page),
-        2) the text of the current page, and 
+        2) the text of the current page, and
         3) the lines to skip (e.g., header lines; only 1 for the first page)
     and returns an updated list of all found references, where each reference
     is just one string parsed from the given file
@@ -181,7 +253,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
         # otherwise append it to the last reference if it exists
         if len(page_lines[line_index]) > 4:
 
-            if given_bib_type == SPRINGER_BIB_STYLE:
+            if given_bib_numbering == BIB_NUM_NUMBERED_WITH_DOT:
                 # Matches the Springer Nature Template for references, where
                 # each reference starts with, e.g., "1. " or "12. "
                 if page_lines[line_index][0].isdigit() and page_lines[line_index][1] == "." and page_lines[line_index][2] == " ":
@@ -195,59 +267,8 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                         page_references.append(page_lines[line_index].strip())
                     else:
                         page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
-
-            elif given_bib_type == AAAIACM_BIB_STYLE:
-                # Matches the AAAI/ACM Template for references, where
-                # each reference starts with the authornames
-                current_line = page_lines[line_index].strip()
-
-                if not page_references:
-                    page_references.append(current_line)
-                    continue
-
-                # Usual case, as a new reference starts with mostly multiple auhtors that
-                # are seperated by ; which is also a char very unlikely to be used in the
-                # title / outlet / etc. 
-                sep = aaai_acm_bib['author_separator']
-                year_cl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', current_line)
-                if year_cl and year_cl.start()-2 >= 0:
-                    if current_line[year_cl.start()-2:year_cl.start()+1].lower() == "in " \
-                       or current_line[year_cl.start()-2:year_cl.start()+1].lower() == "n: ":
-                        year_cl = None
-                year_pl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_lines[line_index-1])
-                if re.search(r'\bin\s', page_lines[line_index-1].lower()):
-                    year_pl = None
-
-                # If both lines (previous and this) contain years -> new reference
-                if year_cl and year_pl:
-                    page_references.append(current_line)
-                    continue
-                # If the current line contains ; and the previous doesn't contain a ; nor a year
-                elif sep in current_line and sep not in page_lines[line_index-1] and not year_pl:
-                    page_references.append(current_line)
-                    continue
-                # If the current line contains a year and the previous doesn't contain a ;
-                elif year_cl and sep not in page_lines[line_index-1]:
-                    page_references.append(current_line)
-                    continue
-                
-                year_pr = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_references[len(page_references)-1])
-                ed_cl = re.search(r'\b(in\s|eds\.)', current_line.lower())
-
-                # If the current contains a ; and not "In " / "eds.", and the previous reference contains a year
-                # NOTE: Here, a line that should be added to the previous reference might be recognized as new
-                #       -> Its fine for about >85% of the cases, but yeah, can happen
-                if sep in current_line and not ed_cl and year_pr:
-                    # If a firstname is alone at the beginning, append to prev. ref.
-                    if current_line[1] == "." and (current_line[2] == " " or current_line[2] == ";"):
-                        page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
-                    else:
-                        page_references.append(current_line)
-                # Otherwise, append to previous line's reference
-                else:
-                    page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
             
-            elif given_bib_type == ACM_BIB_STYLE or given_bib_type == NEURIPS_BIB_STYLE:
+            elif given_bib_numbering == BIB_NUM_NUMBERED_SQUARES:
                 # Matches the ACM Template for references, where
                 # each reference starts with the [xx]
                 if page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "]":
@@ -264,12 +285,107 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     else:
                         page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
 
-            else:
-                print(f"=> ERROR: given_bib_tye = {given_bib_type} not recognized!")
+            elif given_bib_numbering == BIB_NUM_NATBIB:
+                # Matches the AAAI/ACM Template for references, where
+                # each reference starts with the authornames
+                current_line = page_lines[line_index].strip()
 
+                # Append first reference
+                if not page_references:
+                    page_references.append(current_line)
+                    continue
+
+                # Check for years in the current line (cl) and previous (pl)
+                year_cl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', current_line)
+                # If there is an "in" directly before the year, this most likely bbelongs to the outlet
+                if year_cl and year_cl.start()-2 >= 0:
+                    if current_line[year_cl.start()-2:year_cl.start()+1].lower() == "in " \
+                       or current_line[year_cl.start()-2:year_cl.start()+1].lower() == "n: ":
+                        year_cl = None
+                year_pl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_lines[line_index-1])
+                # If there is an "in" directly before the year, this most likely bbelongs to the outlet
+                if re.search(r'\bin\s', page_lines[line_index-1].lower()):
+                    year_pl = None
+
+                # If both lines (previous and this) contain valid years -> new reference
+                if year_cl and year_pl:
+                    page_references.append(current_line)
+                    continue
+                    
+                # Usual case, as a new reference starts with mostly multiple authors that
+                # are seperated by 'sep'
+                sep = next((bl['author_separator'] for bl in supported_bib_layouts if bl['name'] == given_bib_layout), None)
+
+                if sep == ";":
+                    # If the current line contains ; and the previous doesn't contain a ; nor a year
+                    if sep in current_line and sep not in page_lines[line_index-1] and not year_pl:
+                        page_references.append(current_line)
+                        continue
+                    # If the current line contains a year and the previous doesn't contain a ;
+                    elif year_cl and sep not in page_lines[line_index-1]:
+                        page_references.append(current_line)
+                        continue
+                
+                    year_pr = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_references[len(page_references)-1])
+                    ed_cl = re.search(r'\b(in\s|eds\.)', current_line.lower())
+
+                    # If the current contains a ; and not "In " / "eds.", and the previous reference contains a year
+                    # NOTE: Here, a line that should be added to the previous reference might be recognized as new
+                    #       -> Its fine for about >85% of the cases, but yeah, can happen
+                    if sep in current_line and not ed_cl and year_pr:
+                        # If a firstname is alone at the beginning, append to prev. ref.
+                        if current_line[1] == "." and (current_line[2] == " " or current_line[2] == ";"):
+                            page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                        else:
+                            page_references.append(current_line)
+                    # Otherwise, append to previous line's reference
+                    else:
+                        page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                
+                # NOTE: This is a very generalized division and might only work if 
+                #       the year is actually at the end of the reference
+                #       -> 'LFflTOY' or 'FLTOY' layout styles
+                elif sep == ",":
+
+                    # In natbib, we always start with the authors' names (capitalized), not a lower letter nor a number
+                    if current_line[0].isdigit() or current_line[0].islower():
+                        page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                    else:
+                        year_pattern = re.compile(r'\b(18|19|20)\d{2}[a-z]?\b')
+                        has_year_prev = bool(year_pattern.search(page_references[-1]))
+                        continuation_pattern = re.compile(
+                            r'^(in\b|editors\b|eds\.\b|url\b|http|https|doi\b|pages\b|pp\.\b|p\.\b|volume\b|vol\.)',
+                            re.IGNORECASE
+                        )
+
+                        looks_like_new_start = (
+                            current_line[0].isupper()
+                            and not continuation_pattern.search(current_line)
+                            and has_year_prev
+                        )
+
+                        if looks_like_new_start:
+                            page_references.append(current_line)
+                        else:
+                            page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+
+
+            else:
+                print(f"=> ERROR: given_bib_numbering = {given_bib_layout} not recognized!")
+
+        # If the line is only up to four chars long
         else:
-            if line_index == line_skip:
+            # Skip if line is empty
+            if not page_lines[line_index]:
+                pass
+            # ?
+            elif line_index == line_skip:
                 page_references.append(page_lines[line_index].strip())
+            # For the last two lines, check if this is a page no
+            elif line_index >= len(page_lines)-3 \
+                and page_lines[line_index].isdigit():
+                pass
+            # Otherwise, append the rest to the last ref.
             else:
                 page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
 
@@ -325,6 +441,8 @@ def check_outlet(outlet: str) -> str:
         outlet = outlet.split("pp.")[0].strip()
     if "p." in outlet:
         outlet = outlet.split("p.")[0].strip()
+    if "pages " in outlet:
+        outlet = outlet.split("pages ")[0].strip()
 
     # Remove tailing issue references "XX(X)"
     if "(" in outlet and ")" in outlet:
@@ -342,6 +460,8 @@ def parse_reference(ref: str) -> dict:
     - 'full_reference', the full reference string before parsing
     - 'ref_id', a string as how the reference is referenced in-text
     - 'authors', a string containing all authors
+    - 'normalized_authors', a list of stings where all authors' names have been
+       normalized to "Lastname FirstnameFirstletter."
     - 'title', a string containing the reference's title
     - 'year', an int containing the reference's year (otherwise it's 0)
     - 'abstract', is always None for now
@@ -350,23 +470,22 @@ def parse_reference(ref: str) -> dict:
     - 'valid', is always None for now
     """
 
-    global inferred_bib_template
-
     # Deepcopy the full reference before parsing
     reference = copy.deepcopy(ref)
 
 
     # ---------------------------------------------------------------
     # Get the reference's leading reference ID
+    # -> Here for numbered styles only, since it's later cut off
     # ---------------------------------------------------------------
+
+    ref_id = ""
 
     reference = reference.strip()
     # Case of number being in square brackets
     # (10 chars should be more than enough for the ref. no.)
+    # -> BIB_NUM_NUMBERED_SQUARES bib numbering
     if reference[0] == "[" and "]" in reference[0:11]:
-
-        # NOTE: This clould be ACM or NeurIPS Template
-
         pattern = r"\[(.*?)\]"
         pattern_match = re.search(pattern, reference[0:11])
         if pattern_match:
@@ -390,10 +509,8 @@ def parse_reference(ref: str) -> dict:
 
     # Case of number being in no brackets
     # ref_id needs to be purly numerical for this
+    # -> BIB_NUM_NUMBERED_WITH_DOT bib numbering
     elif reference[0].isdigit():
-        inferred_bib_template = SPRINGER_BIB_STYLE
-        if inferred_bib_template != given_bib_type:
-            print(f"-> Warning: Bib template mismatch!")
 
         no_length = 0
         for char in reference:
@@ -405,64 +522,6 @@ def parse_reference(ref: str) -> dict:
         
         # Cleanup reference string
         reference = reference[no_length+1:].strip()
-    
-    # Case of there being no number
-    # NOTE: Currently we assume that the pattern is lastname, firstname
-    #       -> Malterud, K.; Siersma, V. D.; and Guassora, A. D.
-    #           -> Referenced as: (Malterud, Siersma, and Guassora 2016)
-    #       -> Lins, S.; Pandl, K. D.; Teigeler, H.; Thiebes, S.; Bayer, C.; and Sunyaev, A. 2021.
-    #           -> Referenced as: (Lins et al. 2021)
-    # NOTE: We need to get rid of points behind "et al." so the parsing in the RefIntextChecker
-    #       works
-    else:
-        inferred_bib_template = AAAIACM_BIB_STYLE
-        if inferred_bib_template != given_bib_type:
-            print(f"-> Warning: Bib template mismatch!")
-        
-        # To avoid mixups with potential editors, cut off reference after year!
-        year = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
-        if year:
-            first_ref_part = reference[:year.start()].strip()
-        
-            # Case single authors (only take lastname)
-            if ";" not in first_ref_part:
-                ref_id = first_ref_part.split(",")[0].strip()
-                ref_id = ref_id.strip(".")
-                ref_id = f"{ref_id} "
-            # Case multiple authors
-            else:
-                authors_list = first_ref_part.split(";")
-                if len(authors_list) == 2:
-                    ref_id = authors_list[0].split(",")[0].strip()
-                    if "et al" in authors_list[1] :
-                        ref_id += " et al "
-                    else:
-                        if "and" in authors_list[1]:
-                            ref_id += " "
-                        else:
-                            ref_id += " and "
-                        ref_id += authors_list[1].split(",")[0].strip()
-                        ref_id += " "
-                elif len(authors_list) == 3:
-                    ref_id = authors_list[0].split(",")[0].strip()
-                    ref_id += ", "
-                    ref_id += authors_list[1].split(",")[0].strip()
-                    if "et al" in authors_list[2]:
-                        ref_id += " et al "
-                    else:
-                        if "and" in authors_list[2]:
-                            ref_id += ", "
-                        else:
-                            ref_id += ", and "
-                        ref_id += authors_list[2].split(",")[0].strip()
-                        ref_id += " "
-                else:
-                    parts = first_ref_part.split(",")
-                    ref_id = f"{parts[0]} et al "
-        else:
-            print(f"-> Warning: No year recognized in reference '{reference}'")
-            parts = reference.split(",")
-            ref_id = f"{parts[0]} et al "
 
 
     # ---------------------------------------------------------------
@@ -485,7 +544,7 @@ def parse_reference(ref: str) -> dict:
     # year and authors
     year = 0
     authors = ''
-    if given_bib_type == SPRINGER_BIB_STYLE:
+    if given_bib_layout == LFTOY_BIB_STYLE:
         # E.g.: reference = "Meyer, C., Schneider, T.: Title. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024)."
         m = re.search(r'\((\d{4})\)', ref)
         if m:
@@ -501,7 +560,7 @@ def parse_reference(ref: str) -> dict:
             else:
                 print(f"-> Warning: Could not parse year in reference '{reference}'!")
         
-        separator = springer_bib["authors_rest_separator"]
+        separator = lftoy_bib["authors_rest_separator"]
         if separator in reference:
             authors, rest = reference.split(separator, 1)
             authors = uc.replace_accent_marks(authors.strip())
@@ -511,7 +570,7 @@ def parse_reference(ref: str) -> dict:
             # E.g.: reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
         # TODO: What else?
     
-    elif given_bib_type == NEURIPS_BIB_STYLE:
+    elif given_bib_layout == FLTOY_BIB_STYLE:
         # E.g.: reference = "Damjan Pecioski, Viktor Gavriloski, Simona Domazetovska, and Anastasija Ignjatovska. Title. In 2023 12th Mediterranean Conference on Embedded Computing (MECO), pages 1–4"
 
         m = re.findall(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
@@ -521,15 +580,16 @@ def parse_reference(ref: str) -> dict:
             year_starting_indexes = [y.start() for y in re.finditer(str(year), reference)]
             reference = reference[:year_starting_indexes[-1]].strip(" ,")
         else:
-            m = re.search(r'\s(\d{4}).', ref)
+            m = re.findall(r'\s(\d{4}).', reference)
             if m:
-                year = int(m.group(1))
+                year = int(m[-1])
                 # Cleanup reference string (the year should be the last part)
-                reference = reference[:m.start()-2].strip()
+                year_starting_indexes = [y.start() for y in re.finditer(str(year), reference)]
+                reference = reference[:year_starting_indexes[-1]].strip(" ,")
             else:
                 print(f"-> Warning: Could not parse year in reference '{reference}'!")
         
-        separator = neurips_bib["authors_rest_separator"]
+        separator = fltoy_bib["authors_rest_separator"]
         if separator in reference:
 
             # Since the separator here is a . we need to get rid of all other points
@@ -581,10 +641,31 @@ def parse_reference(ref: str) -> dict:
                 'valid': None,
             }
         
+    # Also get the normalized authors list
+    normalized_authors = ac.get_normalized_authors(authors)
 
-    # Finish natural ref_id
-    if inferred_bib_template == AAAIACM_BIB_STYLE:
-        ref_id += str(year)
+
+    # ---------------------------------------------------------------
+    # Get the reference's leading reference ID
+    # -> Here for natbib styles only
+    # ---------------------------------------------------------------
+    # NOTE: We need to get rid of points behind "et al." so the parsing 
+    #       in the RefIntextChecker works
+    if given_bib_numbering == BIB_NUM_NATBIB:
+        author_year_sep = rit_c.get_given_ref_style_bib()["author_year_sep"]
+        if len(normalized_authors) == 0:
+            print("-> WARNING: The normalized authors' list contains no entries!")
+        elif len(normalized_authors) == 1:
+            first_author = normalized_authors[0].split()[0]
+            ref_id = f"{first_author}{author_year_sep} {year}"
+        elif len(normalized_authors) == 2:
+            first_author = normalized_authors[0].split()[0]
+            second_author = normalized_authors[1].split()[0]
+            ref_id = f"{first_author} and {second_author}{author_year_sep} {year}"
+        # TODO: What if up to three authors (or more) are named?
+        else:
+            first_author = normalized_authors[0].split()[0]
+            ref_id = f"{first_author} et al{author_year_sep} {year}"
 
 
     # ---------------------------------------------------------------
@@ -624,6 +705,7 @@ def parse_reference(ref: str) -> dict:
         'full_reference': ref,
         'ref_id': ref_id,
         'authors': authors,
+        'normalized_authors': normalized_authors,
         'title': title,
         'year': year,
         'abstract': None,
@@ -749,7 +831,7 @@ def main(doc, ref_starting_page, references_ending_page, heading_after_reference
     for page_no in range(ref_starting_page, references_ending_page):
         page_text = doc[page_no].get_text()
 
-        # Check if there is a this is the last page of the references and there 
+        # Check if this is the last page of the references and there 
         # are more normal sections to come
         if page_no == references_ending_page-1 and heading_after_references:
             # Find the starting index of the next section
@@ -765,15 +847,16 @@ def main(doc, ref_starting_page, references_ending_page, heading_after_reference
 
             # If this first heading after the reference section begins on a 
             # new page, skip the whole thing
+            # -> Checks for continued heading numbers or appendix letters
             page_text_without_linebreaks = page_text.replace("\n", "")
-            if len(page_text_without_linebreaks) <= 3 and page_text_without_linebreaks.isdigit():
+            if (len(page_text_without_linebreaks) <= 3 and page_text_without_linebreaks.isdigit()) \
+                or (len(page_text_without_linebreaks) == 1 and page_text_without_linebreaks.isupper()):
                 continue
 
-        # TODO: Adjust the hardcoded lineskip based on bibstyle
-        if given_bib_type == SPRINGER_BIB_STYLE:
-            references = check_page_text(references, page_text, 2)
+        if given_bib_layout == LFTOY_BIB_STYLE:
+            references = check_page_text(references, page_text, given_line_skip)
         else:
-            references = check_page_text(references, page_text, 0)
+            references = check_page_text(references, page_text, given_line_skip)
         page_no += 1
     
     # Log the results
@@ -789,6 +872,39 @@ def main(doc, ref_starting_page, references_ending_page, heading_after_reference
     #       'full_reference', 'ref_id', 'authors', 'title', 'year', 'abstract', 'outlet', 
     #       'link', and 'valid'
     references_df = pd.DataFrame(reference_components)
+
+    # Check for dubblicates in ref_id (this might happen with natbib entries)
+    if not references_df["ref_id"].is_unique:
+        dublicated_ref_ids = []
+        dublication_counter = []
+        duplicate = references_df[references_df["ref_id"].duplicated()]
+        print(f" -> Found dublicated ref_ids:\n{duplicate}")
+
+        # Collect all dublicated ref_ids and set the dublication counter to 1
+        for row_index, row in duplicate.iterrows():
+            if row["ref_id"] in dublicated_ref_ids:
+                list_pos = dublicated_ref_ids.index(row["ref_id"])
+                dublication_counter[list_pos] += 1
+            else:
+                dublicated_ref_ids.append(row["ref_id"])
+                dublication_counter.append(1)
+
+        # Iterate over the rows of the references_df and if the row's ref_id 
+        # matches one in the dublicates, add the counter as letter to the ref_id,
+        # and increase the counter
+        for row_index, row in references_df.iterrows():
+            current_ref_id = references_df.at[row_index, "ref_id"]
+            if current_ref_id in dublicated_ref_ids:
+                # Get the list position as to get the counter of this ref_id
+                list_pos = dublicated_ref_ids.index(row["ref_id"])
+                num_dub_count = dublication_counter[list_pos]
+                # Get counter as letter
+                alpha_dub_count = get_letter_from_pos_in_alphabet(num_dub_count)
+                # Update the ref_id with the letter
+                references_df.at[row_index, "ref_id"] = f"{references_df.at[row_index, 'ref_id']}{alpha_dub_count}"
+                # Increase dublication counter, so that the next occurence gets 
+                # the next letter
+                dublication_counter[list_pos] += 1
     
     print("-----------")
     print(" -> Parsed references DataFrame:")

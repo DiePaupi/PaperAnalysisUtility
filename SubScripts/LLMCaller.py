@@ -125,3 +125,12 @@ def call_llm(user_message):
         return call_campuski(user_message)
     else:
         return call_openai(user_message)
+    
+
+
+
+# TESTING
+if __name__ == "__main__":
+    user_message = input("Enter prompt: ").strip()
+    llm_answer = call_llm(user_message)
+    print(llm_answer)

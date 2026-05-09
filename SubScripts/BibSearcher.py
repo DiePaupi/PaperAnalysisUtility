@@ -455,12 +455,12 @@ def search_bib(p_references_df, index, link):
 
     # Each author listed in the reference, without "et al.", ist listed as one String
     # of form "Lastname F." in normalized_authors_list
-    # -> normalized_authors only contains the lastnames
-    normalized_authors = []
-    normalized_author_list = ac.get_normalized_authors(authors_to_find)
+    # -> authors_lastnames only contains the lastnames
+    authors_lastnames = []
+    normalized_author_list = p_references_df.at[index, "normalized_authors"]
     for author in normalized_author_list:
-        normalized_authors.append(author.split(" ")[0])
-    author_count = len(normalized_authors)
+        authors_lastnames.append(author.split(" ")[0])
+    author_count = len(authors_lastnames)
 
 
     #==========================================================================
@@ -508,7 +508,7 @@ def search_bib(p_references_df, index, link):
         #==========================================================================
 
         # Try to find the publication via author+year search in dblp
-        dblp_result_message, dblp_link_check = compare_dblp_dicts_to_reference(authors_to_find, normalized_authors, title_to_find, year_to_find, link)
+        dblp_result_message, dblp_link_check = compare_dblp_dicts_to_reference(authors_to_find, authors_lastnames, title_to_find, year_to_find, link)
         
         # If the search was successful:
         if dblp_result_message.startswith("Found: "):
@@ -562,7 +562,7 @@ def search_bib(p_references_df, index, link):
 
             mismatching_infos_counter += 1
             p_references_df.at[index, 'valid'] = dblp_result_message
-            mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {dblp_result_message}")
+            mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {dblp_result_message}")
 
         # If an error occured or no results were found:
         else:
@@ -590,7 +590,7 @@ def search_bib(p_references_df, index, link):
                     mismatching_infos_counter += 1
                     p_references_df.at[index, 'valid'] = dblp_result_message
                     p_references_df.at[index, 'abstract'] = m_abstract
-                    mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {m_message}")
+                    mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {m_message}")
                 
                 # If the manual search was skipped
                 else:
@@ -599,7 +599,7 @@ def search_bib(p_references_df, index, link):
 
                     no_entry_found_counter += 1
                     p_references_df.at[index, 'valid'] = f"{sem_scholar_result_message} | {dblp_result_message}"
-                    unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {sem_scholar_result_message} | {dblp_result_message}")
+                    unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {sem_scholar_result_message} | {dblp_result_message}")
 
             # -----------------------------------------------------------------
             # FALLBACK
@@ -645,7 +645,7 @@ def search_bib(p_references_df, index, link):
                         mismatching_infos_counter += 1
                         p_references_df.at[index, 'valid'] = search_message
                         p_references_df.at[index, 'abstract'] = abstract
-                        mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {search_message}")
+                        mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {search_message}")
                     # If an error occured or no results were found:
                     else:
 
@@ -687,7 +687,7 @@ def search_bib(p_references_df, index, link):
                                 mismatching_infos_counter += 1
                                 p_references_df.at[index, 'valid'] = snd_search_message
                                 p_references_df.at[index, 'abstract'] = snd_abstract
-                                mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {snd_search_message}")
+                                mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {snd_search_message}")
                             # If an error occured or no results were found:
                             else:
 
@@ -721,18 +721,18 @@ def search_bib(p_references_df, index, link):
                                             mismatching_infos_counter += 1
                                             p_references_df.at[index, 'valid'] = trd_search_message
                                             p_references_df.at[index, 'abstract'] = trd_abstract
-                                            mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {trd_search_message}")
+                                            mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {trd_search_message}")
                                         # If an error occured or no results were found:
                                         else:
                                             no_entry_found_counter += 1
                                             p_references_df.at[index, 'valid'] = trd_search_message
-                                            unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {trd_search_message}")
+                                            unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {trd_search_message}")
                                 
                                 # This is if the 2nd search (no link provided) did not yield any results
                                 else:
                                     no_entry_found_counter += 1
                                     p_references_df.at[index, 'valid'] = snd_search_message
-                                    unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {snd_search_message}")
+                                    unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {snd_search_message}")
 
     stats = {
         "unchecked_links": link_not_checked_counter,

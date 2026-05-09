@@ -32,22 +32,34 @@ from . import LLMCaller as ask_llm
 
 EDUCATED_GUESS_ON_SENTENCES_PER_PAGE = 27
 
+given_ref_style = ""
+
 # Referencing Style Specifics
 NUMERIC_REF_STYLE = "numeric"
 numeric_referencing = {
     "name": NUMERIC_REF_STYLE,
     "opening_bracket": "[",
     "closing_bracket": "]",
-    "separator": ","
+    "separator": ",",
+    "author_year_sep": ""
 }
-AUTHORYEAR_REF_STYLE = "authoryear"
-authoryear_referencing = {
-    "name": AUTHORYEAR_REF_STYLE,
+AUTHORYEAR_RB_S_REF_STYLE = "authoryear_round"
+authoryear_rb_s_referencing = {
+    "name": AUTHORYEAR_RB_S_REF_STYLE,
     "opening_bracket": "(",
     "closing_bracket": ")",
-    "separator": ";"
+    "separator": ";",
+    "author_year_sep": "" #(Radford et al. 2023)
 }
-supported_ref_templates = [numeric_referencing, authoryear_referencing]
+AUTHORYEAR_SB_C_REF_STYLE = "authoryear_square"
+authoryear_sb_c_referencing = {
+    "name": AUTHORYEAR_SB_C_REF_STYLE,
+    "opening_bracket": "[",
+    "closing_bracket": "]",
+    "separator": ",",
+    "author_year_sep": "," #[Arora et al., 2019a]
+}
+supported_ref_templates = [numeric_referencing, authoryear_rb_s_referencing, authoryear_sb_c_referencing]
 
 
 ###############################################################################
@@ -56,6 +68,18 @@ supported_ref_templates = [numeric_referencing, authoryear_referencing]
 
 def get_supported_ref_templates():
     return supported_ref_templates
+
+def get_given_ref_style_bib():
+    if given_ref_style:
+        for style in supported_ref_templates:
+            if given_ref_style == style['name']:
+                return style
+    else:
+        return {}
+
+def set_given_ref_style(ref_style_name: str):
+    global given_ref_style
+    given_ref_style = ref_style_name
 
 
 def check_with_llm(abstract: str, p_sentences: list) -> list:
@@ -213,6 +237,42 @@ def get_statement_relevance_dicts(ref_and_sentences_df, references_df):
     return related_statements, unrelated_statements
 
 
+# TODO: This is very much optimizable
+def check_for_citet_ref(sentence_part: str, element: str, opening_bracket: str, closing_bracket: str):
+    # In this case, this might be a citet reference (e.g., 'Su and Yang [2019]')
+    words = sentence_part.split()
+
+    possible_citet_ref = f"{opening_bracket}{element}{closing_bracket}"
+    if possible_citet_ref in words:
+        index_of_bracket_content = words.index(possible_citet_ref)
+
+        # Example split: [..., 'as', 'shown', 'by', 'Su', 'and', 'Yang', '[2019]']
+        list_index = index_of_bracket_content-1
+        possible_ref_id_parts = []
+        while list_index >= 0:
+            if words[list_index][0].isupper() \
+                or words[list_index] == "and" \
+                or words[list_index] == "al" or words[list_index] == "et":
+                possible_ref_id_parts.append(words[list_index])
+                list_index -= 1
+            else:
+                break
+
+        possible_ref_id = ""
+        list_index = len(possible_ref_id_parts)-1
+        while list_index >= 0:
+            possible_ref_id += possible_ref_id_parts[list_index] + " "
+            list_index -= 1
+        possible_ref_id = possible_ref_id.strip()
+        possible_ref_id += ',' + " " + element
+
+        return possible_ref_id
+    
+    else:
+        print(f"-> INFO: Found possible citet reference but couldn't really match it: '{possible_citet_ref}'")
+        print(f"      -> Sentence: '{sentence_part}'")
+        return ""
+
 
 
 ###############################################################################
@@ -242,10 +302,14 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
         opening_bracket = numeric_referencing["opening_bracket"]
         closing_bracket = numeric_referencing["closing_bracket"]
         separator = numeric_referencing["separator"]
-    elif ref_style == AUTHORYEAR_REF_STYLE:
-        opening_bracket = authoryear_referencing["opening_bracket"]
-        closing_bracket = authoryear_referencing["closing_bracket"]
-        separator = authoryear_referencing["separator"]
+    elif ref_style == AUTHORYEAR_RB_S_REF_STYLE:
+        opening_bracket = authoryear_rb_s_referencing["opening_bracket"]
+        closing_bracket = authoryear_rb_s_referencing["closing_bracket"]
+        separator = authoryear_rb_s_referencing["separator"]
+    elif ref_style == AUTHORYEAR_SB_C_REF_STYLE:
+        opening_bracket = authoryear_sb_c_referencing["opening_bracket"]
+        closing_bracket = authoryear_sb_c_referencing["closing_bracket"]
+        separator = authoryear_sb_c_referencing["separator"]
     else:
         print(f"-> ERROR: Referencing style '{ref_style}' not supported.")
         print("   Skipping text reference checking...")
@@ -325,7 +389,51 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
                         # Look for a match of the bracket's content in the references_df
                         bracket_content = sentence_part[ob_found_at+1:cb_found_at]
                         bracket_content = bracket_content.lstrip(opening_bracket).rstrip(closing_bracket)
-                        bracket_content = bracket_content.split(separator)
+
+                        bracket_split = bracket_content.split(separator)
+
+                        # If the separator between authors and year is a comma, we 
+                        # need this needs to be merged
+                        ref_bib_dict = next((bt for bt in supported_ref_templates if bt['name'] == ref_style), None)
+                        if ref_bib_dict["author_year_sep"] == ",":
+                            bracket_content = []
+                            for i in range(0, len(bracket_split)):
+                                element = bracket_split[i].strip()
+                                # Author part
+                                if not element.isdigit() and element[0].isupper() \
+                                    and len(element) > 1:
+                                    bracket_content.append(f"{element}{ref_bib_dict['author_year_sep']}")
+                                # Year part
+                                elif element.isdigit():
+                                    if len(bracket_content) > 0:
+                                        last_elem = bracket_content[-1]
+                                        bracket_content[-1] = f"{last_elem} {element}"
+                                    else:
+                                        # In this case, this might be a citet reference (e.g., 'Su and Yang [2019]')
+                                        possible_ref_id = check_for_citet_ref(sentence_part, element, opening_bracket, closing_bracket)
+                                        bracket_content.append(possible_ref_id)
+                                        break
+
+                                # a / b / c directly behind a year (e.g., 2019a)
+                                elif not element.isdigit() and len(element) == 5:
+                                    if len(bracket_content) > 0:
+                                        last_elem = bracket_content[-1]
+                                        bracket_content[-1] = f"{last_elem} {element}"
+                                    else:
+                                        # In this case, this might be a citet reference (e.g., 'Su and Yang [2019]')
+                                        possible_ref_id = check_for_citet_ref(sentence_part, element, opening_bracket, closing_bracket)
+                                        bracket_content.append(possible_ref_id)
+                                        break
+                                # separate a / b / c part (e.g., 2019a,b)
+                                elif not element.isdigit() and len(element) == 1:
+                                    if len(bracket_content) > 0:
+                                        last_elem = bracket_content[-1]
+                                        last_elem_without_letter = last_elem[:len(last_elem)-1]
+                                        bracket_content.append(f"{last_elem_without_letter}{element}")
+                                else:
+                                    print(f"-> WARNING: Mismatch in intext-reference-parsing! Skipping '{element}'...")
+                        else:
+                            bracket_content = bracket_split
 
                         # If this is a random bracket and not a set reference this check 
                         #   will lead to false psoitives!
