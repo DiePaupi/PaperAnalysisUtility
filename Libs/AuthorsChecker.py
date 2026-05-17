@@ -53,6 +53,9 @@ def set_given_bib_type(bib_type: dict):
     global given_bib_type
     given_bib_type = bib_type
 
+def get_frequent_author_threshold():
+    return MAX_AUTHOR_REFERENCES
+
 
 def normalize_authors_str(authors_str: str) -> list[str]:
     if not authors_str:
@@ -72,13 +75,25 @@ def normalize_authors_str(authors_str: str) -> list[str]:
     authors = authors.replace(f" and ", ",")
 
     # Handle possible "et al"
-    authors = authors.replace(f", et al.", "")
-    authors = authors.replace(f", et al", "")
-    authors = authors.replace(f" et al.", "")
-    authors = authors.replace(f" et al", "")
+    contains_et_al = False
+    if ", et al." in authors:
+        contains_et_al = True
+        authors = authors.replace(f", et al.", "")
+    if ", et al" in authors:
+        contains_et_al = True
+        authors = authors.replace(f", et al", "")
+    if " et al." in authors:
+        contains_et_al = True
+        authors = authors.replace(f" et al.", "")
+    if " et al" in authors:
+        contains_et_al = True
+        authors = authors.replace(f" et al", "")
     
     # Split authors by separator
     parts = [p.strip() for p in authors.split(",")]
+
+    if contains_et_al:
+        parts.append("et al")
 
     return parts
 

@@ -42,7 +42,7 @@ import pandas as pd
 # Gloal Variables
 ###############################################################################
 cwd = os.getcwd()
-path_to_env = Path(os.path.join(cwd, "SubScripts",".env"))
+path_to_env = Path(os.path.join(cwd, "Libs",".env"))
 
 MAX_RETRIES = 100
 

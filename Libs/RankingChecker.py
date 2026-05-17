@@ -246,7 +246,8 @@ def fallback_check_ranking(ranking_df: pd.DataFrame, rating_col: str, \
                     title = llm_row['outlet_name']
                     ranking = llm_row[ranking_type]
 
-                    if title and 'unknown' not in title and ranking and 'unknown' not in ranking:
+                    if title and 'unknown' not in title and ranking and 'unknown' not in ranking \
+                        and len(ranking) <= 5:
                         outlets_df.at[o_index, 'outlet_name'] = title
                         outlets_df.at[o_index, ranking_type] = ranking
                     
@@ -284,7 +285,6 @@ def main(references_df: pd.DataFrame):
     # Get all Excel Ranking Files
     #==========================================================================
     # Your current directory (including python script & all excel files)
-
     current_dir = Path((os.getcwd()).replace('\\','/'))
     print(f"- Current directory: {current_dir}")
     sup_dir = os.path.split(current_dir)[0]

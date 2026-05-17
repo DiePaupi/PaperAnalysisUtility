@@ -158,7 +158,7 @@ def check_with_llm(abstract: str, p_sentences: list) -> list:
                 len(response_splitted) % {COLUMN_COUNT} = {len(response_splitted) % COLUMN_COUNT}")
     
     llm_list = []
-    sentence_tuple = ("", False, "unknown")
+    sentence_tuple = ["", False, "unknown"]
     for i in range(0, len(response_splitted)):
         element = response_splitted[i].strip()
         element = element.strip('"')
@@ -320,7 +320,7 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
     # Cool progress bar to look at while all results are being checked
     estimated_sentence_count = ref_starting_page * EDUCATED_GUESS_ON_SENTENCES_PER_PAGE
     with Progress() as p:
-        task = p.add_task(f"-> Processing set references on set in the doc's text...", total=estimated_sentence_count)
+        task = p.add_task(f"-> Processing set references in the doc's text...", total=estimated_sentence_count)
 
         # List that will contain two-item-tuples
         # sentences_and_ref_df_indexes[x][0] = sentence
@@ -469,7 +469,7 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
                                 #   ref_indexes (corresponding to the references_df) to the
                                 #   sentences_and_ref_df_indexes list
                                 #   (-> ELSE)
-                                # Otherwise add the sentence with the reference, that could
+                                # Otherwise add the sentence with the reference that could
                                 #   not be matched to the sentences_with_unfound_refs list 
                                 #   (-> IF)
                                 if len(refs_in_sentence) == 0:
@@ -493,11 +493,37 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
     return sentences_and_ref_df_indexes, sentences_with_unfound_refs
 
 
+def compare_bib_to_intext_references(references_df, sentences_and_ref_df_indexes):
+    """
+    compare_bib_to_intext_references takes the references_df (which includes the 
+    full references before normalizing) and checks if the ref. index (in the references_df)
+    was matched to any of the sentences containing references.
+    If none do, the ref_id and the full reference are saved as tuple in the
+    unused_refs_list, which is also returned.
+    """
+
+    unused_refs_list = []
+    for row_index, row in references_df.iterrows():
+        ref_used = False
+        for sentence, refs_in_sentence in sentences_and_ref_df_indexes:
+            if row_index in refs_in_sentence:
+                ref_used = True
+                break
+
+        if not ref_used:
+            print(f"-> Warning: Reference '{row['ref_id']}' never used in the document's text.")
+            current_ref_tuple = (row["ref_id"], row["full_reference"])
+            unused_refs_list.append(current_ref_tuple)
+
+    return unused_refs_list
+
+
 def validate_sentence_references(references_df, sentences_and_ref_df_indexes):
     """
     TODO
     """
     
+    print("---")
     skip_llm_validation = input("=> To skip the LLM Reference Validation, type 'skip': ").strip()
     if skip_llm_validation.lower() == "skip":
         return pd.DataFrame()
@@ -552,12 +578,6 @@ def validate_sentence_references(references_df, sentences_and_ref_df_indexes):
             print(f"-> Missing an abstract for reference with index {row['index_in_refdf']} (Ref. ID = {references_df.at[row['index_in_refdf'], 'ref_id']}); Skipping LLM check...")
 
 
-    # 3) Extend sentences_and_ref_df_indexes to include the results
-    #    given by the LLM's response
-    #    -> so for each sentence there should be a list that contains tuples
-    #       and each tuple should be the ref_id, thematically_relevant, and stance
-
-
-    # 4) return
+    # 3) return
     return ref_and_sentences_df
 

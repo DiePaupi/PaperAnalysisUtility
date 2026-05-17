@@ -28,7 +28,7 @@ USE_CAMPUS_KI = True
 call_counter = 0
 
 cwd = os.getcwd()
-path_to_env = Path(os.path.join(cwd, "SubScripts",".env"))
+path_to_env = Path(os.path.join(cwd, "Libs",".env"))
 
 
 

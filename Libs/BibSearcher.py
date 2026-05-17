@@ -7,10 +7,10 @@ import random
 from scholarly import scholarly, ProxyGenerator
 import time
 
-import SubScripts.AuthorsChecker as ac
-import SubScripts.DblpCaller as dblp_caller
-import SubScripts.SemanticScholarCaller as sem_scholar_caller
-import SubScripts.UnicodeChecker as uc
+import Libs.AuthorsChecker as ac
+import Libs.DblpCaller as dblp_caller
+import Libs.SemanticScholarCaller as sem_scholar_caller
+import Libs.UnicodeChecker as uc
 
 
 
@@ -85,17 +85,17 @@ def manual_search(query, title, authors, year):
     
     if manual_search.strip().upper() == "FALSE":
         print(f"     -> Mismatching infos registered, thanks!")
-        return f"CHECK - Manual Check via {url}; Reference didn't add up", UNKNOWN
+        return f"CHECK - Manual Check via {url}\n			-> Reference didn't add up", UNKNOWN
     elif  manual_search.strip().lower() == "n" or manual_search.strip().lower() == "":
         message = "Manual search was skipped by the user."
         print(f"     -> {message}")
         return message, UNKNOWN
     elif manual_search.strip().lower() == "skip all":
         skip_all_remaining_validations = True
-        return "Manual an all remaining searches were skipped by the user.", UNKNOWN
+        return "Manual skip - all remaining searches were skipped by the user.", UNKNOWN
     else:
         print(f"     -> Abstract registered, thanks!")
-        return f"Found: Manual Check via {url} - Reference checked out", manual_search.strip()
+        return f"Found: Manual Check via {url}\n			-> Reference checked out", manual_search.strip()
 
 
 def activate_scholar_search(query, title, authors, year, entries_to_check, is_title_search):
@@ -184,16 +184,16 @@ def activate_scholar_search(query, title, authors, year, entries_to_check, is_ti
                 # NOTE: current_search_result['bib']['author'] -> Each entry has the form "C Janiesch"
                 pub_bib_authors = current_search_result['bib']['author']
                 for pub_author in pub_bib_authors:
-                    if pub_author:
+                    if pub_author.strip():
 
                         # Specific accent marks may lead to a false comparison!
                         # Note: The authors' string had accent marks already replaced during parsing
                         lastname = pub_author.split(" ")[1].strip()
                         lastname = uc.replace_accent_marks(lastname)
                         if not lastname.lower() in authors.lower():
-                            print(f"       -> WARNING: Lastname ({lastname}) does not match any expected authors' ({authors.lower()})!")
+                            print(f"       -> WARNING: Lastname ({lastname}) does not match any expected author's ({authors.lower()})!")
                             print(f"          Manual check required: {current_search_result['pub_url']}")
-                            return False, f"CHECK - Authors did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
+                            return False, f"CHECK - Authors did not match; Lastname ({lastname}) does not match any expected author's ({authors.lower()}): {current_search_result['pub_url']}", current_search_result['bib']['abstract']
 
                 # Compare years
                 pub_year = int(current_search_result['bib']['pub_year'].strip())
@@ -203,7 +203,7 @@ def activate_scholar_search(query, title, authors, year, entries_to_check, is_ti
                 else:
                     print(f"       -> WARNING: Year ({pub_year}) does not match expected year ({year})!")
                     print(f"          Manual check required: {current_search_result['pub_url']}")
-                    return False, f"CHECK - Years did not match: {current_search_result['pub_url']}", current_search_result['bib']['abstract']
+                    return False, f"CHECK - Year ({pub_year}) does not match expected year ({year}): {current_search_result['pub_url']}", current_search_result['bib']['abstract']
                 
             #else:
             #    print(f"   -> WARNING: Title does not match expected title! Trying next search result (if any).")
@@ -261,8 +261,8 @@ def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
             given_title_for_comparison = pub_title.replace(" ", "").lower()
 
             if pub_title_for_comparison == given_title_for_comparison:
-                if not check_message:
-                    print("     -> INFO: Titles matched!")
+                #if not check_message:
+                    #print("     -> INFO: Titles matched!")
 
                 # -------------------------------------------------------------
                 # Compare authors
@@ -284,15 +284,14 @@ def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
                         if lastname.lower() in authors_str.lower():
                             matched_author_count += 1
                         else:
-                            replaced_lastname = lastname.replace("ö","oe").replace("ä","ae").replace("ü","ue")
-                            replaced_lastname = replaced_lastname.replace("Ö","Oe").replace("Ä","Ae").replace("Ü","Ue")
+                            replaced_lastname = uc.remove_accent_marks(lastname)
 
                             if replaced_lastname.lower() in authors_str.lower() \
                                 or replaced_lastname.replace("ß","ss").lower() in authors_str.lower():
                                 matched_author_count += 1
                             else:
                                 unmatched_author_count += 1
-                                unmatched_lastnames += lastname + " "
+                                unmatched_lastnames += lastname + ", "
                 
                 # Check if authors actually match
                 if matched_author_count == author_count and unmatched_author_count == 0:
@@ -300,11 +299,11 @@ def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
                 elif matched_author_count == author_count and authors_str_contains_etal:
                     print(f"       -> INFO: All named authors matched; rest may fall under 'et al.'.")
                 elif matched_author_count == 0:
-                    if not check_message:
-                        print(f"       -> WARNING: No authors matched...")
+                    #if not check_message:
+                    #    print(f"       -> WARNING: No authors matched...")
                     continue
                 else:
-                    unmatched_lastnames = unmatched_lastnames.strip()
+                    unmatched_lastnames = unmatched_lastnames.strip(", ")
                     print(f"       -> WARNING: Not all {len(pub_bib_authors)} authors from the found ref. were matched (only {matched_author_count})")
                     print(f"                   Unmatched authors = '{unmatched_lastnames}'")
                     # Temporaly save results to check if another entry of dicts_df 
@@ -346,7 +345,7 @@ def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
                         found_abstract = UNKNOWN
                     if "link" in dicts_df.columns and row['link'] and row['link'] != UNKNOWN:
                         link_check = row['link']
-                        check_message = f"CHECK - Year ({pub_year}, {row['link']}) does not match expected year ({year})"
+                        check_message = f"CHECK - Year ({pub_year}) does not match expected year ({year}): {row['link']}"
                     else:
                         link_check = UNKNOWN
                         check_message = f"CHECK - Year ({pub_year}) does not match expected year ({year})"
@@ -377,6 +376,9 @@ def compare_dblp_dicts_to_reference(authors_str: str, normalized_authors: list, 
     keywords.append(str(year))
     dblp_results_df = dblp_caller.get_dblp_result_df(keywords, None)
 
+    if dblp_results_df.shape[0] == 0:
+        print(f"     -> dblp search was done with these keywords: {keywords}")
+
     check_message, abstract, link_check = compare_dicts_df_to_reference(dblp_results_df, authors_str, len(normalized_authors), title, year)
 
     if p_link == link_check:
@@ -394,6 +396,9 @@ def compare_sem_scholar_dicts_to_reference(authors_str: str, title: str, year: i
     
     # Try to find the publication via title search with SemanticScholar
     sem_scholar_results_df = sem_scholar_caller.get_semantic_scholar_result_df(title, True, None)
+
+    if sem_scholar_results_df.shape[0] == 0:
+        print(f"     -> Semantic Scholar search was done for the title: {title}")
 
     check_message, abstract, link_check = compare_dicts_df_to_reference(sem_scholar_results_df, authors_str, author_count, title, year)
 
@@ -428,6 +433,7 @@ def search_bib(p_references_df, index, link):
     mismatching_infos_counter = 0
     no_entry_found_counter = 0
 
+    different_link_entries = []
     mismatching_entries = []
     unfound_entries = []
 
@@ -435,8 +441,19 @@ def search_bib(p_references_df, index, link):
     authors_to_find = p_references_df.at[index, 'authors']
     year_to_find = p_references_df.at[index, 'year']
 
-    # If nothing was parsed, just skip this one
-    if title_to_find == "NOT PARSED" and authors_to_find == "NOT PARSED" and year_to_find == "NOT PARSED":
+    # If either the title or the authors/year were not parsed, skip this one
+    # and add it as unfound
+    if (title_to_find == "NOT PARSED" or len(title_to_find) <= 2) \
+        or (authors_to_find == "NOT PARSED" and year_to_find == "NOT PARSED"):
+        print(f"  -> WARNING: Skipping search (due to not enough info) for reference titled '{title_to_find}'")
+        print(f"           -> Author(s): {authors_to_find}")
+        print(f"           -> Year: {year_to_find}")
+
+        no_entry_found_counter += 1
+        if link:
+            link_not_checked_counter += 1
+        unfound_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> Search skipped due to not enough information!")
+
         stats = {
             "unchecked_links": link_not_checked_counter,
             "valid_links": valid_link_counter,
@@ -447,7 +464,13 @@ def search_bib(p_references_df, index, link):
             "mismatching_infos": mismatching_infos_counter,
             "no_entry_found": no_entry_found_counter
         }
-        return p_references_df, stats, [], []
+        entries = {
+            "different_link_entries": different_link_entries,
+            "mismatching_entries": mismatching_entries,
+            "unfound_entries": unfound_entries
+        }
+        return p_references_df, stats, entries
+    
     elif year_to_find == "NOT PARSED":
         year_to_find = 0
     else:
@@ -476,6 +499,8 @@ def search_bib(p_references_df, index, link):
             link_not_checked_counter += 1
         
         successful_searches_counter += 1
+
+        # Set abstract (if found //or check on GS if fallbback is activated//)
         p_references_df.at[index, 'valid'] = sem_scholar_result_message
         if (not sem_scholar_abstract and sem_scholar_abstract != UNKNOWN):
             p_references_df.at[index, 'abstract'] = sem_scholar_abstract
@@ -497,7 +522,7 @@ def search_bib(p_references_df, index, link):
         mismatching_infos_counter += 1
         p_references_df.at[index, 'valid'] = sem_scholar_result_message
         p_references_df.at[index, 'abstract'] = sem_scholar_abstract
-        mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n      -> {sem_scholar_result_message}")
+        mismatching_entries.append(f"{p_references_df.at[index, 'full_reference']}\n 			-> {sem_scholar_result_message}")
 
     # If an error occured or no results were found:
     else:
@@ -524,14 +549,16 @@ def search_bib(p_references_df, index, link):
                 # dblp search which is not the same as the provided
                 else:
                     different_link_found_counter += 1
+                    different_link_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {dblp_result_message}; {dblp_link_check}")
             elif dblp_link_check:
                 different_link_found_counter += 1
                 p_references_df.at[index, 'link'] = dblp_link_check
+                different_link_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {dblp_result_message}; {dblp_link_check}")
 
             successful_searches_counter += 1
             p_references_df.at[index, 'valid'] = dblp_result_message
-            p_references_df.at[index, 'valid'] = sem_scholar_result_message
 
+            # If the Google Scholar Fallback is set, search for an abstract
             if USE_GS_AS_FALLBACK:
                 search_skipped, search_message, abstract = activate_scholar_search(title_to_find,
                                                                                     title_to_find,
@@ -556,9 +583,12 @@ def search_bib(p_references_df, index, link):
                 # dblp search which is not the same as the provided
                 else:
                     different_link_found_counter += 1
+                    different_link_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {dblp_result_message}; {dblp_link_check}")
             elif dblp_link_check:
                 different_link_found_counter += 1
                 p_references_df.at[index, 'link'] = dblp_link_check
+                different_link_entries.append(f"{p_references_df.at[index, 'full_reference']}\n			-> {dblp_result_message}; {dblp_link_check}")
+
 
             mismatching_infos_counter += 1
             p_references_df.at[index, 'valid'] = dblp_result_message
@@ -576,6 +606,7 @@ def search_bib(p_references_df, index, link):
                 # If the search was successful:
                 if m_message.startswith("Found: "):
                     if link:
+                        #TODO: Does this make sense?
                         valid_link_counter += 1
 
                     successful_searches_counter += 1
@@ -585,6 +616,7 @@ def search_bib(p_references_df, index, link):
                 # If the search revealed mismatching entries:
                 elif m_message.startswith("CHECK -"):
                     if link:
+                        #TODO: Does this make sense?
                         valid_link_counter += 1
 
                     mismatching_infos_counter += 1
@@ -744,4 +776,9 @@ def search_bib(p_references_df, index, link):
         "mismatching_infos": mismatching_infos_counter,
         "no_entry_found": no_entry_found_counter
     }
-    return p_references_df, stats, mismatching_entries, unfound_entries
+    entries = {
+        "different_link_entries": different_link_entries,
+        "mismatching_entries": mismatching_entries,
+        "unfound_entries": unfound_entries
+    }
+    return p_references_df, stats, entries

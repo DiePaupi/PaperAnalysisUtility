@@ -112,16 +112,48 @@ def replace_accent_marks(input: str) -> str:
         input_str = input_str.replace("´a", 'á')
         input_str = input_str.replace("´A", 'Á')
         input_str = input_str.replace("´i", 'í')
+        input_str = input_str.replace("'i", 'í')
         input_str = input_str.replace("´ı", 'í')
         input_str = input_str.replace("´I", 'Í')
         input_str = input_str.replace("´o", 'ó')
         input_str = input_str.replace("´O", 'Ó')
-    # ò ?
-    # TODO
+    # TODO: How to match ò / ô / š ? 
+    # 
     # °
     if "°" in input_str:
         input_str = input_str.replace("°a", 'å')
         input_str = input_str.replace("°A", 'Å')
+
+    return input_str
+
+
+def remove_accent_marks(input: str) -> str:
+    input_str = copy.deepcopy(input)
+
+    # ¨a / ¨o / ¨u
+    input_str = input_str.replace('ä', 'ae')
+    input_str = input_str.replace('Ä', 'Ae')
+    input_str = input_str.replace('ö', 'oe')
+    input_str = input_str.replace('Ö', 'Oe')
+    input_str = input_str.replace('ü', 'ue')
+    input_str = input_str.replace('Ü', 'Ue')
+    # ˜n
+    input_str = input_str.replace('ñ', 'n')
+    input_str = input_str.replace('Ñ', 'N')
+    # ´a / ´ı / ´o
+    input_str = input_str.replace('á', 'a')
+    input_str = input_str.replace('Á', 'A')
+    input_str = input_str.replace('í', 'i')
+    input_str = input_str.replace('í', 'i')
+    input_str = input_str.replace('Í', 'I')
+    input_str = input_str.replace('ó', 'o')
+    input_str = input_str.replace('Ó', 'O')
+    input_str = input_str.replace('ò', 'o')
+    input_str = input_str.replace('ô', 'o')
+    input_str = input_str.replace('š', 's')
+    # °
+    input_str = input_str.replace('å', 'a')
+    input_str = input_str.replace('Å', 'A')
 
     return input_str
 

@@ -9,11 +9,11 @@ import pymupdf
 import re
 import sys
 
-import SubScripts.AuthorsChecker as ac
-import SubScripts.RankingChecker as ran_c
-import SubScripts.ReferenceChecker as ref_c
-import SubScripts.RefIntextChecker as rit_c
-import SubScripts.UnicodeChecker as uc
+import Libs.AuthorsChecker as ac
+import Libs.RankingChecker as ran_c
+import Libs.ReferenceChecker as ref_c
+import Libs.RefIntextChecker as rit_c
+import Libs.UnicodeChecker as uc
 
 
 
@@ -31,7 +31,7 @@ import SubScripts.UnicodeChecker as uc
 ###############################################################################
 
 # 'headings' contains thruples of (number, text, page_no) for each heading 
-#    found in the document; the number is 'R' for the references section
+#    found in the document
 headings = []
 # 'references_starting_page_no' is the page number where the references section
 #    starts; it is 0 if no references section was found
@@ -479,8 +479,48 @@ def main():
 
     TOTAL_NO_OF_REFERENCES = ref_stats["total_no_of_references"]
     invalid_entries = entries[0]
-    mismatching_entries = entries[1]
-    unfound_entries = entries[2]
+    different_link_etries = entries[1]
+    mismatching_entries = entries[2]
+    unfound_entries = entries[3]
+
+    # Separate the mismatching entries based on which information mismatched
+    print("-> Starting the sorting of mismatching entries!")
+    mismatching_manual_check_entries = []
+    mismatching_authors_entries = []
+    mismatching_years_up_to_one_year_entries = []
+    mismatching_years_over_one_year_entries = []
+    mismatching_remaining_entries = []
+    for entry in mismatching_entries:
+        try:
+            full_reference, check_messsage = entry.split("-> ", 1)
+            full_reference = full_reference.strip()
+            check_messsage = check_messsage.strip()
+            ref_tuple = (full_reference, check_messsage[8:])
+            if check_messsage.startswith("CHECK - Manual"):
+                mismatching_manual_check_entries.append(ref_tuple)
+            elif check_messsage.startswith("CHECK - Authors"):
+                mismatching_authors_entries.append(ref_tuple)
+            elif check_messsage.startswith("CHECK - Year"):
+                years = re.findall(r'\((\d{4})\)', check_messsage)
+                if len(years) == 2:
+                    given_year = int(years[0])
+                    expected_year = int(years[1])
+                    if abs(given_year-expected_year) < 2:
+                        mismatching_years_up_to_one_year_entries.append(ref_tuple)
+                    else:
+                        mismatching_years_over_one_year_entries.append(ref_tuple)
+                else:
+                    print(f"-> WARNING: No two years recognized in check-message!")
+                    mismatching_remaining_entries.append(ref_tuple)
+            else:
+                print(f"-> WARNING: Check-message not recognized!")
+                mismatching_remaining_entries.append(ref_tuple)
+        except Exception as e:
+            print("   -> WARNING: 'Valid'-column entry not splittable by '-> '!")
+            print(f"            -> 'Valid'-column entry: '{entry}'")
+            ref_tuple = (entry, "")
+            mismatching_remaining_entries.append(ref_tuple)
+
 
 
     #==========================================================================
@@ -498,6 +538,12 @@ def main():
     # Check if all references used in the text are also listed in the references
     sentences_and_ref_df_indexes, sentences_with_unfound_refs = rit_c.compare_intext_references_to_bib(doc, references_starting_page_no, extracted_references, referencing_template)
     
+    # Check if all entries of the bibliography are also used somewhere in the text
+    # -> by comparing the references_df to the sentences_and_ref_df_indexes list 
+    #    (which contains all found in-text references) and see if some are missing
+    # Note: Since we need the full reference, use references_df and not extracted_references
+    unused_ref_ids_list = rit_c.compare_bib_to_intext_references(references_df, sentences_and_ref_df_indexes)
+
     # Check if all references support the statements made in the paper
     # -> ref_and_sentences_df['sentences'] contains a list of tuples of the form (sentence, thematically related/relevant: bool, stance: str)
     # -> if stance = "unknown", that it wasn't checked by the LLM due to a missing abstract
@@ -522,6 +568,42 @@ def main():
     # NOTE: Results will be saved in the same folder as the input PDF
     #       with the name "PQC_results.md"
     results_folder_dir = os.path.dirname(path_to_pdf)
+
+
+    #--------------------------------------------------------------------------
+    # Create Pie Chart with the chapter lengths
+    #--------------------------------------------------------------------------
+    chapter_list = []
+    chapter_labels = []
+    chapter_values = []
+
+    if headings:
+        for i in range(0, len(headings)):
+            if i < len(headings)-1:
+                next_pageno = int(headings[i+1][2])
+            else:
+                next_pageno = doc.page_count
+            number, text, page_no = headings[i]
+            section_length = next_pageno - int(page_no)
+            chapter_list.append(f"{number}) '{text}' -- p. {page_no} (ca. {section_length} pages)\n")
+            chapter_labels.append(f"{number}) '{text}'")
+            chapter_values.append(section_length)
+
+    # Create subplots: use 'domain' type for Pie subplot
+    chap_fig = make_subplots(rows=1, cols=1, specs=[[{'type':'domain'}]])
+    chap_fig.add_trace(go.Pie(labels=chapter_labels, values=chapter_values, name="Links"),
+                1, 1)
+
+    # Use `hole` to create a donut-like pie chart
+    chap_fig.update_traces(hole=.4)
+
+    chap_fig.update_layout(
+        title_text="Chapter Length",
+        # Add annotations in the center of the donut pies.
+        annotations=[dict(text='', x=sum(chap_fig.get_subplot(1, 1).x) / 2, y=0.5,
+                        font_size=20, showarrow=False, xanchor="center")])
+    chap_fig_path = os.path.join(results_folder_dir, "chapter_fig.jpg")
+    chap_fig.write_image(chap_fig_path)
 
 
     #--------------------------------------------------------------------------
@@ -597,79 +679,120 @@ def main():
     #--------------------------------------------------------------------------
     # Log results into a markdown file
     #--------------------------------------------------------------------------
-    results_path = os.path.join(results_folder_dir, "PQC_results.md")
+    results_path = os.path.join(results_folder_dir, "PAU_results.md")
 
     with open(results_path, "x", encoding="utf-8") as f:
-        f.write("# Paper Quality Check Results\n\n")
+        f.write("# Paper Analysis Utility - Results\n\n")
+        f.write("Paper: ")
         f.write(os.path.basename(path_to_pdf).split('/')[-1])
-        f.write("\n\n\n")
+        f.write("\n\n")
 
-        f.write("## Document Structure\n\n")
+        f.write("\n## Document Structure\n\n")
         if not headings:
             f.write("No headings found in the document.\n\n\n")
         else:
-            for number, text, page_no in headings:
-                f.write(f"{number}) '{text}' -- p. {page_no}\n")
+            f.write(f"![[{chap_fig_path}]]\n")
+            f.write("\n")
+            for chapter in chapter_list:
+                f.write(f"{chapter}")
+            f.write("\n")
         
         # Print Unicode Checker results
         f.write("\n## Unicode Character Usage\n\n")
         if all(not sublist for sublist in invalid_unicode_lines):
             f.write("No invalid seeming Unicode characters found in the document.\n\n")
         else:
+            f.write("> [!NOTE]\n")
+            f.write("> *Please note that this list may contain false positives since this is feature is still in early stages of development.*\n")
+            f.write("\n")
             # TODO: Extend for other Unicode lists
             if invalid_unicode_lines[2]:
-                f.write("Dashes:\n")
-                f.write("- Stats for minus signs ():\n")
-                f.write(f"	- Valid uses: {unicode_stats['valid_minus_sign_uses']}/{total_no_of_minus_signs}={unicode_stats['valid_minus_sign_uses']/total_no_of_minus_signs*100:.2f}%\n")
-                f.write(f"	- Invalid uses: {unicode_stats['invalid_minus_sign_uses']}/{total_no_of_minus_signs}={unicode_stats['invalid_minus_sign_uses']/total_no_of_minus_signs*100:.2f}%\n")
-                f.write("- Sentences with invalid dahes:\n")
-                f.write("	- Lines containing invalid dashes:\n")
+                f.write("- Dashes:\n")
+                f.write("	- Stats for minus signs ():\n")
+                f.write(f"		- Valid uses: {unicode_stats['valid_minus_sign_uses']}/{total_no_of_minus_signs}={unicode_stats['valid_minus_sign_uses']/total_no_of_minus_signs*100:.2f}%\n")
+                f.write(f"		- Invalid uses: {unicode_stats['invalid_minus_sign_uses']}/{total_no_of_minus_signs}={unicode_stats['invalid_minus_sign_uses']/total_no_of_minus_signs*100:.2f}%\n")
+                f.write("	- Sentences with invalid dashes:\n")
+                f.write("		- Lines containing invalid dashes:\n")
                 for line, page_no in invalid_unicode_lines[2]:
                     f.write(f"		- Page {page_no}: {line}\n")
             if invalid_unicode_lines[3]:
-                f.write("Non-breaking spaces:\n")
-                f.write("- Stats:\n")
-                f.write(f"  - Valid uses: {unicode_stats['valid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['valid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
-                f.write(f"  - Invalid uses: {unicode_stats['invalid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['invalid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
+                f.write("- Non-breaking spaces:\n")
+                f.write("	- Stats:\n")
+                f.write(f"  	- Valid uses: {unicode_stats['valid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['valid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
+                f.write(f"  	- Invalid uses: {unicode_stats['invalid_nonbreaking_spaces']}/{total_no_of_nonbreaking_spaces}={unicode_stats['invalid_nonbreaking_spaces']/total_no_of_nonbreaking_spaces*100:.2f}%\n")
                 f.write("	- Lines containing invalid non-breaking spaces:\n")
                 for line, page_no in invalid_unicode_lines[3]:
                     f.write(f"		- Page {page_no}: {line}\n")
             f.write("\n")
         
         # Print RefIntextChecker results
+        # => References that were used in-text but not listed in the bibliography
         f.write("\n## References not in Bibliography\n\n")
         if len(sentences_with_unfound_refs) == 0:
             f.write(f"All references used in the document's text were also found in the 'References' section.\n\n")
         else:
-            f.write("*The sentences listed below contain references that were not found in the 'References' section*\n")
-            f.write("*Please note that this list may contain false positives as, e.g., the content of a normal bracket might have been mistaken for a reference, ")
-            f.write("or a natural reference (Authorname in text and year in brackets) might have been mismatched:*\n")
+            f.write("> [!NOTE]\n")
+            f.write("> The sentences listed below contain references that were not found in the 'References' section.\n")
+            f.write("> *Please note that this list may contain false positives as, e.g., the content of a normal bracket might have been mistaken for a reference, ")
+            f.write("or a natural reference (Authorname in text and year in brackets) might have been mismatched.*\n")
+            f.write("\n")
             for sen in sentences_with_unfound_refs:
                 f.write(f"- {sen}\n")
-            f.write("\n\n")
+            f.write("\n")
+        
+        # => References stated in the bibliography but never used in-text
+        f.write("\n## Unused References in Bibliography\n\n")
+        if len(unused_ref_ids_list) == 0:
+            f.write(f"All references stated in the 'References' section were also used at least once in the document's text.\n\n")
+        else:
+            f.write("> [!NOTE]\n")
+            f.write("> The references listed below were listed in the 'References' section but never used.\n")
+            f.write(f"> -> Total = {len(unused_ref_ids_list)}\n")
+            f.write("> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) ")
+            f.write("was not correctly parsed or the in-text reference was not recognized due to linebreaks.*\n")
+            f.write("\n")
+            for ref_id, full_reference in unused_ref_ids_list:
+                f.write(f"- Parsed Ref. ID: {ref_id}\n")
+                f.write(f"	- Full reference: `{full_reference}`\n")
+            f.write("\n")
 
         # Print frequently referenced authors sorted by value (count) descending
         f.write("\n## Frequently Referenced Authors\n\n")
+        f.write("> [!NOTE]\n")
+        f.write(f"> The following authors appear more than {ac.get_frequent_author_threshold()} times in the bibliography.\n")
+        f.write(f"> *Please note that only the lastname and the first letter of the first name are compared for counting.*\n")
+        f.write("\n")
         for author, count in sorted(
             frequent_authors.items(),
             key=lambda x: x[1],
             reverse=True
         ):
             f.write(f"- {author}: {count}\n")
+        f.write("\n")
         
         # Print Reference Checker results        
         f.write("\n## Reference Checker Results\n\n")
         if references_starting_page_no <= 0:
             f.write("No references section found in the document.\n")
         else:
+            f.write(f"![[{literature_validation_results_fig_path}]]\n")
+            f.write("\n")
             f.write(f"References section starts on page {references_starting_page_no}.\n\n")
             f.write(f"- No link provided: ${ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Unchecked links: ${ref_stats['unchecked_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['unchecked_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Valid links: ${ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            f.write(f"- Mismatching links: ${ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Different links: ${ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            if different_link_etries:
+                f.write("	- *Please note that if no link was provided, a found link will also show up in this statistic!*\n")
+                f.write("	- Different links:\n")
+                f.write(f"		=> total = {len(different_link_etries)}\n")
+                for entry in different_link_etries:
+                    entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
+                    f.write(f"		- {entry_no_sb}\n")
             f.write(f"- Invalid link: ${ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if invalid_entries:
                 f.write("	- Invalid entries:\n")
+                f.write(f"		=> total = {len(invalid_entries)}\n")
                 for entry in invalid_entries:
                     entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
                     f.write(f"		- {entry_no_sb}\n")
@@ -677,50 +800,72 @@ def main():
             f.write(f"- Successful searches: ${ref_stats['successful_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['successful_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Skipped searches: ${ref_stats['skipped_searches']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['skipped_searches']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Mismatching infos: ${ref_stats['mismatching_infos']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['mismatching_infos']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            if mismatching_entries:
-                f.write("	- Mismatching entries:\n")
-                for entry in mismatching_entries:
-                    entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
-                    f.write(f"		- {entry_no_sb}\n")
+            if mismatching_manual_check_entries:
+                f.write("	- **Entries that were flagged during a manual check:**\n")
+                f.write(f"		=> total = {len(mismatching_manual_check_entries)}\n")
+                for reference, check_messsage in mismatching_manual_check_entries:
+                    f.write(f"		- `{reference}`\n")
+                    f.write(f"			- {check_messsage}\n")
+            if mismatching_authors_entries:
+                f.write("	- **Entries with mismatching author information:**\n")
+                f.write(f"		=> total = {len(mismatching_authors_entries)}\n")
+                for reference, check_messsage in mismatching_authors_entries:
+                    f.write(f"		- `{reference}`\n")
+                    f.write(f"			- {check_messsage}\n")
+            if mismatching_years_over_one_year_entries:
+                f.write("	- **Entries with mismatching years (where the difference is > 1 year):**\n")
+                f.write(f"		=> total = {len(mismatching_years_over_one_year_entries)}\n")
+                for reference, check_messsage in mismatching_years_over_one_year_entries:
+                    f.write(f"		- `{reference}`\n")
+                    f.write(f"			- {check_messsage}\n")
+            if mismatching_years_up_to_one_year_entries:
+                f.write("	- **Entries with mismatching years (where the difference is = 1 year):**\n")
+                f.write(f"		=> total = {len(mismatching_years_up_to_one_year_entries)}\n")
+                for reference, check_messsage in mismatching_years_up_to_one_year_entries:
+                    f.write(f"		- `{reference}`\n")
+                    f.write(f"			- {check_messsage}\n")
+            if mismatching_remaining_entries:
+                f.write("	- **Other mismatches:**\n")
+                f.write(f"		=> total = {len(mismatching_remaining_entries)}\n")
+                for reference, check_messsage in mismatching_remaining_entries:
+                    f.write(f"		- `{reference}`\n")
+                    f.write(f"			- {check_messsage}\n")
             f.write(f"- No entry found: ${ref_stats['no_entry_found']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_entry_found']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if unfound_entries:
                 f.write("	- Unfound entries:\n")
+                f.write(f"		=> total = {len(unfound_entries)}\n")
                 for entry in unfound_entries:
                     entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
                     f.write(f"		- {entry_no_sb}\n")
-            f.write("\n")
-            f.write(f"![References Validation Results]({literature_validation_results_fig_path})")
             f.write("\n\n")
 
         f.write("\n## References Support for Statements\n\n")
-        f.write("*Please note that only references with a retrieved abstract can be checked here.*\n")
-        f.write("*You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*\n")
+        f.write("> [!NOTE]\n")
+        f.write("> *Please note that only references with a retrieved abstract can be checked here.*\n")
+        f.write("> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*\n")
         f.write("\n")
-        f.write("Thematically related / relevant papers that refute the sentence they are referenced in:\n")
+
+        f.write("**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**\n")
         if len(related_statements['refuted']) > 0:
             for tuple in related_statements['refuted']:
                 # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '{tuple[0].strip()}'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
         else:
             f.write(f"- None\n")
         f.write("\n")
-        f.write("Thematically unrelated / irrelevant papers:\n")
+
+        f.write("**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**\n")
         if len(unrelated_statements['refuted']) > 0 \
-            or len(unrelated_statements['not_enough_info']) > 0 \
             or len(unrelated_statements['supported']) > 0:
             for tuple in unrelated_statements['refuted']:
                 # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
-            for tuple in unrelated_statements['not_enough_info']:
-                # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '{tuple[0].strip()}'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
             for tuple in unrelated_statements['supported']:
                 # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '{tuple[0].strip()}'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
         else:
             f.write(f"- None\n")
         f.write("\n\n\n")
@@ -728,6 +873,9 @@ def main():
         
         # Print the rankings of the outlets
         f.write("\n## Outlet Rankings\n\n")
+        f.write("### Outlet Ranking Results\n\n")
+        f.write(f"![[{ranking_results_fig_path}]]\n")
+        f.write("\n")
         f.write("### References and Their Rankings\n\n")
         for i, row in outlets_df.iterrows():
             # outlets_df layout: 0=index, 1=parsed_name, 2=outlet_name, 3=jq_ranking,
@@ -744,16 +892,13 @@ def main():
             if row['impact_factor'] and row['impact_factor'] != "unknown":
                 f.write(f"	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = {row['impact_factor']}\n")
             f.write(f"	- References literatures count from this outlet: {row['references_count']}\n")
-        f.write("\n")
-        f.write("### Outlet Ranking Results\n\n")
-        f.write(f"![Outlet Ranking Results]({ranking_results_fig_path})")
-        f.write("\n\n")
-
+        f.write("\n\n\n")
         f.write("---")
+
         # Print the references DF using df.to_markdown(tablefmt="grid")
         f.write("\n## Extracted References\n\n")
         for index, row in extracted_references.iterrows():
-            f.write(f"- Number {index + 1}:\n")
+            f.write(f"- **Number {index + 1}:**\n")
             f.write(f"	- Ref. ID: *{row['ref_id']}*\n")
             f.write(f"	- Authors: *{row['authors']}*\n")
             f.write(f"	- Title: *{row['title']}*\n")
@@ -765,73 +910,75 @@ def main():
         
         f.write("---")
         f.write("\n## Full List of Reference Support Check\n\n")
-        f.write("Thematically related / relevant papers that refute the sentence they are referenced in:\n")
+        f.write("**Sentences with references to papers that are thematically related / ")
+        f.write("relevant papers but REFUTE the statement they are referenced in:**\n")
         if len(related_statements['refuted']) > 0:
             for tuple in related_statements['refuted']:
                 # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
         else:
             f.write(f"- None\n")
-        f.write("Thematically related / relevant papers that we had not enough info about:\n")
+        f.write("\n")
+
+        f.write("**Sentences with references to papers that are thematically related / ")
+        f.write("relevant papers that we had not enough info about to determine the ")
+        f.write("stance on the statement they are referenced in:**\n")
         if len(related_statements['not_enough_info']) > 0:
             for tuple in related_statements['not_enough_info']:
                 # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
         else:
             f.write(f"- None\n")
-        f.write("Thematically related / relevant papers that support the sentence they are referenced in:\n")
+        f.write("\n")
+
+        f.write("**Sentences with references to papers that are thematically related / ")
+        f.write("relevant papers that SUPPORT the statement they are referenced in:**\n")
         if len(related_statements['supported']) > 0:
             for tuple in related_statements['supported']:
                 # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
         else:
             f.write(f"- None\n")
 
-        f.write("\n")
+        f.write("\n\n")
 
-        f.write("Thematically unrelated / irrelevant papers that refute the sentence they are referenced in:\n")
-        if len(unrelated_statements['refuted']) > 0:
+        f.write("**Sentences with references to papers that seem thematically unrelated / ")
+        f.write("irrelevant:**\n")
+        if len(unrelated_statements['refuted']) > 0 \
+            or len(unrelated_statements['not_enough_info']) > 0 \
+            or len(unrelated_statements['supported']) > 0:
             for tuple in unrelated_statements['refuted']:
                 # [0] = sentence
-                f.write(f"- {tuple[0]}\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
-        else:
-            f.write(f"- None\n")
-        f.write("Thematically unrelated / irrelevant papers that we had not enough info about:\n")
-        if len(unrelated_statements['not_enough_info']) > 0:
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
             for tuple in unrelated_statements['not_enough_info']:
                 # [0] = sentence
-                f.write(f"- {tuple[0]}\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
-        else:
-            f.write(f"- None\n")
-        f.write("Thematically unrelated / irrelevant papers that support the sentence they are referenced in:\n")
-        if len(unrelated_statements['supported']) > 0:
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
             for tuple in unrelated_statements['supported']:
                 # [0] = sentence
-                f.write(f"- {tuple[0]}\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
         else:
             f.write(f"- None\n")
+        f.write("\n\n")
 
-        f.write("\n")
-
-        f.write("Papers that we didn't have an abstract for to check against:\n")
+        f.write("**Sentences with references to papers that we didn't have an abstract for to check against:**\n")
         if len(related_statements['unknown']) > 0 or len(unrelated_statements['unknown']) > 0:
             for tuple in related_statements['unknown']:
                 # [0] = sentence
-                f.write(f"- '{tuple[0]}'\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
             for tuple in unrelated_statements['unknown']:
                 # [0] = sentence
-                f.write(f"- {tuple[0]}\n")
-                f.write(f"	- Ref. ID: {tuple[3]}\n")
+                f.write(f"- '*{tuple[0].strip()}*'\n")
+                f.write(f"	- This flag is for the paper with Ref. ID = {tuple[3]}\n")
         else:
             f.write(f"- None\n")
-        f.write("\n\n\n")
+        f.write("\n")
     
     print("---")
     print("FINISHED!")
