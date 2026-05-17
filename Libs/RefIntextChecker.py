@@ -30,6 +30,8 @@ from . import LLMCaller as ask_llm
 # Gloal Variables
 ###############################################################################
 
+NEVER_ASK_FOR_PERMISSION = True
+
 EDUCATED_GUESS_ON_SENTENCES_PER_PAGE = 27
 
 given_ref_style = ""
@@ -524,7 +526,11 @@ def validate_sentence_references(references_df, sentences_and_ref_df_indexes):
     """
     
     print("---")
-    skip_llm_validation = input("=> To skip the LLM Reference Validation, type 'skip': ").strip()
+    if NEVER_ASK_FOR_PERMISSION:
+        skip_llm_validation = "n"
+    else:
+        skip_llm_validation = input("=> To skip the LLM Reference Validation, type 'skip': ").strip()
+
     if skip_llm_validation.lower() == "skip":
         return pd.DataFrame()
 

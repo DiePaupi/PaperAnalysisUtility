@@ -46,6 +46,8 @@ import copy
 # Gloal Variables
 ###############################################################################
 
+NEVER_ASK_FOR_PERMISSION = True
+
 unicode_aphostrophes = ['\u0027', '\u2018', '\u2019', '\u201B', '\u2032']
 unicode_quotes = ['\u0022', '\u201C', '\u201D', '\u201E', '\u201F']
 unicode_dashes = ['\u002D', '\u2010', '\u2011', '\u2013', '\u2014', '\u2212']
@@ -117,7 +119,7 @@ def replace_accent_marks(input: str) -> str:
         input_str = input_str.replace("´I", 'Í')
         input_str = input_str.replace("´o", 'ó')
         input_str = input_str.replace("´O", 'Ó')
-    # TODO: How to match ò / ô / š ? 
+    # TODO: How to match ò / ô / š / ß ? 
     # 
     # °
     if "°" in input_str:
@@ -130,20 +132,20 @@ def replace_accent_marks(input: str) -> str:
 def remove_accent_marks(input: str) -> str:
     input_str = copy.deepcopy(input)
 
-    # ¨a / ¨o / ¨u
+    # ¨a / ¨o / ¨u / ß
     input_str = input_str.replace('ä', 'ae')
     input_str = input_str.replace('Ä', 'Ae')
     input_str = input_str.replace('ö', 'oe')
     input_str = input_str.replace('Ö', 'Oe')
     input_str = input_str.replace('ü', 'ue')
     input_str = input_str.replace('Ü', 'Ue')
+    input_str = input_str.replace("ß","ss")
     # ˜n
     input_str = input_str.replace('ñ', 'n')
     input_str = input_str.replace('Ñ', 'N')
     # ´a / ´ı / ´o
     input_str = input_str.replace('á', 'a')
     input_str = input_str.replace('Á', 'A')
-    input_str = input_str.replace('í', 'i')
     input_str = input_str.replace('í', 'i')
     input_str = input_str.replace('Í', 'I')
     input_str = input_str.replace('ó', 'o')
@@ -340,7 +342,11 @@ def check_if_unicode_is_sus(unicode_lines: list):
     valid_space_uses = 0
     invalid_space_uses = 0
     
-    skip_validation = input("=> To skip the unicode check, type 'skip': ").strip()
+    if NEVER_ASK_FOR_PERMISSION:
+        skip_validation = "n"
+    else:
+        skip_validation = input("=> To skip the unicode check, type 'skip': ").strip()
+
     if skip_validation.lower() == "skip":
         stats = {
             "valid_hyphen_uses": valid_hyphen_uses,

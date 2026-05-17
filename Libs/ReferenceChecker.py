@@ -75,6 +75,8 @@ import Libs.UnicodeChecker as uc
 # NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
 MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
+NEVER_ASK_FOR_PERMISSION = True
+
 # Bibliography Layout Specifics
 given_bib_layout = ""
 given_bib_numbering = ""
@@ -564,6 +566,7 @@ def parse_reference(ref: str) -> dict:
         if separator in reference:
             authors, rest = reference.split(separator, 1)
             authors = uc.replace_accent_marks(authors.strip())
+            authors = uc.replace_all_unicode(authors)
 
             # Cleanup reference string
             reference = rest.strip()
@@ -607,6 +610,7 @@ def parse_reference(ref: str) -> dict:
             reference_without_single_letter_points = reference_without_single_letter_points.strip()
             authors, rest = reference_without_single_letter_points.split(separator, 1)
             authors = uc.replace_accent_marks(authors.strip())
+            authors = uc.replace_all_unicode(authors)
 
             # Cleanup reference string
             reference = rest.strip()
@@ -621,6 +625,7 @@ def parse_reference(ref: str) -> dict:
             # In AAAI/ACM & ACM bib style, the year comes directly after the authors
             authors = reference[: m.start()].strip()
             authors = uc.replace_accent_marks(authors)
+            authors = uc.replace_all_unicode(authors)
 
             # Cleanup reference string
             # E.g.: ACM-reference = ". Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
@@ -644,7 +649,7 @@ def parse_reference(ref: str) -> dict:
             }
         
     # Also get the normalized authors list
-    normalized_authors = ac.get_normalized_authors(authors)
+    normalized_authors, contains_et_al = ac.get_normalized_authors(authors)
 
 
     # ---------------------------------------------------------------
@@ -708,6 +713,7 @@ def parse_reference(ref: str) -> dict:
         'ref_id': ref_id,
         'authors': authors,
         'normalized_authors': normalized_authors,
+        'contains_et_al': contains_et_al,
         'title': title,
         'year': year,
         'abstract': None,
@@ -739,6 +745,8 @@ def main(doc, ref_starting_page, references_ending_page, heading_after_reference
     - 'full_reference', the full reference string before parsing
     - 'ref_id', a string as how the reference is referenced in-text
     - 'authors', a string containing all authors
+    - 'normalized_authors', a list of all authors in the form of "Lastname X."
+    - 'contains_etal', a bool indicating if 'authors' contained "et al."
     - 'title', a string containing the reference's title
     - 'year', an int containing the reference's year (otherwise it's 0)
     - 'abstract', a String containing the found reference's abstract (otherwise it's None)
@@ -872,8 +880,9 @@ def main(doc, ref_starting_page, references_ending_page, heading_after_reference
     # Extract information from full reference strings
     #==========================================================================
     reference_components = [parse_reference(e) for e in references]
-    # NOTE: The references_df contains the following columns: 
-    #       'full_reference', 'ref_id', 'authors', 'title', 'year', 'abstract', 'outlet', 
+    # NOTE: The references_df contains the following columns:
+    #       'full_reference', 'ref_id', 'authors', 'normalized_authors', 
+    #       'contains_et_al', 'title', 'year', 'abstract', 'outlet', 
     #       'link', and 'valid'
     references_df = pd.DataFrame(reference_components)
 
@@ -918,7 +927,11 @@ def main(doc, ref_starting_page, references_ending_page, heading_after_reference
     #==========================================================================
     # Check if provided references are valid
     #==========================================================================
-    skip_validation = input("=> To skip the validation (Scholar Search) and the abstract retrival, type 'skip': ").strip()
+    if NEVER_ASK_FOR_PERMISSION:
+        skip_validation = "n"
+    else:
+        skip_validation = input("=> To skip the validation (Scholar Search) and the abstract retrival, type 'skip': ").strip()
+
     if skip_validation.lower() != "skip":
 
         for index in range(len(references_df)):

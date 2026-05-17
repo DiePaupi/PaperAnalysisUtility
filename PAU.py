@@ -547,11 +547,10 @@ def main():
     # Check if all references support the statements made in the paper
     # -> ref_and_sentences_df['sentences'] contains a list of tuples of the form (sentence, thematically related/relevant: bool, stance: str)
     # -> if stance = "unknown", that it wasn't checked by the LLM due to a missing abstract
-    # -> TODO: List them!
     ref_and_sentences_df = rit_c.validate_sentence_references(references_df, sentences_and_ref_df_indexes)
     related_statements, unrelated_statements = rit_c.get_statement_relevance_dicts(ref_and_sentences_df, references_df)
     
-    # Check the references rankings
+    # Check the references' rankings
     outlets_df = ran_c.main(extracted_references)
 
 
@@ -901,6 +900,8 @@ def main():
             f.write(f"- **Number {index + 1}:**\n")
             f.write(f"	- Ref. ID: *{row['ref_id']}*\n")
             f.write(f"	- Authors: *{row['authors']}*\n")
+            f.write(f"	- Normalized Authors: `{row['normalized_authors']}`\n")
+            f.write(f"	- Authors contain 'et al.': *{row['contains_et_al']}*\n")
             f.write(f"	- Title: *{row['title']}*\n")
             f.write(f"	- Year: *{row['year']}*\n")
             f.write(f"	- Outlet: *{row['outlet']}*\n")

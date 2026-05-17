@@ -57,7 +57,7 @@ def get_frequent_author_threshold():
     return MAX_AUTHOR_REFERENCES
 
 
-def normalize_authors_str(authors_str: str) -> list[str]:
+def normalize_authors_str(authors_str: str):
     if not authors_str:
         return []
     
@@ -92,13 +92,10 @@ def normalize_authors_str(authors_str: str) -> list[str]:
     # Split authors by separator
     parts = [p.strip() for p in authors.split(",")]
 
-    if contains_et_al:
-        parts.append("et al")
-
-    return parts
+    return parts, contains_et_al
 
 
-def extract_authors_commasep(authors_str: str) -> list[str]:
+def extract_authors_commasep(authors_str: str):
     """
     extract_authors_commasep takes a string of authors in the following format:
 
@@ -117,7 +114,7 @@ def extract_authors_commasep(authors_str: str) -> list[str]:
     (only the first letters of the first names are kept).
     """
 
-    parts = normalize_authors_str(authors_str)
+    parts, contains_et_al = normalize_authors_str(authors_str)
     is_firstname_first = given_bib_type["is_firstname_first"]
 
     if len(parts) % 2 != 0:
@@ -136,10 +133,10 @@ def extract_authors_commasep(authors_str: str) -> list[str]:
                 first_initial = parts[i + 1]
             authors_list.append(f"{last} {first_initial}")
     
-    return authors_list
+    return authors_list, contains_et_al
 
 
-def extract_authors_spacesep(authors_str: str) -> list[str]:
+def extract_authors_spacesep(authors_str: str):
     """
     extract_authors_spacesep takes a string of authors in the following format:
 
@@ -154,7 +151,7 @@ def extract_authors_spacesep(authors_str: str) -> list[str]:
     (only the first letters of the first names are kept).
     """
 
-    authors_list = normalize_authors_str(authors_str)
+    authors_list, contains_et_al = normalize_authors_str(authors_str)
     is_firstname_first = given_bib_type["is_firstname_first"]
     
     # Split full author name into: "Lastname F."
@@ -173,7 +170,7 @@ def extract_authors_spacesep(authors_str: str) -> list[str]:
             print(f"-> Warning: Malformed author string: '{author}'")
             normalized_authors.append(author.strip())
     
-    return normalized_authors
+    return normalized_authors, contains_et_al
 
 
 
@@ -188,9 +185,11 @@ def get_normalized_authors(authors_str: str) -> list:
     is_comma_separated = given_bib_type["is_comma_sep"]
 
     if is_comma_separated:
-        return extract_authors_commasep(authors_str)
+        normalized_authors, contains_et_al = extract_authors_commasep(authors_str)
     else:
-        return extract_authors_spacesep(authors_str)
+        normalized_authors, contains_et_al =  extract_authors_spacesep(authors_str)
+
+    return normalized_authors, contains_et_al
 
 
 def get_frequent_authors(references_df: pd.DataFrame):

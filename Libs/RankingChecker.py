@@ -23,6 +23,8 @@ from . import LLMCaller as ask_llm
 # Gloal Variables
 ###############################################################################
 
+NEVER_ASK_FOR_PERMISSION = True
+
 
 
 ###############################################################################
@@ -274,7 +276,11 @@ def main(references_df: pd.DataFrame):
     print("# Starting Ranking Check")
     print("###############################")
     
-    skip_llm_fallbback = input("=> To skip the LLM Ranking Fallback Check, type 'skip': ").strip()
+    if NEVER_ASK_FOR_PERMISSION:
+        skip_llm_fallbback = "n"
+    else:
+        skip_llm_fallbback = input("=> To skip the LLM Ranking Fallback Check, type 'skip': ").strip()
+
     if skip_llm_fallbback.lower() == "skip":
         fallback = False
     else:
