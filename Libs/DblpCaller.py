@@ -59,12 +59,16 @@ def generate_query(keywords: list, batch: int, batch_size: int):
 
 def query_papers(keywords: list, batch_size=1000):
     base_url, params = generate_query(keywords, 0, batch_size)
-    response = requests.get(base_url, params=params)
-    if response.status_code != 200:
-        print(f"  -> Failed to query dblp API. Status code: {response.status_code}")
+    try:
+        response = requests.get(base_url, params=params)
+        if response.status_code != 200:
+            print(f"  -> Failed to query dblp API. Status code: {response.status_code}")
+            return ""
+        else:
+            return response.text
+    except Exception as e:
+        print(f"  => ERROR: Reaching dblp failed: {e}")
         return ""
-    else:
-        return response.text
 
 
 def parse_results(dblp_result: str):

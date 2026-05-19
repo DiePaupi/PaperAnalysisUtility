@@ -72,7 +72,7 @@ def normalize_authors_str(authors_str: str):
 
     # Handle possible "and"
     authors = authors.replace(f", and", ",")
-    authors = authors.replace(f" and ", ",")
+    authors = authors.replace(f" and", ",")
 
     # Handle possible "et al"
     contains_et_al = False

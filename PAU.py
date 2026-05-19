@@ -200,7 +200,7 @@ def parse_numbered_headings(page_no: int, page_lines: list, line_index: int, \
         last_number = int(headings[len(headings)-1][0])
         headings.append((str(last_number + 1), line, page_no + 1))
         references_starting_page_no = page_no + 1
-    
+     
     return headings
 
 
@@ -236,7 +236,8 @@ def parse_unnumbered_headings(page_no: int, line: str, headings: list) -> list:
                       "conclusion and future work",
                       "conclusion, limitations, and future work",
                       "ethical statement", "positionality statement",
-                      "broader impact", "acknowledgments"
+                      "broader impact", "acknowledgments",
+                      "neurips paper checklist"
                      ]:
 
         print(f"- Found {line} on page {page_no + 1}")
@@ -608,8 +609,8 @@ def main():
     #--------------------------------------------------------------------------
     # Create Pie Chart with the literature validation results
     #--------------------------------------------------------------------------
-    link_labels = ['No link provided', 'Unchecked links', 'Valid links', 'Invalid links', 'Mismatching links']
-    link_values = [ref_stats["no_link_provided"], ref_stats["unchecked_links"], ref_stats["valid_links"], ref_stats["invalid_links"], ref_stats["different_links"]]
+    link_labels = ['No link provided', 'Unchecked links', 'Valid links', 'Invalid links']
+    link_values = [ref_stats["no_link_provided"], ref_stats["unchecked_links"], ref_stats["valid_links"], ref_stats["invalid_links"]]
     
     searches_labels = ['Skipped searches', 'Successful searches', 'Mismatching infos', 'NO ENTRY FOUND']
     searches_values = [ref_stats["skipped_searches"], ref_stats['successful_searches'], ref_stats["mismatching_infos"], ref_stats["no_entry_found"]]
@@ -728,7 +729,7 @@ def main():
         # => References that were used in-text but not listed in the bibliography
         f.write("\n## References not in Bibliography\n\n")
         if len(sentences_with_unfound_refs) == 0:
-            f.write(f"All references used in the document's text were also found in the 'References' section.\n\n")
+            f.write(f"All references used in the document's (main) text were also found in the 'References' section.\n\n")
         else:
             f.write("> [!NOTE]\n")
             f.write("> The sentences listed below contain references that were not found in the 'References' section.\n")
@@ -742,10 +743,10 @@ def main():
         # => References stated in the bibliography but never used in-text
         f.write("\n## Unused References in Bibliography\n\n")
         if len(unused_ref_ids_list) == 0:
-            f.write(f"All references stated in the 'References' section were also used at least once in the document's text.\n\n")
+            f.write(f"All references stated in the 'References' section were also used at least once in the document's (main) text.\n\n")
         else:
             f.write("> [!NOTE]\n")
-            f.write("> The references listed below were listed in the 'References' section but never used.\n")
+            f.write("> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).\n")
             f.write(f"> -> Total = {len(unused_ref_ids_list)}\n")
             f.write("> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) ")
             f.write("was not correctly parsed or the in-text reference was not recognized due to linebreaks.*\n")
@@ -780,19 +781,20 @@ def main():
             f.write(f"- No link provided: ${ref_stats['no_link_provided']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['no_link_provided']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Unchecked links: ${ref_stats['unchecked_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['unchecked_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             f.write(f"- Valid links: ${ref_stats['valid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['valid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            f.write(f"- Invalid link: ${ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
+            if invalid_entries:
+                f.write("	- Invalid entries:\n")
+                f.write(f"		=> total = {len(invalid_entries)}\n")
+                for entry in invalid_entries:
+                    entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
+                    f.write(f"		- {entry_no_sb}\n")
+            f.write("\n")
             f.write(f"- Different links: ${ref_stats['different_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['different_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
             if different_link_etries:
                 f.write("	- *Please note that if no link was provided, a found link will also show up in this statistic!*\n")
                 f.write("	- Different links:\n")
                 f.write(f"		=> total = {len(different_link_etries)}\n")
                 for entry in different_link_etries:
-                    entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
-                    f.write(f"		- {entry_no_sb}\n")
-            f.write(f"- Invalid link: ${ref_stats['invalid_links']}/{TOTAL_NO_OF_REFERENCES}={ref_stats['invalid_links']/TOTAL_NO_OF_REFERENCES*100:.2f}\%$\n")
-            if invalid_entries:
-                f.write("	- Invalid entries:\n")
-                f.write(f"		=> total = {len(invalid_entries)}\n")
-                for entry in invalid_entries:
                     entry_no_sb = entry.replace("[", "\[").replace("]", "\]")
                     f.write(f"		- {entry_no_sb}\n")
             f.write("\n")

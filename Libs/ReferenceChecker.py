@@ -694,6 +694,8 @@ def parse_reference(ref: str) -> dict:
             # Check a last accessed date was parsed as outlet
             if "accessed:" in outlet.lower():
                 outlet = ""
+            elif "arxiv" in outlet.lower():
+                outlet = "arXiv"
             else:
                 outlet = str(outlet.strip().rstrip('.'))
                 outlet = check_outlet(outlet)
@@ -703,7 +705,10 @@ def parse_reference(ref: str) -> dict:
             if parts:
                 title = str(parts[0].strip())
                 outlet = str(' '.join(parts[1:]).strip().rstrip('.'))
-                outlet = check_outlet(outlet)
+                if "arxiv" in outlet.lower():
+                    outlet = "arXiv"
+                else:
+                    outlet = check_outlet(outlet)
     else:
         title = str(reference)
 

@@ -270,9 +270,10 @@ def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
 
             pub_title = row['title']
             pub_title_for_comparison = uc.replace_all_unicode(pub_title)
-            pub_title_for_comparison = pub_title.replace(" ", "").lower()
+            pub_title_for_comparison = pub_title_for_comparison.replace(" ", "").lower()
+
             given_title_for_comparison = uc.replace_all_unicode(title)
-            given_title_for_comparison = pub_title.replace(" ", "").lower()
+            given_title_for_comparison = given_title_for_comparison.replace(" ", "").lower()
 
             if pub_title_for_comparison == given_title_for_comparison:
                 #if not check_message:
@@ -293,13 +294,13 @@ def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
                         #       -> The authors' string had accent marks already replaced during parsing
                         lastname = pub_author.split(" ")[-1].strip()
                         if lastname.strip():
-                            lastname = uc.replace_accent_marks(lastname.strip())
-                            lastname = uc.replace_all_unicode(lastname)
+                            lastname = uc.replace_all_unicode(lastname.strip())
+                            lastname = uc.replace_accent_marks(lastname)
 
                             if lastname.lower() in authors_str.lower():
                                 matched_author_count += 1
                             else:
-                                replaced_lastname = uc.remove_accent_marks(lastname)
+                                replaced_lastname = uc.remove_accent_marks(lastname) 
                                 replaced_auhtors_str = uc.remove_accent_marks(authors_str)
 
                                 if replaced_lastname.lower() in replaced_auhtors_str.lower():
@@ -310,7 +311,7 @@ def compare_dicts_df_to_reference(dicts_df: pd.DataFrame, authors_str: str, \
                 
                 # Check if authors actually match
                 if matched_author_count == author_count \
-                    and (unmatched_author_count == 0 or not unmatched_lastnames.strip(", ")):
+                    and (unmatched_author_count == 0 or (not unmatched_lastnames.strip(", "))):
                     print(f"       -> INFO: All authors matched!")
                     highest_author_count = -1
                 elif matched_author_count == author_count and contains_etal:
@@ -419,9 +420,12 @@ def compare_dblp_dicts_to_reference(authors_str: str, normalized_authors: list, 
                                                                         len(normalized_authors), contains_etal, \
                                                                         title, year)
 
-    if p_link == link_check:
-        return check_message, "valid"
-    elif not link_check or link_check == UNKNOWN:
+    if p_link and link_check:
+        if p_link.strip() == link_check.strip():
+            return check_message, "valid"
+        else:
+            return check_message, link_check
+    elif (not link_check) or link_check == UNKNOWN:
         return check_message, ""
     else:
         return check_message, link_check

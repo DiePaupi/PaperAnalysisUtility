@@ -5,6 +5,7 @@ import pandas as pd
 from rich.progress import Progress
 
 from . import LLMCaller as ask_llm
+import Libs.UnicodeChecker as uc
 
 
 
@@ -200,7 +201,10 @@ def get_statement_relevance_dicts(ref_and_sentences_df, references_df):
         # statement_tuple_list[i][1] = thematically related/relevant: bool
         # statement_tuple_list[i][2] = stance: str
         for tuple in statement_tuple_list:
-            updated_tuple = tuple + (reference_id,)
+            if isinstance(tuple, list):
+                updated_tuple = tuple + [reference_id]
+            else:
+                updated_tuple = tuple + (reference_id,)
             # statement_tuple_list[i][3] = reference_id: str
 
             # If the paper is thematically related/relevant
@@ -392,7 +396,33 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
                         bracket_content = sentence_part[ob_found_at+1:cb_found_at]
                         bracket_content = bracket_content.lstrip(opening_bracket).rstrip(closing_bracket)
 
+                        # Split content by reference separatot to get single references in a list
                         bracket_split = bracket_content.split(separator)
+
+                        # Check for ranges like [1-5] and normalize to [1,2,3,4,5]
+                        if ref_style == NUMERIC_REF_STYLE:
+                            replaced_bracket_split = []
+                            for element in bracket_split:
+                                if "-" in uc.replace_all_unicode(element):
+                                    # ref_range should be a two-item-list where [0] = lower ref no, and [1] = upper ref no
+                                    ref_range = uc.replace_all_unicode(element).split("-")
+                                    if len(ref_range) == 2:
+                                        try:
+                                            first_ref_no = int(ref_range[0].strip())
+                                            second_ref_no = int(ref_range[1].strip())
+                                            ref_range_list = list(range(first_ref_no, second_ref_no+1))
+                                            replaced_bracket_split += ref_range_list
+                                        except:
+                                            print(f"-> Warning: Numeric reference range couldn't be parsed as Integers: {bracket_split}")
+                                            replaced_bracket_split.append(element)
+                                    else:
+                                        print(f"-> Warning: Numeric reference range was split into != 2 parts: {bracket_split}")
+                                        replaced_bracket_split.append(element)
+                                else:
+                                    replaced_bracket_split.append(element)
+                            
+                            # Finally update the bracket split
+                            bracket_split = replaced_bracket_split
 
                         # If the separator between authors and year is a comma, we 
                         # need this needs to be merged
@@ -446,9 +476,14 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
                             print("-> Info: There is no bracket content?? Skipping this sentence:")
                             print(f"   -> {sentence}")
                         else:
+                            # Check if there is at least one digit in the ref_id
+                            #  -> it should always have one (e.g., a ref with a year has a digit, a numerical ref has a digit, ...)
                             for possible_ref in bracket_content:
                                 if not possible_ref:
                                     print(f"-> Info: The bracket content {bracket_content} is empty?? Skipping this one.")
+                                elif isinstance(possible_ref, int):
+                                    valid_bracket_content = True
+                                    break
                                 else:
                                     for char in bracket_content[0]:
                                         if char.isdigit():
@@ -459,7 +494,8 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
                                 refs_in_sentence = []
                                 for ref_index, ref_row in references_df.iterrows():
                                     
-                                    if any(item.lower() == ref_row['ref_id'].lower() for item in bracket_content):
+                                    # Check if the current red_id (of the row we're looking at) matches one of the bracket_content-items
+                                    if any(str(item).lower().strip() == ref_row['ref_id'].lower().strip() for item in bracket_content):
                                         refs_in_sentence.append(ref_index)
 
                                         # No need to check the remaining references of the DF
