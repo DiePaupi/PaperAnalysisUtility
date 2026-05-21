@@ -179,8 +179,8 @@ def extract_authors_spacesep(authors_str: str):
 ###############################################################################
 
 def get_normalized_authors(authors_str: str) -> list:
-    if authors_str == "NOT PARSED":
-        return []
+    if (not authors_str) or (authors_str == "NOT PARSED"):
+        return [], False
 
     is_comma_separated = given_bib_type["is_comma_sep"]
 
@@ -210,7 +210,8 @@ def get_frequent_authors(references_df: pd.DataFrame):
 
     # Extract authors from each reference and count their occurrences
     for authors_list in references_df["normalized_authors"]:
-        author_counter.update(authors_list)
+        if isinstance(authors_list, list):
+            author_counter.update(authors_list)
 
     # Get authors that are referenced more than MAX_AUTHOR_REFERENCES
     frequent_authors = {

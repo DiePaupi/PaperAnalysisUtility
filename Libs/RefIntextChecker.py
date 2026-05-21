@@ -6,6 +6,7 @@ from rich.progress import Progress
 
 from . import LLMCaller as ask_llm
 import Libs.UnicodeChecker as uc
+import Libs.IntextRefParser as ref_parser
 
 
 
@@ -36,33 +37,36 @@ NEVER_ASK_FOR_PERMISSION = True
 EDUCATED_GUESS_ON_SENTENCES_PER_PAGE = 27
 
 given_ref_style = ""
+# TODO: Ask user for just numeric vs author_year and then for the author_year_sep???
 
 # Referencing Style Specifics
 NUMERIC_REF_STYLE = "numeric"
-numeric_referencing = {
-    "name": NUMERIC_REF_STYLE,
-    "opening_bracket": "[",
-    "closing_bracket": "]",
-    "separator": ",",
-    "author_year_sep": ""
-}
-AUTHORYEAR_RB_S_REF_STYLE = "authoryear_round"
-authoryear_rb_s_referencing = {
-    "name": AUTHORYEAR_RB_S_REF_STYLE,
-    "opening_bracket": "(",
-    "closing_bracket": ")",
-    "separator": ";",
-    "author_year_sep": "" #(Radford et al. 2023)
-}
-AUTHORYEAR_SB_C_REF_STYLE = "authoryear_square"
-authoryear_sb_c_referencing = {
-    "name": AUTHORYEAR_SB_C_REF_STYLE,
-    "opening_bracket": "[",
-    "closing_bracket": "]",
-    "separator": ",",
-    "author_year_sep": "," #[Arora et al., 2019a]
-}
-supported_ref_templates = [numeric_referencing, authoryear_rb_s_referencing, authoryear_sb_c_referencing]
+#numeric_referencing = {
+#    "name": NUMERIC_REF_STYLE,
+#    "opening_bracket": "[",
+#    "closing_bracket": "]",
+#    "separator": ",",
+#    "author_year_sep": ""
+#}
+# Referencing Style Specifics
+AUTHORYEAR_REF_STYLE = "authoryear"
+#AUTHORYEAR_RB_S_REF_STYLE = "authoryear_round"
+#authoryear_rb_s_referencing = {
+#    "name": AUTHORYEAR_RB_S_REF_STYLE,
+#    "opening_bracket": "(",
+#    "closing_bracket": ")",
+#    "separator": ";",
+#    "author_year_sep": "" #(Radford et al. 2023)
+#}
+#AUTHORYEAR_SB_C_REF_STYLE = "authoryear_square"
+#authoryear_sb_c_referencing = {
+#    "name": AUTHORYEAR_SB_C_REF_STYLE,
+#    "opening_bracket": "[",
+#    "closing_bracket": "]",
+#    "separator": ",",
+#    "author_year_sep": "," #[Arora et al., 2019a]
+#}
+supported_ref_templates = [NUMERIC_REF_STYLE, AUTHORYEAR_REF_STYLE]
 
 
 ###############################################################################
@@ -72,13 +76,13 @@ supported_ref_templates = [numeric_referencing, authoryear_rb_s_referencing, aut
 def get_supported_ref_templates():
     return supported_ref_templates
 
-def get_given_ref_style_bib():
-    if given_ref_style:
-        for style in supported_ref_templates:
-            if given_ref_style == style['name']:
-                return style
-    else:
-        return {}
+#def get_given_ref_style_bib():
+#    if given_ref_style:
+#        for style in supported_ref_templates:
+#            if given_ref_style == style['name']:
+#                return style
+#    else:
+#        return {}
 
 def set_given_ref_style(ref_style_name: str):
     global given_ref_style
@@ -288,6 +292,77 @@ def check_for_citet_ref(sentence_part: str, element: str, opening_bracket: str, 
 def compare_intext_references_to_bib(doc, ref_starting_page: int, \
                                      references_df: pd.DataFrame, ref_style: str):
     """
+    """
+    
+    print("##########################################################")
+    print("# Starting Reference-Bibliography-Comparision")
+    print("##########################################################")
+
+    sum_of_sentences_checked = 0
+
+    # Cool progress bar to look at while all results are being checked
+    estimated_sentence_count = ref_starting_page * EDUCATED_GUESS_ON_SENTENCES_PER_PAGE
+    with Progress() as p:
+        task = p.add_task(f"-> Processing set references in the doc's text...", total=estimated_sentence_count)
+
+        # List that will contain two-item-tuples
+        # sentences_and_ref_df_indexes[x][0] = sentence
+        # sentences_and_ref_df_indexes[x][1] = list of indexes of references 
+        #   in the references_df, where these refs are said in the sentence
+        sentences_and_ref_df_indexes = []
+        sentences_with_unfound_refs = []
+
+        # NOTE: doc[page_number] is 0-based
+        #       we want to iterate till doc[ref_starting_page-1] (inclusive)
+        for page_index in range(0, ref_starting_page):
+            page_text = doc[page_index].get_text()
+            page_text = page_text.replace("-\n", "")
+            page_text = page_text.replace("\n", " ")
+
+            # If this is the first page, skip to the abstract
+            if page_index == 0:
+                # Find the starting index of the reference section
+                if page_text.find("Abstract") != -1:
+                    ref_starting_index = page_text.find("Abstract")
+                elif page_text.find("Introduction") != -1:
+                    ref_starting_index = page_text.find("Introduction")
+                else:
+                    print(f"-> ERROR: No abstract or introduction found on the first page!!")
+                    ref_starting_index = len(page_text)
+
+                page_text = page_text[ref_starting_index:]
+
+            # If this is the last text page (where the reference section starts)
+            # only take the text before the section start into account
+            elif page_index == ref_starting_page-1:
+                # Find the starting index of the reference section
+                if page_text.find("References") != -1:
+                    ref_starting_index = page_text.find("References")
+                else:
+                    ref_starting_index = page_text.find("Literature")
+
+                page_text = page_text[0:ref_starting_index]
+
+            # Clean page_text from unnecessary points so the parsing works better
+            page_text = page_text.replace("et al.", "et al")
+            # Note: Ignoring ! and ? as they are uncommon in academia
+            sentences = page_text.split(".")
+            sum_of_sentences_checked += len(sentences)
+
+            for sentence in sentences:
+                sub_sentences_with_unfound_refs, sub_sentences_and_ref_df_indexes = ref_parser.check_sentence_for_ref(sentence, page_index+1, references_df)
+                sentences_with_unfound_refs += sub_sentences_with_unfound_refs
+                sentences_and_ref_df_indexes += sub_sentences_and_ref_df_indexes
+                
+                p.update(task, advance=1)
+
+    print(f"-> Processed {sum_of_sentences_checked} sentences on {page_index+1} pages -> Avg. of {sum_of_sentences_checked / page_index+1} sentences per page")
+    return sentences_and_ref_df_indexes, sentences_with_unfound_refs
+
+
+def compare_intext_references_to_bib_OLD(doc, ref_starting_page: int, \
+                                     references_df: pd.DataFrame, ref_style: str):
+    """
     compare_intext_references_to_bib iterates through the given doc's text and
       searches every reference (set in the text) in the bibliography 
       (as extracted in the references_df).
@@ -396,7 +471,7 @@ def compare_intext_references_to_bib(doc, ref_starting_page: int, \
                         bracket_content = sentence_part[ob_found_at+1:cb_found_at]
                         bracket_content = bracket_content.lstrip(opening_bracket).rstrip(closing_bracket)
 
-                        # Split content by reference separatot to get single references in a list
+                        # Split content by reference separator to get single references in a list
                         bracket_split = bracket_content.split(separator)
 
                         # Check for ranges like [1-5] and normalize to [1,2,3,4,5]

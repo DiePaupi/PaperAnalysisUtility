@@ -12,6 +12,7 @@ import sys
 import Libs.AuthorsChecker as ac
 import Libs.RankingChecker as ran_c
 import Libs.ReferenceChecker as ref_c
+import Libs.IntextRefParser as ref_parser
 import Libs.RefIntextChecker as rit_c
 import Libs.UnicodeChecker as uc
 
@@ -398,14 +399,14 @@ def main():
     
     print("---")
     print("INFO:")
-    print(" - 'LFflTOY' = Lastname, Firstname (firstletter), Title, Outlet, Year")
+    print(" - 'LFTOY' = Lastname, Firstname, Title, Outlet, Year")
     print("            -> This is, for example, used by Springer Nature")
-    print(" - 'LFflYTO' = Lastname, Firstname (firstletter), Year, Title, Outlet")
+    print(" - 'LFYTO' = Lastname, Firstname, Year, Title, Outlet")
     print("            -> This is, for example, used by the AAAI/ACM Conference")
-    print(" - 'FLYTO'   = Firstname, Lastname, Year, Title, Outlet")
+    print(" - 'FLYTO' = Firstname, Lastname, Year, Title, Outlet")
     print("            -> This is, for example, used by ACM")
-    print(" - 'FLTOY'  = Firstname, Lastname, Title, Outlet, Year")
-    print("            -> This is, for example, used by the NeurIPS Conference")
+    print(" - 'FLTOY' = Firstname, Lastname, Title, Outlet, Year")
+    print("            -> This is, for example, used by most papers of the NeurIPS Conference")
     input_bib_layout = input(f"Enter a supported bibliography layout ({[t['name'] for t in supported_bib_layouts]}): ").strip().strip('"')
     res = next((bt for bt in supported_bib_layouts if bt['name'] == input_bib_layout), None)
     if not res:
@@ -415,6 +416,18 @@ def main():
     else:
         bib_template = input_bib_layout
         ref_c.set_given_bib_layout(input_bib_layout, lineskip)
+
+        print("# PLEASE NOTE:")
+        print(f" -> The chosen bib layout uses '{res['author_separator']}' to separate multiple authors.")
+        input_author_sep = input(f" => If that is correct, please press enter or type 'y', otherwise enter another author-separator to use: ").strip().strip('"')
+        if (not input_author_sep) or input_author_sep == "y":
+            print("... Using default :)")
+        elif len(input_author_sep.strip()) == 1:
+            ref_c.overwrite_given_bib_dict(input_author_sep)
+            print(f"... '{input_author_sep}' as author separator accepted!")
+        else:
+            print(f"... Sorry, '{input_author_sep}' doesn't seem to be a single char; using the default '{res['author_separator']}' as author separator!")
+            
     
     print("---")
     print("INFO:")
@@ -433,16 +446,20 @@ def main():
 
     print("---")
     print("INFO:")
-    print(" - 'numeric'           = A number placed inside square brackets (e.g., [28])")
-    print("                      -> Multiple references are separated by a comma (e.g., [28,29])")
-    print(" - 'authoryear_round'  = Authors' names and the year places insince round brackets (e.g., (Speckmann et al., 2025))")
-    print("                      -> Multiple references are separated by a semicolon (e.g., (Speckmann et al. 2025; Janiesch et al. 2021))")
-    print("                      -> Please note that the author and year are *not* separated")
-    print(" - 'authoryear_square' = Authors' names and the year places insince square brackets (e.g., [Speckmann et al., 2025])")
-    print("                      -> Multiple references are separated by a comma (e.g., [Speckmann et al., 2025, Janiesch et al., 2021])")
-    print("                      -> Please note that the author and year are also separated by a comma")
-    input_ref_template = input(f"Enter a supported referencing template ({[t['name'] for t in supported_referencing_templates]}): ").strip().strip('"')
-    res = next((rt for rt in supported_referencing_templates if rt['name'] == input_ref_template), None)
+    print(" - 'numeric'     = A number placed inside square brackets (e.g., [28])")
+    print("                -> Multiple references are separated by a comma (e.g., [28,29])")
+    print(" - 'authoryear'  = Authors' names and the year places insince brackets with or withou a comma in between (e.g., (Dignum et al., 2025))")
+    print("                -> Multiple references are separated by a semicolon or comma (e.g., (Dignum et al. 2025; Caliskan et al. 2017))")
+    #print(" - 'authoryear_round'  = Authors' names and the year places insince round brackets (e.g., (Dignum et al., 2025))")
+    #print("                      -> Multiple references are separated by a semicolon (e.g., (Dignum et al. 2025; Caliskan et al. 2017))")
+    #print("                      -> Please note that the author and year are *not* separated")
+    #print(" - 'authoryear_square' = Authors' names and the year places insince square brackets (e.g., [Dignum et al., 2025])")
+    #print("                      -> Multiple references are separated by a comma (e.g., [Dignum et al., 2025, Caliskan et al., 2017])")
+    #print("                      -> Please note that the author and year are also separated by a comma")
+    #input_ref_template = input(f"Enter a supported referencing template ({[t['name'] for t in supported_referencing_templates]}): ").strip().strip('"')
+    input_ref_template = input(f"Enter a supported referencing template ({supported_referencing_templates}): ").strip().strip('"')
+    #res = next((rt for rt in supported_referencing_templates if rt['name'] == input_ref_template), None)
+    res = True if input_ref_template in supported_referencing_templates else False 
     if not res:
         print(f"ERROR: Referencing template '{input_ref_template}' not supported yet!")
         print(" -> The programm will exit now. :)")
@@ -450,6 +467,7 @@ def main():
     else:
         referencing_template = input_ref_template
         rit_c.set_given_ref_style(input_ref_template)
+        ref_parser.set_ref_style(input_ref_template)
 
 
     #==========================================================================
@@ -603,7 +621,15 @@ def main():
         annotations=[dict(text='', x=sum(chap_fig.get_subplot(1, 1).x) / 2, y=0.5,
                         font_size=20, showarrow=False, xanchor="center")])
     chap_fig_path = os.path.join(results_folder_dir, "chapter_fig.jpg")
-    chap_fig.write_image(chap_fig_path)
+
+    try_to_save_image_counter = 0
+    while try_to_save_image_counter < 100:
+        try:
+            chap_fig.write_image(chap_fig_path)
+            print(f"-> Saved chapter_fig on try {try_to_save_image_counter+1}")
+            break
+        except Exception as e:
+            try_to_save_image_counter += 1
 
 
     #--------------------------------------------------------------------------
@@ -633,7 +659,15 @@ def main():
                     dict(text='Searches', x=sum(lit_fig.get_subplot(1, 2).x) / 2, y=0.5,
                         font_size=20, showarrow=False, xanchor="center")])
     literature_validation_results_fig_path = os.path.join(results_folder_dir, "literature_validation_results_fig.jpg")
-    lit_fig.write_image(literature_validation_results_fig_path)
+
+    try_to_save_image_counter = 0
+    while try_to_save_image_counter < 100:
+        try:
+            lit_fig.write_image(literature_validation_results_fig_path)
+            print(f"-> Saved lit_fig on try {try_to_save_image_counter+1}")
+            break
+        except Exception as e:
+            try_to_save_image_counter += 1
 
 
     #--------------------------------------------------------------------------
@@ -673,7 +707,15 @@ def main():
                     dict(text='CORE', x=sum(rank_fig.get_subplot(1, 2).x) / 2, y=0.5,
                         font_size=20, showarrow=False, xanchor="center")])
     ranking_results_fig_path = os.path.join(results_folder_dir, "ranking_results_fig.jpg")
-    rank_fig.write_image(ranking_results_fig_path)
+
+    try_to_save_image_counter = 0
+    while try_to_save_image_counter < 100:
+        try:
+            rank_fig.write_image(ranking_results_fig_path)
+            print(f"-> Saved rank_fig on try {try_to_save_image_counter+1}")
+            break
+        except Exception as e:
+            try_to_save_image_counter += 1
 
 
     #--------------------------------------------------------------------------

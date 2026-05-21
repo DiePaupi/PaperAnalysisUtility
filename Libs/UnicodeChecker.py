@@ -113,6 +113,10 @@ def replace_accent_marks(input: str) -> str:
     if "´" in input_str:
         input_str = input_str.replace("´a", 'á')
         input_str = input_str.replace("´A", 'Á')
+        input_str = input_str.replace("´e", 'é')
+        input_str = input_str.replace("'e", 'é')
+        input_str = input_str.replace("´E", 'É')
+        input_str = input_str.replace("'E", 'É')
         input_str = input_str.replace("´i", 'í')
         input_str = input_str.replace("'i", 'í')
         input_str = input_str.replace("´ı", 'í')
@@ -146,6 +150,8 @@ def remove_accent_marks(input: str) -> str:
     # ´a / ´ı / ´o
     input_str = input_str.replace('á', 'a')
     input_str = input_str.replace('Á', 'A')
+    input_str = input_str.replace('é', 'e')
+    input_str = input_str.replace('É', 'E')
     input_str = input_str.replace('í', 'i')
     input_str = input_str.replace('Í', 'I')
     input_str = input_str.replace('ó', 'o')

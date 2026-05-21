@@ -497,8 +497,8 @@ def search_bib(p_references_df, index, link):
 
     # If either the title or the authors/year were not parsed, skip this one
     # and add it as unfound
-    if (title_to_find == "NOT PARSED" or len(title_to_find) <= 2) \
-        or (authors_to_find == "NOT PARSED" and year_to_find == "NOT PARSED"):
+    if (title_to_find.startswith("NOT PARSED") or len(title_to_find) <= 2) \
+        or (authors_to_find.startswith("NOT PARSED") and year_to_find.startswith("NOT PARSED")):
         print(f"  -> WARNING: Skipping search (due to not enough info) for reference titled '{title_to_find}'")
         print(f"           -> Author(s): {authors_to_find}")
         print(f"           -> Year: {year_to_find}")

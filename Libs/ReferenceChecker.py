@@ -86,7 +86,7 @@ given_line_skip = 0
 # LFTOY = Lastname, Firstname, Title, Outlet, Year
 # lastname_firstletter_title_outlet_year
 # E.g., Springer
-LFTOY_BIB_STYLE = "LFflTOY"
+LFTOY_BIB_STYLE = "LFTOY"
 lftoy_bib = {
     "name": LFTOY_BIB_STYLE,
     "authors_rest_separator": ":",
@@ -98,7 +98,7 @@ lftoy_bib = {
 # LFYTO = Lastname, Firstname (firstletter), Year, Title, Outlet
 # lastname_firstletter_year_title_outlet
 # E.g., AAAI/ACM
-LFYTO_BIB_STYLE = "LFflYTO"
+LFYTO_BIB_STYLE = "LFYTO"
 lfyto_bib = {
     "name": LFYTO_BIB_STYLE,
     "authors_rest_separator": ".",
@@ -202,6 +202,14 @@ def set_given_given_bib_numbering(bib_numbering: str):
     global given_bib_numbering
     given_bib_numbering = bib_numbering
 
+def overwrite_given_bib_dict(author_sep: str):
+    selected_bib_dict = next((bt for bt in supported_bib_layouts if bt['name'] == given_bib_layout), None)
+    if selected_bib_dict:
+        selected_bib_dict['author_separator'] = author_sep
+
+
+# ----
+
 
 def get_letter_from_pos_in_alphabet(pos: int) -> str:
     if pos >= 0 and pos <= 26:
@@ -248,8 +256,11 @@ def check_page_text(p_page_references, p_page_text, line_skip):
 
     page_lines = page_text.split("\n")
 
+    current_ref = ""
+    prev_line = "" 
+    sep = next((bl['author_separator'] for bl in supported_bib_layouts if bl['name'] == given_bib_layout), None)
+    
     # Skip first (and second) line, since this is the header, PDF author, or PDF page number
-    #for line in page_lines[line_skip:]: 
     for line_index in range(line_skip, len(page_lines)):
         # Ensure that the line is long enough to check for the reference schema, 
         # otherwise append it to the last reference if it exists
@@ -261,6 +272,8 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 if page_lines[line_index][0].isdigit() and page_lines[line_index][1] == "." and page_lines[line_index][2] == " ":
                     page_references.append(page_lines[line_index].strip())
                 elif page_lines[line_index][0].isdigit() and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "." and page_lines[line_index][3] == " ":
+                    page_references.append(page_lines[line_index].strip())
+                elif page_lines[line_index][0].isdigit() and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3] == "." and page_lines[line_index][4] == " ":
                     page_references.append(page_lines[line_index].strip())
                 # If this schema is not found, but we already have at least one reference,
                 # append the line to the last reference
@@ -277,7 +290,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     page_references.append(page_lines[line_index].strip())
                 elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3] == "]":
                     page_references.append(page_lines[line_index].strip())
-                elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3].isdigit and page_lines[line_index][43] == "]":
+                elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3].isdigit and page_lines[line_index][4] == "]":
                     page_references.append(page_lines[line_index].strip())
                 # If this schema is not found, but we already have at least one reference,
                 # append the line to the last reference
@@ -292,9 +305,13 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 # each reference starts with the authornames
                 current_line = page_lines[line_index].strip()
 
-                # Append first reference
-                if not page_references:
-                    page_references.append(current_line)
+                # Set first reference
+                if (not page_references) and (not prev_line):
+                    if (not given_bib_layout.endswith('Y')) and sep == ',':
+                        prev_line = current_line
+                        current_ref = current_line
+                    else:
+                        page_references.append(current_line)
                     continue
 
                 # Check for years in the current line (cl) and previous (pl)
@@ -316,8 +333,6 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     
                 # Usual case, as a new reference starts with mostly multiple authors that
                 # are seperated by 'sep'
-                sep = next((bl['author_separator'] for bl in supported_bib_layouts if bl['name'] == given_bib_layout), None)
-
                 if sep == ";":
                     # If the current line contains ; and the previous doesn't contain a ; nor a year
                     if sep in current_line and sep not in page_lines[line_index-1] and not year_pl:
@@ -344,33 +359,78 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     else:
                         page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
                 
-                # NOTE: This is a very generalized division and might only work if 
-                #       the year is actually at the end of the reference
-                #       -> 'LFflTOY' or 'FLTOY' layout styles
+                # If authors are separated by ,
                 elif sep == ",":
+                    year_pattern = re.compile(r'\b(18|19|20)\d{2}[a-z]?\b')
 
-                    # In natbib, we always start with the authors' names (capitalized), not a lower letter nor a number
-                    if current_line[0].isdigit() or current_line[0].islower():
-                        page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
-                    else:
-                        year_pattern = re.compile(r'\b(18|19|20)\d{2}[a-z]?\b')
-                        has_year_prev = bool(year_pattern.search(page_references[-1]))
-                        continuation_pattern = re.compile(
-                            r'^(in\b|editors\b|eds\.\b|url\b|http|https|doi\b|pages\b|pp\.\b|p\.\b|volume\b|vol\.)',
-                            re.IGNORECASE
-                        )
-
-                        looks_like_new_start = (
-                            current_line[0].isupper()
-                            and not continuation_pattern.search(current_line)
-                            and has_year_prev
-                        )
-
-                        if looks_like_new_start:
-                            page_references.append(current_line)
-                        else:
+                    # NOTE: This is a very generalized division and mostly only works if 
+                    #       the year is actually at the end of the reference
+                    #       -> 'LFTOY' or 'FLTOY' layout styles
+                    if given_bib_layout.endswith('Y'):
+                        # In natbib, we always start with the authors' names (capitalized), not a lower letter nor a number
+                        if current_line[0].isdigit() or current_line[0].islower():
                             page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                        else:
+                            has_year_prev = bool(year_pattern.search(page_references[-1]))
+                            continuation_pattern = re.compile(
+                                r'^(in\b|editors\b|eds\.\b|url\b|http|https|doi\b|pages\b|pp\.\b|p\.\b|volume\b|vol\.)',
+                                re.IGNORECASE
+                            )
 
+                            looks_like_new_start = (
+                                current_line[0].isupper()
+                                and not continuation_pattern.search(current_line)
+                                and has_year_prev
+                            )
+
+                            if looks_like_new_start:
+                                page_references.append(current_line)
+                            else:
+                                page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                        
+                    # Else if the year comes after the authors' names
+                    else: # TODO: There are still issues with this parsing (e.g., page numbers recognized for years)
+
+                        # Check if current_line is likely a continuation of the previous line
+                        is_continuation = False
+                        if prev_line:
+                            if current_line and (current_line[0].islower() or current_line[0].isdigit()):
+                                is_continuation = True
+                            elif prev_line.strip().endswith("-") or prev_line.strip().endswith("–"):
+                                is_continuation = True
+
+                        # If the current_ref already has a year, and the current_line also contains a year,
+                        # and the current_line is probably not a continuation
+                        current_ref_year = year_pattern.search(current_ref)
+                        cl_year = year_pattern.search(current_line)
+                        if current_ref_year and cl_year and (not is_continuation):
+                            # if previous line likely contains authors, move it to new reference
+                            #if prev_line and prev_line.count(",") >= 2 and current_ref.endswith(prev_line):
+                            #    current_ref = current_ref[:-len(prev_line)].strip() # TODO: does this make sense?
+                            #    if current_ref:
+                            #        page_references.append(current_ref)
+                            #    current_ref = prev_line + " " + current_line
+                            #else:
+                            if current_ref:
+                                page_references.append(current_ref)
+                            current_ref = current_line
+                        # Otherwise, if the current_ref already has a year (meaning authors are finished)
+                        # and the current is likely not a continuation but just a whole line of authors
+                        # -> then we have multiple separators or / and "and/&" in the line
+                        elif current_ref_year \
+                            and (not is_continuation) \
+                            and (current_line.count(",") >= 3 or "and" in current_line or "&" in current_line):
+                            if current_ref:
+                                page_references.append(current_ref)
+                            current_ref = current_line
+                        # If the current_line doesn't contain a year or is probably a continuation
+                        else:
+                            if current_ref:
+                                current_ref += " " + current_line
+                            else:
+                                current_ref = current_line
+
+                        prev_line = current_line
 
             else:
                 print(f"=> ERROR: given_bib_numbering = {given_bib_layout} not recognized!")
@@ -530,13 +590,29 @@ def parse_reference(ref: str) -> dict:
     # Get the link
     # ---------------------------------------------------------------
 
-    # try to extract link (doi or http) at end
+    # try to extract link (doi or http)
     link = ''
     m = re.search(r'(https?://\S+)', reference)
     if m:
         link = str(m.group(1))
-        # Cleanup reference string (the link is usually the last part)
-        reference = reference[: m.start()].strip()
+        link = link.rstrip(" ,.")
+
+        # Cleanup reference string
+        ref_after_link = reference[m.end() :].lower().strip()
+        accessed_start_index = ref_after_link.find("accessed")
+        if accessed_start_index != -1:
+            ref_after_link = ref_after_link[:accessed_start_index].strip()
+
+        ref_before_link = reference[: m.start()].strip()
+        # TODO: What if there is both a doi and an url?
+        #    -> 'Association for Computational Linguistics. doi: 10.18653/v1/2023.findings-acl.247. URL https://aclanthology.org/2023.findings-acl.247.'
+        ref_before_link = ref_before_link.replace("url: ", "").replace("URL: ", "").strip()
+        ref_before_link = ref_before_link.replace("url ", "").replace("URL ", "").strip()
+        ref_before_link = ref_before_link.replace("doi: ", "").replace("DOI: ", "").strip()
+        ref_before_link = ref_before_link.replace("doi ", "").replace("DOI ", "").strip()
+
+        reference = ref_before_link + " " + ref_after_link
+        reference = reference.strip()
 
 
     # ---------------------------------------------------------------
@@ -575,6 +651,7 @@ def parse_reference(ref: str) -> dict:
     
     elif given_bib_layout == FLTOY_BIB_STYLE:
         # E.g.: reference = "Damjan Pecioski, Viktor Gavriloski, Simona Domazetovska, and Anastasija Ignjatovska. Title. In 2023 12th Mediterranean Conference on Embedded Computing (MECO), pages 1–4"
+        #                 = "Anthropic. 3.5 Models and Computer Use, 2024."
 
         m = re.findall(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
         if m:
@@ -595,30 +672,56 @@ def parse_reference(ref: str) -> dict:
         separator = fltoy_bib["authors_rest_separator"]
         if separator in reference:
 
-            # Since the separator here is a . we need to get rid of all other points
-            # -> E.g., in names like "Anthony J. Crowley"
-            reference_split = reference.split(separator)
-            reference_without_single_letter_points = ""
-            for element in reference_split:
-                # If the element is like "Anthony J" or "J"
-                if (len(element) > 1 and element[-1].isupper() and element[-2] == " ") \
-                    or (len(element) == 1 and element.isupper()):
-                    reference_without_single_letter_points += " " + element
-                else:
-                    reference_without_single_letter_points += " " + element + separator
-            
-            reference_without_single_letter_points = reference_without_single_letter_points.strip()
-            authors, rest = reference_without_single_letter_points.split(separator, 1)
+            # If the separator here is a . we need to get rid of all other points
+            if separator == ".":
+                # -> E.g., in names like "Anthony J. C."
+                reference_split = reference.split(separator)
+                leave_out_space = False
+                reference_without_other_points = ""
+                for ref_split_index in range(0, len(reference_split)):
+                    current_element = reference_split[ref_split_index].strip()
+                    reference_without_other_points += "" if leave_out_space else " "
+                    # Check 
+                    #   1) if its like "Anthony J. C." (["Anthony J", " C"]), leave the point out
+                    if (len(current_element) > 1 and current_element[-1].isupper() and current_element[-2] == " ") \
+                        or (len(current_element) == 1 and current_element.isupper()):
+                        reference_without_other_points += current_element
+                        leave_out_space = False
+                    #   2) if it's a numbering like "3.5 Models and Computer Use" ([" 3", "5 Models and Computer Use"]), 
+                    #      replace with a linebrack and replace back later
+                    elif ref_split_index < len(reference_split)-1 and current_element and current_element[-1].isdigit() \
+                        and reference_split[ref_split_index+1] and reference_split[ref_split_index+1][0].isdigit():
+                        reference_without_other_points += current_element + "\n"
+                        leave_out_space = True
+                    else:
+                        reference_without_other_points += current_element + separator
+                        leave_out_space = False
+                
+                reference_without_other_points = reference_without_other_points.strip()
+                authors, rest = reference_without_other_points.split(separator, 1)
+            else:
+                authors, rest = reference.split(separator, 1)
+                
+            # Cleanup strings
+            authors = authors.replace("\n", ".")
             authors = uc.replace_accent_marks(authors.strip())
             authors = uc.replace_all_unicode(authors)
-
-            # Cleanup reference string
+            rest = rest.replace("\n", ".")
             reference = rest.strip()
+
+        else:
+            # If the separator is not in the remaining reference string (e.g., "elderplinius, August") split by comma and take the first part
+            if "," in reference:
+                reference_split = reference.split(",")
+                authors = reference_split[0].strip()
+            else:
+                authors = reference.strip()
     
     else:
         # E.g.: ACM-reference = "Virginia Braun and Victoria Clarke. 2006. Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
         # E.g.: AAAI/ACM-reference = "Kim, D. J.; Yim, M.-S.; Sugumaran, V.; and Rao, H. R. 2016. Title. European Journal of Information Systems, 25(3): 252–273"
     
+        # Try to match a four digit year (starting with 18, 19, or 20)
         m = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
         if m:
             year = int(m.group(1))
@@ -630,23 +733,43 @@ def parse_reference(ref: str) -> dict:
             # Cleanup reference string
             # E.g.: ACM-reference = ". Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
             # E.g.: AAAI/ACM-reference = ". Title. European Journal of Information Systems, 25(3): 252–273"
-            reference = reference[m.end():].strip().strip(".")
+            # TODO: If the year was in brackets we need to rightstrip that and the point as well
+            reference = reference[m.end():].strip().strip(").")
             reference = reference.strip()
             # E.g.: ACM-reference = "Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101"
             # E.g.: AAAI/ACM-reference = "Title. European Journal of Information Systems, 25(3): 252–273"
         else:
-            print(f"-> Warning: Could not parse year (and authors) in reference '{reference}'!")
-            return {
-                'full_reference': ref,
-                'ref_id': "NOT PARSED",
-                'authors': "NOT PARSED",
-                'title': "NOT PARSED",
-                'year': "NOT PARSED",
-                'abstract': None,
-                'outlet': "NOT PARSED",
-                'link': link,
-                'valid': None,
-            }
+            # Try to match a four digit year (starting with 18, 19, or 20) with a letter behind
+            # -> e.g., 2019b
+            m = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2}[a-zA-Z]?)\b', reference)
+            if m:
+                year = str(m.group(1))
+                try:
+                    year = int(year[0:-1])
+                except:
+                    print(f"-> Couldn't parse year to an Integer in reference '{reference}'!")
+                
+                authors = reference[: m.start()].strip()
+                authors = uc.replace_accent_marks(authors)
+                authors = uc.replace_all_unicode(authors)
+
+                # Cleanup reference string
+                reference = reference[m.end():].strip().strip(").")
+                reference = reference.strip()
+
+            else:
+                print(f"-> Warning: Could not parse year (and authors) in reference '{reference}'!")
+                return {
+                    'full_reference': ref,
+                    'ref_id': "NOT PARSED",
+                    'authors': "NOT PARSED",
+                    'title': "NOT PARSED",
+                    'year': "NOT PARSED",
+                    'abstract': None,
+                    'outlet': "NOT PARSED",
+                    'link': link,
+                    'valid': None,
+                }
         
     # Also get the normalized authors list
     normalized_authors, contains_et_al = ac.get_normalized_authors(authors)
@@ -659,20 +782,23 @@ def parse_reference(ref: str) -> dict:
     # NOTE: We need to get rid of points behind "et al." so the parsing 
     #       in the RefIntextChecker works
     if given_bib_numbering == BIB_NUM_NATBIB:
-        author_year_sep = rit_c.get_given_ref_style_bib()["author_year_sep"]
+        #author_year_sep = rit_c.get_given_ref_style_bib()["author_year_sep"]
         if len(normalized_authors) == 0:
             print("-> WARNING: The normalized authors' list contains no entries!")
         elif len(normalized_authors) == 1:
             first_author = normalized_authors[0].split()[0]
-            ref_id = f"{first_author}{author_year_sep} {year}"
+            ref_id = f"{first_author} {year}"
+            # Old: ref_id = f"{first_author}{author_year_sep} {year}"
         elif len(normalized_authors) == 2:
             first_author = normalized_authors[0].split()[0]
             second_author = normalized_authors[1].split()[0]
-            ref_id = f"{first_author} and {second_author}{author_year_sep} {year}"
+            ref_id = f"{first_author} and {second_author} {year}"
+            # Old: ref_id = f"{first_author} and {second_author}{author_year_sep} {year}"
         # TODO: What if up to three authors (or more) are named?
         else:
             first_author = normalized_authors[0].split()[0]
-            ref_id = f"{first_author} et al{author_year_sep} {year}"
+            ref_id = f"{first_author} et al {year}"
+            # Old: ref_id = f"{first_author} et al{author_year_sep} {year}"
 
 
     # ---------------------------------------------------------------
@@ -690,7 +816,7 @@ def parse_reference(ref: str) -> dict:
     if '. ' in reference:
         title, outlet = reference.split('. ', 1)
         if title and outlet:
-            title = str(title.strip())
+            title = str(title).strip()
             # Check a last accessed date was parsed as outlet
             if "accessed:" in outlet.lower():
                 outlet = ""
