@@ -1,0 +1,1714 @@
+# Paper Analysis Utility - Results
+
+Paper: Grounded Reinforcement Learning.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/8 Grounded Reinforcement Learning/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 2 (ca. 1 pages)
+2) 'Related Work' -- p. 3 (ca. 1 pages)
+3) 'Preliminaries' -- p. 4 (ca. 1 pages)
+4) 'Visually Grounded Reinforcement Learning (ViGoRL)' -- p. 5 (ca. 2 pages)
+5) 'Experiments' -- p. 7 (ca. 3 pages)
+6) 'Conclusion and Discussion' -- p. 10 (ca. 1 pages)
+7) 'References' -- p. 11 (ca. 10 pages)
+8) 'Gradient accumulation' -- p. 21 (ca. 0 pages)
+8) 'Rollout engine' -- p. 21 (ca. 8 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/3=0.00%
+		- Invalid uses: 3/3=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 19: has a scalar reward r(i) = R(τ (i)). GRPO computes the centered advantage ˆA(i) = r(i) −¯R, where
+		- Page 19: LGRPO(θ) = −1
+		- Page 19: t , 1−ε, 1+ε) ˆA(i)i
+- Non-breaking spaces:
+	- Stats:
+		- Valid uses: 0/8=0.00%
+		- Invalid uses: 8/8=100.00%
+			- Lines containing invalid non-breaking spaces:
+				- Page 28: Predicted Answer: No
+				- Page 28: Predicted Answer: Yes
+				- Page 28: Predicted Answer: No
+				- Page 28: Predicted Answer: Yes
+				- Page 28: Predicted Answer: No
+				- Page 28: Predicted Answer: Yes
+				- Page 28: Predicted Answer: Yes
+				- Page 28: Predicted Answer: Yes
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 13
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 9
+	- Full reference: `[9] Zhengyuan Ding, Yuwei Chen, Yichong Xu, Zhe Wang, Xintao Han, Dong Yu, and Zhou Yu. Attention over learned object embeddings enables complex visual reasoning. In Advances in Neural Information Processing Systems (NeurIPS), 2021.`
+- Parsed Ref. ID: 18
+	- Full reference: `[18] Arjun Gupta, Xi Victoria Lin, Chunyuan Zhang, Michel Galley, Jianfeng Gao, and Carlos Guestrin Ferrer. Robust compositional visual reasoning via language-guided neural module networks. In Advances in Neural Information Processing Systems (NeurIPS), 2021.`
+- Parsed Ref. ID: 44
+	- Full reference: `[44] Jinyi Qi, Tao Zhang, Rui Chen, Xiaoxue Li, Yizhou Zhang, and Kai-Wei Chang. Cogcom: Compositional visual reasoning with chain-of-manipulations. In International Conference on Learning Representations (ICLR), 2025.`
+- Parsed Ref. ID: 52
+	- Full reference: `[52] Guangming Sheng, Chi Zhang, Zilingfeng Ye, Xibin Wu, Wang Zhang, Ru Zhang, Yanghua Peng, Haibin Lin, and Chuan Wu. Hybridflow: A flexible and efficient rlhf framework. arXiv preprint arXiv: 2409.19256, 2024.`
+- Parsed Ref. ID: 64
+	- Full reference: `[64] Zihan Wang, Kangrui Wang, Qineng Wang, Pingyue Zhang, Linjie Li, Zhengyuan Yang, Xing Jin, Kefan Yu, Minh Nhat Nguyen, Licheng Liu, Eli Gottlieb, Yiping Lu, Kyunghyun Cho, Jiajun Wu, Li Fei-Fei, Lijuan Wang, Yejin Choi, and Manling Li. Ragen: Understanding self-evolution in llm agents via multi-turn reinforcement learning, 2025. URL https://arxiv.org/abs/2504.20073.`
+- Parsed Ref. ID: 71
+	- Full reference: `[71] xAI. Grok-1.5 vision preview. https://x.ai/blog/grok-1.5v, 2024. Accessed: 2025-0521.`
+- Parsed Ref. ID: 80
+	- Full reference: `[80] Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, et al. Dapo: An open-source llm reinforcement learning system at scale, 2025. URL https://arxiv. org/abs/2503.14476.`
+- Parsed Ref. ID: 81
+	- Full reference: `[81] Xiang Yue, Yuansheng Ni, Kai Zhang, Tianyu Zheng, Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun, Cong Wei, Botao Yu, Ruibin Yuan, Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang, Yibo Liu, Wenhao Huang, Huan Sun, Yu Su, and Wenhu Chen. Mmmu: A massive multi-discipline multimodal understanding and reasoning benchmark for expert agi, 2024. URL https://arxiv.org/abs/2311.16502.`
+- Parsed Ref. ID: 89
+	- Full reference: `[89] Yaowei Zheng, Richong Zhang, Junhao Zhang, Yanhan Ye, Zheyan Luo, Zhangchi Feng, and Yongqiang Ma. Llamafactory: Unified efficient fine-tuning of 100+ language models. In Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations), Bangkok, Thailand, 2024. Association for Computational Linguistics. URL http://arxiv.org/abs/2403.13372.`
+- Parsed Ref. ID: 90
+	- Full reference: `[90] Yaowei Zheng, Shenzhi Wang Junting Lu, Zhangchi Feng, Dongdong Kuang, and Yuwen Xiong. Easyr1: An efficient, scalable, multi-modality rl training framework. https://github.com/hiyouga/EasyR1, 2025.`
+- Parsed Ref. ID: 92
+	- Full reference: `[92] Richard Zhuang*, Trung Vu*, Alex Dimakis, and Maheswaran Sathiamoorthy. Improving multi-turn tool use with reinforcement learning. https://www.bespokelabs.ai/blog/improvingmulti-turn-tool-use-with-reinforcement-learning, 2025. Accessed: 2025-04-17.`
+- Parsed Ref. ID: a
+	- Full reference: `A1 Appendix Overview The structure of this Appendix is as follows: • Section A2 contains limitations and future work. • Section A3 contains broader impacts. • Section A4 contains additional discussion and connection to cognitive science. • Section A5 contains additional methods details. • Section A6 contains additional details on the model behavioral analysis. • Section A7 contains additional details on the human evaluation. • Section A8 contains additional experimental results. • Section A9 contains example model outputs. A2 Limitations and Future Work While our approach demonstrates strong improvements in visual reasoning performance, several limitations remain and open avenues for future research: Intermediate Reward. Our current reinforcement learning setup provides rewards only at the final answer level. In spatial reasoning tasks, this sometimes results in reward hacking, where the model receives positive reward despite generating partially incorrect or underspecified reasoning. Although our human evaluation confirms that the majority of grounding predictions are accurate and helpful, there remains measurable room for improvement. We hypothesize that introducing dense intermediate rewards—for both correct reasoning steps and accurate grounding—could mitigate these issues and improve alignment between grounding, reasoning, and reward. We leave this exploration to future work. Expanded Tool Use and Adaptive Control. While our model can point, crop, and zoom into visual regions, other forms of tool-augmented perception (e.g., highlighting, region comparison, or 3D navigation) may further support compositional reasoning. Future work could explore mechanisms that learn to balance visual actions dynamically. Learning When and How Much to Reason. We observe that the model often generates long reasoning chains, even for relatively simple questions. This inefficiency echoes known challenges in language-only chain-of-thought models [65, 30], where reasoning is applied uniformly regardless of task complexity. A promising direction for future work is to develop methods that help models learn when to reason and how much reasoning is necessary, adapting the depth of their chain-of-thought to the demands of the task. Interpreting Attention Patterns. Although our behavioral and human studies demonstrate that explicit grounding amplifies structured visual behaviors and improves interpretability, the mechanisms through which grounding improves reasoning remain underexplored. Future work should examine how explicit grounding influences a model’s internal attention dynamics and whether these patterns resemble human gaze behaviors. Further comparisons to human cognitive strategies—such as visual routines [62], task-directed attention [78], and deictic planning [4]—could yield deeper insights into both model behavior and human cognition. A3 Broader Impacts Positive Societal Impacts. Grounded reasoning improves model transparency by producing interpretable chains of thought that reference specific image regions. This interpretability is especially valuable in high-stakes domains such as medical imaging, accessibility tools, assistive robotics, and scientific image analysis, where understanding the basis for model decisions is crucial. Additionally, our approach may enhance human-AI collaboration by making the model’s internal decision process legible and actionable for human users. Because the model reasons over localized visual subproblems, it can better align with human intuition, which may foster trust and oversight. Potential Negative Impacts. Despite its benefits, the ability to produce detailed visual reasoning traces could be misused for surveillance or automated profiling. A grounded model that can isolate visual elements, track reasoning over time, and justify actions may inadvertently enable more fine-grained tracking of individuals or objects in sensitive contexts. Moreover, models that appear interpretable may be perceived as more reliable than they truly are; if the reasoning trace is superficially plausible but incorrect, users may over-trust the model’s output. This risk is particularly relevant in domains where visual ambiguity or annotation bias affects ground truth. Our approach also assumes the availability of visual data and may propagate or amplify dataset biases, especially in domains where certain object types, environments, or affordances are overrepresented. Spatial grounding mechanisms may lock the model’s attention onto biased or stereotyped regions of the image, reinforcing existing disparities unless care is taken in dataset construction and evaluation. Mitigation Strategies. To mitigate these risks, future work could incorporate uncertainty estimation or confidence calibration into the reasoning trace, explicitly marking when the model is uncertain about a grounding decision. It is also important to develop tools that allow users to audit the reasoning trace and provide corrections. In addition, efforts to diversify training data and evaluate model behavior across demographic and situational axes are essential for fair deployment. Finally, deployment in sensitive settings should involve human-in-the-loop oversight, particularly when grounded outputs inform consequential decisions. A4 Additional Discussion Our results show that explicitly grounding reasoning steps in spatial coordinates substantially improves performance across visual reasoning benchmarks. To better understand why, we draw from both the recent machine learning literature and long-standing cognitive science theories that point to grounding as a core mechanism in human and artificial reasoning. Grounding as a Cognitive Scaffold. Classic studies in visual cognition suggest that humans reason about complex scenes by sequentially directing attention to spatially localized regions in service of goal-driven subproblems. Yarbus [78] demonstrated that eye movement patterns depend heavily on task demands, suggesting a deep link between overt visual attention and internal reasoning. Ullman [62] introduced the concept of visual routines, showing that reasoning over a scene involves decomposable, spatially localized operations. Ballard et al. [4] formalized this via deictic codes, where visual fixations and gestures act as pointers binding abstract variables to perceptual content. These mechanisms reduce cognitive load (as opposed to raw computational load), support compositionality, and facilitate subgoal execution by grounding symbolic reasoning in visual input. Grounding Reduces Hallucination and Enhances Generalization. In machine learning, recent studies demonstrate that grounding in visual regions curbs hallucination and promotes generalization. Ghosh et al. [14] show that large VLMs hallucinate less and reason more accurately when first prompted to generate grounded visual descriptions. Qi et al. [44] propose a chain-of-manipulations method where VLMs perform spatially localized actions (e.g., zoom, crop, verify), achieving stronger generalization and interpretability. These findings echo Treisman’s seminal Feature Integration Theory [61], which argues that spatial attention is essential for integrating visual features, and Harnad’s symbol grounding problem [20], which proposes that abstract reasoning is only meaningful when connected to perceptual representations. Object-centric and Compositional Inductive Biases. Explicit grounding may also encourage models to adopt object-centric and modular representations. Ding et al. [9] show that attention over learned object embeddings improves structured visual reasoning. Gupta et al. [18] demonstrate that language-guided neural modules that condition on spatial cues improve the compositional generalization of the model. These results align with the cognitive perspective that humans naturally build scene representations around individual entities and their relations [4]. Overall, the convergence of cognitive science and ML literature suggests that explicit grounding does not merely reduce the search space, but acts as a structural inductive bias that enhances compositionality, verification, and goal-directed reasoning, core ingredients for generalization in both human and machine learners.`
+- Parsed Ref. ID: b
+	- Full reference: `A5 Additional Methodological Details A5.1 Group Relative Policy Optimization (GRPO) Group Relative Policy Optimization (GRPO) [50] stabilizes policy learning from long-form trajectories by computing group-normalized advantages and applying clipped token-level PPO-style updates. Specifically, for a group of G trajectories O = {τ (i)}G i=1 conditioned on input x, each trajectory τ (i) has a scalar reward r(i) = R(τ (i)). GRPO computes the centered advantage ˆA(i) = r(i) −¯R, where ¯R = 1 G P i r(i) is the group mean. Let τ (i) t be the t-th token of trajectory τ (i). GRPO minimizes the following clipped surrogate loss: LGRPO(θ) = −1 G G X i=1 1 |τ (i)| X t min h ρ(i) t ˆA(i), clip(ρ(i) t , 1−ε, 1+ε) ˆA(i)i + β KL[πθ∥πref], (1) where ρ(i) t = πθ(τ (i) t |τ (i) <t ,x) πold(τ (i) t |τ (i) <t ,x) is the importance weight, ε = 0.2 is the clipping parameter, and β is the KL penalty coefficient. This approach stabilizes learning in long-horizon, multimodal reasoning settings. A5.2 RL Reward Functions Task Rewards. We define reward functions specific to each benchmark: • Spatial Reasoning (SAT-2). A binary reward: rtask = 1 if the predicted answer matches the ground truth, and 0 otherwise. • Web Grounding (OS-Atlas). A binary reward: rtask = 1 if the predicted coordinate lies inside the annotated bounding box. • Web Action Prediction (ICAL). A decomposed reward: rtask = rtype + rarg, where rtype = 0.5 if the predicted action type matches, and rarg = 0.5 if the predicted argument (e.g., DOM ID, string) matches. A5.3 Multi-turn Reinforcement Learning Details We first apply supervised fine-tuning (SFT) on multi-turn traces. These are derived from the same MCTS chains used to train the single-turn model, but reformatted into multi-turn training data by: (1) For each node, formulating the text in a think block followed by taking the coordinate and formulating it into a tool call. If it is a terminal node, a think block is added with any remaining text followed by the predicted answer in answer tags. (2) Cropping around the coordinate to obtain the feedback image, and appending this image to the training data as a user turn in the sample to be used for SFT. (3) Continuing (1) and (2) until terminal. We additionally include backtracking as described in Section 4.2. For multi-turn scenarios, we apply GRPO over full dialog trajectories. Observation tokens are masked from the loss, ensuring gradients flow solely through the language model while retaining visual input to the encoder. We additionally mask samples not ending in an EOS token [80]. Termination Enforcement. During RL rollouts, if a dialog reaches Tmax = 5 turns without emitting an <answer> block, we append a soft prompt to the final assistant message: <think> Please provide your response now </think> This maintains structural fidelity and bounds rollout length. KL collapse. While concurrent work observed occasional KL collapse in multi-turn RL when applied to base model with vision inputs [64, 92], we found that our initial warm start enabled stable training and allowed us to maintain a moderate KL coefficient (0.01). Diversity bonus. We introduced the concept of a diversity turn bonus into our reward formulation in Section 4.3 of the main paper. In Figure A1, we show the response length over RL training with and without the diversity bonus. Without the diversity bonus, the model quickly converges to single turn outputs (green line), whereas the model avoids this and outputs >1 turn on average with the bonus reward (blue line). Figure A1: Response length with and without turn bonus. Without the bonus, the model converges to always taking a single turn (as also verified by examining model outputs), whereas the bonus enables the model to stabilize multi-turn. A5.4 Training Implementation Details General Setup. Training is conducted on 8 A100 GPUs with Qwen2.5-VL models (3B and 7B). Supervised fine-tuning uses 3 epochs, while GRPO is applied for 500 rollout-update iterations. Evaluation uses decoding temperature of 0.5. We build on Llama-Factory [89] for SFT, and EasyR1 [90, 52] for GRPO. Training Hyperparameters Overview We provide all training hyperparameters used in SFT, and single- and multi-turn RL in Tables A1-A3. Table A1: Supervised FineTuning (SFT). Hyperparameter Value Epochs 3 Learning rate 1e-6 Weight decay 0.01 Warmup ratio 0.03 Batch size`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Yang Z.: 10
+- Wang Z.: 8
+- Wang Y.: 8
+- Wang P.: 6
+- Li Y.: 6
+- Zhang J.: 6
+- Wang J.: 5
+- Li Z.: 5
+- Li J.: 5
+- Liu Z.: 5
+- Hu Y.: 5
+- Wang H.: 5
+- Krishna R.: 5
+- Zhang Z.: 5
+- Liu Y.: 5
+- Zhang H.: 4
+- Wang X.: 4
+- Fu X.: 4
+- Roth D.: 4
+- Zhang C.: 4
+- Li X.: 4
+- Wang L.: 4
+- Du C.: 4
+- Liu L.: 4
+- Li H.: 4
+- Liu X.: 3
+- Song S.: 3
+- Xu Y.: 3
+- Jia C.: 3
+- Wu Z.: 3
+- Yang Y.: 3
+- Chen Y.: 3
+- Sun H.: 3
+- Yang J.: 3
+- Smith N.: 3
+- Su Y.: 3
+- Zhang R.: 3
+- Xu R.: 3
+- Shi W.: 3
+- Zettlemoyer L.: 3
+- Huang Z.: 3
+- Li L.: 3
+- Li C.: 3
+- Chen C.: 3
+- Lin M.: 3
+- Fei-Fei L.: 3
+- Wu J.: 3
+- Zhang Y.: 3
+- Wu Y.: 3
+- Ma Y.: 3
+- Team K.: 3
+- Du A.: 3
+- Xing B.: 3
+- Liu J.: 3
+- Wu W.: 3
+- Xie S.: 3
+- Yang S.: 3
+- Yue Y.: 3
+- Zheng Y.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/8 Grounded Reinforcement Learning/literature_validation_results_fig.jpg]]
+
+References section starts on page 11.
+
+- No link provided: $47/94=50.00\%$
+- Unchecked links: $3/94=3.19\%$
+- Valid links: $0/94=0.00\%$
+- Invalid link: $44/94=46.81\%$
+	- Invalid entries:
+		=> total = 44
+		- \[5\] Xi Chen, Xiao Wang, Soravit Changpinyo, AJ Piergiovanni, Piotr Padlewski, Daniel Salz, Sebastian Goodman, Adam Grycner, Basil Mustafa, Lucas Beyer, Alexander Kolesnikov, Joan Puigcerver, Nan Ding, Keran Rong, Hassan Akbari, Gaurav Mishra, Linting Xue, Ashish Thapliyal, James Bradbury, Weicheng Kuo, Mojtaba Seyedhosseini, Chao Jia, Burcu Karagol Ayan, Carlos Riquelme, Andreas Steiner, Anelia Angelova, Xiaohua Zhai, Neil Houlsby, and Radu Soricut. Pali: A jointly-scaled multilingual language-image model, 2023. URL https://arxiv.org/abs/2209.06794.
+			-> Returned with status code 404!
+		- \[7\] Wenliang Dai, Junnan Li, Dongxu Li, Anthony Meng Huat Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale Fung, and Steven Hoi. Instructblip: Towards general-purpose vision-language models with instruction tuning, 2023. URL https://arxiv.org/abs/2305.06500.
+			-> Returned with status code 404!
+		- \[10\] Yuhao Dong, Zuyan Liu, Hai-Long Sun, Jingkang Yang, Winston Hu, Yongming Rao, and Ziwei Liu. Insight-v: Exploring long-chain visual reasoning with multimodal large language models, 2025. URL https://arxiv.org/abs/2411.14432.
+			-> Returned with status code 404!
+		- \[12\] Xingyu Fu, Minqian Liu, Zhengyuan Yang, John Corring, Yijuan Lu, Jianwei Yang, Dan Roth, Dinei Florencio, and Cha Zhang. Refocus: Visual editing as a chain of thought for structured image understanding, 2025. URL https://arxiv.org/abs/2501.05452.
+			-> Returned with status code 404!
+		- \[19\] Tanmay Gupta and Aniruddha Kembhavi. Visual programming: Compositional visual reasoning without training, 2022. URL https://arxiv.org/abs/2211.11559.
+			-> Returned with status code 404!
+		- \[24\] Yushi Hu, Weijia Shi, Xingyu Fu, Dan Roth, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, and Ranjay Krishna. Visual sketchpad: Sketching as a visual chain of thought for multimodal language models, 2024. URL https://arxiv.org/abs/2406.09403.
+			-> Returned with status code 404!
+		- \[25\] Yushi Hu, Otilia Stretcu, Chun-Ta Lu, Krishnamurthy Viswanathan, Kenji Hata, Enming Luo, Ranjay Krishna, and Ariel Fuxman. Visual program distillation: Distilling tools and programmatic reasoning into vision-language models, 2024. URL https://arxiv.org/abs/2312.03052.
+			-> Returned with status code 404!
+		- \[30\] Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. Large language models are zero-shot reasoners, 2023. URL https://arxiv.org/abs/2205.11916.
+			-> Returned with status code 404!
+		- \[31\] Kaixin Li, Ziyang Meng, Hongzhan Lin, Ziyang Luo, Yuchen Tian, Jing Ma, Zhiyong Huang, and Tat-Seng Chua. Screenspot-pro: Gui grounding for professional high-resolution computer use, 2025. URL https://likaixin2000.github.io/papers/ScreenSpot_Pro.pdf.Preprint.
+			-> Returned with status code 404!
+		- \[32\] Xinhao Li, Ziang Yan, Desen Meng, Lu Dong, Xiangyu Zeng, Yinan He, Yali Wang, Yu Qiao, Yi Wang, and Limin Wang. Videochat-r1: Enhancing spatio-temporal perception via reinforcement fine-tuning, 2025. URL https://arxiv.org/abs/2504.06958.
+			-> Returned with status code 404!
+		- \[33\] Zejun Li, Ruipu Luo, Jiwen Zhang, Minghui Qiu, Xuanjing Huang, and Zhongyu Wei. Vocot: Unleashing visually grounded multi-step reasoning in large multi-modal models, 2025. URL https://arxiv.org/abs/2405.16919.
+			-> Returned with status code 404!
+		- \[36\] Zichen Liu, Changyu Chen, Wenjun Li, Penghui Qi, Tianyu Pang, Chao Du, Wee Sun Lee, and Min Lin. Understanding r1-zero-like training: A critical perspective, 2025. URL https://arxiv.org/abs/2503.20783.
+			-> Returned with status code 404!
+		- \[37\] Ziyu Liu, Zeyi Sun, Yuhang Zang, Xiaoyi Dong, Yuhang Cao, Haodong Duan, Dahua Lin, and Jiaqi Wang. Visual-rft: Visual reinforcement fine-tuning, 2025. URL https://arxiv.org/abs/2503.01785.
+			-> Returned with status code 404!
+		- \[38\] Zhengxi Lu, Yuxiang Chai, Yaxuan Guo, Xi Yin, Liang Liu, Hao Wang, Han Xiao, Shuai Ren, Guanjing Xiong, and Hongsheng Li. Ui-r1: Enhancing action prediction of gui agents by reinforcement learning, 2025. URL https://arxiv.org/abs/2503.21620.
+			-> Returned with status code 404!
+		- \[40\] Niklas Muennighoff, Zitong Yang, Weijia Shi, Xiang Lisa Li, Li Fei-Fei, Hannaneh Hajishirzi, Luke Zettlemoyer, Percy Liang, Emmanuel Candès, and Tatsunori Hashimoto. s1: Simple test-time scaling, 2025. URL https://arxiv.org/abs/2501.19393.
+			-> Returned with status code 404!
+		- \[41\] NVIDIA, :, Alisson Azzolini, Hannah Brandon, Prithvijit Chattopadhyay, Huayu Chen, Jinju Chu, Yin Cui, Jenna Diamond, Yifan Ding, Francesco Ferroni, Rama Govindaraju, Jinwei Gu, Siddharth Gururani, Imad El Hanafi, Zekun Hao, Jacob Huffman, Jingyi Jin, Brendan Johnson, Rizwan Khan, George Kurian, Elena Lantz, Nayeon Lee, Zhaoshuo Li, Xuan Li, Tsung-Yi Lin, Yen-Chen Lin, Ming-Yu Liu, Alice Luo, Andrew Mathau, Yun Ni, Lindsey Pavao, Wei Ping, David W. Romero, Misha Smelyanskiy, Shuran Song, Lyne Tchapmi, Andrew Z. Wang, Boxin Wang, Haoxiang Wang, Fangyin Wei, Jiashu Xu, Yao Xu, Xiaodong Yang, Zhuolin Yang, Xiaohui Zeng, and Zhe Zhang. Cosmos-reason1: From physical common sense to embodied reasoning, 2025. URL https://arxiv.org/abs/2503.15558.
+			-> Returned with status code 404!
+		- \[43\] Pranav Putta, Edmund Mills, Naman Garg, Sumeet Motwani, Chelsea Finn, Divyansh Garg, and Rafael Rafailov. Agent q: Advanced reasoning and learning for autonomous ai agents, 2024. URL https://arxiv.org/abs/2408.07199.
+			-> Returned with status code 404!
+		- \[47\] Pooyan Rahmanzadehgervi, Logan Bolton, Mohammad Reza Taesiri, and Anh Totti Nguyen. Vision language models are blind: Failing to translate detailed visual features into words, 2025. URL https://arxiv.org/abs/2407.06581.
+			-> Returned with status code 404!
+		- \[48\] Arijit Ray, Jiafei Duan, Ellis Brown, Reuben Tan, Dina Bashkirova, Rose Hendrix, Kiana Ehsani, Aniruddha Kembhavi, Bryan A. Plummer, Ranjay Krishna, Kuo-Hao Zeng, and Kate Saenko. Sat: Dynamic spatial aptitude training for multimodal language models, 2025. URL https://arxiv.org/abs/2412.07755.
+			-> Returned with status code 404!
+		- \[50\] Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, YK Li, Y Wu, et al. Deepseekmath: Pushing the limits of mathematical reasoning in open language models, 2024. URL https://arxiv. org/abs/2402.03300.
+			-> Link caused an exception!
+		- \[51\] Haozhan Shen, Peng Liu, Jingcheng Li, Chunxin Fang, Yibo Ma, Jiajia Liao, Qiaoli Shen, Zilun Zhang, Kangjia Zhao, Qianqian Zhang, Ruochen Xu, and Tiancheng Zhao. Vlm-r1: A stable and generalizable r1-style large vision-language model, 2025. URL https://arxiv.org/abs/2504.07615.
+			-> Returned with status code 404!
+		- \[55\] Huajie Tan, Yuheng Ji, Xiaoshuai Hao, Minglan Lin, Pengwei Wang, Zhongyuan Wang, and Shanghang Zhang. Reason-rft: Reinforcement fine-tuning for visual reasoning, 2025. URL https://arxiv.org/abs/2503.20752.
+			-> Returned with status code 404!
+		- \[56\] Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell, Libin Bai, Anmol Gulati, Garrett Tanzer, and et. Al. Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context, 2024. URL https://arxiv.org/abs/2403.05530.
+			-> Returned with status code 404!
+		- \[57\] Kimi Team, A Du, B Gao, B Xing, C Jiang, C Chen, C Li, C Xiao, C Du, C Liao, et al. Kimi k1. 5: Scaling reinforcement learning with llms, 2025. URL https://arxiv. org/abs/2501.12599.
+			-> Link caused an exception!
+		- \[58\] Kimi Team, Angang Du, Bofei Gao, Bowei Xing, Changjiu Jiang, Cheng Chen, Cheng Li, Chenjun Xiao, Chenzhuang Du, Chonghua Liao, Chuning Tang, Congcong Wang, Dehao Zhang, Enming Yuan, Enzhe Lu, Fengxiang Tang, Flood Sung, Guangda Wei, Guokun Lai, Haiqing Guo, Han Zhu, Hao Ding, Hao Hu, Hao Yang, Hao Zhang, Haotian Yao, Haotian Zhao, Haoyu Lu, Haoze Li, Haozhen Yu, Hongcheng Gao, Huabin Zheng, Huan Yuan, Jia Chen, Jianhang Guo, Jianlin Su, Jianzhou Wang, Jie Zhao, Jin Zhang, Jingyuan Liu, Junjie Yan, Junyan Wu, Lidong Shi, Ling Ye, Longhui Yu, Mengnan Dong, Neo Zhang, Ningchen Ma, Qiwei Pan, Qucheng Gong, Shaowei Liu, Shengling Ma, Shupeng Wei, Sihan Cao, Siying Huang, Tao Jiang, Weihao Gao, Weimin Xiong, Weiran He, Weixiao Huang, Wenhao Wu, Wenyang He, Xianghui Wei, Xianqing Jia, Xingzhe Wu, Xinran Xu, Xinxing Zu, Xinyu Zhou, Xuehai Pan, Y. Charles, Yang Li, Yangyang Hu, Yangyang Liu, Yanru Chen, Yejie Wang, Yibo Liu, Yidao Qin, Yifeng Liu, Ying Yang, Yiping Bao, Yulun Du, Yuxin Wu, Yuzhi Wang, Zaida Zhou, Zhaoji Wang, Zhaowei Li, Zhen Zhu, Zheng Zhang, Zhexu Wang, Zhilin Yang, Zhiqi Huang, Zihao Huang, Ziyao Xu, and Zonghan Yang. Kimi k1.5: Scaling reinforcement learning with llms, 2025. URL https://arxiv.org/abs/2501.12599.
+			-> Returned with status code 404!
+		- \[59\] Kimi Team, Angang Du, Bohong Yin, Bowei Xing, Bowen Qu, and et. Al. Kimi-VL technical report, 2025. URL https://arxiv.org/abs/2504.07491.
+			-> Returned with status code 404!
+		- \[60\] Tristan Thrush, Ryan Jiang, Max Bartolo, Amanpreet Singh, Adina Williams, Douwe Kiela, and Candace Ross. Winoground: Probing vision and language models for visio-linguistic compositionality, 2022. URL https://arxiv.org/abs/2204.03162.
+			-> Returned with status code 404!
+		- \[64\] Zihan Wang, Kangrui Wang, Qineng Wang, Pingyue Zhang, Linjie Li, Zhengyuan Yang, Xing Jin, Kefan Yu, Minh Nhat Nguyen, Licheng Liu, Eli Gottlieb, Yiping Lu, Kyunghyun Cho, Jiajun Wu, Li Fei-Fei, Lijuan Wang, Yejin Choi, and Manling Li. Ragen: Understanding self-evolution in llm agents via multi-turn reinforcement learning, 2025. URL https://arxiv.org/abs/2504.20073.
+			-> Returned with status code 404!
+		- \[66\] Chenfei Wu, Shengming Yin, Weizhen Qi, Xiaodong Wang, Zecheng Tang, and Nan Duan. Visual chatgpt: Talking, drawing and editing with visual foundation models, 2023. URL https://arxiv.org/abs/2303.04671.
+			-> Returned with status code 404!
+		- \[68\] Tianhao Wu, Janice Lan, Weizhe Yuan, Jiantao Jiao, Jason Weston, and Sainbayar Sukhbaatar. Thinking llms: General instruction following with thought generation, 2024. URL https://arxiv.org/abs/2410.10630.
+			-> Returned with status code 404!
+		- \[69\] Wenshan Wu, Shaoguang Mao, Yadong Zhang, Yan Xia, Li Dong, Lei Cui, and Furu Wei. Mind’s eye of llms: Visualization-of-thought elicits spatial reasoning in large language models, 2024. URL https://arxiv.org/abs/2404.03622.
+			-> Returned with status code 404!
+		- \[72\] Guowei Xu, Peng Jin, Hao Li, Yibing Song, Lichao Sun, and Li Yuan. Llava-cot: Let vision language models reason step-by-step, 2025. URL https://arxiv.org/abs/2411.10440.
+			-> Returned with status code 404!
+		- \[77\] Huanjin Yao, Jiaxing Huang, Wenhao Wu, Jingyi Zhang, Yibo Wang, Shunyu Liu, Yingjie Wang, Yuxin Song, Haocheng Feng, Li Shen, and Dacheng Tao. Mulberry: Empowering mllm with o1-like reasoning and reflection via collective monte carlo tree search, 2024. URL https://arxiv.org/abs/2412.18319.
+			-> Returned with status code 404!
+		- \[79\] Edward Yeo, Yuxuan Tong, Morry Niu, Graham Neubig, and Xiang Yue. Demystifying long chain-of-thought reasoning in llms, 2025. URL https://arxiv.org/abs/2502.03373.
+			-> Returned with status code 404!
+		- \[80\] Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, et al. Dapo: An open-source llm reinforcement learning system at scale, 2025. URL https://arxiv. org/abs/2503.14476.
+			-> Link caused an exception!
+		- \[81\] Xiang Yue, Yuansheng Ni, Kai Zhang, Tianyu Zheng, Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun, Cong Wei, Botao Yu, Ruibin Yuan, Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang, Yibo Liu, Wenhao Huang, Huan Sun, Yu Su, and Wenhu Chen. Mmmu: A massive multi-discipline multimodal understanding and reasoning benchmark for expert agi, 2024. URL https://arxiv.org/abs/2311.16502.
+			-> Returned with status code 404!
+		- \[82\] Yang Yue, Zhiqi Chen, Rui Lu, Andrew Zhao, Zhaokai Wang, Yang Yue, Shiji Song, and Gao Huang. Does reinforcement learning really incentivize reasoning capacity in llms beyond the base model?, 2025. URL https://arxiv.org/abs/2504.13837.
+			-> Returned with status code 404!
+		- \[83\] Eric Zelikman, Yuhuai Wu, Jesse Mu, and Noah D. Goodman. Star: Bootstrapping reasoning with reasoning, 2022. URL https://arxiv.org/abs/2203.14465.
+			-> Returned with status code 404!
+		- \[84\] Yuexiang Zhai, Hao Bai, Zipeng Lin, Jiayi Pan, Shengbang Tong, Yifei Zhou, Alane Suhr, Saining Xie, Yann LeCun, Yi Ma, and Sergey Levine. Fine-tuning large vision-language models as decision-making agents via reinforcement learning, 2024. URL https://arxiv.org/abs/2405.10292.
+			-> Returned with status code 404!
+		- \[86\] Zhuosheng Zhang, Aston Zhang, Mu Li, Hai Zhao, George Karypis, and Alex Smola. Multimodal chain-of-thought reasoning in language models, 2024. URL https://arxiv.org/abs/2302.00923.
+			-> Returned with status code 404!
+		- \[87\] Baining Zhao, Ziyou Wang, Jianjie Fang, Chen Gao, Fanhang Man, Jinqiang Cui, Xin Wang, Xinlei Chen, Yong Li, and Wenwu Zhu. Embodied-r: Collaborative framework for activating embodied spatial reasoning in foundation models via reinforcement learning, 2025. URL https://arxiv.org/abs/2504.12680.
+			-> Returned with status code 404!
+		- \[90\] Yaowei Zheng, Shenzhi Wang Junting Lu, Zhangchi Feng, Dongdong Kuang, and Yuwen Xiong. Easyr1: An efficient, scalable, multi-modality rl training framework. https://github.com/hiyouga/EasyR1, 2025.
+			-> Returned with status code 404!
+		- \[91\] Qiji Zhou, Ruochen Zhou, Zike Hu, Panzhong Lu, Siyang Gao, and Yue Zhang. Image-ofthought prompting for visual reasoning refinement in multimodal large language models, 2024. URL https://arxiv.org/abs/2405.13872.
+			-> Returned with status code 404!
+		- \[92\] Richard Zhuang*, Trung Vu*, Alex Dimakis, and Maheswaran Sathiamoorthy. Improving multi-turn tool use with reinforcement learning. https://www.bespokelabs.ai/blog/improvingmulti-turn-tool-use-with-reinforcement-learning, 2025. Accessed: 2025-04-17.
+			-> Returned with status code 404!
+
+- Different links: $0/94=0.00\%$
+
+- Successful searches: $27/94=28.72\%$
+- Skipped searches: $0/94=0.00\%$
+- Mismatching infos: $11/94=11.70\%$
+	- **Entries with mismatching author information:**
+		=> total = 8
+		- `[8] Matt Deitke, Christopher Clark, Sangho Lee, Rohun Tripathi, Yue Yang, Jae Sung Park, Mohammadreza Salehi, Niklas Muennighoff, Kyle Lo, Luca Soldaini, et al. Molmo and pixmo: Open weights and open data for state-of-the-art multimodal models. arXiv preprint arXiv:2409.17146, 2024.`
+			- Authors (Anderson, Bransom, Ehsani, Ngo, Chen, Patel, Yatskar, Callison-Burch, Head, Hendrix, Bastani, VanderBilt, Lambert, Chou, Chheda, Sparks, Skjonsberg, Schmitz, Sarnat, Bischoff, Walsh, Newell, Wolters, Gupta, Zeng, Borchardt, Groeneveld, Dumas, Nam, Lebrecht, Wittlif, Schoenick, Michel, Krishna, Weihs, Smith, Hajishirzi, Girshick, Farhadi, Kembhavi) did not match found publication titled 'Molmo and PixMo: Open Weights and Open Data for State-of-the-Art Multimodal Models'
+		- `[9] Zhengyuan Ding, Yuwei Chen, Yichong Xu, Zhe Wang, Xintao Han, Dong Yu, and Zhou Yu. Attention over learned object embeddings enables complex visual reasoning. In Advances in Neural Information Processing Systems (NeurIPS), 2021.`
+			- Authors (Hill, Santoro, Reynolds, Botvinick) did not match found publication titled 'Attention over Learned Object Embeddings Enables Complex Visual Reasoning'
+		- `[16] Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Alex Vaughan, et al. The llama 3 herd of models. arXiv preprint arXiv:2407.21783, 2024.`
+			- Authors (Yang, Fan, Goyal, Hartshorn, Yang, Mitra, Sravankumar, Korenev, Hinsvark, Rao, Zhang, Rodriguez, Gregerson, Spataru, Rozière, Biron, Tang, Chern, Caucheteux, Nayak, Bi, Marra, McConnell, Keller, Touret, Wu, Wong, Ferrer, Nikolaidis, Allonsius, Song, Pintz, Livshits, Esiobu, Choudhary, Mahajan, Garcia-Olano, Perino, Hupkes, Lakomkin, AlBadawy, Lobanova, Dinan, Smith, Radenovic, Zhang, Synnaeve, Lee, Anderson, Nail, Mialon, Pang, Cucurell, Nguyen, Korevaar, Xu, Touvron, Zarov, Ibarra, Kloumann, Misra, Evtimov, Copet, Lee, Geffert, Vranes, Park, Mahadeokar, Shah, Linde, Billock, Hong, Lee, Fu, Chi, Huang, Liu, Wang, Bitton, Spisak, Park, Rocca, Johnstun, Saxe, Jia, Alwala, Upasani, Plawiak, Li, Heafield, Stone, El-Arini, Iyer, Malik, Chiu, Bhalla, Rantala-Yeary, Maaten, Chen, Tan, Jenkins, Martin, Madaan, Malo, Blecher, Landzaat, Oliveira, Muzzi, Pasupuleti, Singh, Paluri, Kardas, Oldham, Rita, Pavlova, Kambadur, Lewis, Si, Singh, Hassan, Goyal, Torabi, Bashlykov, Bogoychev, Chatterji, Duchenne, cCelebi, Alrassy, Zhang, Li, Vasić, Weng, Bhargava, Dubal, Krishnan, Koura, Xu, Dong, Srinivasan, Ganapathy, Calderer, Cabral, Stojnic, Raileanu, Girdhar, Patel, Sauvestre, Polidoro, Sumbaly, Taylor, Silva, Hou, Wang, Hosseini, Chennabasappa, Singh, Bell, Kim, Edunov, Nie, Narang, Raparthy, Shen, Wan, Bhosale, Zhang, Vandenhende, Batra, Whitman, Sootla, Collot, Gururangan, Borodinsky, Herman, Fowler, Sheasha, Georgiou, Scialom, Speckbacher, Mihaylov, Xiao, Karn, Goswami, Gupta, Ramanathan, Kerkez, Gonguet, Do, Vogeti, Petrovic, Chu, Xiong, Fu, Meers, Martinet, Wang, Tan, Xie, Jia, Wang, Goldschlag, Gaur, Babaei, Wen, Song, Zhang, Li, Mao, Coudert, Yan, Chen, Papakipos, Singh, Jain, Kelsey, Shajnfeld, Gangidi, Victoria, Goldstand, Menon, Sharma, Boesenberg, Baevski, Feinstein, Kallet, Sangani, Yunus, Lupu, Alvarado, Caples, Gu, Ho, Poulton, Ryan, Ramchandani, Franco, Saraf, Chowdhury, Gabriel, Bharambe, Eisenman, Yazdan, James, Maurer, Leonhardi, Huang, Loyd, Paola, Paranjape, Liu, Wu, Ni, Hancock, Wasti, Spence, Stojkovic, Gamido, Montalvo, Parker, Burton, Mejia, Wang, Kim, Zhou, Chu, Cai, Tindal, Feichtenhofer, Civin, Beaty, Kreymer, Li, Wyatt, Adkins, Xu, Testuggine, David, Parikh, Liskovich, Foss, Wang, Holland, Dowling, Jamil, Montgomery, Presani, Hahn, Wood, Brinkman, Arcaute, Dunbar, Smothers, Sun, Kreuk, Tian, Ozgenel, Caggioni, Guzmán, Kanayet, Seide, Florez, Schwarz, Badeer, Swee, Halpern, Thattai, Herman, Sizov, Zhang, Lakshminarayanan, Shojanazeri, Zou, Wang, Zha, Habeeb, Rudolph, Suk, Aspegren, Goldman, Molybog, Tufanov, Veliche, Gat, Weissman, Geboski, Kohli, Asher, Gaya, Marcus, Tang, Chan, Zhen, Reizenstein, Teboul, Zhong, Jin, Yang, Cummings, Carvill, Shepard, McPhie, Torres, Ginsburg, Wang, Wu, KamHou, Saxena, Prasad, Khandelwal, Zand, Matosich, Veeraraghavan, Michelena, Li, Huang, Chawla, Lakhotia, Huang, Chen, Garg, Lavender, Silva, Bell, Zhang, Guo, Moshkovich, Wehrstedt, Khabsa, Avalani, Bhatt, Tsimpoukelli, Mankus, Hasson, Lennie, Reso, Groshev, Naumov, Lathi, Keneally, Seltzer, Valko, Restrepo, Patel, Vyatskov, Samvelyan, Clark, Macey, Wang, Hermoso, Metanat, Rastegari, Bansal, Santhanam, Parks, White, Bawa, Singhal, Egebo, Usunier, Laptev, Dong, Zhang, Cheng, Chernoguz, Hart, Salpekar, Kalinli, Kent, Parekh, Saab, Balaji, Rittner, Bontrager, Roux, Dollár, Zvyagina, Ratanchandani, Yuvraj, Liang, Alao, Rodriguez, Ayub, Murthy, Nayani, Mitra, Li, Hogan, Battey, Wang, Maheswari, Howes, Rinott, Bondu, Datta, Chugh, Hunt, Dhillon, Sidorov, Verma, Yamamoto, Ramaswamy, Lindsay, Feng, Lin, Zha, Shankar, Zhang, Wang, Agarwal, Sajuyigbe, Chintala, Max, Chen, Kehoe, Satterfield, Govindaprasad, Gupta, Cho, Virk, Subramanian, Choudhury, Goldman, Remez, Glaser, Best, Kohler, Robinson, Li, Zhang, Matthews, Chou, Shaked, Vontimitta, Ajayi, Montanez, Mohan, Kumar, Mangla, Ionescu, Poenaru, Mihailescu, Ivanov, Li, Wang) did not match found publication titled 'The Llama 3 Herd of Models'
+		- `[26] Aaron Jaech, Adam Kalai, Adam Lerer, Adam Richardson, Ahmed El-Kishky, Aiden Low, Alec Helyar, Aleksander Madry, Alex Beutel, Alex Carney, et al. Openai o1 system card. arXiv preprint arXiv:2412.16720, 2024.`
+			- Authors () did not match found publication titled 'OpenAI o1 System Card'
+		- `[45] Yujia Qin, Yining Ye, Junjie Fang, Haoming Wang, Shihao Liang, Shizuo Tian, Junda Zhang, Jiahao Li, Yunxin Li, Shijue Huang, et al. Ui-tars: Pioneering automated gui interaction with native agents. arXiv preprint arXiv:2501.12326, 2025.`
+			- Authors (Zhong, Yang, Miao, Lin, Liu, Jiang, Ma, Xiao, Cai, Zheng, Jin, Zhou, Chen, Yang, Liu, Lin, Peng, Liu) did not match found publication titled 'UI-TARS: Pioneering Automated GUI Interaction with Native Agents'
+		- `[54] Dídac Surís, Sachit Menon, and Carl Vondrick. Vipergpt: Visual inference via python execution for reasoning. arXiv preprint arXiv:2303.08128, 2023.`
+			- Authors (Sur'is) did not match found publication titled 'ViperGPT: Visual Inference via Python Execution for Reasoning'
+		- `[65] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Chi, Quoc Le, and Denny Zhou. Chain of thought prompting elicits reasoning in large language models. arXiv preprint arXiv:2201.11903, 2022.`
+			- Authors (Xia) did not match found publication titled 'Chain of Thought Prompting Elicits Reasoning in Large Language Models'
+		- `[89] Yaowei Zheng, Richong Zhang, Junhao Zhang, Yanhan Ye, Zheyan Luo, Zhangchi Feng, and Yongqiang Ma. Llamafactory: Unified efficient fine-tuning of 100+ language models. In Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations), Bangkok, Thailand, 2024. Association for Computational Linguistics. URL http://arxiv.org/abs/2403.13372.`
+			- Authors () did not match found publication titled 'LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models'
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 3
+		- `[15] Boyu Gou, Ruohan Wang, Boyuan Zheng, Yanan Xie, Cheng Chang, Yiheng Shu, Huan Sun, and Yu Su. Navigating the digital world as humans do: Universal visual grounding for GUI agents. In The Thirteenth International Conference on Learning Representations, 2025. URL https://openreview.net/forum?id=kxnoqaisCT.`
+			- Year (2024) does not match expected year (2025)
+		- `[21] Wenyi Hong, Weihan Wang, Qingsong Lv, Jiazheng Xu, Wenmeng Yu, Junhui Ji, Yan Wang, Zihan Wang, Yuxiao Dong, Ming Ding, et al. Cogagent: A visual language model for gui agents. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 14281–14290, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[53] Chan Hee Song, Valts Blukis, Jonathan Tremblay, Stephen Tyree, Yu Su, and Stan Birchfield. RoboSpatial: Teaching spatial understanding to 2D and 3D vision-language models for robotics. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025. To appear.`
+			- Year (2024) does not match expected year (2025)
+- No entry found: $56/94=59.57\%$
+	- Unfound entries:
+		=> total = 56
+		- \[3\] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu, Mingkun Yang, Zhaohai Li, Jianqiang Wan, Pengfei Wang, Wei Ding, Zheren Fu, Yiheng Xu, Jiabo Ye, Xi Zhang, Tianbao Xie, Zesen Cheng, Hang Zhang, Zhibo Yang, Haiyang Xu, and Junyang Lin. Qwen2.5-vl technical report. arXiv preprint arXiv:2502.13923, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[4\] Dana H Ballard, Mary M Hayhoe, Polly K Pook, and Rajesh PN Rao. Deictic codes for the embodiment of cognition. Behavioral and Brain Sciences, 20(4):723–742, 1997.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[5\] Xi Chen, Xiao Wang, Soravit Changpinyo, AJ Piergiovanni, Piotr Padlewski, Daniel Salz, Sebastian Goodman, Adam Grycner, Basil Mustafa, Lucas Beyer, Alexander Kolesnikov, Joan Puigcerver, Nan Ding, Keran Rong, Hassan Akbari, Gaurav Mishra, Linting Xue, Ashish Thapliyal, James Bradbury, Weicheng Kuo, Mojtaba Seyedhosseini, Chao Jia, Burcu Karagol Ayan, Carlos Riquelme, Andreas Steiner, Anelia Angelova, Xiaohua Zhai, Neil Houlsby, and Radu Soricut. Pali: A jointly-scaled multilingual language-image model, 2023. URL https://arxiv.org/abs/2209.06794.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[7\] Wenliang Dai, Junnan Li, Dongxu Li, Anthony Meng Huat Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale Fung, and Steven Hoi. Instructblip: Towards general-purpose vision-language models with instruction tuning, 2023. URL https://arxiv.org/abs/2305.06500.
+			-> WARNING: None of the 8 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[10\] Yuhao Dong, Zuyan Liu, Hai-Long Sun, Jingkang Yang, Winston Hu, Yongming Rao, and Ziwei Liu. Insight-v: Exploring long-chain visual reasoning with multimodal large language models, 2025. URL https://arxiv.org/abs/2411.14432.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[12\] Xingyu Fu, Minqian Liu, Zhengyuan Yang, John Corring, Yijuan Lu, Jianwei Yang, Dan Roth, Dinei Florencio, and Cha Zhang. Refocus: Visual editing as a chain of thought for structured image understanding, 2025. URL https://arxiv.org/abs/2501.05452.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[14\] Sarthak Ghosh, Ben Lee, Jean-Baptiste Alayrac, Xuhong Zhai, Christoph Feichtenhofer, Joao Carreira, and Ishan Misra. Grounded decoding with visual descriptions reduces hallucination in large vision-language models. In International Conference on Learning Representations (ICLR), 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[17\] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al. Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning. arXiv preprint arXiv:2501.12948, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[18\] Arjun Gupta, Xi Victoria Lin, Chunyuan Zhang, Michel Galley, Jianfeng Gao, and Carlos Guestrin Ferrer. Robust compositional visual reasoning via language-guided neural module networks. In Advances in Neural Information Processing Systems (NeurIPS), 2021.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[19\] Tanmay Gupta and Aniruddha Kembhavi. Visual programming: Compositional visual reasoning without training, 2022. URL https://arxiv.org/abs/2211.11559.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[24\] Yushi Hu, Weijia Shi, Xingyu Fu, Dan Roth, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, and Ranjay Krishna. Visual sketchpad: Sketching as a visual chain of thought for multimodal language models, 2024. URL https://arxiv.org/abs/2406.09403.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[25\] Yushi Hu, Otilia Stretcu, Chun-Ta Lu, Krishnamurthy Viswanathan, Kenji Hata, Enming Luo, Ranjay Krishna, and Ariel Fuxman. Visual program distillation: Distilling tools and programmatic reasoning into vision-language models, 2024. URL https://arxiv.org/abs/2312.03052.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[30\] Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. Large language models are zero-shot reasoners, 2023. URL https://arxiv.org/abs/2205.11916.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[31\] Kaixin Li, Ziyang Meng, Hongzhan Lin, Ziyang Luo, Yuchen Tian, Jing Ma, Zhiyong Huang, and Tat-Seng Chua. Screenspot-pro: Gui grounding for professional high-resolution computer use, 2025. URL https://likaixin2000.github.io/papers/ScreenSpot_Pro.pdf.Preprint.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[32\] Xinhao Li, Ziang Yan, Desen Meng, Lu Dong, Xiangyu Zeng, Yinan He, Yali Wang, Yu Qiao, Yi Wang, and Limin Wang. Videochat-r1: Enhancing spatio-temporal perception via reinforcement fine-tuning, 2025. URL https://arxiv.org/abs/2504.06958.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[33\] Zejun Li, Ruipu Luo, Jiwen Zhang, Minghui Qiu, Xuanjing Huang, and Zhongyu Wei. Vocot: Unleashing visually grounded multi-step reasoning in large multi-modal models, 2025. URL https://arxiv.org/abs/2405.16919.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[35\] Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. Improved baselines with visual instruction tuning, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[36\] Zichen Liu, Changyu Chen, Wenjun Li, Penghui Qi, Tianyu Pang, Chao Du, Wee Sun Lee, and Min Lin. Understanding r1-zero-like training: A critical perspective, 2025. URL https://arxiv.org/abs/2503.20783.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[37\] Ziyu Liu, Zeyi Sun, Yuhang Zang, Xiaoyi Dong, Yuhang Cao, Haodong Duan, Dahua Lin, and Jiaqi Wang. Visual-rft: Visual reinforcement fine-tuning, 2025. URL https://arxiv.org/abs/2503.01785.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[38\] Zhengxi Lu, Yuxiang Chai, Yaxuan Guo, Xi Yin, Liang Liu, Hao Wang, Han Xiao, Shuai Ren, Guanjing Xiong, and Hongsheng Li. Ui-r1: Enhancing action prediction of gui agents by reinforcement learning, 2025. URL https://arxiv.org/abs/2503.21620.
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[40\] Niklas Muennighoff, Zitong Yang, Weijia Shi, Xiang Lisa Li, Li Fei-Fei, Hannaneh Hajishirzi, Luke Zettlemoyer, Percy Liang, Emmanuel Candès, and Tatsunori Hashimoto. s1: Simple test-time scaling, 2025. URL https://arxiv.org/abs/2501.19393.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[41\] NVIDIA, :, Alisson Azzolini, Hannah Brandon, Prithvijit Chattopadhyay, Huayu Chen, Jinju Chu, Yin Cui, Jenna Diamond, Yifan Ding, Francesco Ferroni, Rama Govindaraju, Jinwei Gu, Siddharth Gururani, Imad El Hanafi, Zekun Hao, Jacob Huffman, Jingyi Jin, Brendan Johnson, Rizwan Khan, George Kurian, Elena Lantz, Nayeon Lee, Zhaoshuo Li, Xuan Li, Tsung-Yi Lin, Yen-Chen Lin, Ming-Yu Liu, Alice Luo, Andrew Mathau, Yun Ni, Lindsey Pavao, Wei Ping, David W. Romero, Misha Smelyanskiy, Shuran Song, Lyne Tchapmi, Andrew Z. Wang, Boxin Wang, Haoxiang Wang, Fangyin Wei, Jiashu Xu, Yao Xu, Xiaodong Yang, Zhuolin Yang, Xiaohui Zeng, and Zhe Zhang. Cosmos-reason1: From physical common sense to embodied reasoning, 2025. URL https://arxiv.org/abs/2503.15558.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[43\] Pranav Putta, Edmund Mills, Naman Garg, Sumeet Motwani, Chelsea Finn, Divyansh Garg, and Rafael Rafailov. Agent q: Advanced reasoning and learning for autonomous ai agents, 2024. URL https://arxiv.org/abs/2408.07199.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[44\] Jinyi Qi, Tao Zhang, Rui Chen, Xiaoxue Li, Yizhou Zhang, and Kai-Wei Chang. Cogcom: Compositional visual reasoning with chain-of-manipulations. In International Conference on Learning Representations (ICLR), 2025.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[47\] Pooyan Rahmanzadehgervi, Logan Bolton, Mohammad Reza Taesiri, and Anh Totti Nguyen. Vision language models are blind: Failing to translate detailed visual features into words, 2025. URL https://arxiv.org/abs/2407.06581.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[48\] Arijit Ray, Jiafei Duan, Ellis Brown, Reuben Tan, Dina Bashkirova, Rose Hendrix, Kiana Ehsani, Aniruddha Kembhavi, Bryan A. Plummer, Ranjay Krishna, Kuo-Hao Zeng, and Kate Saenko. Sat: Dynamic spatial aptitude training for multimodal language models, 2025. URL https://arxiv.org/abs/2412.07755.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[50\] Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, YK Li, Y Wu, et al. Deepseekmath: Pushing the limits of mathematical reasoning in open language models, 2024. URL https://arxiv. org/abs/2402.03300.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[51\] Haozhan Shen, Peng Liu, Jingcheng Li, Chunxin Fang, Yibo Ma, Jiajia Liao, Qiaoli Shen, Zilun Zhang, Kangjia Zhao, Qianqian Zhang, Ruochen Xu, and Tiancheng Zhao. Vlm-r1: A stable and generalizable r1-style large vision-language model, 2025. URL https://arxiv.org/abs/2504.07615.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[55\] Huajie Tan, Yuheng Ji, Xiaoshuai Hao, Minglan Lin, Pengwei Wang, Zhongyuan Wang, and Shanghang Zhang. Reason-rft: Reinforcement fine-tuning for visual reasoning, 2025. URL https://arxiv.org/abs/2503.20752.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[56\] Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell, Libin Bai, Anmol Gulati, Garrett Tanzer, and et. Al. Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context, 2024. URL https://arxiv.org/abs/2403.05530.
+			-> Search skipped due to not enough information!
+		- \[57\] Kimi Team, A Du, B Gao, B Xing, C Jiang, C Chen, C Li, C Xiao, C Du, C Liao, et al. Kimi k1. 5: Scaling reinforcement learning with llms, 2025. URL https://arxiv. org/abs/2501.12599.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[58\] Kimi Team, Angang Du, Bofei Gao, Bowei Xing, Changjiu Jiang, Cheng Chen, Cheng Li, Chenjun Xiao, Chenzhuang Du, Chonghua Liao, Chuning Tang, Congcong Wang, Dehao Zhang, Enming Yuan, Enzhe Lu, Fengxiang Tang, Flood Sung, Guangda Wei, Guokun Lai, Haiqing Guo, Han Zhu, Hao Ding, Hao Hu, Hao Yang, Hao Zhang, Haotian Yao, Haotian Zhao, Haoyu Lu, Haoze Li, Haozhen Yu, Hongcheng Gao, Huabin Zheng, Huan Yuan, Jia Chen, Jianhang Guo, Jianlin Su, Jianzhou Wang, Jie Zhao, Jin Zhang, Jingyuan Liu, Junjie Yan, Junyan Wu, Lidong Shi, Ling Ye, Longhui Yu, Mengnan Dong, Neo Zhang, Ningchen Ma, Qiwei Pan, Qucheng Gong, Shaowei Liu, Shengling Ma, Shupeng Wei, Sihan Cao, Siying Huang, Tao Jiang, Weihao Gao, Weimin Xiong, Weiran He, Weixiao Huang, Wenhao Wu, Wenyang He, Xianghui Wei, Xianqing Jia, Xingzhe Wu, Xinran Xu, Xinxing Zu, Xinyu Zhou, Xuehai Pan, Y. Charles, Yang Li, Yangyang Hu, Yangyang Liu, Yanru Chen, Yejie Wang, Yibo Liu, Yidao Qin, Yifeng Liu, Ying Yang, Yiping Bao, Yulun Du, Yuxin Wu, Yuzhi Wang, Zaida Zhou, Zhaoji Wang, Zhaowei Li, Zhen Zhu, Zheng Zhang, Zhexu Wang, Zhilin Yang, Zhiqi Huang, Zihao Huang, Ziyao Xu, and Zonghan Yang. Kimi k1.5: Scaling reinforcement learning with llms, 2025. URL https://arxiv.org/abs/2501.12599.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[59\] Kimi Team, Angang Du, Bohong Yin, Bowei Xing, Bowen Qu, and et. Al. Kimi-VL technical report, 2025. URL https://arxiv.org/abs/2504.07491.
+			-> Search skipped due to not enough information!
+		- \[60\] Tristan Thrush, Ryan Jiang, Max Bartolo, Amanpreet Singh, Adina Williams, Douwe Kiela, and Candace Ross. Winoground: Probing vision and language models for visio-linguistic compositionality, 2022. URL https://arxiv.org/abs/2204.03162.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[61\] Anne M. Treisman and Garry Gelade. A feature-integration theory of attention. Cognitive Psychology, 12(1):97–136, 1980.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[63\] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Yang Fan, Kai Dang, Mengfei Du, Xuancheng Ren, Rui Men, Dayiheng Liu, Chang Zhou, Jingren Zhou, and Junyang Lin. Qwen2-vl: Enhancing visionlanguage model’s perception of the world at any resolution. arXiv preprint arXiv:2409.12191, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[64\] Zihan Wang, Kangrui Wang, Qineng Wang, Pingyue Zhang, Linjie Li, Zhengyuan Yang, Xing Jin, Kefan Yu, Minh Nhat Nguyen, Licheng Liu, Eli Gottlieb, Yiping Lu, Kyunghyun Cho, Jiajun Wu, Li Fei-Fei, Lijuan Wang, Yejin Choi, and Manling Li. Ragen: Understanding self-evolution in llm agents via multi-turn reinforcement learning, 2025. URL https://arxiv.org/abs/2504.20073.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[66\] Chenfei Wu, Shengming Yin, Weizhen Qi, Xiaodong Wang, Zecheng Tang, and Nan Duan. Visual chatgpt: Talking, drawing and editing with visual foundation models, 2023. URL https://arxiv.org/abs/2303.04671.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[68\] Tianhao Wu, Janice Lan, Weizhe Yuan, Jiantao Jiao, Jason Weston, and Sainbayar Sukhbaatar. Thinking llms: General instruction following with thought generation, 2024. URL https://arxiv.org/abs/2410.10630.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[69\] Wenshan Wu, Shaoguang Mao, Yadong Zhang, Yan Xia, Li Dong, Lei Cui, and Furu Wei. Mind’s eye of llms: Visualization-of-thought elicits spatial reasoning in large language models, 2024. URL https://arxiv.org/abs/2404.03622.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[71\] xAI. Grok-1.5 vision preview. https://x.ai/blog/grok-1.5v, 2024. Accessed: 2025-0521.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[72\] Guowei Xu, Peng Jin, Hao Li, Yibing Song, Lichao Sun, and Li Yuan. Llava-cot: Let vision language models reason step-by-step, 2025. URL https://arxiv.org/abs/2411.10440.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[77\] Huanjin Yao, Jiaxing Huang, Wenhao Wu, Jingyi Zhang, Yibo Wang, Shunyu Liu, Yingjie Wang, Yuxin Song, Haocheng Feng, Li Shen, and Dacheng Tao. Mulberry: Empowering mllm with o1-like reasoning and reflection via collective monte carlo tree search, 2024. URL https://arxiv.org/abs/2412.18319.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[79\] Edward Yeo, Yuxuan Tong, Morry Niu, Graham Neubig, and Xiang Yue. Demystifying long chain-of-thought reasoning in llms, 2025. URL https://arxiv.org/abs/2502.03373.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[80\] Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, et al. Dapo: An open-source llm reinforcement learning system at scale, 2025. URL https://arxiv. org/abs/2503.14476.
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[81\] Xiang Yue, Yuansheng Ni, Kai Zhang, Tianyu Zheng, Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun, Cong Wei, Botao Yu, Ruibin Yuan, Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang, Yibo Liu, Wenhao Huang, Huan Sun, Yu Su, and Wenhu Chen. Mmmu: A massive multi-discipline multimodal understanding and reasoning benchmark for expert agi, 2024. URL https://arxiv.org/abs/2311.16502.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[82\] Yang Yue, Zhiqi Chen, Rui Lu, Andrew Zhao, Zhaokai Wang, Yang Yue, Shiji Song, and Gao Huang. Does reinforcement learning really incentivize reasoning capacity in llms beyond the base model?, 2025. URL https://arxiv.org/abs/2504.13837.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[83\] Eric Zelikman, Yuhuai Wu, Jesse Mu, and Noah D. Goodman. Star: Bootstrapping reasoning with reasoning, 2022. URL https://arxiv.org/abs/2203.14465.
+			-> WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[84\] Yuexiang Zhai, Hao Bai, Zipeng Lin, Jiayi Pan, Shengbang Tong, Yifei Zhou, Alane Suhr, Saining Xie, Yann LeCun, Yi Ma, and Sergey Levine. Fine-tuning large vision-language models as decision-making agents via reinforcement learning, 2024. URL https://arxiv.org/abs/2405.10292.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[86\] Zhuosheng Zhang, Aston Zhang, Mu Li, Hai Zhao, George Karypis, and Alex Smola. Multimodal chain-of-thought reasoning in language models, 2024. URL https://arxiv.org/abs/2302.00923.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[87\] Baining Zhao, Ziyou Wang, Jianjie Fang, Chen Gao, Fanhang Man, Jinqiang Cui, Xin Wang, Xinlei Chen, Yong Li, and Wenwu Zhu. Embodied-r: Collaborative framework for activating embodied spatial reasoning in foundation models via reinforcement learning, 2025. URL https://arxiv.org/abs/2504.12680.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[90\] Yaowei Zheng, Shenzhi Wang Junting Lu, Zhangchi Feng, Dongdong Kuang, and Yuwen Xiong. Easyr1: An efficient, scalable, multi-modality rl training framework. https://github.com/hiyouga/EasyR1, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[91\] Qiji Zhou, Ruochen Zhou, Zike Hu, Panzhong Lu, Siyang Gao, and Yue Zhang. Image-ofthought prompting for visual reasoning refinement in multimodal large language models, 2024. URL https://arxiv.org/abs/2405.13872.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[92\] Richard Zhuang*, Trung Vu*, Alex Dimakis, and Maheswaran Sathiamoorthy. Improving multi-turn tool use with reinforcement learning. https://www.bespokelabs.ai/blog/improvingmulti-turn-tool-use-with-reinforcement-learning, 2025. Accessed: 2025-04-17.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/8 Grounded Reinforcement Learning/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 23
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 5
+- International Conference on Learning Representations
+	- Parsed as: International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- 5: Scaling reinforcement learning with llms
+	- References literatures count from this outlet: 2
+- COGNITIVE PSYCHOLOGY
+	- Parsed as: Cognitive Psychology
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.0
+	- References literatures count from this outlet: 1
+- Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations), Bangkok
+	- References literatures count from this outlet: 1
+- Springer
+	- References literatures count from this outlet: 1
+- Current Opinion in Behavioral Sciences
+	- Parsed as: Current opinion in behavioral sciences
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.4
+	- References literatures count from this outlet: 1
+- eLife
+	- Parsed as: Elife
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = nan
+	- References literatures count from this outlet: 1
+- 5 vision preview. 
+	- References literatures count from this outlet: 1
+- PATTERN RECOGNITION
+	- Parsed as: Cognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 6.1
+	- References literatures count from this outlet: 1
+- Gemini 1. 5: Unlocking multimodal understanding across millions of tokens of context
+	- References literatures count from this outlet: 1
+- Kimi-VL technical report
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (NeurIPS Proceedings) (NeurIPS)
+	- Parsed as: The Thirty-eighth Annual Conference on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: International conference on machine learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Scientific Reports
+	- Parsed as: Scientific reports
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.7
+	- References literatures count from this outlet: 1
+- Physica D: Nonlinear Phenomena
+	- References literatures count from this outlet: 1
+- The Thirteenth International Conference on Learning Representations
+	- References literatures count from this outlet: 1
+- BEHAVIORAL AND BRAIN SCIENCES
+	- Parsed as: Behavioral and Brain Sciences
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 13.4
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Openai*
+	- Normalized Authors: `['Openai']`
+	- Authors contain 'et al.': *False*
+	- Title: *gpt-4 technical report*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katherine Millican, Malcolm Reynolds, et al*
+	- Normalized Authors: `['Alayrac J.', 'Donahue J.', 'Luc P.', 'Miech A.', 'Barr I.', 'Hasson Y.', 'Lenc K.', 'Mensch A.', 'Millican K.', 'Reynolds M.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Flamingo: a visual language model for few-shot learning*
+	- Year: *2022*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu, Mingkun Yang, Zhaohai Li, Jianqiang Wan, Pengfei Wang, Wei Ding, Zheren Fu, Yiheng Xu, Jiabo Ye, Xi Zhang, Tianbao Xie, Zesen Cheng, Hang Zhang, Zhibo Yang, Haiyang Xu, and Junyang Lin*
+	- Normalized Authors: `['Bai S.', 'Chen K.', 'Liu X.', 'Wang J.', 'Ge W.', 'Song S.', 'Dang K.', 'Wang P.', 'Wang S.', 'Tang J.', 'Zhong H.', 'Zhu Y.', 'Yang M.', 'Li Z.', 'Wan J.', 'Wang P.', 'Ding W.', 'Fu Z.', 'Xu Y.', 'Ye J.', 'Zhang X.', 'Xie T.', 'Cheng Z.', 'Zhang H.', 'Yang Z.', 'Xu H.', 'Lin J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Qwen2*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Dana H Ballard, Mary M Hayhoe, Polly K Pook, and Rajesh PN Rao*
+	- Normalized Authors: `['Ballard D.', 'Hayhoe M.', 'Pook P.', 'Rao R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deictic codes for the embodiment of cognition*
+	- Year: *1997*
+	- Outlet: *Behavioral and Brain Sciences*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Xi Chen, Xiao Wang, Soravit Changpinyo, AJ Piergiovanni, Piotr Padlewski, Daniel Salz, Sebastian Goodman, Adam Grycner, Basil Mustafa, Lucas Beyer, Alexander Kolesnikov, Joan Puigcerver, Nan Ding, Keran Rong, Hassan Akbari, Gaurav Mishra, Linting Xue, Ashish Thapliyal, James Bradbury, Weicheng Kuo, Mojtaba Seyedhosseini, Chao Jia, Burcu Karagol Ayan, Carlos Riquelme, Andreas Steiner, Anelia Angelova, Xiaohua Zhai, Neil Houlsby, and Radu Soricut*
+	- Normalized Authors: `['Chen X.', 'Wang X.', 'Changpinyo S.', 'Piergiovanni A.', 'Padlewski P.', 'Salz D.', 'Goodman S.', 'Grycner A.', 'Mustafa B.', 'Beyer L.', 'Kolesnikov A.', 'Puigcerver J.', 'Ding N.', 'Rong K.', 'Akbari H.', 'Mishra G.', 'Xue L.', 'Thapliyal A.', 'Bradbury J.', 'Kuo W.', 'Seyedhosseini M.', 'Jia C.', 'Ayan B.', 'Riquelme C.', 'Steiner A.', 'Angelova A.', 'Zhai X.', 'Houlsby N.', 'Soricut R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Pali: A jointly-scaled multilingual language-image model.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2209.06794.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Kanzhi Cheng, Qiushi Sun, Yougang Chu, Fangzhi Xu, Yantao Li, Jianbing Zhang, and Zhiyong Wu*
+	- Normalized Authors: `['Cheng K.', 'Sun Q.', 'Chu Y.', 'Xu F.', 'Li Y.', 'Zhang J.', 'Wu Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Seeclick: Harnessing gui grounding for advanced visual gui agents*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Wenliang Dai, Junnan Li, Dongxu Li, Anthony Meng Huat Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale Fung, and Steven Hoi*
+	- Normalized Authors: `['Dai W.', 'Li J.', 'Li D.', 'Tiong A.', 'Zhao J.', 'Wang W.', 'Li B.', 'Fung P.', 'Hoi S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Instructblip: Towards general-purpose vision-language models with instruction tuning.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2305.06500.*
+	- **Valid?**: *WARNING: None of the 8 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Matt Deitke, Christopher Clark, Sangho Lee, Rohun Tripathi, Yue Yang, Jae Sung Park, Mohammadreza Salehi, Niklas Muennighoff, Kyle Lo, Luca Soldaini, et al*
+	- Normalized Authors: `['Deitke M.', 'Clark C.', 'Lee S.', 'Tripathi R.', 'Yang Y.', 'Park J.', 'Salehi M.', 'Muennighoff N.', 'Lo K.', 'Soldaini L.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Molmo and pixmo: Open weights and open data for state-of-the-art multimodal models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Anderson, Bransom, Ehsani, Ngo, Chen, Patel, Yatskar, Callison-Burch, Head, Hendrix, Bastani, VanderBilt, Lambert, Chou, Chheda, Sparks, Skjonsberg, Schmitz, Sarnat, Bischoff, Walsh, Newell, Wolters, Gupta, Zeng, Borchardt, Groeneveld, Dumas, Nam, Lebrecht, Wittlif, Schoenick, Michel, Krishna, Weihs, Smith, Hajishirzi, Girshick, Farhadi, Kembhavi) did not match found publication titled 'Molmo and PixMo: Open Weights and Open Data for State-of-the-Art Multimodal Models'*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Zhengyuan Ding, Yuwei Chen, Yichong Xu, Zhe Wang, Xintao Han, Dong Yu, and Zhou Yu*
+	- Normalized Authors: `['Ding Z.', 'Chen Y.', 'Xu Y.', 'Wang Z.', 'Han X.', 'Yu D.', 'Yu Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Attention over learned object embeddings enables complex visual reasoning*
+	- Year: *2021*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Hill, Santoro, Reynolds, Botvinick) did not match found publication titled 'Attention over Learned Object Embeddings Enables Complex Visual Reasoning'*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Yuhao Dong, Zuyan Liu, Hai-Long Sun, Jingkang Yang, Winston Hu, Yongming Rao, and Ziwei Liu*
+	- Normalized Authors: `['Dong Y.', 'Liu Z.', 'Sun H.', 'Yang J.', 'Hu W.', 'Rao Y.', 'Liu Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Insight-v: Exploring long-chain visual reasoning with multimodal large language models.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2411.14432.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Xingyu Fu, Yushi Hu, Bangzheng Li, Yu Feng, Haoyu Wang, Xudong Lin, Dan Roth, Noah A Smith, Wei-Chiu Ma, and Ranjay Krishna*
+	- Normalized Authors: `['Fu X.', 'Hu Y.', 'Li B.', 'Feng Y.', 'Wang H.', 'Lin X.', 'Roth D.', 'Smith N.', 'Ma W.', 'Krishna R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Blink: Multimodal large language models can see but not perceive*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Xingyu Fu, Minqian Liu, Zhengyuan Yang, John Corring, Yijuan Lu, Jianwei Yang, Dan Roth, Dinei Florencio, and Cha Zhang*
+	- Normalized Authors: `['Fu X.', 'Liu M.', 'Yang Z.', 'Corring J.', 'Lu Y.', 'Yang J.', 'Roth D.', 'Florencio D.', 'Zhang C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Refocus: Visual editing as a chain of thought for structured image understanding.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2501.05452.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Kanishk Gandhi, Ayush Chakravarthy, Anikait Singh, Nathan Lile, and Noah D Goodman*
+	- Normalized Authors: `['Gandhi K.', 'Chakravarthy A.', 'Singh A.', 'Lile N.', 'Goodman N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cognitive behaviors that enable self-improving reasoners, or, four habits of highly effective stars*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Sarthak Ghosh, Ben Lee, Jean-Baptiste Alayrac, Xuhong Zhai, Christoph Feichtenhofer, Joao Carreira, and Ishan Misra*
+	- Normalized Authors: `['Ghosh S.', 'Lee B.', 'Alayrac J.', 'Zhai X.', 'Feichtenhofer C.', 'Carreira J.', 'Misra I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Grounded decoding with visual descriptions reduces hallucination in large vision-language models*
+	- Year: *2024*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Boyu Gou, Ruohan Wang, Boyuan Zheng, Yanan Xie, Cheng Chang, Yiheng Shu, Huan Sun, and Yu Su*
+	- Normalized Authors: `['Gou B.', 'Wang R.', 'Zheng B.', 'Xie Y.', 'Chang C.', 'Shu Y.', 'Sun H.', 'Su Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Navigating the digital world as humans do: Universal visual grounding for GUI agents*
+	- Year: *2025*
+	- Outlet: *The Thirteenth International Conference on Learning Representations*
+	- Link: *https://openreview.net/forum?id=kxnoqaisCT.*
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Aaron Grattafiori, Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Alex Vaughan, et al*
+	- Normalized Authors: `['Grattafiori A.', 'Dubey A.', 'Jauhri A.', 'Pandey A.', 'Kadian A.', 'Al-Dahle A.', 'Letman A.', 'Mathur A.', 'Schelten A.', 'Vaughan A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *The llama 3 herd of models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Yang, Fan, Goyal, Hartshorn, Yang, Mitra, Sravankumar, Korenev, Hinsvark, Rao, Zhang, Rodriguez, Gregerson, Spataru, Rozière, Biron, Tang, Chern, Caucheteux, Nayak, Bi, Marra, McConnell, Keller, Touret, Wu, Wong, Ferrer, Nikolaidis, Allonsius, Song, Pintz, Livshits, Esiobu, Choudhary, Mahajan, Garcia-Olano, Perino, Hupkes, Lakomkin, AlBadawy, Lobanova, Dinan, Smith, Radenovic, Zhang, Synnaeve, Lee, Anderson, Nail, Mialon, Pang, Cucurell, Nguyen, Korevaar, Xu, Touvron, Zarov, Ibarra, Kloumann, Misra, Evtimov, Copet, Lee, Geffert, Vranes, Park, Mahadeokar, Shah, Linde, Billock, Hong, Lee, Fu, Chi, Huang, Liu, Wang, Bitton, Spisak, Park, Rocca, Johnstun, Saxe, Jia, Alwala, Upasani, Plawiak, Li, Heafield, Stone, El-Arini, Iyer, Malik, Chiu, Bhalla, Rantala-Yeary, Maaten, Chen, Tan, Jenkins, Martin, Madaan, Malo, Blecher, Landzaat, Oliveira, Muzzi, Pasupuleti, Singh, Paluri, Kardas, Oldham, Rita, Pavlova, Kambadur, Lewis, Si, Singh, Hassan, Goyal, Torabi, Bashlykov, Bogoychev, Chatterji, Duchenne, cCelebi, Alrassy, Zhang, Li, Vasić, Weng, Bhargava, Dubal, Krishnan, Koura, Xu, Dong, Srinivasan, Ganapathy, Calderer, Cabral, Stojnic, Raileanu, Girdhar, Patel, Sauvestre, Polidoro, Sumbaly, Taylor, Silva, Hou, Wang, Hosseini, Chennabasappa, Singh, Bell, Kim, Edunov, Nie, Narang, Raparthy, Shen, Wan, Bhosale, Zhang, Vandenhende, Batra, Whitman, Sootla, Collot, Gururangan, Borodinsky, Herman, Fowler, Sheasha, Georgiou, Scialom, Speckbacher, Mihaylov, Xiao, Karn, Goswami, Gupta, Ramanathan, Kerkez, Gonguet, Do, Vogeti, Petrovic, Chu, Xiong, Fu, Meers, Martinet, Wang, Tan, Xie, Jia, Wang, Goldschlag, Gaur, Babaei, Wen, Song, Zhang, Li, Mao, Coudert, Yan, Chen, Papakipos, Singh, Jain, Kelsey, Shajnfeld, Gangidi, Victoria, Goldstand, Menon, Sharma, Boesenberg, Baevski, Feinstein, Kallet, Sangani, Yunus, Lupu, Alvarado, Caples, Gu, Ho, Poulton, Ryan, Ramchandani, Franco, Saraf, Chowdhury, Gabriel, Bharambe, Eisenman, Yazdan, James, Maurer, Leonhardi, Huang, Loyd, Paola, Paranjape, Liu, Wu, Ni, Hancock, Wasti, Spence, Stojkovic, Gamido, Montalvo, Parker, Burton, Mejia, Wang, Kim, Zhou, Chu, Cai, Tindal, Feichtenhofer, Civin, Beaty, Kreymer, Li, Wyatt, Adkins, Xu, Testuggine, David, Parikh, Liskovich, Foss, Wang, Holland, Dowling, Jamil, Montgomery, Presani, Hahn, Wood, Brinkman, Arcaute, Dunbar, Smothers, Sun, Kreuk, Tian, Ozgenel, Caggioni, Guzmán, Kanayet, Seide, Florez, Schwarz, Badeer, Swee, Halpern, Thattai, Herman, Sizov, Zhang, Lakshminarayanan, Shojanazeri, Zou, Wang, Zha, Habeeb, Rudolph, Suk, Aspegren, Goldman, Molybog, Tufanov, Veliche, Gat, Weissman, Geboski, Kohli, Asher, Gaya, Marcus, Tang, Chan, Zhen, Reizenstein, Teboul, Zhong, Jin, Yang, Cummings, Carvill, Shepard, McPhie, Torres, Ginsburg, Wang, Wu, KamHou, Saxena, Prasad, Khandelwal, Zand, Matosich, Veeraraghavan, Michelena, Li, Huang, Chawla, Lakhotia, Huang, Chen, Garg, Lavender, Silva, Bell, Zhang, Guo, Moshkovich, Wehrstedt, Khabsa, Avalani, Bhatt, Tsimpoukelli, Mankus, Hasson, Lennie, Reso, Groshev, Naumov, Lathi, Keneally, Seltzer, Valko, Restrepo, Patel, Vyatskov, Samvelyan, Clark, Macey, Wang, Hermoso, Metanat, Rastegari, Bansal, Santhanam, Parks, White, Bawa, Singhal, Egebo, Usunier, Laptev, Dong, Zhang, Cheng, Chernoguz, Hart, Salpekar, Kalinli, Kent, Parekh, Saab, Balaji, Rittner, Bontrager, Roux, Dollár, Zvyagina, Ratanchandani, Yuvraj, Liang, Alao, Rodriguez, Ayub, Murthy, Nayani, Mitra, Li, Hogan, Battey, Wang, Maheswari, Howes, Rinott, Bondu, Datta, Chugh, Hunt, Dhillon, Sidorov, Verma, Yamamoto, Ramaswamy, Lindsay, Feng, Lin, Zha, Shankar, Zhang, Wang, Agarwal, Sajuyigbe, Chintala, Max, Chen, Kehoe, Satterfield, Govindaprasad, Gupta, Cho, Virk, Subramanian, Choudhury, Goldman, Remez, Glaser, Best, Kohler, Robinson, Li, Zhang, Matthews, Chou, Shaked, Vontimitta, Ajayi, Montanez, Mohan, Kumar, Mangla, Ionescu, Poenaru, Mihailescu, Ivanov, Li, Wang) did not match found publication titled 'The Llama 3 Herd of Models'*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al*
+	- Normalized Authors: `['Guo D.', 'Yang D.', 'Zhang H.', 'Song J.', 'Zhang R.', 'Xu R.', 'Zhu Q.', 'Ma S.', 'Wang P.', 'Bi X.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Arjun Gupta, Xi Victoria Lin, Chunyuan Zhang, Michel Galley, Jianfeng Gao, and Carlos Guestrin Ferrer*
+	- Normalized Authors: `['Gupta A.', 'Lin X.', 'Zhang C.', 'Galley M.', 'Gao J.', 'Ferrer C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust compositional visual reasoning via language-guided neural module networks*
+	- Year: *2021*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Tanmay Gupta and Aniruddha Kembhavi*
+	- Normalized Authors: `['Gupta T.', 'Kembhavi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual programming: Compositional visual reasoning without training.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2211.11559.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Stevan Harnad*
+	- Normalized Authors: `['Harnad S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The symbol grounding problem*
+	- Year: *1990*
+	- Outlet: *Physica D: Nonlinear Phenomena*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Wenyi Hong, Weihan Wang, Qingsong Lv, Jiazheng Xu, Wenmeng Yu, Junhui Ji, Yan Wang, Zihan Wang, Yuxiao Dong, Ming Ding, et al*
+	- Normalized Authors: `['Hong W.', 'Wang W.', 'Lv Q.', 'Xu J.', 'Yu W.', 'Ji J.', 'Wang Y.', 'Wang Z.', 'Dong Y.', 'Ding M.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Cogagent: A visual language model for gui agents*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *David Hoppe and Constantin A Rothkopf*
+	- Normalized Authors: `['Hoppe D.', 'Rothkopf C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-step planning of eye movements in visual search*
+	- Year: *2019*
+	- Outlet: *Scientific reports*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Yushi Hu, Weijia Shi, Xingyu Fu, Dan Roth, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, and Ranjay Krishna*
+	- Normalized Authors: `['Hu Y.', 'Shi W.', 'Fu X.', 'Roth D.', 'Ostendorf M.', 'Zettlemoyer L.', 'Smith N.', 'Krishna R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual sketchpad: Sketching as a visual chain of thought for multimodal language models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Yushi Hu, Weijia Shi, Xingyu Fu, Dan Roth, Mari Ostendorf, Luke Zettlemoyer, Noah A Smith, and Ranjay Krishna*
+	- Normalized Authors: `['Hu Y.', 'Shi W.', 'Fu X.', 'Roth D.', 'Ostendorf M.', 'Zettlemoyer L.', 'Smith N.', 'Krishna R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual sketchpad: Sketching as a visual chain of thought for multimodal language models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2406.09403.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Yushi Hu, Otilia Stretcu, Chun-Ta Lu, Krishnamurthy Viswanathan, Kenji Hata, Enming Luo, Ranjay Krishna, and Ariel Fuxman*
+	- Normalized Authors: `['Hu Y.', 'Stretcu O.', 'Lu C.', 'Viswanathan K.', 'Hata K.', 'Luo E.', 'Krishna R.', 'Fuxman A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual program distillation: Distilling tools and programmatic reasoning into vision-language models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2312.03052.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Aaron Jaech, Adam Kalai, Adam Lerer, Adam Richardson, Ahmed El-Kishky, Aiden Low, Alec Helyar, Aleksander Madry, Alex Beutel, Alex Carney, et al*
+	- Normalized Authors: `['Jaech A.', 'Kalai A.', 'Lerer A.', 'Richardson A.', 'El-Kishky A.', 'Low A.', 'Helyar A.', 'Madry A.', 'Beutel A.', 'Carney A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Openai o1 system card*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'OpenAI o1 System Card'*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Chao Jia, Yinfei Yang, Ye Xia, Yi-Ting Chen, Zarana Parekh, Hieu Pham, Quoc Le, YunHsuan Sung, Zhen Li, and Tom Duerig*
+	- Normalized Authors: `['Jia C.', 'Yang Y.', 'Xia Y.', 'Chen Y.', 'Parekh Z.', 'Pham H.', 'Le Q.', 'Sung Y.', 'Li Z.', 'Duerig T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scaling up visual and vision-language representation learning with noisy text supervision*
+	- Year: *2021*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C Berg, Wan-Yen Lo, et al*
+	- Normalized Authors: `['Kirillov A.', 'Mintun E.', 'Ravi N.', 'Mao H.', 'Rolland C.', 'Gustafson L.', 'Xiao T.', 'Whitehead S.', 'Berg A.', 'Lo W.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Segment anything*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Jing Yu Koh, Robert Lo, Lawrence Jang, Vikram Duvvur, Ming Chong Lim, Po-Yu Huang, Graham Neubig, Shuyan Zhou, Ruslan Salakhutdinov, and Daniel Fried*
+	- Normalized Authors: `['Koh J.', 'Lo R.', 'Jang L.', 'Duvvur V.', 'Lim M.', 'Huang P.', 'Neubig G.', 'Zhou S.', 'Salakhutdinov R.', 'Fried D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visualwebarena: Evaluating multimodal agents on realistic visual web tasks*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa*
+	- Normalized Authors: `['Kojima T.', 'Gu S.', 'Reid M.', 'Matsuo Y.', 'Iwasawa Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Large language models are zero-shot reasoners.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2205.11916.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Kaixin Li, Ziyang Meng, Hongzhan Lin, Ziyang Luo, Yuchen Tian, Jing Ma, Zhiyong Huang, and Tat-Seng Chua*
+	- Normalized Authors: `['Li K.', 'Meng Z.', 'Lin H.', 'Luo Z.', 'Tian Y.', 'Ma J.', 'Huang Z.', 'Chua T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Screenspot-pro: Gui grounding for professional high-resolution computer use.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://likaixin2000.github.io/papers/ScreenSpot_Pro.pdf.Preprint.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Xinhao Li, Ziang Yan, Desen Meng, Lu Dong, Xiangyu Zeng, Yinan He, Yali Wang, Yu Qiao, Yi Wang, and Limin Wang*
+	- Normalized Authors: `['Li X.', 'Yan Z.', 'Meng D.', 'Dong L.', 'Zeng X.', 'He Y.', 'Wang Y.', 'Qiao Y.', 'Wang Y.', 'Wang L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Videochat-r1: Enhancing spatio-temporal perception via reinforcement fine-tuning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2504.06958.*
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Zejun Li, Ruipu Luo, Jiwen Zhang, Minghui Qiu, Xuanjing Huang, and Zhongyu Wei*
+	- Normalized Authors: `['Li Z.', 'Luo R.', 'Zhang J.', 'Qiu M.', 'Huang X.', 'Wei Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vocot: Unleashing visually grounded multi-step reasoning in large multi-modal models.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2405.16919.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Kevin Qinghong Lin, Linjie Li, Difei Gao, Zhengyuan Yang, Shiwei Wu, Zechen Bai, Weixian Lei, Lijuan Wang, and Mike Zheng Shou*
+	- Normalized Authors: `['Lin K.', 'Li L.', 'Gao D.', 'Yang Z.', 'Wu S.', 'Bai Z.', 'Lei W.', 'Wang L.', 'Shou M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Showui: One vision-language-action model for gui visual agent*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee*
+	- Normalized Authors: `['Liu H.', 'Li C.', 'Li Y.', 'Lee Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Improved baselines with visual instruction tuning.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Zichen Liu, Changyu Chen, Wenjun Li, Penghui Qi, Tianyu Pang, Chao Du, Wee Sun Lee, and Min Lin*
+	- Normalized Authors: `['Liu Z.', 'Chen C.', 'Li W.', 'Qi P.', 'Pang T.', 'Du C.', 'Lee W.', 'Lin M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Understanding r1-zero-like training: A critical perspective.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2503.20783.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Ziyu Liu, Zeyi Sun, Yuhang Zang, Xiaoyi Dong, Yuhang Cao, Haodong Duan, Dahua Lin, and Jiaqi Wang*
+	- Normalized Authors: `['Liu Z.', 'Sun Z.', 'Zang Y.', 'Dong X.', 'Cao Y.', 'Duan H.', 'Lin D.', 'Wang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual-rft: Visual reinforcement fine-tuning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2503.01785.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Zhengxi Lu, Yuxiang Chai, Yaxuan Guo, Xi Yin, Liang Liu, Hao Wang, Han Xiao, Shuai Ren, Guanjing Xiong, and Hongsheng Li*
+	- Normalized Authors: `['Lu Z.', 'Chai Y.', 'Guo Y.', 'Yin X.', 'Liu L.', 'Wang H.', 'Xiao H.', 'Ren S.', 'Xiong G.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ui-r1: Enhancing action prediction of gui agents by reinforcement learning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2503.21620.*
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Zhengxi Lu, Yuxiang Chai, Yaxuan Guo, Xi Yin, Liang Liu, Hao Wang, Guanjing Xiong, and Hongsheng Li*
+	- Normalized Authors: `['Lu Z.', 'Chai Y.', 'Guo Y.', 'Yin X.', 'Liu L.', 'Wang H.', 'Xiong G.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ui-r1: Enhancing action prediction of gui agents by reinforcement learning*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Niklas Muennighoff, Zitong Yang, Weijia Shi, Xiang Lisa Li, Li Fei-Fei, Hannaneh Hajishirzi, Luke Zettlemoyer, Percy Liang, Emmanuel Candès, and Tatsunori Hashimoto*
+	- Normalized Authors: `['Muennighoff N.', 'Yang Z.', 'Shi W.', 'Li X.', 'Fei-Fei L.', 'Hajishirzi H.', 'Zettlemoyer L.', 'Liang P.', 'Candès E.', 'Hashimoto T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *s1: Simple test-time scaling.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2501.19393.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *NVIDIA, :, Alisson Azzolini, Hannah Brandon, Prithvijit Chattopadhyay, Huayu Chen, Jinju Chu, Yin Cui, Jenna Diamond, Yifan Ding, Francesco Ferroni, Rama Govindaraju, Jinwei Gu, Siddharth Gururani, Imad El Hanafi, Zekun Hao, Jacob Huffman, Jingyi Jin, Brendan Johnson, Rizwan Khan, George Kurian, Elena Lantz, Nayeon Lee, Zhaoshuo Li, Xuan Li, Tsung-Yi Lin, Yen-Chen Lin, Ming-Yu Liu, Alice Luo, Andrew Mathau, Yun Ni, Lindsey Pavao, Wei Ping, David W  Romero, Misha Smelyanskiy, Shuran Song, Lyne Tchapmi, Andrew Z  Wang, Boxin Wang, Haoxiang Wang, Fangyin Wei, Jiashu Xu, Yao Xu, Xiaodong Yang, Zhuolin Yang, Xiaohui Zeng, and Zhe Zhang*
+	- Normalized Authors: `['NVIDIA', ':', 'Azzolini A.', 'Brandon H.', 'Chattopadhyay P.', 'Chen H.', 'Chu J.', 'Cui Y.', 'Diamond J.', 'Ding Y.', 'Ferroni F.', 'Govindaraju R.', 'Gu J.', 'Gururani S.', 'Hanafi I.', 'Hao Z.', 'Huffman J.', 'Jin J.', 'Johnson B.', 'Khan R.', 'Kurian G.', 'Lantz E.', 'Lee N.', 'Li Z.', 'Li X.', 'Lin T.', 'Lin Y.', 'Liu M.', 'Luo A.', 'Mathau A.', 'Ni Y.', 'Pavao L.', 'Ping W.', 'Romero D.', 'Smelyanskiy M.', 'Song S.', 'Tchapmi L.', 'Wang A.', 'Wang B.', 'Wang H.', 'Wei F.', 'Xu J.', 'Xu Y.', 'Yang X.', 'Yang Z.', 'Zeng X.', 'Zhang Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cosmos-reason1: From physical common sense to embodied reasoning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2503.15558.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al*
+	- Normalized Authors: `['Ouyang L.', 'Wu J.', 'Jiang X.', 'Almeida D.', 'Wainwright C.', 'Mishkin P.', 'Zhang C.', 'Agarwal S.', 'Slama K.', 'Ray A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Training language models to follow instructions with human feedback*
+	- Year: *2022*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Pranav Putta, Edmund Mills, Naman Garg, Sumeet Motwani, Chelsea Finn, Divyansh Garg, and Rafael Rafailov*
+	- Normalized Authors: `['Putta P.', 'Mills E.', 'Garg N.', 'Motwani S.', 'Finn C.', 'Garg D.', 'Rafailov R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Agent q: Advanced reasoning and learning for autonomous ai agents.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2408.07199.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Jinyi Qi, Tao Zhang, Rui Chen, Xiaoxue Li, Yizhou Zhang, and Kai-Wei Chang*
+	- Normalized Authors: `['Qi J.', 'Zhang T.', 'Chen R.', 'Li X.', 'Zhang Y.', 'Chang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cogcom: Compositional visual reasoning with chain-of-manipulations*
+	- Year: *2025*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Yujia Qin, Yining Ye, Junjie Fang, Haoming Wang, Shihao Liang, Shizuo Tian, Junda Zhang, Jiahao Li, Yunxin Li, Shijue Huang, et al*
+	- Normalized Authors: `['Qin Y.', 'Ye Y.', 'Fang J.', 'Wang H.', 'Liang S.', 'Tian S.', 'Zhang J.', 'Li J.', 'Li Y.', 'Huang S.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Ui-tars: Pioneering automated gui interaction with native agents*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Zhong, Yang, Miao, Lin, Liu, Jiang, Ma, Xiao, Cai, Zheng, Jin, Zhou, Chen, Yang, Liu, Lin, Peng, Liu) did not match found publication titled 'UI-TARS: Pioneering Automated GUI Interaction with Native Agents'*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et al*
+	- Normalized Authors: `['Radford A.', 'Kim J.', 'Hallacy C.', 'Ramesh A.', 'Goh G.', 'Agarwal S.', 'Sastry G.', 'Askell A.', 'Mishkin P.', 'Clark J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Learning transferable visual models from natural language supervision*
+	- Year: *2021*
+	- Outlet: *International conference on machine learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Pooyan Rahmanzadehgervi, Logan Bolton, Mohammad Reza Taesiri, and Anh Totti Nguyen*
+	- Normalized Authors: `['Rahmanzadehgervi P.', 'Bolton L.', 'Taesiri M.', 'Nguyen A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vision language models are blind: Failing to translate detailed visual features into words.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2407.06581.*
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Arijit Ray, Jiafei Duan, Ellis Brown, Reuben Tan, Dina Bashkirova, Rose Hendrix, Kiana Ehsani, Aniruddha Kembhavi, Bryan A  Plummer, Ranjay Krishna, Kuo-Hao Zeng, and Kate Saenko*
+	- Normalized Authors: `['Ray A.', 'Duan J.', 'Brown E.', 'Tan R.', 'Bashkirova D.', 'Hendrix R.', 'Ehsani K.', 'Kembhavi A.', 'Plummer B.', 'Krishna R.', 'Zeng K.', 'Saenko K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sat: Dynamic spatial aptitude training for multimodal language models.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2412.07755.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Gabriel Herbert Sarch, Lawrence Jang, Michael J Tarr, William W Cohen, Kenneth Marino, and Katerina Fragkiadaki*
+	- Normalized Authors: `['Sarch G.', 'Jang L.', 'Tarr M.', 'Cohen W.', 'Marino K.', 'Fragkiadaki K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vlm agents generate their own memories: Distilling experience into embodied programs of thought*
+	- Year: *2024*
+	- Outlet: *The Thirty-eighth Annual Conference on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, YK Li, Y Wu, et al*
+	- Normalized Authors: `['Shao Z.', 'Wang P.', 'Zhu Q.', 'Xu R.', 'Song J.', 'Bi X.', 'Zhang H.', 'Zhang M.', 'Li Y.', 'Wu Y.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Deepseekmath: Pushing the limits of mathematical reasoning in open language models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Haozhan Shen, Peng Liu, Jingcheng Li, Chunxin Fang, Yibo Ma, Jiajia Liao, Qiaoli Shen, Zilun Zhang, Kangjia Zhao, Qianqian Zhang, Ruochen Xu, and Tiancheng Zhao*
+	- Normalized Authors: `['Shen H.', 'Liu P.', 'Li J.', 'Fang C.', 'Ma Y.', 'Liao J.', 'Shen Q.', 'Zhang Z.', 'Zhao K.', 'Zhang Q.', 'Xu R.', 'Zhao T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vlm-r1: A stable and generalizable r1-style large vision-language model.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2504.07615.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Guangming Sheng, Chi Zhang, Zilingfeng Ye, Xibin Wu, Wang Zhang, Ru Zhang, Yanghua Peng, Haibin Lin, and Chuan Wu*
+	- Normalized Authors: `['Sheng G.', 'Zhang C.', 'Ye Z.', 'Wu X.', 'Zhang W.', 'Zhang R.', 'Peng Y.', 'Lin H.', 'Wu C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Hybridflow: A flexible and efficient rlhf framework*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Chan Hee Song, Valts Blukis, Jonathan Tremblay, Stephen Tyree, Yu Su, and Stan Birchfield*
+	- Normalized Authors: `['Song C.', 'Blukis V.', 'Tremblay J.', 'Tyree S.', 'Su Y.', 'Birchfield S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *RoboSpatial: Teaching spatial understanding to 2D and 3D vision-language models for robotics*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Dídac Surís, Sachit Menon, and Carl Vondrick*
+	- Normalized Authors: `['Surís D.', 'Menon S.', 'Vondrick C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vipergpt: Visual inference via python execution for reasoning*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Sur'is) did not match found publication titled 'ViperGPT: Visual Inference via Python Execution for Reasoning'*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Huajie Tan, Yuheng Ji, Xiaoshuai Hao, Minglan Lin, Pengwei Wang, Zhongyuan Wang, and Shanghang Zhang*
+	- Normalized Authors: `['Tan H.', 'Ji Y.', 'Hao X.', 'Lin M.', 'Wang P.', 'Wang Z.', 'Zhang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reason-rft: Reinforcement fine-tuning for visual reasoning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2503.20752.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell, Libin Bai, Anmol Gulati, Garrett Tanzer, and et*
+	- Normalized Authors: `['Team G.', 'Georgiev P.', 'Lei V.', 'Burnell R.', 'Bai L.', 'Gulati A.', 'Tanzer G.', 'et']`
+	- Authors contain 'et al.': *False*
+	- Title: *Al*
+	- Year: *2024*
+	- Outlet: *Gemini 1. 5: Unlocking multimodal understanding across millions of tokens of context*
+	- Link: *https://arxiv.org/abs/2403.05530.*
+	- **Valid?**: *None*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Kimi Team, A Du, B Gao, B Xing, C Jiang, C Chen, C Li, C Xiao, C Du, C Liao, et al*
+	- Normalized Authors: `['Team K.', 'Du A.', 'Gao B.', 'Xing B.', 'Jiang C.', 'Chen C.', 'Li C.', 'Xiao C.', 'Du C.', 'Liao C.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Kimi k1*
+	- Year: *2025*
+	- Outlet: *5: Scaling reinforcement learning with llms*
+	- Link: *https://arxiv.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Kimi Team, Angang Du, Bofei Gao, Bowei Xing, Changjiu Jiang, Cheng Chen, Cheng Li, Chenjun Xiao, Chenzhuang Du, Chonghua Liao, Chuning Tang, Congcong Wang, Dehao Zhang, Enming Yuan, Enzhe Lu, Fengxiang Tang, Flood Sung, Guangda Wei, Guokun Lai, Haiqing Guo, Han Zhu, Hao Ding, Hao Hu, Hao Yang, Hao Zhang, Haotian Yao, Haotian Zhao, Haoyu Lu, Haoze Li, Haozhen Yu, Hongcheng Gao, Huabin Zheng, Huan Yuan, Jia Chen, Jianhang Guo, Jianlin Su, Jianzhou Wang, Jie Zhao, Jin Zhang, Jingyuan Liu, Junjie Yan, Junyan Wu, Lidong Shi, Ling Ye, Longhui Yu, Mengnan Dong, Neo Zhang, Ningchen Ma, Qiwei Pan, Qucheng Gong, Shaowei Liu, Shengling Ma, Shupeng Wei, Sihan Cao, Siying Huang, Tao Jiang, Weihao Gao, Weimin Xiong, Weiran He, Weixiao Huang, Wenhao Wu, Wenyang He, Xianghui Wei, Xianqing Jia, Xingzhe Wu, Xinran Xu, Xinxing Zu, Xinyu Zhou, Xuehai Pan, Y  Charles, Yang Li, Yangyang Hu, Yangyang Liu, Yanru Chen, Yejie Wang, Yibo Liu, Yidao Qin, Yifeng Liu, Ying Yang, Yiping Bao, Yulun Du, Yuxin Wu, Yuzhi Wang, Zaida Zhou, Zhaoji Wang, Zhaowei Li, Zhen Zhu, Zheng Zhang, Zhexu Wang, Zhilin Yang, Zhiqi Huang, Zihao Huang, Ziyao Xu, and Zonghan Yang*
+	- Normalized Authors: `['Team K.', 'Du A.', 'Gao B.', 'Xing B.', 'Jiang C.', 'Chen C.', 'Li C.', 'Xiao C.', 'Du C.', 'Liao C.', 'Tang C.', 'Wang C.', 'Zhang D.', 'Yuan E.', 'Lu E.', 'Tang F.', 'Sung F.', 'Wei G.', 'Lai G.', 'Guo H.', 'Zhu H.', 'Ding H.', 'Hu H.', 'Yang H.', 'Zhang H.', 'Yao H.', 'Zhao H.', 'Lu H.', 'Li H.', 'Yu H.', 'Gao H.', 'Zheng H.', 'Yuan H.', 'Chen J.', 'Guo J.', 'Su J.', 'Wang J.', 'Zhao J.', 'Zhang J.', 'Liu J.', 'Yan J.', 'Wu J.', 'Shi L.', 'Ye L.', 'Yu L.', 'Dong M.', 'Zhang N.', 'Ma N.', 'Pan Q.', 'Gong Q.', 'Liu S.', 'Ma S.', 'Wei S.', 'Cao S.', 'Huang S.', 'Jiang T.', 'Gao W.', 'Xiong W.', 'He W.', 'Huang W.', 'Wu W.', 'He W.', 'Wei X.', 'Jia X.', 'Wu X.', 'Xu X.', 'Zu X.', 'Zhou X.', 'Pan X.', 'Charles Y.', 'Li Y.', 'Hu Y.', 'Liu Y.', 'Chen Y.', 'Wang Y.', 'Liu Y.', 'Qin Y.', 'Liu Y.', 'Yang Y.', 'Bao Y.', 'Du Y.', 'Wu Y.', 'Wang Y.', 'Zhou Z.', 'Wang Z.', 'Li Z.', 'Zhu Z.', 'Zhang Z.', 'Wang Z.', 'Yang Z.', 'Huang Z.', 'Huang Z.', 'Xu Z.', 'Yang Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Kimi k1*
+	- Year: *2025*
+	- Outlet: *5: Scaling reinforcement learning with llms*
+	- Link: *https://arxiv.org/abs/2501.12599.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Kimi Team, Angang Du, Bohong Yin, Bowei Xing, Bowen Qu, and et*
+	- Normalized Authors: `['Team K.', 'Du A.', 'Yin B.', 'Xing B.', 'Qu B.', 'et']`
+	- Authors contain 'et al.': *False*
+	- Title: *Al*
+	- Year: *2025*
+	- Outlet: *Kimi-VL technical report*
+	- Link: *https://arxiv.org/abs/2504.07491.*
+	- **Valid?**: *None*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Tristan Thrush, Ryan Jiang, Max Bartolo, Amanpreet Singh, Adina Williams, Douwe Kiela, and Candace Ross*
+	- Normalized Authors: `['Thrush T.', 'Jiang R.', 'Bartolo M.', 'Singh A.', 'Williams A.', 'Kiela D.', 'Ross C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Winoground: Probing vision and language models for visio-linguistic compositionality.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2204.03162.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Anne M  Treisman and Garry Gelade*
+	- Normalized Authors: `['Treisman A.', 'Gelade G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A feature-integration theory of attention*
+	- Year: *1980*
+	- Outlet: *Cognitive Psychology*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Shimon Ullman*
+	- Normalized Authors: `['Ullman S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual routines*
+	- Year: *1984*
+	- Outlet: *Cognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Yang Fan, Kai Dang, Mengfei Du, Xuancheng Ren, Rui Men, Dayiheng Liu, Chang Zhou, Jingren Zhou, and Junyang Lin*
+	- Normalized Authors: `['Wang P.', 'Bai S.', 'Tan S.', 'Wang S.', 'Fan Z.', 'Bai J.', 'Chen K.', 'Liu X.', 'Wang J.', 'Ge W.', 'Fan Y.', 'Dang K.', 'Du M.', 'Ren X.', 'Men R.', 'Liu D.', 'Zhou C.', 'Zhou J.', 'Lin J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Qwen2-vl: Enhancing visionlanguage model’s perception of the world at any resolution*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Zihan Wang, Kangrui Wang, Qineng Wang, Pingyue Zhang, Linjie Li, Zhengyuan Yang, Xing Jin, Kefan Yu, Minh Nhat Nguyen, Licheng Liu, Eli Gottlieb, Yiping Lu, Kyunghyun Cho, Jiajun Wu, Li Fei-Fei, Lijuan Wang, Yejin Choi, and Manling Li*
+	- Normalized Authors: `['Wang Z.', 'Wang K.', 'Wang Q.', 'Zhang P.', 'Li L.', 'Yang Z.', 'Jin X.', 'Yu K.', 'Nguyen M.', 'Liu L.', 'Gottlieb E.', 'Lu Y.', 'Cho K.', 'Wu J.', 'Fei-Fei L.', 'Wang L.', 'Choi Y.', 'Li M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ragen: Understanding self-evolution in llm agents via multi-turn reinforcement learning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2504.20073.*
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Chi, Quoc Le, and Denny Zhou*
+	- Normalized Authors: `['Wei J.', 'Wang X.', 'Schuurmans D.', 'Bosma M.', 'Chi E.', 'Le Q.', 'Zhou D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Chain of thought prompting elicits reasoning in large language models*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Xia) did not match found publication titled 'Chain of Thought Prompting Elicits Reasoning in Large Language Models'*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Chenfei Wu, Shengming Yin, Weizhen Qi, Xiaodong Wang, Zecheng Tang, and Nan Duan*
+	- Normalized Authors: `['Wu C.', 'Yin S.', 'Qi W.', 'Wang X.', 'Tang Z.', 'Duan N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual chatgpt: Talking, drawing and editing with visual foundation models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2303.04671.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Penghao Wu and Saining Xie*
+	- Normalized Authors: `['Wu P.', 'Xie S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *V*: Guided visual search as a core mechanism in multimodal llms*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *Tianhao Wu, Janice Lan, Weizhe Yuan, Jiantao Jiao, Jason Weston, and Sainbayar Sukhbaatar*
+	- Normalized Authors: `['Wu T.', 'Lan J.', 'Yuan W.', 'Jiao J.', 'Weston J.', 'Sukhbaatar S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Thinking llms: General instruction following with thought generation.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2410.10630.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 69:**
+	- Ref. ID: *69*
+	- Authors: *Wenshan Wu, Shaoguang Mao, Yadong Zhang, Yan Xia, Li Dong, Lei Cui, and Furu Wei*
+	- Normalized Authors: `['Wu W.', 'Mao S.', 'Zhang Y.', 'Xia Y.', 'Dong L.', 'Cui L.', 'Wei F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mind’s eye of llms: Visualization-of-thought elicits spatial reasoning in large language models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2404.03622.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 70:**
+	- Ref. ID: *70*
+	- Authors: *Zhiyong Wu, Zhenyu Wu, Fangzhi Xu, Yian Wang, Qiushi Sun, Chengyou Jia, Kanzhi Cheng, Zichen Ding, Liheng Chen, Paul Pu Liang, et al*
+	- Normalized Authors: `['Wu Z.', 'Wu Z.', 'Xu F.', 'Wang Y.', 'Sun Q.', 'Jia C.', 'Cheng K.', 'Ding Z.', 'Chen L.', 'Liang P.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Os-atlas: A foundation action model for generalist gui agents*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 71:**
+	- Ref. ID: *71*
+	- Authors: *xAI*
+	- Normalized Authors: `['xAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Grok-1*
+	- Year: *0*
+	- Outlet: *5 vision preview. *
+	- Link: *https://x.ai/blog/grok-1.5v,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 72:**
+	- Ref. ID: *72*
+	- Authors: *Guowei Xu, Peng Jin, Hao Li, Yibing Song, Lichao Sun, and Li Yuan*
+	- Normalized Authors: `['Xu G.', 'Jin P.', 'Li H.', 'Song Y.', 'Sun L.', 'Yuan L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Llava-cot: Let vision language models reason step-by-step.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2411.10440.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 73:**
+	- Ref. ID: *73*
+	- Authors: *Jihan Yang, Shusheng Yang, Anjali W Gupta, Rilyn Han, Li Fei-Fei, and Saining Xie*
+	- Normalized Authors: `['Yang J.', 'Yang S.', 'Gupta A.', 'Han R.', 'Fei-Fei L.', 'Xie S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Thinking in space: How multimodal large language models see, remember, and recall spaces*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 74:**
+	- Ref. ID: *74*
+	- Authors: *Scott Cheng-Hsin Yang, Mate Lengyel, and Daniel M Wolpert*
+	- Normalized Authors: `['Yang S.', 'Lengyel M.', 'Wolpert D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Active sensing in the categorization of visual patterns*
+	- Year: *2016*
+	- Outlet: *Elife*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 75:**
+	- Ref. ID: *75*
+	- Authors: *Scott Cheng-Hsin Yang, Daniel M Wolpert, and Máté Lengyel*
+	- Normalized Authors: `['Yang S.', 'Wolpert D.', 'Lengyel M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Theoretical perspectives on active sensing*
+	- Year: *2016*
+	- Outlet: *Current opinion in behavioral sciences*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 76:**
+	- Ref. ID: *76*
+	- Authors: *Zhengyuan Yang, Linjie Li, Jianfeng Wang, Kevin Lin, Ehsan Azarnasab, Faisal Ahmed, Zicheng Liu, Ce Liu, Michael Zeng, and Lijuan Wang*
+	- Normalized Authors: `['Yang Z.', 'Li L.', 'Wang J.', 'Lin K.', 'Azarnasab E.', 'Ahmed F.', 'Liu Z.', 'Liu C.', 'Zeng M.', 'Wang L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mm-react: Prompting chatgpt for multimodal reasoning and action*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 77:**
+	- Ref. ID: *77*
+	- Authors: *Huanjin Yao, Jiaxing Huang, Wenhao Wu, Jingyi Zhang, Yibo Wang, Shunyu Liu, Yingjie Wang, Yuxin Song, Haocheng Feng, Li Shen, and Dacheng Tao*
+	- Normalized Authors: `['Yao H.', 'Huang J.', 'Wu W.', 'Zhang J.', 'Wang Y.', 'Liu S.', 'Wang Y.', 'Song Y.', 'Feng H.', 'Shen L.', 'Tao D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mulberry: Empowering mllm with o1-like reasoning and reflection via collective monte carlo tree search.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2412.18319.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 78:**
+	- Ref. ID: *78*
+	- Authors: *Alfred L  Yarbus*
+	- Normalized Authors: `['Yarbus A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Eye Movements and Vision*
+	- Year: *1967*
+	- Outlet: *Springer*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 79:**
+	- Ref. ID: *79*
+	- Authors: *Edward Yeo, Yuxuan Tong, Morry Niu, Graham Neubig, and Xiang Yue*
+	- Normalized Authors: `['Yeo E.', 'Tong Y.', 'Niu M.', 'Neubig G.', 'Yue X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Demystifying long chain-of-thought reasoning in llms.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2502.03373.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 80:**
+	- Ref. ID: *80*
+	- Authors: *Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, et al*
+	- Normalized Authors: `['Yu Q.', 'Zhang Z.', 'Zhu R.', 'Yuan Y.', 'Zuo X.', 'Yue Y.', 'Fan T.', 'Liu G.', 'Liu L.', 'Liu X.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Dapo: An open-source llm reinforcement learning system at scale.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.*
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 81:**
+	- Ref. ID: *81*
+	- Authors: *Xiang Yue, Yuansheng Ni, Kai Zhang, Tianyu Zheng, Ruoqi Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming Ren, Yuxuan Sun, Cong Wei, Botao Yu, Ruibin Yuan, Renliang Sun, Ming Yin, Boyuan Zheng, Zhenzhu Yang, Yibo Liu, Wenhao Huang, Huan Sun, Yu Su, and Wenhu Chen*
+	- Normalized Authors: `['Yue X.', 'Ni Y.', 'Zhang K.', 'Zheng T.', 'Liu R.', 'Zhang G.', 'Stevens S.', 'Jiang D.', 'Ren W.', 'Sun Y.', 'Wei C.', 'Yu B.', 'Yuan R.', 'Sun R.', 'Yin M.', 'Zheng B.', 'Yang Z.', 'Liu Y.', 'Huang W.', 'Sun H.', 'Su Y.', 'Chen W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mmmu: A massive multi-discipline multimodal understanding and reasoning benchmark for expert agi.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2311.16502.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 82:**
+	- Ref. ID: *82*
+	- Authors: *Yang Yue, Zhiqi Chen, Rui Lu, Andrew Zhao, Zhaokai Wang, Yang Yue, Shiji Song, and Gao Huang*
+	- Normalized Authors: `['Yue Y.', 'Chen Z.', 'Lu R.', 'Zhao A.', 'Wang Z.', 'Yue Y.', 'Song S.', 'Huang G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Does reinforcement learning really incentivize reasoning capacity in llms beyond the base model?.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2504.13837.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 83:**
+	- Ref. ID: *83*
+	- Authors: *Eric Zelikman, Yuhuai Wu, Jesse Mu, and Noah D  Goodman*
+	- Normalized Authors: `['Zelikman E.', 'Wu Y.', 'Mu J.', 'Goodman N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Star: Bootstrapping reasoning with reasoning.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2203.14465.*
+	- **Valid?**: *WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 84:**
+	- Ref. ID: *84*
+	- Authors: *Yuexiang Zhai, Hao Bai, Zipeng Lin, Jiayi Pan, Shengbang Tong, Yifei Zhou, Alane Suhr, Saining Xie, Yann LeCun, Yi Ma, and Sergey Levine*
+	- Normalized Authors: `['Zhai Y.', 'Bai H.', 'Lin Z.', 'Pan J.', 'Tong S.', 'Zhou Y.', 'Suhr A.', 'Xie S.', 'LeCun Y.', 'Ma Y.', 'Levine S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fine-tuning large vision-language models as decision-making agents via reinforcement learning.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2405.10292.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 85:**
+	- Ref. ID: *85*
+	- Authors: *Xuan Zhang, Chao Du, Tianyu Pang, Qian Liu, Wei Gao, and Min Lin*
+	- Normalized Authors: `['Zhang X.', 'Du C.', 'Pang T.', 'Liu Q.', 'Gao W.', 'Lin M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Chain of preference optimization: Improving chain-of-thought reasoning in llms*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 86:**
+	- Ref. ID: *86*
+	- Authors: *Zhuosheng Zhang, Aston Zhang, Mu Li, Hai Zhao, George Karypis, and Alex Smola*
+	- Normalized Authors: `['Zhang Z.', 'Zhang A.', 'Li M.', 'Zhao H.', 'Karypis G.', 'Smola A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multimodal chain-of-thought reasoning in language models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2302.00923.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 87:**
+	- Ref. ID: *87*
+	- Authors: *Baining Zhao, Ziyou Wang, Jianjie Fang, Chen Gao, Fanhang Man, Jinqiang Cui, Xin Wang, Xinlei Chen, Yong Li, and Wenwu Zhu*
+	- Normalized Authors: `['Zhao B.', 'Wang Z.', 'Fang J.', 'Gao C.', 'Man F.', 'Cui J.', 'Wang X.', 'Chen X.', 'Li Y.', 'Zhu W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Embodied-r: Collaborative framework for activating embodied spatial reasoning in foundation models via reinforcement learning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2504.12680.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 88:**
+	- Ref. ID: *88*
+	- Authors: *Jinliang Zheng, Jianxiong Li, Sijie Cheng, Yinan Zheng, Jiaming Li, Jihao Liu, Yu Liu, Jingjing Liu, and Xianyuan Zhan*
+	- Normalized Authors: `['Zheng J.', 'Li J.', 'Cheng S.', 'Zheng Y.', 'Li J.', 'Liu J.', 'Liu Y.', 'Liu J.', 'Zhan X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Instruction-guided visual masking*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 89:**
+	- Ref. ID: *89*
+	- Authors: *Yaowei Zheng, Richong Zhang, Junhao Zhang, Yanhan Ye, Zheyan Luo, Zhangchi Feng, and Yongqiang Ma*
+	- Normalized Authors: `['Zheng Y.', 'Zhang R.', 'Zhang J.', 'Ye Y.', 'Luo Z.', 'Feng Z.', 'Ma Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Llamafactory: Unified efficient fine-tuning of 100+ language models*
+	- Year: *2024*
+	- Outlet: *Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations), Bangkok*
+	- Link: *http://arxiv.org/abs/2403.13372.*
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'LlamaFactory: Unified Efficient Fine-Tuning of 100+ Language Models'*
+- **Number 90:**
+	- Ref. ID: *90*
+	- Authors: *Yaowei Zheng, Shenzhi Wang Junting Lu, Zhangchi Feng, Dongdong Kuang, and Yuwen Xiong*
+	- Normalized Authors: `['Zheng Y.', 'Lu S.', 'Feng Z.', 'Kuang D.', 'Xiong Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Easyr1: An efficient, scalable, multi-modality rl training framework*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://github.com/hiyouga/EasyR1,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 91:**
+	- Ref. ID: *91*
+	- Authors: *Qiji Zhou, Ruochen Zhou, Zike Hu, Panzhong Lu, Siyang Gao, and Yue Zhang*
+	- Normalized Authors: `['Zhou Q.', 'Zhou R.', 'Hu Z.', 'Lu P.', 'Gao S.', 'Zhang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Image-ofthought prompting for visual reasoning refinement in multimodal large language models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2405.13872.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 92:**
+	- Ref. ID: *92*
+	- Authors: *Richard Zhuang*, Trung Vu*, Alex Dimakis, and Maheswaran Sathiamoorthy*
+	- Normalized Authors: `['Zhuang* R.', 'Vu* T.', 'Dimakis A.', 'Sathiamoorthy M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Improving multi-turn tool use with reinforcement learning*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://www.bespokelabs.ai/blog/improvingmulti-turn-tool-use-with-reinforcement-learning,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 93:**
+	- Ref. ID: *a*
+	- Authors: *A1 Appendix Overview The structure of this Appendix is as follows: • Section A2 contains limitations and future work*
+	- Normalized Authors: `['limitations A.', 'work f.']`
+	- Authors contain 'et al.': *False*
+	- Title: *• Section A3 contains broader impacts*
+	- Year: *0*
+	- Outlet: *• Section A4 contains additional discussion and connection to cognitive science • Section A5 contains additional methods details • Section A6 contains additional details on the model behavioral analysis • Section A7 contains additional details on the human evaluation • Section A8 contains additional experimental results • Section A9 contains example model outputs A2 Limitations and Future Work While our approach demonstrates strong improvements in visual reasoning performance, several limitations remain and open avenues for future research: Intermediate Reward Our current reinforcement learning setup provides rewards only at the final answer level In spatial reasoning tasks, this sometimes results in reward hacking, where the model receives positive reward despite generating partially incorrect or underspecified reasoning Although our human evaluation confirms that the majority of grounding predictions are accurate and helpful, there remains measurable room for improvement We hypothesize that introducing dense intermediate rewards—for both correct reasoning steps and accurate grounding—could mitigate these issues and improve alignment between grounding, reasoning, and reward We leave this exploration to future work Expanded Tool Use and Adaptive Control While our model can point, crop, and zoom into visual regions, other forms of tool-augmented perception (e g , highlighting, region comparison, or 3D navigation) may further support compositional reasoning Future work could explore mechanisms that learn to balance visual actions dynamically Learning When and How Much to Reason We observe that the model often generates long reasoning chains, even for relatively simple questions This inefficiency echoes known challenges in language-only chain-of-thought models [65, 30], where reasoning is applied uniformly regardless of task complexity A promising direction for future work is to develop methods that help models learn when to reason and how much reasoning is necessary, adapting the depth of their chain-of-thought to the demands of the task Interpreting Attention Patterns Although our behavioral and human studies demonstrate that explicit grounding amplifies structured visual behaviors and improves interpretability, the mechanisms through which grounding improves reasoning remain underexplored Future work should examine how explicit grounding influences a model’s internal attention dynamics and whether these patterns resemble human gaze behaviors Further comparisons to human cognitive strategies—such as visual routines [62], task-directed attention [78], and deictic planning [4]—could yield deeper insights into both model behavior and human cognition A3 Broader Impacts Positive Societal Impacts Grounded reasoning improves model transparency by producing interpretable chains of thought that reference specific image regions This interpretability is especially valuable in high-stakes domains such as medical imaging, accessibility tools, assistive robotics, and scientific image analysis, where understanding the basis for model decisions is crucial Additionally, our approach may enhance human-AI collaboration by making the model’s internal decision process legible and actionable for human users Because the model reasons over localized visual subproblems, it can better align with human intuition, which may foster trust and oversight Potential Negative Impacts Despite its benefits, the ability to produce detailed visual reasoning traces could be misused for surveillance or automated profiling A grounded model that can isolate visual elements, track reasoning over time, and justify actions may inadvertently enable more fine-grained tracking of individuals or objects in sensitive contexts Moreover, models that appear interpretable may be perceived as more reliable than they truly are; if the reasoning trace is superficially plausible but incorrect, users may over-trust the model’s output This risk is particularly relevant in domains where visual ambiguity or annotation bias affects ground truth Our approach also assumes the availability of visual data and may propagate or amplify dataset biases, especially in domains where certain object types, environments, or affordances are overrepresented Spatial grounding mechanisms may lock the model’s attention onto biased or stereotyped regions of the image, reinforcing existing disparities unless care is taken in dataset construction and evaluation Mitigation Strategies To mitigate these risks, future work could incorporate uncertainty estimation or confidence calibration into the reasoning trace, explicitly marking when the model is uncertain about a grounding decision It is also important to develop tools that allow users to audit the reasoning trace and provide corrections In addition, efforts to diversify training data and evaluate model behavior across demographic and situational axes are essential for fair deployment Finally, deployment in sensitive settings should involve human-in-the-loop oversight, particularly when grounded outputs inform consequential decisions A4 Additional Discussion Our results show that explicitly grounding reasoning steps in spatial coordinates substantially improves performance across visual reasoning benchmarks To better understand why, we draw from both the recent machine learning literature and long-standing cognitive science theories that point to grounding as a core mechanism in human and artificial reasoning Grounding as a Cognitive Scaffold Classic studies in visual cognition suggest that humans reason about complex scenes by sequentially directing attention to spatially localized regions in service of goal-driven subproblems Yarbus [78] demonstrated that eye movement patterns depend heavily on task demands, suggesting a deep link between overt visual attention and internal reasoning Ullman [62] introduced the concept of visual routines, showing that reasoning over a scene involves decomposable, spatially localized operations Ballard et al [4] formalized this via deictic codes, where visual fixations and gestures act as pointers binding abstract variables to perceptual content These mechanisms reduce cognitive load (as opposed to raw computational load), support compositionality, and facilitate subgoal execution by grounding symbolic reasoning in visual input Grounding Reduces Hallucination and Enhances Generalization In machine learning, recent studies demonstrate that grounding in visual regions curbs hallucination and promotes generalization Ghosh et al [14] show that large VLMs hallucinate less and reason more accurately when first prompted to generate grounded visual descriptions Qi et al [44] propose a chain-of-manipulations method where VLMs perform spatially localized actions (e g , zoom, crop, verify), achieving stronger generalization and interpretability These findings echo Treisman’s seminal Feature Integration Theory [61], which argues that spatial attention is essential for integrating visual features, and Harnad’s symbol grounding problem [20], which proposes that abstract reasoning is only meaningful when connected to perceptual representations Object-centric and Compositional Inductive Biases Explicit grounding may also encourage models to adopt object-centric and modular representations Ding et al [9] show that attention over learned object embeddings improves structured visual reasoning Gupta et al [18] demonstrate that language-guided neural modules that condition on spatial cues improve the compositional generalization of the model These results align with the cognitive perspective that humans naturally build scene representations around individual entities and their relations [4] Overall, the convergence of cognitive science and ML literature suggests that explicit grounding does not merely reduce the search space, but acts as a structural inductive bias that enhances compositionality, verification, and goal-directed reasoning*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 94:**
+	- Ref. ID: *b*
+	- Authors: *A5 Additional Methodological Details A5*
+	- Normalized Authors: `['A5 A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *1 Group Relative Policy Optimization (GRPO) Group Relative Policy Optimization (GRPO) [50] stabilizes policy learning from long-form trajectories by computing group-normalized advantages and applying clipped token-level PPO-style updates*
+	- Year: *0*
+	- Outlet: *Specifically, for a group of G trajectories O = {τ (i)}G i=1 conditioned on input x, each trajectory τ (i) has a scalar reward r(i) = R(τ (i)) GRPO computes the centered advantage ˆA(i) = r(i) −¯R, where ¯R = 1 G P i r(i) is the group mean Let τ (i) t be the t-th token of trajectory τ (i) GRPO minimizes the following clipped surrogate loss: LGRPO(θ) = −1 G G X i=1 1 |τ (i)| X t min h ρ(i) t ˆA(i), clip(ρ(i) t , 1−ε, 1+ε) ˆA(i)i + β KL[πθ∥πref], (1) where ρ(i) t = πθ(τ (i) t |τ (i) <t ,x) πold(τ (i) t |τ (i) <t ,x) is the importance weight, ε = 0 2 is the clipping parameter, and β is the KL penalty coefficient This approach stabilizes learning in long-horizon, multimodal reasoning settings A5 2 RL Reward Functions Task Rewards We define reward functions specific to each benchmark: • Spatial Reasoning (SAT-2) A binary reward: rtask = 1 if the predicted answer matches the ground truth, and 0 otherwise • Web Grounding (OS-Atlas) A binary reward: rtask = 1 if the predicted coordinate lies inside the annotated bounding box • Web Action Prediction (ICAL) A decomposed reward: rtask = rtype + rarg, where rtype = 0 5 if the predicted action type matches, and rarg = 0 5 if the predicted argument (e g , DOM ID, string) matches A5 3 Multi-turn Reinforcement Learning Details We first apply supervised fine-tuning (SFT) on multi-turn traces These are derived from the same MCTS chains used to train the single-turn model, but reformatted into multi-turn training data by: (1) For each node, formulating the text in a think block followed by taking the coordinate and formulating it into a tool call If it is a terminal node, a think block is added with any remaining text followed by the predicted answer in answer tags (2) Cropping around the coordinate to obtain the feedback image, and appending this image to the training data as a user turn in the sample to be used for SFT (3) Continuing (1) and (2) until terminal We additionally include backtracking as described in Section 4 For multi-turn scenarios, we apply GRPO over full dialog trajectories Observation tokens are masked from the loss, ensuring gradients flow solely through the language model while retaining visual input to the encoder We additionally mask samples not ending in an EOS token [80] Termination Enforcement During RL rollouts, if a dialog reaches Tmax = 5 turns without emitting an <answer> block, we append a soft prompt to the final assistant message: <think> Please provide your response now </think> This maintains structural fidelity and bounds rollout length KL collapse While concurrent work observed occasional KL collapse in multi-turn RL when applied to base model with vision inputs [64, 92], we found that our initial warm start enabled stable training and allowed us to maintain a moderate KL coefficient (0 01) Diversity bonus We introduced the concept of a diversity turn bonus into our reward formulation in Section 4 3 of the main paper In Figure A1, we show the response length over RL training with and without the diversity bonus Without the diversity bonus, the model quickly converges to single turn outputs (green line), whereas the model avoids this and outputs >1 turn on average with the bonus reward (blue line) Figure A1: Response length with and without turn bonus Without the bonus, the model converges to always taking a single turn (as also verified by examining model outputs), whereas the bonus enables the model to stabilize multi-turn A5 4 Training Implementation Details General Setup Training is conducted on 8 A100 GPUs with Qwen2 5-VL models (3B and 7B) Supervised fine-tuning uses 3 epochs, while GRPO is applied for 500 rollout-update iterations Evaluation uses decoding temperature of 0 We build on Llama-Factory [89] for SFT, and EasyR1 [90, 52] for GRPO Training Hyperparameters Overview We provide all training hyperparameters used in SFT*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*We evaluate ViGoRL across a suite of visual reasoning benchmarks, including SAT-2 [48], BLINK [11], RoboSpatial [53], ScreenSpot [6, 31], VisualWebArena [29], and V∗Bench [67]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*We evaluate on SAT-2 [48] validation (4,000 questions across 5 categories), BLINK [11] (depth ordering, multi-view reasoning, spatial relationships), and ROBOSPATIALconfiguration and compatibility split (228 questions on real-world RGBD scenes) [53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*Methods such as V* [67], Sketchpad [24], VisProg [19], REFOCUS [12], and ViperGPT [54] use language models to produce executable visual plans but rely on frozen backbones and hand-crafted prompts*'
+	- This flag is for the paper with Ref. ID = 54
+- '*Prompting strategies like chain-of-thought (CoT) [65, 30], mm-CoT [86], IoT prompting [91], and Mind’s Eye [69] guide models to generate explicit reasoning steps grounded in images*'
+	- This flag is for the paper with Ref. ID = 65
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Promptbased models, such as ViperGPT [54], VisualProg [19], and V* [67], explicitly decompose visual tasks into sequences of subgoals or intermediate steps to improve interpretability and performance without additional training*'
+	- This flag is for the paper with Ref. ID = 54
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*Early methods [85, 43, 10, 68, 16] iteratively refine reasoning using preference-based approaches, while recent efforts like DeepSeekR1 [17] and Kimi-1*'
+	- This flag is for the paper with Ref. ID = 16
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 45
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*Similar approaches in VLMs include LLAVA-CoT [72], which distills CoT reasoning from GPT-4o [1], and ICAL [49], VPD [25], and Mulberry [77], which employ LLMs or MCTS to generate reasoning data*'
+	- This flag is for the paper with Ref. ID = 1
+- '*General Proprietary and Open-Source Models: General-purpose vision-language models with closed-weights accessible through APIs [1] and open-weight models [35, 7, 8, 63, 3, 59]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*General Proprietary and Open-Source Models: General-purpose vision-language models with closed-weights accessible through APIs [1] and open-weight models [35, 7, 8, 63, 3, 59]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Grounding may serve a similar role in models, functioning as a spatial attention mechanism that enables accurate feature binding [61] and supports deictic reference [4] to simplify multi-step reasoning through localized perceptual anchoring*'
+	- This flag is for the paper with Ref. ID = 4
+- '*This model architecture mirrors insights from cognitive science: humans rely on spatial attention and visual routines to decompose complex problems into manageable, perceptually grounded steps [62, 4]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 5
+- '*We evaluate ViGoRL across a suite of visual reasoning benchmarks, including SAT-2 [48], BLINK [11], RoboSpatial [53], ScreenSpot [6, 31], VisualWebArena [29], and V∗Bench [67]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*For grounding evaluation, we use ScreenSpot v2 [70, 6] (single-step localization), and ScreenSpot Pro [31] (high-resolution professional environments)*'
+	- This flag is for the paper with Ref. ID = 6
+- '*General Proprietary and Open-Source Models: General-purpose vision-language models with closed-weights accessible through APIs [1] and open-weight models [35, 7, 8, 63, 3, 59]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*General Proprietary and Open-Source Models: General-purpose vision-language models with closed-weights accessible through APIs [1] and open-weight models [35, 7, 8, 63, 3, 59]*'
+	- This flag is for the paper with Ref. ID = 8
+- '*Early methods [85, 43, 10, 68, 16] iteratively refine reasoning using preference-based approaches, while recent efforts like DeepSeekR1 [17] and Kimi-1*'
+	- This flag is for the paper with Ref. ID = 10
+- '*We evaluate ViGoRL across a suite of visual reasoning benchmarks, including SAT-2 [48], BLINK [11], RoboSpatial [53], ScreenSpot [6, 31], VisualWebArena [29], and V∗Bench [67]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*We evaluate on SAT-2 [48] validation (4,000 questions across 5 categories), BLINK [11] (depth ordering, multi-view reasoning, spatial relationships), and ROBOSPATIALconfiguration and compatibility split (228 questions on real-world RGBD scenes) [53]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Methods such as V* [67], Sketchpad [24], VisProg [19], REFOCUS [12], and ViperGPT [54] use language models to produce executable visual plans but rely on frozen backbones and hand-crafted prompts*'
+	- This flag is for the paper with Ref. ID = 12
+- '*However, RL can only build upon skills or compose reasoning behaviors that are already latent in the base model’s sampling distribution [13, 82]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*, Gandhi et al [13] has identified key cognitive behaviors in text-based domains, such as setting sub-goals, backtracking, verification, that support self-improvement under RL*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Models lacking these behaviors often do not benefit from RL and must be bootstrapped via supervised fine-tuning (SFT) on curated reasoning traces before RL is run [13, 82]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*While initially believed to induce novel cognitive behaviors, analyses [13, 82, 36, 79] suggest RL primarily amplifies existing capabilities already found in the base model*'
+	- This flag is for the paper with Ref. ID = 13
+- '*While supervised fine-tuning can teach models to mimic reasoning chains provided in training data, RL offers the potential to directly reinforce reasoning behavior sampled from the base model based on correctness or other reward signals [42, 50, 13]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*1 Do Current RL Recipes Amplify VLM Behaviors That Support Visual Performance? It has been shown that RL on chains of thought alone cannot necessarily induce new behaviors from scratch; it can only amplify or chain reasoning primitives that are already present in the base model’s sampling distribution [13, 82]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Do current base VLMs exhibit desirable visual reasoning behaviors and can RL amplify these behaviors to improve performance? Following previous work from LLMs [13], we categorize the behaviors of base VLMs when tasked with the Spatial Aptitude Test [48] spatial reasoning benchmark, which requires the synthesis of evidence in multiple regions of one or multiple images to answer*'
+	- This flag is for the paper with Ref. ID = 13
+- '*58 Following previous work on behavioral coding in language models [13], we code VLM behavior when tasked with the SAT-2 spatial reasoning benchmark, which requires synthesizing evidence across multiple image regions, in two scenarios: (1) Zero-shot prompting with "think stepby-step" instructions without explicit grounding, and (2) RL-tuned models including vanillo GRPO, ViGoRL, and an ablated version without explicit grounding incentives*'
+	- This flag is for the paper with Ref. ID = 13
+- '*These findings align with prior research showing that explicitly prompting VLMs to reference spatial object locations improves performance and interpretability [67, 73, 14], suggesting that grounding thought in spatial regions may serve as a key cognitive behavior for effective visual reasoning*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Recent advances in reinforcement learning (RL) over reasoning chains have significantly enhanced the capabilities of LLMs in text-based domains [17, 58, 26], enabling them to learn diverse reasoning strategies tailored to the context*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Applying RL to chains of thought has improved reasoning in verifiable domains like math and coding [26, 17, 58]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Early methods [85, 43, 10, 68, 16] iteratively refine reasoning using preference-based approaches, while recent efforts like DeepSeekR1 [17] and Kimi-1*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Promptbased models, such as ViperGPT [54], VisualProg [19], and V* [67], explicitly decompose visual tasks into sequences of subgoals or intermediate steps to improve interpretability and performance without additional training*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Methods such as V* [67], Sketchpad [24], VisProg [19], REFOCUS [12], and ViperGPT [54] use language models to produce executable visual plans but rely on frozen backbones and hand-crafted prompts*'
+	- This flag is for the paper with Ref. ID = 19
+- '*VLM Tool-Using Pipelines: We compare against prompt-based models that explicitly decompose visual tasks into sequences of subgoals or intermediate steps [67, 19, 23, 88, 76, 66]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Grounding serves not merely to reduce computational load (as human spatial attention is often characterized), but to scaffold reasoning with external visual structure – effectively using the content of the world as part of the thinking process [78, 20]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*This hypothesis is inspired by the fact that humans systematically shift their restricted gaze to selectively gather and integrate task-relevant information when reasoning about the world [75, 22, 74]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*VLM Tool-Using Pipelines: We compare against prompt-based models that explicitly decompose visual tasks into sequences of subgoals or intermediate steps [67, 19, 23, 88, 76, 66]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Methods such as V* [67], Sketchpad [24], VisProg [19], REFOCUS [12], and ViperGPT [54] use language models to produce executable visual plans but rely on frozen backbones and hand-crafted prompts*'
+	- This flag is for the paper with Ref. ID = 24
+- '*Similar approaches in VLMs include LLAVA-CoT [72], which distills CoT reasoning from GPT-4o [1], and ICAL [49], VPD [25], and Mulberry [77], which employ LLMs or MCTS to generate reasoning data*'
+	- This flag is for the paper with Ref. ID = 25
+- '*Recent advances in reinforcement learning (RL) over reasoning chains have significantly enhanced the capabilities of LLMs in text-based domains [17, 58, 26], enabling them to learn diverse reasoning strategies tailored to the context*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Applying RL to chains of thought has improved reasoning in verifiable domains like math and coding [26, 17, 58]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*For visual search, we curate 11k question-answer pairs over small objects from Segment Anything [28], using GPT-4o given an object mask and scripted filtering to generate fine-grained ⟨image, question, choices, answer⟩tuples*'
+	- This flag is for the paper with Ref. ID = 28
+- '*We evaluate ViGoRL across a suite of visual reasoning benchmarks, including SAT-2 [48], BLINK [11], RoboSpatial [53], ScreenSpot [6, 31], VisualWebArena [29], and V∗Bench [67]*'
+	- This flag is for the paper with Ref. ID = 29
+- '*We also test on VisualWebArena [29] live web evaluation, using the visual-only configuration where models receive set-of-marks annotated webpage screenshots without HTML or text inputs*'
+	- This flag is for the paper with Ref. ID = 29
+- '*Task success is determined automatically by checking for specific criteria in the agent trajectory (see Koh et al [29] for details)*'
+	- This flag is for the paper with Ref. ID = 29
+- '*Prompting strategies like chain-of-thought (CoT) [65, 30], mm-CoT [86], IoT prompting [91], and Mind’s Eye [69] guide models to generate explicit reasoning steps grounded in images*'
+	- This flag is for the paper with Ref. ID = 30
+- '*We evaluate ViGoRL across a suite of visual reasoning benchmarks, including SAT-2 [48], BLINK [11], RoboSpatial [53], ScreenSpot [6, 31], VisualWebArena [29], and V∗Bench [67]*'
+	- This flag is for the paper with Ref. ID = 31
+- '*For grounding evaluation, we use ScreenSpot v2 [70, 6] (single-step localization), and ScreenSpot Pro [31] (high-resolution professional environments)*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 32
+- '*Methods like VOCOT [33] improve grounding of entities via SFT*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*General Proprietary and Open-Source Models: General-purpose vision-language models with closed-weights accessible through APIs [1] and open-weight models [35, 7, 8, 63, 3, 59]*'
+	- This flag is for the paper with Ref. ID = 35
+- '*While initially believed to induce novel cognitive behaviors, analyses [13, 82, 36, 79] suggest RL primarily amplifies existing capabilities already found in the base model*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Visual-RFT [37] applies RL to textual reasoning in VLMs without incentivizing new visual behaviors*'
+	- This flag is for the paper with Ref. ID = 37
+- '*2) Vanilla GRPO: GRPO applied to the base model with standard rewards for <think> and <answer> formatting, and answer correctness, similar to previous work [37, 38]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 38
+- '*2) Vanilla GRPO: GRPO applied to the base model with standard rewards for <think> and <answer> formatting, and answer correctness, similar to previous work [37, 38]*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 39
+- '*For text tasks, STaR [83] generates reasoning via few-shot prompting and selects based on correctness, while S1 [40] distills reasoning chains into smaller models*'
+	- This flag is for the paper with Ref. ID = 40
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 41
+- '*While supervised fine-tuning can teach models to mimic reasoning chains provided in training data, RL offers the potential to directly reinforce reasoning behavior sampled from the base model based on correctness or other reward signals [42, 50, 13]*'
+	- This flag is for the paper with Ref. ID = 42
+- '*Early methods [85, 43, 10, 68, 16] iteratively refine reasoning using preference-based approaches, while recent efforts like DeepSeekR1 [17] and Kimi-1*'
+	- This flag is for the paper with Ref. ID = 43
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*We evaluate ViGoRL across a suite of visual reasoning benchmarks, including SAT-2 [48], BLINK [11], RoboSpatial [53], ScreenSpot [6, 31], VisualWebArena [29], and V∗Bench [67]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Do current base VLMs exhibit desirable visual reasoning behaviors and can RL amplify these behaviors to improve performance? Following previous work from LLMs [13], we categorize the behaviors of base VLMs when tasked with the Spatial Aptitude Test [48] spatial reasoning benchmark, which requires the synthesis of evidence in multiple regions of one or multiple images to answer*'
+	- This flag is for the paper with Ref. ID = 48
+- '*For spatial reasoning, we use SAT-2 [48], sampling 32k training and 1k validation examples*'
+	- This flag is for the paper with Ref. ID = 48
+- '*We evaluate on SAT-2 [48] validation (4,000 questions across 5 categories), BLINK [11] (depth ordering, multi-view reasoning, spatial relationships), and ROBOSPATIALconfiguration and compatibility split (228 questions on real-world RGBD scenes) [53]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*On VisualWebArena, a benchmark requiring live web interaction from image inputs alone, without access to HTML, ViGoRL outperforms both direct SFT and vanilla GRPO, and surpasses the previous state-of-the-art for this model size, ICAL [49], despite using only visual input*'
+	- This flag is for the paper with Ref. ID = 49
+- '*Similar approaches in VLMs include LLAVA-CoT [72], which distills CoT reasoning from GPT-4o [1], and ICAL [49], VPD [25], and Mulberry [77], which employ LLMs or MCTS to generate reasoning data*'
+	- This flag is for the paper with Ref. ID = 49
+- '*For web action prediction, we use ICAL [49], a dataset of 92 web navigation trajectories*'
+	- This flag is for the paper with Ref. ID = 49
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*Despite relying solely on images, ViGoRL surpasses the previous state-of-the-art for the same model size, ICAL [49], by 3*'
+	- This flag is for the paper with Ref. ID = 49
+- '*We then apply RL, through Group Relative Policy Optimization (GRPO) [50], to further reinforce grounded sequences that lead to correct answers*'
+	- This flag is for the paper with Ref. ID = 50
+- '*While supervised fine-tuning can teach models to mimic reasoning chains provided in training data, RL offers the potential to directly reinforce reasoning behavior sampled from the base model based on correctness or other reward signals [42, 50, 13]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 51
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 55
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 57
+- '*Recent advances in reinforcement learning (RL) over reasoning chains have significantly enhanced the capabilities of LLMs in text-based domains [17, 58, 26], enabling them to learn diverse reasoning strategies tailored to the context*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Applying RL to chains of thought has improved reasoning in verifiable domains like math and coding [26, 17, 58]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*5 [58] leverage online RL with outcome-based rewards*'
+	- This flag is for the paper with Ref. ID = 58
+- '*General Proprietary and Open-Source Models: General-purpose vision-language models with closed-weights accessible through APIs [1] and open-weight models [35, 7, 8, 63, 3, 59]*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Grounding may serve a similar role in models, functioning as a spatial attention mechanism that enables accurate feature binding [61] and supports deictic reference [4] to simplify multi-step reasoning through localized perceptual anchoring*'
+	- This flag is for the paper with Ref. ID = 61
+- '*This model architecture mirrors insights from cognitive science: humans rely on spatial attention and visual routines to decompose complex problems into manageable, perceptually grounded steps [62, 4]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*Vision-Language Models (VLMs) [46, 27, 2, 5, 63, 56] excel on multimodal tasks through large-scale pretraining, but struggle with complex reasoning such as counting [47], spatial reasoning [48], and compositional understanding [60]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*General Proprietary and Open-Source Models: General-purpose vision-language models with closed-weights accessible through APIs [1] and open-weight models [35, 7, 8, 63, 3, 59]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*VLM Tool-Using Pipelines: We compare against prompt-based models that explicitly decompose visual tasks into sequences of subgoals or intermediate steps [67, 19, 23, 88, 76, 66]*'
+	- This flag is for the paper with Ref. ID = 66
+- '*Promptbased models, such as ViperGPT [54], VisualProg [19], and V* [67], explicitly decompose visual tasks into sequences of subgoals or intermediate steps to improve interpretability and performance without additional training*'
+	- This flag is for the paper with Ref. ID = 67
+- '*These findings align with prior research showing that explicitly prompting VLMs to reference spatial object locations improves performance and interpretability [67, 73, 14], suggesting that grounding thought in spatial regions may serve as a key cognitive behavior for effective visual reasoning*'
+	- This flag is for the paper with Ref. ID = 67
+- '*We evaluate ViGoRL across a suite of visual reasoning benchmarks, including SAT-2 [48], BLINK [11], RoboSpatial [53], ScreenSpot [6, 31], VisualWebArena [29], and V∗Bench [67]*'
+	- This flag is for the paper with Ref. ID = 67
+- '*Methods such as V* [67], Sketchpad [24], VisProg [19], REFOCUS [12], and ViperGPT [54] use language models to produce executable visual plans but rely on frozen backbones and hand-crafted prompts*'
+	- This flag is for the paper with Ref. ID = 67
+- '*VLM Tool-Using Pipelines: We compare against prompt-based models that explicitly decompose visual tasks into sequences of subgoals or intermediate steps [67, 19, 23, 88, 76, 66]*'
+	- This flag is for the paper with Ref. ID = 67
+- '*Early methods [85, 43, 10, 68, 16] iteratively refine reasoning using preference-based approaches, while recent efforts like DeepSeekR1 [17] and Kimi-1*'
+	- This flag is for the paper with Ref. ID = 68
+- '*Prompting strategies like chain-of-thought (CoT) [65, 30], mm-CoT [86], IoT prompting [91], and Mind’s Eye [69] guide models to generate explicit reasoning steps grounded in images*'
+	- This flag is for the paper with Ref. ID = 69
+- '*For web grounding, we draw 12k ⟨screenshot, referring expression, box⟩examples from OS-ATLAS [70] (4k each from mobile, web, and desktop), plus 1*'
+	- This flag is for the paper with Ref. ID = 70
+- '*Web-Grounding Models: Models trained to specialize in web grounding tasks, through large-scale supervised finetuning and instruction tuning on curated web data [6, 21, 70, 34, 15, 45], reinforcement learning of chain of thought with outcome reward [39], or human-in-the-loop action and chain of thought annotations collected from live webpages [49]*'
+	- This flag is for the paper with Ref. ID = 70
+- '*For grounding evaluation, we use ScreenSpot v2 [70, 6] (single-step localization), and ScreenSpot Pro [31] (high-resolution professional environments)*'
+	- This flag is for the paper with Ref. ID = 70
+- '*Similar approaches in VLMs include LLAVA-CoT [72], which distills CoT reasoning from GPT-4o [1], and ICAL [49], VPD [25], and Mulberry [77], which employ LLMs or MCTS to generate reasoning data*'
+	- This flag is for the paper with Ref. ID = 72
+- '*These findings align with prior research showing that explicitly prompting VLMs to reference spatial object locations improves performance and interpretability [67, 73, 14], suggesting that grounding thought in spatial regions may serve as a key cognitive behavior for effective visual reasoning*'
+	- This flag is for the paper with Ref. ID = 73
+- '*This hypothesis is inspired by the fact that humans systematically shift their restricted gaze to selectively gather and integrate task-relevant information when reasoning about the world [75, 22, 74]*'
+	- This flag is for the paper with Ref. ID = 74
+- '*This hypothesis is inspired by the fact that humans systematically shift their restricted gaze to selectively gather and integrate task-relevant information when reasoning about the world [75, 22, 74]*'
+	- This flag is for the paper with Ref. ID = 75
+- '*VLM Tool-Using Pipelines: We compare against prompt-based models that explicitly decompose visual tasks into sequences of subgoals or intermediate steps [67, 19, 23, 88, 76, 66]*'
+	- This flag is for the paper with Ref. ID = 76
+- '*Similar approaches in VLMs include LLAVA-CoT [72], which distills CoT reasoning from GPT-4o [1], and ICAL [49], VPD [25], and Mulberry [77], which employ LLMs or MCTS to generate reasoning data*'
+	- This flag is for the paper with Ref. ID = 77
+- '*Grounding serves not merely to reduce computational load (as human spatial attention is often characterized), but to scaffold reasoning with external visual structure – effectively using the content of the world as part of the thinking process [78, 20]*'
+	- This flag is for the paper with Ref. ID = 78
+- '*While initially believed to induce novel cognitive behaviors, analyses [13, 82, 36, 79] suggest RL primarily amplifies existing capabilities already found in the base model*'
+	- This flag is for the paper with Ref. ID = 79
+- '*However, RL can only build upon skills or compose reasoning behaviors that are already latent in the base model’s sampling distribution [13, 82]*'
+	- This flag is for the paper with Ref. ID = 82
+- '*Models lacking these behaviors often do not benefit from RL and must be bootstrapped via supervised fine-tuning (SFT) on curated reasoning traces before RL is run [13, 82]*'
+	- This flag is for the paper with Ref. ID = 82
+- '*While initially believed to induce novel cognitive behaviors, analyses [13, 82, 36, 79] suggest RL primarily amplifies existing capabilities already found in the base model*'
+	- This flag is for the paper with Ref. ID = 82
+- '*1 Do Current RL Recipes Amplify VLM Behaviors That Support Visual Performance? It has been shown that RL on chains of thought alone cannot necessarily induce new behaviors from scratch; it can only amplify or chain reasoning primitives that are already present in the base model’s sampling distribution [13, 82]*'
+	- This flag is for the paper with Ref. ID = 82
+- '*For text tasks, STaR [83] generates reasoning via few-shot prompting and selects based on correctness, while S1 [40] distills reasoning chains into smaller models*'
+	- This flag is for the paper with Ref. ID = 83
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 84
+- '*Early methods [85, 43, 10, 68, 16] iteratively refine reasoning using preference-based approaches, while recent efforts like DeepSeekR1 [17] and Kimi-1*'
+	- This flag is for the paper with Ref. ID = 85
+- '*Prompting strategies like chain-of-thought (CoT) [65, 30], mm-CoT [86], IoT prompting [91], and Mind’s Eye [69] guide models to generate explicit reasoning steps grounded in images*'
+	- This flag is for the paper with Ref. ID = 86
+- '*Several recent works have attempted RL fine-tuning directly on base vision-language models (VLMs) [38, 37, 87, 55, 57, 84, 51, 41, 32], implicitly assuming RL alone can induce useful cognitive behaviors*'
+	- This flag is for the paper with Ref. ID = 87
+- '*VLM Tool-Using Pipelines: We compare against prompt-based models that explicitly decompose visual tasks into sequences of subgoals or intermediate steps [67, 19, 23, 88, 76, 66]*'
+	- This flag is for the paper with Ref. ID = 88
+- '*Prompting strategies like chain-of-thought (CoT) [65, 30], mm-CoT [86], IoT prompting [91], and Mind’s Eye [69] guide models to generate explicit reasoning steps grounded in images*'
+	- This flag is for the paper with Ref. ID = 91
+

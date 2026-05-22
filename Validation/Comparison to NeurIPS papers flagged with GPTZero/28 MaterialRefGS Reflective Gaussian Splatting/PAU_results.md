@@ -1,0 +1,1363 @@
+# Paper Analysis Utility - Results
+
+Paper: MaterialRefGS Reflective Gaussian Splatting with.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/28 MaterialRefGS Reflective Gaussian Splatting/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 2 (ca. 1 pages)
+2) 'Related Work' -- p. 3 (ca. 0 pages)
+3) 'Method' -- p. 3 (ca. 4 pages)
+4) 'Experiments' -- p. 7 (ca. 3 pages)
+5) 'Conclusion' -- p. 10 (ca. 0 pages)
+6) 'Acknowledgement' -- p. 10 (ca. 0 pages)
+7) 'References' -- p. 10 (ca. 5 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/13=0.00%
+		- Invalid uses: 13/13=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 3: i−1
+		- Page 3: (1 −oj),
+		- Page 3: c(ωo) = (1 −m)cd + Ls(ωo, a, m, r, n),
+		- Page 4: P ′(πj(p)) = HijP(πi(p)), Hij = Kj(Rij −TijnT
+		- Page 4: )K−1
+		- Page 4: Lmv = ∥Ψi[P(πi(p))] −Ψj[P ′(πj(p))]∥2.
+		- Page 5: wref · Γ(u, v) · |M0(u, v) −ΨM(u, v)|
+		- Page 5: Li(ωi) = Lindirect(ωi) + (1 −O(ωi)) · Ldirect(ωi).
+		- Page 6: i−1
+		- Page 6: (1 −oj) + cr, O(ωi) =
+		- Page 6: i−1
+		- Page 6: (1 −oj),
+		- Page 6: L = Lc + λn−dLn−d + λnLn + λmvLmv + λrefLref,
+
+
+## References not in Bibliography
+
+> [!NOTE]
+> The sentences listed below contain references that were not found in the 'References' section.
+> *Please note that this list may contain false positives as, e.g., the content of a normal bracket might have been mistaken for a reference, or a natural reference (Authorname in text and year in brackets) might have been mismatched.*
+
+-  We then compute the averaged per-pixel variance among these patches as a reflection score for vr, using standard deviation, refscore = 1 9 X (x,y)∈Pr(u,v) std(Ψr[Pr(u, v)], Ψn1[P ′ n1(u, v)], 
+
+
+## Unused References in Bibliography
+
+All references stated in the 'References' section were also used at least once in the document's (main) text.
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Liu Y.: 26
+- Han Z.: 16
+- Zhang W.: 12
+- Zhou J.: 10
+- Shi K.: 6
+- Ma B.: 5
+- Zhang L.: 4
+- Barron J.: 3
+- Mildenhall B.: 3
+- Srinivasan P.: 3
+- Xu Z.: 3
+- Chen C.: 3
+- Wang Z.: 3
+- Gu C.: 3
+- Yao Y.: 3
+- Han L.: 3
+- Zhang X.: 3
+- Huang H.: 3
+- Wu Y.: 3
+- Gao G.: 3
+- Gu M.: 3
+- Li S.: 3
+- Zwicker M.: 3
+- Fang Y.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/28 MaterialRefGS Reflective Gaussian Splatting/literature_validation_results_fig.jpg]]
+
+References section starts on page 10.
+
+- No link provided: $71/72=98.61\%$
+- Unchecked links: $0/72=0.00\%$
+- Valid links: $0/72=0.00\%$
+- Invalid link: $1/72=1.39\%$
+	- Invalid entries:
+		=> total = 1
+		- \[12\] Daniel Gatis. Rembg: A tool to remove images background. https://github.com/danielgatis/rembg, 2023.
+			-> Returned with status code 404!
+
+- Different links: $0/72=0.00\%$
+
+- Successful searches: $40/72=55.56\%$
+- Skipped searches: $0/72=0.00\%$
+- Mismatching infos: $19/72=26.39\%$
+	- **Entries with mismatching author information:**
+		=> total = 4
+		- `[4] Brent Burley and Walt Disney Animation Studios. Physically-based shading at disney. In ACM Siggraph, volume 2012, pages 1–7. vol. 2012, 2012.`
+			- Authors () did not match found publication titled 'Physically-Based Shading at Disney'
+		- `[9] Yikang Ding, Jiwen Liu, Wenyuan Zhang, Zekun Wang, Wentao Hu, Liyuan Cui, Mingming Lao, Yingchao Shao, Hui Liu, Xiaohan Li, et al. Kling-avatar: Grounding multimodal instructions for cascaded long-duration avatar animation synthesis. arXiv preprint arXiv:2509.09595, 2025.`
+			- Authors (Chen) did not match found publication titled 'Kling-Avatar: Grounding Multimodal Instructions for Cascaded Long-Duration Avatar Animation Synthesis'
+		- `[11] Jian Gao, Chun Gu, Youtian Lin, Zhihao Li, Hao Zhu, Xun Cao, Li Zhang, and Yao Yao. Relightable 3d gaussians: Realistic point cloud relighting with brdf decomposition and ray tracing. In European Conference on Computer Vision, pages 73–89. Springer, 2024.`
+			- Authors () did not match found publication titled 'Relightable 3D Gaussians: Realistic Point Cloud Relighting with BRDF Decomposition and Ray Tracing'
+		- `[63] Wenyuan Zhang, Emily Yue ting Jia, Junsheng Zhou, Baorui Ma, Kanle Shi, Yu-Shen Liu, and Zhizhong Han. NeRFPrior: Learning neural radiance field as a prior for indoor scene reconstruction. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2025.`
+			- Authors () did not match found publication titled 'NeRFPrior: Learning Neural Radiance Field as a Prior for Indoor Scene Reconstruction'
+	- **Entries with mismatching years (where the difference is > 1 year):**
+		=> total = 1
+		- `[47] Dor Verbin, Peter Hedman, Ben Mildenhall, Todd Zickler, Jonathan T Barron, and Pratul P Srinivasan. Ref-NeRF: Structured view-dependent appearance for neural radiance fields. In 2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pages 5481–5490. IEEE, 2022.`
+			- Year (2024) does not match expected year (2022)
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 14
+		- `[5] Chao Chen, Yu-Shen Liu, and Zhizhong Han. NeuralTPS: Learning signed distance functions without priors from single sparse point clouds. IEEE Transactions on Pattern Analysis and Machine Intelligence, 47(1):565–582, 2025.`
+			- Year (2024) does not match expected year (2025)
+		- `[8] François Darmon, Bénédicte Bascle, Jean-Clément Devaux, Pascal Monasse, and Mathieu Aubry. Improving neural implicit surfaces geometry with patch warping. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 6260–6269, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[15] Antoine Guédon and Vincent Lepetit. SuGaR: Surface-aligned gaussian splatting for efficient 3d mesh reconstruction and high-quality mesh rendering. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 5354–5363, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[26] Jiabao Li, Yuqi Li, Ciliang Sun, Chong Wang, and Jinhui Xiang. Spec-NeRF: Multi-spectral neural radiance fields. In ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 2485–2489. IEEE, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[31] Zhihao Liang, Qi Zhang, Ying Feng, Ying Shan, and Kui Jia. GS-IR: 3D Gaussian Splatting for Inverse Rendering. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 21644–21653, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[32] Xinhai Liu, Zhizhong Han, Yu-Shen Liu, and Matthias Zwicker. Point2Sequence: Learning the Shape Representation of 3D Point Clouds with an Attention-based Sequence to Sequence Network. In Proceedings of the AAAI conference on artificial intelligence, volume 33, pages 8778–8785, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[38] Jacob Munkberg, Jon Hasselgren, Tianchang Shen, Jun Gao, Wenzheng Chen, Alex Evans, Thomas Müller, and Sanja Fidler. Extracting triangular 3d models, materials, and lighting from images. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 8280–8290, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[41] Minghan Qin, Wanhua Li, Jiawei Zhou, Haoqian Wang, and Hanspeter Pfister. LangSplat: 3d language gaussian splatting. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 20051–20060, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[48] Fangjinhua Wang, Marie-Julie Rakotosaona, Michael Niemeyer, Richard Szeliski, Marc Pollefeys, and Federico Tombari. UniSDF: Unifying neural representations for high-fidelity 3d reconstruction of complex scenes with reflections. Advances in Neural Information Processing Systems, 37:3157–3184, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[50] Guanjun Wu, Taoran Yi, Jiemin Fang, Lingxi Xie, Xiaopeng Zhang, Wei Wei, Wenyu Liu, Qi Tian, and Xinggang Wang. 4d gaussian splatting for real-time dynamic scene rendering. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 20310–20320, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[53] Tao Xie, Xi Chen, Zhen Xu, Yiman Xie, Yudong Jin, Yujun Shen, Sida Peng, Hujun Bao, and Xiaowei Zhou. EnvGS: Modeling view-dependent appearance with environment gaussian. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2025.`
+			- Year (2024) does not match expected year (2025)
+		- `[64] Wenyuan Zhang, Ruofan Xing, Yunfan Zeng, Yu-Shen Liu, Kanle Shi, and Zhizhong Han. Fast Learning Radiance Fields by Shooting Much Fewer Rays. IEEE Transactions on Image Processing, 32:2703–2718, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[66] Youjia Zhang, Anpei Chen, Yumin Wan, Zikai Song, Junqing Yu, Yawei Luo, and Wei Yang. Ref-GS: Directional factorization for 2d gaussian splatting. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2025.`
+			- Year (2024) does not match expected year (2025)
+		- `[70] Junsheng Zhou, Jinsheng Wang, Baorui Ma, Yu-Shen Liu, Tiejun Huang, and Xinlong Wang. Uni3D: Exploring Unified 3D Representation at Scale. International Conference on Learning Representations, 2024.`
+			- Year (2023) does not match expected year (2024)
+- No entry found: $13/72=18.06\%$
+	- Unfound entries:
+		=> total = 13
+		- \[1\] Jonathan T Barron, Ben Mildenhall, Dor Verbin, Pratul P Srinivasan, and Peter Hedman. MipNeRF 360: Unbounded anti-aliased neural radiance fields. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 5470–5479, 2022.
+			-> WARNING: None of the 8 results matched the expected title! | WARNING: None of the 2 results matched the expected title!
+		- \[3\] Sai Bi, Zexiang Xu, Kalyan Sunkavalli, Miloš Hašan, Yannick Hold-Geoffroy, David Kriegman, and Ravi Ramamoorthi. Deep Reflectance Volumes: Relightable reconstructions from multiview photometric images. In European Conference on Computer Vision, pages 294–311. Springer, 2020.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 3 results matched the expected title!
+		- \[12\] Daniel Gatis. Rembg: A tool to remove images background. https://github.com/danielgatis/rembg, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 2 results matched the expected title!
+		- \[13\] Wenhang Ge, Tao Hu, Haoyu Zhao, Shu Liu, and Ying-Cong Chen. Ref-NeuS: Ambiguityreduced neural implicit surface learning for multi-view reconstruction with reflection. In Proceedings of the IEEE/CVF International Conference on Computer Vision, pages 4251–4260, 2023.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[34\] Tao Lu, Mulin Yu, Linning Xu, Yuanbo Xiangli, Limin Wang, Dahua Lin, and Bo Dai. ScaffoldGS: Structured 3D gaussians for view-adaptive rendering. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 20654–20664, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[35\] Baorui Ma, Zhizhong Han, Yu-Shen Liu, and Matthias Zwicker. Neural-Pull: Learning signed distance function from point clouds by learning to pull space onto surface. In International Conference on Machine Learning, pages 7246–7257. PMLR, 2021.
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[36\] Ben Mildenhall, Pratul P Srinivasan, Matthew Tancik, Jonathan T Barron, Ravi Ramamoorthi, and Ren Ng. NeRF: Representing scenes as neural radiance fields for view synthesis. In European Conference on Computer Vision (ECCV), pages 405–421. Springer, 2020.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[43\] Kerui Ren, Lihan Jiang, Tao Lu, Mulin Yu, Linning Xu, Zhangkai Ni, and Bo Dai. OctreeGS: Towards consistent real-time rendering with lod-structured 3d gaussians. arXiv preprint arXiv:2403.17898, 2024.
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[44\] Why Physically-Based Rendering. Physically-based rendering. Procedia IUTAM, 13(127137):3, 2015.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[55\] Wenqi Yang, Guanying Chen, Chaofeng Chen, Zhenfang Chen, and Kwan-Yee K Wong. PSNeRF: Neural inverse rendering for multi-view photometric stereo. In European Conference on Computer Vision, pages 266–284. Springer, 2022.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[62\] Wenyuan Zhang, Kanle Shi, Yu-Shen Liu, and Zhizhong Han. Learning unsigned distance functions from multi-view images with volume rendering priors. In European Conference on Computer Vision, pages 397–415. Springer, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[67\] Junsheng Zhou, Baorui Ma, Shujuan Li, Yu-Shen Liu, Yi Fang, and Zhizhong Han. CAP-UDF: Learning unsigned distance functions progressively from raw point clouds with consistencyaware field optimization. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[72\] Matthias Zwicker, Hanspeter Pfister, Jeroen Van Baar, and Markus Gross. Surface splatting. In Proceedings of the 28th annual conference on Computer graphics and interactive techniques, pages 371–378, 2001.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/28 MaterialRefGS Reflective Gaussian Splatting/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 17
+- European Conference on Computer Vision
+	- Parsed as: European Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 7
+- ACM TRANSACTIONS ON GRAPHICS
+	- Parsed as: ACM Transactions on Graphics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 8.1
+	- References literatures count from this outlet: 6
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 6
+- arXiv
+	- References literatures count from this outlet: 5
+- IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+	- Parsed as: IEEE Transactions on Pattern Analysis and Machine Intelligence
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 18.0
+	- References literatures count from this outlet: 4
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE/CVF International Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of International Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- International Conference on Learning Representations
+	- Parsed as: International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- International Conference on Machine Learning
+	- Parsed as: International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: AAAI Conference on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON IMAGE PROCESSING
+	- Parsed as: IEEE transactions on image processing
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 12.8
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON IMAGE PROCESSING
+	- Parsed as: IEEE Transactions on Image Processing
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 12.8
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: 2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Photogrammetric Engineering & Remote Sensing
+	- References literatures count from this outlet: 1
+- Procedia IUTAM
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in neural information processing systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- ACM SIG International Conference on Computer Graphics and Interactive Techniques
+	- Parsed as: ACM SIGGRAPH Conference Proceedings
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proceedings of the AAAI conference on artificial intelligence, volume 33
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Thirty-Ninth Conference on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Acoustics, Speech and Signal Processing
+	- Parsed as: ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = 4603
+	- References literatures count from this outlet: 1
+- ACM SIG International Conference on Computer Graphics and Interactive Techniques
+	- Parsed as: Proceedings of the 27th annual conference on Computer graphics and interactive techniques
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proceedings of the AAAI Conference on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- ACM SIG International Conference on Computer Graphics and Interactive Techniques
+	- Parsed as: ACM SIGGRAPH 2024 conference papers
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON VISUALIZATION AND COMPUTER GRAPHICS
+	- Parsed as: IEEE Transactions on Visualization and Computer Graphics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 5.0
+	- References literatures count from this outlet: 1
+- ACM SIG International Conference on Computer Graphics and Interactive Techniques
+	- Parsed as: ACM Siggraph, volume 2012
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- ACM SIG International Conference on Computer Graphics and Interactive Techniques
+	- Parsed as: Proceedings of the 28th annual conference on Computer graphics and interactive techniques
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Jonathan T Barron, Ben Mildenhall, Dor Verbin, Pratul P Srinivasan, and Peter Hedman*
+	- Normalized Authors: `['Barron J.', 'Mildenhall B.', 'Verbin D.', 'Srinivasan P.', 'Hedman P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *MipNeRF 360: Unbounded anti-aliased neural radiance fields*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 8 results matched the expected title! | WARNING: None of the 2 results matched the expected title!*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Marcelo Bertalmio, Guillermo Sapiro, Vincent Caselles, and Coloma Ballester*
+	- Normalized Authors: `['Bertalmio M.', 'Sapiro G.', 'Caselles V.', 'Ballester C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Image inpainting*
+	- Year: *2000*
+	- Outlet: *Proceedings of the 27th annual conference on Computer graphics and interactive techniques*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Sai Bi, Zexiang Xu, Kalyan Sunkavalli, Miloš Hašan, Yannick Hold-Geoffroy, David Kriegman, and Ravi Ramamoorthi*
+	- Normalized Authors: `['Bi S.', 'Xu Z.', 'Sunkavalli K.', 'Hašan M.', 'Hold-Geoffroy Y.', 'Kriegman D.', 'Ramamoorthi R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep Reflectance Volumes: Relightable reconstructions from multiview photometric images*
+	- Year: *2020*
+	- Outlet: *European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 3 results matched the expected title!*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Brent Burley and Walt Disney Animation Studios*
+	- Normalized Authors: `['Burley B.', 'Studios W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Physically-based shading at disney*
+	- Year: *2012*
+	- Outlet: *ACM Siggraph, volume 2012*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Physically-Based Shading at Disney'*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Chao Chen, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Chen C.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *NeuralTPS: Learning signed distance functions without priors from single sparse point clouds*
+	- Year: *2025*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Danpeng Chen, Hai Li, Weicai Ye, Yifan Wang, Weijian Xie, Shangjin Zhai, Nan Wang, Haomin Liu, Hujun Bao, and Guofeng Zhang*
+	- Normalized Authors: `['Chen D.', 'Li H.', 'Ye W.', 'Wang Y.', 'Xie W.', 'Zhai S.', 'Wang N.', 'Liu H.', 'Bao H.', 'Zhang G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *PGSR: Planar-based gaussian splatting for efficient and high-fidelity surface reconstruction*
+	- Year: *2024*
+	- Outlet: *IEEE Transactions on Visualization and Computer Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Yuedong Chen, Haofei Xu, Chuanxia Zheng, Bohan Zhuang, Marc Pollefeys, Andreas Geiger, Tat-Jen Cham, and Jianfei Cai*
+	- Normalized Authors: `['Chen Y.', 'Xu H.', 'Zheng C.', 'Zhuang B.', 'Pollefeys M.', 'Geiger A.', 'Cham T.', 'Cai J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *MVSplat: Efficient 3D gaussian splatting from sparse multi-view images*
+	- Year: *2024*
+	- Outlet: *European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *François Darmon, Bénédicte Bascle, Jean-Clément Devaux, Pascal Monasse, and Mathieu Aubry*
+	- Normalized Authors: `['Darmon F.', 'Bascle B.', 'Devaux J.', 'Monasse P.', 'Aubry M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Improving neural implicit surfaces geometry with patch warping*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Yikang Ding, Jiwen Liu, Wenyuan Zhang, Zekun Wang, Wentao Hu, Liyuan Cui, Mingming Lao, Yingchao Shao, Hui Liu, Xiaohan Li, et al*
+	- Normalized Authors: `['Ding Y.', 'Liu J.', 'Zhang W.', 'Wang Z.', 'Hu W.', 'Cui L.', 'Lao M.', 'Shao Y.', 'Liu H.', 'Li X.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Kling-avatar: Grounding multimodal instructions for cascaded long-duration avatar animation synthesis*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Chen) did not match found publication titled 'Kling-Avatar: Grounding Multimodal Instructions for Cascaded Long-Duration Avatar Animation Synthesis'*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Kang Du, Zhihao Liang, and Zeyu Wang*
+	- Normalized Authors: `['Du K.', 'Liang Z.', 'Wang Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *GS-ID: Illumination Decomposition on Gaussian Splatting via Diffusion Prior and Parametric Light Source Optimization*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Jian Gao, Chun Gu, Youtian Lin, Zhihao Li, Hao Zhu, Xun Cao, Li Zhang, and Yao Yao*
+	- Normalized Authors: `['Gao J.', 'Gu C.', 'Lin Y.', 'Li Z.', 'Zhu H.', 'Cao X.', 'Zhang L.', 'Yao Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Relightable 3d gaussians: Realistic point cloud relighting with brdf decomposition and ray tracing*
+	- Year: *2024*
+	- Outlet: *European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Relightable 3D Gaussians: Realistic Point Cloud Relighting with BRDF Decomposition and Ray Tracing'*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Daniel Gatis*
+	- Normalized Authors: `['Gatis D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Rembg: A tool to remove images background*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://github.com/danielgatis/rembg,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 2 results matched the expected title!*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Wenhang Ge, Tao Hu, Haoyu Zhao, Shu Liu, and Ying-Cong Chen*
+	- Normalized Authors: `['Ge W.', 'Hu T.', 'Zhao H.', 'Liu S.', 'Chen Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ref-NeuS: Ambiguityreduced neural implicit surface learning for multi-view reconstruction with reflection*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Chun Gu, Xiaofei Wei, Zixuan Zeng, Yuxuan Yao, and Li Zhang*
+	- Normalized Authors: `['Gu C.', 'Wei X.', 'Zeng Z.', 'Yao Y.', 'Zhang L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *IRGS: Inter-Reflective Gaussian Splatting with 2D Gaussian Ray Tracing*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Antoine Guédon and Vincent Lepetit*
+	- Normalized Authors: `['Guédon A.', 'Lepetit V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *SuGaR: Surface-aligned gaussian splatting for efficient 3d mesh reconstruction and high-quality mesh rendering*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Liang Han, Xu Zhang, Haichuan Song, Kanle Shi, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Han L.', 'Zhang X.', 'Song H.', 'Shi K.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *SparseRecon: Neural implicit surface reconstruction from sparse views with feature and depth consistencies*
+	- Year: *2025*
+	- Outlet: *Proceedings of International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Liang Han, Junsheng Zhou, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Han L.', 'Zhou J.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Binocular-Guided 3D Gaussian Splatting with View Consistency for Sparse View Synthesis*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Binbin Huang, Zehao Yu, Anpei Chen, Andreas Geiger, and Shenghua Gao*
+	- Normalized Authors: `['Huang B.', 'Yu Z.', 'Chen A.', 'Geiger A.', 'Gao S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *2D Gaussian Splatting for Geometrically Accurate Radiance Fields*
+	- Year: *2024*
+	- Outlet: *ACM SIGGRAPH 2024 conference papers*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Han Huang, Yulun Wu, Chao Deng, Ge Gao, Ming Gu, and Yu-Shen Liu*
+	- Normalized Authors: `['Huang H.', 'Wu Y.', 'Deng C.', 'Gao G.', 'Gu M.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *FatesGS: Fast and accurate sparse-view surface reconstruction using gaussian splatting with depth-feature consistency*
+	- Year: *2025*
+	- Outlet: *Proceedings of the AAAI Conference on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Yingwenqi Jiang, Jiadong Tu, Yuan Liu, Xifeng Gao, Xiaoxiao Long, Wenping Wang, and Yuexin Ma*
+	- Normalized Authors: `['Jiang Y.', 'Tu J.', 'Liu Y.', 'Gao X.', 'Long X.', 'Wang W.', 'Ma Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *GaussianShader: 3D Gaussian Splatting with Shading Functions for Reflective Surfaces*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Haian Jin, Isabella Liu, Peijia Xu, Xiaoshuai Zhang, Songfang Han, Sai Bi, Xiaowei Zhou, Zexiang Xu, and Hao Su*
+	- Normalized Authors: `['Jin H.', 'Liu I.', 'Xu P.', 'Zhang X.', 'Han S.', 'Bi S.', 'Zhou X.', 'Xu Z.', 'Su H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *TensoIR: Tensorial inverse rendering*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Bernhard Kerbl, Georgios Kopanas, Thomas Leimkühler, and George Drettakis*
+	- Normalized Authors: `['Kerbl B.', 'Kopanas G.', 'Leimkühler T.', 'Drettakis G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3D gaussian splatting for real-time radiance field rendering*
+	- Year: *2023*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Bernhard Kerbl, Andreas Meuleman, Georgios Kopanas, Michael Wimmer, Alexandre Lanvin, and George Drettakis*
+	- Normalized Authors: `['Kerbl B.', 'Meuleman A.', 'Kopanas G.', 'Wimmer M.', 'Lanvin A.', 'Drettakis G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A hierarchical 3d gaussian representation for real-time rendering of very large datasets*
+	- Year: *2024*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Ye Keyang, Hou Qiming, and Zhou Kun*
+	- Normalized Authors: `['Keyang Y.', 'Qiming H.', 'Kun Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3D Gaussian Splatting with Deferred Reflection*
+	- Year: *2024*
+	- Outlet: *ACM SIGGRAPH Conference Proceedings*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Jia Li, Lu Wang, Lei Zhang, and Beibei Wang*
+	- Normalized Authors: `['Li J.', 'Wang L.', 'Zhang L.', 'Wang B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *TensoSDF: Roughness-aware tensorial representation for robust geometry and material reconstruction*
+	- Year: *2024*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Jiabao Li, Yuqi Li, Ciliang Sun, Chong Wang, and Jinhui Xiang*
+	- Normalized Authors: `['Li J.', 'Li Y.', 'Sun C.', 'Wang C.', 'Xiang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Spec-NeRF: Multi-spectral neural radiance fields*
+	- Year: *2024*
+	- Outlet: *ICASSP 2024-2024 IEEE International Conference on Acoustics, Speech and Signal Processing*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Qing Li, Huifang Feng, Xun Gong, and Yu-Shen Liu*
+	- Normalized Authors: `['Li Q.', 'Feng H.', 'Gong X.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *VA-GS: Enhancing the geometric representation of gaussian splatting via view alignment*
+	- Year: *2025*
+	- Outlet: *Thirty-Ninth Conference on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Shengtao Li, Yudong Liu, Ge Gao, Ming Gu, and Yu-Shen Liu*
+	- Normalized Authors: `['Li S.', 'Liu Y.', 'Gao G.', 'Gu M.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *I-filtering: Implicit filtering for learning neural distance functions from 3d point clouds*
+	- Year: *2025*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Shujuan Li, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Li S.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *GaussianUDF: Inferring Unsigned Distance Functions through 3D Gaussian Splatting*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Ruofan Liang, Huiting Chen, Chunlin Li, Fan Chen, Selvakumar Panneer, and Nandita Vijaykumar*
+	- Normalized Authors: `['Liang R.', 'Chen H.', 'Li C.', 'Chen F.', 'Panneer S.', 'Vijaykumar N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *ENVIDR: Implicit differentiable renderer with neural environment lighting*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Zhihao Liang, Qi Zhang, Ying Feng, Ying Shan, and Kui Jia*
+	- Normalized Authors: `['Liang Z.', 'Zhang Q.', 'Feng Y.', 'Shan Y.', 'Jia K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *GS-IR: 3D Gaussian Splatting for Inverse Rendering*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Xinhai Liu, Zhizhong Han, Yu-Shen Liu, and Matthias Zwicker*
+	- Normalized Authors: `['Liu X.', 'Han Z.', 'Liu Y.', 'Zwicker M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Point2Sequence: Learning the Shape Representation of 3D Point Clouds with an Attention-based Sequence to Sequence Network*
+	- Year: *2019*
+	- Outlet: *Proceedings of the AAAI conference on artificial intelligence, volume 33*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Yuan Liu, Peng Wang, Cheng Lin, Xiaoxiao Long, Jiepeng Wang, Lingjie Liu, Taku Komura, and Wenping Wang*
+	- Normalized Authors: `['Liu Y.', 'Wang P.', 'Lin C.', 'Long X.', 'Wang J.', 'Liu L.', 'Komura T.', 'Wang W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *NeRO: Neural geometry and brdf reconstruction of reflective objects from multiview images*
+	- Year: *2023*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Tao Lu, Mulin Yu, Linning Xu, Yuanbo Xiangli, Limin Wang, Dahua Lin, and Bo Dai*
+	- Normalized Authors: `['Lu T.', 'Yu M.', 'Xu L.', 'Xiangli Y.', 'Wang L.', 'Lin D.', 'Dai B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *ScaffoldGS: Structured 3D gaussians for view-adaptive rendering*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Baorui Ma, Zhizhong Han, Yu-Shen Liu, and Matthias Zwicker*
+	- Normalized Authors: `['Ma B.', 'Han Z.', 'Liu Y.', 'Zwicker M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Neural-Pull: Learning signed distance function from point clouds by learning to pull space onto surface*
+	- Year: *2021*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Ben Mildenhall, Pratul P Srinivasan, Matthew Tancik, Jonathan T Barron, Ravi Ramamoorthi, and Ren Ng*
+	- Normalized Authors: `['Mildenhall B.', 'Srinivasan P.', 'Tancik M.', 'Barron J.', 'Ramamoorthi R.', 'Ng R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *NeRF: Representing scenes as neural radiance fields for view synthesis*
+	- Year: *2020*
+	- Outlet: *European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Nicolas Moenne-Loccoz, Ashkan Mirzaei, Or Perel, Riccardo de Lutio, Janick Martinez Esturo, Gavriel State, Sanja Fidler, Nicholas Sharp, and Zan Gojcic*
+	- Normalized Authors: `['Moenne-Loccoz N.', 'Mirzaei A.', 'Perel O.', 'Lutio R.', 'Esturo J.', 'State G.', 'Fidler S.', 'Sharp N.', 'Gojcic Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3D Gaussian Ray Tracing: Fast tracing of particle scenes*
+	- Year: *2024*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Jacob Munkberg, Jon Hasselgren, Tianchang Shen, Jun Gao, Wenzheng Chen, Alex Evans, Thomas Müller, and Sanja Fidler*
+	- Normalized Authors: `['Munkberg J.', 'Hasselgren J.', 'Shen T.', 'Gao J.', 'Chen W.', 'Evans A.', 'Müller T.', 'Fidler S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Extracting triangular 3d models, materials, and lighting from images*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Takeshi Noda, Chao Chen, Junsheng Zhou, Weiqi Zhang, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Noda T.', 'Chen C.', 'Zhou J.', 'Zhang W.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning bijective surface parameterization for inferring signed distance functions from sparse point clouds with grid deformation*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Charles Ruizhongtai Qi, Li Yi, Hao Su, and Leonidas J Guibas*
+	- Normalized Authors: `['Qi C.', 'Yi L.', 'Su H.', 'Guibas L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Pointnet++: Deep hierarchical feature learning on point sets in a metric space*
+	- Year: *2017*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Minghan Qin, Wanhua Li, Jiawei Zhou, Haoqian Wang, and Hanspeter Pfister*
+	- Normalized Authors: `['Qin M.', 'Li W.', 'Zhou J.', 'Wang H.', 'Pfister H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *LangSplat: 3d language gaussian splatting*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Nikhila Ravi, Valentin Gabeur, Yuan-Ting Hu, Ronghang Hu, Chaitanya Ryali, Tengyu Ma, Haitham Khedr, Roman Rädle, Chloe Rolland, Laura Gustafson, et al*
+	- Normalized Authors: `['Ravi N.', 'Gabeur V.', 'Hu Y.', 'Hu R.', 'Ryali C.', 'Ma T.', 'Khedr H.', 'Rädle R.', 'Rolland C.', 'Gustafson L.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Sam 2: Segment anything in images and videos*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Kerui Ren, Lihan Jiang, Tao Lu, Mulin Yu, Linning Xu, Zhangkai Ni, and Bo Dai*
+	- Normalized Authors: `['Ren K.', 'Jiang L.', 'Lu T.', 'Yu M.', 'Xu L.', 'Ni Z.', 'Dai B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *OctreeGS: Towards consistent real-time rendering with lod-structured 3d gaussians*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Why Physically-Based Rendering*
+	- Normalized Authors: `['Rendering W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Physically-based rendering*
+	- Year: *2015*
+	- Outlet: *Procedia IUTAM*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Daniel R Steinwand, John A Hutchinson, and John P Snyder*
+	- Normalized Authors: `['Steinwand D.', 'Hutchinson J.', 'Snyder J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Map projections for global and continental data sets and an analysis of pixel distortion caused by reprojection*
+	- Year: *1995*
+	- Outlet: *Photogrammetric Engineering & Remote Sensing*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Zhe Jun Tang and Tat-Jen Cham*
+	- Normalized Authors: `['Tang Z.', 'Cham T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3iGS: Factorised tensorial illumination for 3d gaussian splatting*
+	- Year: *2024*
+	- Outlet: *European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Dor Verbin, Peter Hedman, Ben Mildenhall, Todd Zickler, Jonathan T Barron, and Pratul P Srinivasan*
+	- Normalized Authors: `['Verbin D.', 'Hedman P.', 'Mildenhall B.', 'Zickler T.', 'Barron J.', 'Srinivasan P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ref-NeRF: Structured view-dependent appearance for neural radiance fields*
+	- Year: *2022*
+	- Outlet: *2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2022)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Fangjinhua Wang, Marie-Julie Rakotosaona, Michael Niemeyer, Richard Szeliski, Marc Pollefeys, and Federico Tombari*
+	- Normalized Authors: `['Wang F.', 'Rakotosaona M.', 'Niemeyer M.', 'Szeliski R.', 'Pollefeys M.', 'Tombari F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *UniSDF: Unifying neural representations for high-fidelity 3d reconstruction of complex scenes with reflections*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Zhou Wang, Alan C Bovik, Hamid R Sheikh, and Eero P Simoncelli*
+	- Normalized Authors: `['Wang Z.', 'Bovik A.', 'Sheikh H.', 'Simoncelli E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Image quality assessment: from error visibility to structural similarity*
+	- Year: *2004*
+	- Outlet: *IEEE transactions on image processing*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Guanjun Wu, Taoran Yi, Jiemin Fang, Lingxi Xie, Xiaopeng Zhang, Wei Wei, Wenyu Liu, Qi Tian, and Xinggang Wang*
+	- Normalized Authors: `['Wu G.', 'Yi T.', 'Fang J.', 'Xie L.', 'Zhang X.', 'Wei W.', 'Liu W.', 'Tian Q.', 'Wang X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *4d gaussian splatting for real-time dynamic scene rendering*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Yulun Wu, Han Huang, Wenyuan Zhang, Chao Deng, Ge Gao, Ming Gu, and Yu-Shen Liu*
+	- Normalized Authors: `['Wu Y.', 'Huang H.', 'Zhang W.', 'Deng C.', 'Gao G.', 'Gu M.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sparis: Neural implicit surface reconstruction of indoor scenes from sparse views*
+	- Year: *2025*
+	- Outlet: *AAAI Conference on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Peng Xiang, Xin Wen, Yu-Shen Liu, Yan-Pei Cao, Pengfei Wan, Wen Zheng, and Zhizhong Han*
+	- Normalized Authors: `['Xiang P.', 'Wen X.', 'Liu Y.', 'Cao Y.', 'Wan P.', 'Zheng W.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Snowflake point deconvolution for point cloud completion and generation with skip-transformer*
+	- Year: *2022*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Tao Xie, Xi Chen, Zhen Xu, Yiman Xie, Yudong Jin, Yujun Shen, Sida Peng, Hujun Bao, and Xiaowei Zhou*
+	- Normalized Authors: `['Xie T.', 'Chen X.', 'Xu Z.', 'Xie Y.', 'Jin Y.', 'Shen Y.', 'Peng S.', 'Bao H.', 'Zhou X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *EnvGS: Modeling view-dependent appearance with environment gaussian*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Qingsen Yan, Yixu Feng, Cheng Zhang, Guansong Pang, Kangbiao Shi, Peng Wu, Wei Dong, Jinqiu Sun, and Yanning Zhang*
+	- Normalized Authors: `['Yan Q.', 'Feng Y.', 'Zhang C.', 'Pang G.', 'Shi K.', 'Wu P.', 'Dong W.', 'Sun J.', 'Zhang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *HVI: A new color space for low-light image enhancement*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Wenqi Yang, Guanying Chen, Chaofeng Chen, Zhenfang Chen, and Kwan-Yee K Wong*
+	- Normalized Authors: `['Yang W.', 'Chen G.', 'Chen C.', 'Chen Z.', 'Wong K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *PSNeRF: Neural inverse rendering for multi-view photometric stereo*
+	- Year: *2022*
+	- Outlet: *European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Yuxuan Yao, Zixuan Zeng, Chun Gu, Xiatian Zhu, and Li Zhang*
+	- Normalized Authors: `['Yao Y.', 'Zeng Z.', 'Gu C.', 'Zhu X.', 'Zhang L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reflective gaussian splatting*
+	- Year: *2025*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Chongjie Ye, Lingteng Qiu, Xiaodong Gu, Qi Zuo, Yushuang Wu, Zilong Dong, Liefeng Bo, Yuliang Xiu, and Xiaoguang Han*
+	- Normalized Authors: `['Ye C.', 'Qiu L.', 'Gu X.', 'Zuo Q.', 'Wu Y.', 'Dong Z.', 'Bo L.', 'Xiu Y.', 'Han X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *StableNormal: Reducing diffusion variance for stable and sharp normal*
+	- Year: *2024*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Kai Ye, Chong Gao, Guanbin Li, Wenzheng Chen, and Baoquan Chen*
+	- Normalized Authors: `['Ye K.', 'Gao C.', 'Li G.', 'Chen W.', 'Chen B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *GeoSplatting: Towards geometry guided gaussian splatting for physically-based inverse rendering*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Richard Zhang, Phillip Isola, Alexei A Efros, Eli Shechtman, and Oliver Wang*
+	- Normalized Authors: `['Zhang R.', 'Isola P.', 'Efros A.', 'Shechtman E.', 'Wang O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The unreasonable effectiveness of deep features as a perceptual metric*
+	- Year: *2018*
+	- Outlet: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Weiqi Zhang, Junsheng Zhou, Haotian Geng, Wenyuan Zhang, and Yu-Shen Liu*
+	- Normalized Authors: `['Zhang W.', 'Zhou J.', 'Geng H.', 'Zhang W.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *GAP: Gaussianize any point clouds with text guidance*
+	- Year: *2025*
+	- Outlet: *Proceedings of International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Wenyuan Zhang, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Zhang W.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Neural Signed Distance Function Inference through Splatting 3D Gaussians Pulled on Zero-Level Set*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Wenyuan Zhang, Kanle Shi, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Zhang W.', 'Shi K.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning unsigned distance functions from multi-view images with volume rendering priors*
+	- Year: *2024*
+	- Outlet: *European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Wenyuan Zhang, Emily Yue ting Jia, Junsheng Zhou, Baorui Ma, Kanle Shi, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Zhang W.', 'Jia E.', 'Zhou J.', 'Ma B.', 'Shi K.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *NeRFPrior: Learning neural radiance field as a prior for indoor scene reconstruction*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'NeRFPrior: Learning Neural Radiance Field as a Prior for Indoor Scene Reconstruction'*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Wenyuan Zhang, Ruofan Xing, Yunfan Zeng, Yu-Shen Liu, Kanle Shi, and Zhizhong Han*
+	- Normalized Authors: `['Zhang W.', 'Xing R.', 'Zeng Y.', 'Liu Y.', 'Shi K.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fast Learning Radiance Fields by Shooting Much Fewer Rays*
+	- Year: *2023*
+	- Outlet: *IEEE Transactions on Image Processing*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Wenyuan Zhang, Yixiao Yang, Han Huang, Liang Han, Kanle Shi, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Zhang W.', 'Yang Y.', 'Huang H.', 'Han L.', 'Shi K.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *MonoInstance: Enhancing monocular priors via multi-view instance alignment for neural rendering and reconstruction*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Youjia Zhang, Anpei Chen, Yumin Wan, Zikai Song, Junqing Yu, Yawei Luo, and Wei Yang*
+	- Normalized Authors: `['Zhang Y.', 'Chen A.', 'Wan Y.', 'Song Z.', 'Yu J.', 'Luo Y.', 'Yang W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ref-GS: Directional factorization for 2d gaussian splatting*
+	- Year: *2025*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Junsheng Zhou, Baorui Ma, Shujuan Li, Yu-Shen Liu, Yi Fang, and Zhizhong Han*
+	- Normalized Authors: `['Zhou J.', 'Ma B.', 'Li S.', 'Liu Y.', 'Fang Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *CAP-UDF: Learning unsigned distance functions progressively from raw point clouds with consistencyaware field optimization*
+	- Year: *2024*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *Junsheng Zhou, Baorui Ma, Wenyuan Zhang, Yi Fang, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Zhou J.', 'Ma B.', 'Zhang W.', 'Fang Y.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Differentiable registration of images and lidar point clouds with voxelpoint-to-pixel matching*
+	- Year: *2023*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 69:**
+	- Ref. ID: *69*
+	- Authors: *Junsheng Zhou, Xingyu Shi, Haichuan Song, Yi Fang, Yu-Shen Liu, and Zhizhong Han*
+	- Normalized Authors: `['Zhou J.', 'Shi X.', 'Song H.', 'Fang Y.', 'Liu Y.', 'Han Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *U-CAN: Unsupervised point cloud denoising with consistency-aware noise2noise matching*
+	- Year: *2025*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 70:**
+	- Ref. ID: *70*
+	- Authors: *Junsheng Zhou, Jinsheng Wang, Baorui Ma, Yu-Shen Liu, Tiejun Huang, and Xinlong Wang*
+	- Normalized Authors: `['Zhou J.', 'Wang J.', 'Ma B.', 'Liu Y.', 'Huang T.', 'Wang X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Uni3D: Exploring Unified 3D Representation at Scale*
+	- Year: *2024*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 71:**
+	- Ref. ID: *71*
+	- Authors: *Junsheng Zhou, Weiqi Zhang, and Yu-Shen Liu*
+	- Normalized Authors: `['Zhou J.', 'Zhang W.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *DiffGS: Functional gaussian splatting diffusion*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 72:**
+	- Ref. ID: *72*
+	- Authors: *Matthias Zwicker, Hanspeter Pfister, Jeroen Van Baar, and Markus Gross*
+	- Normalized Authors: `['Zwicker M.', 'Pfister H.', 'Baar J.', 'Gross M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Surface splatting*
+	- Year: *2001*
+	- Outlet: *Proceedings of the 28th annual conference on Computer graphics and interactive techniques*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*To tackle this problem, recent methods typically separate the rendering color into diffuse and specular components, and adopt inverse rendering frameworks [55, 11] to learn illumination decomposition through physically based rendering [44]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Inspired by inverse rendering, Relight3DGS [11] assigns each Gaussian with physical properties such as metallic and roughness, and performs PBR on the Gaussians to synthesize the final image*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Recent studies have proven that rendering per-Gaussian illumination attributes into material maps followed by deferred shadingbased PBR [24, 56, 66, 20] yields better performance than per-Gaussian shading [11]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Note that our method cannot be directly compared with inverse rendering methods [11, 31, 21], as the illumination modeling approaches are much different*'
+	- This flag is for the paper with Ref. ID = 11
+- '*To better align Gaussians with object surfaces, regularization strategies such as depth-normal consistency [18, 15] and neural gradient supervision [61, 29, 35] are applied*'
+	- This flag is for the paper with Ref. ID = 15
+- '*To better model the specular reflections, some methods introduce directional encodings like Integrated Directional Encoding [47] and Gaussian Directional Encoding [26]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*Datasets ShinyBlender [47] GlossySynthetic [33] Ref-Real [47] Mip-NeRF 360 [1] Methods PSNR↑ SSIM↑ LPIPS↓ MAE◦↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ RefNeRF [47] 33*'
+	- This flag is for the paper with Ref. ID = 47
+- '*Datasets ShinyBlender [47] GlossySynthetic [33] Ref-Real [47] Mip-NeRF 360 [1] Methods PSNR↑ SSIM↑ LPIPS↓ MAE◦↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ RefNeRF [47] 33*'
+	- This flag is for the paper with Ref. ID = 47
+- '*Datasets ShinyBlender [47] GlossySynthetic [33] Ref-Real [47] Mip-NeRF 360 [1] Methods PSNR↑ SSIM↑ LPIPS↓ MAE◦↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ RefNeRF [47] 33*'
+	- This flag is for the paper with Ref. ID = 47
+- '*We evaluate the performance of our method on widely used benchmarks, including two synthetic datasets, ShinyBlender [47] and GlossySynthetic [33], as well as two real7*'
+	- This flag is for the paper with Ref. ID = 47
+- '*GaussianShader Ref-Gaussian 3DGS-DR EnvGS Ours Ground Truth Figure 5: Visual comparisons in real-world Ref-Real [47] dataset*'
+	- This flag is for the paper with Ref. ID = 47
+- '*world datasets, Ref-Real [47] and Mip-NeRF 360 [1]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*We first evaluate our method on two synthetic datasets, ShinyBlender [47] and GlossySynthetic [33], and report the numerical results in Tab*'
+	- This flag is for the paper with Ref. ID = 47
+- '*We also report quantitative comparisons on the real-world dataset Ref-Real [47] in Tab*'
+	- This flag is for the paper with Ref. ID = 47
+- '*Datasets ShinyBlender [47] Ref-Real [47] Models PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ w/o Lmv, w/o Lref 34*'
+	- This flag is for the paper with Ref. ID = 47
+- '*Datasets ShinyBlender [47] Ref-Real [47] Models PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ w/o Lmv, w/o Lref 34*'
+	- This flag is for the paper with Ref. ID = 47
+- '*To evaluate the necessity of the normal prior, we conduct ablation studies on ShinyBlender dataset [47] under three experimental settings: Full Model, Full model without normal prior (w/o Ln), Full model without normal prior, material regularization and environment modeling (w/o Ln, w/o Reg, w/o Env)*'
+	- This flag is for the paper with Ref. ID = 47
+- '*Other approaches extract accurate meshes to provide reliable normal for reflection modeling [33, 48, 13, 25]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Similar observations were discussed in [24, 56, 53], where highly reflective surfaces are often reliably identified early during the optimization*'
+	- This flag is for the paper with Ref. ID = 53
+- '*To estimate the color of the indirect light which is occluded by other objects, we perform a Gaussian ray tracing [53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*272 EnvGS [53] 33*'
+	- This flag is for the paper with Ref. ID = 53
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*This two-stage pipeline is known as deferred shading-based PBR [24, 56, 66]*'
+	- This flag is for the paper with Ref. ID = 66
+- '*Recent studies have proven that rendering per-Gaussian illumination attributes into material maps followed by deferred shadingbased PBR [24, 56, 66, 20] yields better performance than per-Gaussian shading [11]*'
+	- This flag is for the paper with Ref. ID = 66
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Drawing inspiration from multi-view stereo methods [8, 6], we impose constraints on plane patches between adjacent views*'
+	- This flag is for the paper with Ref. ID = 8
+- '*Since computing the integral of Ls over the upper hemisphere Ωis computationally expensive, we adopt the split-sum approximation [38, 56, 31], which separates the integral into two components, Ls(ωo, a, m, r, n) ≈ Z Ω fs(ωi, ωo)(ωi · n)dωi · Z Ω Li(ωi)D(ωi, ωo)(ωi · n)dωi, (3) where the first term can be precomputed using a, m, r and stored in a look-up table*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Beyond static scenes, some works also explore 3DGS for dynamic scenes [50], semantic-aware manipulation [41], and content generation [71, 60, 9]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*To improve environment interactions, some methods develop ray tracing techniques for Gaussians [37, 14, 53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*Neural Radiance Fields (NeRF) [36, 62, 63, 65, 16, 51] pioneers this task by learning a mapping from 5D coordinates to volume densities as the scene representations*'
+	- This flag is for the paper with Ref. ID = 63
+- '*1 Introduction Learning scene appearance representations and recovering unseen views from multiple posed RGB images has been a long-standing task in computer vision and graphics [22, 36, 18, 64]*'
+	- This flag is for the paper with Ref. ID = 64
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 5
+- '*Beyond static scenes, some works also explore 3DGS for dynamic scenes [50], semantic-aware manipulation [41], and content generation [71, 60, 9]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*To better model the specular reflections, some methods introduce directional encodings like Integrated Directional Encoding [47] and Gaussian Directional Encoding [26]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*When the same physical attribute yields inconsistent appearances in different viewpoints, the BRDF struggles to infer accurate reflections from ambiguous observations, resulting in aliasing and degenerated illumination decomposition [10, 31]*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Since computing the integral of Ls over the upper hemisphere Ωis computationally expensive, we adopt the split-sum approximation [38, 56, 31], which separates the integral into two components, Ls(ωo, a, m, r, n) ≈ Z Ω fs(ωi, ωo)(ωi · n)dωi · Z Ω Li(ωi)D(ωi, ωo)(ωi · n)dωi, (3) where the first term can be precomputed using a, m, r and stored in a look-up table*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Unlike classical graphics pipelines that jointly infer diffuse and specular terms from albedo and roughness [31, 14], we find that such a design significantly increases optimization difficulty, especially in complex realworld scenes*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Note that our method cannot be directly compared with inverse rendering methods [11, 31, 21], as the illumination modeling approaches are much different*'
+	- This flag is for the paper with Ref. ID = 31
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 32
+- '*Beyond static scenes, some works also explore 3DGS for dynamic scenes [50], semantic-aware manipulation [41], and content generation [71, 60, 9]*'
+	- This flag is for the paper with Ref. ID = 41
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 70
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*To address this issue, we decompose the incident radiance into direct and indirect components, and introduce an occlusion probability O(ωi) ∈[0, 1] indicating how likely ωi is occluded, Li(ωi) = Lindirect(ωi) + (1 −O(ωi)) · Ldirect(ωi)*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Datasets ShinyBlender [47] GlossySynthetic [33] Ref-Real [47] Mip-NeRF 360 [1] Methods PSNR↑ SSIM↑ LPIPS↓ MAE◦↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ RefNeRF [47] 33*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Ref-Gaussian 3DGS-DR EnvGS Ours Ground Truth Ours Normal Ours Normal 3DGS Figure 6: Visual comparisons in real-world Mip-NeRF 360 [1] dataset*'
+	- This flag is for the paper with Ref. ID = 1
+- '*world datasets, Ref-Real [47] and Mip-NeRF 360 [1]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*We further evaluate our method on the more challenging real-world dataset Mip-NeRF 360 [1], as reported in Tab*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Traditional methods typically rely on image interpolation [45] or inpainting [2] to generate novel views*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Based on the observation that highly reflective surfaces exhibit significantly different appearances across different viewpoints [3, 13], we explore multi-view photometric variations as explicit supervision for reflection strength*'
+	- This flag is for the paper with Ref. ID = 3
+- '*A splatting pass rasterizes these attributes into screen-space material maps [22, 18], followed by a lighting pass that evaluates a Bidirectional Reflectance Distribution Function (BRDF) [4] using material maps and environment lighting to synthesize the final image*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Our deferred shading-based PBR adopts a simplified version of the Disney BRDF model [4]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Drawing inspiration from multi-view stereo methods [8, 6], we impose constraints on plane patches between adjacent views*'
+	- This flag is for the paper with Ref. ID = 6
+- '*Others address sparse-view challenges by incorporating geometric priors [7, 19, 27, 17]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*When the same physical attribute yields inconsistent appearances in different viewpoints, the BRDF struggles to infer accurate reflections from ambiguous observations, resulting in aliasing and degenerated illumination decomposition [10, 31]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*To adapt our constraint to centric scene structures, we extract foreground masks using [12] and segment them into semantically meaningful regions using SAM2 [42]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*Other approaches extract accurate meshes to provide reliable normal for reflection modeling [33, 48, 13, 25]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Based on the observation that highly reflective surfaces exhibit significantly different appearances across different viewpoints [3, 13], we explore multi-view photometric variations as explicit supervision for reflection strength*'
+	- This flag is for the paper with Ref. ID = 13
+- '*To improve environment interactions, some methods develop ray tracing techniques for Gaussians [37, 14, 53]*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Unlike classical graphics pipelines that jointly infer diffuse and specular terms from albedo and roughness [31, 14], we find that such a design significantly increases optimization difficulty, especially in complex realworld scenes*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Neural Radiance Fields (NeRF) [36, 62, 63, 65, 16, 51] pioneers this task by learning a mapping from 5D coordinates to volume densities as the scene representations*'
+	- This flag is for the paper with Ref. ID = 16
+- '*Others address sparse-view challenges by incorporating geometric priors [7, 19, 27, 17]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*1 Introduction Learning scene appearance representations and recovering unseen views from multiple posed RGB images has been a long-standing task in computer vision and graphics [22, 36, 18, 64]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*A splatting pass rasterizes these attributes into screen-space material maps [22, 18], followed by a lighting pass that evaluates a Bidirectional Reflectance Distribution Function (BRDF) [4] using material maps and environment lighting to synthesize the final image*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Recent efforts aim to extract high-quality surfaces from 3DGS by flattening 3D Gaussians into 2D disks [18] and leveraging differentiable kernels to rasterize them into images*'
+	- This flag is for the paper with Ref. ID = 18
+- '*To better align Gaussians with object surfaces, regularization strategies such as depth-normal consistency [18, 15] and neural gradient supervision [61, 29, 35] are applied*'
+	- This flag is for the paper with Ref. ID = 18
+- '*To facilitate surface reconstruction, 2DGS [18] flattens each 3D Gaussian into a 2D disk by setting one scaling dimension to zero*'
+	- This flag is for the paper with Ref. ID = 18
+- '*257 2DGS [18] 29*'
+	- This flag is for the paper with Ref. ID = 18
+- '*We begin by training a 2DGS [18] with normal priors during the first 3k iterations to ensure geometric stability*'
+	- This flag is for the paper with Ref. ID = 18
+- '*2 ∗LD−SSIM is the photometric loss commonly used in Gaussianbased methods [22, 56], Ln−d denotes the depth-normal consistency loss used in 2DGS [18], and Ln = |1 −N T ˆN| is the normal prior loss*'
+	- This flag is for the paper with Ref. ID = 18
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Others address sparse-view challenges by incorporating geometric priors [7, 19, 27, 17]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*They endow each Gaussian primitive with learnable reflection-related properties, such as metallic and roughness [20, 24]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Recent studies have proven that rendering per-Gaussian illumination attributes into material maps followed by deferred shadingbased PBR [24, 56, 66, 20] yields better performance than per-Gaussian shading [11]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Similar to reflective Gaussian methods [20, 56], we decouple the diffuse component cd and the specular component Ls, assigning the prediction of cd to Gaussian rasterization*'
+	- This flag is for the paper with Ref. ID = 20
+- '*214 GaussianShader [20] 31*'
+	- This flag is for the paper with Ref. ID = 20
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Note that our method cannot be directly compared with inverse rendering methods [11, 31, 21], as the illumination modeling approaches are much different*'
+	- This flag is for the paper with Ref. ID = 21
+- '*1 Introduction Learning scene appearance representations and recovering unseen views from multiple posed RGB images has been a long-standing task in computer vision and graphics [22, 36, 18, 64]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*More recent efforts have been made by learning explicit 3D Gaussians (3DGS) [22] to achieve real-time rendering through a differentiable splatting procedure*'
+	- This flag is for the paper with Ref. ID = 22
+- '*A splatting pass rasterizes these attributes into screen-space material maps [22, 18], followed by a lighting pass that evaluates a Bidirectional Reflectance Distribution Function (BRDF) [4] using material maps and environment lighting to synthesize the final image*'
+	- This flag is for the paper with Ref. ID = 22
+- '*More recently, 3D Gaussian Splatting (3DGS) [22] has emerged as a new paradigm for real-time rendering by rasterizing Gaussian ellipsoids into images in a splatting manner*'
+	- This flag is for the paper with Ref. ID = 22
+- '*2 Modeling Reflections in NeRF and 3DGS The view-dependent color representations used in original NeRF [36] and 3DGS [22], such as neural networks or spherical harmonics, struggle to capture high-frequency specular reflections that are commonly observed in real-world scenes*'
+	- This flag is for the paper with Ref. ID = 22
+- '*Recent advances in 3DGS [22] offer new perspectives for addressing this challenge*'
+	- This flag is for the paper with Ref. ID = 22
+- '*1 Preliminary 3D Gaussian Splatting (3DGS) [22] has become paradigms for learning 3D representations from multi-view images*'
+	- This flag is for the paper with Ref. ID = 22
+- '*332 3DGS [22] 30*'
+	- This flag is for the paper with Ref. ID = 22
+- '*2 ∗LD−SSIM is the photometric loss commonly used in Gaussianbased methods [22, 56], Ln−d denotes the depth-normal consistency loss used in 2DGS [18], and Ln = |1 −N T ˆN| is the normal prior loss*'
+	- This flag is for the paper with Ref. ID = 22
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*Various extensions support diverse scales and scenes through novel data structures such as hierarchies [23, 34] and octrees [43]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*They endow each Gaussian primitive with learnable reflection-related properties, such as metallic and roughness [20, 24]*'
+	- This flag is for the paper with Ref. ID = 24
+- '*This two-stage pipeline is known as deferred shading-based PBR [24, 56, 66]*'
+	- This flag is for the paper with Ref. ID = 24
+- '*Recent studies have proven that rendering per-Gaussian illumination attributes into material maps followed by deferred shadingbased PBR [24, 56, 66, 20] yields better performance than per-Gaussian shading [11]*'
+	- This flag is for the paper with Ref. ID = 24
+- '*Similar observations were discussed in [24, 56, 53], where highly reflective surfaces are often reliably identified early during the optimization*'
+	- This flag is for the paper with Ref. ID = 24
+- '*223 3DGS-DR [24] 33*'
+	- This flag is for the paper with Ref. ID = 24
+- '*We also adopt normal propagation [24, 56] to propagate reliable normals to neighboring Gaussians for consistency and stability*'
+	- This flag is for the paper with Ref. ID = 24
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 24
+- '*Other approaches extract accurate meshes to provide reliable normal for reflection modeling [33, 48, 13, 25]*'
+	- This flag is for the paper with Ref. ID = 25
+- '*Others address sparse-view challenges by incorporating geometric priors [7, 19, 27, 17]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 28
+- '*To better align Gaussians with object surfaces, regularization strategies such as depth-normal consistency [18, 15] and neural gradient supervision [61, 29, 35] are applied*'
+	- This flag is for the paper with Ref. ID = 29
+- '*239 ENVIDR [30] 32*'
+	- This flag is for the paper with Ref. ID = 30
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Other approaches extract accurate meshes to provide reliable normal for reflection modeling [33, 48, 13, 25]*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Datasets ShinyBlender [47] GlossySynthetic [33] Ref-Real [47] Mip-NeRF 360 [1] Methods PSNR↑ SSIM↑ LPIPS↓ MAE◦↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ PSNR↑ SSIM↑ LPIPS↓ RefNeRF [47] 33*'
+	- This flag is for the paper with Ref. ID = 33
+- '*We evaluate the performance of our method on widely used benchmarks, including two synthetic datasets, ShinyBlender [47] and GlossySynthetic [33], as well as two real7*'
+	- This flag is for the paper with Ref. ID = 33
+- '*We first evaluate our method on two synthetic datasets, ShinyBlender [47] and GlossySynthetic [33], and report the numerical results in Tab*'
+	- This flag is for the paper with Ref. ID = 33
+- '*To validate the effectiveness of our illumination decomposition, we visualize the decomposed material components and the learned environment maps on GlossySynthetic dataset [33], as shown in Fig*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Various extensions support diverse scales and scenes through novel data structures such as hierarchies [23, 34] and octrees [43]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*To better align Gaussians with object surfaces, regularization strategies such as depth-normal consistency [18, 15] and neural gradient supervision [61, 29, 35] are applied*'
+	- This flag is for the paper with Ref. ID = 35
+- '*1 Introduction Learning scene appearance representations and recovering unseen views from multiple posed RGB images has been a long-standing task in computer vision and graphics [22, 36, 18, 64]*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Recent advances in Neural Radiance Fields (NeRF) [36] leverage volume rendering to learn implicit scene representations for novel view synthesis*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Neural Radiance Fields (NeRF) [36, 62, 63, 65, 16, 51] pioneers this task by learning a mapping from 5D coordinates to volume densities as the scene representations*'
+	- This flag is for the paper with Ref. ID = 36
+- '*2 Modeling Reflections in NeRF and 3DGS The view-dependent color representations used in original NeRF [36] and 3DGS [22], such as neural networks or spherical harmonics, struggle to capture high-frequency specular reflections that are commonly observed in real-world scenes*'
+	- This flag is for the paper with Ref. ID = 36
+- '*To improve environment interactions, some methods develop ray tracing techniques for Gaussians [37, 14, 53]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 39
+- '*For each query pixel, we perform a ball query [40] around its back-projected 3D location within the point cloud and compute the averaged top-K scores, thus yielding the final reflection strength prior wref, as illustrated in Fig*'
+	- This flag is for the paper with Ref. ID = 40
+- '*To adapt our constraint to centric scene structures, we extract foreground masks using [12] and segment them into semantically meaningful regions using SAM2 [42]*'
+	- This flag is for the paper with Ref. ID = 42
+- '*Various extensions support diverse scales and scenes through novel data structures such as hierarchies [23, 34] and octrees [43]*'
+	- This flag is for the paper with Ref. ID = 43
+- '*To tackle this problem, recent methods typically separate the rendering color into diffuse and specular components, and adopt inverse rendering frameworks [55, 11] to learn illumination decomposition through physically based rendering [44]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Traditional methods typically rely on image interpolation [45] or inpainting [2] to generate novel views*'
+	- This flag is for the paper with Ref. ID = 45
+- '*All material parameters are optimized only through photometric loss after complex light transport, so multiple combinations of lighting and materials can explain the same pixels, which often leads to suboptimal illumination decomposition [46, 58]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*To evaluate the quality of novel view synthesis, we report PSNR, SSIM [49] and LPIPS [59]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*Neural Radiance Fields (NeRF) [36, 62, 63, 65, 16, 51] pioneers this task by learning a mapping from 5D coordinates to volume densities as the scene representations*'
+	- This flag is for the paper with Ref. ID = 51
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 52
+- '*We first apply luminance normalization [54] on the ground truth RGB images to eliminate brightness inconsistencies caused by shadows and textures*'
+	- This flag is for the paper with Ref. ID = 54
+- '*To tackle this problem, recent methods typically separate the rendering color into diffuse and specular components, and adopt inverse rendering frameworks [55, 11] to learn illumination decomposition through physically based rendering [44]*'
+	- This flag is for the paper with Ref. ID = 55
+- '*This two-stage pipeline is known as deferred shading-based PBR [24, 56, 66]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Recent studies have proven that rendering per-Gaussian illumination attributes into material maps followed by deferred shadingbased PBR [24, 56, 66, 20] yields better performance than per-Gaussian shading [11]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Since computing the integral of Ls over the upper hemisphere Ωis computationally expensive, we adopt the split-sum approximation [38, 56, 31], which separates the integral into two components, Ls(ωo, a, m, r, n) ≈ Z Ω fs(ωi, ωo)(ωi · n)dωi · Z Ω Li(ωi)D(ωi, ωo)(ωi · n)dωi, (3) where the first term can be precomputed using a, m, r and stored in a look-up table*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Similar to reflective Gaussian methods [20, 56], we decouple the diffuse component cd and the specular component Ls, assigning the prediction of cd to Gaussian rasterization*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Similar observations were discussed in [24, 56, 53], where highly reflective surfaces are often reliably identified early during the optimization*'
+	- This flag is for the paper with Ref. ID = 56
+- '*249 Ref-Gaussian [56] 35*'
+	- This flag is for the paper with Ref. ID = 56
+- '*We also incorporate a residual term cr in the indirect radiance to account for noise and higher-order lighting effects [58, 56]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Compared to Ref-Gaussian [56] which relies on an offline binary visibility indicator to separate direct and indirect terms and estimates indirect light solely through a residual color, our method evaluates occlusion in a fully differentiable manner*'
+	- This flag is for the paper with Ref. ID = 56
+- '*We also adopt normal propagation [24, 56] to propagate reliable normals to neighboring Gaussians for consistency and stability*'
+	- This flag is for the paper with Ref. ID = 56
+- '*2 ∗LD−SSIM is the photometric loss commonly used in Gaussianbased methods [22, 56], Ln−d denotes the depth-normal consistency loss used in 2DGS [18], and Ln = |1 −N T ˆN| is the normal prior loss*'
+	- This flag is for the paper with Ref. ID = 56
+- '*We compare our method with the state-of-the-art reflection modeling methods, including NeRF-based methods: Ref-NeRF [47], ENVIDR [30], as well as GS-based methods: 3DGS [22], GaussianShader [20], 2DGS [18], 3DGS-DR [24], Ref-Gaussian [56] and EnvGS [53]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*We also incorporate monocular normal priors obtained by a pre-trained network [57] to supervise the normals rendered by 2DGS*'
+	- This flag is for the paper with Ref. ID = 57
+- '*All material parameters are optimized only through photometric loss after complex light transport, so multiple combinations of lighting and materials can explain the same pixels, which often leads to suboptimal illumination decomposition [46, 58]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*We also incorporate a residual term cr in the indirect radiance to account for noise and higher-order lighting effects [58, 56]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*To evaluate the quality of novel view synthesis, we report PSNR, SSIM [49] and LPIPS [59]*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Beyond static scenes, some works also explore 3DGS for dynamic scenes [50], semantic-aware manipulation [41], and content generation [71, 60, 9]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*To better align Gaussians with object surfaces, regularization strategies such as depth-normal consistency [18, 15] and neural gradient supervision [61, 29, 35] are applied*'
+	- This flag is for the paper with Ref. ID = 61
+- '*Neural Radiance Fields (NeRF) [36, 62, 63, 65, 16, 51] pioneers this task by learning a mapping from 5D coordinates to volume densities as the scene representations*'
+	- This flag is for the paper with Ref. ID = 62
+- '*Neural Radiance Fields (NeRF) [36, 62, 63, 65, 16, 51] pioneers this task by learning a mapping from 5D coordinates to volume densities as the scene representations*'
+	- This flag is for the paper with Ref. ID = 65
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 67
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 68
+- '*With the rapid development of deep learning [70, 69, 67, 68, 5, 39, 28, 52, 32], novel view synthesis has gradually shifted toward learning-based approaches*'
+	- This flag is for the paper with Ref. ID = 69
+- '*Beyond static scenes, some works also explore 3DGS for dynamic scenes [50], semantic-aware manipulation [41], and content generation [71, 60, 9]*'
+	- This flag is for the paper with Ref. ID = 71
+- '*We can then rasterize these Gaussians into images using ˆΨ = N X i=1 ψi ∗oi ∗pi ∗ i−1 Y j=1 (1 −oj), (1) where oi, pi are the opacity and screen-space probability [72] of the i-th Gaussian, respectively, and ψi denotes a selected attribute of Gi*'
+	- This flag is for the paper with Ref. ID = 72
+

@@ -1,0 +1,2167 @@
+# Paper Analysis Utility - Results
+
+Paper: SHAP Meets Tensor Networks.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/24 SHAP Meets Tensor Networks/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 2 pages)
+2) 'Preliminaries' -- p. 3 (ca. 1 pages)
+3) 'Tensors, Tensor Networks and Binarized Neural Networks' -- p. 4 (ca. 1 pages)
+4) 'Provably Exact SHAP Explanations for TNs: A General Framework' -- p. 5 (ca. 1 pages)
+5) 'Provably Exact and Tractable SHAP for TTs, and Other ML Models' -- p. 6 (ca. 2 pages)
+6) 'A Fine-Grained Analysis of SHAP Computation for BNNs' -- p. 8 (ca. 2 pages)
+7) 'Limitations and Future Work' -- p. 10 (ca. 0 pages)
+8) 'Conclusion' -- p. 10 (ca. 0 pages)
+9) 'References' -- p. 10 (ca. 15 pages)
+A) 'Extended Related Work' -- p. 25 (ca. 1 pages)
+B) 'Background' -- p. 26 (ca. 5 pages)
+C) 'Computing Marginal SHAP for General TNs' -- p. 31 (ca. 5 pages)
+D) 'Computing Marginal SHAP for Tensor Trains' -- p. 36 (ca. 2 pages)
+E) 'Tightening Complexity Results for Other ML Models' -- p. 38 (ca. 3 pages)
+F) 'Computing Marginal SHAP for BNNs' -- p. 41 (ca. 3 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/79=0.00%
+		- Invalid uses: 79/79=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 2: VM(x, S ∪{i}; P) −VM(x, S; P)
+		- Page 2: def= |S|!(nin−|S|−1)!
+		- Page 3: Ti1,...,ij−1,:,ij+1,...,in is a vector in Rdj whose k-th entry is equal to Ti1,...,ij−1,k,ij+1,...,in for k ∈[dj].
+		- Page 3: Rd1×...di−1×di+1×...×dn×d′
+		- Page 3: j−1×d′
+		- Page 3: a1,...,ai−1,ai+1,...,an,b1,...,bj−1,bj+1,...,bm
+		- Page 3: a1,...,ai−1,k,ai+1,...,am · T (2)
+		- Page 3: b1,...,bj−1,k,bj+1,...,bn
+		- Page 3: core T (i) ∈Rdi−1×Ni×di. The TT T corresponds to a tensor in Rd0×N1×...×Nn×dn obtained by
+		- Page 4: are constrained to binary values, typically {−1, +1}. In a BNN, each layer performs a sequence of
+		- Page 4: an input vector x ∈{−1, +1}n, the output y ∈{−1, +1}m of a layer is computed as follows [41]:
+		- Page 4: z′ = γ · z −µ
+		- Page 4: W ∈{−1, +1}m×n, b ∈Rm, and γ, β, µ, σ ∈Rm are the batch normalization parameters. The
+		- Page 4: sign function is applied element-wise, mapping positive inputs to +1 and non-positive inputs to −1.
+		- Page 4: a constraint: for binary inputs xj and weights wij ∈{−1, +1}, define lij = xj if wij = +1, and
+		- Page 4: def= −W(s −1nin) if si = 1, and
+		- Page 4: def= W(s −1nin) otherwise. Moreover, define the marginal value tensor V(M,P ) ∈
+		- Page 5: i for any i ∈[2, nin −1], and
+		- Page 5: def= {(5 −k) · i, i) : i ∈
+		- Page 25: t−1.
+		- Page 26: ht = T ×(1,1) ht−1 ×(2,1) eN
+		- Page 26: xt + Uht−1 + b
+		- Page 26: Where ht−1 is the hidden state vector of the RNN after reading the prefix x1:y of the input sequence,
+		- Page 26: Rd1×...di−1×di+1×...×dn×d′
+		- Page 26: j−1×d′
+		- Page 26: a1,...,ai−1,ai+1,...,an,b1,...,bj−1,bj+1,...,bm
+		- Page 26: a1,...,ai−1,k,ai+1,...,am · T (2)
+		- Page 26: b1,...,bj−1,k,bj+1,...,bn
+		- Page 27: Pi−1
+		- Page 27: (ij −1) Qq(i)
+		- Page 27: G(k) ∈Rrk−1 × d × rk,
+		- Page 27: rk = d (1 ≤k ≤n −1)
+		- Page 27: αk−1, ik, αk := Jαk−1 = ikK · Jαk = ikK
+		- Page 27: α1,...,αn−1=1
+		- Page 27: αn−1,in,1.
+		- Page 27: Since each core enforces αk−1 = ik = αk, the only nonzero term in the sum occurs when i1 = · · · =
+		- Page 28: l+1 = δ(sl−1
+		- Page 29: layer l ∈[L −1], the TT whose parameterization is given in equation (11) simulates exactly the
+		- Page 30: def= −W(s −1nin) if si = 1, and
+		- Page 30: def= W(s −1nin) otherwise. Moreover, define the marginal value tensor V(M,P ) ∈
+		- Page 31: VM(x, swap(s, i); P) −VM(x, s; P)
+		- Page 31: W(s) · VM(x, s; P) −
+		- Page 31: −W(s)
+		- Page 31: i for any i ∈[2, nin −1], and
+		- Page 31: −W(˜s −1nin)
+		- Page 31: W(˜s −1nin)
+		- Page 31: ˜s ∈[2]n and an integer i ∈N, and outputs 1 if [(˜si = 1) ∨(n ≤i −1)], −1 otherwise. The function
+		- Page 31: −∆(˜s, i)
+		- Page 31: if |˜s| = i −1 ∧σ = 1
+		- Page 32: (−1)Ji=1K · (nin −1)!
+		- Page 32: (nin −2)!
+		- Page 32: (−1)Jj=iK
+		- Page 32: j·(nin−k−1)
+		- Page 33: (−1)∆(˜s1:j,i) · |˜s1:j|!(nin−|˜s1:j|−1)!
+		- Page 33: General Case. Assume Equation (17) holds for j ∈[nin −1], we need to show that it’s also valid for
+		- Page 33: = (−1)∆(˜s1:j,i) · |˜si:j|! · (nin −|˜s1:j| −1)!
+		- Page 33: i,s1,...,sj+1,i,|s1:j+1| = (−1)∆(s1:j,i) · |si:j|! · (nin −|s1:j| −1)!
+		- Page 33: · (−1)[i=j+1]
+		- Page 33: = (−1)∆(s1:j+1,i) · |si:j+1|! · (nin −|s1:j+1| −1)!
+		- Page 33: i,s1,...,sj+1,i,|s1:j+1| = (−1)∆(s1:j+1,i) · |s1:j|! · (nin −|s1:j+1|)!
+		- Page 33: (j + 1) · (nin −|s1:j+1|)
+		- Page 33: = (−1)∆(s1:j+1,i) · |s1:j+1|! · (nin −|s1:j+1| −1)!
+		- Page 34: of the factorial terms (nin −1)! and (nin −2)!. This operation can be performed using a parallel
+		- Page 34: def= {(5 −k) · i, i) :
+		- Page 36: = H2·(i−1)
+		- Page 36: j−1
+		- Page 36: j−1
+		- Page 36: def= {(7 −k, k) : k ∈[3]}.
+		- Page 37: ht−1
+		- Page 38: (nin−2)times
+		- Page 39: I(1) ×(1,1) 1L, , I(2), . . . , I(nin−1), I(nin) ×(3,1) 1L
+		- Page 40: negatively, the weight is −1. Each hidden neuron is assigned a bias of 3
+		- Page 40: output neuron with a bias of −(m −1
+		- Page 41: if the remaining two inputs contribute −1 each, the total input is 5
+		- Page 41: 2 −2 = 1
+		- Page 41: neuron has a bias of −(m −1
+		- Page 41: Let w = (w1, . . . wn) ∈{−1, 1}n be the weight parameters of a BNN with a single output neuron
+		- Page 41: • Transition function: For a layer l ∈[n −1],
+		- Page 41: if (r ̸= R) ∧[(wl = 1 ∧σ = 1) ∨(wl = −1 ∧σ = 0)]
+
+
+## References not in Bibliography
+
+> [!NOTE]
+> The sentences listed below contain references that were not found in the 'References' section.
+> *Please note that this list may contain false positives as, e.g., the content of a normal bracket might have been mistaken for a reference, or a natural reference (Authorname in text and year in brackets) might have been mismatched.*
+
+-  Fix a discrete input space D = [N1] × [N2] × · · · × [Nnin], a model M : D →Rnout, and a probability distribution P over D
+-  Fix a discrete input space D = [N1] × [N2] × · · · × [Nnin], a model M : D →Rnout, and a probability distribution P over D
+-  ◦e Nnin xnin i (3) where S def= n (k, k) : k ∈[nin + 1] o 
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 47
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 1
+	- Full reference: `[1] Omer Abramovich, Daniel Deutch, Nave Frost, Ahmet Kara, and Dan Olteanu. Banzhaf Values for Facts in Query Answering. In Proc. 2nd ACM on Management of Data (PACMMOD), pages 1–26, 2024.`
+- Parsed Ref. ID: 5
+	- Full reference: `[5] Guy Amir, Shahaf Bassan, and Guy Katz. Hard to Explain: On the Computational Hardness of In-Distribution Model Interpretation. In Proc. 27th European Conf. on Artificial Intelligence (ECAI), pages 818–825, 2024.`
+- Parsed Ref. ID: 8
+	- Full reference: `[8] Gilles Audemard, Steve Bellart, Louenas Bounia, Frédéric Koriche, Jean-Marie Lagniez, and Pierre Marquis. On Preferred Abductive Explanations for Decision Trees and Random Forests. In Proc. 31st Int. Joint Conf. on Artificial Intelligence (IJCAI), pages 643–650, 2022.`
+- Parsed Ref. ID: 9
+	- Full reference: `[9] Gilles Audemard, Steve Bellart, Louenas Bounia, Frédéric Koriche, Jean-Marie Lagniez, and Pierre Marquis. Trading Complexity for Sparsity in Random Forest Explanations. In Proc. 36th AAAI Conf. on Artificial Intelligence, pages 5461–5469, 2022.`
+- Parsed Ref. ID: 11
+	- Full reference: `[11] Pablo Barceló, Mikaël Monet, Jorge Pérez, and Bernardo Subercaseaux. Model Interpretability Through the Lens of Computational Complexity. In Proc. 34th Conf. on Neural Information Processing Systems (NeurIPS), pages 15487–15498, 2020.`
+- Parsed Ref. ID: 12
+	- Full reference: `[12] Pablo Barceló, Alexander Kozachinskiy, Miguel Romero, Bernardo Subsercaseaux, and José Verschae. Explaining k-Nearest Neighbors: Abductive and Counterfactual Explanations. In Proc. 3rd ACM on Management of Data, number 2, pages 1–26, 2025.`
+- Parsed Ref. ID: 13
+	- Full reference: `[13] Clark Barrett and Cesare Tinelli. Satisfiability Modulo Theories. Handbook of model checking, 2018.`
+- Parsed Ref. ID: 14
+	- Full reference: `[14] Shahaf Bassan and Guy Katz. Towards Formal XAI: Formally Approximate Minimal Explanations of Neural Networks. In Proc. 29th Int. Conf. on Tools and Algorithms for the Construction and Analysis of Systems (TACAS), pages 187–207, 2023.`
+- Parsed Ref. ID: 15
+	- Full reference: `[15] Shahaf Bassan, Guy Amir, Davide Corsi, Idan Refaeli, and Guy Katz. Formally Explaining Neural Networks within Reactive Systems. In Proc. 23rd Conf. on Formal Methods in Computer-Aided Design (FMCAD), pages 1–13, 2023.`
+- Parsed Ref. ID: 16
+	- Full reference: `[16] Shahaf Bassan, Guy Amir, and Guy Katz. Local vs. Global Interpretability: A Computational Complexity Perspective. In Proc. 41st Int. Conf. on Machine Learning (ICML), 2024.`
+- Parsed Ref. ID: 17
+	- Full reference: `[17] Shahaf Bassan, Guy Amir, Meirav Zehavi, and Guy Katz. What makes an Ensemble (Un) Interpretable? In Proc. 42nd Int. Conf. on Machine Learning (ICML), 2025.`
+- Parsed Ref. ID: 18
+	- Full reference: `[18] Shahaf Bassan, Yizhak Yisrael Elboher, Tobias Ladner, Matthias Althoff, and Guy Katz. Explaining, Fast and Slow: Abstraction and Refinement of Provable Explanations. In Proc. 42nd Int. Conf. on Machine Learning (ICML), 2025.`
+- Parsed Ref. ID: 19
+	- Full reference: `[19] Shahaf Bassan, Ron Eliav, and Shlomit Gur. Explain Yourself, Briefly! Self-Explaining Neural Networks with Concise Sufficient Reasons. In Proc. 13th Int. Conf. on Learning Representations (ICLR), 2025.`
+- Parsed Ref. ID: 20
+	- Full reference: `[20] Shahaf Bassan, Shlomit Gur, Sergey Zeltyn, Konstantinos Mavrogiorgos, Ron Eliav, and Dimosthenis Kyriazis. Self-Explaining Neural Networks for Business Process Monitoring. 2025. Technical Report. https://arXiv:2503.18067.`
+- Parsed Ref. ID: 21
+	- Full reference: `[21] Shahaf Bassan, Michal Moshkovitz, and Guy Katz. Additive Models Explained: A Computational Complexity Approach. In Proc. 39th Conf. on Neural Information Processing Systems (NeurIPS), 2025.`
+- Parsed Ref. ID: 23
+	- Full reference: `[23] Leopoldo Bertossi, Benny Kimelfeld, Ester Livshits, and Mikaël Monet. The Shapley Value in Database Management. ACM Sigmod Record, pages 6–17, 2023.`
+- Parsed Ref. ID: 26
+	- Full reference: `[26] Guy Blanc, Jane Lange, and Li-Yang Tan. Provably Efficient, Succinct, and Precise Explanations. In Proc. 35th Conf. on Neural Information Processing Systems (NeurIPS), pages 6129–6141, 2021.`
+- Parsed Ref. ID: 27
+	- Full reference: `[27] Sebastian Bordt and Ulrike von Luxburg. From Shapley values to Generalized Additive Models and Back. In Proc. 26th Int. Conf. on Artificial Intelligence and Statistics (AISTATS), pages 709–745. PMLR, 2023.`
+- Parsed Ref. ID: 29
+	- Full reference: `[29] Louenas Bounia and Frederic Koriche. Approximating Probabilistic Explanations via Supermodular Minimization. In Proc. 39th Conf. on Uncertainty in Artificial Intelligence (UAI), pages 216–225, 2023.`
+- Parsed Ref. ID: 30
+	- Full reference: `[30] Marco Calautti, Enrico Malizia, and Cristian Molinaro. On the Complexity of Global Necessary Reasons to Explain Classification. 2025. Technical Report. https://arXivpreprintarXiv:2501.06766.`
+- Parsed Ref. ID: 33
+	- Full reference: `[33] Siu Lun Chau, Krikamol Muandet, and Dino Sejdinovic. Explaining the Uncertain: Stochastic Shapley Values for Gaussian Process Models. In Proc. 37th Conf. on Neural Information Processing Systems (NeurIPS), 2023.`
+- Parsed Ref. ID: 38
+	- Full reference: `[38] Lu Chen, Siyu Lou, Keyan Zhang, Jin Huang, and Quanshi Zhang. HarsanyiNet: Computing Accurate Shapley Values in a Single Forward Propagation. In Proc. 40th Int. Conf. on Machine Learning (ICML), pages 4804–4825, 2023.`
+- Parsed Ref. ID: 40
+	- Full reference: `[40] Martin C Cooper and João Marques-Silva. Tractability of Explaining Classifier Decisions. Artificial Intelligence, 2023.`
+- Parsed Ref. ID: 43
+	- Full reference: `[43] Adnan Darwiche and Auguste Hirth. On the Reasons Behind Decisions. In Proc. 24th European Conf. on Artifical Intelligence (ECAI), pages 712–720, 2020.`
+- Parsed Ref. ID: 44
+	- Full reference: `[44] Adnan Darwiche and Chunxi Ji. On the Computation of Necessary and Sufficient Explanations. In Proc. 36th AAAI Conf. on Artificial Intelligence, pages 5582–5591, 2022.`
+- Parsed Ref. ID: 45
+	- Full reference: `[45] Daniel Deutch, Nave Frost, Benny Kimelfeld, and Mikaël Monet. Computing the Shapley Value of Facts in Query Answering. In Proc. Int. Conf. on Management of Data (MOD), pages 1570–1583, 2022.`
+- Parsed Ref. ID: 47
+	- Full reference: `[47] James Enouen and Yan Liu. InstaSHAP: Interpretable Additive Models Explain Shapley Values Instantly. In Proc. 13th Int. Conf. on Learning Representations (ICLR), 2025.`
+- Parsed Ref. ID: 55
+	- Full reference: `[55] Tom Heskes, Evi Sijben, Ioan Gabriel Bucur, and Tom Claassen. Causal Shapley Values: Exploiting Causal Knowledge to Explain Individual Predictions of Complex Models. In Proc. 34th Conf. on Neural Information Processing Systems (NeurIPS), pages 4778–4789, 2020.`
+- Parsed Ref. ID: 56
+	- Full reference: `[56] John E. Hopcroft, Rajeev Motwani, and Jeffrey D. Ullman. Introduction to Automata Theory, Languages, and Computation. 2006.`
+- Parsed Ref. ID: 59
+	- Full reference: `[59] Alexey Ignatiev. Towards Trustable Explainable AI. In Proc. 29th Int. Joint Conf. on Artificial Intelligence (IJCAI), pages 5154–5158, 2020.`
+- Parsed Ref. ID: 60
+	- Full reference: `[60] Alexey Ignatiev, Nina Narodytska, and Joao Marques-Silva. Abduction-based Explanations for Machine Learning Models. In Proc. 33rd AAAI Conf. on Artificial Intelligence, pages 1511–1519, 2019.`
+- Parsed Ref. ID: 61
+	- Full reference: `[61] Yacine Izza, Xuanxiang Huang, Antonio Morgado, Jordi Planes, Alexey Ignatiev, and Joao Marques-Silva. Distance-Restricted Explanations: Theoretical Underpinnings & Efficient implementation. In Proc. 21st Int. Conf. on Principles of Knowledge Representation and Reasoning (KR), pages 475–486, 2024.`
+- Parsed Ref. ID: 65
+	- Full reference: `[65] Helen Jin, Anton Xue, Weiqiu You, Surbhi Goel, and Eric Wong. Probabilistic Stability Guarantees for Feature Attributions. 2025. Technical Report. https://arXiv:2504.13787.`
+- Parsed Ref. ID: 66
+	- Full reference: `[66] Ahmet Kara, Dan Olteanu, and Dan Suciu. From Shapley Value to Model Counting and Back. In Proc. 2nd ACM on Management of Data (PACMMOD), pages 1–23, 2024.`
+- Parsed Ref. ID: 68
+	- Full reference: `[68] Pratik Karmakar, Mikaël Monet, Pierre Senellart, and Stéphane Bressan. Expected Shapleylike Scores of Boolean Functions: Complexity and Applications to Probabilistic Databases. In Proc. 2nd ACM on Management of Data (PACMMOD), pages 1–26, 2024.`
+- Parsed Ref. ID: 69
+	- Full reference: `[69] Guy Katz, Clark Barrett, David Dill, Kyle Julian, and Mykel J Kochenderfer. Reluplex: An Efficient SMT Solver for Verifying Deep Neural Networks. In Proc. 29th Int. Conf. on Computer Aided Verification (CAV), pages 97–117, 2017.`
+- Parsed Ref. ID: 75
+	- Full reference: `[75] Ester Livshits, Leopoldo Bertossi, Benny Kimelfeld, and Moshe Sebag. The Shapley Value of Tuples in Query Answering. Logical Methods in Computer Science, 2021.`
+- Parsed Ref. ID: 79
+	- Full reference: `[79] Joao Marques-Silva. Logic-based Explainability in Machine Learning. In Proc. 18th Int. Summer School of Reasoning Web. Causality, Explanations and Declarative Knowledge, pages 24–104, 2023.`
+- Parsed Ref. ID: 80
+	- Full reference: `[80] Joao Marques-Silva and Xuanxiang Huang. Explainability is NOT a Game. Communications of the ACM, pages 66–75, 2024.`
+- Parsed Ref. ID: 88
+	- Full reference: `[88] Maximilian Muschalik, Fabian Fumagalli, Paolo Frazzetto, Janine Strotherm, Luca Hermes, Alessandro Sperduti, Eyke Hüllermeier, and Barbara Hammer. Exact Computation of AnyOrder Shapley Interactions for Graph Neural Networks. In Proc. 13th Int. Conf. on Learning Representations (ICLR), 2025.`
+- Parsed Ref. ID: 92
+	- Full reference: `[92] Sebastian Ordyniak, Giacomo Paesani, and Stefan Szeider. The Parameterized Complexity of Finding Concise Local Explanations. In Proc. 32nd Int. Joint Conf. on Artificial Intelligence (IJCAI), pages 3312–3320, 2023.`
+- Parsed Ref. ID: 105
+	- Full reference: `[105] Mukund Sundararajan, Kedar Dhamdhere, and Ashish Agarwal. The Shapley Taylor Interaction Index. In Proc. 37th Int. Conf. on Machine Learning (ICML), pages 9259–9268, 2020.`
+- Parsed Ref. ID: 106
+	- Full reference: `[106] Muhammad Taufiq, Patrick Blöbaum, and Lenon Minorics. Manifold Restricted Interventional Shapley Values. In Proc. 26th Int. Conf. on Artificial Intelligence and Statistics (AISTATS), pages 5079–5106, 2023.`
+- Parsed Ref. ID: 108
+	- Full reference: `[108] Stephan Wäldchen, Jan Macdonald, Sascha Hauch, and Gitta Kutyniok. The Computational Complexity of Understanding Binary Classifier Decisions. Journal of Artificial Intelligence Research (JAIR), 70:351–387, 2021.`
+- Parsed Ref. ID: 109
+	- Full reference: `[109] Shiqi Wang, Huan Zhang, Kaidi Xu, Xue Lin, Suman Jana, Cho-Jui Hsieh, and J Zico Kolter. Beta-Crown: Efficient Bound Propagation with Per-Neuron Split Constraints for Neural Network Robustness Verification. In Proc. 35th Conf. on Neural Information Processing Systems (NeurIPS), pages 29909–29921, 2021.`
+- Parsed Ref. ID: 110
+	- Full reference: `[110] Haoze Wu, Omri Isac, Aleksandar Zelji´c, Teruhiro Tagomori, Matthew Daggitt, Wen Kokke, Idan Refaeli, Guy Amir, Kyle Julian, Shahaf Bassan, et al. Marabou 2.0: A Versatile Formal Analyzer of Neural Networks. In Proc. 36th Int. Conf. on Computer Aided Verification (CAV), pages 249–264, 2024.`
+- Parsed Ref. ID: 112
+	- Full reference: `[112] Anton Xue, Rajeev Alur, and Eric Wong. Stability Guarantees for Feature Attributions with Multiplicative Smoothing. Proc. 37th Conf. on Neural Information Processing Systems (NeurIPS), pages 62388–62413, 2023.`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Bassan S.: 11
+- Katz G.: 9
+- Marques-Silva J.: 8
+- Amir G.: 5
+- Monet M.: 5
+- Huang X.: 5
+- Bertossi L.: 4
+- Suciu D.: 4
+- Chen H.: 4
+- Lee S.: 4
+- Fumagalli F.: 4
+- Muschalik M.: 4
+- Hüllermeier E.: 4
+- Hammer B.: 4
+- Ignatiev A.: 4
+- Kara A.: 3
+- Olteanu D.: 3
+- Bounia L.: 3
+- Koriche F.: 3
+- Barceló P.: 3
+- Kimelfeld B.: 3
+- Lundberg S.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/24 SHAP Meets Tensor Networks/literature_validation_results_fig.jpg]]
+
+References section starts on page 10.
+
+- No link provided: $105/117=89.74\%$
+- Unchecked links: $0/117=0.00\%$
+- Valid links: $0/117=0.00\%$
+- Invalid link: $12/117=10.26\%$
+	- Invalid entries:
+		=> total = 12
+		- \[4\] Mazen Ali and Anthony Nouy. Approximation Theory of Tree Tensor Networks: Tensorized Multivariate Functions, 2024. Technical Report. https://arxiv.org/abs/2101.11932.
+			-> Returned with status code 404!
+		- \[10\] P Barceló, R Cominetti, and M Morgado. When is the Computation of a Feature Attribution Method Tractable? 2025. Technical Report. https://arXiv:2501.02356.
+			-> Link caused an exception!
+		- \[20\] Shahaf Bassan, Shlomit Gur, Sergey Zeltyn, Konstantinos Mavrogiorgos, Ron Eliav, and Dimosthenis Kyriazis. Self-Explaining Neural Networks for Business Process Monitoring. 2025. Technical Report. https://arXiv:2503.18067.
+			-> Link caused an exception!
+		- \[24\] Jacob Biamonte. Lectures on Quantum Tensor Networks. 2020. Technical Report. https://arxiv.org/abs/1912.10049.
+			-> Returned with status code 404!
+		- \[30\] Marco Calautti, Enrico Malizia, and Cristian Molinaro. On the Complexity of Global Necessary Reasons to Explain Classification. 2025. Technical Report. https://arXivpreprintarXiv:2501.06766.
+			-> Link caused an exception!
+		- \[41\] Matthieu Courbariaux, Itay Hubara, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio. Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1. Technical Report. https://arxiv.org/abs/1602.02830.
+			-> Returned with status code 404!
+		- \[65\] Helen Jin, Anton Xue, Weiqiu You, Surbhi Goel, and Eric Wong. Probabilistic Stability Guarantees for Feature Attributions. 2025. Technical Report. https://arXiv:2504.13787.
+			-> Link caused an exception!
+		- \[85\] Rory Mitchell, Eibe Frank, and Geoffrey Holmes. GPUTreeShap: Massively Parallel Exact Calculation of SHAP Scores for Tree Ensembles. arXiv preprint arXiv:2010.13972, 2020. Technical Report. https://arxiv.org/abs/2010.13972.
+			-> Returned with status code 404!
+		- \[94\] Vasily Pestun and Yiannis Vlassopoulos. Tensor Network Language Model, 2017. Technical Report. https://arxiv.org/abs/1710.10248.
+			-> Returned with status code 404!
+		- \[103\] Zhan Su, Yuqin Zhou, Fengran Mo, and Jakob Grue Simonsen. Language Modeling Using Tensor Trains, 2024. Technical Report. https://arxiv.org/abs/2405.04590.
+			-> Returned with status code 404!
+		- \[113\] Jilei Yang, Rui Zhang, Cong Li, Meng Zhang, Chao Zhang, Tao Zhang, and Chao Zhang. Fast TreeSHAP: Accelerating SHAP Value Computation for Trees. 2021. Technical Report. https://arxiv.org/abs/2109.09847.
+			-> Returned with status code 404!
+		- \[117\] Erik Štrumbelj and Igor Kononenko. Explaining Prediction Models and Individual Predictions with Feature Contributions. Knowledge and Information Systems, 41(3):647–665, 2014. NeurIPS Paper Checklist 1. Claims Question: Do the main claims made in the abstract and introduction accurately reflect the paper’s contributions and scope? Answer: \[Yes\] Justification: The abstract and introduction directly represent the proofs developed in this work. Guidelines: • The answer NA means that the abstract and introduction do not include the claims made in the paper. • The abstract and/or introduction should clearly state the claims made, including the contributions made in the paper and important assumptions and limitations. A No or NA answer to this question will not be perceived well by the reviewers. • The claims made should match theoretical and experimental results, and reflect how much the results can be expected to generalize to other settings. • It is fine to include aspirational goals as motivation as long as it is clear that these goals are not attained by the paper. 2. Limitations Question: Does the paper discuss the limitations of the work performed by the authors? Answer: \[Yes\] Justification: We provide a dedicated Limitations section. Guidelines: • The answer NA means that the paper has no limitation while the answer No means that the paper has limitations, but those are not discussed in the paper. • The authors are encouraged to create a separate "Limitations" section in their paper. • The paper should point out any strong assumptions and how robust the results are to violations of these assumptions (e.g., independence assumptions, noiseless settings, model well-specification, asymptotic approximations only holding locally). The authors should reflect on how these assumptions might be violated in practice and what the implications would be. • The authors should reflect on the scope of the claims made, e.g., if the approach was only tested on a few datasets or with a few runs. In general, empirical results often depend on implicit assumptions, which should be articulated. • The authors should reflect on the factors that influence the performance of the approach. For example, a facial recognition algorithm may perform poorly when image resolution is low or images are taken in low lighting. Or a speech-to-text system might not be used reliably to provide closed captions for online lectures because it fails to handle technical jargon. • The authors should discuss the computational efficiency of the proposed algorithms and how they scale with dataset size. • If applicable, the authors should discuss possible limitations of their approach to address problems of privacy and fairness. • While the authors might fear that complete honesty about limitations might be used by reviewers as grounds for rejection, a worse outcome might be that reviewers discover limitations that aren’t acknowledged in the paper. The authors should use their best judgment and recognize that individual actions in favor of transparency play an important role in developing norms that preserve the integrity of the community. Reviewers will be specifically instructed to not penalize honesty concerning limitations. 3. Theory assumptions and proofs Question: For each theoretical result, does the paper provide the full set of assumptions and a complete (and correct) proof? Answer: \[Yes\] Justification: Owing to space limitations, the main paper presents only a sketch of central proofs, with the complete versions of all proofs in the appendix. Guidelines: • The answer NA means that the paper does not include theoretical results. • All the theorems, formulas, and proofs in the paper should be numbered and crossreferenced. • All assumptions should be clearly stated or referenced in the statement of any theorems. • The proofs can either appear in the main paper or the supplemental material, but if they appear in the supplemental material, the authors are encouraged to provide a short proof sketch to provide intuition. • Inversely, any informal proof provided in the core of the paper should be complemented by formal proofs provided in appendix or supplemental material. • Theorems and Lemmas that the proof relies upon should be properly referenced. 4. Experimental result reproducibility Question: Does the paper fully disclose all the information needed to reproduce the main experimental results of the paper to the extent that it affects the main claims and/or conclusions of the paper (regardless of whether the code and data are provided or not)? Answer: \[NA\] . Justification: This is a theoretical work, so experimental reproducibility is not relevant. Guidelines: • The answer NA means that the paper does not include experiments. • If the paper includes experiments, a No answer to this question will not be perceived well by the reviewers: Making the paper reproducible is important, regardless of whether the code and data are provided or not. • If the contribution is a dataset and/or model, the authors should describe the steps taken to make their results reproducible or verifiable. • Depending on the contribution, reproducibility can be accomplished in various ways. For example, if the contribution is a novel architecture, describing the architecture fully might suffice, or if the contribution is a specific model and empirical evaluation, it may be necessary to either make it possible for others to replicate the model with the same dataset, or provide access to the model. In general. releasing code and data is often one good way to accomplish this, but reproducibility can also be provided via detailed instructions for how to replicate the results, access to a hosted model (e.g., in the case of a large language model), releasing of a model checkpoint, or other means that are appropriate to the research performed. • While NeurIPS does not require releasing code, the conference does require all submissions to provide some reasonable avenue for reproducibility, which may depend on the nature of the contribution. For example (a) If the contribution is primarily a new algorithm, the paper should make it clear how to reproduce that algorithm. (b) If the contribution is primarily a new model architecture, the paper should describe the architecture clearly and fully. (c) If the contribution is a new model (e.g., a large language model), then there should either be a way to access this model for reproducing the results or a way to reproduce the model (e.g., with an open-source dataset or instructions for how to construct the dataset). (d) We recognize that reproducibility may be tricky in some cases, in which case authors are welcome to describe the particular way they provide for reproducibility. In the case of closed-source models, it may be that access to the model is limited in some way (e.g., to registered users), but it should be possible for other researchers to have some path to reproducing or verifying the results. 5. Open access to data and code Question: Does the paper provide open access to the data and code, with sufficient instructions to faithfully reproduce the main experimental results, as described in supplemental material? Answer: \[NA\] . Justification: This is a theoretical work, so providing open access to data and code is not applicable. Guidelines: • The answer NA means that paper does not include experiments requiring code. • Please see the NeurIPS code and data submission guidelines (https://nips.cc/public/guides/CodeSubmissionPolicy) for more details.• While we encourage the release of code and data, we understand that this might not bepossible, so “No” is an acceptable answer. Papers cannot be rejected simply for notincluding code, unless this is central to the contribution (e.g., for a new open-sourcebenchmark).• The instructions should contain the exact command and environment needed to run toreproduce the results. See the NeurIPS code and data submission guidelines (https://nips.cc/public/guides/CodeSubmissionPolicy) for more details.• The authors should provide instructions on data access and preparation, including howto access the raw data, preprocessed data, intermediate data, and generated data, etc.• The authors should provide scripts to reproduce all experimental results for the newproposed method and baselines. If only a subset of experiments are reproducible, theyshould state which ones are omitted from the script and why.• At submission time, to preserve anonymity, the authors should release anonymizedversions (if applicable).• Providing as much information as possible in supplemental material (appended to thepaper) is recommended, but including URLs to data and code is permitted.6. Experimental setting/detailsQuestion: Does the paper specify all the training and test details (e.g., data splits, hyperparameters, how they were chosen, type of optimizer, etc.) necessary to understand theresults?Answer: \[NA\] .Justification: This is a theoretical work, and no hyperparameter details are needed.Guidelines:• The answer NA means that the paper does not include experiments.• The experimental setting should be presented in the core of the paper to a level of detailthat is necessary to appreciate the results and make sense of them.• The full details can be provided either with the code, in appendix, or as supplementalmaterial.7. Experiment statistical significanceQuestion: Does the paper report error bars suitably and correctly defined or other appropriateinformation about the statistical significance of the experiments?Answer: \[NA\] .Justification: This is a theoretical work, so such statistical tests are not required.Guidelines:• The answer NA means that the paper does not include experiments.• The authors should answer "Yes" if the results are accompanied by error bars, confidence intervals, or statistical significance tests, at least for the experiments that supportthe main claims of the paper.• The factors of variability that the error bars are capturing should be clearly stated (forexample, train/test split, initialization, random drawing of some parameter, or overallrun with given experimental conditions).• The method for calculating the error bars should be explained (closed form formula,call to a library function, bootstrap, etc.)• The assumptions made should be given (e.g., Normally distributed errors).• It should be clear whether the error bar is the standard deviation or the standard errorof the mean.• It is OK to report 1-sigma error bars, but one should state it. The authors shouldpreferably report a 2-sigma error bar than state that they have a 96% CI, if the hypothesisof Normality of errors is not verified.• For asymmetric distributions, the authors should be careful not to show in tables orfigures symmetric error bars that would yield results that are out of range (e.g. negativeerror rates).• If error bars are reported in tables or plots, The authors should explain in the text howthey were calculated and reference the corresponding figures or tables in the text.8. Experiments compute resourcesQuestion: For each experiment, does the paper provide sufficient information on the computer resources (type of compute workers, memory, time of execution) needed to reproducethe experiments?Answer: \[NA\] .Justification: This is a theoretical work, so no details on computational resources arerequired.Guidelines:• The answer NA means that the paper does not include experiments.• The paper should indicate the type of compute workers CPU or GPU, internal cluster,or cloud provider, including relevant memory and storage.• The paper should provide the amount of compute required for each of the individualexperimental runs as well as estimate the total compute.• The paper should disclose whether the full research project required more computethan the experiments reported in the paper (e.g., preliminary or failed experiments thatdidn’t make it into the paper).9. Code of ethicsQuestion: Does the research conducted in the paper conform, in every respect, with theNeurIPS Code of Ethics https://neurips.cc/public/EthicsGuidelines?Answer: \[Yes\] .Justification: We have read the NeurIPS Code of Ethics Guidelines and ensured that ourpaper fully complies with them.Guidelines:• The answer NA means that the authors have not reviewed the NeurIPS Code of Ethics.• If the authors answer No, they should explain the special circumstances that require adeviation from the Code of Ethics.• The authors should make sure to preserve anonymity (e.g., if there is a special consideration due to laws or regulations in their jurisdiction).10. Broader impactsQuestion: Does the paper discuss both potential positive societal impacts and negativesocietal impacts of the work performed?Answer: \[NA\] .Justification: While we recognize the potential social implications of interpretability, ourwork is primarily theoretical in nature and, as such, does not pose any direct social consequences.Guidelines:• The answer NA means that there is no societal impact of the work performed.• If the authors answer NA or No, they should explain why their work has no societalimpact or why the paper does not address societal impact.• Examples of negative societal impacts include potential malicious or unintended uses(e.g., disinformation, generating fake profiles, surveillance), fairness considerations(e.g., deployment of technologies that could make decisions that unfairly impact specificgroups), privacy considerations, and security considerations.• The conference expects that many papers will be foundational research and not tiedto particular applications, let alone deployments. However, if there is a direct path toany negative applications, the authors should point it out. For example, it is legitimateto point out that an improvement in the quality of generative models could be used togenerate deepfakes for disinformation. On the other hand, it is not needed to point outthat a generic algorithm for optimizing neural networks could enable people to trainmodels that generate Deepfakes faster.• The authors should consider possible harms that could arise when the technology isbeing used as intended and functioning correctly, harms that could arise when thetechnology is being used as intended but gives incorrect results, and harms followingfrom (intentional or unintentional) misuse of the technology.• If there are negative societal impacts, the authors could also discuss possible mitigationstrategies (e.g., gated release of models, providing defenses in addition to attacks,mechanisms for monitoring misuse, mechanisms to monitor how a system learns fromfeedback over time, improving the efficiency and accessibility of ML).11. SafeguardsQuestion: Does the paper describe safeguards that have been put in place for responsiblerelease of data or models that have a high risk for misuse (e.g., pretrained language models,image generators, or scraped datasets)?Answer: \[NA\] .Justification: Our work is theoretical; therefore, safeguards are not applicable.Guidelines:• The answer NA means that the paper poses no such risks.• Released models that have a high risk for misuse or dual-use should be released withnecessary safeguards to allow for controlled use of the model, for example by requiringthat users adhere to usage guidelines or restrictions to access the model or implementingsafety filters.• Datasets that have been scraped from the Internet could pose safety risks. The authorsshould describe how they avoided releasing unsafe images.• We recognize that providing effective safeguards is challenging, and many papers donot require this, but we encourage authors to take this into account and make a bestfaith effort.12. Licenses for existing assetsQuestion: Are the creators or original owners of assets (e.g., code, data, models), used inthe paper, properly credited and are the license and terms of use explicitly mentioned andproperly respected?Answer: \[NA\] .Justification: This work is theoretical; therefore, assets of this type are not relevant.Guidelines:• The answer NA means that the paper does not use existing assets.• The authors should cite the original paper that produced the code package or dataset.• The authors should state which version of the asset is used and, if possible, include aURL.• The name of the license (e.g., CC-BY 4.0) should be included for each asset.• For scraped data from a particular source (e.g., website), the copyright and terms ofservice of that source should be provided.• If assets are released, the license, copyright information, and terms of use in thepackage should be provided. For popular datasets, paperswithcode.com/datasetshas curated licenses for some datasets. Their licensing guide can help determine thelicense of a dataset.• For existing datasets that are re-packaged, both the original license and the license ofthe derived asset (if it has changed) should be provided.• If this information is not available online, the authors are encouraged to reach out tothe asset’s creators.13. New assetsQuestion: Are new assets introduced in the paper well documented and is the documentationprovided alongside the assets?Answer: \[NA\] .Justification: This work is theoretical; therefore, assets of this type are not relevant.Guidelines:• The answer NA means that the paper does not release new assets.• Researchers should communicate the details of the dataset/code/model as part of theirsubmissions via structured templates. This includes details about training, license,limitations, etc.• The paper should discuss whether and how consent was obtained from people whoseasset is used.• At submission time, remember to anonymize your assets (if applicable). You can eithercreate an anonymized URL or include an anonymized zip file.14. Crowdsourcing and research with human subjectsQuestion: For crowdsourcing experiments and research with human subjects, does the paperinclude the full text of instructions given to participants and screenshots, if applicable, aswell as details about compensation (if any)?Answer: \[NA\] .Justification: This work is theoretical; no such crowdsourcing experiments were conducted.Guidelines:• The answer NA means that the paper does not involve crowdsourcing nor research withhuman subjects.• Including this information in the supplemental material is fine, but if the main contribution of the paper involves human subjects, then as much detail as possible should beincluded in the main paper.• According to the NeurIPS Code of Ethics, workers involved in data collection, curation,or other labor should be paid at least the minimum wage in the country of the datacollector.15. Institutional review board (IRB) approvals or equivalent for research with humansubjectsQuestion: Does the paper describe potential risks incurred by study participants, whethersuch risks were disclosed to the subjects, and whether Institutional Review Board (IRB)approvals (or an equivalent approval/review based on the requirements of your country orinstitution) were obtained?Answer: \[NA\] .Justification: This work is theoretical; no such user study experiments were conducted.Guidelines:• The answer NA means that the paper does not involve crowdsourcing nor research withhuman subjects.• Depending on the country in which research is conducted, IRB approval (or equivalent)may be required for any human subjects research. If you obtained IRB approval, youshould clearly state this in the paper.• We recognize that the procedures for this may vary significantly between institutionsand locations, and we expect authors to adhere to the NeurIPS Code of Ethics and theguidelines for their institution.• For initial submissions, do not include any information that would break anonymity (ifapplicable), such as the institution conducting the review.16. Declaration of LLM usageQuestion: Does the paper describe the usage of LLMs if it is an important, original, ornon-standard component of the core methods in this research? Note that if the LLM is usedonly for writing, editing, or formatting purposes and does not impact the core methodology,scientific rigorousness, or originality of the research, declaration is not required.Answer: \[NA\] .Justification: This is a theoretical study and does not involve any non-standard use of LLMs.Guidelines:• The answer NA means that the core method development in this research does notinvolve LLMs as any important, original, or non-standard components.• Please refer to our LLM policy (https://neurips.cc/Conferences/2025/LLM)for what should or should not be described.AppendixThe appendix is organized as follows:Appendix A provides extended related work that is relevant to this work.Appendix B provides the technical background, including descriptions of the model families studiedin this work, as well as other technical tools — such as Copy Tensors and Layered DeterministicFinite Automata (LDFAs) — used in the proofs of various results presented in the paper.Appendix C provides proofs related to the exact SHAP computation for Tensor Networks witharbitrary structures, namely Proposition 1, Lemma 1, and Lemma 2.Appendix D provides the proof of the #P-Hardness of computing SHAP for general TNs (Proposition2), along with a proof of the NC complexity result for the case of TTs (Proposition 3).Appendix E presents the proof of Theorem 2, detailing the NC reductions from the SHAP computation problem for decision trees, tree ensembles, linear models, and linear RNNs to the correspondingSHAP problem for Tensor Trains (TTs).Appendix F provides proofs on the fine-grained analysis of BNNs and their connection to TNs(Theorem 3).A
+			-> Returned with status code 404!
+
+- Different links: $0/117=0.00\%$
+
+- Successful searches: $62/117=52.99\%$
+- Skipped searches: $0/117=0.00\%$
+- Mismatching infos: $34/117=29.06\%$
+	- **Entries with mismatching author information:**
+		=> total = 6
+		- `[3] Borja Aizpurua, Samuel Palmer, and Román Orús. Tensor Networks for Explainable Machine Learning in Cybersecurity. Neurocomputing, 639:130211, 2025.`
+			- Authors () did not match found publication titled 'Tensor Networks for Explainable Machine Learning in Cybersecurity'
+		- `[11] Pablo Barceló, Mikaël Monet, Jorge Pérez, and Bernardo Subercaseaux. Model Interpretability Through the Lens of Computational Complexity. In Proc. 34th Conf. on Neural Information Processing Systems (NeurIPS), pages 15487–15498, 2020.`
+			- Authors (Barcel'o, P'erez) did not match found publication titled 'Model Interpretability through the Lens of Computational Complexity'
+		- `[12] Pablo Barceló, Alexander Kozachinskiy, Miguel Romero, Bernardo Subsercaseaux, and José Verschae. Explaining k-Nearest Neighbors: Abductive and Counterfactual Explanations. In Proc. 3rd ACM on Management of Data, number 2, pages 1–26, 2025.`
+			- Authors (Barcel'o) did not match found publication titled 'Explaining k-Nearest Neighbors: Abductive and Counterfactual Explanations'
+		- `[32] Siu Lun Chau, Robert Hu, Javier Gonzalez, and Dino Sejdinovic. RKHS-SHAP: Shapley Values for Kernel Methods. Proc. of the 36th Conf. on Neural Information Processing Systems (NeurIPS), pages 13050–13063, 2022.`
+			- Authors () did not match found publication titled 'RKHS-SHAP: Shapley Values for Kernel Methods'
+		- `[77] Scott M. Lundberg, Gabriel G. Erion, Hugh Chen, Ankur De, Jonas J. Lee, Stephanie Mattox, Jared A. Harris, Karlina J. Grimsman, and et al. From Local Explanations to Global Understanding with Explainable AI for Trees. Nature Machine Intelligence, 2(1):56–67, 2020.`
+			- Authors (Erion-Barner, DeGrave, Prutkin, Nair, Katz, Himmelfarb, Bansal) did not match found publication titled 'From local explanations to global understanding with explainable AI for trees'
+		- `[113] Jilei Yang, Rui Zhang, Cong Li, Meng Zhang, Chao Zhang, Tao Zhang, and Chao Zhang. Fast TreeSHAP: Accelerating SHAP Value Computation for Trees. 2021. Technical Report. https://arxiv.org/abs/2109.09847.`
+			- Authors () did not match found publication titled 'Fast TreeSHAP: Accelerating SHAP Value Computation for Trees'
+	- **Entries with mismatching years (where the difference is > 1 year):**
+		=> total = 2
+		- `[37] Hugh Chen, Scott Lundberg, and Su-In Lee. Explaining Models by Propagating Shapley Values of Local Components. Explainable AI in Healthcare and Medicine: Building a Culture of Transparency and Accountability, pages 261–270, 2021.`
+			- Year (2019) does not match expected year (2021)
+		- `[75] Ester Livshits, Leopoldo Bertossi, Benny Kimelfeld, and Moshe Sebag. The Shapley Value of Tuples in Query Answering. Logical Methods in Computer Science, 2021.`
+			- Year (2019) does not match expected year (2021)
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 26
+		- `[1] Omer Abramovich, Daniel Deutch, Nave Frost, Ahmet Kara, and Dan Olteanu. Banzhaf Values for Facts in Query Answering. In Proc. 2nd ACM on Management of Data (PACMMOD), pages 1–26, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[9] Gilles Audemard, Steve Bellart, Louenas Bounia, Frédéric Koriche, Jean-Marie Lagniez, and Pierre Marquis. Trading Complexity for Sparsity in Random Forest Explanations. In Proc. 36th AAAI Conf. on Artificial Intelligence, pages 5461–5469, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[14] Shahaf Bassan and Guy Katz. Towards Formal XAI: Formally Approximate Minimal Explanations of Neural Networks. In Proc. 29th Int. Conf. on Tools and Algorithms for the Construction and Analysis of Systems (TACAS), pages 187–207, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[24] Jacob Biamonte. Lectures on Quantum Tensor Networks. 2020. Technical Report. https://arxiv.org/abs/1912.10049.`
+			- Year (2019) does not match expected year (2020)
+		- `[25] Gagan Biradar, Yacine Izza, Elita Lobo, Vignesh Viswanathan, and Yair Zick. Axiomatic Aggregations of Abductive Explanations. In Proc. of the 38th AAAI Conf. on Artificial Intelligence, number 10, pages 11096–11104, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[27] Sebastian Bordt and Ulrike von Luxburg. From Shapley values to Generalized Additive Models and Back. In Proc. 26th Int. Conf. on Artificial Intelligence and Statistics (AISTATS), pages 709–745. PMLR, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[35] Hao Chen and Thomas Barthel. Machine learning with tree tensor networks, cp rank constraints, and tensor dropout. IEEE Transactions on Pattern Analysis and Machine Intelligence, 46(12): 7825–7832, 2024. doi: 10.1109/TPAMI.2024.3396386.`
+			- Year (2023) does not match expected year (2024)
+		- `[36] Hao Chen and Thomas Barthel. Machine Learning With Tree Tensor Networks, CP Rank Constraints, and Tensor Dropout. IEEE Trans. Pattern Anal. Mach. Intell., 46(12):7825–7832, December 2024. ISSN 0162-8828.`
+			- Year (2023) does not match expected year (2024)
+		- `[40] Martin C Cooper and João Marques-Silva. Tractability of Explaining Classifier Decisions. Artificial Intelligence, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[42] Ian Covert and Su-In Lee. Improving KernelSHAP: Practical Shapley Value Estimation via Linear Regression. Proc. 24th Int. Conf. on Artificial Intelligence and Statistics (AISTATS), pages 1–9, 2021.`
+			- Year (2020) does not match expected year (2021)
+		- `[45] Daniel Deutch, Nave Frost, Benny Kimelfeld, and Mikaël Monet. Computing the Shapley Value of Facts in Query Answering. In Proc. Int. Conf. on Management of Data (MOD), pages 1570–1583, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[60] Alexey Ignatiev, Nina Narodytska, and Joao Marques-Silva. Abduction-based Explanations for Machine Learning Models. In Proc. 33rd AAAI Conf. on Artificial Intelligence, pages 1511–1519, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[66] Ahmet Kara, Dan Olteanu, and Dan Suciu. From Shapley Value to Model Counting and Back. In Proc. 2nd ACM on Management of Data (PACMMOD), pages 1–23, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[67] Ahmet Kara, Dan Olteanu, and Dan Suciu. From Shapley Value to Model Counting and Back. Proc. ACM Manag. Data, 2(2), May 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[79] Joao Marques-Silva. Logic-based Explainability in Machine Learning. In Proc. 18th Int. Summer School of Reasoning Web. Causality, Explanations and Declarative Knowledge, pages 24–104, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[80] Joao Marques-Silva and Xuanxiang Huang. Explainability is NOT a Game. Communications of the ACM, pages 66–75, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[81] Eric Martin and Chris Cundy. Parallelizing Linear Recurrent Neural Nets Over Sequence Length. In Proc. 6th Int. Conf. on Learning Representations (ICLR), 2018.`
+			- Year (2017) does not match expected year (2018)
+		- `[84] Jacob Miller, Guillaume Rabusseau, and John Terilla. Tensor Networks for Probabilistic Sequence Modeling. In Proc. 24th Int. Conf. on Artificial Intelligence and Statistics (AISTATS), pages 3079–3087, 2021.`
+			- Year (2020) does not match expected year (2021)
+		- `[86] Rory Mitchell, Joshua Cooper, Eibe Frank, and Geoffrey Holmes. Sampling Permutations for Shapley Value Estimation. Journal of Machine Learning Research (JMLR), 23(43):1–46, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[89] Christopher Musco and R. Teal Witter. Provably Accurate Shapley Value Estimation via Leverage Score Sampling. In Proc. 13th Int. Conf. on Learning Representations (ICLR), 2025.`
+			- Year (2024) does not match expected year (2025)
+		- `[95] Guillaume Rabusseau, Tianyu Li, and Doina Precup. Connecting Weighted Automata and Recurrent Neural Networks through Spectral Learning. In Proc. 22nd Int. Conf. on Artificial Intelligence and Statistics (AISTATS), pages 1630–1639, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[98] Cynthia Rudin. Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead. Nature Machine Intelligence, 1(5):206–215, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[100] Dylan Slack, Sophie Hilgard, Emily Jia, Sameer Singh, and Himabindu Lakkaraju. Fooling LIME and SHAP: Adversarial Attacks on Post Hoc Explanation Methods. In Proc. AAAI/ACM Conference on AI, Ethics, and Society (AIES), pages 180–186, 2020.`
+			- Year (2019) does not match expected year (2020)
+		- `[105] Mukund Sundararajan, Kedar Dhamdhere, and Ashish Agarwal. The Shapley Taylor Interaction Index. In Proc. 37th Int. Conf. on Machine Learning (ICML), pages 9259–9268, 2020.`
+			- Year (2019) does not match expected year (2020)
+		- `[107] Guy Van den Broeck, Anton Lykov, Maximilian Schleich, and Dan Suciu. On the Tractability of SHAP Explanations. Journal of Artificial Intelligence Research (JAIR), 72:861–886, 2021.`
+			- Year (2020) does not match expected year (2021)
+		- `[114] Jinqiang Yu, Graham Farr, Alexey Ignatiev, and Peter J Stuckey. Anytime Approximate Formal Feature Attribution. In Proc. 27th Int. Conf. on Theory and Applications of Satisfiability Testing (SAT), pages 30–1, 2024.`
+			- Year (2023) does not match expected year (2024)
+- No entry found: $21/117=17.95\%$
+	- Unfound entries:
+		=> total = 21
+		- \[4\] Mazen Ali and Anthony Nouy. Approximation Theory of Tree Tensor Networks: Tensorized Multivariate Functions, 2024. Technical Report. https://arxiv.org/abs/2101.11932.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[6\] Marcelo Arenas, Pablo Barcelo, Leopoldo Bertossi, and Mikael Monet. On the Complexity of SHAP-Score-Based Explanations: Tractability via Knowledge Compilation and NonApproximability Results. Journal of Machine Learning Research (JMLR), 24(63):1–58, 2023.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[10\] P Barceló, R Cominetti, and M Morgado. When is the Computation of a Feature Attribution Method Tractable? 2025. Technical Report. https://arXiv:2501.02356.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[13\] Clark Barrett and Cesare Tinelli. Satisfiability Modulo Theories. Handbook of model checking, 2018.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[16\] Shahaf Bassan, Guy Amir, and Guy Katz. Local vs. Global Interpretability: A Computational Complexity Perspective. In Proc. 41st Int. Conf. on Machine Learning (ICML), 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[17\] Shahaf Bassan, Guy Amir, Meirav Zehavi, and Guy Katz. What makes an Ensemble (Un) Interpretable? In Proc. 42nd Int. Conf. on Machine Learning (ICML), 2025.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[34\] Cong Chen, Kim Batselier, and Ngai Wong. Chapter 8 - Tensor Network Algorithms for Image Classification. In Yipeng Liu, editor, Tensors for Data Processing, pages 249–291. Academic Press, 2022.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[41\] Matthieu Courbariaux, Itay Hubara, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio. Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1. Technical Report. https://arxiv.org/abs/1602.02830.
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[46\] Rodney G Downey and Michael Ralph Fellows. Parameterized complexity. Springer Science & Business Media, 2012.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[51\] Fabian Fumagalli, Maximilian Muschalik, Patrick Kolpaczki, Eyke Hüllermeier, and Barbara Hammer. KernelSHAP-IQ: Weighted Least Square Optimization for Shapley Interactions. In Proc. 41st Int. Conf. on Machine Learning (ICML), pages 14308–14342, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[52\] Ivan Glasser, Ryan Sweke, Nicola Pancotti, Jens Eisert, and Ignacio Cirac. Expressive Power of Tensor-Network Factorizations for Probabilistic Modeling. In Proc. 33rd Conf. on Neural Information Processing Systems (NeurIPS), 2019.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[56\] John E. Hopcroft, Rajeev Motwani, and Jeffrey D. Ullman. Introduction to Automata Theory, Languages, and Computation. 2006.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[62\] Dominik Janzing, Lenon Minorics, and Patrick Blöbaum. Feature Relevance Quantification in Explainable AI: A causal Problem. In Proc. 23rd Int. Conf. on Artificial Intelligence and Statistics (AISTATS), pages 2907–2916, 2020.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[68\] Pratik Karmakar, Mikaël Monet, Pierre Senellart, and Stéphane Bressan. Expected Shapleylike Scores of Boolean Functions: Complexity and Applications to Probabilistic Databases. In Proc. 2nd ACM on Management of Data (PACMMOD), pages 1–26, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[88\] Maximilian Muschalik, Fabian Fumagalli, Paolo Frazzetto, Janine Strotherm, Luca Hermes, Alessandro Sperduti, Eyke Hüllermeier, and Barbara Hammer. Exact Computation of AnyOrder Shapley Interactions for Graph Neural Networks. In Proc. 13th Int. Conf. on Learning Representations (ICLR), 2025.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[93\] V. Oseledets, I.˙Tensor-Train Decomposition. SIAM Journal on Scientific Computing, 33(5): 2295–2317, 2011.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[94\] Vasily Pestun and Yiannis Vlassopoulos. Tensor Network Language Model, 2017. Technical Report. https://arxiv.org/abs/1710.10248.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[101\] Mihail Stoian, Richard Milbradt, and Christian Mendl. NP-Hardness of Optimal TensorNetwork Contraction and Polynomial-Time Algorithms for Tree Tensor Networks. Quantum, 6:e119, 2022.==
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[103\] Zhan Su, Yuqin Zhou, Fengran Mo, and Jakob Grue Simonsen. Language Modeling Using Tensor Trains, 2024. Technical Report. https://arxiv.org/abs/2405.04590.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[110\] Haoze Wu, Omri Isac, Aleksandar Zelji´c, Teruhiro Tagomori, Matthew Daggitt, Wen Kokke, Idan Refaeli, Guy Amir, Kyle Julian, Shahaf Bassan, et al. Marabou 2.0: A Versatile Formal Analyzer of Neural Networks. In Proc. 36th Int. Conf. on Computer Aided Verification (CAV), pages 249–264, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[111\] Jianyu Xu, Wei Li, and Ming Zhao. Complexity of Optimal Tensor Network Contraction Sequences. Journal of Computational Physics, 480:112237, 2023.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/24 SHAP Meets Tensor Networks/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- International Conference on Learning Representations
+	- Parsed as: Proc.  13th Int.  Conf.  on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 5
+- ACM Special Interest Group on Management of Data Conference
+	- Parsed as: Proc.  2nd ACM on Management of Data
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  34th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- International Conference on Machine Learning
+	- Parsed as: Proc.  37th Int.  Conf.  on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  37th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- International Conference on Artificial Intelligence and Statistics
+	- Parsed as: Proc.  24th Int.  Conf.  on Artificial Intelligence and Statistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 2
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  36th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- Nature Machine Intelligence
+	- Parsed as: Nature Machine Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 23.4
+	- References literatures count from this outlet: 2
+- International Conference on Artificial Intelligence and Statistics
+	- Parsed as: Proc.  26th Int.  Conf.  on Artificial Intelligence and Statistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 2
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  35th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- JOURNAL OF MACHINE LEARNING RESEARCH
+	- Parsed as: Journal of Machine Learning Research
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 5.0
+	- References literatures count from this outlet: 2
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  33rd Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- JOURNAL OF ARTIFICIAL INTELLIGENCE RESEARCH
+	- Parsed as: Journal of Artificial Intelligence Research
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.9
+	- References literatures count from this outlet: 2
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proc.  36th AAAI Conf.  on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- Business & Information Systems Engineering
+	- Parsed as: Business & Information Systems Engineering
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 9.5
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: Proc.  6th Int.  Conf.  on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Proc 39th AAAI Conf on Artificial Intelligence, number 17
+	- References literatures count from this outlet: 1
+- Phys.  Rev.  B
+	- References literatures count from this outlet: 1
+- Computer Aided Verification
+	- Parsed as: Proc.  29th Int.  Conf.  on Computer Aided Verification
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Logical Methods in Computer Science
+	- Parsed as: Logical Methods in Computer Science
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 0.9
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  31st Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: Proc.  9th Int.  Conf.  on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Proc ACM Manag Data,
+	- References literatures count from this outlet: 1
+- Proc 18th Int Summer School of Reasoning Web Causality, Explanations and Declarative Knowledge
+	- References literatures count from this outlet: 1
+- COMMUNICATIONS OF THE ACM
+	- Parsed as: Communications of the ACM
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 12.0
+	- References literatures count from this outlet: 1
+- Frontiers in Applied Mathematics and Statistics
+	- Parsed as: Frontiers in Applied Mathematics and Statistics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 1.4
+	- References literatures count from this outlet: 1
+- Proc 38th AAAI Conf on Artificial Intelligence, number 13
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Proc.  of the 41st Int.  Conf.  on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Proc.  Int.  Conf.  on Medical Imaging with Deep Learning
+	- References literatures count from this outlet: 1
+- Proceedings of the AAAI Conference on Artifical Intelligence (AAAI)
+	- Parsed as: Proc of the AAAI Conf on Artificial Intelligence, number 9
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- References literatures count from this outlet: 1
+- International Conference on the Theory and Applications of Satisfiability Testing
+	- Parsed as: Proc.  27th Int.  Conf.  on Theory and Applications of Satisfiability Testing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- JOURNAL OF COMPUTATIONAL PHYSICS
+	- Parsed as: Journal of Computational Physics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.3
+	- References literatures count from this outlet: 1
+- Computer Aided Verification
+	- Parsed as: 0: A Versatile Formal Analyzer of Neural Networks.  In Proc.  36th Int.  Conf.  on Computer Aided Verification
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  30th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- PROGRESS IN QUANTUM ELECTRONICS
+	- Parsed as: Quantum
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = C
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 12.4
+	- References literatures count from this outlet: 1
+- AAAI/ACM Conference on AI, Ethics, and Society
+	- Parsed as: Proc AAAI/ACM Conference on AI, Ethics, and Society
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = C
+	- References literatures count from this outlet: 1
+- Phys.  Rev.  Res.
+	- References literatures count from this outlet: 1
+- International Conference on Artificial Intelligence and Statistics
+	- Parsed as: Proc.  28th Int.  Conf.  on Artificial Intelligence and Statistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- ACM COMPUTING SURVEYS
+	- Parsed as: Computing
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 27.6
+	- References literatures count from this outlet: 1
+- International Conference on Artificial Intelligence and Statistics
+	- Parsed as: Proc.  22nd Int.  Conf.  on Artificial Intelligence and Statistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- International Joint Conference on Artificial Intelligence
+	- Parsed as: Proc.  32nd Int.  Joint Conf.  on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Conference in Uncertainty in Artificial Intelligence
+	- Parsed as: Proc.  37th Conf.  on Uncertainty in Artificial Intelligence
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  29th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on the Principles of Knowledge Representation and Reasoning
+	- Parsed as: Proc.  21st Int.  Conf.  on Principles of Knowledge Representation and Reasoning
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- arXiv
+	- References literatures count from this outlet: 1
+- International Conference on Artificial Intelligence and Statistics
+	- Parsed as: Proc.  23rd Int.  Conf.  on Artificial Intelligence and Statistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Scientific Reports
+	- Parsed as: Scientific Reports
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.7
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proc.  33rd AAAI Conf.  on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Joint Conference on Artificial Intelligence
+	- Parsed as: Proc.  29th Int.  Joint Conf.  on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Journal of Innovative Computing Information and Control
+	- Parsed as: Information and Control
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = National Russia
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 0.7
+	- References literatures count from this outlet: 1
+- Proc of the 38th AAAI Conf on Artificial Intelligence, number 10
+	- References literatures count from this outlet: 1
+- ACM Sigmod Record
+	- References literatures count from this outlet: 1
+- Proc.  of the 4th Int.  Workshop on Data Management for End-to-End Machine Learning
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  39th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Proc.  42nd Int.  Conf.  on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: 42nd Int.  Conf.  on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Global Interpretability: A Computational Complexity Perspective.  In Proc.  41st Int.  Conf.  on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Formal Methods in Computer-Aided Design
+	- Parsed as: Proc.  23rd Conf.  on Formal Methods in Computer-Aided Design
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = B
+	- References literatures count from this outlet: 1
+- Tools and Algorithms for Construction and Analysis of Systems
+	- Parsed as: Proc.  29th Int.  Conf.  on Tools and Algorithms for the Construction and Analysis of Systems
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Handbook of model checking
+	- References literatures count from this outlet: 1
+- Proc 3rd ACM on Management of Data, number 2
+	- References literatures count from this outlet: 1
+- International Joint Conference on Artificial Intelligence
+	- Parsed as: Proc.  31st Int.  Joint Conf.  on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- European Conference on Artificial Intelligence
+	- Parsed as: Proc.  27th European Conf.  on Artificial Intelligence
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- NEUROCOMPUTING
+	- Parsed as: Neurocomputing
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 5.9
+	- References literatures count from this outlet: 1
+- Conference in Uncertainty in Artificial Intelligence
+	- Parsed as: Proc.  39th Conf.  on Uncertainty in Artificial Intelligence
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- COMPUTERS & OPERATIONS RESEARCH
+	- Parsed as: Computers & Operations Research
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.8
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Proc.  of the 36th Conf.  on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- European Conference on Artificial Intelligence
+	- Parsed as: Proc.  24th European Conf.  on Artifical Intelligence
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- International Joint Conference on Artificial Intelligence
+	- Parsed as: Proc.  of the 33rd Int.  Joint Conf.  on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Int.  Journal of Approximate Reasoning
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Proc.  41st Int.  Conf.  on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Access
+	- Parsed as: Ieee Access
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.2
+	- References literatures count from this outlet: 1
+- Springer Science & Business Media
+	- References literatures count from this outlet: 1
+- ACM Special Interest Group on Management of Data Conference
+	- Parsed as: Proc.  Int.  Conf.  on Management of Data
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Technical Report. 
+	- References literatures count from this outlet: 1
+- Yipeng Liu, editor, Tensors for Data Processing
+	- References literatures count from this outlet: 1
+- ARTIFICIAL INTELLIGENCE REVIEW
+	- Parsed as: Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 13.4
+	- References literatures count from this outlet: 1
+- Logic, Automata, and Computational Complexity: The Works of Stephen A  Cook
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Proc.  40th Int.  Conf.  on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Explainable AI in Healthcare and Medicine: Building a Culture of Transparency and Accountability
+	- References literatures count from this outlet: 1
+- IEEE Trans Pattern Anal Mach Intell ,
+	- References literatures count from this outlet: 1
+- IEEE Transactions on Pattern Analysis and Machine Intelligence, 46(12): 7825–7832
+	- References literatures count from this outlet: 1
+- KNOWLEDGE AND INFORMATION SYSTEMS
+	- Parsed as: Knowledge and Information Systems
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = C
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 2.9
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Omer Abramovich, Daniel Deutch, Nave Frost, Ahmet Kara, and Dan Olteanu*
+	- Normalized Authors: `['Abramovich O.', 'Deutch D.', 'Frost N.', 'Kara A.', 'Olteanu D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Banzhaf Values for Facts in Query Answering*
+	- Year: *2024*
+	- Outlet: *Proc.  2nd ACM on Management of Data*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Federico Adolfi, Martina Vilas, and Todd Wareham*
+	- Normalized Authors: `['Adolfi F.', 'Vilas M.', 'Wareham T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Computational Complexity of Circuit Discovery for Inner Interpretability*
+	- Year: *2025*
+	- Outlet: *Proc.  13th Int.  Conf.  on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Borja Aizpurua, Samuel Palmer, and Román Orús*
+	- Normalized Authors: `['Aizpurua B.', 'Palmer S.', 'Orús R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tensor Networks for Explainable Machine Learning in Cybersecurity*
+	- Year: *2025*
+	- Outlet: *Neurocomputing*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Tensor Networks for Explainable Machine Learning in Cybersecurity'*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Mazen Ali and Anthony Nouy*
+	- Normalized Authors: `['Ali M.', 'Nouy A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Approximation Theory of Tree Tensor Networks: Tensorized Multivariate Functions.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2101.11932.*
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Guy Amir, Shahaf Bassan, and Guy Katz*
+	- Normalized Authors: `['Amir G.', 'Bassan S.', 'Katz G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Hard to Explain: On the Computational Hardness of In-Distribution Model Interpretation*
+	- Year: *2024*
+	- Outlet: *Proc.  27th European Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Marcelo Arenas, Pablo Barcelo, Leopoldo Bertossi, and Mikael Monet*
+	- Normalized Authors: `['Arenas M.', 'Barcelo P.', 'Bertossi L.', 'Monet M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Complexity of SHAP-Score-Based Explanations: Tractability via Knowledge Compilation and NonApproximability Results*
+	- Year: *2023*
+	- Outlet: *Journal of Machine Learning Research*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Sanjeev Arora and Boaz Barak*
+	- Normalized Authors: `['Arora S.', 'Barak B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Computational Complexity: A Modern Approach*
+	- Year: *2009*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Gilles Audemard, Steve Bellart, Louenas Bounia, Frédéric Koriche, Jean-Marie Lagniez, and Pierre Marquis*
+	- Normalized Authors: `['Audemard G.', 'Bellart S.', 'Bounia L.', 'Koriche F.', 'Lagniez J.', 'Marquis P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On Preferred Abductive Explanations for Decision Trees and Random Forests*
+	- Year: *2022*
+	- Outlet: *Proc.  31st Int.  Joint Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Gilles Audemard, Steve Bellart, Louenas Bounia, Frédéric Koriche, Jean-Marie Lagniez, and Pierre Marquis*
+	- Normalized Authors: `['Audemard G.', 'Bellart S.', 'Bounia L.', 'Koriche F.', 'Lagniez J.', 'Marquis P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Trading Complexity for Sparsity in Random Forest Explanations*
+	- Year: *2022*
+	- Outlet: *Proc.  36th AAAI Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *P Barceló, R Cominetti, and M Morgado*
+	- Normalized Authors: `['Barceló P.', 'Cominetti R.', 'Morgado M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *When is the Computation of a Feature Attribution Method Tractable?.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arXiv:2501.02356.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Pablo Barceló, Mikaël Monet, Jorge Pérez, and Bernardo Subercaseaux*
+	- Normalized Authors: `['Barceló P.', 'Monet M.', 'Pérez J.', 'Subercaseaux B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Model Interpretability Through the Lens of Computational Complexity*
+	- Year: *2020*
+	- Outlet: *Proc.  34th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Barcel'o, P'erez) did not match found publication titled 'Model Interpretability through the Lens of Computational Complexity'*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Pablo Barceló, Alexander Kozachinskiy, Miguel Romero, Bernardo Subsercaseaux, and José Verschae*
+	- Normalized Authors: `['Barceló P.', 'Kozachinskiy A.', 'Romero M.', 'Subsercaseaux B.', 'Verschae J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explaining k-Nearest Neighbors: Abductive and Counterfactual Explanations*
+	- Year: *2025*
+	- Outlet: *Proc 3rd ACM on Management of Data, number 2*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Barcel'o) did not match found publication titled 'Explaining k-Nearest Neighbors: Abductive and Counterfactual Explanations'*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Clark Barrett and Cesare Tinelli*
+	- Normalized Authors: `['Barrett C.', 'Tinelli C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Satisfiability Modulo Theories*
+	- Year: *2018*
+	- Outlet: *Handbook of model checking*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Shahaf Bassan and Guy Katz*
+	- Normalized Authors: `['Bassan S.', 'Katz G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards Formal XAI: Formally Approximate Minimal Explanations of Neural Networks*
+	- Year: *2023*
+	- Outlet: *Proc.  29th Int.  Conf.  on Tools and Algorithms for the Construction and Analysis of Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Shahaf Bassan, Guy Amir, Davide Corsi, Idan Refaeli, and Guy Katz*
+	- Normalized Authors: `['Bassan S.', 'Amir G.', 'Corsi D.', 'Refaeli I.', 'Katz G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Formally Explaining Neural Networks within Reactive Systems*
+	- Year: *2023*
+	- Outlet: *Proc.  23rd Conf.  on Formal Methods in Computer-Aided Design*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Shahaf Bassan, Guy Amir, and Guy Katz*
+	- Normalized Authors: `['Bassan S.', 'Amir G.', 'Katz G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Local vs*
+	- Year: *2024*
+	- Outlet: *Global Interpretability: A Computational Complexity Perspective.  In Proc.  41st Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Shahaf Bassan, Guy Amir, Meirav Zehavi, and Guy Katz*
+	- Normalized Authors: `['Bassan S.', 'Amir G.', 'Zehavi M.', 'Katz G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *What makes an Ensemble (Un) Interpretable? In Proc*
+	- Year: *2025*
+	- Outlet: *42nd Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Shahaf Bassan, Yizhak Yisrael Elboher, Tobias Ladner, Matthias Althoff, and Guy Katz*
+	- Normalized Authors: `['Bassan S.', 'Elboher Y.', 'Ladner T.', 'Althoff M.', 'Katz G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explaining, Fast and Slow: Abstraction and Refinement of Provable Explanations*
+	- Year: *2025*
+	- Outlet: *Proc.  42nd Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Shahaf Bassan, Ron Eliav, and Shlomit Gur*
+	- Normalized Authors: `['Bassan S.', 'Eliav R.', 'Gur S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explain Yourself, Briefly! Self-Explaining Neural Networks with Concise Sufficient Reasons*
+	- Year: *2025*
+	- Outlet: *Proc.  13th Int.  Conf.  on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Shahaf Bassan, Shlomit Gur, Sergey Zeltyn, Konstantinos Mavrogiorgos, Ron Eliav, and Dimosthenis Kyriazis*
+	- Normalized Authors: `['Bassan S.', 'Gur S.', 'Zeltyn S.', 'Mavrogiorgos K.', 'Eliav R.', 'Kyriazis D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Self-Explaining Neural Networks for Business Process Monitoring*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arXiv:2503.18067.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Shahaf Bassan, Michal Moshkovitz, and Guy Katz*
+	- Normalized Authors: `['Bassan S.', 'Moshkovitz M.', 'Katz G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Additive Models Explained: A Computational Complexity Approach*
+	- Year: *2025*
+	- Outlet: *Proc.  39th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Leopoldo Bertossi, Jordan Li, Maximilian Schleich, Dan Suciu, and Zografoula Vagena*
+	- Normalized Authors: `['Bertossi L.', 'Li J.', 'Schleich M.', 'Suciu D.', 'Vagena Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Causality-based Explanation of Classification Outcomes*
+	- Year: *2020*
+	- Outlet: *Proc.  of the 4th Int.  Workshop on Data Management for End-to-End Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Leopoldo Bertossi, Benny Kimelfeld, Ester Livshits, and Mikaël Monet*
+	- Normalized Authors: `['Bertossi L.', 'Kimelfeld B.', 'Livshits E.', 'Monet M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Shapley Value in Database Management*
+	- Year: *2023*
+	- Outlet: *ACM Sigmod Record*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Jacob Biamonte*
+	- Normalized Authors: `['Biamonte J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Lectures on Quantum Tensor Networks*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1912.10049.*
+	- **Valid?**: *CHECK - Year (2019) does not match expected year (2020)*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Gagan Biradar, Yacine Izza, Elita Lobo, Vignesh Viswanathan, and Yair Zick*
+	- Normalized Authors: `['Biradar G.', 'Izza Y.', 'Lobo E.', 'Viswanathan V.', 'Zick Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Axiomatic Aggregations of Abductive Explanations*
+	- Year: *2024*
+	- Outlet: *Proc of the 38th AAAI Conf on Artificial Intelligence, number 10*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Guy Blanc, Jane Lange, and Li-Yang Tan*
+	- Normalized Authors: `['Blanc G.', 'Lange J.', 'Tan L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Provably Efficient, Succinct, and Precise Explanations*
+	- Year: *2021*
+	- Outlet: *Proc.  35th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Sebastian Bordt and Ulrike von Luxburg*
+	- Normalized Authors: `['Bordt S.', 'Luxburg U.']`
+	- Authors contain 'et al.': *False*
+	- Title: *From Shapley values to Generalized Additive Models and Back*
+	- Year: *2023*
+	- Outlet: *Proc.  26th Int.  Conf.  on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Allan Borodin, Joachim von zur Gathen, and John E  Hopcroft*
+	- Normalized Authors: `['Borodin A.', 'Gathen J.', 'Hopcroft J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fast Parallel Matrix and GCD Computations*
+	- Year: *1982*
+	- Outlet: *Information and Control*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Louenas Bounia and Frederic Koriche*
+	- Normalized Authors: `['Bounia L.', 'Koriche F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Approximating Probabilistic Explanations via Supermodular Minimization*
+	- Year: *2023*
+	- Outlet: *Proc.  39th Conf.  on Uncertainty in Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Marco Calautti, Enrico Malizia, and Cristian Molinaro*
+	- Normalized Authors: `['Calautti M.', 'Malizia E.', 'Molinaro C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Complexity of Global Necessary Reasons to Explain Classification*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arXivpreprintarXiv:2501.06766.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Javier Castro, Daniel Gómez, and Juan Tejada*
+	- Normalized Authors: `['Castro J.', 'Gómez D.', 'Tejada J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Polynomial Calculation of the Shapley Value Based on Sampling*
+	- Year: *2009*
+	- Outlet: *Computers & Operations Research*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Siu Lun Chau, Robert Hu, Javier Gonzalez, and Dino Sejdinovic*
+	- Normalized Authors: `['Chau S.', 'Hu R.', 'Gonzalez J.', 'Sejdinovic D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *RKHS-SHAP: Shapley Values for Kernel Methods*
+	- Year: *2022*
+	- Outlet: *Proc.  of the 36th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'RKHS-SHAP: Shapley Values for Kernel Methods'*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Siu Lun Chau, Krikamol Muandet, and Dino Sejdinovic*
+	- Normalized Authors: `['Chau S.', 'Muandet K.', 'Sejdinovic D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explaining the Uncertain: Stochastic Shapley Values for Gaussian Process Models*
+	- Year: *2023*
+	- Outlet: *Proc.  37th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Cong Chen, Kim Batselier, and Ngai Wong*
+	- Normalized Authors: `['Chen C.', 'Batselier K.', 'Wong N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Chapter 8 - Tensor Network Algorithms for Image Classification*
+	- Year: *2022*
+	- Outlet: *Yipeng Liu, editor, Tensors for Data Processing*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Hao Chen and Thomas Barthel*
+	- Normalized Authors: `['Chen H.', 'Barthel T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Machine learning with tree tensor networks, cp rank constraints, and tensor dropout*
+	- Year: *2024*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence, 46(12): 7825–7832*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Hao Chen and Thomas Barthel*
+	- Normalized Authors: `['Chen H.', 'Barthel T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Machine Learning With Tree Tensor Networks, CP Rank Constraints, and Tensor Dropout*
+	- Year: *2024*
+	- Outlet: *IEEE Trans Pattern Anal Mach Intell ,*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Hugh Chen, Scott Lundberg, and Su-In Lee*
+	- Normalized Authors: `['Chen H.', 'Lundberg S.', 'Lee S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explaining Models by Propagating Shapley Values of Local Components*
+	- Year: *2021*
+	- Outlet: *Explainable AI in Healthcare and Medicine: Building a Culture of Transparency and Accountability*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2019) does not match expected year (2021)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Lu Chen, Siyu Lou, Keyan Zhang, Jin Huang, and Quanshi Zhang*
+	- Normalized Authors: `['Chen L.', 'Lou S.', 'Zhang K.', 'Huang J.', 'Zhang Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *HarsanyiNet: Computing Accurate Shapley Values in a Single Forward Propagation*
+	- Year: *2023*
+	- Outlet: *Proc.  40th Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Stephen A Cook*
+	- Normalized Authors: `['Cook S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards a Complexity Theory of Synchronous Parallel Computation*
+	- Year: *2023*
+	- Outlet: *Logic, Automata, and Computational Complexity: The Works of Stephen A  Cook*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Martin C Cooper and João Marques-Silva*
+	- Normalized Authors: `['Cooper M.', 'Marques-Silva J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tractability of Explaining Classifier Decisions*
+	- Year: *2023*
+	- Outlet: *Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Matthieu Courbariaux, Itay Hubara, Daniel Soudry, Ran El-Yaniv, and Yoshua Bengio*
+	- Normalized Authors: `['Courbariaux M.', 'Hubara I.', 'Soudry D.', 'El-Yaniv R.', 'Bengio Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Binarized Neural Networks: Training Deep Neural Networks with Weights and Activations Constrained to +1 or -1*
+	- Year: *0*
+	- Outlet: *Technical Report. *
+	- Link: *https://arxiv.org/abs/1602.02830.*
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Ian Covert and Su-In Lee*
+	- Normalized Authors: `['Covert I.', 'Lee S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Improving KernelSHAP: Practical Shapley Value Estimation via Linear Regression*
+	- Year: *2021*
+	- Outlet: *Proc.  24th Int.  Conf.  on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Adnan Darwiche and Auguste Hirth*
+	- Normalized Authors: `['Darwiche A.', 'Hirth A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Reasons Behind Decisions*
+	- Year: *2020*
+	- Outlet: *Proc.  24th European Conf.  on Artifical Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Adnan Darwiche and Chunxi Ji*
+	- Normalized Authors: `['Darwiche A.', 'Ji C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Computation of Necessary and Sufficient Explanations*
+	- Year: *2022*
+	- Outlet: *Proc.  36th AAAI Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Daniel Deutch, Nave Frost, Benny Kimelfeld, and Mikaël Monet*
+	- Normalized Authors: `['Deutch D.', 'Frost N.', 'Kimelfeld B.', 'Monet M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Computing the Shapley Value of Facts in Query Answering*
+	- Year: *2022*
+	- Outlet: *Proc.  Int.  Conf.  on Management of Data*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Rodney G Downey and Michael Ralph Fellows*
+	- Normalized Authors: `['Downey R.', 'Fellows M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Parameterized complexity*
+	- Year: *2012*
+	- Outlet: *Springer Science & Business Media*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *James Enouen and Yan Liu*
+	- Normalized Authors: `['Enouen J.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *InstaSHAP: Interpretable Additive Models Explain Shapley Values Instantly*
+	- Year: *2025*
+	- Outlet: *Proc.  13th Int.  Conf.  on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Jörg Flum and Martin Grohe*
+	- Normalized Authors: `['Flum J.', 'Grohe M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Parameterized Complexity Theory*
+	- Year: *2006*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Daniel Fryer, Inga Strümke, and Hien Nguyen*
+	- Normalized Authors: `['Fryer D.', 'Strümke I.', 'Nguyen H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Shapley Values for Feature Selection: The Good, the Bad, and the Axioms*
+	- Year: *2021*
+	- Outlet: *Ieee Access*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Fabian Fumagalli, Maximilian Muschalik, Patrick Kolpaczki, Eyke Hüllermeier, and Barbara Hammer*
+	- Normalized Authors: `['Fumagalli F.', 'Muschalik M.', 'Kolpaczki P.', 'Hüllermeier E.', 'Hammer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *SHAP-IQ: Unified Approximation of Any-Order Shapley Interactions*
+	- Year: *2023*
+	- Outlet: *Proc.  37th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Fabian Fumagalli, Maximilian Muschalik, Patrick Kolpaczki, Eyke Hüllermeier, and Barbara Hammer*
+	- Normalized Authors: `['Fumagalli F.', 'Muschalik M.', 'Kolpaczki P.', 'Hüllermeier E.', 'Hammer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *KernelSHAP-IQ: Weighted Least Square Optimization for Shapley Interactions*
+	- Year: *2024*
+	- Outlet: *Proc.  41st Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Ivan Glasser, Ryan Sweke, Nicola Pancotti, Jens Eisert, and Ignacio Cirac*
+	- Normalized Authors: `['Glasser I.', 'Sweke R.', 'Pancotti N.', 'Eisert J.', 'Cirac I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Expressive Power of Tensor-Network Factorizations for Probabilistic Modeling*
+	- Year: *2019*
+	- Outlet: *Proc.  33rd Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Carys Harvey, Richie Yeung, and Konstantinos Meichanetzidis*
+	- Normalized Authors: `['Harvey C.', 'Yeung R.', 'Meichanetzidis K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sequence Processing with Quantum-Inspired Tensor Networks*
+	- Year: *2025*
+	- Outlet: *Scientific Reports*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Kohei Hayashi, Taiki Yamaguchi, Yohei Sugawara, and Shin-ichi Maeda*
+	- Normalized Authors: `['Hayashi K.', 'Yamaguchi T.', 'Sugawara Y.', 'Maeda S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Exploring Unexplored Tensor Network Decompositions for Convolutional Neural Networks*
+	- Year: *2019*
+	- Outlet: *Proc.  33rd Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Tom Heskes, Evi Sijben, Ioan Gabriel Bucur, and Tom Claassen*
+	- Normalized Authors: `['Heskes T.', 'Sijben E.', 'Bucur I.', 'Claassen T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Causal Shapley Values: Exploiting Causal Knowledge to Explain Individual Predictions of Complex Models*
+	- Year: *2020*
+	- Outlet: *Proc.  34th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *John E  Hopcroft, Rajeev Motwani, and Jeffrey D  Ullman*
+	- Normalized Authors: `['Hopcroft J.', 'Motwani R.', 'Ullman J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Introduction to Automata Theory, Languages, and Computation*
+	- Year: *2006*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Xuanxiang Huang and Joao Marques-Silva*
+	- Normalized Authors: `['Huang X.', 'Marques-Silva J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Failings of Shapley Values for Explainability*
+	- Year: *2024*
+	- Outlet: *Int.  Journal of Approximate Reasoning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Xuanxiang Huang and Joao Marques-Silva*
+	- Normalized Authors: `['Huang X.', 'Marques-Silva J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Updates on the Complexity of SHAP Scores*
+	- Year: *2024*
+	- Outlet: *Proc.  of the 33rd Int.  Joint Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Alexey Ignatiev*
+	- Normalized Authors: `['Ignatiev A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards Trustable Explainable AI*
+	- Year: *2020*
+	- Outlet: *Proc.  29th Int.  Joint Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Alexey Ignatiev, Nina Narodytska, and Joao Marques-Silva*
+	- Normalized Authors: `['Ignatiev A.', 'Narodytska N.', 'Marques-Silva J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Abduction-based Explanations for Machine Learning Models*
+	- Year: *2019*
+	- Outlet: *Proc.  33rd AAAI Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Yacine Izza, Xuanxiang Huang, Antonio Morgado, Jordi Planes, Alexey Ignatiev, and Joao Marques-Silva*
+	- Normalized Authors: `['Izza Y.', 'Huang X.', 'Morgado A.', 'Planes J.', 'Ignatiev A.', 'Marques-Silva J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Distance-Restricted Explanations: Theoretical Underpinnings & Efficient implementation*
+	- Year: *2024*
+	- Outlet: *Proc.  21st Int.  Conf.  on Principles of Knowledge Representation and Reasoning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Dominik Janzing, Lenon Minorics, and Patrick Blöbaum*
+	- Normalized Authors: `['Janzing D.', 'Minorics L.', 'Blöbaum P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Feature Relevance Quantification in Explainable AI: A causal Problem*
+	- Year: *2020*
+	- Outlet: *Proc.  23rd Int.  Conf.  on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Neil Jethani, Mukund Sudarshan, Ian Connick Covert, Su-In Lee, and Rajesh Ranganath*
+	- Normalized Authors: `['Jethani N.', 'Sudarshan M.', 'Covert I.', 'Lee S.', 'Ranganath R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *FastSHAP: Real-time Shapley Value Estimation*
+	- Year: *2021*
+	- Outlet: *Proc.  9th Int.  Conf.  on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Kai Jia and Martin Rinard*
+	- Normalized Authors: `['Jia K.', 'Rinard M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Efficient Exact Verification of Binarized Neural Networks*
+	- Year: *2020*
+	- Outlet: *Proc.  34th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Helen Jin, Anton Xue, Weiqiu You, Surbhi Goel, and Eric Wong*
+	- Normalized Authors: `['Jin H.', 'Xue A.', 'You W.', 'Goel S.', 'Wong E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Probabilistic Stability Guarantees for Feature Attributions*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arXiv:2504.13787.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Ahmet Kara, Dan Olteanu, and Dan Suciu*
+	- Normalized Authors: `['Kara A.', 'Olteanu D.', 'Suciu D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *From Shapley Value to Model Counting and Back*
+	- Year: *2024*
+	- Outlet: *Proc.  2nd ACM on Management of Data*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Ahmet Kara, Dan Olteanu, and Dan Suciu*
+	- Normalized Authors: `['Kara A.', 'Olteanu D.', 'Suciu D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *From Shapley Value to Model Counting and Back*
+	- Year: *2024*
+	- Outlet: *Proc ACM Manag Data,*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *Pratik Karmakar, Mikaël Monet, Pierre Senellart, and Stéphane Bressan*
+	- Normalized Authors: `['Karmakar P.', 'Monet M.', 'Senellart P.', 'Bressan S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Expected Shapleylike Scores of Boolean Functions: Complexity and Applications to Probabilistic Databases*
+	- Year: *2024*
+	- Outlet: *Proc.  2nd ACM on Management of Data*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 69:**
+	- Ref. ID: *69*
+	- Authors: *Guy Katz, Clark Barrett, David Dill, Kyle Julian, and Mykel J Kochenderfer*
+	- Normalized Authors: `['Katz G.', 'Barrett C.', 'Dill D.', 'Julian K.', 'Kochenderfer M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reluplex: An Efficient SMT Solver for Verifying Deep Neural Networks*
+	- Year: *2017*
+	- Outlet: *Proc.  29th Int.  Conf.  on Computer Aided Verification*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 70:**
+	- Ref. ID: *70*
+	- Authors: *Sven Kruschel, Nico Hambauer, Sven Weinzierl, Mathias Kraus, Sandra Zilker, and Patrick Zschech*
+	- Normalized Authors: `['Kruschel S.', 'Hambauer N.', 'Weinzierl S.', 'Kraus M.', 'Zilker S.', 'Zschech P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Challenging the Performance-Interpretability Trade-Off: An Evaluation of Interpretable Machine Learning Models*
+	- Year: *2025*
+	- Outlet: *Business & Information Systems Engineering*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 71:**
+	- Ref. ID: *71*
+	- Authors: *I Elizabeth Kumar, Suresh Venkatasubramanian, Carlos Scheidegger, and Sorelle Friedler*
+	- Normalized Authors: `['Kumar I.', 'Venkatasubramanian S.', 'Scheidegger C.', 'Friedler S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Problems with Shapley-Value-based Explanations as Feature Importance Measures*
+	- Year: *2020*
+	- Outlet: *Proc.  37th Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 72:**
+	- Ref. ID: *72*
+	- Authors: *Olivier Létoffé, Xuanxiang Huang, and Joao Marques-Silva*
+	- Normalized Authors: `['Létoffé O.', 'Huang X.', 'Marques-Silva J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards Trustable SHAP Scores*
+	- Year: *2025*
+	- Outlet: *Proc 39th AAAI Conf on Artificial Intelligence, number 17*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 73:**
+	- Ref. ID: *73*
+	- Authors: *Sujie Li, Feng Pan, Pengfei Zhou, and Pan Zhang*
+	- Normalized Authors: `['Li S.', 'Pan F.', 'Zhou P.', 'Zhang P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Boltzmann Machines as Two-Dimensional Tensor Networks*
+	- Year: *2021*
+	- Outlet: *Phys.  Rev.  B*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 74:**
+	- Ref. ID: *74*
+	- Authors: *Yuhan Liu, Xiao Zhang, Maciej Lewenstein, and Shi-Ju Ran*
+	- Normalized Authors: `['Liu Y.', 'Zhang X.', 'Lewenstein M.', 'Ran S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Entanglement-Based Feature Extraction by Tensor Network Machine Learning*
+	- Year: *2018*
+	- Outlet: *Frontiers in Applied Mathematics and Statistics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 75:**
+	- Ref. ID: *75*
+	- Authors: *Ester Livshits, Leopoldo Bertossi, Benny Kimelfeld, and Moshe Sebag*
+	- Normalized Authors: `['Livshits E.', 'Bertossi L.', 'Kimelfeld B.', 'Sebag M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Shapley Value of Tuples in Query Answering*
+	- Year: *2021*
+	- Outlet: *Logical Methods in Computer Science*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2019) does not match expected year (2021)*
+- **Number 76:**
+	- Ref. ID: *76*
+	- Authors: *Scott M  Lundberg and Su-In Lee*
+	- Normalized Authors: `['Lundberg S.', 'Lee S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A Unified Approach to Interpreting Model Predictions*
+	- Year: *2017*
+	- Outlet: *Proc.  31st Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 77:**
+	- Ref. ID: *77*
+	- Authors: *Scott M  Lundberg, Gabriel G  Erion, Hugh Chen, Ankur De, Jonas J  Lee, Stephanie Mattox, Jared A  Harris, Karlina J  Grimsman, and et al*
+	- Normalized Authors: `['Lundberg S.', 'Erion G.', 'Chen H.', 'De A.', 'Lee J.', 'Mattox S.', 'Harris J.', 'Grimsman K.']`
+	- Authors contain 'et al.': *True*
+	- Title: *From Local Explanations to Global Understanding with Explainable AI for Trees*
+	- Year: *2020*
+	- Outlet: *Nature Machine Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Erion-Barner, DeGrave, Prutkin, Nair, Katz, Himmelfarb, Bansal) did not match found publication titled 'From local explanations to global understanding with explainable AI for trees'*
+- **Number 78:**
+	- Ref. ID: *78*
+	- Authors: *Linjian Ma and Edgar Solomonik*
+	- Normalized Authors: `['Ma L.', 'Solomonik E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cost-Efficient Gaussian Tensor Network Embeddings for Tensor-Structured Inputs*
+	- Year: *2022*
+	- Outlet: *Proc.  36th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 79:**
+	- Ref. ID: *79*
+	- Authors: *Joao Marques-Silva*
+	- Normalized Authors: `['Marques-Silva J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Logic-based Explainability in Machine Learning*
+	- Year: *2023*
+	- Outlet: *Proc 18th Int Summer School of Reasoning Web Causality, Explanations and Declarative Knowledge*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 80:**
+	- Ref. ID: *80*
+	- Authors: *Joao Marques-Silva and Xuanxiang Huang*
+	- Normalized Authors: `['Marques-Silva J.', 'Huang X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explainability is NOT a Game*
+	- Year: *2024*
+	- Outlet: *Communications of the ACM*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 81:**
+	- Ref. ID: *81*
+	- Authors: *Eric Martin and Chris Cundy*
+	- Normalized Authors: `['Martin E.', 'Cundy C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Parallelizing Linear Recurrent Neural Nets Over Sequence Length*
+	- Year: *2018*
+	- Outlet: *Proc.  6th Int.  Conf.  on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2017) does not match expected year (2018)*
+- **Number 82:**
+	- Ref. ID: *82*
+	- Authors: *Reda Marzouk and Colin De La Higuera*
+	- Normalized Authors: `['Marzouk R.', 'Higuera C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Tractability of SHAP Explanations under Markovian Distributions*
+	- Year: *2024*
+	- Outlet: *Proc.  of the 41st Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 83:**
+	- Ref. ID: *83*
+	- Authors: *Reda Marzouk, Shahaf Bassan, Guy Katz, and De la Higuera*
+	- Normalized Authors: `['Marzouk R.', 'Bassan S.', 'Katz G.', 'Higuera D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Computational Tractability of the (Many) Shapley Values*
+	- Year: *2025*
+	- Outlet: *Proc.  28th Int.  Conf.  on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 84:**
+	- Ref. ID: *84*
+	- Authors: *Jacob Miller, Guillaume Rabusseau, and John Terilla*
+	- Normalized Authors: `['Miller J.', 'Rabusseau G.', 'Terilla J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tensor Networks for Probabilistic Sequence Modeling*
+	- Year: *2021*
+	- Outlet: *Proc.  24th Int.  Conf.  on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 85:**
+	- Ref. ID: *85*
+	- Authors: *Rory Mitchell, Eibe Frank, and Geoffrey Holmes*
+	- Normalized Authors: `['Mitchell R.', 'Frank E.', 'Holmes G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *GPUTreeShap: Massively Parallel Exact Calculation of SHAP Scores for Tree Ensembles*
+	- Year: *2020*
+	- Outlet: *arXiv*
+	- Link: *https://arxiv.org/abs/2010.13972.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 86:**
+	- Ref. ID: *86*
+	- Authors: *Rory Mitchell, Joshua Cooper, Eibe Frank, and Geoffrey Holmes*
+	- Normalized Authors: `['Mitchell R.', 'Cooper J.', 'Frank E.', 'Holmes G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sampling Permutations for Shapley Value Estimation*
+	- Year: *2022*
+	- Outlet: *Journal of Machine Learning Research*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 87:**
+	- Ref. ID: *87*
+	- Authors: *Maximilian Muschalik, Fabian Fumagalli, Barbara Hammer, and Eyke Hüllermeier*
+	- Normalized Authors: `['Muschalik M.', 'Fumagalli F.', 'Hammer B.', 'Hüllermeier E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Beyond TreeSHAP: Efficient Computation of Any-Order Shapley Interactions for Tree Ensembles*
+	- Year: *2024*
+	- Outlet: *Proc 38th AAAI Conf on Artificial Intelligence, number 13*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 88:**
+	- Ref. ID: *88*
+	- Authors: *Maximilian Muschalik, Fabian Fumagalli, Paolo Frazzetto, Janine Strotherm, Luca Hermes, Alessandro Sperduti, Eyke Hüllermeier, and Barbara Hammer*
+	- Normalized Authors: `['Muschalik M.', 'Fumagalli F.', 'Frazzetto P.', 'Strotherm J.', 'Hermes L.', 'Sperduti A.', 'Hüllermeier E.', 'Hammer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Exact Computation of AnyOrder Shapley Interactions for Graph Neural Networks*
+	- Year: *2025*
+	- Outlet: *Proc.  13th Int.  Conf.  on Learning Representations*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 89:**
+	- Ref. ID: *89*
+	- Authors: *Christopher Musco and R  Teal Witter*
+	- Normalized Authors: `['Musco C.', 'Witter R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Provably Accurate Shapley Value Estimation via Leverage Score Sampling*
+	- Year: *2025*
+	- Outlet: *Proc.  13th Int.  Conf.  on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 90:**
+	- Ref. ID: *90*
+	- Authors: *Alexander Novikov, Dmitrii Podoprikhin, Anton Osokin, and Dmitry P  Vetrov*
+	- Normalized Authors: `['Novikov A.', 'Podoprikhin D.', 'Osokin A.', 'Vetrov D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tensorizing Neural Networks*
+	- Year: *2015*
+	- Outlet: *Proc.  29th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 91:**
+	- Ref. ID: *91*
+	- Authors: *Georgii S Novikov, Maxim E Panov, and Ivan V Oseledets*
+	- Normalized Authors: `['Novikov G.', 'Panov M.', 'Oseledets I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tensor-Train Density Estimation*
+	- Year: *2021*
+	- Outlet: *Proc.  37th Conf.  on Uncertainty in Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 92:**
+	- Ref. ID: *92*
+	- Authors: *Sebastian Ordyniak, Giacomo Paesani, and Stefan Szeider*
+	- Normalized Authors: `['Ordyniak S.', 'Paesani G.', 'Szeider S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Parameterized Complexity of Finding Concise Local Explanations*
+	- Year: *2023*
+	- Outlet: *Proc.  32nd Int.  Joint Conf.  on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 93:**
+	- Ref. ID: *93*
+	- Authors: *V  Oseledets, I ˙Tensor-Train Decomposition*
+	- Normalized Authors: `['Oseledets V.', 'Decomposition I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *SIAM Journal on Scientific Computing, 33(5): 2295–2317.*
+	- Year: *2011*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 94:**
+	- Ref. ID: *94*
+	- Authors: *Vasily Pestun and Yiannis Vlassopoulos*
+	- Normalized Authors: `['Pestun V.', 'Vlassopoulos Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tensor Network Language Model.*
+	- Year: *2017*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1710.10248.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 95:**
+	- Ref. ID: *95*
+	- Authors: *Guillaume Rabusseau, Tianyu Li, and Doina Precup*
+	- Normalized Authors: `['Rabusseau G.', 'Li T.', 'Precup D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Connecting Weighted Automata and Recurrent Neural Networks through Spectral Learning*
+	- Year: *2019*
+	- Outlet: *Proc.  22nd Int.  Conf.  on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 96:**
+	- Ref. ID: *96*
+	- Authors: *Shi-Ju Ran and Gang Su*
+	- Normalized Authors: `['Ran S.', 'Su G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tensor Networks for Interpretable and Efficient Quantum-Inspired Machine Learning*
+	- Year: *2023*
+	- Outlet: *Computing*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 97:**
+	- Ref. ID: *97*
+	- Authors: *Martin Roa-Villescas, Xuanzhao Gao, Sander Stuijk, Henk Corporaal, and Jin-Guo Liu*
+	- Normalized Authors: `['Roa-Villescas M.', 'Gao X.', 'Stuijk S.', 'Corporaal H.', 'Liu J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Probabilistic Inference in the Era of Tensor Networks and Differential Programming*
+	- Year: *2024*
+	- Outlet: *Phys.  Rev.  Res.*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 98:**
+	- Ref. ID: *98*
+	- Authors: *Cynthia Rudin*
+	- Normalized Authors: `['Rudin C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead*
+	- Year: *2019*
+	- Outlet: *Nature Machine Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 99:**
+	- Ref. ID: *99*
+	- Authors: *Raghavendra Selvan and Erik B  Dam*
+	- Normalized Authors: `['Selvan R.', 'Dam E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tensor Networks for Medical Image Classification*
+	- Year: *2020*
+	- Outlet: *Proc.  Int.  Conf.  on Medical Imaging with Deep Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 100:**
+	- Ref. ID: *100*
+	- Authors: *Dylan Slack, Sophie Hilgard, Emily Jia, Sameer Singh, and Himabindu Lakkaraju*
+	- Normalized Authors: `['Slack D.', 'Hilgard S.', 'Jia E.', 'Singh S.', 'Lakkaraju H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fooling LIME and SHAP: Adversarial Attacks on Post Hoc Explanation Methods*
+	- Year: *2020*
+	- Outlet: *Proc AAAI/ACM Conference on AI, Ethics, and Society*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2019) does not match expected year (2020)*
+- **Number 101:**
+	- Ref. ID: *101*
+	- Authors: *Mihail Stoian, Richard Milbradt, and Christian Mendl*
+	- Normalized Authors: `['Stoian M.', 'Milbradt R.', 'Mendl C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *NP-Hardness of Optimal TensorNetwork Contraction and Polynomial-Time Algorithms for Tree Tensor Networks*
+	- Year: *2022*
+	- Outlet: *Quantum*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 102:**
+	- Ref. ID: *102*
+	- Authors: *E  M  Stoudenmire and David J  Schwab*
+	- Normalized Authors: `['Stoudenmire E.', 'Schwab D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Supervised Learning with Tensor Networks*
+	- Year: *2016*
+	- Outlet: *Proc.  30th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 103:**
+	- Ref. ID: *103*
+	- Authors: *Zhan Su, Yuqin Zhou, Fengran Mo, and Jakob Grue Simonsen*
+	- Normalized Authors: `['Su Z.', 'Zhou Y.', 'Mo F.', 'Simonsen J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Language Modeling Using Tensor Trains.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2405.04590.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 104:**
+	- Ref. ID: *104*
+	- Authors: *Mukund Sundararajan and Amir Najmi*
+	- Normalized Authors: `['Sundararajan M.', 'Najmi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Many Shapley Values for Model Explanation*
+	- Year: *2019*
+	- Outlet: *Proc.  37th Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 105:**
+	- Ref. ID: *105*
+	- Authors: *Mukund Sundararajan, Kedar Dhamdhere, and Ashish Agarwal*
+	- Normalized Authors: `['Sundararajan M.', 'Dhamdhere K.', 'Agarwal A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Shapley Taylor Interaction Index*
+	- Year: *2020*
+	- Outlet: *Proc.  37th Int.  Conf.  on Machine Learning*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2019) does not match expected year (2020)*
+- **Number 106:**
+	- Ref. ID: *106*
+	- Authors: *Muhammad Taufiq, Patrick Blöbaum, and Lenon Minorics*
+	- Normalized Authors: `['Taufiq M.', 'Blöbaum P.', 'Minorics L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Manifold Restricted Interventional Shapley Values*
+	- Year: *2023*
+	- Outlet: *Proc.  26th Int.  Conf.  on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 107:**
+	- Ref. ID: *107*
+	- Authors: *Guy Van den Broeck, Anton Lykov, Maximilian Schleich, and Dan Suciu*
+	- Normalized Authors: `['Broeck G.', 'Lykov A.', 'Schleich M.', 'Suciu D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On the Tractability of SHAP Explanations*
+	- Year: *2021*
+	- Outlet: *Journal of Artificial Intelligence Research*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 108:**
+	- Ref. ID: *108*
+	- Authors: *Stephan Wäldchen, Jan Macdonald, Sascha Hauch, and Gitta Kutyniok*
+	- Normalized Authors: `['Wäldchen S.', 'Macdonald J.', 'Hauch S.', 'Kutyniok G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Computational Complexity of Understanding Binary Classifier Decisions*
+	- Year: *2021*
+	- Outlet: *Journal of Artificial Intelligence Research*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 109:**
+	- Ref. ID: *109*
+	- Authors: *Shiqi Wang, Huan Zhang, Kaidi Xu, Xue Lin, Suman Jana, Cho-Jui Hsieh, and J Zico Kolter*
+	- Normalized Authors: `['Wang S.', 'Zhang H.', 'Xu K.', 'Lin X.', 'Jana S.', 'Hsieh C.', 'Kolter J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Beta-Crown: Efficient Bound Propagation with Per-Neuron Split Constraints for Neural Network Robustness Verification*
+	- Year: *2021*
+	- Outlet: *Proc.  35th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 110:**
+	- Ref. ID: *110*
+	- Authors: *Haoze Wu, Omri Isac, Aleksandar Zelji´c, Teruhiro Tagomori, Matthew Daggitt, Wen Kokke, Idan Refaeli, Guy Amir, Kyle Julian, Shahaf Bassan, et al*
+	- Normalized Authors: `['Wu H.', 'Isac O.', 'Zelji´c A.', 'Tagomori T.', 'Daggitt M.', 'Kokke W.', 'Refaeli I.', 'Amir G.', 'Julian K.', 'Bassan S.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Marabou 2*
+	- Year: *2024*
+	- Outlet: *0: A Versatile Formal Analyzer of Neural Networks.  In Proc.  36th Int.  Conf.  on Computer Aided Verification*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 111:**
+	- Ref. ID: *111*
+	- Authors: *Jianyu Xu, Wei Li, and Ming Zhao*
+	- Normalized Authors: `['Xu J.', 'Li W.', 'Zhao M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Complexity of Optimal Tensor Network Contraction Sequences*
+	- Year: *2023*
+	- Outlet: *Journal of Computational Physics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 112:**
+	- Ref. ID: *112*
+	- Authors: *Anton Xue, Rajeev Alur, and Eric Wong*
+	- Normalized Authors: `['Xue A.', 'Alur R.', 'Wong E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Stability Guarantees for Feature Attributions with Multiplicative Smoothing*
+	- Year: *2023*
+	- Outlet: *Proc.  37th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 113:**
+	- Ref. ID: *113*
+	- Authors: *Jilei Yang, Rui Zhang, Cong Li, Meng Zhang, Chao Zhang, Tao Zhang, and Chao Zhang*
+	- Normalized Authors: `['Yang J.', 'Zhang R.', 'Li C.', 'Zhang M.', 'Zhang C.', 'Zhang T.', 'Zhang C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fast TreeSHAP: Accelerating SHAP Value Computation for Trees*
+	- Year: *2021*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2109.09847.*
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Fast TreeSHAP: Accelerating SHAP Value Computation for Trees'*
+- **Number 114:**
+	- Ref. ID: *114*
+	- Authors: *Jinqiang Yu, Graham Farr, Alexey Ignatiev, and Peter J Stuckey*
+	- Normalized Authors: `['Yu J.', 'Farr G.', 'Ignatiev A.', 'Stuckey P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Anytime Approximate Formal Feature Attribution*
+	- Year: *2024*
+	- Outlet: *Proc.  27th Int.  Conf.  on Theory and Applications of Satisfiability Testing*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 115:**
+	- Ref. ID: *115*
+	- Authors: *Peng Yu, Chao Xu, Albert Bifet, and Jesse Read*
+	- Normalized Authors: `['Yu P.', 'Xu C.', 'Bifet A.', 'Read J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Linear TreeSHAP*
+	- Year: *2022*
+	- Outlet: *Proc.  36th Conf.  on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 116:**
+	- Ref. ID: *116*
+	- Authors: *Artjom Zern, Klaus Broelemann, and Gjergji Kasneci*
+	- Normalized Authors: `['Zern A.', 'Broelemann K.', 'Kasneci G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Interventional SHAP Values and Interaction Values for Piecewise Linear Regression Trees*
+	- Year: *2023*
+	- Outlet: *Proc of the AAAI Conf on Artificial Intelligence, number 9*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 117:**
+	- Ref. ID: *117*
+	- Authors: *Erik Štrumbelj and Igor Kononenko*
+	- Normalized Authors: `['Štrumbelj E.', 'Kononenko I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explaining Prediction Models and Individual Predictions with Feature Contributions*
+	- Year: *2014*
+	- Outlet: *Knowledge and Information Systems*
+	- Link: *https://nips.cc/public/guides/CodeSubmissionPolicy)*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 24
+- '*We also acknowledge existing critiques of SHAP [71, 57, 100, 49, 25]; our goal is not to defend its axiomatic foundations but to analyze the complexity of a widely adopted explanation method*'
+	- This flag is for the paper with Ref. ID = 25
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 32
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 42
+- '*Exploring the complexity of obtaining alternative value function definitions [72], SHAP variants [83], or other attribution indices [10, 114] presents exciting directions for future work*'
+	- This flag is for the paper with Ref. ID = 114
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Second, the structured physics-inspired architecture of TNs enables the derivation of efficient, theoretically grounded solutions of XAI-related problems [74, 96, 3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Future research could extend our analysis to additional model classes, such as Tree Tensor Networks [35], SHAP variants [104], and relaxations or approximations that enhance tractability for even more expressive models than those studied here*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Following the line of work in [77, 6, 116, 67, 82, 83, 58] on tractable SHAP computation for simpler models, our main technical contributions are as follows: 1*'
+	- This flag is for the paper with Ref. ID = 67
+- '*Essentially, it leverages two facts: (i) the model counting problem is polynomially reducible to the SHAP problem [67]*'
+	- This flag is for the paper with Ref. ID = 67
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 86
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 89
+- '*We also acknowledge existing critiques of SHAP [71, 57, 100, 49, 25]; our goal is not to defend its axiomatic foundations but to analyze the complexity of a widely adopted explanation method*'
+	- This flag is for the paper with Ref. ID = 100
+- '*However, one of its main limitations lies in its computational intractability [22, 107, 83]*'
+	- This flag is for the paper with Ref. ID = 107
+- '*NP-Hardness results have unfortunately been shown to hold [107, 83]*'
+	- This flag is for the paper with Ref. ID = 107
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 113
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*TT contraction is a well-studied problem with efficient parallel algorithms that run in poly-logarithmic time [84, 81], typically using a parallel scan over adjacent tensors*'
+	- This flag is for the paper with Ref. ID = 81
+- '*Second, following [81], a parallel scan strategy will be applied to contract the resulting TT 7*'
+	- This flag is for the paper with Ref. ID = 81
+- '*First, TNs offer a powerful modeling framework with function approximation capabilities comparable to certain families of neural networks [4, 95]*'
+	- This flag is for the paper with Ref. ID = 95
+- '*What is the computational bottleneck of SHAP computation for neural networks? To the best of our knowledge, while prior work has established that computing SHAP for general neural networks is computationally hard [107, 83], our work presents the first fine-grained analysis of how different structural parameters influence this complexity*'
+	- This flag is for the paper with Ref. ID = 107
+- '*(ii) It demonstrates that Marginal SHAP can be computed under TT-based distributions - a class of distributions more expressive than those previously considered, englobing independent [6], empirical [107], Markovian [82], Hidden Markov distributions [83] and Born Machines [52]*'
+	- This flag is for the paper with Ref. ID = 107
+- '*We begin by noting that for a non-quantized neural network, even the seemingly simple case of a single sigmoid neuron with binary inputs has been shown to be intractable for SHAP computation [107, 83]*'
+	- This flag is for the paper with Ref. ID = 107
+- '*The first part follows from a direct reduction from 3SAT: any CNF formula can be encoded by a depth-2 BNN, and computing SHAP for CNF formulas is #P-Hard [107]*'
+	- This flag is for the paper with Ref. ID = 107
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*, snin) ∈[nin] × [2]⊗nin it holds that ˜ Wi,s1,*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Algorithm 1 The construction of the Marginal SHAP Tensor Input: Two TNs T M and T P Output: The Marginal SHAP Tensor T (M,P ) 1: Construct the modified Weighted Coalitional Tensor ˜ W (Lemma 1) 2: Construct the Marginal Value Tensor V(M,P ) (Lemma 2) 3: return ˜ W ×S V(M,P ) (Equation (12)) RD×2⊗nin×nout, such that ∀(x, s) ∈D × [2]⊗n it holds that V(M,P ) x,s,: def= VM(x, s; P)*'
+	- This flag is for the paper with Ref. ID = 2
+- '*, G(nin)K, where G(1) ∈Rnin×2×n2 in, G(i) ∈Rn2 i ×2×n2 i for any i ∈[2, nin −1], and G(nin) ∈Rn2 in×2*'
+	- This flag is for the paper with Ref. ID = 2
+- '*First, TNs offer a powerful modeling framework with function approximation capabilities comparable to certain families of neural networks [4, 95]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Following the line of work in [77, 6, 116, 67, 82, 83, 58] on tractable SHAP computation for simpler models, our main technical contributions are as follows: 1*'
+	- This flag is for the paper with Ref. ID = 6
+- '*(ii) It demonstrates that Marginal SHAP can be computed under TT-based distributions — a class of distributions more expressive than those previously considered, englobing independent [6], empirical [107], Markovian [82], Hidden Markov distributions [83] and Born Machines [52]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*We further analyze the complexity class #P, which captures the number of accepting paths of a nondeterministic polynomialtime Turing machine, and is generally regarded as significantly “harder” than NP [7]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*While NC ⊆P is known, it is widely believed that NC ⊊P [7]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*Exploring the complexity of obtaining alternative value function definitions [72], SHAP variants [83], or other attribution indices [10, 114] presents exciting directions for future work*'
+	- This flag is for the paper with Ref. ID = 10
+- '*However, one of its main limitations lies in its computational intractability [22, 107, 83]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*Leveraging this and the fact that matrix multiplication is in NC [28], we can prove the following: Proposition 3*'
+	- This flag is for the paper with Ref. ID = 28
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Moreover, we analyze the complexity class NC, which includes problems solvable in poly-logarithmic time using a polynomial number of parallel processors, typically on a Parallel Random Access Machine (PRAM) [39] (see the appendix for a full formalization)*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Formally, for an input vector x ∈{−1, +1}n, the output y ∈{−1, +1}m of a layer is computed as follows [41]: z = W · x + b, z′ = γ · z −µ σ + β, y = sign(z′), W ∈{−1, +1}m×n, b ∈Rm, and γ, β, µ, σ ∈Rm are the batch normalization parameters*'
+	- This flag is for the paper with Ref. ID = 41
+- '*Finally, through reductions from TTs, we reveal new complexity results for computing SHAP for BNNs via parameterized complexity [48, 46], a framework for assessing how structural parameters impact computational hardness*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Finally, our work also draws on concepts from parameterized complexity theory [46, 48]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*It is widely believed that FPT ⊊XP ⊊para-NP [46]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*We carry out this analysis using the framework of parameterized complexity [48, 46], a standard approach in complexity theory for understanding how various structural parameters influence computational hardness*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Finally, through reductions from TTs, we reveal new complexity results for computing SHAP for BNNs via parameterized complexity [48, 46], a framework for assessing how structural parameters impact computational hardness*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Finally, our work also draws on concepts from parameterized complexity theory [46, 48]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*We carry out this analysis using the framework of parameterized complexity [48, 46], a standard approach in complexity theory for understanding how various structural parameters influence computational hardness*'
+	- This flag is for the paper with Ref. ID = 48
+- '*We also acknowledge existing critiques of SHAP [71, 57, 100, 49, 25]; our goal is not to defend its axiomatic foundations but to analyze the complexity of a widely adopted explanation method*'
+	- This flag is for the paper with Ref. ID = 49
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 51
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 52
+- '*(ii) It demonstrates that Marginal SHAP can be computed under TT-based distributions — a class of distributions more expressive than those previously considered, englobing independent [6], empirical [107], Markovian [82], Hidden Markov distributions [83] and Born Machines [52]*'
+	- This flag is for the paper with Ref. ID = 52
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 54
+- '*We also acknowledge existing critiques of SHAP [71, 57, 100, 49, 25]; our goal is not to defend its axiomatic foundations but to analyze the complexity of a widely adopted explanation method*'
+	- This flag is for the paper with Ref. ID = 57
+- '*Following the line of work in [77, 6, 116, 67, 82, 83, 58] on tractable SHAP computation for simpler models, our main technical contributions are as follows: 1*'
+	- This flag is for the paper with Ref. ID = 58
+- '*We assume the common marginal (or interventional) value function: VM(x, S; P) := Ex′∼P h M  xS, x′ ¯S i [62, 104]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*In Section 6, we analyze how network sparsity affects the complexity of computing SHAP for BNNs, using the reified cardinality parameter from [64]*'
+	- This flag is for the paper with Ref. ID = 64
+- '*Jia and Rinard [64] showed that all BNNs can be expressed this way, and that constraining Ri during training improves formal verification efficiency*'
+	- This flag is for the paper with Ref. ID = 64
+- '*These two properties make TNs an interesting family of models that enjoy two arguably sought-after desiderata of ML models in the field of explainability: (i) high expressiveness; and (ii) enhanced transparency [98, 70]*'
+	- This flag is for the paper with Ref. ID = 70
+- '*We also acknowledge existing critiques of SHAP [71, 57, 100, 49, 25]; our goal is not to defend its axiomatic foundations but to analyze the complexity of a widely adopted explanation method*'
+	- This flag is for the paper with Ref. ID = 71
+- '*Exploring the complexity of obtaining alternative value function definitions [72], SHAP variants [83], or other attribution indices [10, 114] presents exciting directions for future work*'
+	- This flag is for the paper with Ref. ID = 72
+- '*The second and third parts rely on a more involved construction: converting a BNN into an equivalent Tensor Train (TT), inspired by [73]*'
+	- This flag is for the paper with Ref. ID = 73
+- '*Second, the structured physics-inspired architecture of TNs enables the derivation of efficient, theoretically grounded solutions of XAI-related problems [74, 96, 3]*'
+	- This flag is for the paper with Ref. ID = 74
+- '*1 Introduction Shapley additive explanations (SHAP) [76] represent a widely adopted method for obtaining posthoc explanations for decisions made by ML models*'
+	- This flag is for the paper with Ref. ID = 76
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 76
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 77
+- '*Following the line of work in [77, 6, 116, 67, 82, 83, 58] on tractable SHAP computation for simpler models, our main technical contributions are as follows: 1*'
+	- This flag is for the paper with Ref. ID = 77
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 78
+- '*Following the line of work in [77, 6, 116, 67, 82, 83, 58] on tractable SHAP computation for simpler models, our main technical contributions are as follows: 1*'
+	- This flag is for the paper with Ref. ID = 82
+- '*(ii) It demonstrates that Marginal SHAP can be computed under TT-based distributions — a class of distributions more expressive than those previously considered, englobing independent [6], empirical [107], Markovian [82], Hidden Markov distributions [83] and Born Machines [52]*'
+	- This flag is for the paper with Ref. ID = 82
+- '*However, one of its main limitations lies in its computational intractability [22, 107, 83]*'
+	- This flag is for the paper with Ref. ID = 83
+- '*NP-Hardness results have unfortunately been shown to hold [107, 83]*'
+	- This flag is for the paper with Ref. ID = 83
+- '*Following the line of work in [77, 6, 116, 67, 82, 83, 58] on tractable SHAP computation for simpler models, our main technical contributions are as follows: 1*'
+	- This flag is for the paper with Ref. ID = 83
+- '*What is the computational bottleneck of SHAP computation for neural networks? To the best of our knowledge, while prior work has established that computing SHAP for general neural networks is computationally hard [107, 83], our work presents the first fine-grained analysis of how different structural parameters influence this complexity*'
+	- This flag is for the paper with Ref. ID = 83
+- '*(ii) It demonstrates that Marginal SHAP can be computed under TT-based distributions — a class of distributions more expressive than those previously considered, englobing independent [6], empirical [107], Markovian [82], Hidden Markov distributions [83] and Born Machines [52]*'
+	- This flag is for the paper with Ref. ID = 83
+- '*We begin by noting that for a non-quantized neural network, even the seemingly simple case of a single sigmoid neuron with binary inputs has been shown to be intractable for SHAP computation [107, 83]*'
+	- This flag is for the paper with Ref. ID = 83
+- '*Exploring the complexity of obtaining alternative value function definitions [72], SHAP variants [83], or other attribution indices [10, 114] presents exciting directions for future work*'
+	- This flag is for the paper with Ref. ID = 83
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 84
+- '*TT contraction is a well-studied problem with efficient parallel algorithms that run in poly-logarithmic time [84, 81], typically using a parallel scan over adjacent tensors*'
+	- This flag is for the paper with Ref. ID = 84
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 85
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 87
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 90
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 91
+- '*TTs form a subclass of TNs with a one-dimensional topology that exhibits better tractability properties [93]*'
+	- This flag is for the paper with Ref. ID = 93
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 94
+- '*Second, the structured physics-inspired architecture of TNs enables the derivation of efficient, theoretically grounded solutions of XAI-related problems [74, 96, 3]*'
+	- This flag is for the paper with Ref. ID = 96
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 97
+- '*These two properties make TNs an interesting family of models that enjoy two arguably sought-after desiderata of ML models in the field of explainability: (i) high expressiveness; and (ii) enhanced transparency [98, 70]*'
+	- This flag is for the paper with Ref. ID = 98
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 99
+- '*General TNs with arbitrary topologies can be computationally challenging to handle [111, 101]*'
+	- This flag is for the paper with Ref. ID = 101
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 102
+- '*Originally introduced in the field of Quantum physics [24], TNs have gradually garnered attention of the ML community where they were employed to model various ML tasks, ranging from classification and regression tasks [90, 102, 99, 34, 36, 53] to probabilistic modeling [84, 94, 103, 97, 52, 91], dimensionality reduction [78] and model compression [54]*'
+	- This flag is for the paper with Ref. ID = 103
+- '*We assume the common marginal (or interventional) value function: VM(x, S; P) := Ex′∼P h M  xS, x′ ¯S i [62, 104]*'
+	- This flag is for the paper with Ref. ID = 104
+- '*Future research could extend our analysis to additional model classes, such as Tree Tensor Networks [35], SHAP variants [104], and relaxations or approximations that enhance tractability for even more expressive models than those studied here*'
+	- This flag is for the paper with Ref. ID = 104
+- '*General TNs with arbitrary topologies can be computationally challenging to handle [111, 101]*'
+	- This flag is for the paper with Ref. ID = 111
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 115
+- '*Following the line of work in [77, 6, 116, 67, 82, 83, 58] on tractable SHAP computation for simpler models, our main technical contributions are as follows: 1*'
+	- This flag is for the paper with Ref. ID = 116
+- '*While some frameworks mitigate this intractability using sampling heuristics or approximations, such as KernelSHAP [76, 42], FastSHAP [63], DeepSHAP [37], Monte Carlo-based methods [31, 117, 86, 50, 51, 32], or leverage score sampling [89], others focus on exact SHAP computations, by leveraging structural properties of certain model families to derive polynomial-time algorithms, such as the popular TreeSHAP [77] algorithm, and its variants [115, 85, 113, 87]*'
+	- This flag is for the paper with Ref. ID = 117
+

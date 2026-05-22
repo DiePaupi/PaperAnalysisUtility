@@ -1,0 +1,1171 @@
+# Paper Analysis Utility - Results
+
+Paper: Learning World Models for Interactive Video Generation.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/25 Learning World Models/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 1 pages)
+2) 'Related Works' -- p. 2 (ca. 1 pages)
+3) 'Methodology' -- p. 3 (ca. 3 pages)
+4) 'Experiments' -- p. 6 (ca. 4 pages)
+5) 'Conclusions and Discussions' -- p. 10 (ca. 1 pages)
+6) 'References' -- p. 11 (ca. 4 pages)
+A) 'Baseline Method Details' -- p. 15 (ca. 1 pages)
+B) 'Implementation Details' -- p. 16 (ca. 0 pages)
+C) 'Additional Experiments' -- p. 16 (ca. 4 pages)
+D) 'More Results' -- p. 20 (ca. 1 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 1/35=2.86%
+		- Invalid uses: 34/35=97.14%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 2: q(zt|zt−1) = N(zt;
+		- Page 2: 1 −βtzt−1, βtI)
+		- Page 2: L = Et,ϵ,z[∥ϵ −ϵθ(zt, t)∥2
+		- Page 2: where zt = √¯αtz0 + √1 −¯αtϵ with ϵ ∼N(0, I).
+		- Page 2: zt−1 =
+		- Page 2: (zt −
+		- Page 2: √1 −¯αt
+		- Page 2: where αt = 1 −βt and ¯αt = Qt
+		- Page 3: 0 +√1 −¯αtϵi, ϵi ∼N(0, I), where zi
+		- Page 3: LDF = E[t],ϵ,z,a[∥ϵ −ϵθ(z[t], [t], a)∥2
+		- Page 4: r(ˆs) = fsim(ˆs ⊙w, sL−1 ⊙w), ˆs ∈B
+		- Page 4: to be predicted sL−1, and w ∈RS is a weight vector that modulates the importance of different state
+		- Page 4: LVRAG = E[t],[t′],ϵ,˜z,a,s[∥ϵt −ϵθ(˜z˜t, ˜t, ˜a, ˜s)∥2
+		- Page 5: where the inner product between query qm and key kn depends on relative distance (m −n). YaRN
+		- Page 5: decreasing segments Gj, where Lj = L1 · αj−1. From each segment Gj, we sample k frames to
+		- Page 5: and value vs matrices. The model retrieves hidden state Amem from compressive memory Ms−1:
+		- Page 5: Amem = σ(qs)Ms−1
+		- Page 5: σ(qs)ns−1 . Memory Ms−1 and normalization vector ns−1 are then updated. The final
+		- Page 14: product between the m-th query qm and n-th key kn depends only on the relative distance (m −n):
+		- Page 14: (Wqzm)(Wkzn)∗· ei(m−n)θ
+		- Page 14: = g(zm, zn, m −n)
+		- Page 14: frequencies per dimension: θd = b−2d/D, with b = 10000.
+		- Page 14: h(θd) = (1 −γ(rd)) · θd
+		- Page 14: Lj = L1 · αj−1 for a base α < 1 and L1 being the length of the oldest segment G1), ensuring that
+		- Page 15: retrieves a hidden state Amem by querying the compressive memory Ms−1:
+		- Page 15: Amem = σ(qs)Ms−1
+		- Page 15: σ(qs)ns−1
+		- Page 15: where σ(·) is an element-wise nonlinear activation function (e.g., ELU(·) + 1) and ns−1 is a
+		- Page 15: normalization vector (accumulated up to segment s −1).
+		- Page 15: Ms = Ms−1 + σ(ks)T
+		- Page 15: vs −σ(ks)Ms−1
+		- Page 15: σ(ks)ns−1
+		- Page 15: ns = ns−1 + σ(ks)T 1N
+		- Page 15: As = sigmoid(β) ⊙Amem + (1 −sigmoid(β)) ⊙Alocal
+
+
+## References not in Bibliography
+
+> [!NOTE]
+> The sentences listed below contain references that were not found in the 'References' section.
+> *Please note that this list may contain false positives as, e.g., the content of a normal bracket might have been mistaken for a reference, or a natural reference (Authorname in text and year in brackets) might have been mismatched.*
+
+-  Overall, the training objective of VRAG on diffusion models is defined as: LVRAG = E[t],[t′],ϵ,˜z,a,s[∥ϵt −ϵθ(˜z˜t, ˜t, ˜a, ˜s)∥2 2 ⊙m], (6) ˜z˜t = [zhist,[t′],z[t]], ˜a = [∅Lh, a], ˜s = [shist, s], m = [0Lh, 1Lc], (7) where ˜t is a concatenation of [t′] and [t], with t′ < t and t′, t ∈[T]
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 1
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 68
+	- Full reference: `[68] Jianwen Jiang, Chao Liang, Jiaqi Yang, Gaojie Lin, Tianyun Zhong, and Yanbo Zheng. Loopy: Taming audio-driven portrait avatar with long-term motion dependency. arXiv preprint arXiv:2409.02634, 2024. Appendix A`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Zhou Y.: 4
+- Zhang H.: 4
+- Wang X.: 4
+- Ling H.: 3
+- Hong Y.: 3
+- Wang H.: 3
+- Wang Z.: 3
+- Blattmann A.: 3
+- Rombach R.: 3
+- Chen H.: 3
+- Zhang Y.: 3
+- Yang Z.: 3
+- Wang J.: 3
+- Liu Y.: 3
+- Du Y.: 3
+- Wang Y.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/25 Learning World Models/literature_validation_results_fig.jpg]]
+
+References section starts on page 11.
+
+- No link provided: $67/68=98.53\%$
+- Unchecked links: $0/68=0.00\%$
+- Valid links: $0/68=0.00\%$
+- Invalid link: $1/68=1.47\%$
+	- Invalid entries:
+		=> total = 1
+		- \[67\] Google. Realestate10k. https://google.github.io/realestate10k/index.html, 2018.Accessed: 2025-07-27.
+			-> Returned with status code 404!
+
+- Different links: $2/68=2.94\%$
+	- *Please note that if no link was provided, a found link will also show up in this statistic!*
+	- Different links:
+		=> total = 2
+		- \[60\] Tsendsuren Munkhdalai, Manaal Faruqui, and Siddharth Gopal. Leave no context behind: Efficient infinite context transformers with infini-attention, 2024.
+			-> Found: Years matched; reference (https://doi.org/10.48550/arXiv.2404.07143) checks out :); https://doi.org/10.48550/arXiv.2404.07143
+		- \[61\] Lvmin Zhang and Maneesh Agrawala. Packing input frame context in next-frame prediction models for video generation, 2025.
+			-> Found: Years matched; reference (https://doi.org/10.48550/arXiv.2504.12626) checks out :); https://doi.org/10.48550/arXiv.2504.12626
+
+- Successful searches: $41/68=60.29\%$
+- Skipped searches: $0/68=0.00\%$
+- Mismatching infos: $15/68=22.06\%$
+	- **Entries with mismatching author information:**
+		=> total = 12
+		- `[12] William Harvey, Søren Nørskov, Niklas Kölch, and George Vogiatzis. Flexible diffusion modeling of long videos. arXiv preprint arXiv:2205.11495, 2022.`
+			- Authors (Naderiparizi, Masrani, Weilbach, Wood) did not match found publication titled 'Flexible Diffusion Modeling of Long Videos'
+		- `[15] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al. Gpt-4 technical report. arXiv preprint arXiv:2303.08774, 2023.`
+			- Authors (Avila, Babuschkin, Balaji, Balcom, Baltescu, Bao, Bavarian, Belgum, Bello, Berdine, Bernadett-Shapiro, Berner, Bogdonoff, Boiko, Boyd, Brakman, Brockman, Brooks, Brundage, Button, Cai, Campbell, Cann, Carey, Carlson, Carmichael, Chan, Chang, Chantzis, Chen, Chen, Chen, Chen, Chen, Chess, Cho, Chu, Chung, Cummings, Currier, Dai, Decareaux, Degry, Deutsch, Deville, Dhar, Dohan, Dowling, Dunning, Ecoffet, Eleti, Eloundou, Farhi, Fedus, Felix, Fishman, Forte, Fulford, Gao, Georges, Gibson, Goel, Gogineni, Goh, Gontijo-Lopes, Gordon, Grafstein, Gray, Greene, Gross, Gu, Guo, Hallacy, Han, Harris, He, Heaton, Heidecke, Hesse, Hickey, Hickey, Hoeschele, Houghton, Hsu, Hu, Hu, Huizinga, Jain, Jain, Jang, Jiang, Jiang, Jin, Jin, Jomoto, Jonn, Jun, Kaftan, Kaiser, Kamali, Kanitscheider, Keskar, Khan, Kilpatrick, Kim, Kim, Kim, Kirchner, Kiros, Knight, Kokotajlo, Kondraciuk, Kondrich, Konstantinidis, Kosic, Krueger, Kuo, Lampe, Lan, Lee, Leike, Leung, Levy, Li, Lim, Lin, Lin, Litwin, Lopez, Lowe, Lue, Makanju, Malfacini, Manning, Markov, Markovski, Martin, Mayer, Mayne, McGrew, McKinney, McLeavey, McMillan, McNeil, Medina, Mehta, Menick, Metz, Mishchenko, Mishkin, Monaco, Morikawa, Mossing, Mu, Murati, Murk, M'ely, Nair, Nakano, Nayak, Neelakantan, Ngo, Noh, Long, O'Keefe, Pachocki, Paino, Palermo, Pantuliano, Parascandolo, Parish, Parparita, Passos, Pavlov, Peng, Perelman, Peres, Petrov, Pinto, Pokorny, Pokrass, Pong, Powell, Power, Power, Proehl, Puri, Radford, Rae, Ramesh, Raymond, Real, Rimbach, Ross, Rotsted, Roussez, Ryder, Saltarelli, Sanders, Santurkar, Sastry, Schnurr, Schulman, Selsam, Sheppard, Sherbakov, Shieh, Shoker, Sidor, Sigler, Simens, Sitkin, Slama, Sohl, Sokolowsky, Song, Staudacher, Such, Summers, Sutskever, Tang, Tezak, Thompson, Tillet, Tootoonchian, Tseng, Tuggle, Turley, Tworek, Uribe, Vallone, Vijayvergiya, Voss, Wainwright, Wang, Wang, Wang, Ward, Wei, Weinmann, Welihinda, Welinder, Weng, Weng, Wiethoff, Willner, Winter, Wolrich, Wong, Workman, Wu, Wu, Wu, Xiao, Xu, Yoo, Yu, Yuan, Zaremba, Zellers, Zhang, Zhang, Zhao, Zheng, Zhuang, Zhuk, Zoph) did not match found publication titled 'GPT-4 Technical Report'
+		- `[17] Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yixin Dai, Jiawei Sun, Haofen Wang, and Haofen Wang. Retrieval-augmented generation for large language models: A survey. arXiv preprint arXiv:2312.10997, 2:1, 2023.`
+			- Authors (Guo) did not match found publication titled 'Retrieval-Augmented Generation for Large Language Models: A Survey'
+		- `[18] Penghao Zhao, Hailin Zhang, Qinhan Yu, Zhengren Wang, Yunteng Geng, Fangcheng Fu, Ling Yang, Wentao Zhang, Jie Jiang, and Bin Cui. Retrieval-augmented generation for ai-generated content: A survey. arXiv preprint arXiv:2402.19473, 2024.`
+			- Authors () did not match found publication titled 'Retrieval-Augmented Generation for AI-Generated Content: A Survey'
+		- `[21] Andreas Blattmann, Tim Dockhorn, Sumith Kulal, Daniel Mendelevitch, Maciej Kilian, Dominik Lorenz, Yam Levi, Zion English, Vikram Voleti, Adam Letts, et al. Stable video diffusion: Scaling latent video diffusion models to large datasets. arXiv preprint arXiv:2311.15127, 2023.`
+			- Authors () did not match found publication titled 'Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets'
+		- `[24] Uriel Singer, Adam Polyak, Eliya Nachmani, Guy Dahan, Eli Shechtman, and Haggai Hacohen. Make-a-video: Text-to-video generation without text-video data. arXiv preprint arXiv:2209.14792, 2022.`
+			- Authors (Hayes, Yin, Zhang, Hu, Yang, Ashual, Gafni, Parikh, Gupta, Taigman) did not match found publication titled 'Make-A-Video: Text-to-Video Generation without Text-Video Data'
+		- `[26] Zhuoyi Yang, Jiayan Teng, Wendi Zheng, Ming Ding, Shiyu Huang, Jiazheng Xu, Yuanming Yang, Wenyi Hong, Xiaohan Zhang, Guanyu Feng, et al. Cogvideox: Text-to-video diffusion models with an expert transformer. arXiv preprint arXiv:2408.06072, 2024.`
+			- Authors (Yin, Wang, Cheng, Liu, Dong, Tang) did not match found publication titled 'CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer'
+		- `[34] Yining Hong, Beide Liu, Maxine Wu, Yuanhao Zhai, Kai-Wei Chang, Linjie Li, Kevin Lin, Chung-Ching Lin, Jianfeng Wang, Zhengyuan Yang, et al. Slowfast-vgen: Slow-fast learning for action-driven long video generation. arXiv preprint arXiv:2410.23277, 2024.`
+			- Authors () did not match found publication titled 'SlowFast-VGen: Slow-Fast Learning for Action-Driven Long Video Generation'
+		- `[49] Alisson Azzolini, Hannah Brandon, Prithvijit Chattopadhyay, Huayu Chen, Jinju Chu, Yin Cui, Jenna Diamond, Yifan Ding, Francesco Ferroni, Rama Govindaraju, et al. Cosmos-reason1: From physical common sense to embodied reasoning. arXiv preprint arXiv:2503.15558, 2025.`
+			- Authors (Gu, Gururani, Hanafi, Hao, Huffman, Johnson, Khan, Kurian, Lantz, Lee, Liu, Mathau, Pavao, Ping, Romero, Smelyanskiy, Song, Tchapmi, Wang, Wang, Wang, Wei, Xu, Xu, Yang, Yang, Yang, Zeng, Zhang) did not match found publication titled 'Cosmos-Reason1: From Physical Common Sense To Embodied Reasoning'
+		- `[52] Aether Team, Haoyi Zhu, Yifan Wang, Jianjun Zhou, Wenzheng Chang, Yang Zhou, Zizun Li, Junyi Chen, Chunhua Shen, Jiangmiao Pang, et al. Aether: Geometric-aware unified world modeling. arXiv preprint arXiv:2503.18945, 2025.`
+			- Authors () did not match found publication titled 'AETHER: Geometric-Aware Unified World Modeling'
+		- `[58] Jianlin Su, Murtadha Ahmed, Yu Lu, Shengfeng Pan, Wen Bo, and Yunfeng Liu. Roformer: Enhanced transformer with rotary position embedding. Neurocomputing, 568:127063, 2024.`
+			- Authors () did not match found publication titled 'RoFormer: Enhanced Transformer with Rotary Position Embedding'
+		- `[66] Kiwhan Song, Boyuan Chen, Max Simchowitz, Yilun Du, Russ Tedrake, and Vincent Sitzmann. History-guided video diffusion, 2025.`
+			- Authors (0003) did not match found publication titled 'History-Guided Video Diffusion.'
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 3
+		- `[7] Yang Song, Jascha Sohl-Dickstein, Diederik P. Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole. Score-based generative modeling through stochastic differential equations. In International Conference on Learning Representations, 2021.`
+			- Year (2020) does not match expected year (2021)
+		- `[32] William Peebles and Saining Xie. Scalable diffusion models with transformers. In Proceedings of the IEEE/CVF international conference on computer vision, pages 4195–4205, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[65] Ziqi Huang, Yinan He, Jiashuo Yu, Fan Zhang, Chenyang Si, Yuming Jiang, Yuanhan Zhang, Tianxing Wu, Qingyang Jin, Nattapol Chanpaisit, Yaohui Wang, Xinyuan Chen, Limin Wang, Dahua Lin, Yu Qiao, and Ziwei Liu. Vbench: Comprehensive benchmark suite for video generative models. In 2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pages 21807–21818, 2024.`
+			- Year (2023) does not match expected year (2024)
+- No entry found: $12/68=17.65\%$
+	- Unfound entries:
+		=> total = 12
+		- \[8\] Tim Brooks, Bill Peebles, Connor Holmes, Will DePue, Yufei Guo, Li Jing, David Schnurr, Joe Taylor, Troy Luhman, Eric Luhman, Clarence Ng, Ricky Wang, and Aditya Ramesh. Video generation models as world simulators. 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[20\] Patrick Esser, Robin Rombach, and Björn Ommer. Structure-aware video generation with latent diffusion models. arXiv preprint arXiv:2303.07332, 2023.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[25\] Yu Hong, Jing Wei, Xing Liu, Xiaodi Wang, Yutong Bai, Haitao Li, Ming Zhang, and Hao Xu. Cogvideo: Large-scale pretraining for text-to-video generation with transformers. arXiv preprint arXiv:2205.15868, 2022.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[30\] Diederik P Kingma, Max Welling, et al. Auto-encoding variational bayes, 2013.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[31\] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. Highresolution image synthesis with latent diffusion models. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 10684–10695, 2022.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[38\] Sand-AI. Magi-1: Autoregressive video generation at scale, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 241 results matched the expected title!
+		- \[42\] Zihan Ding, Amy Zhang, Yuandong Tian, and Qinqing Zheng. Diffusion world model: Future modeling beyond step-by-step rollout for offline reinforcement learning. arXiv preprint arXiv:2402.03570, 2024.
+			-> WARNING: No results were found through the dblp search! | WARNING: None of the 43 results matched the expected title!
+		- \[44\] Decart, Etched, Julian Quevedo, Quinn McIntyre, Spruce Campbell, Xinlei Chen, and Robert Wachen. Oasis: A universe in a transformer. 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[47\] Jiwen Yu, Yiran Qin, Xintao Wang, Pengfei Wan, Di Zhang, and Xihui Liu. Gamefactory: Creating new games with generative interactive videos. arXiv preprint arXiv:2501.08325, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 469 results matched the expected title!
+		- \[51\] Jack Parker-Holder, Philip Ball, Jake Bruce, Vibhavari Dasagi, Kristian Holsheimer, Christos Kaplanis, Alexandre Moufarek, Guy Scully, Jeremy Shar, Jimmy Shi, Stephen Spencer, Jessica Yung, Michael Dennis, Sultan Kenjeyev, Shangbang Long, Vlad Mnih, Harris Chan, Maxime Gazeau, Bonnie Li, Fabio Pardo, Luyu Wang, Lei Zhang, Frederic Besse, Tim Harley, Anna Mitenkova, Jane Wang, Jeff Clune, Demis Hassabis, Raia Hadsell, Adrian Bolton, Satinder Singh, and Tim Rocktäschel. Genie 2: A large-scale foundation world model. 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[53\] Xuanchi Ren, Tianchang Shen, Jiahui Huang, Huan Ling, Yifan Lu, Merlin Nimier-David, Thomas Müller, Alexander Keller, Sanja Fidler, and Jun Gao. Gen3c: 3d-informed worldconsistent video generation with precise camera control. arXiv preprint arXiv:2503.03751, 2025.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 2 results matched the expected title!
+		- \[67\] Google. Realestate10k. https://google.github.io/realestate10k/index.html, 2018.Accessed: 2025-07-27.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 901 results matched the expected title!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- 'One line of research addressing this involves predicting the underlying 3D world structure like Genie2 [51], Aether [52], Gen3C [53] and others [54, 55, 56]; however, these approaches often suffer from lower resolution compared to direct video generation due to the complexity of 3D representations, exhibit limited interaction capabilities, and typically operate only within localized regions'
+	- This flag is for the paper with Ref. ID = 52
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/25 Learning World Models/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 39
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in neural information processing systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 6
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- International Conference on Machine Learning
+	- Parsed as: International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Forty-first International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE/CVF international conference on computer vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- NEUROCOMPUTING
+	- Parsed as: Neurocomputing
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 5.9
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON IMAGE PROCESSING
+	- Parsed as: IEEE transactions on image processing
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 12.8
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE conference on computer vision and pattern recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: 2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Manuel Watter, Jost Springenberg, Joschka Boedecker, and Martin Riedmiller*
+	- Normalized Authors: `['Watter M.', 'Springenberg J.', 'Boedecker J.', 'Riedmiller M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Embed to control: A locally linear latent dynamics model for control from raw images*
+	- Year: *2015*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *David Ha and Jürgen Schmidhuber*
+	- Normalized Authors: `['Ha D.', 'Schmidhuber J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Recurrent world models facilitate policy evolution*
+	- Year: *2018*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Danijar Hafner, Timothy Lillicrap, Mohammad Norouzi, and Jimmy Ba*
+	- Normalized Authors: `['Hafner D.', 'Lillicrap T.', 'Norouzi M.', 'Ba J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mastering atari with discrete world models*
+	- Year: *2020*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Jascha Sohl-Dickstein, Eric A  Weiss, Niru Maheswaranathan, and Surya Ganguli*
+	- Normalized Authors: `['Sohl-Dickstein J.', 'Weiss E.', 'Maheswaranathan N.', 'Ganguli S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep unsupervised learning using nonequilibrium thermodynamics*
+	- Year: *2015*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Yang Song and Stefano Ermon*
+	- Normalized Authors: `['Song Y.', 'Ermon S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Generative modeling by estimating gradients of the data distribution*
+	- Year: *2019*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Jonathan Ho, Ajay Jain, and Pieter Abbeel*
+	- Normalized Authors: `['Ho J.', 'Jain A.', 'Abbeel P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Denoising diffusion probabilistic models*
+	- Year: *2020*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Yang Song, Jascha Sohl-Dickstein, Diederik P  Kingma, Abhishek Kumar, Stefano Ermon, and Ben Poole*
+	- Normalized Authors: `['Song Y.', 'Sohl-Dickstein J.', 'Kingma D.', 'Kumar A.', 'Ermon S.', 'Poole B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Score-based generative modeling through stochastic differential equations*
+	- Year: *2021*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Tim Brooks, Bill Peebles, Connor Holmes, Will DePue, Yufei Guo, Li Jing, David Schnurr, Joe Taylor, Troy Luhman, Eric Luhman, Clarence Ng, Ricky Wang, and Aditya Ramesh*
+	- Normalized Authors: `['Brooks T.', 'Peebles B.', 'Holmes C.', 'DePue W.', 'Guo Y.', 'Jing L.', 'Schnurr D.', 'Taylor J.', 'Luhman T.', 'Luhman E.', 'Ng C.', 'Wang R.', 'Ramesh A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Video generation models as world simulators*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Jake Bruce, Michael D Dennis, Ashley Edwards, Jack Parker-Holder, Yuge Shi, Edward Hughes, Matthew Lai, Aditi Mavalankar, Richie Steigerwald, Chris Apps, et al*
+	- Normalized Authors: `['Bruce J.', 'Dennis M.', 'Edwards A.', 'Parker-Holder J.', 'Shi Y.', 'Hughes E.', 'Lai M.', 'Mavalankar A.', 'Steigerwald R.', 'Apps C.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Genie: Generative interactive environments*
+	- Year: *2024*
+	- Outlet: *Forty-first International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Dani Valevski, Yaniv Leviathan, Moab Arar, and Shlomi Fruchter*
+	- Normalized Authors: `['Valevski D.', 'Leviathan Y.', 'Arar M.', 'Fruchter S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Diffusion models are real-time game engines*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Dirk Weissenborn, Oscar Täckström, and Jakob Uszkoreit*
+	- Normalized Authors: `['Weissenborn D.', 'Täckström O.', 'Uszkoreit J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scaling autoregressive video models*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *William Harvey, Søren Nørskov, Niklas Kölch, and George Vogiatzis*
+	- Normalized Authors: `['Harvey W.', 'Nørskov S.', 'Kölch N.', 'Vogiatzis G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Flexible diffusion modeling of long videos*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Naderiparizi, Masrani, Weilbach, Wood) did not match found publication titled 'Flexible Diffusion Modeling of Long Videos'*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Zongyi Li, Shujie Hu, Shujie Liu, Long Zhou, Jeongsoo Choi, Lingwei Meng, Xun Guo, Jinyu Li, Hefei Ling, and Furu Wei*
+	- Normalized Authors: `['Li Z.', 'Hu S.', 'Liu S.', 'Zhou L.', 'Choi J.', 'Meng L.', 'Guo X.', 'Li J.', 'Ling H.', 'Wei F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Arlon: Boosting diffusion transformers with autoregressive models for long video generation*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Desai Xie, Zhan Xu, Yicong Hong, Hao Tan, Difan Liu, Feng Liu, Arie Kaufman, and Yang Zhou*
+	- Normalized Authors: `['Xie D.', 'Xu Z.', 'Hong Y.', 'Tan H.', 'Liu D.', 'Liu F.', 'Kaufman A.', 'Zhou Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Progressive autoregressive video diffusion models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al*
+	- Normalized Authors: `['Achiam J.', 'Adler S.', 'Agarwal S.', 'Ahmad L.', 'Akkaya I.', 'Aleman F.', 'Almeida D.', 'Altenschmidt J.', 'Altman S.', 'Anadkat S.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Gpt-4 technical report*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Avila, Babuschkin, Balaji, Balcom, Baltescu, Bao, Bavarian, Belgum, Bello, Berdine, Bernadett-Shapiro, Berner, Bogdonoff, Boiko, Boyd, Brakman, Brockman, Brooks, Brundage, Button, Cai, Campbell, Cann, Carey, Carlson, Carmichael, Chan, Chang, Chantzis, Chen, Chen, Chen, Chen, Chen, Chess, Cho, Chu, Chung, Cummings, Currier, Dai, Decareaux, Degry, Deutsch, Deville, Dhar, Dohan, Dowling, Dunning, Ecoffet, Eleti, Eloundou, Farhi, Fedus, Felix, Fishman, Forte, Fulford, Gao, Georges, Gibson, Goel, Gogineni, Goh, Gontijo-Lopes, Gordon, Grafstein, Gray, Greene, Gross, Gu, Guo, Hallacy, Han, Harris, He, Heaton, Heidecke, Hesse, Hickey, Hickey, Hoeschele, Houghton, Hsu, Hu, Hu, Huizinga, Jain, Jain, Jang, Jiang, Jiang, Jin, Jin, Jomoto, Jonn, Jun, Kaftan, Kaiser, Kamali, Kanitscheider, Keskar, Khan, Kilpatrick, Kim, Kim, Kim, Kirchner, Kiros, Knight, Kokotajlo, Kondraciuk, Kondrich, Konstantinidis, Kosic, Krueger, Kuo, Lampe, Lan, Lee, Leike, Leung, Levy, Li, Lim, Lin, Lin, Litwin, Lopez, Lowe, Lue, Makanju, Malfacini, Manning, Markov, Markovski, Martin, Mayer, Mayne, McGrew, McKinney, McLeavey, McMillan, McNeil, Medina, Mehta, Menick, Metz, Mishchenko, Mishkin, Monaco, Morikawa, Mossing, Mu, Murati, Murk, M'ely, Nair, Nakano, Nayak, Neelakantan, Ngo, Noh, Long, O'Keefe, Pachocki, Paino, Palermo, Pantuliano, Parascandolo, Parish, Parparita, Passos, Pavlov, Peng, Perelman, Peres, Petrov, Pinto, Pokorny, Pokrass, Pong, Powell, Power, Power, Proehl, Puri, Radford, Rae, Ramesh, Raymond, Real, Rimbach, Ross, Rotsted, Roussez, Ryder, Saltarelli, Sanders, Santurkar, Sastry, Schnurr, Schulman, Selsam, Sheppard, Sherbakov, Shieh, Shoker, Sidor, Sigler, Simens, Sitkin, Slama, Sohl, Sokolowsky, Song, Staudacher, Such, Summers, Sutskever, Tang, Tezak, Thompson, Tillet, Tootoonchian, Tseng, Tuggle, Turley, Tworek, Uribe, Vallone, Vijayvergiya, Voss, Wainwright, Wang, Wang, Wang, Ward, Wei, Weinmann, Welihinda, Welinder, Weng, Weng, Wiethoff, Willner, Winter, Wolrich, Wong, Workman, Wu, Wu, Wu, Xiao, Xu, Yoo, Yu, Yuan, Zaremba, Zellers, Zhang, Zhang, Zhao, Zheng, Zhuang, Zhuk, Zoph) did not match found publication titled 'GPT-4 Technical Report'*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al*
+	- Normalized Authors: `['Touvron H.', 'Lavril T.', 'Izacard G.', 'Martinet X.', 'Lachaux M.', 'Lacroix T.', 'Rozière B.', 'Goyal N.', 'Hambro E.', 'Azhar F.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Llama: Open and efficient foundation language models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Yunfan Gao, Yun Xiong, Xinyu Gao, Kangxiang Jia, Jinliu Pan, Yuxi Bi, Yixin Dai, Jiawei Sun, Haofen Wang, and Haofen Wang*
+	- Normalized Authors: `['Gao Y.', 'Xiong Y.', 'Gao X.', 'Jia K.', 'Pan J.', 'Bi Y.', 'Dai Y.', 'Sun J.', 'Wang H.', 'Wang H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Retrieval-augmented generation for large language models: A survey*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Guo) did not match found publication titled 'Retrieval-Augmented Generation for Large Language Models: A Survey'*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Penghao Zhao, Hailin Zhang, Qinhan Yu, Zhengren Wang, Yunteng Geng, Fangcheng Fu, Ling Yang, Wentao Zhang, Jie Jiang, and Bin Cui*
+	- Normalized Authors: `['Zhao P.', 'Zhang H.', 'Yu Q.', 'Wang Z.', 'Geng Y.', 'Fu F.', 'Yang L.', 'Zhang W.', 'Jiang J.', 'Cui B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Retrieval-augmented generation for ai-generated content: A survey*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Retrieval-Augmented Generation for AI-Generated Content: A Survey'*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Andreas Blattmann, Robin Rombach, Huan Ling, Tim Dockhorn, Seung Wook Kim, Sanja Fidler, and Karsten Kreis*
+	- Normalized Authors: `['Blattmann A.', 'Rombach R.', 'Ling H.', 'Dockhorn T.', 'Kim S.', 'Fidler S.', 'Kreis K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Align your latents: High-resolution video synthesis with latent diffusion models*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Patrick Esser, Robin Rombach, and Björn Ommer*
+	- Normalized Authors: `['Esser P.', 'Rombach R.', 'Ommer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Structure-aware video generation with latent diffusion models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Andreas Blattmann, Tim Dockhorn, Sumith Kulal, Daniel Mendelevitch, Maciej Kilian, Dominik Lorenz, Yam Levi, Zion English, Vikram Voleti, Adam Letts, et al*
+	- Normalized Authors: `['Blattmann A.', 'Dockhorn T.', 'Kulal S.', 'Mendelevitch D.', 'Kilian M.', 'Lorenz D.', 'Levi Y.', 'English Z.', 'Voleti V.', 'Letts A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Stable video diffusion: Scaling latent video diffusion models to large datasets*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets'*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Haoxin Chen, Yong Zhang, Xiaodong Cun, Menghan Xia, Xintao Wang, Chao Weng, and Ying Shan*
+	- Normalized Authors: `['Chen H.', 'Zhang Y.', 'Cun X.', 'Xia M.', 'Wang X.', 'Weng C.', 'Shan Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Videocrafter2: Overcoming data limitations for high-quality video diffusion models*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Jonathan Ho, Tim Salimans, Alexey Gritsenko, William Chan, Mohammad Norouzi, and David J  Fleet*
+	- Normalized Authors: `['Ho J.', 'Salimans T.', 'Gritsenko A.', 'Chan W.', 'Norouzi M.', 'Fleet D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Video diffusion models*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Uriel Singer, Adam Polyak, Eliya Nachmani, Guy Dahan, Eli Shechtman, and Haggai Hacohen*
+	- Normalized Authors: `['Singer U.', 'Polyak A.', 'Nachmani E.', 'Dahan G.', 'Shechtman E.', 'Hacohen H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Make-a-video: Text-to-video generation without text-video data*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Hayes, Yin, Zhang, Hu, Yang, Ashual, Gafni, Parikh, Gupta, Taigman) did not match found publication titled 'Make-A-Video: Text-to-Video Generation without Text-Video Data'*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Yu Hong, Jing Wei, Xing Liu, Xiaodi Wang, Yutong Bai, Haitao Li, Ming Zhang, and Hao Xu*
+	- Normalized Authors: `['Hong Y.', 'Wei J.', 'Liu X.', 'Wang X.', 'Bai Y.', 'Li H.', 'Zhang M.', 'Xu H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cogvideo: Large-scale pretraining for text-to-video generation with transformers*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Zhuoyi Yang, Jiayan Teng, Wendi Zheng, Ming Ding, Shiyu Huang, Jiazheng Xu, Yuanming Yang, Wenyi Hong, Xiaohan Zhang, Guanyu Feng, et al*
+	- Normalized Authors: `['Yang Z.', 'Teng J.', 'Zheng W.', 'Ding M.', 'Huang S.', 'Xu J.', 'Yang Y.', 'Hong W.', 'Zhang X.', 'Feng G.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Cogvideox: Text-to-video diffusion models with an expert transformer*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Yin, Wang, Cheng, Liu, Dong, Tang) did not match found publication titled 'CogVideoX: Text-to-Video Diffusion Models with An Expert Transformer'*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Jiuniu Wang, Hangjie Yuan, Dayou Chen, Yingya Zhang, Xiang Wang, and Shiwei Zhang*
+	- Normalized Authors: `['Wang J.', 'Yuan H.', 'Chen D.', 'Zhang Y.', 'Wang X.', 'Zhang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Modelscope text-to-video technical report*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Zihan Ding, Chi Jin, Difan Liu, Haitian Zheng, Krishna Kumar Singh, Qiang Zhang, Yan Kang, Zhe Lin, and Yuchen Liu*
+	- Normalized Authors: `['Ding Z.', 'Jin C.', 'Liu D.', 'Zheng H.', 'Singh K.', 'Zhang Q.', 'Kang Y.', 'Lin Z.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dollar: Few-step video generation via distillation and latent reward optimization*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Zangwei Zheng, Xiangyu Peng, Tianji Yang, Chenhui Shen, Shenggui Li, Hongxin Liu, Yukun Zhou, Tianyi Li, and Yang You*
+	- Normalized Authors: `['Zheng Z.', 'Peng X.', 'Yang T.', 'Shen C.', 'Li S.', 'Liu H.', 'Zhou Y.', 'Li T.', 'You Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Open-sora: Democratizing efficient video production for all*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Diederik P Kingma, Max Welling, et al*
+	- Normalized Authors: `['Kingma D.', 'Welling M.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Auto-encoding variational bayes.*
+	- Year: *2013*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer*
+	- Normalized Authors: `['Rombach R.', 'Blattmann A.', 'Lorenz D.', 'Esser P.', 'Ommer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Highresolution image synthesis with latent diffusion models*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *William Peebles and Saining Xie*
+	- Normalized Authors: `['Peebles W.', 'Xie S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scalable diffusion models with transformers*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF international conference on computer vision*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin*
+	- Normalized Authors: `['Vaswani A.', 'Shazeer N.', 'Parmar N.', 'Uszkoreit J.', 'Jones L.', 'Gomez A.', 'Kaiser Ł.', 'Polosukhin I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Attention is all you need*
+	- Year: *2017*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Yining Hong, Beide Liu, Maxine Wu, Yuanhao Zhai, Kai-Wei Chang, Linjie Li, Kevin Lin, Chung-Ching Lin, Jianfeng Wang, Zhengyuan Yang, et al*
+	- Normalized Authors: `['Hong Y.', 'Liu B.', 'Wu M.', 'Zhai Y.', 'Chang K.', 'Li L.', 'Lin K.', 'Lin C.', 'Wang J.', 'Yang Z.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Slowfast-vgen: Slow-fast learning for action-driven long video generation*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'SlowFast-VGen: Slow-Fast Learning for Action-Driven Long Video Generation'*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Jialong Wu, Shaofeng Yin, Ningya Feng, Xu He, Dong Li, Jianye Hao, and Mingsheng Long*
+	- Normalized Authors: `['Wu J.', 'Yin S.', 'Feng N.', 'He X.', 'Li D.', 'Hao J.', 'Long M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *ivideogpt: Interactive videogpts are scalable world models*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Jihwan Kim, Junoh Kang, Jinyoung Choi, and Bohyung Han*
+	- Normalized Authors: `['Kim J.', 'Kang J.', 'Choi J.', 'Han B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fifo-diffusion: Generating infinite videos from text without training*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Ruili Feng, Han Zhang, Zhantao Yang, Jie Xiao, Zhilei Shu, Zhiheng Liu, Andy Zheng, Yukun Huang, Yu Liu, and Hongyang Zhang*
+	- Normalized Authors: `['Feng R.', 'Zhang H.', 'Yang Z.', 'Xiao J.', 'Shu Z.', 'Liu Z.', 'Zheng A.', 'Huang Y.', 'Liu Y.', 'Zhang H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The matrix: Infinite-horizon world generation with real-time moving control*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Sand-AI*
+	- Normalized Authors: `['Sand-AI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Magi-1: Autoregressive video generation at scale.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 241 results matched the expected title!*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Roberto Henschel, Levon Khachatryan, Daniil Hayrapetyan, Hayk Poghosyan, Vahram Tadevosyan, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi*
+	- Normalized Authors: `['Henschel R.', 'Khachatryan L.', 'Hayrapetyan D.', 'Poghosyan H.', 'Tadevosyan V.', 'Wang Z.', 'Navasardyan S.', 'Shi H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Streamingt2v: Consistent, dynamic, and extendable long video generation from text*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Vikram Voleti, Alexia Jolicoeur-Martineau, and Chris Pal*
+	- Normalized Authors: `['Voleti V.', 'Jolicoeur-Martineau A.', 'Pal C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mcvd-masked conditional video diffusion for prediction, generation, and interpolation*
+	- Year: *2022*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Boyuan Chen, Diego Martí Monsó, Yilun Du, Max Simchowitz, Russ Tedrake, and Vincent Sitzmann*
+	- Normalized Authors: `['Chen B.', 'Monsó D.', 'Du Y.', 'Simchowitz M.', 'Tedrake R.', 'Sitzmann V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Diffusion forcing: Next-token prediction meets full-sequence diffusion*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Zihan Ding, Amy Zhang, Yuandong Tian, and Qinqing Zheng*
+	- Normalized Authors: `['Ding Z.', 'Zhang A.', 'Tian Y.', 'Zheng Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Diffusion world model: Future modeling beyond step-by-step rollout for offline reinforcement learning*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: None of the 43 results matched the expected title!*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Eloi Alonso, Adam Jelley, Vincent Micheli, Anssi Kanervisto, Amos J Storkey, Tim Pearce, and François Fleuret*
+	- Normalized Authors: `['Alonso E.', 'Jelley A.', 'Micheli V.', 'Kanervisto A.', 'Storkey A.', 'Pearce T.', 'Fleuret F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Diffusion for world modeling: Visual details matter in atari*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Decart, Etched, Julian Quevedo, Quinn McIntyre, Spruce Campbell, Xinlei Chen, and Robert Wachen*
+	- Normalized Authors: `['Decart', 'Etched', 'Quevedo J.', 'McIntyre Q.', 'Campbell S.', 'Chen X.', 'Wachen R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Oasis: A universe in a transformer*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Haoxuan Che, Xuanhua He, Quande Liu, Cheng Jin, and Hao Chen*
+	- Normalized Authors: `['Che H.', 'He X.', 'Liu Q.', 'Jin C.', 'Chen H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gamegen-x: Interactive open-world game video generation*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Junliang Guo, Yang Ye, Tianyu He, Haoyu Wu, Yushu Jiang, Tim Pearce, and Jiang Bian*
+	- Normalized Authors: `['Guo J.', 'Ye Y.', 'He T.', 'Wu H.', 'Jiang Y.', 'Pearce T.', 'Bian J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mineworld: a real-time and open-source interactive world model on minecraft*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Jiwen Yu, Yiran Qin, Xintao Wang, Pengfei Wan, Di Zhang, and Xihui Liu*
+	- Normalized Authors: `['Yu J.', 'Qin Y.', 'Wang X.', 'Wan P.', 'Zhang D.', 'Liu X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gamefactory: Creating new games with generative interactive videos*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 469 results matched the expected title!*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Anthony Hu, Lloyd Russell, Hudson Yeo, Zak Murez, George Fedoseev, Alex Kendall, Jamie Shotton, and Gianluca Corrado*
+	- Normalized Authors: `['Hu A.', 'Russell L.', 'Yeo H.', 'Murez Z.', 'Fedoseev G.', 'Kendall A.', 'Shotton J.', 'Corrado G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gaia-1: A generative world model for autonomous driving*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Alisson Azzolini, Hannah Brandon, Prithvijit Chattopadhyay, Huayu Chen, Jinju Chu, Yin Cui, Jenna Diamond, Yifan Ding, Francesco Ferroni, Rama Govindaraju, et al*
+	- Normalized Authors: `['Azzolini A.', 'Brandon H.', 'Chattopadhyay P.', 'Chen H.', 'Chu J.', 'Cui Y.', 'Diamond J.', 'Ding Y.', 'Ferroni F.', 'Govindaraju R.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Cosmos-reason1: From physical common sense to embodied reasoning*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Gu, Gururani, Hanafi, Hao, Huffman, Johnson, Khan, Kurian, Lantz, Lee, Liu, Mathau, Pavao, Ping, Romero, Smelyanskiy, Song, Tchapmi, Wang, Wang, Wang, Wei, Xu, Xu, Yang, Yang, Yang, Zeng, Zhang) did not match found publication titled 'Cosmos-Reason1: From Physical Common Sense To Embodied Reasoning'*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Amir Bar, Gaoyue Zhou, Danny Tran, Trevor Darrell, and Yann LeCun*
+	- Normalized Authors: `['Bar A.', 'Zhou G.', 'Tran D.', 'Darrell T.', 'LeCun Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Navigation world models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Jack Parker-Holder, Philip Ball, Jake Bruce, Vibhavari Dasagi, Kristian Holsheimer, Christos Kaplanis, Alexandre Moufarek, Guy Scully, Jeremy Shar, Jimmy Shi, Stephen Spencer, Jessica Yung, Michael Dennis, Sultan Kenjeyev, Shangbang Long, Vlad Mnih, Harris Chan, Maxime Gazeau, Bonnie Li, Fabio Pardo, Luyu Wang, Lei Zhang, Frederic Besse, Tim Harley, Anna Mitenkova, Jane Wang, Jeff Clune, Demis Hassabis, Raia Hadsell, Adrian Bolton, Satinder Singh, and Tim Rocktäschel*
+	- Normalized Authors: `['Parker-Holder J.', 'Ball P.', 'Bruce J.', 'Dasagi V.', 'Holsheimer K.', 'Kaplanis C.', 'Moufarek A.', 'Scully G.', 'Shar J.', 'Shi J.', 'Spencer S.', 'Yung J.', 'Dennis M.', 'Kenjeyev S.', 'Long S.', 'Mnih V.', 'Chan H.', 'Gazeau M.', 'Li B.', 'Pardo F.', 'Wang L.', 'Zhang L.', 'Besse F.', 'Harley T.', 'Mitenkova A.', 'Wang J.', 'Clune J.', 'Hassabis D.', 'Hadsell R.', 'Bolton A.', 'Singh S.', 'Rocktäschel T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Genie 2: A large-scale foundation world model*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Aether Team, Haoyi Zhu, Yifan Wang, Jianjun Zhou, Wenzheng Chang, Yang Zhou, Zizun Li, Junyi Chen, Chunhua Shen, Jiangmiao Pang, et al*
+	- Normalized Authors: `['Team A.', 'Zhu H.', 'Wang Y.', 'Zhou J.', 'Chang W.', 'Zhou Y.', 'Li Z.', 'Chen J.', 'Shen C.', 'Pang J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Aether: Geometric-aware unified world modeling*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'AETHER: Geometric-Aware Unified World Modeling'*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Xuanchi Ren, Tianchang Shen, Jiahui Huang, Huan Ling, Yifan Lu, Merlin Nimier-David, Thomas Müller, Alexander Keller, Sanja Fidler, and Jun Gao*
+	- Normalized Authors: `['Ren X.', 'Shen T.', 'Huang J.', 'Ling H.', 'Lu Y.', 'Nimier-David M.', 'Müller T.', 'Keller A.', 'Fidler S.', 'Gao J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gen3c: 3d-informed worldconsistent video generation with precise camera control*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 2 results matched the expected title!*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Fangfu Liu, Wenqiang Sun, Hanyang Wang, Yikai Wang, Haowen Sun, Junliang Ye, Jun Zhang, and Yueqi Duan*
+	- Normalized Authors: `['Liu F.', 'Sun W.', 'Wang H.', 'Wang Y.', 'Sun H.', 'Ye J.', 'Zhang J.', 'Duan Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reconx: Reconstruct any scene from sparse views with video diffusion model*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Ruiqi Gao, Aleksander Holynski, Philipp Henzler, Arthur Brussee, Ricardo Martin-Brualla, Pratul Srinivasan, Jonathan T Barron, and Ben Poole*
+	- Normalized Authors: `['Gao R.', 'Holynski A.', 'Henzler P.', 'Brussee A.', 'Martin-Brualla R.', 'Srinivasan P.', 'Barron J.', 'Poole B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cat3d: Create anything in 3d with multi-view diffusion models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Haoyu Zhen, Qiao Sun, Hongxin Zhang, Junyan Li, Siyuan Zhou, Yilun Du, and Chuang Gan*
+	- Normalized Authors: `['Zhen H.', 'Sun Q.', 'Zhang H.', 'Li J.', 'Zhou S.', 'Du Y.', 'Gan C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tesseract: Learning 4d embodied world models*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Zeqi Xiao, Yushi Lan, Yifan Zhou, Wenqi Ouyang, Shuai Yang, Yanhong Zeng, and Xingang Pan*
+	- Normalized Authors: `['Xiao Z.', 'Lan Y.', 'Zhou Y.', 'Ouyang W.', 'Yang S.', 'Zeng Y.', 'Pan X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Worldmem: Long-term consistent world simulation with memory*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Jianlin Su, Murtadha Ahmed, Yu Lu, Shengfeng Pan, Wen Bo, and Yunfeng Liu*
+	- Normalized Authors: `['Su J.', 'Ahmed M.', 'Lu Y.', 'Pan S.', 'Bo W.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Roformer: Enhanced transformer with rotary position embedding*
+	- Year: *2024*
+	- Outlet: *Neurocomputing*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'RoFormer: Enhanced Transformer with Rotary Position Embedding'*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Bowen Peng, Jeffrey Quesnelle, Honglu Fan, and Enrico Shippole*
+	- Normalized Authors: `['Peng B.', 'Quesnelle J.', 'Fan H.', 'Shippole E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Yarn: Efficient context window extension of large language models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Tsendsuren Munkhdalai, Manaal Faruqui, and Siddharth Gopal*
+	- Normalized Authors: `['Munkhdalai T.', 'Faruqui M.', 'Gopal S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Leave no context behind: Efficient infinite context transformers with infini-attention.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://doi.org/10.48550/arXiv.2404.07143*
+	- **Valid?**: *Found: Years matched; reference (https://doi.org/10.48550/arXiv.2404.07143) checks out :)*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Lvmin Zhang and Maneesh Agrawala*
+	- Normalized Authors: `['Zhang L.', 'Agrawala M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Packing input frame context in next-frame prediction models for video generation.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://doi.org/10.48550/arXiv.2504.12626*
+	- **Valid?**: *Found: Years matched; reference (https://doi.org/10.48550/arXiv.2504.12626) checks out :)*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *William H Guss, Brandon Houghton, Nicholay Topin, Phillip Wang, Cayden Codel, Manuela Veloso, and Ruslan Salakhutdinov*
+	- Normalized Authors: `['Guss W.', 'Houghton B.', 'Topin N.', 'Wang P.', 'Codel C.', 'Veloso M.', 'Salakhutdinov R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Minerl: A large-scale dataset of minecraft demonstrations*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Zhou Wang, Alan C Bovik, Hamid R Sheikh, and Eero P Simoncelli*
+	- Normalized Authors: `['Wang Z.', 'Bovik A.', 'Sheikh H.', 'Simoncelli E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Image quality assessment: from error visibility to structural similarity*
+	- Year: *2004*
+	- Outlet: *IEEE transactions on image processing*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Richard Zhang, Phillip Isola, Alexei A Efros, Eli Shechtman, and Oliver Wang*
+	- Normalized Authors: `['Zhang R.', 'Isola P.', 'Efros A.', 'Shechtman E.', 'Wang O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The unreasonable effectiveness of deep features as a perceptual metric*
+	- Year: *2018*
+	- Outlet: *Proceedings of the IEEE conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Ziqi Huang, Yinan He, Jiashuo Yu, Fan Zhang, Chenyang Si, Yuming Jiang, Yuanhan Zhang, Tianxing Wu, Qingyang Jin, Nattapol Chanpaisit, Yaohui Wang, Xinyuan Chen, Limin Wang, Dahua Lin, Yu Qiao, and Ziwei Liu*
+	- Normalized Authors: `['Huang Z.', 'He Y.', 'Yu J.', 'Zhang F.', 'Si C.', 'Jiang Y.', 'Zhang Y.', 'Wu T.', 'Jin Q.', 'Chanpaisit N.', 'Wang Y.', 'Chen X.', 'Wang L.', 'Lin D.', 'Qiao Y.', 'Liu Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vbench: Comprehensive benchmark suite for video generative models*
+	- Year: *2024*
+	- Outlet: *2024 IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Kiwhan Song, Boyuan Chen, Max Simchowitz, Yilun Du, Russ Tedrake, and Vincent Sitzmann*
+	- Normalized Authors: `['Song K.', 'Chen B.', 'Simchowitz M.', 'Du Y.', 'Tedrake R.', 'Sitzmann V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *History-guided video diffusion.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *CHECK - Authors (0003) did not match found publication titled 'History-Guided Video Diffusion.'*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Google*
+	- Normalized Authors: `['Google']`
+	- Authors contain 'et al.': *False*
+	- Title: *Realestate10k*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://google.github.io/realestate10k/index.html,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 901 results matched the expected title!*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *Jianwen Jiang, Chao Liang, Jiaqi Yang, Gaojie Lin, Tianyun Zhong, and Yanbo Zheng*
+	- Normalized Authors: `['Jiang J.', 'Liang C.', 'Yang J.', 'Lin G.', 'Zhong T.', 'Zheng Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Loopy: Taming audio-driven portrait avatar with long-term motion dependency*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- '*One line of research addressing this involves predicting the underlying 3D world structure like Genie2 [51], Aether [52], Gen3C [53] and others [54, 55, 56]; however, these approaches often suffer from lower resolution compared to direct video generation due to the complexity of 3D representations, exhibit limited interaction capabilities, and typically operate only within localized regions*'
+	- This flag is for the paper with Ref. ID = 52
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*While recent advancements in video generation, particularly diffusion models [4, 5, 6, 7], have shown promise, extending them to generate long, interactive, and consistent videos remains a significant challenge [8, 9, 10]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*Autoregressive approaches [11, 12, 13, 14], which generate videos frame by frame or chunk by chunk conditioned on previous outputs, are a ∗Equal contribution*'
+	- This flag is for the paper with Ref. ID = 12
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 12
+- '*Similarly, retrieval-augmented generation (RAG) [17][18], a powerful technique for incorporating external knowledge in LLMs, shows limited benefits in our experiments with video models*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Similarly, retrieval-augmented generation (RAG) [17][18], a powerful technique for incorporating external knowledge in LLMs, shows limited benefits in our experiments with video models*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 34
+- '*SlowFast-VGen [34] employs a dual-speed learning system to progressively trained LoRA modules for memory recall, utilizing semantic actions but offering limited interactivity*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Rotary Position Embedding (RoPE) [58] is applied for both attention modules, and temporal attention is implemented with causal masking*'
+	- This flag is for the paper with Ref. ID = 58
+- '*5 VBench Evaluation We evaluate the long video generation with five Video Quality metrics in VBench [65] for generated videos in Sec*'
+	- This flag is for the paper with Ref. ID = 65
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*Latent video diffusion models [21] operate on video tokens within a latent space derived from a variational auto-encoder (VAE) [30], building upon prior work in latent image diffusion models [31]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*We adopt a latent video diffusion model [21] that operates in a compressed latent space rather than pixel space for computational efficiency*'
+	- This flag is for the paper with Ref. ID = 21
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 24
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*The Diffusion Transformer (DiT) [32] introduced the Transformer [33] backbone as an alternative to the previously prevalent U-Net architecture [23, 21, 22] in diffusion models*'
+	- This flag is for the paper with Ref. ID = 32
+- '*This can be implemented using techniques such as masked conditional video diffusion [40, 34] or Diffusion Forcing [41]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Consequently, our work focuses on enhancing the consistency of video-based world models [10, 34, 57]*'
+	- This flag is for the paper with Ref. ID = 34
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*Inspired by the success of large language models (LLMs) [15][16] in handling long sequences, we investigate analogous techniques for video generation*'
+	- This flag is for the paper with Ref. ID = 15
+- '*The Diffusion Transformer (DiT) [32] introduced the Transformer [33] backbone as an alternative to the previously prevalent U-Net architecture [23, 21, 22] in diffusion models*'
+	- This flag is for the paper with Ref. ID = 21
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 49
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*Foundational world models capable of simulating future outcomes based on different actions are crucial for effective planning and decisionmaking [1, 2, 3]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Interactive Video World Models World models [1, 2, 3] are simulation systems designed to predict future trajectories based on the current state and chosen actions*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Foundational world models capable of simulating future outcomes based on different actions are crucial for effective planning and decisionmaking [1, 2, 3]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Interactive Video World Models World models [1, 2, 3] are simulation systems designed to predict future trajectories based on the current state and chosen actions*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Foundational world models capable of simulating future outcomes based on different actions are crucial for effective planning and decisionmaking [1, 2, 3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Interactive Video World Models World models [1, 2, 3] are simulation systems designed to predict future trajectories based on the current state and chosen actions*'
+	- This flag is for the paper with Ref. ID = 3
+- '*While recent advancements in video generation, particularly diffusion models [4, 5, 6, 7], have shown promise, extending them to generate long, interactive, and consistent videos remains a significant challenge [8, 9, 10]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*While recent advancements in video generation, particularly diffusion models [4, 5, 6, 7], have shown promise, extending them to generate long, interactive, and consistent videos remains a significant challenge [8, 9, 10]*'
+	- This flag is for the paper with Ref. ID = 5
+- '*While recent advancements in video generation, particularly diffusion models [4, 5, 6, 7], have shown promise, extending them to generate long, interactive, and consistent videos remains a significant challenge [8, 9, 10]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*While recent advancements in video generation, particularly diffusion models [4, 5, 6, 7], have shown promise, extending them to generate long, interactive, and consistent videos remains a significant challenge [8, 9, 10]*'
+	- This flag is for the paper with Ref. ID = 8
+- '*The Sora model [8] introduced the concept of leveraging video generation models as world simulators*'
+	- This flag is for the paper with Ref. ID = 8
+- '*While recent advancements in video generation, particularly diffusion models [4, 5, 6, 7], have shown promise, extending them to generate long, interactive, and consistent videos remains a significant challenge [8, 9, 10]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*While recent advancements in video generation, particularly diffusion models [4, 5, 6, 7], have shown promise, extending them to generate long, interactive, and consistent videos remains a significant challenge [8, 9, 10]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Diffusion-based world models [42, 43, 10] facilitate the modeling of high-dimensional distributions, enabling high-fidelity prediction of diverse trajectories, even directly in pixel space*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Consequently, our work focuses on enhancing the consistency of video-based world models [10, 34, 57]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Autoregressive approaches [11, 12, 13, 14], which generate videos frame by frame or chunk by chunk conditioned on previous outputs, are a ∗Equal contribution*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Autoregressive approaches [11, 12, 13, 14], which generate videos frame by frame or chunk by chunk conditioned on previous outputs, are a ∗Equal contribution*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Autoregressive approaches [11, 12, 13, 14], which generate videos frame by frame or chunk by chunk conditioned on previous outputs, are a ∗Equal contribution*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Inspired by the success of large language models (LLMs) [15][16] in handling long sequences, we investigate analogous techniques for video generation*'
+	- This flag is for the paper with Ref. ID = 16
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*The Diffusion Transformer (DiT) [32] introduced the Transformer [33] backbone as an alternative to the previously prevalent U-Net architecture [23, 21, 22] in diffusion models*'
+	- This flag is for the paper with Ref. ID = 22
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*The Diffusion Transformer (DiT) [32] introduced the Transformer [33] backbone as an alternative to the previously prevalent U-Net architecture [23, 21, 22] in diffusion models*'
+	- This flag is for the paper with Ref. ID = 23
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 25
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*2 Related Works Video Diffusion Models Diffusion generative modeling has significantly advanced the fields of image and video generation [19, 12, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]*'
+	- This flag is for the paper with Ref. ID = 29
+- '*Latent video diffusion models [21] operate on video tokens within a latent space derived from a variational auto-encoder (VAE) [30], building upon prior work in latent image diffusion models [31]*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Latent video diffusion models [21] operate on video tokens within a latent space derived from a variational auto-encoder (VAE) [30], building upon prior work in latent image diffusion models [31]*'
+	- This flag is for the paper with Ref. ID = 31
+- '*The Diffusion Transformer (DiT) [32] introduced the Transformer [33] backbone as an alternative to the previously prevalent U-Net architecture [23, 21, 22] in diffusion models*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Long Video Generation Autoregressive video generation [11, 12, 13, 14, 34, 35, 36, 37, 38, 39] represents a natural approach for long video synthesis by conditioning on preceding frames, drawing inspiration from successes in large language models*'
+	- This flag is for the paper with Ref. ID = 39
+- '*This can be implemented using techniques such as masked conditional video diffusion [40, 34] or Diffusion Forcing [41]*'
+	- This flag is for the paper with Ref. ID = 40
+- '*This can be implemented using techniques such as masked conditional video diffusion [40, 34] or Diffusion Forcing [41]*'
+	- This flag is for the paper with Ref. ID = 41
+- '*We apply the Diffusion Forcing [41] technique during training*'
+	- This flag is for the paper with Ref. ID = 41
+- '*Diffusion-based world models [42, 43, 10] facilitate the modeling of high-dimensional distributions, enabling high-fidelity prediction of diverse trajectories, even directly in pixel space*'
+	- This flag is for the paper with Ref. ID = 42
+- '*Diffusion-based world models [42, 43, 10] facilitate the modeling of high-dimensional distributions, enabling high-fidelity prediction of diverse trajectories, even directly in pixel space*'
+	- This flag is for the paper with Ref. ID = 43
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 43
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Extending video generation models with interactive capabilities has led to promising applications in diverse domains, including game simulation like Genie [9], GameNGen [10], Oasis [44], Gamegen-x [45], The Matrix [37], Mineworld [46], GameFactory [47] and so on [43], autonomous driving [48], robotic manipulation [35, 49], and navigation [50]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*One line of research addressing this involves predicting the underlying 3D world structure like Genie2 [51], Aether [52], Gen3C [53] and others [54, 55, 56]; however, these approaches often suffer from lower resolution compared to direct video generation due to the complexity of 3D representations, exhibit limited interaction capabilities, and typically operate only within localized regions*'
+	- This flag is for the paper with Ref. ID = 51
+- '*One line of research addressing this involves predicting the underlying 3D world structure like Genie2 [51], Aether [52], Gen3C [53] and others [54, 55, 56]; however, these approaches often suffer from lower resolution compared to direct video generation due to the complexity of 3D representations, exhibit limited interaction capabilities, and typically operate only within localized regions*'
+	- This flag is for the paper with Ref. ID = 53
+- '*One line of research addressing this involves predicting the underlying 3D world structure like Genie2 [51], Aether [52], Gen3C [53] and others [54, 55, 56]; however, these approaches often suffer from lower resolution compared to direct video generation due to the complexity of 3D representations, exhibit limited interaction capabilities, and typically operate only within localized regions*'
+	- This flag is for the paper with Ref. ID = 54
+- '*One line of research addressing this involves predicting the underlying 3D world structure like Genie2 [51], Aether [52], Gen3C [53] and others [54, 55, 56]; however, these approaches often suffer from lower resolution compared to direct video generation due to the complexity of 3D representations, exhibit limited interaction capabilities, and typically operate only within localized regions*'
+	- This flag is for the paper with Ref. ID = 55
+- '*One line of research addressing this involves predicting the underlying 3D world structure like Genie2 [51], Aether [52], Gen3C [53] and others [54, 55, 56]; however, these approaches often suffer from lower resolution compared to direct video generation due to the complexity of 3D representations, exhibit limited interaction capabilities, and typically operate only within localized regions*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Consequently, our work focuses on enhancing the consistency of video-based world models [10, 34, 57]*'
+	- This flag is for the paper with Ref. ID = 57
+- '*Concurrent work [57] explores interactive world simulation through the integration of supplementary memory blocks*'
+	- This flag is for the paper with Ref. ID = 57
+- '*Long-context Enhancement We extend the temporal context window using YaRN [59] modification for RoPE in temporal attention*'
+	- This flag is for the paper with Ref. ID = 59
+- '*This approach is inspired by the success of Infini-attention [60] in LLMs, which utilizes a compressed memory representation to enhance attention mechanisms*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Frame Pack As another baseline, we follow the Frame Pack [61] to compress historical frames as context*'
+	- This flag is for the paper with Ref. ID = 61
+- '*1 Datasets and Evaluation Protocol For training, we collected 1000 long Minecraft gameplay videos (17 hours total) using MineRL [62]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*We evaluate the models against ground-truth test sets using several metrics: Structural Similarity Index (SSIM) [63] to measure spatial consistency, Peak Signal-to-Noise Ratio (PSNR) for pixellevel reconstruction quality, Learned Perceptual Image Patch Similarity (LPIPS) [64] to assess perceptual similarity*'
+	- This flag is for the paper with Ref. ID = 63
+- '*We evaluate the models against ground-truth test sets using several metrics: Structural Similarity Index (SSIM) [63] to measure spatial consistency, Peak Signal-to-Noise Ratio (PSNR) for pixellevel reconstruction quality, Learned Perceptual Image Patch Similarity (LPIPS) [64] to assess perceptual similarity*'
+	- This flag is for the paper with Ref. ID = 64
+- '*Specifically, following the experimental setup of Diffusion Forcing Transformer (DFoT) [66], our VRAG model is initialized from pretrained DFoT and finetuned on the RealEstate10K dataset [67] with additionally retrieved historical context, as described in Sec*'
+	- This flag is for the paper with Ref. ID = 66
+- '*Specifically, following the experimental setup of Diffusion Forcing Transformer (DFoT) [66], our VRAG model is initialized from pretrained DFoT and finetuned on the RealEstate10K dataset [67] with additionally retrieved historical context, as described in Sec*'
+	- This flag is for the paper with Ref. ID = 67
+

@@ -1,0 +1,1205 @@
+# Paper Analysis Utility - Results
+
+Paper: NFL-BA Near-Field Light Bundle Adjustment for SLAM in Dynamic Lighting.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/19 NFL-BA Near-Field Light Bundle Adjustment/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 1 pages)
+2) 'Related Works' -- p. 2 (ca. 1 pages)
+3) 'Background' -- p. 3 (ca. 1 pages)
+4) 'Near-Field Light Bundle Adjustment' -- p. 4 (ca. 2 pages)
+5) 'Evaluation' -- p. 6 (ca. 3 pages)
+6) 'Conclusions' -- p. 9 (ca. 1 pages)
+7) 'References' -- p. 10 (ca. 3 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/17=0.00%
+		- Invalid uses: 17/17=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 2: ciαiΠi−1
+		- Page 2: j=1(1 −αj) ,
+		- Page 2: ziαiΠi−1
+		- Page 2: j=1(1 −αj)
+		- Page 3: Lren = ∥Mt ⊙( ˆC −C)∥p,
+		- Page 3: Lgeo = ∥Mt ⊙( ˆD −D)∥p
+		- Page 3: the volume density σi and the distance between adjacent samples δi as αi = 1 −exp(−σiδi).
+		- Page 3: αi = αi exp(−1
+		- Page 3: 2(p −¯µi
+		- Page 3: −1(p −¯µi
+		- Page 4: xp −xL
+		- Page 4: ∥xp −xL∥,
+		- Page 4: ∥xp −xL∥2 ,
+		- Page 4: ρ(xi)PPS(xi)αiΠi−1
+		- Page 4: j=1(1 −αj)
+		- Page 4: La(xp) = 1/∥xp −xL∥2. This simplification is justified because the angular attenuation in settings
+		- Page 5: follows [4]: n(xi) = −∇σ(xi)/∥∇σ(xi)∥. For Gaussian Splatting, we use the shortest axis of each
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+All references stated in the 'References' section were also used at least once in the document's (main) text.
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Montiel J.: 8
+- Tardós J.: 7
+- Zhang Y.: 7
+- Pizer S.: 5
+- Oswald M.: 5
+- McGill S.: 4
+- Rosenman J.: 4
+- Frahm J.: 4
+- Wang Y.: 3
+- Li X.: 3
+- Davison A.: 3
+- Wang S.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/19 NFL-BA Near-Field Light Bundle Adjustment/literature_validation_results_fig.jpg]]
+
+References section starts on page 10.
+
+- No link provided: $62/62=100.00\%$
+- Unchecked links: $0/62=0.00\%$
+- Valid links: $0/62=0.00\%$
+- Invalid link: $0/62=0.00\%$
+
+- Different links: $1/62=1.61\%$
+	- *Please note that if no link was provided, a found link will also show up in this statistic!*
+	- Different links:
+		=> total = 1
+		- \[1\] Hatem Alismail, Brett Browning, and Simon Lucey. Photometric bundle adjustment for vision-based slam, 2016.
+			-> Found: Years matched; reference (https://doi.org/10.1007/978-3-319-54190-7_20) checks out :); https://doi.org/10.1007/978-3-319-54190-7_20
+
+- Successful searches: $27/62=43.55\%$
+- Skipped searches: $0/62=0.00\%$
+- Mismatching infos: $18/62=29.03\%$
+	- **Entries with mismatching author information:**
+		=> total = 8
+		- `[2] Víctor M Batlle, José MM Montiel, Pascal Fua, and Juan D Tardós. LightNeuS: Neural surface reconstruction in endoscopy using illumination decline. In Medical Image Computing and Computer Assisted Intervention (MICCAI), 2023.`
+			- Authors (Tard'os) did not match found publication titled 'LightNeuS: Neural Surface Reconstruction in Endoscopy using Illumination Decline'
+		- `[8] B. Cui, H. Zhang, X. Li, W. Zhou, and T. Cheng. Endodac: Efficient adapting foundation model for self-supervised depth estimation from any endoscopic camera. In Proceedings of the Medical Image Computing and Computer-Assisted Intervention Conference (MICCAI), 2024.`
+			- Authors (Hoque, Bai, Wang, Ren) did not match found publication titled 'EndoDAC: Efficient Adapting Foundation Model for Self-Supervised Depth Estimation from Any Endoscopic Camera'
+		- `[16] Yiming Huang, Beilei Cui, Long Bai, Ziqi Guo, Mengya Xu, Mobarakol Islam, and Hongliang Ren. Endo-4DGS: Endoscopic Monocular Scene Reconstruction with 4D Gaussian Splatting . In proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15006. Springer Nature Switzerland, October 2024.`
+			- Authors () did not match found publication titled 'Endo-4DGS: Endoscopic Monocular Scene Reconstruction with 4D Gaussian Splatting'
+		- `[17] Raúl Iranzo, Víctor M Batlle, Juan D Tardós, and José MM Montiel. Endometric: Near-light metric scale monocular slam. arXiv preprint arXiv:2410.15065, 2024.`
+			- Authors (Tard'os) did not match found publication titled 'EndoMetric: Near-light metric scale monocular SLAM'
+		- `[29] Javier Morlana, Juan D Tardós, and José MM Montiel. Topological slam in colonoscopies leveraging deep features and topological priors. In International Conference on Medical Image Computing and Computer-Assisted Intervention, pages 733–743. Springer, 2024.`
+			- Authors (Tard'os) did not match found publication titled 'Topological SLAM in Colonoscopies Leveraging Deep Features and Topological Priors'
+		- `[32] Kutsev Bengisu Ozyoruk, Guliz Irem Gokceler, Taylor L. Bobrow, Gulfize Coskun, Kagan Incetan, Yasin Almalioglu, Faisal Mahmood, Eva Curto, Luis Perdigoto, Marina Oliveira, Hasan Sahin, Helder Araujo, Henrique Alexandrino, Nicholas J. Durr, Hunter B. Gilbert, and Mehmet Turan. Endoslam dataset and an unsupervised monocular visual odometry and depth estimation approach for endoscopic videos. Medical Image Analysis, 71:102058, 2021.`
+			- Authors (Araújo) did not match found publication titled 'EndoSLAM dataset and an unsupervised monocular visual odometry and depth estimation approach for endoscopic videos'
+		- `[36] Javier Rodríguez-Puigvert*, Víctor M. Batlle*, José María M. Montiel, Rubén Martínez-Cantín, Pascal Fua, Juan D. Tardós, and Javier Civera. LightDepth: single-view depth self-supervision from illumination decline. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2023.`
+			- Authors (Rodr'iguez-Puigvert, Tard'os) did not match found publication titled 'LightDepth: Single-View Depth Self-Supervision from Illumination Decline'
+		- `[59] A. Zhu, Z. Zhang, H. Su, L. Li, G. Wang, and X. Li. Nice-slam: Neural implicit scalable encoding for slam. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2022.`
+			- Authors (Peng, Larsson, Xu, Bao, Cui, Oswald, Pollefeys) did not match found publication titled 'NICE-SLAM: Neural Implicit Scalable Encoding for SLAM'
+	- **Entries with mismatching years (where the difference is > 1 year):**
+		=> total = 2
+		- `[10] J. Engel, V. Koltun, and D. Cremers. Direct sparse odometry. IEEE Transactions on Pattern Analysis and Machine Intelligence, 40(3):611–625, 2018.`
+			- Year (2016) does not match expected year (2018)
+		- `[13] R. Hartley and A. Zisserman. Multiple View Geometry in Computer Vision. Cambridge University Press, 2003.`
+			- Year (2001) does not match expected year (2003)
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 8
+		- `[3] Taylor L Bobrow, Mayank Golhar, Rohan Vijayan, Venkata S Akshintala, Juan R Garcia, and Nicholas J Durr. Colonoscopy 3d video dataset with paired depth from 2d-3d registration. Medical Image Analysis, page 102956, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[4] Mark Boss, Raphael Braun, Varun Jampani, Jonathan T. Barron, Ce Liu, and Hendrik P.A. Lensch. Nerd: Neural reflectance decomposition from image collections. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pages 12684–12694, October 2021.`
+			- Year (2020) does not match expected year (2021)
+		- `[15] Huajian Huang, Longwei Li, Cheng Hui, and Sai-Kit Yeung. Photo-slam: Real-time simultaneous localization and photorealistic mapping for monocular, stereo, and rgb-d cameras. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[27] Hidenobu Matsuki, Riku Murai, Paul H.J. Kelly, and Andrew J. Davison. Gaussian splatting slam. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pages 18039–18048, June 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[31] Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy V. Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel HAZIZA, Francisco Massa, Alaaeldin El-Nouby, Mido Assran, Nicolas Ballas, Wojciech Galuba, Russell Howes, Po-Yao Huang, Shang-Wen Li, Ishan Misra, Michael Rabbat, Vasu Sharma, Gabriel Synnaeve, Hu Xu, Herve Jegou, Julien Mairal, Patrick Labatut, Armand Joulin, and Piotr Bojanowski. DINOv2: Learning robust visual features without supervision. Transactions on Machine Learning Research, 2024. Featured Certification.`
+			- Year (2023) does not match expected year (2024)
+		- `[48] Chi Yan, Delin Qu, Dan Xu, Bin Zhao, Zhigang Wang, Dong Wang, and Xuelong Li. Gs-slam: Dense visual slam with 3d gaussian splatting. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 19595–19604, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[53] Carlton Zdanski, Stephanie Davis, Yi Hong, Di Miao, Cory Quammen, Sorin Mitran, Brad Davis, Marc Niethammer, Julia Kimbell, Elizabeth Pitkin, Jason Fine, Lynn Fordham, Brad Vaughn, and Richard Superfine. Quantitative assessment of the upper airway in infants and children with subglottic stenosis. The Laryngoscope, 126, 07 2015.`
+			- Year (2016) does not match expected year (2015)
+		- `[62] Zihan Zhu, Songyou Peng, Viktor Larsson, Zhaopeng Cui, Martin R Oswald, Andreas Geiger, and Marc Pollefeys. Nicer-slam: Neural implicit scene encoding for rgb slam. In International Conference on 3D Vision (3DV), March 2024.`
+			- Year (2023) does not match expected year (2024)
+- No entry found: $17/62=27.42\%$
+	- Unfound entries:
+		=> total = 17
+		- \[5\] C. Campos, R. Elvira, J. J. G. Rodríguez, J. M. M. Montiel, and J. D. Tardós. Orb-slam3: An accurate open-source library for visual, visual-inertial, and multi-map slam. IEEE Transactions on Robotics, 37(6):1874–1890, 2021.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[9\] Tianchen Deng, Yaohui Chen, Leyan Zhang, Jianfei Yang, Shenghai Yuan, Jiuming Liu, Danwei Wang, Hesheng Wang, and Weidong Chen. Compact 3d gaussian splatting for dense visual slam, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 20 results matched the expected title!
+		- \[20\] C. Lichy and Other authors. Photometric stereo with near-field lighting using neural networks. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages zz–aa, 2022.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[23\] J. Lu, Y. Zhang, and X. Chen. Monogs: Monocular gaussian splatting for robust slam. In Proceedings of the IEEE International Conference on Robotics and Automation (ICRA), 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!
+		- \[25\] Ruibin Ma, Rui Wang, Stephen Pizer, Julian Rosenman, Sarah K McGill, and Jan-Michael Frahm. Realtime 3d reconstruction of colonoscopic surfaces for determining missing regions. In Medical Image Computing and Computer Assisted Intervention–MICCAI 2019: 22nd International Conference, Shenzhen, China, October 13–17, 2019, Proceedings, Part V 22, pages 573–582. Springer, 2019.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[26\] R. Martínez-Cantín and J. D. Tardós. Unscented kalman filter for visual slam with photometric calibration. In IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), pages 1234–1241, 2016.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[28\] Ben Mildenhall, Pratul P. Srinivasan, Matthew Tancik, Jonathan T. Barron, Ravi Ramamoorthi, and Ren Ng. Nerf: representing scenes as neural radiance fields for view synthesis. Commun. ACM, 65(1):99–106, December 2021.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[35\] Juan J Gómez Rodríguez, José MM Montiel, and Juan D Tardós. Nr-slam: Non-rigid monocular slam. IEEE Transactions on Robotics, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[39\] D. Stoyanov, G. Mylonas, F. Deligianni, A. Darzi, and G.-Z. Yang. Soft-tissue motion tracking and structure estimation for robotic assisted mis procedures. In Medical Image Computing and Computer-Assisted Intervention (MICCAI), pages 139–146, 2005.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[41\] X. Sun, O. Kähler, and K. Sattler. Lightglue: Feature matching under adverse conditions. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pages 500–509, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[43\] Fabio Tosi, Youmin Zhang, Ziren Gong, Erik Sandström, Stefano Mattoccia, Martin R Oswald, and Matteo Poggi. How nerfs and 3d gaussian splatting are reshaping slam: a survey. arXiv preprint arXiv:2402.13255, 4, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[52\] Vladimir Yugay, Yue Li, Theo Gevers, and Martin R. Oswald. Gaussian-slam: Photo-realistic dense slam with gaussian splatting, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[55\] Y. Zhang, M. Oswald, and D. Cremers. Airslam: Illumination-invariant hybrid slam. In International Conference on Computer Vision (ICCV), pages 2345–2354, 2023.==
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[57\] S. Zhi, J. Lai, A. Kundu, M. Bloesch, A. Davison, and A. Zisserman. Nerf-slam: Real-time dense monocular slam with neural radiance fields. In Proceedings of the European Conference on Computer Vision (ECCV), 2022.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[58\] L. Zhou, R. Klette, and K. Scheibe. A multi-image shape-from-shading framework for near-lighting perspective endoscopes. International Journal of Computer Vision, 82:1–24, 2009.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[60\] Lingting Zhu, Zhao Wang, Jiahao Cui, Zhenchao Jin, Guying Lin, and Lequan Yu. Endogs: Deformable endoscopic tissues reconstruction with gaussian splatting. In M. Emre Celebi, Mauricio Reyes, Zhen Chen, and Xiaoxiao Li, editors, Medical Image Computing and Computer Assisted Intervention – MICCAI 2024 Workshops, pages 135–145, Cham, 2025. Springer Nature Switzerland.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[61\] Z. Zhu, T. Yu, X. Zhang, J. Li, Y. Zhang, and Y. Fu. Neuralrgb-d: Neural representations for depth estimation and scene mapping. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2022.==
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/19 NFL-BA Near-Field Light Bundle Adjustment/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 7
+- arXiv
+	- References literatures count from this outlet: 6
+- proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15006 Springer Nature Switzerland
+	- References literatures count from this outlet: 4
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE/CVF International Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- MEDICAL IMAGE ANALYSIS
+	- Parsed as: Medical Image Analysis
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 11.0
+	- References literatures count from this outlet: 2
+- IEEE Transactions on Robotics
+	- Parsed as: IEEE Transactions on Robotics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 10.0
+	- References literatures count from this outlet: 2
+- European Conference on Computer Vision
+	- Parsed as: Computer Vision – ECCV 2024
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- Alejandro Frangi, Marleen de Bruijne, Demian Wassermann, and Nassir Navab, editors, Information Processing in Medical Imaging,
+	- References literatures count from this outlet: 1
+- Journal of Field Robotics
+	- Parsed as: Journal of field robotics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 4.5
+	- References literatures count from this outlet: 1
+- Medical Image Computing and Computer-Assisted Intervention
+	- Parsed as: Soft-tissue motion tracking and structure estimation for robotic assisted mis procedures.  In Medical Image Computing and Computer-Assisted Intervention
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE International Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- M  Ranzato, A  Beygelzimer, Y  Dauphin, P S  Liang, and J  Wortman Vaughan, editors, Advances in Neural Information Processing Systems, volume 34,
+	- References literatures count from this outlet: 1
+- ACM SIGGRAPH 2024 Conference Papers, SIGGRAPH ’24, New York, NY
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: CVPR
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Transactions on Robotics, volume 31
+	- References literatures count from this outlet: 1
+- The Laryngoscope, 126
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: International Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- European Conference on Computer Vision
+	- Parsed as: Proceedings of the European Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- INTERNATIONAL JOURNAL OF COMPUTER VISION
+	- Parsed as: International Journal of Computer Vision
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 8.6
+	- References literatures count from this outlet: 1
+- M  Emre Celebi, Mauricio Reyes, Zhen Chen, and Xiaoxiao Li, editors, Medical Image Computing and Computer Assisted Intervention – MICCAI 2024 Workshops,
+	- References literatures count from this outlet: 1
+- Transactions on Machine Learning Research
+	- References literatures count from this outlet: 1
+- Medical Image Computing and Computer-Assisted Intervention
+	- Parsed as: Medical Image Computing and Computer Assisted Intervention–MICCAI 2019: 22nd International Conference, Shenzhen, China, October 13–17, 2019, Proceedings, Part V 22
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Medical Image Computing and Computer-Assisted Intervention
+	- Parsed as: International Conference on Medical Image Computing and Computer-Assisted Intervention
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Commun ACM,
+	- References literatures count from this outlet: 1
+- IEEE/RSJ International Conference on Intelligent Robots and Systems
+	- Parsed as: IEEE/RSJ International Conference on Intelligent Robots and Systems
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Medical Image Computing and Computer-Assisted Intervention
+	- Parsed as: Medical Image Computing and Computer Assisted Intervention
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- 2021 IEEE 18th International Symposium on Biomedical Imaging
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Robotics and Automation
+	- Parsed as: Proceedings of the IEEE International Conference on Robotics and Automation
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- ACM Trans Graph ,
+	- References literatures count from this outlet: 1
+- [1990] Proceedings 10th International Conference on Pattern Recognition, volume i
+	- References literatures count from this outlet: 1
+- Cambridge University Press
+	- References literatures count from this outlet: 1
+- Medical Image Computing and Computer-Assisted Intervention
+	- Parsed as: proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15007 Springer Nature Switzerland
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Robotics and Automation
+	- Parsed as: 2011 IEEE International Conference on Robotics and Automation
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+	- Parsed as: IEEE Transactions on Pattern Analysis and Machine Intelligence
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 18.0
+	- References literatures count from this outlet: 1
+- Medical Image Computing and Computer-Assisted Intervention
+	- Parsed as: Proceedings of the Medical Image Computing and Computer-Assisted Intervention Conference
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on 3D Vision
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Hatem Alismail, Brett Browning, and Simon Lucey*
+	- Normalized Authors: `['Alismail H.', 'Browning B.', 'Lucey S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Photometric bundle adjustment for vision-based slam.*
+	- Year: *2016*
+	- Outlet: **
+	- Link: *https://doi.org/10.1007/978-3-319-54190-7_20*
+	- **Valid?**: *Found: Years matched; reference (https://doi.org/10.1007/978-3-319-54190-7_20) checks out :)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Víctor M Batlle, José MM Montiel, Pascal Fua, and Juan D Tardós*
+	- Normalized Authors: `['Batlle V.', 'Montiel J.', 'Fua P.', 'Tardós J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *LightNeuS: Neural surface reconstruction in endoscopy using illumination decline*
+	- Year: *2023*
+	- Outlet: *Medical Image Computing and Computer Assisted Intervention*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Tard'os) did not match found publication titled 'LightNeuS: Neural Surface Reconstruction in Endoscopy using Illumination Decline'*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Taylor L Bobrow, Mayank Golhar, Rohan Vijayan, Venkata S Akshintala, Juan R Garcia, and Nicholas J Durr*
+	- Normalized Authors: `['Bobrow T.', 'Golhar M.', 'Vijayan R.', 'Akshintala V.', 'Garcia J.', 'Durr N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Colonoscopy 3d video dataset with paired depth from 2d-3d registration*
+	- Year: *2023*
+	- Outlet: *Medical Image Analysis*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Mark Boss, Raphael Braun, Varun Jampani, Jonathan T  Barron, Ce Liu, and Hendrik P A  Lensch*
+	- Normalized Authors: `['Boss M.', 'Braun R.', 'Jampani V.', 'Barron J.', 'Liu C.', 'Lensch H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nerd: Neural reflectance decomposition from image collections*
+	- Year: *2021*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *C  Campos, R  Elvira, J  J  G  Rodríguez, J  M  M  Montiel, and J  D  Tardós*
+	- Normalized Authors: `['Campos C.', 'Elvira R.', 'Rodríguez J.', 'Montiel J.', 'Tardós J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Orb-slam3: An accurate open-source library for visual, visual-inertial, and multi-map slam*
+	- Year: *2021*
+	- Outlet: *IEEE Transactions on Robotics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Devendra Singh Chaplot, Ruslan Salakhutdinov, Abhinav Gupta, and Saurabh Gupta*
+	- Normalized Authors: `['Chaplot D.', 'Salakhutdinov R.', 'Gupta A.', 'Gupta S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Neural topological slam for visual navigation*
+	- Year: *2020*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Hanlin Chen, Fangyin Wei, Chen Li, Tianxin Huang, Yunsong Wang, and Gim Hee Lee*
+	- Normalized Authors: `['Chen H.', 'Wei F.', 'Li C.', 'Huang T.', 'Wang Y.', 'Lee G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vcr-gaus: View consistent depth-normal regularizer for gaussian surface reconstruction*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *B  Cui, H  Zhang, X  Li, W  Zhou, and T  Cheng*
+	- Normalized Authors: `['Cui B.', 'Zhang H.', 'Li X.', 'Zhou W.', 'Cheng T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Endodac: Efficient adapting foundation model for self-supervised depth estimation from any endoscopic camera*
+	- Year: *2024*
+	- Outlet: *Proceedings of the Medical Image Computing and Computer-Assisted Intervention Conference*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Hoque, Bai, Wang, Ren) did not match found publication titled 'EndoDAC: Efficient Adapting Foundation Model for Self-Supervised Depth Estimation from Any Endoscopic Camera'*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Tianchen Deng, Yaohui Chen, Leyan Zhang, Jianfei Yang, Shenghai Yuan, Jiuming Liu, Danwei Wang, Hesheng Wang, and Weidong Chen*
+	- Normalized Authors: `['Deng T.', 'Chen Y.', 'Zhang L.', 'Yang J.', 'Yuan S.', 'Liu J.', 'Wang D.', 'Wang H.', 'Chen W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Compact 3d gaussian splatting for dense visual slam.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 20 results matched the expected title!*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *J  Engel, V  Koltun, and D  Cremers*
+	- Normalized Authors: `['Engel J.', 'Koltun V.', 'Cremers D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Direct sparse odometry*
+	- Year: *2018*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2016) does not match expected year (2018)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Oscar G  Grasa, Javier Civera, and J  M  M  Montiel*
+	- Normalized Authors: `['Grasa O.', 'Civera J.', 'Montiel J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ekf monocular slam with relocalization for laparoscopic sequences*
+	- Year: *2011*
+	- Outlet: *2011 IEEE International Conference on Robotics and Automation*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Jiaxin Guo, Jiangliu Wang, Di Kang, Wenzhen Dong, Wenting Wang, and Yun-hui Liu*
+	- Normalized Authors: `['Guo J.', 'Wang J.', 'Kang D.', 'Dong W.', 'Wang W.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Free-SurGS: SfM-Free 3D Gaussian Splatting for Surgical Scene Reconstruction*
+	- Year: *2024*
+	- Outlet: *proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15007 Springer Nature Switzerland*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *R  Hartley and A  Zisserman*
+	- Normalized Authors: `['Hartley R.', 'Zisserman A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multiple View Geometry in Computer Vision*
+	- Year: *2003*
+	- Outlet: *Cambridge University Press*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2001) does not match expected year (2003)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Michel Hayoz, Christopher Hahne, Thomas Kurmann, Max Allan, Guido Beldi, Daniel Candinas, Pablo Márquez-Neila, and Raphael Sznitman*
+	- Normalized Authors: `['Hayoz M.', 'Hahne C.', 'Kurmann T.', 'Allan M.', 'Beldi G.', 'Candinas D.', 'Márquez-Neila P.', 'Sznitman R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Online 3D reconstruction and dense tracking in endoscopic videos*
+	- Year: *2024*
+	- Outlet: *proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15006 Springer Nature Switzerland*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Huajian Huang, Longwei Li, Cheng Hui, and Sai-Kit Yeung*
+	- Normalized Authors: `['Huang H.', 'Li L.', 'Hui C.', 'Yeung S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Photo-slam: Real-time simultaneous localization and photorealistic mapping for monocular, stereo, and rgb-d cameras*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Yiming Huang, Beilei Cui, Long Bai, Ziqi Guo, Mengya Xu, Mobarakol Islam, and Hongliang Ren*
+	- Normalized Authors: `['Huang Y.', 'Cui B.', 'Bai L.', 'Guo Z.', 'Xu M.', 'Islam M.', 'Ren H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Endo-4DGS: Endoscopic Monocular Scene Reconstruction with 4D Gaussian Splatting*
+	- Year: *2024*
+	- Outlet: *proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15006 Springer Nature Switzerland*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Endo-4DGS: Endoscopic Monocular Scene Reconstruction with 4D Gaussian Splatting'*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Raúl Iranzo, Víctor M Batlle, Juan D Tardós, and José MM Montiel*
+	- Normalized Authors: `['Iranzo R.', 'Batlle V.', 'Tardós J.', 'Montiel J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Endometric: Near-light metric scale monocular slam*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Tard'os) did not match found publication titled 'EndoMetric: Near-light metric scale monocular SLAM'*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Y  Iwahori, H  Sugie, and N  Ishii*
+	- Normalized Authors: `['Iwahori Y.', 'Sugie H.', 'Ishii N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reconstructing shape from shading images under point light source illumination*
+	- Year: *1990*
+	- Outlet: *[1990] Proceedings 10th International Conference on Pattern Recognition, volume i*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Bernhard Kerbl, Georgios Kopanas, Thomas Leimkuehler, and George Drettakis*
+	- Normalized Authors: `['Kerbl B.', 'Kopanas G.', 'Leimkuehler T.', 'Drettakis G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d gaussian splatting for real-time radiance field rendering*
+	- Year: *2023*
+	- Outlet: *ACM Trans Graph ,*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *C  Lichy and Other authors*
+	- Normalized Authors: `['Lichy C.', 'authors O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Photometric stereo with near-field lighting using neural networks*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Daniel Lichy, Soumyadip Sengupta, and David W  Jacobs*
+	- Normalized Authors: `['Lichy D.', 'Sengupta S.', 'Jacobs D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fast light-weight near-field photometric stereo*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Yifan Liu, Chenxin Li, Chen Yang, and Yixuan Yuan*
+	- Normalized Authors: `['Liu Y.', 'Li C.', 'Yang C.', 'Yuan Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Endogaussian: Gaussian splatting for deformable surgical scene reconstruction*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *J  Lu, Y  Zhang, and X  Chen*
+	- Normalized Authors: `['Lu J.', 'Zhang Y.', 'Chen X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Monogs: Monocular gaussian splatting for robust slam*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE International Conference on Robotics and Automation*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Ruibin Ma, Sarah K  McGill, Rui Wang, Julian Rosenman, Jan-Michael Frahm, Yubo Zhang, and Stephen Pizer*
+	- Normalized Authors: `['Ma R.', 'McGill S.', 'Wang R.', 'Rosenman J.', 'Frahm J.', 'Zhang Y.', 'Pizer S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Colon10k: A benchmark for place recognition in colonoscopy*
+	- Year: *2021*
+	- Outlet: *2021 IEEE 18th International Symposium on Biomedical Imaging*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Ruibin Ma, Rui Wang, Stephen Pizer, Julian Rosenman, Sarah K McGill, and Jan-Michael Frahm*
+	- Normalized Authors: `['Ma R.', 'Wang R.', 'Pizer S.', 'Rosenman J.', 'McGill S.', 'Frahm J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Realtime 3d reconstruction of colonoscopic surfaces for determining missing regions*
+	- Year: *2019*
+	- Outlet: *Medical Image Computing and Computer Assisted Intervention–MICCAI 2019: 22nd International Conference, Shenzhen, China, October 13–17, 2019, Proceedings, Part V 22*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *R  Martínez-Cantín and J  D  Tardós*
+	- Normalized Authors: `['Martínez-Cantín R.', 'Tardós J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Unscented kalman filter for visual slam with photometric calibration*
+	- Year: *2016*
+	- Outlet: *IEEE/RSJ International Conference on Intelligent Robots and Systems*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Hidenobu Matsuki, Riku Murai, Paul H J  Kelly, and Andrew J  Davison*
+	- Normalized Authors: `['Matsuki H.', 'Murai R.', 'Kelly P.', 'Davison A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gaussian splatting slam*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Ben Mildenhall, Pratul P  Srinivasan, Matthew Tancik, Jonathan T  Barron, Ravi Ramamoorthi, and Ren Ng*
+	- Normalized Authors: `['Mildenhall B.', 'Srinivasan P.', 'Tancik M.', 'Barron J.', 'Ramamoorthi R.', 'Ng R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nerf: representing scenes as neural radiance fields for view synthesis*
+	- Year: *2021*
+	- Outlet: *Commun ACM,*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Javier Morlana, Juan D Tardós, and José MM Montiel*
+	- Normalized Authors: `['Morlana J.', 'Tardós J.', 'Montiel J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Topological slam in colonoscopies leveraging deep features and topological priors*
+	- Year: *2024*
+	- Outlet: *International Conference on Medical Image Computing and Computer-Assisted Intervention*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Tard'os) did not match found publication titled 'Topological SLAM in Colonoscopies Leveraging Deep Features and Topological Priors'*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *R  Mur-Artal, J  M  M  Montiel, and J  D  Tardos*
+	- Normalized Authors: `['Mur-Artal R.', 'Montiel J.', 'Tardos J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Orb-slam: A versatile and accurate monocular slam system*
+	- Year: *2015*
+	- Outlet: *IEEE Transactions on Robotics, volume 31*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy V  Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel HAZIZA, Francisco Massa, Alaaeldin El-Nouby, Mido Assran, Nicolas Ballas, Wojciech Galuba, Russell Howes, Po-Yao Huang, Shang-Wen Li, Ishan Misra, Michael Rabbat, Vasu Sharma, Gabriel Synnaeve, Hu Xu, Herve Jegou, Julien Mairal, Patrick Labatut, Armand Joulin, and Piotr Bojanowski*
+	- Normalized Authors: `['Oquab M.', 'Darcet T.', 'Moutakanni T.', 'Vo H.', 'Szafraniec M.', 'Khalidov V.', 'Fernandez P.', 'HAZIZA D.', 'Massa F.', 'El-Nouby A.', 'Assran M.', 'Ballas N.', 'Galuba W.', 'Howes R.', 'Huang P.', 'Li S.', 'Misra I.', 'Rabbat M.', 'Sharma V.', 'Synnaeve G.', 'Xu H.', 'Jegou H.', 'Mairal J.', 'Labatut P.', 'Joulin A.', 'Bojanowski P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *DINOv2: Learning robust visual features without supervision*
+	- Year: *2024*
+	- Outlet: *Transactions on Machine Learning Research*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Kutsev Bengisu Ozyoruk, Guliz Irem Gokceler, Taylor L  Bobrow, Gulfize Coskun, Kagan Incetan, Yasin Almalioglu, Faisal Mahmood, Eva Curto, Luis Perdigoto, Marina Oliveira, Hasan Sahin, Helder Araujo, Henrique Alexandrino, Nicholas J  Durr, Hunter B  Gilbert, and Mehmet Turan*
+	- Normalized Authors: `['Ozyoruk K.', 'Gokceler G.', 'Bobrow T.', 'Coskun G.', 'Incetan K.', 'Almalioglu Y.', 'Mahmood F.', 'Curto E.', 'Perdigoto L.', 'Oliveira M.', 'Sahin H.', 'Araujo H.', 'Alexandrino H.', 'Durr N.', 'Gilbert H.', 'Turan M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Endoslam dataset and an unsupervised monocular visual odometry and depth estimation approach for endoscopic videos*
+	- Year: *2021*
+	- Outlet: *Medical Image Analysis*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Araújo) did not match found publication titled 'EndoSLAM dataset and an unsupervised monocular visual odometry and depth estimation approach for endoscopic videos'*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Albert Palomer, Pere Ridao, and David Ribas*
+	- Normalized Authors: `['Palomer A.', 'Ridao P.', 'Ribas D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Inspection of an underwater structure using point-cloud slam with an auv and a laser scanner*
+	- Year: *2019*
+	- Outlet: *Journal of field robotics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Akshay Paruchuri, Samuel Ehrenstein, Shuxian Wang, Inbar Fried, Stephen M Pizer, Marc Niethammer, and Roni Sengupta*
+	- Normalized Authors: `['Paruchuri A.', 'Ehrenstein S.', 'Wang S.', 'Fried I.', 'Pizer S.', 'Niethammer M.', 'Sengupta R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Leveraging near-field lighting for monocular depth estimation from endoscopy videos*
+	- Year: *2024*
+	- Outlet: *Computer Vision – ECCV 2024*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Juan J Gómez Rodríguez, José MM Montiel, and Juan D Tardós*
+	- Normalized Authors: `['Rodríguez J.', 'Montiel J.', 'Tardós J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nr-slam: Non-rigid monocular slam*
+	- Year: *2024*
+	- Outlet: *IEEE Transactions on Robotics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Javier Rodríguez-Puigvert*, Víctor M  Batlle*, José María M  Montiel, Rubén Martínez-Cantín, Pascal Fua, Juan D  Tardós, and Javier Civera*
+	- Normalized Authors: `['Rodríguez-Puigvert* J.', 'Batlle* V.', 'Montiel J.', 'Martínez-Cantín R.', 'Fua P.', 'Tardós J.', 'Civera J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *LightDepth: single-view depth self-supervision from illumination decline*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Rodr'iguez-Puigvert, Tard'os) did not match found publication titled 'LightDepth: Single-View Depth Self-Supervision from Illumination Decline'*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Erik Sandström, Yue Li, Luc Van Gool, and Martin R Oswald*
+	- Normalized Authors: `['Sandström E.', 'Li Y.', 'Gool L.', 'Oswald M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Point-slam: Dense neural point cloud-based slam*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Yufei Shi, Beijia Lu, Jia-Wei Liu, Ming Li, and Mike Zheng Shou*
+	- Normalized Authors: `['Shi Y.', 'Lu B.', 'Liu J.', 'Li M.', 'Shou M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Colonnerf: Neural radiance fields for high-fidelity long-sequence colonoscopy reconstruction*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *D  Stoyanov, G  Mylonas, F  Deligianni, A  Darzi, and G -Z*
+	- Normalized Authors: `['Stoyanov D.', 'Mylonas G.', 'Deligianni F.', 'Darzi A.', '-Z G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Yang*
+	- Year: *2005*
+	- Outlet: *Soft-tissue motion tracking and structure estimation for robotic assisted mis procedures.  In Medical Image Computing and Computer-Assisted Intervention*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *E  Sucar, S  Liu, J  Ortiz, and A  J  Davison*
+	- Normalized Authors: `['Sucar E.', 'Liu S.', 'Ortiz J.', 'Davison A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *imap: Implicit mapping and positioning in real-time*
+	- Year: *2021*
+	- Outlet: *Proceedings of the IEEE International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *X  Sun, O  Kähler, and K  Sattler*
+	- Normalized Authors: `['Sun X.', 'Kähler O.', 'Sattler K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Lightglue: Feature matching under adverse conditions*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Zachary Teed and Jia Deng*
+	- Normalized Authors: `['Teed Z.', 'Deng J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Droid-slam: Deep visual slam for monocular, stereo, and rgb-d cameras*
+	- Year: *2021*
+	- Outlet: *M  Ranzato, A  Beygelzimer, Y  Dauphin, P S  Liang, and J  Wortman Vaughan, editors, Advances in Neural Information Processing Systems, volume 34,*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Fabio Tosi, Youmin Zhang, Ziren Gong, Erik Sandström, Stefano Mattoccia, Martin R Oswald, and Matteo Poggi*
+	- Normalized Authors: `['Tosi F.', 'Zhang Y.', 'Gong Z.', 'Sandström E.', 'Mattoccia S.', 'Oswald M.', 'Poggi M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *How nerfs and 3d gaussian splatting are reshaping slam: a survey*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Hengyi Wang, Jingwen Wang, and Lourdes Agapito*
+	- Normalized Authors: `['Wang H.', 'Wang J.', 'Agapito L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Co-slam: Joint coordinate and sparse parametric encodings for neural real-time slam*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Kailing Wang, Chen Yang, Yuehao Wang, Sikuang Li, Yan Wang, Qi Dou, Xiaokang Yang, and Wei Shen*
+	- Normalized Authors: `['Wang K.', 'Yang C.', 'Wang Y.', 'Li S.', 'Wang Y.', 'Dou Q.', 'Yang X.', 'Shen W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *EndoGSLAM: Real-Time Dense Reconstruction and Tracking in Endoscopic Surgeries using Gaussian Splatting*
+	- Year: *2024*
+	- Outlet: *proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15006 Springer Nature Switzerland*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Shuxian Wang, Yubo Zhang, Sarah K  McGill, Julian G  Rosenman, Jan-Michael Frahm, Soumyadip Sengupta, and Stephen M  Pizer*
+	- Normalized Authors: `['Wang S.', 'Zhang Y.', 'McGill S.', 'Rosenman J.', 'Frahm J.', 'Sengupta S.', 'Pizer S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A surface-normal based neural framework for colonoscopy reconstruction*
+	- Year: *2023*
+	- Outlet: *Alejandro Frangi, Marleen de Bruijne, Demian Wassermann, and Nassir Navab, editors, Information Processing in Medical Imaging,*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Qianyi Wu, Jianmin Zheng, and Jianfei Cai*
+	- Normalized Authors: `['Wu Q.', 'Zheng J.', 'Cai J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Surface reconstruction from 3d gaussian splatting via local structural hints*
+	- Year: *2024*
+	- Outlet: *Computer Vision – ECCV 2024*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Chi Yan, Delin Qu, Dan Xu, Bin Zhao, Zhigang Wang, Dong Wang, and Xuelong Li*
+	- Normalized Authors: `['Yan C.', 'Qu D.', 'Xu D.', 'Zhao B.', 'Wang Z.', 'Wang D.', 'Li X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gs-slam: Dense visual slam with 3d gaussian splatting*
+	- Year: *2024*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Lihe Yang, Bingyi Kang, Zilong Huang, Xiaogang Xu, Jiashi Feng, and Hengshuang Zhao*
+	- Normalized Authors: `['Yang L.', 'Kang B.', 'Huang Z.', 'Xu X.', 'Feng J.', 'Zhao H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Depth anything: Unleashing the power of large-scale unlabeled data*
+	- Year: *2024*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Shuojue Yang, Qian Li, Daiyun Shen, Bingchen Gong, Qi Dou, and Yueming Jin*
+	- Normalized Authors: `['Yang S.', 'Li Q.', 'Shen D.', 'Gong B.', 'Dou Q.', 'Jin Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deform3DGS: Flexible Deformation for Fast Surgical Scene Reconstruction with Gaussian Splatting*
+	- Year: *2024*
+	- Outlet: *proceedings of Medical Image Computing and Computer Assisted Intervention – MICCAI 2024, volume LNCS 15006 Springer Nature Switzerland*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Keyang Ye, Qiming Hou, and Kun Zhou*
+	- Normalized Authors: `['Ye K.', 'Hou Q.', 'Zhou K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d gaussian splatting with deferred reflection*
+	- Year: *2024*
+	- Outlet: *ACM SIGGRAPH 2024 Conference Papers, SIGGRAPH ’24, New York, NY*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Vladimir Yugay, Yue Li, Theo Gevers, and Martin R  Oswald*
+	- Normalized Authors: `['Yugay V.', 'Li Y.', 'Gevers T.', 'Oswald M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gaussian-slam: Photo-realistic dense slam with gaussian splatting.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Carlton Zdanski, Stephanie Davis, Yi Hong, Di Miao, Cory Quammen, Sorin Mitran, Brad Davis, Marc Niethammer, Julia Kimbell, Elizabeth Pitkin, Jason Fine, Lynn Fordham, Brad Vaughn, and Richard Superfine*
+	- Normalized Authors: `['Zdanski C.', 'Davis S.', 'Hong Y.', 'Miao D.', 'Quammen C.', 'Mitran S.', 'Davis B.', 'Niethammer M.', 'Kimbell J.', 'Pitkin E.', 'Fine J.', 'Fordham L.', 'Vaughn B.', 'Superfine R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Quantitative assessment of the upper airway in infants and children with subglottic stenosis*
+	- Year: *2015*
+	- Outlet: *The Laryngoscope, 126*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2016) does not match expected year (2015)*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Richard Zhang, Phillip Isola, Alexei A  Efros, Eli Shechtman, and Oliver Wang*
+	- Normalized Authors: `['Zhang R.', 'Isola P.', 'Efros A.', 'Shechtman E.', 'Wang O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The unreasonable effectiveness of deep features as a perceptual metric*
+	- Year: *2018*
+	- Outlet: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Y  Zhang, M  Oswald, and D  Cremers*
+	- Normalized Authors: `['Zhang Y.', 'Oswald M.', 'Cremers D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Airslam: Illumination-invariant hybrid slam*
+	- Year: *2023*
+	- Outlet: *International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Yubo Zhang, Jan-Michael Frahm, Samuel Ehrenstein, Sarah K McGill, Julian G Rosenman, Shuxian Wang, and Stephen M Pizer*
+	- Normalized Authors: `['Zhang Y.', 'Frahm J.', 'Ehrenstein S.', 'McGill S.', 'Rosenman J.', 'Wang S.', 'Pizer S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Colde: a depth estimation framework for colonoscopy reconstruction*
+	- Year: *2021*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *S  Zhi, J  Lai, A  Kundu, M  Bloesch, A  Davison, and A  Zisserman*
+	- Normalized Authors: `['Zhi S.', 'Lai J.', 'Kundu A.', 'Bloesch M.', 'Davison A.', 'Zisserman A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nerf-slam: Real-time dense monocular slam with neural radiance fields*
+	- Year: *2022*
+	- Outlet: *Proceedings of the European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *L  Zhou, R  Klette, and K  Scheibe*
+	- Normalized Authors: `['Zhou L.', 'Klette R.', 'Scheibe K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A multi-image shape-from-shading framework for near-lighting perspective endoscopes*
+	- Year: *2009*
+	- Outlet: *International Journal of Computer Vision*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *A  Zhu, Z  Zhang, H  Su, L  Li, G  Wang, and X  Li*
+	- Normalized Authors: `['Zhu A.', 'Zhang Z.', 'Su H.', 'Li L.', 'Wang G.', 'Li X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nice-slam: Neural implicit scalable encoding for slam*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Peng, Larsson, Xu, Bao, Cui, Oswald, Pollefeys) did not match found publication titled 'NICE-SLAM: Neural Implicit Scalable Encoding for SLAM'*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Lingting Zhu, Zhao Wang, Jiahao Cui, Zhenchao Jin, Guying Lin, and Lequan Yu*
+	- Normalized Authors: `['Zhu L.', 'Wang Z.', 'Cui J.', 'Jin Z.', 'Lin G.', 'Yu L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Endogs: Deformable endoscopic tissues reconstruction with gaussian splatting*
+	- Year: *2025*
+	- Outlet: *M  Emre Celebi, Mauricio Reyes, Zhen Chen, and Xiaoxiao Li, editors, Medical Image Computing and Computer Assisted Intervention – MICCAI 2024 Workshops,*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Z  Zhu, T  Yu, X  Zhang, J  Li, Y  Zhang, and Y  Fu*
+	- Normalized Authors: `['Zhu Z.', 'Yu T.', 'Zhang X.', 'Li J.', 'Zhang Y.', 'Fu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Neuralrgb-d: Neural representations for depth estimation and scene mapping*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Zihan Zhu, Songyou Peng, Viktor Larsson, Zhaopeng Cui, Martin R Oswald, Andreas Geiger, and Marc Pollefeys*
+	- Normalized Authors: `['Zhu Z.', 'Peng S.', 'Larsson V.', 'Cui Z.', 'Oswald M.', 'Geiger A.', 'Pollefeys M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nicer-slam: Neural implicit scene encoding for rgb slam*
+	- Year: *2024*
+	- Outlet: *International Conference on 3D Vision*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*LightNeus [2] exploited the inverse-square law for light decay to improve endoscopic surface reconstruction, however with known camera parameters and pre-operative 3D CT scan*'
+	- This flag is for the paper with Ref. ID = 2
+- '*4 provides an example colonoscopy image from the C3VD dataset [3], showing the accuracy of the near-light field model (Eq*'
+	- This flag is for the paper with Ref. ID = 3
+- '*5 Evaluation Table 1: Quantitative Evaluation on the C3VD [3] dataset with oracle depth map*'
+	- This flag is for the paper with Ref. ID = 3
+- '*The C3VD dataset [3] (CC BY-NC-SA 4*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Table 2: Quantitative Evaluation on the C3VD [3] dataset with depth maps estimated by SOTA techniques, PPSNet [34] and DA-Hybrid*'
+	- This flag is for the paper with Ref. ID = 3
+- '*To calculate the normals n(·) from neural fields, we utilize the direction of the gradient of the occupancy with respect to the spatial coordinates as follows [4]: n(xi) = −∇σ(xi)/∥∇σ(xi)∥*'
+	- This flag is for the paper with Ref. ID = 4
+- '*For example, in endoscopy procedures, a slender flexible tube with a co-located light and camera is used to inspect internal organs such as the airway and the colon [8, 45, 32, 22, 50, 16]*'
+	- This flag is for the paper with Ref. ID = 8
+- '*Early photometric calibration methods jointly optimize camera intrinsics, exposure, and scene depths to normalize brightness variations in real time [10] while probabilistic SLAMs with unscented filtering further stabilizes pose estimates under uncertain lighting conditions [26]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e"*'
+	- This flag is for the paper with Ref. ID = 15
+- '*More recently, 3D Gaussian surface methods have demonstrated real-time rendering with high-fidelity mapping[19, 27, 48, 15, 9, 52]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*For example, in endoscopy procedures, a slender flexible tube with a co-located light and camera is used to inspect internal organs such as the airway and the colon [8, 45, 32, 22, 50, 16]*'
+	- This flag is for the paper with Ref. ID = 16
+- '*Additionally, the objective function can include any other regularization terms, such as artifact suppressing [27] or opacity regularization [60]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Researchers have often used a mixture of supervised learning on synthetic and self-supervised learning on real endoscopy datasets for tailoring SLAM frameworks to endoscopy with complex camera motion [25, 56, 46] and developed novel endoscopy SLAM frameworks [35, 29, 17]*'
+	- This flag is for the paper with Ref. ID = 29
+- '*To optimize Pt and Θ, dense SLAM methods typically use rendering loss Lren , reducing the rendering errors between the rendered and captured images [59, 23, 48] and, if estimated or ground 3*'
+	- This flag is for the paper with Ref. ID = 48
+- '*We evaluated NFL-BA with two state-of-the-art 3DGS-based SLAM systems, general-purpose MonoGS [23] and endoscopy-specific EndoGSLAM [45], and one neural implicit SLAM, NICESLAM [59], by replacing their Photometric Bundle Adjustment loss with NFL-BA loss*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Replacing Photometric BA with NFL-BA significantly improves tracking quality of two state-of-the-art 3D Gaussian SLAMs, MonoGS [23] and EndoGS [60], and one neural implicit SLAM, NICE-SLAM [59]*'
+	- This flag is for the paper with Ref. ID = 59
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Early SLAM pipelines focused on sparse feature matching for pose estimation and mapping [30, 5, 42, 10]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Photometric BA (Photo-BA) [1] incorporates pixel intensities into the optimization process, minimizing photometric re-projection errors and proving advantageous in environments where feature matching fails [10]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*More recently, 3D Gaussian surface methods have demonstrated real-time rendering with high-fidelity mapping[19, 27, 48, 15, 9, 52]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*For example, in endoscopy procedures, a slender flexible tube with a co-located light and camera is used to inspect internal organs such as the airway and the colon [8, 45, 32, 22, 50, 16]*'
+	- This flag is for the paper with Ref. ID = 32
+- '*In the context of Endoscopy, LightDepth [36] and PPSNet [34] demonstrated the effectiveness of near-field lighting to enhance depth estimation*'
+	- This flag is for the paper with Ref. ID = 36
+- '*More recently, 3D Gaussian surface methods have demonstrated real-time rendering with high-fidelity mapping[19, 27, 48, 15, 9, 52]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*several proposed SLAM frameworks [59, 61] generate dense, pixel-level that yield more detailed and robust reconstructions*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Neural field-based SLAM methods [40, 59, 44, 62, 37] uses a set of neural networks F(x, d; Θ) →(ci, σi), optimized to estimate the color ci and the volume density σi for an input 3D coordinate x and the view direction d*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Neural field-based SLAM methods [40, 59, 44, 62, 37] uses a set of neural networks F(x, d; Θ) →(ci, σi), optimized to estimate the color ci and the volume density σi for an input 3D coordinate x and the view direction d*'
+	- This flag is for the paper with Ref. ID = 62
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 27
+- '*We first test our method on endoscopy videos using one neural implicit SLAM, NICE-SLAM [59], as well as two existing 3DGS-SLAM frameworks: the general-purpose MonoGS [27] and the endoscopy-specific EndoGSLAM [45]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Additionally, we also test MonoGS [27] on self-captured indoor scenes with a co-located light and camera*'
+	- This flag is for the paper with Ref. ID = 27
+- '*?? we replace Photometric BA loss with NFL-BA loss for MonoGS [23] and EndoGSLAM [45] for depth maps we use PPSNet [34], a state-of-the-art monocular depth estimation algorithm for endoscopy, and fine-turned general-purpose depth estimator, which we will call it as DA-Hybrid - DepthAnything[49] with DINOv2 encoder [31]*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 59
+- '*To optimize Pt and Θ, dense SLAM methods typically use rendering loss Lren , reducing the rendering errors between the rendered and captured images [59, 23, 48] and, if estimated or ground 3*'
+	- This flag is for the paper with Ref. ID = 59
+- '*We first test our method on endoscopy videos using one neural implicit SLAM, NICE-SLAM [59], as well as two existing 3DGS-SLAM frameworks: the general-purpose MonoGS [27] and the endoscopy-specific EndoGSLAM [45]*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e"*'
+	- This flag is for the paper with Ref. ID = 62
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*Photometric BA (Photo-BA) [1] incorporates pixel intensities into the optimization process, minimizing photometric re-projection errors and proving advantageous in environments where feature matching fails [10]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Early SLAM pipelines focused on sparse feature matching for pose estimation and mapping [30, 5, 42, 10]*'
+	- This flag is for the paper with Ref. ID = 5
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 6
+- '*For Gaussian Splatting, we use the shortest axis of each Gaussian as its normal, following [51, 7, 47]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*More recently, 3D Gaussian surface methods have demonstrated real-time rendering with high-fidelity mapping[19, 27, 48, 15, 9, 52]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*Early works [39, 11] demonstrated the feasibility of applying SLAM in such environments by addressing dynamic lighting and tissue deformation*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Recently, neural rendering-based methods [38, 22, 45, 50, 12, 14] have proved especially effective in generating high-quality details and modeling textureless regions with a large number of Gaussians*'
+	- This flag is for the paper with Ref. ID = 12
+- '*Traditional geometric BA aligns detected 2D feature points to their 3D counterparts by minimizing reprojection error, assuming static lighting and Lambertian surfaces [13]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Recently, neural rendering-based methods [38, 22, 45, 50, 12, 14] have proved especially effective in generating high-quality details and modeling textureless regions with a large number of Gaussians*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Researchers have often used a mixture of supervised learning on synthetic and self-supervised learning on real endoscopy datasets for tailoring SLAM frameworks to endoscopy with complex camera motion [25, 56, 46] and developed novel endoscopy SLAM frameworks [35, 29, 17]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*1 Image Formation with Near-Field Lighting We consider an image-formation model under near-field lighting for a single image following previous works [18, 34]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Note that existing approaches that uses this near-field light image formation model [18, 34] uses pixel-based representation to predict depth map or surface geometry from images captured from a single viewpoint only*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 19
+- '*More recently, 3D Gaussian surface methods have demonstrated real-time rendering with high-fidelity mapping[19, 27, 48, 15, 9, 52]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Given Θ and Pt, we can get the color ˆC(·) and the depth ˆD(·) of a pixel p from a frame at time t as follows [28, 19]: ˆC(p) = X i∈N ciαiΠi−1 j=1(1 −αj) , ˆD(p) = X i∈N ziαiΠi−1 j=1(1 −αj) (1) where N denotes the group of samples for a pixel p, with αi representing the occupancy of the i-th sample, and zi denotes its distance from the camera center*'
+	- This flag is for the paper with Ref. ID = 19
+- '*For 3D Gaussian Splatting [19] SLAM methods, the scene is represented by a set of Gaussians with mean µi, covariance Σi in world space, color ci, and opacity αi*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Some of these approaches [34, 20] use a near-field lighting representation as input to a CNN along with captured images for predicting surface normal and geometry*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Near-field lighting has been leveraged for 3D reconstruction tasks like monocular depth and surface normal estimation [34, 58] and Photometric Stereo [21]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*Following previous works [21, 34], we simplify the near-field light image formation model by setting the attenuation coefficient β in eq*'
+	- This flag is for the paper with Ref. ID = 21
+- '*For example, in endoscopy procedures, a slender flexible tube with a co-located light and camera is used to inspect internal organs such as the airway and the colon [8, 45, 32, 22, 50, 16]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*Recently, neural rendering-based methods [38, 22, 45, 50, 12, 14] have proved especially effective in generating high-quality details and modeling textureless regions with a large number of Gaussians*'
+	- This flag is for the paper with Ref. ID = 22
+- '*We evaluated NFL-BA with two state-of-the-art 3DGS-based SLAM systems, general-purpose MonoGS [23] and endoscopy-specific EndoGSLAM [45], and one neural implicit SLAM, NICESLAM [59], by replacing their Photometric Bundle Adjustment loss with NFL-BA loss*'
+	- This flag is for the paper with Ref. ID = 23
+- '*To optimize Pt and Θ, dense SLAM methods typically use rendering loss Lren , reducing the rendering errors between the rendered and captured images [59, 23, 48] and, if estimated or ground 3*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Replacing Photometric BA with NFL-BA significantly improves tracking quality of two state-of-the-art 3D Gaussian SLAMs, MonoGS [23] and EndoGS [60], and one neural implicit SLAM, NICE-SLAM [59]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Replacing Photometric BA with NFL-BA significantly improves tracking for both MonoGS [23] and EndoGS [60], and mapping and rendering quality for MonoGS [23]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Replacing Photometric BA with NFL-BA significantly improves tracking for both MonoGS [23] and EndoGS [60], and mapping and rendering quality for MonoGS [23]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*For evaluation, we basically followed other neural rendering SLAM algorithms [23, 45]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*68 mm NFL-BA Photo-BA trans_t2_a cecum_t1_a Photo-BA NFL-BA (b) Figure 6: (a) Camera tracking improvement over MonoGS [23]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*(b) Reconstructed point clouds using MonoGS [23] show that NFL-BA improves coverage and density while reducing scatter compared to Photometric BA, as measured by Chamfer distance*'
+	- This flag is for the paper with Ref. ID = 23
+- '*?? we replace Photometric BA loss with NFL-BA loss for MonoGS [23] and EndoGSLAM [45] for depth maps we use PPSNet [34], a state-of-the-art monocular depth estimation algorithm for endoscopy, and fine-turned general-purpose depth estimator, which we will call it as DA-Hybrid - DepthAnything[49] with DINOv2 encoder [31]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*NFL-BA significantly improves camera localization (ATEt) and camera rotation (ATEr) for both MonoGS [23] and EndoGSLAM [45] while producing similar rendering quality*'
+	- This flag is for the paper with Ref. ID = 23
+- '*To test generalization in real-world clinical endoscopy settings, we evaluate on Colon10K [24], a large-scale video dataset without depth or pose supervision*'
+	- This flag is for the paper with Ref. ID = 24
+- '*Researchers have often used a mixture of supervised learning on synthetic and self-supervised learning on real endoscopy datasets for tailoring SLAM frameworks to endoscopy with complex camera motion [25, 56, 46] and developed novel endoscopy SLAM frameworks [35, 29, 17]*'
+	- This flag is for the paper with Ref. ID = 25
+- '*Early photometric calibration methods jointly optimize camera intrinsics, exposure, and scene depths to normalize brightness variations in real time [10] while probabilistic SLAMs with unscented filtering further stabilizes pose estimates under uncertain lighting conditions [26]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Given Θ and Pt, we can get the color ˆC(·) and the depth ˆD(·) of a pixel p from a frame at time t as follows [28, 19]: ˆC(p) = X i∈N ciαiΠi−1 j=1(1 −αj) , ˆD(p) = X i∈N ziαiΠi−1 j=1(1 −αj) (1) where N denotes the group of samples for a pixel p, with αi representing the occupancy of the i-th sample, and zi denotes its distance from the camera center*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Early SLAM pipelines focused on sparse feature matching for pose estimation and mapping [30, 5, 42, 10]*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 33
+- '*99mm) when initialized by PPSNet depth[34]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Near-field lighting has been leveraged for 3D reconstruction tasks like monocular depth and surface normal estimation [34, 58] and Photometric Stereo [21]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Some of these approaches [34, 20] use a near-field lighting representation as input to a CNN along with captured images for predicting surface normal and geometry*'
+	- This flag is for the paper with Ref. ID = 34
+- '*In the context of Endoscopy, LightDepth [36] and PPSNet [34] demonstrated the effectiveness of near-field lighting to enhance depth estimation*'
+	- This flag is for the paper with Ref. ID = 34
+- '*1 Image Formation with Near-Field Lighting We consider an image-formation model under near-field lighting for a single image following previous works [18, 34]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Assuming a diffuse reflectance model, which has proven effective for depth estimation in endoscopic scenes [34], we can approximate the rendered image at each pixel ˆC(·) as: PPS(xp) = La(xp) · (Ld(xp)⊤n(xp)), ˆC(p) = ρ(xp)PPS(xp) , (6) where ρ(·) and n(·) are albedo and normal at position xp of pixel p respectively*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Note that existing approaches that uses this near-field light image formation model [18, 34] uses pixel-based representation to predict depth map or surface geometry from images captured from a single viewpoint only*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Following previous works [21, 34], we simplify the near-field light image formation model by setting the attenuation coefficient β in eq*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Table 2: Quantitative Evaluation on the C3VD [3] dataset with depth maps estimated by SOTA techniques, PPSNet [34] and DA-Hybrid*'
+	- This flag is for the paper with Ref. ID = 34
+- '*?? we replace Photometric BA loss with NFL-BA loss for MonoGS [23] and EndoGSLAM [45] for depth maps we use PPSNet [34], a state-of-the-art monocular depth estimation algorithm for endoscopy, and fine-turned general-purpose depth estimator, which we will call it as DA-Hybrid - DepthAnything[49] with DINOv2 encoder [31]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Researchers have often used a mixture of supervised learning on synthetic and self-supervised learning on real endoscopy datasets for tailoring SLAM frameworks to endoscopy with complex camera motion [25, 56, 46] and developed novel endoscopy SLAM frameworks [35, 29, 17]*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Neural field-based SLAM methods [40, 59, 44, 62, 37] uses a set of neural networks F(x, d; Θ) →(ci, σi), optimized to estimate the color ci and the volume density σi for an input 3D coordinate x and the view direction d*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Recently, neural rendering-based methods [38, 22, 45, 50, 12, 14] have proved especially effective in generating high-quality details and modeling textureless regions with a large number of Gaussians*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Early works [39, 11] demonstrated the feasibility of applying SLAM in such environments by addressing dynamic lighting and tissue deformation*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Neural field-based SLAM methods [40, 59, 44, 62, 37] uses a set of neural networks F(x, d; Θ) →(ci, σi), optimized to estimate the color ci and the volume density σi for an input 3D coordinate x and the view direction d*'
+	- This flag is for the paper with Ref. ID = 40
+- '*More recently, learning-based matchers [41, 55] adapt descriptors to cope with complex lighting variations*'
+	- This flag is for the paper with Ref. ID = 41
+- '*Early SLAM pipelines focused on sparse feature matching for pose estimation and mapping [30, 5, 42, 10]*'
+	- This flag is for the paper with Ref. ID = 42
+- '*truth depth maps are available, an additional depth loss Lgeo can be added [43]*'
+	- This flag is for the paper with Ref. ID = 43
+- '*Neural field-based SLAM methods [40, 59, 44, 62, 37] uses a set of neural networks F(x, d; Θ) →(ci, σi), optimized to estimate the color ci and the volume density σi for an input 3D coordinate x and the view direction d*'
+	- This flag is for the paper with Ref. ID = 44
+- '*For example, in endoscopy procedures, a slender flexible tube with a co-located light and camera is used to inspect internal organs such as the airway and the colon [8, 45, 32, 22, 50, 16]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*We evaluated NFL-BA with two state-of-the-art 3DGS-based SLAM systems, general-purpose MonoGS [23] and endoscopy-specific EndoGSLAM [45], and one neural implicit SLAM, NICESLAM [59], by replacing their Photometric Bundle Adjustment loss with NFL-BA loss*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Recently, neural rendering-based methods [38, 22, 45, 50, 12, 14] have proved especially effective in generating high-quality details and modeling textureless regions with a large number of Gaussians*'
+	- This flag is for the paper with Ref. ID = 45
+- '*We first test our method on endoscopy videos using one neural implicit SLAM, NICE-SLAM [59], as well as two existing 3DGS-SLAM frameworks: the general-purpose MonoGS [27] and the endoscopy-specific EndoGSLAM [45]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*52 Photo Oracle PPSNet DA-Hybrid desc_t4_a sigmoid_t3_a trans_t2_a Photo Photo Photo Photo Photo Photo Photo Photo Figure 5: Camera tracking improvement over EndoGSLAM [45]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*For evaluation, we basically followed other neural rendering SLAM algorithms [23, 45]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*?? we replace Photometric BA loss with NFL-BA loss for MonoGS [23] and EndoGSLAM [45] for depth maps we use PPSNet [34], a state-of-the-art monocular depth estimation algorithm for endoscopy, and fine-turned general-purpose depth estimator, which we will call it as DA-Hybrid - DepthAnything[49] with DINOv2 encoder [31]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*NFL-BA significantly improves camera localization (ATEt) and camera rotation (ATEr) for both MonoGS [23] and EndoGSLAM [45] while producing similar rendering quality*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Researchers have often used a mixture of supervised learning on synthetic and self-supervised learning on real endoscopy datasets for tailoring SLAM frameworks to endoscopy with complex camera motion [25, 56, 46] and developed novel endoscopy SLAM frameworks [35, 29, 17]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*To assess the mapping quality, we use the Chamfer distance from ground truth point clouds to the nearest points in the estimated point clouds [46], for more details please see supplementary*'
+	- This flag is for the paper with Ref. ID = 46
+- '*For Gaussian Splatting, we use the shortest axis of each Gaussian as its normal, following [51, 7, 47]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*?? we replace Photometric BA loss with NFL-BA loss for MonoGS [23] and EndoGSLAM [45] for depth maps we use PPSNet [34], a state-of-the-art monocular depth estimation algorithm for endoscopy, and fine-turned general-purpose depth estimator, which we will call it as DA-Hybrid - DepthAnything[49] with DINOv2 encoder [31]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*For example, in endoscopy procedures, a slender flexible tube with a co-located light and camera is used to inspect internal organs such as the airway and the colon [8, 45, 32, 22, 50, 16]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Recently, neural rendering-based methods [38, 22, 45, 50, 12, 14] have proved especially effective in generating high-quality details and modeling textureless regions with a large number of Gaussians*'
+	- This flag is for the paper with Ref. ID = 50
+- '*For Gaussian Splatting, we use the shortest axis of each Gaussian as its normal, following [51, 7, 47]*'
+	- This flag is for the paper with Ref. ID = 51
+- '*More recently, 3D Gaussian surface methods have demonstrated real-time rendering with high-fidelity mapping[19, 27, 48, 15, 9, 52]*'
+	- This flag is for the paper with Ref. ID = 52
+- '*the cross-sectional area of the upper airway to diagnose airway abnormalities [53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*In addition, we evaluate rendering quality using the Learned Perceptual Image Patch Similarity (LPIPS) [54]*'
+	- This flag is for the paper with Ref. ID = 54
+- '*More recently, learning-based matchers [41, 55] adapt descriptors to cope with complex lighting variations*'
+	- This flag is for the paper with Ref. ID = 55
+- '*Researchers have often used a mixture of supervised learning on synthetic and self-supervised learning on real endoscopy datasets for tailoring SLAM frameworks to endoscopy with complex camera motion [25, 56, 46] and developed novel endoscopy SLAM frameworks [35, 29, 17]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Most SLAM systems [37, 33, 6, 59, 62, 57, 48, 19, 27, 15] assume an autonomous agent navigating an environment with distant, static illumination, e*'
+	- This flag is for the paper with Ref. ID = 57
+- '*Near-field lighting has been leveraged for 3D reconstruction tasks like monocular depth and surface normal estimation [34, 58] and Photometric Stereo [21]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Additionally, the objective function can include any other regularization terms, such as artifact suppressing [27] or opacity regularization [60]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Replacing Photometric BA with NFL-BA significantly improves tracking quality of two state-of-the-art 3D Gaussian SLAMs, MonoGS [23] and EndoGS [60], and one neural implicit SLAM, NICE-SLAM [59]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Replacing Photometric BA with NFL-BA significantly improves tracking for both MonoGS [23] and EndoGS [60], and mapping and rendering quality for MonoGS [23]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*several proposed SLAM frameworks [59, 61] generate dense, pixel-level that yield more detailed and robust reconstructions*'
+	- This flag is for the paper with Ref. ID = 61
+

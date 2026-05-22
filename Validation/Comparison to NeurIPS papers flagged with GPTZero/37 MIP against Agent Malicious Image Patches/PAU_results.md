@@ -1,0 +1,1192 @@
+# Paper Analysis Utility - Results
+
+Paper: MIP against Agent Malicious Image Patches Hijacking Multimodal OS Agents.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/37 MIP against Agent Malicious Image Patches/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 2 (ca. 1 pages)
+2) 'Related Work' -- p. 3 (ca. 1 pages)
+3) 'Attacking OS Agents with MIPs' -- p. 4 (ca. 2 pages)
+4) 'Experiments' -- p. 6 (ca. 4 pages)
+5) 'Conclusion and Discussion' -- p. 10 (ca. 1 pages)
+6) 'References' -- p. 11 (ca. 4 pages)
+A) 'Appendix' -- p. 15 (ca. 17 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 1/116=0.86%
+		- Invalid uses: 115/116=99.14%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 4: screenshot, referred to as the image patch region R ⊆{0, . . . , H −1} × {0, . . . , W −1} × {0, 1, 2}.
+		- Page 6: tasks, one per WAA domain: p ∈P+ ⊂P used to optimise MIPs, and p ∈P−⊂P reserved for
+		- Page 6: s ∈S+ ⊂S as screenshots for optimising and s ∈S−⊂S as screenshots for evaluating MIPs. For
+		- Page 6: −contain screenshots of the desktop, where icons are placed at
+		- Page 6: −contain screenshots of the social media website, where
+		- Page 6: MIPs transfer to unseen user prompts p ∈P−, with an ASR of at least 0.3 on (p, s) ∈P−× {s},
+		- Page 6: screenshots s ∈S−, where the ASR drops to 0.0 on (p, s) ∈{p} × S−.
+		- Page 7: prompts p ∈P−as well as on unseen screens
+		- Page 7: s ∈S−(shaded in grey ).
+		- Page 7: P−×{s}
+		- Page 7: −
+		- Page 7: P−×{s}
+		- Page 7: −
+		- Page 7: P−×{s}
+		- Page 7: −
+		- Page 7: P−×{s}
+		- Page 7: −
+		- Page 7: (p, s) ∈P+ × S+. The MIPs are also evaluated on unseen pairs (p, s) ∈P−× S−, and an
+		- Page 7: unseen screen parser g ∈G−(shaded in grey ).
+		- Page 7: G+× P−× Sd
+		- Page 7: −
+		- Page 7: G−× P−× Sd
+		- Page 7: −
+		- Page 7: G+× P−× Sd
+		- Page 7: −
+		- Page 7: G−× P−× Sd
+		- Page 7: −
+		- Page 7: G+× P−× Ss
+		- Page 7: −
+		- Page 7: G−× P−× Ss
+		- Page 7: −
+		- Page 7: G+× P−× Ss
+		- Page 7: −
+		- Page 7: G−× P−× Ss
+		- Page 7: −
+		- Page 7: (p, s) ∈P−× S−. This confirms that MIPs can be crafted to generalise across diverse and previously
+		- Page 7: that generalise well across the pairs (p, s) ∈(P+ ∪P−) × (S+ ∪S−) perform on OS agents with an
+		- Page 7: [32] with the unseen parser g ∈G−that utilises GroundingDINO [30] and TesseractOCR [46]. This
+		- Page 8: −.
+		- Page 8: −
+		- Page 8: −
+		- Page 8: + and unseen (p, s) ∈P−×Sd
+		- Page 8: −.
+		- Page 8: P−× Sd
+		- Page 8: −
+		- Page 8: P−× Sd
+		- Page 8: −
+		- Page 8: −and report the ASR
+		- Page 8: on 576 pairs (p, s) ∈(P+ ∪P−) × (S+ ∪S−), with 16 generations per pair (five stochastic outputs
+		- Page 15: 2. The subset P−includes user prompts to evaluate whether MIPs generalise to unseen tasks.
+		- Page 15: −of
+		- Page 15: −of screenshots used to optimise or
+		- Page 18: unseen user prompts p ∈P−were solely used for evaluation.
+		- Page 18: P−
+		- Page 19: −were solely used for evaluation.
+		- Page 19: −
+		- Page 20: −were solely used for evaluation.
+		- Page 20: −
+		- Page 22: GroundingDINO (G−) and unseen prompts and screenshots (P−× S−)
+		- Page 22: G+× P−× Sd
+		- Page 22: −
+		- Page 22: G+× P−× Sd
+		- Page 22: −
+		- Page 22: G−× P+× Sd
+		- Page 22: G−× P−× Sd
+		- Page 22: G−× P+× Sd
+		- Page 22: −
+		- Page 22: G−× P−× Sd
+		- Page 22: −
+		- Page 22: G+× P−× Sd
+		- Page 22: −
+		- Page 22: G+× P−× Sd
+		- Page 22: −
+		- Page 22: G−× P+× Sd
+		- Page 22: G−× P−× Sd
+		- Page 22: G−× P+× Sd
+		- Page 22: −
+		- Page 22: G−× P−× Sd
+		- Page 22: −
+		- Page 22: G+× P−× Ss
+		- Page 22: −
+		- Page 22: G+× P−× Ss
+		- Page 22: −
+		- Page 22: G−× P+× Ss
+		- Page 22: G−× P−× Ss
+		- Page 22: G−× P+× Ss
+		- Page 22: −
+		- Page 22: G−× P−× Ss
+		- Page 22: −
+		- Page 22: G+× P−× Ss
+		- Page 22: −
+		- Page 22: G+× P−× Ss
+		- Page 22: −
+		- Page 22: G−× P+× Ss
+		- Page 22: G−× P−× Ss
+		- Page 22: G−× P+× Ss
+		- Page 22: −
+		- Page 22: G−× P−× Ss
+		- Page 22: −
+		- Page 23: P−× Sd
+		- Page 23: −
+		- Page 23: P−× Sd
+		- Page 23: −
+		- Page 23: P−× Sd
+		- Page 23: −
+		- Page 23: P−× Sd
+		- Page 23: −
+		- Page 23: P−× Sd
+		- Page 23: −
+		- Page 23: P−× Sd
+		- Page 23: −
+		- Page 23: P−× Sd
+		- Page 23: −
+		- Page 23: P−× Sd
+		- Page 23: −
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 2
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 24
+	- Full reference: `[24] Diederik P. Kingma and Jimmy Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014.`
+- Parsed Ref. ID: 37
+	- Full reference: `[37] OpenAI. Dall·e 3. https://openai.com/dall-e-3/, 2025. Accessed: 2025-01-20.`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Yang J.: 5
+- Lu Y.: 4
+- Zhang J.: 4
+- Goodfellow I.: 4
+- Lin M.: 3
+- Zou A.: 3
+- Li B.: 3
+- Wang Z.: 3
+- Zhang X.: 3
+- Hughes J.: 3
+- Schaeffer R.: 3
+- Sleight H.: 3
+- Li C.: 3
+- Liu Z.: 3
+- Chen H.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/37 MIP against Agent Malicious Image Patches/literature_validation_results_fig.jpg]]
+
+References section starts on page 11.
+
+- No link provided: $59/64=92.19\%$
+- Unchecked links: $5/64=7.81\%$
+- Valid links: $0/64=0.00\%$
+- Invalid link: $0/64=0.00\%$
+
+- Different links: $0/64=0.00\%$
+
+- Successful searches: $30/64=46.88\%$
+- Skipped searches: $0/64=0.00\%$
+- Mismatching infos: $17/64=26.56\%$
+	- **Entries with mismatching author information:**
+		=> total = 9
+		- `[13] Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Amy Yang, Angela Fan, et al. The llama 3 herd of models. arXiv preprint arXiv:2407.21783, 2024.`
+			- Authors (Goyal, Hartshorn, Mitra, Sravankumar, Korenev, Hinsvark, Rao, Zhang, Rodriguez, Gregerson, Spataru, Rozière, Biron, Tang, Chern, Caucheteux, Nayak, Bi, Marra, McConnell, Keller, Touret, Wu, Wong, Ferrer, Nikolaidis, Allonsius, Song, Pintz, Livshits, Esiobu, Choudhary, Mahajan, Garcia-Olano, Perino, Hupkes, Lakomkin, AlBadawy, Lobanova, Dinan, Smith, Radenovic, Zhang, Synnaeve, Lee, Anderson, Nail, Mialon, Pang, Cucurell, Nguyen, Korevaar, Xu, Touvron, Zarov, Ibarra, Kloumann, Misra, Evtimov, Copet, Lee, Geffert, Vranes, Park, Mahadeokar, Shah, Linde, Billock, Hong, Lee, Fu, Chi, Huang, Liu, Wang, Bitton, Spisak, Park, Rocca, Johnstun, Saxe, Jia, Alwala, Upasani, Plawiak, Li, Heafield, Stone, El-Arini, Iyer, Malik, Chiu, Bhalla, Rantala-Yeary, Maaten, Chen, Tan, Jenkins, Martin, Madaan, Malo, Blecher, Landzaat, Oliveira, Muzzi, Pasupuleti, Singh, Paluri, Kardas, Oldham, Rita, Pavlova, Kambadur, Lewis, Si, Singh, Hassan, Goyal, Torabi, Bashlykov, Bogoychev, Chatterji, Duchenne, cCelebi, Alrassy, Zhang, Li, Vasić, Weng, Bhargava, Dubal, Krishnan, Koura, Xu, Dong, Srinivasan, Ganapathy, Calderer, Cabral, Stojnic, Raileanu, Girdhar, Patel, Sauvestre, Polidoro, Sumbaly, Taylor, Silva, Hou, Wang, Hosseini, Chennabasappa, Singh, Bell, Kim, Edunov, Nie, Narang, Raparthy, Shen, Wan, Bhosale, Zhang, Vandenhende, Batra, Whitman, Sootla, Collot, Gururangan, Borodinsky, Herman, Fowler, Sheasha, Georgiou, Scialom, Speckbacher, Mihaylov, Xiao, Karn, Goswami, Gupta, Ramanathan, Kerkez, Gonguet, Do, Vogeti, Petrovic, Chu, Xiong, Fu, Meers, Martinet, Wang, Tan, Xie, Jia, Wang, Goldschlag, Gaur, Babaei, Wen, Song, Zhang, Li, Mao, Coudert, Chen, Papakipos, Singh, Grattafiori, Jain, Kelsey, Shajnfeld, Gangidi, Victoria, Goldstand, Menon, Sharma, Boesenberg, Vaughan, Baevski, Feinstein, Kallet, Sangani, Yunus, Lupu, Alvarado, Caples, Gu, Ho, Poulton, Ryan, Ramchandani, Franco, Saraf, Chowdhury, Gabriel, Bharambe, Eisenman, Yazdan, James, Maurer, Leonhardi, Huang, Loyd, Paola, Paranjape, Liu, Wu, Ni, Hancock, Wasti, Spence, Stojkovic, Gamido, Montalvo, Parker, Burton, Mejia, Wang, Kim, Zhou, Chu, Cai, Tindal, Feichtenhofer, Civin, Beaty, Kreymer, Li, Wyatt, Adkins, Xu, Testuggine, David, Parikh, Liskovich, Foss, Wang, Holland, Dowling, Jamil, Montgomery, Presani, Hahn, Wood, Brinkman, Arcaute, Dunbar, Smothers, Sun, Kreuk, Tian, Ozgenel, Caggioni, Guzmán, Kanayet, Seide, Florez, Schwarz, Badeer, Swee, Halpern, Thattai, Herman, Sizov, Zhang, Lakshminarayanan, Shojanazeri, Zou, Wang, Zha, Habeeb, Rudolph, Suk, Aspegren, Goldman, Molybog, Tufanov, Veliche, Gat, Weissman, Geboski, Kohli, Asher, Gaya, Marcus, Tang, Chan, Zhen, Reizenstein, Teboul, Zhong, Jin, Cummings, Carvill, Shepard, McPhie, Torres, Ginsburg, Wang, Wu, KamHou, Saxena, Prasad, Khandelwal, Zand, Matosich, Veeraraghavan, Michelena, Li, Huang, Chawla, Lakhotia, Huang, Chen, Garg, Lavender, Silva, Bell, Zhang, Guo, Moshkovich, Wehrstedt, Khabsa, Avalani, Bhatt, Tsimpoukelli, Mankus, Hasson, Lennie, Reso, Groshev, Naumov, Lathi, Keneally, Seltzer, Valko, Restrepo, Patel, Vyatskov, Samvelyan, Clark, Macey, Wang, Hermoso, Metanat, Rastegari, Bansal, Santhanam, Parks, White, Bawa, Singhal, Egebo, Usunier, Laptev, Dong, Zhang, Cheng, Chernoguz, Hart, Salpekar, Kalinli, Kent, Parekh, Saab, Balaji, Rittner, Bontrager, Roux, Dollár, Zvyagina, Ratanchandani, Yuvraj, Liang, Alao, Rodriguez, Ayub, Murthy, Nayani, Mitra, Li, Hogan, Battey, Wang, Maheswari, Howes, Rinott, Bondu, Datta, Chugh, Hunt, Dhillon, Sidorov, Verma, Yamamoto, Ramaswamy, Lindsay, Feng, Lin, Zha, Shankar, Zhang, Wang, Agarwal, Sajuyigbe, Chintala, Max, Chen, Kehoe, Satterfield, Govindaprasad, Gupta, Cho, Virk, Subramanian, Choudhury, Goldman, Remez, Glaser, Best, Kohler, Robinson, Li, Zhang, Matthews, Chou, Shaked, Vontimitta, Ajayi, Montanez, Mohan, Kumar, Mangla, Ionescu, Poenaru, Mihailescu, Ivanov, Li, Wang) did not match found publication titled 'The Llama 3 Herd of Models'
+		- `[16] Cornelius Emde, Alasdair Paren, Preetham Arvind, Maxime Guillaume Kayser, Tom Rainforth, Thomas Lukasiewicz, Philip Torr, and Adel Bibi. Shh, don’t say that! domain certification in LLMs. In ICLR, 2025.`
+			- Authors (Ghanem) did not match found publication titled 'Shh, don't say that! Domain Certification in LLMs'
+		- `[30] Shilong Liu, Zhaoyang Zeng, Tianhe Ren, Feng Li, Hao Zhang, Jie Yang, Qing Jiang, Chunyuan Li, Jianwei Yang, Hang Su, Jun Zhu, and Lei Zhang. Grounding dino: Marrying dino with grounded pre-training for open-set object detection. arXiv preprint arXiv:2303.05499, 2024.`
+			- Authors () did not match found publication titled 'Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection'
+		- `[33] Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and Adrian Vladu. Towards deep learning models resistant to adversarial attacks. In International Conference on Learning Representations (ICLR), 2018.`
+			- Authors (Ma̧dry) did not match found publication titled 'Towards Deep Learning Models Resistant to Adversarial Attacks'
+		- `[42] Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, et al. Toolllm: Facilitating large language models to master 16000+ real-world apis. arXiv preprint arXiv:2307.16789, 2023.`
+			- Authors (Zhao, Tian, Xie, Zhou, Gerstein, Liu, Sun) did not match found publication titled 'ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs'
+		- `[53] Chen Henry Wu, Rishi Shah, Jing Yu Koh, Ruslan Salakhutdinov, Daniel Fried, and Aditi Raghunathan. Dissecting adversarial robustness of multimodal lm agents. In International Conference on Learning Representations (ICLR), 2025.`
+			- Authors () did not match found publication titled 'Dissecting Adversarial Robustness of Multimodal LM Agents'
+		- `[55] Tianbao Xie, Danyang Zhang, Jixuan Chen, Xiaochuan Li, Siheng Zhao, Ruisheng Cao, Toh Jing Hua, Zhoujun Cheng, Dongchan Shin, Fangyu Lei, et al. Osworld: Benchmarking multimodal agents for open-ended tasks in real computer environments. arXiv preprint arXiv:2404.07972, 2024.`
+			- Authors (Liu, Savarese, Xiong, Zhong) did not match found publication titled 'OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments'
+		- `[56] Tianqi Xu, Linyao Chen, Dai-Jie Wu, Yanjun Chen, Zecheng Zhang, Xiang Yao, Zhiqiang Xie, Yongchao Chen, Shilong Liu, Bochen Qian, et al. Crab: Cross-environment agent benchmark for multimodal language model agents. arXiv preprint arXiv:2407.01511, 2024.`
+			- Authors (Torr, Ghanem) did not match found publication titled 'CRAB: Cross-environment Agent Benchmark for Multimodal Language Model Agents'
+		- `[59] Jianguo Zhang, Tian Lan, Ming Zhu, Zuxin Liu, Thai Hoang, Shirley Kokane, Weiran Yao, Juntao Tan, Akshara Prabhakar, Haolin Chen, et al. xlam: A family of large action models to empower ai agent systems. arXiv preprint arXiv:2409.03215, 2024.`
+			- Authors (Feng, Awalgaonkar, Murthy, Xu, Niebles, Heinecke, Wang, Savarese, Xiong) did not match found publication titled 'xLAM: A Family of Large Action Models to Empower AI Agent Systems'
+	- **Entries with mismatching years (where the difference is > 1 year):**
+		=> total = 1
+		- `[7] Anirban Chakraborty, Manaar Alam, Vishal Dey, Anupam Chattopadhyay, and Debdeep Mukhopadhyay. Adversarial attacks and defences: A survey. Transactions on Intelligence Technology, 2021.`
+			- Year (2018) does not match expected year (2021)
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 7
+		- `[10] Joana C Costa, Tiago Roxo, Hugo Proença, and Pedro RM Inácio. How deep learning sees the world: A survey on adversarial attacks & defenses. IEEE Access, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[19] Ian J Goodfellow, Jonathon Shlens, and Christian Szegedy. Explaining and harnessing adversarial examples. In International Conference on Learning Representations (ICLR), 2015.`
+			- Year (2014) does not match expected year (2015)
+		- `[28] Alexey Kurakin, Ian Goodfellow, and Samy Bengio. Adversarial examples in the physical world. arXiv preprint arXiv:1607.02533, 2017.`
+			- Year (2016) does not match expected year (2017)
+		- `[36] OpenAI. Gpt-4 technical report. arXiv preprint arXiv:2303.08774, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[45] Rylan Schaeffer, Dan Valentine, Luke Bailey, James Chua, Cristóbal Eyzaguirre, Zane Durante, Joe Benton, Brando Miranda, Henry Sleight, John Hughes, et al. Failures to find transferable image jailbreaks between vision-language models. In International Conference on Learning Representations (ICLR), 2025.`
+			- Year (2024) does not match expected year (2025)
+		- `[47] Elias Stengel-Eskin and Benjamin Van Durme. Calibrated interpretation: Confidence estimation in semantic parsing. arXiv preprint arXiv:2211.07443, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[48] Christian Szegedy, Wojciech Zaremba, Ilya Sutskever, Joan Bruna, Dumitru Erhan, Ian Goodfellow, and Rob Fergus. Intriguing properties of neural networks. In International Conference on Learning Representations (ICLR), 2014.`
+			- Year (2013) does not match expected year (2014)
+- No entry found: $17/64=26.56\%$
+	- Unfound entries:
+		=> total = 17
+		- \[2\] Anthropic. 3.5 Models and Computer Use, 2024. URL https://www.anthropic.com/news/3-5-models-and-computer-use.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 6 results matched the expected title!
+		- \[5\] Bluesky Social. Bluesky social, 2025. URL https://bsky.social/. Accessed: 2025-01-20.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 993 results matched the expected title!
+		- \[12\] Edoardo Debenedetti, Jie Zhang, Mislav Balunovi´c, Luca Beurer-Kellner, Marc Fischer, and Florian Tramèr. Agentdojo: A dynamic environment to evaluate prompt injection attacks and defenses for llm agents. In Advances in Neural Information Processing Systems, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[14\] elderplinius, August 2024. URL https://x.com/elder_plinius/status/1848868762327650411. Tweet.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[15\] Embrace The Red. ZombAIs: From Prompt Injection to C2 with Claude Computer Use, 2024.
+			-> WARNING: No results were found through the dblp search! | WARNING: None of the 997 results matched the expected title!
+		- \[21\] Yiran Guo, Linqing Duan, Yuexiang Zhang, Xiangyan Zhang, and Dinggang Shen. Multimodal adversarial examples. arXiv preprint arXiv:2101.06487, 2021.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 4 results matched the expected title!
+		- \[23\] Robin Jia and Percy Liang. Adversarial examples are not bugs, they are features. In Advances in Neural Information Processing Systems (NeurIPS), 2019.
+			-> WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[27\] Alexey Kurakin, Ian J. Goodfellow, and Samy Bengio. Adversarial examples are not easily detected: Bypassing ten detection methods. In arXiv preprint arXiv:1608.04644, 2016.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[29\] Dong Liu, Ji Zhu, Tao Zhang, Bo Li, and Hongyang Li. Adversarial attack on vision-language models via cross-modal denoising. In International Conference on Machine Learning (ICML), 2021.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[35\] Anh Tuan Nguyen, Shengping Li, and Chao Qin. Multimodal adversarial robustness: Attack and defense. IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI), 2021.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[37\] OpenAI. Dall·e 3. https://openai.com/dall-e-3/, 2025. Accessed: 2025-01-20.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[38\] Anton Osika. gpt-engineer, 2023. URL https://github.com/gpt-engineer-org/gpt-engineer.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[41\] Heng Qi, Zhaokang Tan, and Xingxing Zhang. Cross-modal adversarial training for multimodal classification. In Proceedings of the AAAI Conference on Artificial Intelligence (AAAI), 2020.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[43\] Aditya Ramesh, Mikhail Pavlov, Gabriel Goh, Scott Gray, Chelsea Voss, Alec Radford, Mark Chen, and Ilya Sutskever. Hierarchical text-conditional image generation with clip latents, 2022.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[44\] Javier Rando, Hannah Korevaar, Erik Brinkman, Ivan Evtimov, and Florian Tramèr. Gradientbased jailbreak images for multimodal fusion models. arXiv preprint arXiv:2410.03489, 2024.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[49\] Gemini Team. Gemini: A family of highly capable multimodal models. arXiv preprint arXiv:2312.11805, 2025.
+			-> WARNING: None of the 8 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[63\] Zhiyu Zhu, Xinyi Wang, Zhibo Jin, Jiayu Zhang, and Huaming Chen. Enhancing transferable adversarial attacks on vision transformers through gradient normalization scaling and highfrequency adaptation. In International Conference on Learning Representations (ICLR), 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- 'Extensive research efforts are already focused on advancing OS agents, particularly in their ability to generate and execute appropriate API calls for a given instruction [47, 42, 40, 31, 51, 59]'
+	- This flag is for the paper with Ref. ID = 42
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/37 MIP against Agent Malicious Image Patches/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 33
+- International Conference on Learning Representations
+	- Parsed as: International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 6
+- International Conference on Machine Learning
+	- Parsed as: International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 5
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 5
+- CAAI Transactions on Intelligence Technology
+	- Parsed as: Transactions on Intelligence Technology
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 7.0
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: The Thirty-eighth Annual Conference on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Access
+	- Parsed as: IEEE Access
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.2
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: ICLR
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+	- Parsed as: IEEE Transactions on Pattern Analysis and Machine Intelligence
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 18.0
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proceedings of the AAAI Conference on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Document Analysis and Recognition
+	- Parsed as: Ninth International Conference on Document Analysis and Recognition (ICDAR 2007), volume 2
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Maksym Andriushchenko, Alexandra Souly, Mateusz Dziemian, Derek Duenas, Maxwell Lin, Justin Wang, Dan Hendrycks, Andy Zou, Zico Kolter, Matt Fredrikson, et al*
+	- Normalized Authors: `['Andriushchenko M.', 'Souly A.', 'Dziemian M.', 'Duenas D.', 'Lin M.', 'Wang J.', 'Hendrycks D.', 'Zou A.', 'Kolter Z.', 'Fredrikson M.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Agentharm: A benchmark for measuring harmfulness of llm agents*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Anthropic*
+	- Normalized Authors: `['Anthropic']`
+	- Authors contain 'et al.': *False*
+	- Title: *3.5 Models and Computer Use.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://www.anthropic.com/news/3-5-models-and-computer-use*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 6 results matched the expected title!*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Anish Athalye, Nicholas Carlini, and David Wagner*
+	- Normalized Authors: `['Athalye A.', 'Carlini N.', 'Wagner D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Obfuscated gradients give a false sense of security: Circumventing defenses to adversarial examples*
+	- Year: *2018*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Luke Bailey, Euan Ong, Stuart Russell, and Scott Emmons*
+	- Normalized Authors: `['Bailey L.', 'Ong E.', 'Russell S.', 'Emmons S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Image hijacks: Adversarial images can control generative models at runtime*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Bluesky Social*
+	- Normalized Authors: `['Social B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Bluesky social.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://bsky.social/*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 993 results matched the expected title!*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Rogerio Bonatti, Dan Zhao, Francesco Bonacci, Dillon Dupont, Sara Abdali, Yinheng Li, Yadong Lu, Justin Wagle, Kazuhito Koishida, Arthur Bucker, et al*
+	- Normalized Authors: `['Bonatti R.', 'Zhao D.', 'Bonacci F.', 'Dupont D.', 'Abdali S.', 'Li Y.', 'Lu Y.', 'Wagle J.', 'Koishida K.', 'Bucker A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Windows agent arena: Evaluating multi-modal os agents at scale*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Anirban Chakraborty, Manaar Alam, Vishal Dey, Anupam Chattopadhyay, and Debdeep Mukhopadhyay*
+	- Normalized Authors: `['Chakraborty A.', 'Alam M.', 'Dey V.', 'Chattopadhyay A.', 'Mukhopadhyay D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adversarial attacks and defences: A survey*
+	- Year: *2021*
+	- Outlet: *Transactions on Intelligence Technology*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2021)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Patrick Chao, Alexander Robey, Edgar Dobriban, Hamed Hassani, George J Pappas, and Eric Wong*
+	- Normalized Authors: `['Chao P.', 'Robey A.', 'Dobriban E.', 'Hassani H.', 'Pappas G.', 'Wong E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Jailbreaking black box large language models in twenty queries*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Zhaorun Chen, Zhen Xiang, Chaowei Xiao, Dawn Song, and Bo Li*
+	- Normalized Authors: `['Chen Z.', 'Xiang Z.', 'Xiao C.', 'Song D.', 'Li B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Agentpoison: Red-teaming LLM agents via poisoning memory or knowledge bases*
+	- Year: *2024*
+	- Outlet: *The Thirty-eighth Annual Conference on Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Joana C Costa, Tiago Roxo, Hugo Proença, and Pedro RM Inácio*
+	- Normalized Authors: `['Costa J.', 'Roxo T.', 'Proença H.', 'Inácio P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *How deep learning sees the world: A survey on adversarial attacks & defenses*
+	- Year: *2024*
+	- Outlet: *IEEE Access*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Francesco Croce and Matthias Hein*
+	- Normalized Authors: `['Croce F.', 'Hein M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reliable evaluation of adversarial robustness with an ensemble of diverse parameter-free attacks*
+	- Year: *2020*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Edoardo Debenedetti, Jie Zhang, Mislav Balunovi´c, Luca Beurer-Kellner, Marc Fischer, and Florian Tramèr*
+	- Normalized Authors: `['Debenedetti E.', 'Zhang J.', 'Balunovi´c M.', 'Beurer-Kellner L.', 'Fischer M.', 'Tramèr F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Agentdojo: A dynamic environment to evaluate prompt injection attacks and defenses for llm agents*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Amy Yang, Angela Fan, et al*
+	- Normalized Authors: `['Dubey A.', 'Jauhri A.', 'Pandey A.', 'Kadian A.', 'Al-Dahle A.', 'Letman A.', 'Mathur A.', 'Schelten A.', 'Yang A.', 'Fan A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *The llama 3 herd of models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Goyal, Hartshorn, Mitra, Sravankumar, Korenev, Hinsvark, Rao, Zhang, Rodriguez, Gregerson, Spataru, Rozière, Biron, Tang, Chern, Caucheteux, Nayak, Bi, Marra, McConnell, Keller, Touret, Wu, Wong, Ferrer, Nikolaidis, Allonsius, Song, Pintz, Livshits, Esiobu, Choudhary, Mahajan, Garcia-Olano, Perino, Hupkes, Lakomkin, AlBadawy, Lobanova, Dinan, Smith, Radenovic, Zhang, Synnaeve, Lee, Anderson, Nail, Mialon, Pang, Cucurell, Nguyen, Korevaar, Xu, Touvron, Zarov, Ibarra, Kloumann, Misra, Evtimov, Copet, Lee, Geffert, Vranes, Park, Mahadeokar, Shah, Linde, Billock, Hong, Lee, Fu, Chi, Huang, Liu, Wang, Bitton, Spisak, Park, Rocca, Johnstun, Saxe, Jia, Alwala, Upasani, Plawiak, Li, Heafield, Stone, El-Arini, Iyer, Malik, Chiu, Bhalla, Rantala-Yeary, Maaten, Chen, Tan, Jenkins, Martin, Madaan, Malo, Blecher, Landzaat, Oliveira, Muzzi, Pasupuleti, Singh, Paluri, Kardas, Oldham, Rita, Pavlova, Kambadur, Lewis, Si, Singh, Hassan, Goyal, Torabi, Bashlykov, Bogoychev, Chatterji, Duchenne, cCelebi, Alrassy, Zhang, Li, Vasić, Weng, Bhargava, Dubal, Krishnan, Koura, Xu, Dong, Srinivasan, Ganapathy, Calderer, Cabral, Stojnic, Raileanu, Girdhar, Patel, Sauvestre, Polidoro, Sumbaly, Taylor, Silva, Hou, Wang, Hosseini, Chennabasappa, Singh, Bell, Kim, Edunov, Nie, Narang, Raparthy, Shen, Wan, Bhosale, Zhang, Vandenhende, Batra, Whitman, Sootla, Collot, Gururangan, Borodinsky, Herman, Fowler, Sheasha, Georgiou, Scialom, Speckbacher, Mihaylov, Xiao, Karn, Goswami, Gupta, Ramanathan, Kerkez, Gonguet, Do, Vogeti, Petrovic, Chu, Xiong, Fu, Meers, Martinet, Wang, Tan, Xie, Jia, Wang, Goldschlag, Gaur, Babaei, Wen, Song, Zhang, Li, Mao, Coudert, Chen, Papakipos, Singh, Grattafiori, Jain, Kelsey, Shajnfeld, Gangidi, Victoria, Goldstand, Menon, Sharma, Boesenberg, Vaughan, Baevski, Feinstein, Kallet, Sangani, Yunus, Lupu, Alvarado, Caples, Gu, Ho, Poulton, Ryan, Ramchandani, Franco, Saraf, Chowdhury, Gabriel, Bharambe, Eisenman, Yazdan, James, Maurer, Leonhardi, Huang, Loyd, Paola, Paranjape, Liu, Wu, Ni, Hancock, Wasti, Spence, Stojkovic, Gamido, Montalvo, Parker, Burton, Mejia, Wang, Kim, Zhou, Chu, Cai, Tindal, Feichtenhofer, Civin, Beaty, Kreymer, Li, Wyatt, Adkins, Xu, Testuggine, David, Parikh, Liskovich, Foss, Wang, Holland, Dowling, Jamil, Montgomery, Presani, Hahn, Wood, Brinkman, Arcaute, Dunbar, Smothers, Sun, Kreuk, Tian, Ozgenel, Caggioni, Guzmán, Kanayet, Seide, Florez, Schwarz, Badeer, Swee, Halpern, Thattai, Herman, Sizov, Zhang, Lakshminarayanan, Shojanazeri, Zou, Wang, Zha, Habeeb, Rudolph, Suk, Aspegren, Goldman, Molybog, Tufanov, Veliche, Gat, Weissman, Geboski, Kohli, Asher, Gaya, Marcus, Tang, Chan, Zhen, Reizenstein, Teboul, Zhong, Jin, Cummings, Carvill, Shepard, McPhie, Torres, Ginsburg, Wang, Wu, KamHou, Saxena, Prasad, Khandelwal, Zand, Matosich, Veeraraghavan, Michelena, Li, Huang, Chawla, Lakhotia, Huang, Chen, Garg, Lavender, Silva, Bell, Zhang, Guo, Moshkovich, Wehrstedt, Khabsa, Avalani, Bhatt, Tsimpoukelli, Mankus, Hasson, Lennie, Reso, Groshev, Naumov, Lathi, Keneally, Seltzer, Valko, Restrepo, Patel, Vyatskov, Samvelyan, Clark, Macey, Wang, Hermoso, Metanat, Rastegari, Bansal, Santhanam, Parks, White, Bawa, Singhal, Egebo, Usunier, Laptev, Dong, Zhang, Cheng, Chernoguz, Hart, Salpekar, Kalinli, Kent, Parekh, Saab, Balaji, Rittner, Bontrager, Roux, Dollár, Zvyagina, Ratanchandani, Yuvraj, Liang, Alao, Rodriguez, Ayub, Murthy, Nayani, Mitra, Li, Hogan, Battey, Wang, Maheswari, Howes, Rinott, Bondu, Datta, Chugh, Hunt, Dhillon, Sidorov, Verma, Yamamoto, Ramaswamy, Lindsay, Feng, Lin, Zha, Shankar, Zhang, Wang, Agarwal, Sajuyigbe, Chintala, Max, Chen, Kehoe, Satterfield, Govindaprasad, Gupta, Cho, Virk, Subramanian, Choudhury, Goldman, Remez, Glaser, Best, Kohler, Robinson, Li, Zhang, Matthews, Chou, Shaked, Vontimitta, Ajayi, Montanez, Mohan, Kumar, Mangla, Ionescu, Poenaru, Mihailescu, Ivanov, Li, Wang) did not match found publication titled 'The Llama 3 Herd of Models'*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *elderplinius*
+	- Normalized Authors: `['elderplinius']`
+	- Authors contain 'et al.': *False*
+	- Title: *elderplinius, August*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://x.com/elder_plinius/status/1848868762327650411*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Embrace The Red*
+	- Normalized Authors: `['Red E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *ZombAIs: From Prompt Injection to C2 with Claude Computer Use.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: None of the 997 results matched the expected title!*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Cornelius Emde, Alasdair Paren, Preetham Arvind, Maxime Guillaume Kayser, Tom Rainforth, Thomas Lukasiewicz, Philip Torr, and Adel Bibi*
+	- Normalized Authors: `['Emde C.', 'Paren A.', 'Arvind P.', 'Kayser M.', 'Rainforth T.', 'Lukasiewicz T.', 'Torr P.', 'Bibi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Shh, don’t say that! domain certification in LLMs*
+	- Year: *2025*
+	- Outlet: *ICLR*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Ghanem) did not match found publication titled 'Shh, don't say that! Domain Certification in LLMs'*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Ivan Evtimov, Arman Zharmagambetov, Aaron Grattafiori, Chuan Guo, and Kamalika Chaudhuri*
+	- Normalized Authors: `['Evtimov I.', 'Zharmagambetov A.', 'Grattafiori A.', 'Guo C.', 'Chaudhuri K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Wasp: Benchmarking web agent security against prompt injection attacks*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Xiaohan Fu, Shuheng Li, Zihan Wang, Yihao Liu, Rajesh K Gupta, Taylor Berg-Kirkpatrick, and Earlence Fernandes*
+	- Normalized Authors: `['Fu X.', 'Li S.', 'Wang Z.', 'Liu Y.', 'Gupta R.', 'Berg-Kirkpatrick T.', 'Fernandes E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Imprompter: Tricking llm agents into improper tool use*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Ian J Goodfellow, Jonathon Shlens, and Christian Szegedy*
+	- Normalized Authors: `['Goodfellow I.', 'Shlens J.', 'Szegedy C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Explaining and harnessing adversarial examples*
+	- Year: *2015*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2014) does not match expected year (2015)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Xiangming Gu, Xiaosen Zheng, Tianyu Pang, Chao Du, Qian Liu, Ye Wang, Jing Jiang, and Min Lin*
+	- Normalized Authors: `['Gu X.', 'Zheng X.', 'Pang T.', 'Du C.', 'Liu Q.', 'Wang Y.', 'Jiang J.', 'Lin M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Agent smith: A single image can jailbreak one million multimodal LLM agents exponentially fast*
+	- Year: *2024*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Yiran Guo, Linqing Duan, Yuexiang Zhang, Xiangyan Zhang, and Dinggang Shen*
+	- Normalized Authors: `['Guo Y.', 'Duan L.', 'Zhang Y.', 'Zhang X.', 'Shen D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multimodal adversarial examples*
+	- Year: *2021*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 4 results matched the expected title!*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *John Hughes, Sara Price, Aengus Lynch, Rylan Schaeffer, Fazl Barez, Sanmi Koyejo, Henry Sleight, Erik Jones, Ethan Perez, and Mrinank Sharma*
+	- Normalized Authors: `['Hughes J.', 'Price S.', 'Lynch A.', 'Schaeffer R.', 'Barez F.', 'Koyejo S.', 'Sleight H.', 'Jones E.', 'Perez E.', 'Sharma M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Best-of-n jailbreaking*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Robin Jia and Percy Liang*
+	- Normalized Authors: `['Jia R.', 'Liang P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adversarial examples are not bugs, they are features*
+	- Year: *2019*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Diederik P Kingma and Jimmy Ba*
+	- Normalized Authors: `['Kingma D.', 'Ba J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adam: A method for stochastic optimization*
+	- Year: *2014*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Jing Yu Koh, Robert Lo, Lawrence Jang, Vikram Duvvur, Ming Chong Lim, Po-Yu Huang, Graham Neubig, Shuyan Zhou, Ruslan Salakhutdinov, and Daniel Fried*
+	- Normalized Authors: `['Koh J.', 'Lo R.', 'Jang L.', 'Duvvur V.', 'Lim M.', 'Huang P.', 'Neubig G.', 'Zhou S.', 'Salakhutdinov R.', 'Fried D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visualwebarena: Evaluating multimodal agents on realistic visual web tasks*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Shashank Kotyan*
+	- Normalized Authors: `['Kotyan S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A reading survey on adversarial machine learning: Adversarial attacks and their understanding*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Alexey Kurakin, Ian J Goodfellow, and Samy Bengio*
+	- Normalized Authors: `['Kurakin A.', 'Goodfellow I.', 'Bengio S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adversarial examples are not easily detected: Bypassing ten detection methods*
+	- Year: *2016*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Alexey Kurakin, Ian Goodfellow, and Samy Bengio*
+	- Normalized Authors: `['Kurakin A.', 'Goodfellow I.', 'Bengio S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adversarial examples in the physical world*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2016) does not match expected year (2017)*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Dong Liu, Ji Zhu, Tao Zhang, Bo Li, and Hongyang Li*
+	- Normalized Authors: `['Liu D.', 'Zhu J.', 'Zhang T.', 'Li B.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adversarial attack on vision-language models via cross-modal denoising*
+	- Year: *2021*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Shilong Liu, Zhaoyang Zeng, Tianhe Ren, Feng Li, Hao Zhang, Jie Yang, Qing Jiang, Chunyuan Li, Jianwei Yang, Hang Su, Jun Zhu, and Lei Zhang*
+	- Normalized Authors: `['Liu S.', 'Zeng Z.', 'Ren T.', 'Li F.', 'Zhang H.', 'Yang J.', 'Jiang Q.', 'Li C.', 'Yang J.', 'Su H.', 'Zhu J.', 'Zhang L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Grounding dino: Marrying dino with grounded pre-training for open-set object detection*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Grounding DINO: Marrying DINO with Grounded Pre-Training for Open-Set Object Detection'*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Zuxin Liu, Thai Hoang, Jianguo Zhang, Ming Zhu, Tian Lan, Shirley Kokane, Juntao Tan, Weiran Yao, Zhiwei Liu, Yihao Feng, et al*
+	- Normalized Authors: `['Liu Z.', 'Hoang T.', 'Zhang J.', 'Zhu M.', 'Lan T.', 'Kokane S.', 'Tan J.', 'Yao W.', 'Liu Z.', 'Feng Y.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Apigen: Automated pipeline for generating verifiable and diverse function-calling datasets*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Yadong Lu, Jianwei Yang, Yelong Shen, and Ahmed Awadallah*
+	- Normalized Authors: `['Lu Y.', 'Yang J.', 'Shen Y.', 'Awadallah A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Omniparser for pure vision based gui agent*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and Adrian Vladu*
+	- Normalized Authors: `['Madry A.', 'Makelov A.', 'Schmidt L.', 'Tsipras D.', 'Vladu A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards deep learning models resistant to adversarial attacks*
+	- Year: *2018*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Ma̧dry) did not match found publication titled 'Towards Deep Learning Models Resistant to Adversarial Attacks'*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Mantas Mazeika, Long Phan, Xuwang Yin, Andy Zou, Zifan Wang, Norman Mu, Elham Sakhaee, Nathaniel Li, Steven Basart, Bo Li, David Forsyth, and Dan Hendrycks*
+	- Normalized Authors: `['Mazeika M.', 'Phan L.', 'Yin X.', 'Zou A.', 'Wang Z.', 'Mu N.', 'Sakhaee E.', 'Li N.', 'Basart S.', 'Li B.', 'Forsyth D.', 'Hendrycks D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Harmbench: A standardized evaluation framework for automated red teaming and robust refusal*
+	- Year: *2024*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Anh Tuan Nguyen, Shengping Li, and Chao Qin*
+	- Normalized Authors: `['Nguyen A.', 'Li S.', 'Qin C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multimodal adversarial robustness: Attack and defense*
+	- Year: *2021*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *OpenAI*
+	- Normalized Authors: `['OpenAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gpt-4 technical report*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *OpenAI*
+	- Normalized Authors: `['OpenAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dall·e 3*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://openai.com/dall-e-3/*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Anton Osika*
+	- Normalized Authors: `['Osika A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *gpt-engineer.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://github.com/gpt-engineer-org/gpt-engineer*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Long Ouyang, Jeffrey Wu, Xu Jiang, Diogo Almeida, Carroll L Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul F Christiano, Jan Leike, and Ryan Lowe*
+	- Normalized Authors: `['Ouyang L.', 'Wu J.', 'Jiang X.', 'Almeida D.', 'Wainwright C.', 'Mishkin P.', 'Zhang C.', 'Agarwal S.', 'Slama K.', 'Ray A.', 'Schulman J.', 'Hilton J.', 'Kelton F.', 'Miller L.', 'Simens M.', 'Askell A.', 'Welinder P.', 'Christiano P.', 'Leike J.', 'Lowe R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Training language models to follow instructions with human feedback*
+	- Year: *2022*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Shishir G Patil, Tianjun Zhang, Xin Wang, and Joseph E Gonzalez*
+	- Normalized Authors: `['Patil S.', 'Zhang T.', 'Wang X.', 'Gonzalez J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gorilla: Large language model connected with massive apis*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Heng Qi, Zhaokang Tan, and Xingxing Zhang*
+	- Normalized Authors: `['Qi H.', 'Tan Z.', 'Zhang X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cross-modal adversarial training for multimodal classification*
+	- Year: *2020*
+	- Outlet: *Proceedings of the AAAI Conference on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru Tang, Bill Qian, et al*
+	- Normalized Authors: `['Qin Y.', 'Liang S.', 'Ye Y.', 'Zhu K.', 'Yan L.', 'Lu Y.', 'Lin Y.', 'Cong X.', 'Tang X.', 'Qian B.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Toolllm: Facilitating large language models to master 16000+ real-world apis*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Zhao, Tian, Xie, Zhou, Gerstein, Liu, Sun) did not match found publication titled 'ToolLLM: Facilitating Large Language Models to Master 16000+ Real-world APIs'*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Aditya Ramesh, Mikhail Pavlov, Gabriel Goh, Scott Gray, Chelsea Voss, Alec Radford, Mark Chen, and Ilya Sutskever*
+	- Normalized Authors: `['Ramesh A.', 'Pavlov M.', 'Goh G.', 'Gray S.', 'Voss C.', 'Radford A.', 'Chen M.', 'Sutskever I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Hierarchical text-conditional image generation with clip latents.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Javier Rando, Hannah Korevaar, Erik Brinkman, Ivan Evtimov, and Florian Tramèr*
+	- Normalized Authors: `['Rando J.', 'Korevaar H.', 'Brinkman E.', 'Evtimov I.', 'Tramèr F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gradientbased jailbreak images for multimodal fusion models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Rylan Schaeffer, Dan Valentine, Luke Bailey, James Chua, Cristóbal Eyzaguirre, Zane Durante, Joe Benton, Brando Miranda, Henry Sleight, John Hughes, et al*
+	- Normalized Authors: `['Schaeffer R.', 'Valentine D.', 'Bailey L.', 'Chua J.', 'Eyzaguirre C.', 'Durante Z.', 'Benton J.', 'Miranda B.', 'Sleight H.', 'Hughes J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Failures to find transferable image jailbreaks between vision-language models*
+	- Year: *2025*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *R Smith*
+	- Normalized Authors: `['Smith R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *An overview of the tesseract ocr engine*
+	- Year: *2007*
+	- Outlet: *Ninth International Conference on Document Analysis and Recognition (ICDAR 2007), volume 2*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Elias Stengel-Eskin and Benjamin Van Durme*
+	- Normalized Authors: `['Stengel-Eskin E.', 'Durme B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Calibrated interpretation: Confidence estimation in semantic parsing*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Christian Szegedy, Wojciech Zaremba, Ilya Sutskever, Joan Bruna, Dumitru Erhan, Ian Goodfellow, and Rob Fergus*
+	- Normalized Authors: `['Szegedy C.', 'Zaremba W.', 'Sutskever I.', 'Bruna J.', 'Erhan D.', 'Goodfellow I.', 'Fergus R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Intriguing properties of neural networks*
+	- Year: *2014*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2013) does not match expected year (2014)*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Gemini Team*
+	- Normalized Authors: `['Team G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gemini: A family of highly capable multimodal models*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 8 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Ł ukasz Kaiser, and Illia Polosukhin*
+	- Normalized Authors: `['Vaswani A.', 'Shazeer N.', 'Parmar N.', 'Uszkoreit J.', 'Jones L.', 'Gomez A.', 'Kaiser Ł.', 'Polosukhin I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Attention is all you need*
+	- Year: *2017*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Renxi Wang, Xudong Han, Lei Ji, Shu Wang, Timothy Baldwin, and Haonan Li*
+	- Normalized Authors: `['Wang R.', 'Han X.', 'Ji L.', 'Wang S.', 'Baldwin T.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Toolgen: Unified tool retrieval and calling via generation*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Tony T Wang, John Hughes, Henry Sleight, Rylan Schaeffer, Rajashree Agrawal, Fazl Barez, Mrinank Sharma, Jesse Mu, Nir Shavit, and Ethan Perez*
+	- Normalized Authors: `['Wang T.', 'Hughes J.', 'Sleight H.', 'Schaeffer R.', 'Agrawal R.', 'Barez F.', 'Sharma M.', 'Mu J.', 'Shavit N.', 'Perez E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Jailbreak defense in a narrow domain: Limitations of existing methods and a new transcript-classifier approach*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Chen Henry Wu, Rishi Shah, Jing Yu Koh, Ruslan Salakhutdinov, Daniel Fried, and Aditi Raghunathan*
+	- Normalized Authors: `['Wu C.', 'Shah R.', 'Koh J.', 'Salakhutdinov R.', 'Fried D.', 'Raghunathan A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dissecting adversarial robustness of multimodal lm agents*
+	- Year: *2025*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Dissecting Adversarial Robustness of Multimodal LM Agents'*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Peng Xie, Yequan Bie, Jianda Mao, Yangqiu Song, Yang Wang, Hao Chen, and Kani Chen*
+	- Normalized Authors: `['Xie P.', 'Bie Y.', 'Mao J.', 'Song Y.', 'Wang Y.', 'Chen H.', 'Chen K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Chain of attack: On the robustness of vision-language models against transfer-based adversarial attacks*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Tianbao Xie, Danyang Zhang, Jixuan Chen, Xiaochuan Li, Siheng Zhao, Ruisheng Cao, Toh Jing Hua, Zhoujun Cheng, Dongchan Shin, Fangyu Lei, et al*
+	- Normalized Authors: `['Xie T.', 'Zhang D.', 'Chen J.', 'Li X.', 'Zhao S.', 'Cao R.', 'Hua T.', 'Cheng Z.', 'Shin D.', 'Lei F.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Osworld: Benchmarking multimodal agents for open-ended tasks in real computer environments*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Liu, Savarese, Xiong, Zhong) did not match found publication titled 'OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments'*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Tianqi Xu, Linyao Chen, Dai-Jie Wu, Yanjun Chen, Zecheng Zhang, Xiang Yao, Zhiqiang Xie, Yongchao Chen, Shilong Liu, Bochen Qian, et al*
+	- Normalized Authors: `['Xu T.', 'Chen L.', 'Wu D.', 'Chen Y.', 'Zhang Z.', 'Yao X.', 'Xie Z.', 'Chen Y.', 'Liu S.', 'Qian B.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Crab: Cross-environment agent benchmark for multimodal language model agents*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Torr, Ghanem) did not match found publication titled 'CRAB: Cross-environment Agent Benchmark for Multimodal Language Model Agents'*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Jianwei Yang, Hao Zhang, Feng Li, Xueyan Zou, Chunyuan Li, and Jianfeng Gao*
+	- Normalized Authors: `['Yang J.', 'Zhang H.', 'Li F.', 'Zou X.', 'Li C.', 'Gao J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Set-of-mark prompting unleashes extraordinary visual grounding in gpt-4v*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Chaoyun Zhang, Liqun Li, Shilin He, Xu Zhang, Bo Qiao, Si Qin, Minghua Ma, Yu Kang, Qingwei Lin, Saravan Rajmohan, Dongmei Zhang, and Qi Zhang*
+	- Normalized Authors: `['Zhang C.', 'Li L.', 'He S.', 'Zhang X.', 'Qiao B.', 'Qin S.', 'Ma M.', 'Kang Y.', 'Lin Q.', 'Rajmohan S.', 'Zhang D.', 'Zhang Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ufo: A ui-focused agent for windows os interaction*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Jianguo Zhang, Tian Lan, Ming Zhu, Zuxin Liu, Thai Hoang, Shirley Kokane, Weiran Yao, Juntao Tan, Akshara Prabhakar, Haolin Chen, et al*
+	- Normalized Authors: `['Zhang J.', 'Lan T.', 'Zhu M.', 'Liu Z.', 'Hoang T.', 'Kokane S.', 'Yao W.', 'Tan J.', 'Prabhakar A.', 'Chen H.']`
+	- Authors contain 'et al.': *True*
+	- Title: *xlam: A family of large action models to empower ai agent systems*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Feng, Awalgaonkar, Murthy, Xu, Niebles, Heinecke, Wang, Savarese, Xiong) did not match found publication titled 'xLAM: A Family of Large Action Models to Empower AI Agent Systems'*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Yanzhe Zhang, Tao Yu, and Diyi Yang*
+	- Normalized Authors: `['Zhang Y.', 'Yu T.', 'Yang D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Attacking vision-language computer agents via pop-ups*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Zhexin Zhang, Shiyao Cui, Yida Lu, Jingzhuo Zhou, Junxiao Yang, Hongning Wang, and Minlie Huang*
+	- Normalized Authors: `['Zhang Z.', 'Cui S.', 'Lu Y.', 'Zhou J.', 'Yang J.', 'Wang H.', 'Huang M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Agent-safetybench: Evaluating the safety of llm agents*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Yunqing Zhao, Tianyu Pang, Chao Du, Xiao Yang, Chongxuan Li, Ngai-Man Cheung, and Min Lin*
+	- Normalized Authors: `['Zhao Y.', 'Pang T.', 'Du C.', 'Yang X.', 'Li C.', 'Cheung N.', 'Lin M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On evaluating adversarial robustness of large vision-language models*
+	- Year: *2023*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Zhiyu Zhu, Xinyi Wang, Zhibo Jin, Jiayu Zhang, and Huaming Chen*
+	- Normalized Authors: `['Zhu Z.', 'Wang X.', 'Jin Z.', 'Zhang J.', 'Chen H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Enhancing transferable adversarial attacks on vision transformers through gradient normalization scaling and highfrequency adaptation*
+	- Year: *2024*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Andy Zou, Zifan Wang, J Zico Kolter, and Matt Fredrikson*
+	- Normalized Authors: `['Zou A.', 'Wang Z.', 'Kolter J.', 'Fredrikson M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Universal and transferable adversarial attacks on aligned language models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- '*Extensive research efforts are already focused on advancing OS agents, particularly in their ability to generate and execute appropriate API calls for a given instruction [47, 42, 40, 31, 51, 59]*'
+	- This flag is for the paper with Ref. ID = 42
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*To do so, we employ projected gradient descent (PGD), requiring access to θ to obtain gradient information for updating δ, following prior work on adversarial image generation [7, 10]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*To do so, we employ projected gradient descent (PGD), requiring access to θ to obtain gradient information for updating δ, following prior work on adversarial image generation [7, 10]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*2 Vision model series [13]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*2-11B-Vision-Instruct [13] as the VLM fθ and OmniParser [32] as the screen parser g*'
+	- This flag is for the paper with Ref. ID = 13
+- '*2-11B-Vision [13]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Techniques like Projected Gradient Descent (PGD) are widely used to craft such adversarial examples [28, 33]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*First, we consider two open-source screen parsers g from WAA, the recommended OmniParser [32], as well as the baseline parser that uses GroundingDINO [30] for SOM detection and TesseractOCR [46] for optical character recognition*'
+	- This flag is for the paper with Ref. ID = 30
+- '*To this end, we exchange the parser g ∈G+ based on OmniParser [32] with the unseen parser g ∈G−that utilises GroundingDINO [30] and TesseractOCR [46]*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Since OS agents navigate via screenshots, a critical question arises: could an adversary subtly manipulate a screen such that, when captured by an OS agent, it hijacks the agent without directly having access to its input? To investigate this, we build on principles from traditional adversarial attacks on vision models [48, 19] and especially on VLMs [45, 44]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Extensive research efforts are already focused on advancing OS agents, particularly in their ability to generate and execute appropriate API calls for a given instruction [47, 42, 40, 31, 51, 59]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*The most closely related work is that of Wu et al [53], which investigates both text-based and image-based attacks on OS agents, while considering similar agent components and constraints*'
+	- This flag is for the paper with Ref. ID = 53
+- '*OS agents, also known as GUI or Computer Use Agents, observe the system by capturing and analysing screenshots, and they interact with the system via application programming interfaces (APIs) that issue low-level operations such as mouse clicks and keyboard inputs [56, 6, 55]*'
+	- This flag is for the paper with Ref. ID = 55
+- '*Integrating these pop-ups into agent testing environments such as OSWorld [55] or VisualWebArena [25] causes agents to interact with them, substantially increasing the likelihood of failure in their original task*'
+	- This flag is for the paper with Ref. ID = 55
+- '*OS agents, also known as GUI or Computer Use Agents, observe the system by capturing and analysing screenshots, and they interact with the system via application programming interfaces (APIs) that issue low-level operations such as mouse clicks and keyboard inputs [56, 6, 55]*'
+	- This flag is for the paper with Ref. ID = 56
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Since OS agents navigate via screenshots, a critical question arises: could an adversary subtly manipulate a screen such that, when captured by an OS agent, it hijacks the agent without directly having access to its input? To investigate this, we build on principles from traditional adversarial attacks on vision models [48, 19] and especially on VLMs [45, 44]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*By adding small, human-imperceptible perturbations to input images, adversaries can still manipulate these models into making incorrect predictions with high confidence [48, 19]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Techniques like Projected Gradient Descent (PGD) are widely used to craft such adversarial examples [28, 33]*'
+	- This flag is for the paper with Ref. ID = 33
+- '*This finding aligns with Schaeffer et al [45], who showed that adversarial images crafted on VLMs using pre-trained vision encoders and embedding matrices to map images into token space fail to generalise beyond the models used during optimisation*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Since OS agents navigate via screenshots, a critical question arises: could an adversary subtly manipulate a screen such that, when captured by an OS agent, it hijacks the agent without directly having access to its input? To investigate this, we build on principles from traditional adversarial attacks on vision models [48, 19] and especially on VLMs [45, 44]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*By adding small, human-imperceptible perturbations to input images, adversaries can still manipulate these models into making incorrect predictions with high confidence [48, 19]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*This differs from indirect attacks that rely on the agent to assemble the malicious behaviour at runtime after being steered toward it [4, 53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*Extensive research efforts are already focused on advancing OS agents, particularly in their ability to generate and execute appropriate API calls for a given instruction [47, 42, 40, 31, 51, 59]*'
+	- This flag is for the paper with Ref. ID = 59
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*While malicious text outputs are concerning, it remains unclear whether the associated risks exceed those posed by information already accessible through the internet [16]*'
+	- This flag is for the paper with Ref. ID = 16
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*Systematic security evaluations of OS agents are, to date, still sparse [1, 61]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*This paradigm shifts profoundly with the recent deployment of evolving VLMs into “OS agents”, transforming passive information sources to active participants capable of directly controlling a computer [2, 38, 58]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*In response, various defences have been developed to bolster model robustness, such as adversarial training, which involves including adversarial examples in the training process to improve resilience and enhance stability [3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*However, recent work on adversarial attacks has demonstrated that carefully crafted inputs can bypass these alignment safeguards [64, 8, 4, 22, 52]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*At the intersection of attacks on VLMs and OS agents is the work of Bailey et al [4], which introduces adversarial attacks on models with tool-use capabilities*'
+	- This flag is for the paper with Ref. ID = 4
+- '*This differs from indirect attacks that rely on the agent to assemble the malicious behaviour at runtime after being steered toward it [4, 53]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*We use a random post from the platform Bluesky [5] throughout the experiments*'
+	- This flag is for the paper with Ref. ID = 5
+- '*OS agents, also known as GUI or Computer Use Agents, observe the system by capturing and analysing screenshots, and they interact with the system via application programming interfaces (APIs) that issue low-level operations such as mouse clicks and keyboard inputs [56, 6, 55]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*It takes a screenshot s ∈S as input and generates structured information about actionable elements, text, and images, collectively referred to as Set-of-Marks (SOMs) [57, 6]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*press(“enter”) ∈Papi executes an actual keystroke within the OS [6]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*We conduct our experiments exploring the viability of using MIPs to attack OS agents within the Microsoft Windows Agent Arena (WAA) [6]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*In total, WAA includes 154 predefined tasks across 12 domains [6]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*Third, concerning the APIs, we adopt the default WAA configuration, which enables free-form Python execution and provides function wrappers for OS interactions, including mouse and keyboard control, clipboard manipulation, program execution, and window management [6], as detailed in App*'
+	- This flag is for the paper with Ref. ID = 6
+- '*However, recent work on adversarial attacks has demonstrated that carefully crafted inputs can bypass these alignment safeguards [64, 8, 4, 22, 52]*'
+	- This flag is for the paper with Ref. ID = 8
+- '*[9] propose backdoor attacks on RAG-based and memory-augmented OS agents by injecting triggers into their long-term memory or vector database*'
+	- This flag is for the paper with Ref. ID = 9
+- '*Despite these advancements, building models that are consistently robust to adversarial perturbations remains an open and active area of research, as attack methods continue to reveal weaknesses in models presumed to be robust [11]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Additionally, text-based attacks are detectable by existing filtering mechanisms, which are becoming increasingly effective at identifying and blocking malicious text inputs [12]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*Alarmingly, such failure cases have already been demonstrated very recently [14, 15, 60]*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Alarmingly, such failure cases have already been demonstrated very recently [14, 15, 60]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Unlike existing attack vectors on OS agents that use overt strategies such as pop-ups [60] or prompt injection [15, 17], detecting MIPs is far from trivial*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Unlike existing attack vectors on OS agents that use overt strategies such as pop-ups [60] or prompt injection [15, 17], detecting MIPs is far from trivial*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Among text-based attacks, Evtimov et al [17] introduce a benchmark to evaluate prompt injection attacks on OS agents and show that even agents powered by state-of-the-art models are vulnerable to human-written prompt injections*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Fu et al [18] crafted obfuscated adversarial prompts that induce OS agents to misuse certain tools*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Among the more closely related image-based attacks, Gu et al [20] demonstrate that a single adversarial image can compromise an agent and subsequently propagate unaligned behaviour across a network of multimodal agents*'
+	- This flag is for the paper with Ref. ID = 20
+- '*This increases model complexity and, in turn, their susceptibility to adversarial attacks targeting multiple modalities [21]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*However, recent work on adversarial attacks has demonstrated that carefully crafted inputs can bypass these alignment safeguards [64, 8, 4, 22, 52]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*Such attacks may exploit weak alignment between modalities [29], manipulate the relationship between visual and textual information [23], target the most vulnerable input modality [62], or jointly attack both camera and sensor input data in autonomous driving scenarios [35]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Integrating these pop-ups into agent testing environments such as OSWorld [55] or VisualWebArena [25] causes agents to interact with them, substantially increasing the likelihood of failure in their original task*'
+	- This flag is for the paper with Ref. ID = 25
+- '*Rather than being constrained to a single image patch, adversarial components can be embedded across the entire page, potentially leveraging a combination of MIPs, text-based instructions, and interactive elements [25]*'
+	- This flag is for the paper with Ref. ID = 25
+- '*Malicious instructions are fully embedded within subtle visual perturbations and reliable detection of adversarially perturbed images remains a general problem [26, 27]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Malicious instructions are fully embedded within subtle visual perturbations and reliable detection of adversarially perturbed images remains a general problem [26, 27]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Such attacks may exploit weak alignment between modalities [29], manipulate the relationship between visual and textual information [23], target the most vulnerable input modality [62], or jointly attack both camera and sensor input data in autonomous driving scenarios [35]*'
+	- This flag is for the paper with Ref. ID = 29
+- '*Extensive research efforts are already focused on advancing OS agents, particularly in their ability to generate and execute appropriate API calls for a given instruction [47, 42, 40, 31, 51, 59]*'
+	- This flag is for the paper with Ref. ID = 31
+- '*First, we consider two open-source screen parsers g from WAA, the recommended OmniParser [32], as well as the baseline parser that uses GroundingDINO [30] for SOM detection and TesseractOCR [46] for optical character recognition*'
+	- This flag is for the paper with Ref. ID = 32
+- '*2-11B-Vision-Instruct [13] as the VLM fθ and OmniParser [32] as the screen parser g*'
+	- This flag is for the paper with Ref. ID = 32
+- '*To this end, we exchange the parser g ∈G+ based on OmniParser [32] with the unseen parser g ∈G−that utilises GroundingDINO [30] and TesseractOCR [46]*'
+	- This flag is for the paper with Ref. ID = 32
+- '*Addressing these vulnerabilities requires novel defence mechanisms that account for the interactions between modalities, which remains challenging [41, 34]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Such attacks may exploit weak alignment between modalities [29], manipulate the relationship between visual and textual information [23], target the most vulnerable input modality [62], or jointly attack both camera and sensor input data in autonomous driving scenarios [35]*'
+	- This flag is for the paper with Ref. ID = 35
+- '*A recent trend in large-scale models is multimodality, which allows for inputting multiple data types, such as images alongside text [36, 49]*'
+	- This flag is for the paper with Ref. ID = 36
+- '*This paradigm shifts profoundly with the recent deployment of evolving VLMs into “OS agents”, transforming passive information sources to active participants capable of directly controlling a computer [2, 38, 58]*'
+	- This flag is for the paper with Ref. ID = 38
+- '*These models are typically fine-tuned to align with specific objectives, such as being “helpful and harmless” [39]*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Extensive research efforts are already focused on advancing OS agents, particularly in their ability to generate and execute appropriate API calls for a given instruction [47, 42, 40, 31, 51, 59]*'
+	- This flag is for the paper with Ref. ID = 40
+- '*Addressing these vulnerabilities requires novel defence mechanisms that account for the interactions between modalities, which remains challenging [41, 34]*'
+	- This flag is for the paper with Ref. ID = 41
+- '*The benign image used throughout the experiments was generated with OpenAI’s DALL·E model [43]*'
+	- This flag is for the paper with Ref. ID = 43
+- '*Since OS agents navigate via screenshots, a critical question arises: could an adversary subtly manipulate a screen such that, when captured by an OS agent, it hijacks the agent without directly having access to its input? To investigate this, we build on principles from traditional adversarial attacks on vision models [48, 19] and especially on VLMs [45, 44]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Similarly, Rando et al [44] observed the same limitation in early-fusion VLMs, further reinforcing this constraint*'
+	- This flag is for the paper with Ref. ID = 44
+- '*First, we consider two open-source screen parsers g from WAA, the recommended OmniParser [32], as well as the baseline parser that uses GroundingDINO [30] for SOM detection and TesseractOCR [46] for optical character recognition*'
+	- This flag is for the paper with Ref. ID = 46
+- '*To this end, we exchange the parser g ∈G+ based on OmniParser [32] with the unseen parser g ∈G−that utilises GroundingDINO [30] and TesseractOCR [46]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*A recent trend in large-scale models is multimodality, which allows for inputting multiple data types, such as images alongside text [36, 49]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*These components mainly operate in two distinct spaces: First, the space of text token sequences P = {p | p ∈VL, L ∈N0}, where V is the vocabulary and L is the sequence length, as commonly known from LLM literature [50]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Extensive research efforts are already focused on advancing OS agents, particularly in their ability to generate and execute appropriate API calls for a given instruction [47, 42, 40, 31, 51, 59]*'
+	- This flag is for the paper with Ref. ID = 51
+- '*However, recent work on adversarial attacks has demonstrated that carefully crafted inputs can bypass these alignment safeguards [64, 8, 4, 22, 52]*'
+	- This flag is for the paper with Ref. ID = 52
+- '*Thus, the transferability of MIPs to OS agents with an unseen VLM remains an open challenge, although recent advances may help to improve this transferability in the future [54, 63]*'
+	- This flag is for the paper with Ref. ID = 54
+- '*It takes a screenshot s ∈S as input and generates structured information about actionable elements, text, and images, collectively referred to as Set-of-Marks (SOMs) [57, 6]*'
+	- This flag is for the paper with Ref. ID = 57
+- '*This paradigm shifts profoundly with the recent deployment of evolving VLMs into “OS agents”, transforming passive information sources to active participants capable of directly controlling a computer [2, 38, 58]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Alarmingly, such failure cases have already been demonstrated very recently [14, 15, 60]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Unlike existing attack vectors on OS agents that use overt strategies such as pop-ups [60] or prompt injection [15, 17], detecting MIPs is far from trivial*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Zhang et al [60] demonstrate that OS agents can be easily attacked by a set of carefully designed adversarial pop-ups*'
+	- This flag is for the paper with Ref. ID = 60
+- '*This shift towards OS agents expands the risk landscape far beyond that of conventional text generation, creating new opportunities for adversaries to exploit OS agents in unprecedented ways [61]*'
+	- This flag is for the paper with Ref. ID = 61
+- '*Systematic security evaluations of OS agents are, to date, still sparse [1, 61]*'
+	- This flag is for the paper with Ref. ID = 61
+- '*Such attacks may exploit weak alignment between modalities [29], manipulate the relationship between visual and textual information [23], target the most vulnerable input modality [62], or jointly attack both camera and sensor input data in autonomous driving scenarios [35]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*Thus, the transferability of MIPs to OS agents with an unseen VLM remains an open challenge, although recent advances may help to improve this transferability in the future [54, 63]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*However, recent work on adversarial attacks has demonstrated that carefully crafted inputs can bypass these alignment safeguards [64, 8, 4, 22, 52]*'
+	- This flag is for the paper with Ref. ID = 64
+

@@ -1,0 +1,1194 @@
+# Paper Analysis Utility - Results
+
+Paper: LiteReality Graphics-Ready 3D Scene Reconstruction from RGB-D Scans.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/13 LiteReality/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 2 (ca. 1 pages)
+2) 'Related Work' -- p. 3 (ca. 1 pages)
+3) 'Methodology' -- p. 4 (ca. 3 pages)
+4) 'Experiments and Results' -- p. 7 (ca. 2 pages)
+5) 'Conclusion' -- p. 9 (ca. 1 pages)
+6) 'References' -- p. 10 (ca. 5 pages)
+A) 'Outline' -- p. 15 (ca. 0 pages)
+B) 'LiteReality Database' -- p. 15 (ca. 1 pages)
+C) 'Benchmarking Details' -- p. 16 (ca. 3 pages)
+D) 'More on Methodologies' -- p. 19 (ca. 2 pages)
+E) 'More Results' -- p. 21 (ca. 4 pages)
+F) 'Application of LiteReality' -- p. 25 (ca. 0 pages)
+G) 'Limitations and Future Work' -- p. 25 (ca. 1 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/3=0.00%
+		- Invalid uses: 3/3=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 5: T −
+		- Page 16: b∈B ∥a −b∥1 + 1
+		- Page 16: a∈A ∥b −a∥1
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 4
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 30
+	- Full reference: `[30] Florian Maximilian Langer, Jihong Ju, Georgi Dikov, Gerhard Reitmayr, and Mohsen Ghafoorian. FastCAD: Real-time CAD retrieval and alignment from scans and videos. In Proceedings of the European Conference on Computer Vision (ECCV), 2024. To appear. 16, 17`
+- Parsed Ref. ID: 40
+	- Full reference: `[40] Kevis-Kokitsi Maninis, Stefan Popov, Matthias Nießner, and Vittorio Ferrari. Vid2CAD: CAD model alignment using multi-view constraints from videos. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pages 10025–10035, 2021. 16`
+- Parsed Ref. ID: 57
+	- Full reference: `[57] Weiyue Wang, Qiangeng Xu, Duygu Ceylan, Radomir Mech, and Ulrich Neumann. DISN: Deep implicit surface network for high-quality single-view 3d reconstruction. In NeurIPs, pages 490–500, 2019. 17`
+- Parsed Ref. ID: 61
+	- Full reference: `[61] Jianwei Yang, Hao Zhang, Feng Li, Xueyan Zou, Chunyuan Li, and Jianfeng Gao. Set-of-mark prompting unleashes extraordinary visual grounding in gpt-4v, 2023. 16`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Nießner M.: 8
+- Dai A.: 7
+- Farhadi A.: 5
+- Avetisyan A.: 4
+- Han W.: 4
+- Herrasti A.: 4
+- Kembhavi A.: 4
+- Mottaghi R.: 4
+- VanderBilt E.: 4
+- Weihs L.: 4
+- Hašan M.: 4
+- Maninis K.: 4
+- Popov S.: 4
+- Ferrari V.: 4
+- Stekovic S.: 3
+- Fraundorfer F.: 3
+- Lepetit V.: 3
+- Savva M.: 3
+- Chang A.: 3
+- Newcombe R.: 3
+- Li Z.: 3
+- Wang C.: 3
+- Wu J.: 3
+- Deitke M.: 3
+- Kolve E.: 3
+- Huang S.: 3
+- Zhu Y.: 3
+- Zhu S.: 3
+- Langer F.: 3
+- Sunkavalli K.: 3
+- Yang Y.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/13 LiteReality/literature_validation_results_fig.jpg]]
+
+References section starts on page 10.
+
+- No link provided: $63/66=95.45\%$
+- Unchecked links: $1/66=1.52\%$
+- Valid links: $0/66=0.00\%$
+- Invalid link: $2/66=3.03\%$
+	- Invalid entries:
+		=> total = 2
+		- \[50\] Jeremy Schwartz and Esther Alter. Threedworld simulation environment. https://github.com/threedworld-mit/tdw, 2021. 3
+			-> Returned with status code 404!
+		- \[55\] ManyCore Research Team. Spatiallm: Large language model for spatial understanding. https://github.com/manycore-research/SpatialLM, 2025. 4
+			-> Returned with status code 404!
+
+- Different links: $0/66=0.00\%$
+
+- Successful searches: $36/66=54.55\%$
+- Skipped searches: $0/66=0.00\%$
+- Mismatching infos: $17/66=25.76\%$
+	- **Entries with mismatching author information:**
+		=> total = 5
+		- `[12] Matt Deitke, Rose Hendrix, Ali Farhadi, Kiana Ehsani, and Aniruddha Kembhavi. Phone2proc: Bringing robust robots into our chaotic world. In CVPR, 2023. 2, 3, 8, 9, 19`
+			- Authors (Weihs) did not match found publication titled 'Phone2Proc: Bringing Robust Robots into Our Chaotic World'
+		- `[26] Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Daniel Gordon, Yuke Zhu, Abhinav Gupta, and Ali Farhadi. AI2-THOR: An Interactive 3D Environment for Visual AI. arXiv:1712.05474, 2017. 3, 7, 15`
+			- Authors (Deitke, Ehsani, Kembhavi) did not match found publication titled 'AI2-THOR: An Interactive 3D Environment for Visual AI'
+		- `[36] Zhengqin Li, Ting-Wei Yu, Shen Sang, Sarah Wang, Meng Song, Yuhan Liu, Yu-Ying Yeh, Rui Zhu, Nitesh Gundavarapu, Jia Shi, Sai Bi, Zexiang Xu, Hong-Xing Yu, Kalyan Sunkavalli, Miloš Hašan, Ravi Ramamoorthi, and Manmohan Chandraker. Openrooms: An open framework for photorealistic indoor scene datasets. In CVPR, 2021. 3`
+			- Authors (Havsan) did not match found publication titled 'OpenRooms: An Open Framework for Photorealistic Indoor Scene Datasets'
+		- `[48] Xavier Puig, anderson Kevin Ra, Tomasz Malisiewicz, Alexei A. Efros, and Antonio Torralba. Virtualhome: Simulating household activities via programs. In CVPR, 2018. 3`
+			- Authors (Boben, Wang, Fidler) did not match found publication titled 'VirtualHome: Simulating Household Activities Via Programs'
+		- `[57] Weiyue Wang, Qiangeng Xu, Duygu Ceylan, Radomir Mech, and Ulrich Neumann. DISN: Deep implicit surface network for high-quality single-view 3d reconstruction. In NeurIPs, pages 490–500, 2019. 17`
+			- Authors (Měch) did not match found publication titled 'DISN: Deep Implicit Surface Network for High-quality Single-view 3D Reconstruction'
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 12
+		- `[1] Stefan Ainetter, Sinisa Stekovic, Friedrich Fraundorfer, and Vincent Lepetit. Automatically annotating indoor images with cad models via rgb-d scans. In WACV, 2023. 4, 9, 17`
+			- Year (2022) does not match expected year (2023)
+		- `[2] Stefan Ainetter, Sinisa Stekovic, Friedrich Fraundorfer, and Vincent Lepetit. HOC-Search: Efficient CAD model and pose retrieval from RGB-D scans. In 3DV, 2024. 4, 8, 17`
+			- Year (2023) does not match expected year (2024)
+		- `[3] Armen Avetisyan, Manuel Dahnert, Angela Dai, Manolis Savva, Angel X. Chang, and Matthias Nießner. Scan2CAD: Learning CAD model alignment in RGB-D scans. In CVPR, 2019. 4, 5, 8, 16`
+			- Year (2018) does not match expected year (2019)
+		- `[15] Huan Fu, Rongfei Jia, Lin Gao, Mingming Gong, Binqiang Zhao, Steve Maybank, and Dacheng Tao. 3d-future: 3d furniture shape with texture. IJCV, 2021. 7, 15`
+			- Year (2020) does not match expected year (2021)
+		- `[16] Daoyi Gao, Dávid Rozenberszki, Stefan Leutenegger, and Angela Dai. Diffcad: Weakly-supervised probabilistic cad model retrieval and alignment from an rgb image. In SIGGRAPH, 2024. 8, 17`
+			- Year (2023) does not match expected year (2024)
+		- `[17] Can Gümeli, Angela Dai, and Matthias Nießner. Roca: Robust cad model retrieval and alignment from a single image. In CVPR, 2022. 2, 4`
+			- Year (2021) does not match expected year (2022)
+		- `[31] Justin Lazarow, David Griffiths, Gefen Kohavi, Francisco Crespo, and Afshin Dehghan. Cubify anything: Scaling indoor 3d object detection. In CVPR, 2025. 3`
+			- Year (2024) does not match expected year (2025)
+		- `[33] Chengshu Li, Ruohan Zhang, Josiah Wong, Cem Gokmen, Sanjana Srivastava, Roberto Martín-Martín, Chen Wang, Gabrael Levine, Michael Lingelbach, Jiankai Sun, Mona Anvari, Minjune Hwang, Manasi Sharma, Arman Aydin, Dhruva Bansal, Samuel Hunter, Kyu-Young Kim, Alan Lou, Caleb R Matthews, Ivan Villa-Renteria, Jerry Huayang Tang, Claire Tang, Fei Xia, Silvio Savarese, Hyowon Gweon, Karen Liu, Jiajun Wu, and Li Fei-Fei. BEHAVIOR-1k: A benchmark for embodied AI with 1,000 everyday activities and realistic simulation. In CoRL, 2023. 3`
+			- Year (2022) does not match expected year (2023)
+		- `[37] Ivan Lopes, Fabio Pizzati, and Raoul de Charette. Material palette: Extraction of materials from a single image. In CVPR, 2024. 2, 4, 5`
+			- Year (2023) does not match expected year (2024)
+		- `[40] Kevis-Kokitsi Maninis, Stefan Popov, Matthias Nießner, and Vittorio Ferrari. Vid2CAD: CAD model alignment using multi-view constraints from videos. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), pages 10025–10035, 2021. 16`
+			- Year (2020) does not match expected year (2021)
+		- `[46] Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Mahmoud Assran, Nicolas Ballas, Wojciech Galuba, Russell Howes, Po-Yao Huang, Shang-Wen Li, Ishan Misra, Michael Rabbat, Vasu Sharma, Gabriel Synnaeve, Hu Xu, Hervé Jégou, Julien Mairal, Patrick Labatut, Armand Joulin, and Piotr Bojanowski. Dinov2: Learning robust visual features without supervision. TMLR, 2024. 5`
+			- Year (2023) does not match expected year (2024)
+		- `[62] Yue Yang, Fan-Yun Sun, Luca Weihs, Eli VanderBilt, Alvaro Herrasti, Winson Han, Jiajun Wu, Nick Haber, Ranjay Krishna, Lingjie Liu, Chris Callison-Burch, Mark Yatskar, Aniruddha Kembhavi, and Christopher Clark. Holodeck: Language guided generation of 3d embodied ai environments. In CVPR, 2024. 2, 3`
+			- Year (2023) does not match expected year (2024)
+- No entry found: $13/66=19.70\%$
+	- Unfound entries:
+		=> total = 13
+		- \[21\] Apple Inc. Roomplan: 3d parametric room representation. Apple Developer Documentation, 2022. 4, 15
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 994 results matched the expected title!
+		- ==\[23\] Bernd Kerbl, Thomas Müller, and Paolo Favaro. Efficient 3d gaussian splatting for real-time neural rendering. In CVPR, 2022. 2, 3==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[24\] Punchana Khungurn, Edward H. Adelson, Julie Dorsey, and Holly Rushmeier. Matching real-world material appearance. TPAMI, 2015. 6==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[35\] Qiang Li, Jian Xiao, Myungjin Kim, Yineng Chen, and Liang Xie. Deeproom: 3d room layout and pose estimation from a single image. In CVPR, 2022. 3
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[42\] Ben Mildenhall, Pratul P Srinivasan, Matthew Tancik, Jonathan T Barron, Ravi Ramamoorthi, and Ren Ng. Nerf: Representing scenes as neural radiance fields for view synthesis. In ECCV, 2020. 2, 3
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 4 results matched the expected title!
+		- \[47\] Keunhong Park, Konstantinos Rematas, Ali Farhadi, and Steven M. Seitz. Photoshape: Photorealistic materials for large-scale shape collections. ACM Transactions on Graphics, 2018. 8, 9, 18
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: None of the 2 results matched the expected title!
+		- \[49\] Xavier Puig, Eric Undersander, Andrew Szot, Mikael Dallaire Cote, Tsung-Yen Yang, Ruslan Partsey, Ruta Desai, Alexander William Clegg, Michal Hlavac, So Yeon Min, Vladimír Vondruš, Theophile Gervet, Vincent-Pierre Berges, John M. Turner, Oleksandr Maksymets, Zsolt Kira, Mrinal Kalakrishnan, Jitendra Malik, Devendra Singh Chaplot, Unnat Jain, Dhruv Batra, Akshara Rai, and Roozbeh Mottaghi. Habitat 3.0: A co-habitat for humans, avatars and robots. arXiv:2310.13724, 2023. 3
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[50\] Jeremy Schwartz and Esther Alter. Threedworld simulation environment. https://github.com/threedworld-mit/tdw, 2021. 3
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 11 results matched the expected title!
+		- \[52\] Liang Shi, Beichen Li, Miloš Hašan, Kalyan Sunkavalli, Tamy Boubekeur, Radomir Mech, and Wojciech Matusik. Match: Differentiable material graphs for procedural material capture. ACM Transactions on Graphics, 2020. 4
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[53\] Sketchfab. 3d models and assets. https://sketchfab.com/. 8, 15
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[55\] ManyCore Research Team. Spatiallm: Large language model for spatial understanding. https://github.com/manycore-research/SpatialLM, 2025. 4
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[59\] Changchang Wu. Visualsfm: A visual structure-from-motion system, 2011. 2
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[61\] Jianwei Yang, Hao Zhang, Feng Li, Xueyan Zou, Chunyuan Li, and Jianfeng Gao. Set-of-mark prompting unleashes extraordinary visual grounding in gpt-4v, 2023. 16
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- 'Following [2, 16, 58], we measure retrieval accuracy using the L1 Chamfer Distance between the retrieved model and the ground-truth'
+	- This flag is for the paper with Ref. ID = 2
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/13 LiteReality/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: CVPR
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 19
+- European Conference on Computer Vision
+	- Parsed as: ECCV
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 8
+- IEEE International Conference on Computer Vision
+	- Parsed as: ICCV
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 5
+- arXiv
+	- References literatures count from this outlet: 5
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: NeurIPs
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- ACM TRANSACTIONS ON GRAPHICS
+	- Parsed as: ACM Transactions on Graphics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 8.1
+	- References literatures count from this outlet: 3
+- SIGGRAPH Asia
+	- Parsed as: SIGGRAPH
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- CoRL
+	- References literatures count from this outlet: 2
+- IEEE/RSJ International Conference on Intelligent Robots and Systems
+	- Parsed as: IROS
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.3
+	- References literatures count from this outlet: 2
+- TPAMI
+	- References literatures count from this outlet: 2
+- European Conference on Computer Vision
+	- Parsed as: Proceedings of the European Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- TMLR
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE/CVF International Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Workshop on Applications of Computer Vision
+	- Parsed as: WACV
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- British Machine Vision Conference
+	- Parsed as: BMVC
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Apple Developer Documentation
+	- References literatures count from this outlet: 1
+- 3DV
+	- References literatures count from this outlet: 1
+- IJCV
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: NeurIPS
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- SIGGRAPH Asia
+	- Parsed as: SIGGRAPH ASIA
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Stefan Ainetter, Sinisa Stekovic, Friedrich Fraundorfer, and Vincent Lepetit*
+	- Normalized Authors: `['Ainetter S.', 'Stekovic S.', 'Fraundorfer F.', 'Lepetit V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Automatically annotating indoor images with cad models via rgb-d scans*
+	- Year: *2023*
+	- Outlet: *WACV*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Stefan Ainetter, Sinisa Stekovic, Friedrich Fraundorfer, and Vincent Lepetit*
+	- Normalized Authors: `['Ainetter S.', 'Stekovic S.', 'Fraundorfer F.', 'Lepetit V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *HOC-Search: Efficient CAD model and pose retrieval from RGB-D scans*
+	- Year: *2024*
+	- Outlet: *3DV*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Armen Avetisyan, Manuel Dahnert, Angela Dai, Manolis Savva, Angel X  Chang, and Matthias Nießner*
+	- Normalized Authors: `['Avetisyan A.', 'Dahnert M.', 'Dai A.', 'Savva M.', 'Chang A.', 'Nießner M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scan2CAD: Learning CAD model alignment in RGB-D scans*
+	- Year: *2019*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Armen Avetisyan, Angela Dai, and Matthias Nießner*
+	- Normalized Authors: `['Avetisyan A.', 'Dai A.', 'Nießner M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *End-to-end cad model retrieval and 9dof alignment in 3d scans*
+	- Year: *2019*
+	- Outlet: *ICCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Armen Avetisyan, Tatiana Khanova, Christopher Choy, Denver Dash, Angela Dai, and Matthias Nießner*
+	- Normalized Authors: `['Avetisyan A.', 'Khanova T.', 'Choy C.', 'Dash D.', 'Dai A.', 'Nießner M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scenecad: Predicting object alignments and layouts in rgb-d scans*
+	- Year: *2020*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Armen Avetisyan, Christopher Xie, Henry Howard-Jenkins, Tsun-Yi Yang, Samir Aroudj, Suvam Patra, Fuyang Zhang, Duncan Frost, Luke Holland, Campbell Orme, Jakob Engel, Edward Miller, Richard Newcombe, and Vasileios Balntas*
+	- Normalized Authors: `['Avetisyan A.', 'Xie C.', 'Howard-Jenkins H.', 'Yang T.', 'Aroudj S.', 'Patra S.', 'Zhang F.', 'Frost D.', 'Holland L.', 'Orme C.', 'Engel J.', 'Miller E.', 'Newcombe R.', 'Balntas V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scenescript: Reconstructing scenes with an autoregressive structured language model*
+	- Year: *2024*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Jonathan T Barron, Ben Mildenhall, Matthew Tancik, Peter Hedman, Ricardo Martin-Brualla, and Pratul P Srinivasan*
+	- Normalized Authors: `['Barron J.', 'Mildenhall B.', 'Tancik M.', 'Hedman P.', 'Martin-Brualla R.', 'Srinivasan P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mip-nerf: A multiscale representation for anti-aliasing neural radiance fields*
+	- Year: *2021*
+	- Outlet: *ICCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Angel X Chang, Thomas Funkhouser, Leonidas J Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, et al*
+	- Normalized Authors: `['Chang A.', 'Funkhouser T.', 'Guibas L.', 'Hanrahan P.', 'Huang Q.', 'Li Z.', 'Savarese S.', 'Savva M.', 'Song S.', 'Su H.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Shapenet: An information-rich 3d model repository*
+	- Year: *2015*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Angela Dai, Angel X  Chang, Manolis Savva, Maciej Halber, Thomas Funkhouser, and Matthias Nießner*
+	- Normalized Authors: `['Dai A.', 'Chang A.', 'Savva M.', 'Halber M.', 'Funkhouser T.', 'Nießner M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scannet: Richly-annotated 3d reconstructions of indoor scenes*
+	- Year: *2017*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Tianyuan Dai, Josiah Wong, Yunfan Jiang, Chen Wang, Cem Gokmen, Ruohan Zhang, Jiajun Wu, and Fei-Fei Li*
+	- Normalized Authors: `['Dai T.', 'Wong J.', 'Jiang Y.', 'Wang C.', 'Gokmen C.', 'Zhang R.', 'Wu J.', 'Li F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Automated creation of digital cousins for robust policy learning*
+	- Year: *2024*
+	- Outlet: *CoRL*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Matt Deitke, Winson Han, Alvaro Herrasti, Aniruddha Kembhavi, Eric Kolve, Roozbeh Mottaghi, Jordi Salvador, Dustin Schwenk, Eli VanderBilt, Matthew Wallingford, Luca Weihs, Mark Yatskar, and Ali Farhadi*
+	- Normalized Authors: `['Deitke M.', 'Han W.', 'Herrasti A.', 'Kembhavi A.', 'Kolve E.', 'Mottaghi R.', 'Salvador J.', 'Schwenk D.', 'VanderBilt E.', 'Wallingford M.', 'Weihs L.', 'Yatskar M.', 'Farhadi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *RoboTHOR: An Open Simulation-to-Real Embodied AI Platform*
+	- Year: *2020*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Matt Deitke, Rose Hendrix, Ali Farhadi, Kiana Ehsani, and Aniruddha Kembhavi*
+	- Normalized Authors: `['Deitke M.', 'Hendrix R.', 'Farhadi A.', 'Ehsani K.', 'Kembhavi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Phone2proc: Bringing robust robots into our chaotic world*
+	- Year: *2023*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Weihs) did not match found publication titled 'Phone2Proc: Bringing Robust Robots into Our Chaotic World'*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Matt Deitke, Eli VanderBilt, Alvaro Herrasti, Luca Weihs, Jordi Salvador, Kiana Ehsani, Winson Han, Eric Kolve, Ali Farhadi, Aniruddha Kembhavi, and Roozbeh Mottaghi*
+	- Normalized Authors: `['Deitke M.', 'VanderBilt E.', 'Herrasti A.', 'Weihs L.', 'Salvador J.', 'Ehsani K.', 'Han W.', 'Kolve E.', 'Farhadi A.', 'Kembhavi A.', 'Mottaghi R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *ProcTHOR: Large-Scale Embodied AI Using Procedural Generation*
+	- Year: *2022*
+	- Outlet: *NeurIPS*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Ye Fang, Zeyi Sun, Tong Wu, Jiaqi Wang, Ziwei Liu, Gordon Wetzstein, and Dahua Lin*
+	- Normalized Authors: `['Fang Y.', 'Sun Z.', 'Wu T.', 'Wang J.', 'Liu Z.', 'Wetzstein G.', 'Lin D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Make-it-real: Unleashing large multimodal model for painting 3d objects with realistic materials*
+	- Year: *2024*
+	- Outlet: *NeurIPs*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Huan Fu, Rongfei Jia, Lin Gao, Mingming Gong, Binqiang Zhao, Steve Maybank, and Dacheng Tao*
+	- Normalized Authors: `['Fu H.', 'Jia R.', 'Gao L.', 'Gong M.', 'Zhao B.', 'Maybank S.', 'Tao D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d-future: 3d furniture shape with texture*
+	- Year: *2021*
+	- Outlet: *IJCV*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Daoyi Gao, Dávid Rozenberszki, Stefan Leutenegger, and Angela Dai*
+	- Normalized Authors: `['Gao D.', 'Rozenberszki D.', 'Leutenegger S.', 'Dai A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Diffcad: Weakly-supervised probabilistic cad model retrieval and alignment from an rgb image*
+	- Year: *2024*
+	- Outlet: *SIGGRAPH*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Can Gümeli, Angela Dai, and Matthias Nießner*
+	- Normalized Authors: `['Gümeli C.', 'Dai A.', 'Nießner M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Roca: Robust cad model retrieval and alignment from a single image*
+	- Year: *2022*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Shreyas Hampali, Sinisa Stekovic, Sayan Deb Sarkar, Chetan Srinivasa Kumar, Friedrich Fraundorfer, and Vincent Lepetit*
+	- Normalized Authors: `['Hampali S.', 'Stekovic S.', 'Sarkar S.', 'Kumar C.', 'Fraundorfer F.', 'Lepetit V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Monte carlo scene search for 3d scene understanding*
+	- Year: *2021*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Siyuan Huang, Siyuan Qi, Yinxue Xiao, Yixin Zhu, Ying Nian Wu, and Song-Chun Zhu*
+	- Normalized Authors: `['Huang S.', 'Qi S.', 'Xiao Y.', 'Zhu Y.', 'Wu Y.', 'Zhu S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cooperative holistic scene understanding: Unifying 3d object, layout, and camera pose estimation*
+	- Year: *2018*
+	- Outlet: *NeurIPs*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Siyuan Huang, Siyuan Qi, Yixin Zhu, Yinxue Xiao, Yuanlu Xu, and Song-Chun Zhu*
+	- Normalized Authors: `['Huang S.', 'Qi S.', 'Zhu Y.', 'Xiao Y.', 'Xu Y.', 'Zhu S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Holistic 3d scene parsing and reconstruction from a single rgb image*
+	- Year: *2018*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Apple Inc*
+	- Normalized Authors: `['Inc A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Roomplan: 3d parametric room representation*
+	- Year: *2022*
+	- Outlet: *Apple Developer Documentation*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 994 results matched the expected title!*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Hamid Izadinia, Qi Shan, and Steven M  Seitz*
+	- Normalized Authors: `['Izadinia H.', 'Shan Q.', 'Seitz S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Im2cad*
+	- Year: *2017*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Bernd Kerbl, Thomas Müller, and Paolo Favaro*
+	- Normalized Authors: `['Kerbl B.', 'Müller T.', 'Favaro P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Efficient 3d gaussian splatting for real-time neural rendering*
+	- Year: *2022*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Punchana Khungurn, Edward H  Adelson, Julie Dorsey, and Holly Rushmeier*
+	- Normalized Authors: `['Khungurn P.', 'Adelson E.', 'Dorsey J.', 'Rushmeier H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Matching real-world material appearance*
+	- Year: *2015*
+	- Outlet: *TPAMI*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Alexander Kirillov, Eric Mintun, Nikhila Ravi, Hanzi Mao, Chloe Rolland, Laura Gustafson, Tete Xiao, Spencer Whitehead, Alexander C  Berg, Wan-Yen Lo, Piotr Dollár, and Ross Girshick*
+	- Normalized Authors: `['Kirillov A.', 'Mintun E.', 'Ravi N.', 'Mao H.', 'Rolland C.', 'Gustafson L.', 'Xiao T.', 'Whitehead S.', 'Berg A.', 'Lo W.', 'Dollár P.', 'Girshick R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Segment anything*
+	- Year: *2023*
+	- Outlet: *ICCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Daniel Gordon, Yuke Zhu, Abhinav Gupta, and Ali Farhadi*
+	- Normalized Authors: `['Kolve E.', 'Mottaghi R.', 'Han W.', 'VanderBilt E.', 'Weihs L.', 'Herrasti A.', 'Gordon D.', 'Zhu Y.', 'Gupta A.', 'Farhadi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *AI2-THOR: An Interactive 3D Environment for Visual AI*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Deitke, Ehsani, Kembhavi) did not match found publication titled 'AI2-THOR: An Interactive 3D Environment for Visual AI'*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Weicheng Kuo, Anelia Angelova, Tsung-Yi Lin, and Angela Dai*
+	- Normalized Authors: `['Kuo W.', 'Angelova A.', 'Lin T.', 'Dai A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mask2cad: 3d shape prediction by learning to segment and retrieve*
+	- Year: *2020*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *F  Langer, G  Bae, I  Budvytis, and R  Cipolla*
+	- Normalized Authors: `['Langer F.', 'Bae G.', 'Budvytis I.', 'Cipolla R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sparc: Sparse render-and-compare for cad model alignment in a single rgb image*
+	- Year: *2022*
+	- Outlet: *BMVC*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Florian Langer, Jihong Ju, Georgi Dikov, Gerhard Reitmayr, and Mohsen Ghafoorian*
+	- Normalized Authors: `['Langer F.', 'Ju J.', 'Dikov G.', 'Reitmayr G.', 'Ghafoorian M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fastcad: Real-time cad retrieval and alignment from scans and videos*
+	- Year: *2024*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Florian Maximilian Langer, Jihong Ju, Georgi Dikov, Gerhard Reitmayr, and Mohsen Ghafoorian*
+	- Normalized Authors: `['Langer F.', 'Ju J.', 'Dikov G.', 'Reitmayr G.', 'Ghafoorian M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *FastCAD: Real-time CAD retrieval and alignment from scans and videos*
+	- Year: *2024*
+	- Outlet: *Proceedings of the European Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Justin Lazarow, David Griffiths, Gefen Kohavi, Francisco Crespo, and Afshin Dehghan*
+	- Normalized Authors: `['Lazarow J.', 'Griffiths D.', 'Kohavi G.', 'Crespo F.', 'Dehghan A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cubify anything: Scaling indoor 3d object detection*
+	- Year: *2025*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Beichen Li, Liang Shi, and Wojciech Matusik*
+	- Normalized Authors: `['Li B.', 'Shi L.', 'Matusik W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *End-to-end procedural material capture with proxy-free mixed-integer optimization*
+	- Year: *2023*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Chengshu Li, Ruohan Zhang, Josiah Wong, Cem Gokmen, Sanjana Srivastava, Roberto Martín-Martín, Chen Wang, Gabrael Levine, Michael Lingelbach, Jiankai Sun, Mona Anvari, Minjune Hwang, Manasi Sharma, Arman Aydin, Dhruva Bansal, Samuel Hunter, Kyu-Young Kim, Alan Lou, Caleb R Matthews, Ivan Villa-Renteria, Jerry Huayang Tang, Claire Tang, Fei Xia, Silvio Savarese, Hyowon Gweon, Karen Liu, Jiajun Wu, and Li Fei-Fei*
+	- Normalized Authors: `['Li C.', 'Zhang R.', 'Wong J.', 'Gokmen C.', 'Srivastava S.', 'Martín-Martín R.', 'Wang C.', 'Levine G.', 'Lingelbach M.', 'Sun J.', 'Anvari M.', 'Hwang M.', 'Sharma M.', 'Aydin A.', 'Bansal D.', 'Hunter S.', 'Kim K.', 'Lou A.', 'Matthews C.', 'Villa-Renteria I.', 'Tang J.', 'Tang C.', 'Xia F.', 'Savarese S.', 'Gweon H.', 'Liu K.', 'Wu J.', 'Fei-Fei L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *BEHAVIOR-1k: A benchmark for embodied AI with 1,000 everyday activities and realistic simulation*
+	- Year: *2023*
+	- Outlet: *CoRL*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Kejie Li, Daniel DeTone, Steven Chen, Minh Vo, Ian D  Reid, Hamid Rezatofighi, Chris Sweeney, Julian Straub, and Richard A  Newcombe*
+	- Normalized Authors: `['Li K.', 'DeTone D.', 'Chen S.', 'Vo M.', 'Reid I.', 'Rezatofighi H.', 'Sweeney C.', 'Straub J.', 'Newcombe R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Odam: Object detection, association, and mapping using posed rgb video*
+	- Year: *2021*
+	- Outlet: *ICCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Qiang Li, Jian Xiao, Myungjin Kim, Yineng Chen, and Liang Xie*
+	- Normalized Authors: `['Li Q.', 'Xiao J.', 'Kim M.', 'Chen Y.', 'Xie L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deeproom: 3d room layout and pose estimation from a single image*
+	- Year: *2022*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Zhengqin Li, Ting-Wei Yu, Shen Sang, Sarah Wang, Meng Song, Yuhan Liu, Yu-Ying Yeh, Rui Zhu, Nitesh Gundavarapu, Jia Shi, Sai Bi, Zexiang Xu, Hong-Xing Yu, Kalyan Sunkavalli, Miloš Hašan, Ravi Ramamoorthi, and Manmohan Chandraker*
+	- Normalized Authors: `['Li Z.', 'Yu T.', 'Sang S.', 'Wang S.', 'Song M.', 'Liu Y.', 'Yeh Y.', 'Zhu R.', 'Gundavarapu N.', 'Shi J.', 'Bi S.', 'Xu Z.', 'Yu H.', 'Sunkavalli K.', 'Hašan M.', 'Ramamoorthi R.', 'Chandraker M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Openrooms: An open framework for photorealistic indoor scene datasets*
+	- Year: *2021*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Havsan) did not match found publication titled 'OpenRooms: An Open Framework for Photorealistic Indoor Scene Datasets'*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Ivan Lopes, Fabio Pizzati, and Raoul de Charette*
+	- Normalized Authors: `['Lopes I.', 'Pizzati F.', 'Charette R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Material palette: Extraction of materials from a single image*
+	- Year: *2024*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Xiaoyang Lyu, Chirui Chang, Peng Dai, Yang-Tian Sun, and Xiaojuan Qi*
+	- Normalized Authors: `['Lyu X.', 'Chang C.', 'Dai P.', 'Sun Y.', 'Qi X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Total-decom: Decomposed 3d scene reconstruction with minimal interaction*
+	- Year: *2024*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Kevis-Kokitsi Maninis, Stefan Popov, Matthias Nießner, and Vittorio Ferrari*
+	- Normalized Authors: `['Maninis K.', 'Popov S.', 'Nießner M.', 'Ferrari V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vid2cad: Cad model alignment using multi-view constraints from videos*
+	- Year: *2020*
+	- Outlet: *TPAMI*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Kevis-Kokitsi Maninis, Stefan Popov, Matthias Nießner, and Vittorio Ferrari*
+	- Normalized Authors: `['Maninis K.', 'Popov S.', 'Nießner M.', 'Ferrari V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vid2CAD: CAD model alignment using multi-view constraints from videos*
+	- Year: *2021*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Kevis-Kokitsi Maninis, Stefan Popov, Matthias Nießner, and Vittorio Ferrari*
+	- Normalized Authors: `['Maninis K.', 'Popov S.', 'Nießner M.', 'Ferrari V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cad-estate: Large-scale cad model annotation in rgb videos*
+	- Year: *2023*
+	- Outlet: *ICCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Ben Mildenhall, Pratul P Srinivasan, Matthew Tancik, Jonathan T Barron, Ravi Ramamoorthi, and Ren Ng*
+	- Normalized Authors: `['Mildenhall B.', 'Srinivasan P.', 'Tancik M.', 'Barron J.', 'Ramamoorthi R.', 'Ng R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nerf: Representing scenes as neural radiance fields for view synthesis*
+	- Year: *2020*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 4 results matched the expected title!*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Srivathsan Murali, Pablo Speciale, Martin R  Oswald, and Marc Pollefeys*
+	- Normalized Authors: `['Murali S.', 'Speciale P.', 'Oswald M.', 'Pollefeys M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Indoor scan2bim: Building information models of house interiors*
+	- Year: *2017*
+	- Outlet: *IROS*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Yinyu Nie, Xiaoguang Han, Shihui Guo, Yujian Zheng, Jian Chang, and Jian Jun Zhang*
+	- Normalized Authors: `['Nie Y.', 'Han X.', 'Guo S.', 'Zheng Y.', 'Chang J.', 'Zhang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Total3dunderstanding: Joint layout, object pose and mesh reconstruction for indoor scenes from a single image*
+	- Year: *2020*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *OpenAI*
+	- Normalized Authors: `['OpenAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gpt-4 technical report*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Mahmoud Assran, Nicolas Ballas, Wojciech Galuba, Russell Howes, Po-Yao Huang, Shang-Wen Li, Ishan Misra, Michael Rabbat, Vasu Sharma, Gabriel Synnaeve, Hu Xu, Hervé Jégou, Julien Mairal, Patrick Labatut, Armand Joulin, and Piotr Bojanowski*
+	- Normalized Authors: `['Oquab M.', 'Darcet T.', 'Moutakanni T.', 'Vo H.', 'Szafraniec M.', 'Khalidov V.', 'Fernandez P.', 'Haziza D.', 'Massa F.', 'El-Nouby A.', 'Assran M.', 'Ballas N.', 'Galuba W.', 'Howes R.', 'Huang P.', 'Li S.', 'Misra I.', 'Rabbat M.', 'Sharma V.', 'Synnaeve G.', 'Xu H.', 'Jégou H.', 'Mairal J.', 'Labatut P.', 'Joulin A.', 'Bojanowski P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dinov2: Learning robust visual features without supervision*
+	- Year: *2024*
+	- Outlet: *TMLR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Keunhong Park, Konstantinos Rematas, Ali Farhadi, and Steven M  Seitz*
+	- Normalized Authors: `['Park K.', 'Rematas K.', 'Farhadi A.', 'Seitz S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Photoshape: Photorealistic materials for large-scale shape collections*
+	- Year: *2018*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: None of the 2 results matched the expected title!*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Xavier Puig, anderson Kevin Ra, Tomasz Malisiewicz, Alexei A  Efros, and Antonio Torralba*
+	- Normalized Authors: `['Puig X.', 'Ra e.', 'Malisiewicz T.', 'Efros A.', 'Torralba A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Virtualhome: Simulating household activities via programs*
+	- Year: *2018*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Boben, Wang, Fidler) did not match found publication titled 'VirtualHome: Simulating Household Activities Via Programs'*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Xavier Puig, Eric Undersander, Andrew Szot, Mikael Dallaire Cote, Tsung-Yen Yang, Ruslan Partsey, Ruta Desai, Alexander William Clegg, Michal Hlavac, So Yeon Min, Vladimír Vondruš, Theophile Gervet, Vincent-Pierre Berges, John M  Turner, Oleksandr Maksymets, Zsolt Kira, Mrinal Kalakrishnan, Jitendra Malik, Devendra Singh Chaplot, Unnat Jain, Dhruv Batra, Akshara Rai, and Roozbeh Mottaghi*
+	- Normalized Authors: `['Puig X.', 'Undersander E.', 'Szot A.', 'Cote M.', 'Yang T.', 'Partsey R.', 'Desai R.', 'Clegg A.', 'Hlavac M.', 'Min S.', 'Vondruš V.', 'Gervet T.', 'Berges V.', 'Turner J.', 'Maksymets O.', 'Kira Z.', 'Kalakrishnan M.', 'Malik J.', 'Chaplot D.', 'Jain U.', 'Batra D.', 'Rai A.', 'Mottaghi R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Habitat 3*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Jeremy Schwartz and Esther Alter*
+	- Normalized Authors: `['Schwartz J.', 'Alter E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Threedworld simulation environment*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://github.com/threedworld-mit/tdw,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 11 results matched the expected title!*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Johannes Lutz Schönberger and Jan-Michael Frahm*
+	- Normalized Authors: `['Schönberger J.', 'Frahm J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Structure-from-motion revisited*
+	- Year: *2016*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Liang Shi, Beichen Li, Miloš Hašan, Kalyan Sunkavalli, Tamy Boubekeur, Radomir Mech, and Wojciech Matusik*
+	- Normalized Authors: `['Shi L.', 'Li B.', 'Hašan M.', 'Sunkavalli K.', 'Boubekeur T.', 'Mech R.', 'Matusik W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Match: Differentiable material graphs for procedural material capture*
+	- Year: *2020*
+	- Outlet: *ACM Transactions on Graphics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Sketchfab*
+	- Normalized Authors: `['Sketchfab']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d models and assets*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://sketchfab.com/.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Julian Straub, Daniel DeTone, Tianwei Shen, Nan Yang, Chris Sweeney, and Richard Newcombe*
+	- Normalized Authors: `['Straub J.', 'DeTone D.', 'Shen T.', 'Yang N.', 'Sweeney C.', 'Newcombe R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Efm3d: A benchmark for measuring progress towards 3d egocentric foundation models*
+	- Year: *2024*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *ManyCore Research Team*
+	- Normalized Authors: `['Team M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Spatiallm: Large language model for spatial understanding*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://github.com/manycore-research/SpatialLM,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Michal J  Tyszkiewicz, Kevis-Kokitsi Maninis, Stefan Popov, and Vittorio Ferrari*
+	- Normalized Authors: `['Tyszkiewicz M.', 'Maninis K.', 'Popov S.', 'Ferrari V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Raytran: 3d pose estimation and shape reconstruction of multiple objects from videos with ray-traced transformers*
+	- Year: *2022*
+	- Outlet: *ECCV*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Weiyue Wang, Qiangeng Xu, Duygu Ceylan, Radomir Mech, and Ulrich Neumann*
+	- Normalized Authors: `['Wang W.', 'Xu Q.', 'Ceylan D.', 'Mech R.', 'Neumann U.']`
+	- Authors contain 'et al.': *False*
+	- Title: *DISN: Deep implicit surface network for high-quality single-view 3d reconstruction*
+	- Year: *2019*
+	- Outlet: *NeurIPs*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Měch) did not match found publication titled 'DISN: Deep Implicit Surface Network for High-quality Single-view 3D Reconstruction'*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Jiaxin Wei, Lan Hu, Chenyu Wang, and Laurent Kneip*
+	- Normalized Authors: `['Wei J.', 'Hu L.', 'Wang C.', 'Kneip L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Accurate instance-level CAD model retrieval in a large-scale database*
+	- Year: *2022*
+	- Outlet: *IROS*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Changchang Wu*
+	- Normalized Authors: `['Wu C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visualsfm: A visual structure-from-motion system.*
+	- Year: *2011*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Kai Yan, Fujun Luan, Miloš Hašan, Thibault Groueix, Valentin Deschaintre, and Shuang Zhao*
+	- Normalized Authors: `['Yan K.', 'Luan F.', 'Hašan M.', 'Groueix T.', 'Deschaintre V.', 'Zhao S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Psdr-room: Single photo to scene using differentiable rendering*
+	- Year: *2023*
+	- Outlet: *SIGGRAPH ASIA*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Jianwei Yang, Hao Zhang, Feng Li, Xueyan Zou, Chunyuan Li, and Jianfeng Gao*
+	- Normalized Authors: `['Yang J.', 'Zhang H.', 'Li F.', 'Zou X.', 'Li C.', 'Gao J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Set-of-mark prompting unleashes extraordinary visual grounding in gpt-4v.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Yue Yang, Fan-Yun Sun, Luca Weihs, Eli VanderBilt, Alvaro Herrasti, Winson Han, Jiajun Wu, Nick Haber, Ranjay Krishna, Lingjie Liu, Chris Callison-Burch, Mark Yatskar, Aniruddha Kembhavi, and Christopher Clark*
+	- Normalized Authors: `['Yang Y.', 'Sun F.', 'Weihs L.', 'VanderBilt E.', 'Herrasti A.', 'Han W.', 'Wu J.', 'Haber N.', 'Krishna R.', 'Liu L.', 'Callison-Burch C.', 'Yatskar M.', 'Kembhavi A.', 'Clark C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Holodeck: Language guided generation of 3d embodied ai environments*
+	- Year: *2024*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Kaixin Yao, Longwen Zhang, Xinhao Yan, Yan Zeng, Qixuan Zhang, Lan Xu, Wei Yang, Jiayuan Gu, and Jingyi Yu*
+	- Normalized Authors: `['Yao K.', 'Zhang L.', 'Yan X.', 'Zeng Y.', 'Zhang Q.', 'Xu L.', 'Yang W.', 'Gu J.', 'Yu J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cast: Component-aligned 3d scene reconstruction from an rgb image*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Yu-Ying Yeh, Zhengqin Li, Yannick Hold-Geoffroy, Rui Zhu, Zexiang Xu, Miloš Hašan, Kalyan Sunkavalli, and Manmohan Chandraker*
+	- Normalized Authors: `['Yeh Y.', 'Li Z.', 'Hold-Geoffroy Y.', 'Zhu R.', 'Xu Z.', 'Hašan M.', 'Sunkavalli K.', 'Chandraker M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Photoscene: Photorealistic material and lighting transfer for indoor scenes*
+	- Year: *2022*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Huangyue Yu, Baoxiong Jia, Yixin Chen, Yandan Yang, Puhao Li, Rongpeng Su, Jiaxin Li, Qing Li, Wei Liang, Song-Chun Zhu, Tengyu Liu, and Siyuan Huang*
+	- Normalized Authors: `['Yu H.', 'Jia B.', 'Chen Y.', 'Yang Y.', 'Li P.', 'Su R.', 'Li J.', 'Li Q.', 'Liang W.', 'Zhu S.', 'Liu T.', 'Huang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Metascenes: Towards automated replica creation for real-world 3d scans*
+	- Year: *2025*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Shangzhan Zhang, Sida Peng, Tao Xu, Yuanbo Yang, Tianrun Chen, Nan Xue, Yujun Shen, Hujun Bao, Ruizhen Hu, and Xiaowei Zhou*
+	- Normalized Authors: `['Zhang S.', 'Peng S.', 'Xu T.', 'Yang Y.', 'Chen T.', 'Xue N.', 'Shen Y.', 'Bao H.', 'Hu R.', 'Zhou X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mapa: Text-driven photorealistic material painting for 3d shapes*
+	- Year: *2024*
+	- Outlet: *SIGGRAPH*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- '*Following [2, 16, 58], we measure retrieval accuracy using the L1 Chamfer Distance between the retrieved model and the ground-truth*'
+	- This flag is for the paper with Ref. ID = 2
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*While some works aim to improve retrieval similarity [1, 2, 58], they typically require accurate instance segmentation-a challenging prerequisite in real-world scan data*'
+	- This flag is for the paper with Ref. ID = 1
+- '*While some works aim to improve retrieval similarity [1, 2, 58], they typically require accurate instance segmentation-a challenging prerequisite in real-world scan data*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Previous approaches [29, 4, 3] often rely on pair-wise pre-trained models for retrieval, but these are limited to specific datasets*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Since Scan2CAD[3] provides handpicked ShapeNet[8] models as ground-truth annotations, we perform retrieval over the full ShapeNet database*'
+	- This flag is for the paper with Ref. ID = 3
+- '*First, in the simulation domain, recent work study how to create interactive virtual environments from text descriptions [62], room layouts [12], large-scale procedural generation pipelines [13], and even from single images [10]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*ProcTHOR [13] extends AI2-THOR with procedurally generated environments; Holodeck [62] creates scenes from natural language inputs; Phone2Proc [12] generates room layouts by placing semantically similar objects; and Digital Cousin [10] produces diverse simulated environments from single images*'
+	- This flag is for the paper with Ref. ID = 12
+- '*First, we reproduce two prior approaches: Phone2Proc [12] and Digital Cousin*'
+	- This flag is for the paper with Ref. ID = 12
+- '*To build this database, we curated assets primarily from 3D-Future [15] and AI2-THOR [26]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Following [2, 16, 58], we measure retrieval accuracy using the L1 Chamfer Distance between the retrieved model and the ground-truth*'
+	- This flag is for the paper with Ref. ID = 16
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*AI2-THOR [26], RoboTHOR [11], OmniGibson [33], Habitat 3"*'
+	- This flag is for the paper with Ref. ID = 26
+- '*To build this database, we curated assets primarily from 3D-Future [15] and AI2-THOR [26]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Similarly, MAPA [66] carries out part-level segmentation and style transfer, while Material Palette [37] uses a learning-based framework to estimate plausible materials from segmented object views*'
+	- This flag is for the paper with Ref. ID = 37
+- '*0 [49], ThreeDWorld [50], and VirtualHome [48] are notable examples*'
+	- This flag is for the paper with Ref. ID = 48
+- '*First, in the simulation domain, recent work study how to create interactive virtual environments from text descriptions [62], room layouts [12], large-scale procedural generation pipelines [13], and even from single images [10]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*ProcTHOR [13] extends AI2-THOR with procedurally generated environments; Holodeck [62] creates scenes from natural language inputs; Phone2Proc [12] generates room layouts by placing semantically similar objects; and Digital Cousin [10] produces diverse simulated environments from single images*'
+	- This flag is for the paper with Ref. ID = 62
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Other methods pursue realism through compact, abstract representations-for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Recent advances in 3D scene understanding-particularly in oriented bounding box detection [31, 54] and room layout estimation [5, 35]-have made this direction increasingly promising*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Joint 3D scene understanding and reconstruction [44, 19, 38, 36] is essential for building object-centric scene representations*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Other methods pursue realism through compact, abstract representations-for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*While prior approaches [60, 64, 37] have made notable progress using differentiable rendering or predictionbased techniques, they struggle to scale effectively to real-world, noisy environments*'
+	- This flag is for the paper with Ref. ID = 37
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*1098 ScanNotate [1] 0*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Methods RMSE ↓ SSIM ↑ LPIPS ↓ Phone2Proc[12] 0*'
+	- This flag is for the paper with Ref. ID = 12
+- '*This is followed by an image-based retrieval stage, where cropped 2D views of the input object are compared against pre-rendered images of candidate objects using a pretrained feature encoder (DINOv2[46])*'
+	- This flag is for the paper with Ref. ID = 46
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Previous approaches [29, 4, 3] often rely on pair-wise pre-trained models for retrieval, but these are limited to specific datasets*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Recent advances in 3D scene understanding—particularly in oriented bounding box detection [31, 54] and room layout estimation [5, 35]—have made this direction increasingly promising*'
+	- This flag is for the paper with Ref. ID = 5
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 5
+- '*There are also many open-source alternatives for layout and O-Bbox detection [55, 6, 54] that can be used*'
+	- This flag is for the paper with Ref. ID = 6
+- '*Compared to traditional 3D reconstruction techniques—such as Structure-from-Motion (SfM) [51, 59], Gaussian Splatting [23], and Neural Radiance Fields (NeRF) [42, 7]—we introduce the concept of graphics-ready reconstruction*'
+	- This flag is for the paper with Ref. ID = 7
+- '*Since Scan2CAD[3] provides handpicked ShapeNet[8] models as ground-truth annotations, we perform retrieval over the full ShapeNet database*'
+	- This flag is for the paper with Ref. ID = 8
+- '*We evaluate LiteReality on the ScanNet dataset [9] and on real-world indoor scans captured with an iPhone*'
+	- This flag is for the paper with Ref. ID = 9
+- '*To evaluate the performance of proposed object retrieval method, we conduct experiments on the ScanNet dataset [9]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*First, in the simulation domain, recent work study how to create interactive virtual environments from text descriptions [62], room layouts [12], large-scale procedural generation pipelines [13], and even from single images [10]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*ProcTHOR [13] extends AI2-THOR with procedurally generated environments; Holodeck [62] creates scenes from natural language inputs; Phone2Proc [12] generates room layouts by placing semantically similar objects; and Digital Cousin [10] produces diverse simulated environments from single images*'
+	- This flag is for the paper with Ref. ID = 10
+- '*An emerging line of work focuses on reconstructing object-centric 3D scenes from a single RGB image [63, 60, 10]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*1119 Digital Cousin [10] 0*'
+	- This flag is for the paper with Ref. ID = 10
+- '*7338 Digital Cousin [10] 0*'
+	- This flag is for the paper with Ref. ID = 10
+- '*7364 DC [10] + Sem&Vis 0*'
+	- This flag is for the paper with Ref. ID = 10
+- '*6717 DC [10] + MIR [14] 0*'
+	- This flag is for the paper with Ref. ID = 10
+- '*AI2-THOR [26], RoboTHOR [11], OmniGibson [33], Habitat 3*'
+	- This flag is for the paper with Ref. ID = 11
+- '*First, in the simulation domain, recent work study how to create interactive virtual environments from text descriptions [62], room layouts [12], large-scale procedural generation pipelines [13], and even from single images [10]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*ProcTHOR [13] extends AI2-THOR with procedurally generated environments; Holodeck [62] creates scenes from natural language inputs; Phone2Proc [12] generates room layouts by placing semantically similar objects; and Digital Cousin [10] produces diverse simulated environments from single images*'
+	- This flag is for the paper with Ref. ID = 13
+- '*First, inspired by Make-ItReal [14], we use multi-step prompting to refine material category predictions and select the top 10 candidates*'
+	- This flag is for the paper with Ref. ID = 14
+- '*We compare our material painting pipeline against four baselines: (1) PhotoShape[47], a material selection algorithm; (2) Make-It-Real[14], which use language model to retrieve materials; (3) our Visual+Language Search method; and (4) Make-It-Real with our Albedo-Only Optimization*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Methods RMSE ↓ SSIM ↑ LPIPS ↓ MIR [14] 0*'
+	- This flag is for the paper with Ref. ID = 14
+- '*6558 MIR [14] + AO 0*'
+	- This flag is for the paper with Ref. ID = 14
+- '*6717 DC [10] + MIR [14] 0*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Joint 3D scene understanding and reconstruction [44, 19, 38, 36] is essential for building object-centric scene representations*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Other methods pursue realism through compact, abstract representations—for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Specifically, for real-life scans, we used Apple’s RoomPlan [21] with an iPhone to capture layouts and oriented bounding boxes (O-Bbox) interactively*'
+	- This flag is for the paper with Ref. ID = 21
+- '*Other methods pursue realism through compact, abstract representations—for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*Although differentiable rendering techniques have achieved remarkable photorealism in 3D reconstruction [42, 23], their outputs often resemble “3D photographs”: they capture geometry and texture but lack true interactivity and structure*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Compared to traditional 3D reconstruction techniques—such as Structure-from-Motion (SfM) [51, 59], Gaussian Splatting [23], and Neural Radiance Fields (NeRF) [42, 7]—we introduce the concept of graphics-ready reconstruction*'
+	- This flag is for the paper with Ref. ID = 23
+- '*While industries such as gaming, AR/VR, film production, and physical simulation rely heavily on traditional computer graphics pipelines to create 3D environments, most state-of-the-art 3D reconstruction methods [42, 51, 23] are not readily compatible with these pipelines*'
+	- This flag is for the paper with Ref. ID = 23
+- '*With initial material assignments in place, further refinement is possible using procedural graph-based methods like MaTCH [24] or PSDR-Room [60], but these incur high computational costs*'
+	- This flag is for the paper with Ref. ID = 24
+- '*We begin by applying SAM [25]-guided segmentation to extract meaningful patches from the images*'
+	- This flag is for the paper with Ref. ID = 25
+- '*Other methods pursue realism through compact, abstract representations—for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Other methods pursue realism through compact, abstract representations—for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 29
+- '*Previous approaches [29, 4, 3] often rely on pair-wise pre-trained models for retrieval, but these are limited to specific datasets*'
+	- This flag is for the paper with Ref. ID = 29
+- '*A common approach involves retrieval followed by optimization, where materials are initially retrieved based on visual similarity and then refined via differentiable rendering [52, 32]*'
+	- This flag is for the paper with Ref. ID = 32
+- '*AI2-THOR [26], RoboTHOR [11], OmniGibson [33], Habitat 3*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Recent advances in 3D scene understanding—particularly in oriented bounding box detection [31, 54] and room layout estimation [5, 35]—have made this direction increasingly promising*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Joint 3D scene understanding and reconstruction [44, 19, 38, 36] is essential for building object-centric scene representations*'
+	- This flag is for the paper with Ref. ID = 38
+- '*To model individual objects, some methods perform mesh reconstruction from multi-view RGB images [44, 38], while others leverage 3D generative models [63]*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 41
+- '*Although differentiable rendering techniques have achieved remarkable photorealism in 3D reconstruction [42, 23], their outputs often resemble “3D photographs”: they capture geometry and texture but lack true interactivity and structure*'
+	- This flag is for the paper with Ref. ID = 42
+- '*Compared to traditional 3D reconstruction techniques—such as Structure-from-Motion (SfM) [51, 59], Gaussian Splatting [23], and Neural Radiance Fields (NeRF) [42, 7]—we introduce the concept of graphics-ready reconstruction*'
+	- This flag is for the paper with Ref. ID = 42
+- '*While industries such as gaming, AR/VR, film production, and physical simulation rely heavily on traditional computer graphics pipelines to create 3D environments, most state-of-the-art 3D reconstruction methods [42, 51, 23] are not readily compatible with these pipelines*'
+	- This flag is for the paper with Ref. ID = 42
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 43
+- '*Joint 3D scene understanding and reconstruction [44, 19, 38, 36] is essential for building object-centric scene representations*'
+	- This flag is for the paper with Ref. ID = 44
+- '*To model individual objects, some methods perform mesh reconstruction from multi-view RGB images [44, 38], while others leverage 3D generative models [63]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*To associate 3D material segments with these image patches, we generate informative visual prompts and employ a Multi-Modal Large Language Model (MLLM) [45] for semantic mapping*'
+	- This flag is for the paper with Ref. ID = 45
+- '*We compare our material painting pipeline against four baselines: (1) PhotoShape[47], a material selection algorithm; (2) Make-It-Real[14], which use language model to retrieve materials; (3) our Visual+Language Search method; and (4) Make-It-Real with our Albedo-Only Optimization*'
+	- This flag is for the paper with Ref. ID = 47
+- '*6111 PhotoShape [47] 0*'
+	- This flag is for the paper with Ref. ID = 47
+- '*0 [49], ThreeDWorld [50], and VirtualHome [48] are notable examples*'
+	- This flag is for the paper with Ref. ID = 49
+- '*0 [49], ThreeDWorld [50], and VirtualHome [48] are notable examples*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Compared to traditional 3D reconstruction techniques—such as Structure-from-Motion (SfM) [51, 59], Gaussian Splatting [23], and Neural Radiance Fields (NeRF) [42, 7]—we introduce the concept of graphics-ready reconstruction*'
+	- This flag is for the paper with Ref. ID = 51
+- '*While industries such as gaming, AR/VR, film production, and physical simulation rely heavily on traditional computer graphics pipelines to create 3D environments, most state-of-the-art 3D reconstruction methods [42, 51, 23] are not readily compatible with these pipelines*'
+	- This flag is for the paper with Ref. ID = 51
+- '*A common approach involves retrieval followed by optimization, where materials are initially retrieved based on visual similarity and then refined via differentiable rendering [52, 32]*'
+	- This flag is for the paper with Ref. ID = 52
+- '*For underrepresented categories, we supplemented assets from Sketchfab [53] under public-access licenses*'
+	- This flag is for the paper with Ref. ID = 53
+- '*Recent advances in 3D scene understanding—particularly in oriented bounding box detection [31, 54] and room layout estimation [5, 35]—have made this direction increasingly promising*'
+	- This flag is for the paper with Ref. ID = 54
+- '*There are also many open-source alternatives for layout and O-Bbox detection [55, 6, 54] that can be used*'
+	- This flag is for the paper with Ref. ID = 54
+- '*There are also many open-source alternatives for layout and O-Bbox detection [55, 6, 54] that can be used*'
+	- This flag is for the paper with Ref. ID = 55
+- '*Scan2CAD [3] and many follow-up works [22, 17, 20, 28, 27, 34, 39, 56, 41, 29, 5, 43, 4, 18, 1]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*While some works aim to improve retrieval similarity [1, 2, 58], they typically require accurate instance segmentation—a challenging prerequisite in real-world scan data*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Following [2, 16, 58], we measure retrieval accuracy using the L1 Chamfer Distance between the retrieved model and the ground-truth*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Method avg/CAD ↓ avg/class ↓ bath ↓ bkslf ↓ cab ↓ chr ↓ disp ↓ sfa ↓ tbl ↓ bin ↓ MSCD [58] 0*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Compared to traditional 3D reconstruction techniques—such as Structure-from-Motion (SfM) [51, 59], Gaussian Splatting [23], and Neural Radiance Fields (NeRF) [42, 7]—we introduce the concept of graphics-ready reconstruction*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Other methods pursue realism through compact, abstract representations—for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*An emerging line of work focuses on reconstructing object-centric 3D scenes from a single RGB image [63, 60, 10]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*For instance, PSDRRoom [60] and PhotoScene [64] optimize procedural PBR parameters from image observations using differentiable rendering*'
+	- This flag is for the paper with Ref. ID = 60
+- '*While prior approaches [60, 64, 37] have made notable progress using differentiable rendering or predictionbased techniques, they struggle to scale effectively to real-world, noisy environments*'
+	- This flag is for the paper with Ref. ID = 60
+- '*With initial material assignments in place, further refinement is possible using procedural graph-based methods like MaTCH [24] or PSDR-Room [60], but these incur high computational costs*'
+	- This flag is for the paper with Ref. ID = 60
+- '*An emerging line of work focuses on reconstructing object-centric 3D scenes from a single RGB image [63, 60, 10]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*To model individual objects, some methods perform mesh reconstruction from multi-view RGB images [44, 38], while others leverage 3D generative models [63]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*Other methods pursue realism through compact, abstract representations—for instance, using CAD retrieval and alignment to represent scenes [22, 17, 20, 28, 27] or estimating object textures and materials from images [64, 60, 37]*'
+	- This flag is for the paper with Ref. ID = 64
+- '*For instance, PSDRRoom [60] and PhotoScene [64] optimize procedural PBR parameters from image observations using differentiable rendering*'
+	- This flag is for the paper with Ref. ID = 64
+- '*While prior approaches [60, 64, 37] have made notable progress using differentiable rendering or predictionbased techniques, they struggle to scale effectively to real-world, noisy environments*'
+	- This flag is for the paper with Ref. ID = 64
+- '*A concurrent work, Metascenes [65], is also working in a similar direction by proposing a large-scale dataset that contains a large number of simulatable scenes constructed from richly annotated ScanNet scans for embodied AI benchmarks*'
+	- This flag is for the paper with Ref. ID = 65
+- '*Similarly, MAPA [66] carries out part-level segmentation and style transfer, while Material Palette [37] uses a learning-based framework to estimate plausible materials from segmented object views*'
+	- This flag is for the paper with Ref. ID = 66
+

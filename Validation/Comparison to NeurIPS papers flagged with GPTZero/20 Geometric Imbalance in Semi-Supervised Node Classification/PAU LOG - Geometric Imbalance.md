@@ -1,0 +1,643 @@
+
+```
+Enter the path to the PDF file: "C:...\PAU - All  GPTZero NeurIPS Paper with H\20 Geometric Imbalance in Semi-Supervised Node Classification\Geometric Imbalance in Semi-Supervised Node Classification.pdf"
+---
+INFO:
+ - 'springer' = Has two headerlines to skip (1st = Shortitle/Author; 2nd = page number)
+ - 'acm'      = Has no headerlines to skip
+Enter a supported formatting template (['springer', 'acm']): acm
+---
+INFO:
+ - 'LFflTOY' = Lastname, Firstname (firstletter), Title, Outlet, Year
+            -> This is, for example, used by Springer Nature
+ - 'LFflYTO' = Lastname, Firstname (firstletter), Year, Title, Outlet
+            -> This is, for example, used by the AAAI/ACM Conference
+ - 'FLYTO'   = Firstname, Lastname, Year, Title, Outlet
+            -> This is, for example, used by ACM
+ - 'FLTOY'  = Firstname, Lastname, Title, Outlet, Year
+            -> This is, for example, used by the NeurIPS Conference
+Enter a supported bibliography layout (['LFflTOY', 'LFflYTO', 'FLYTO', 'FLTOY']): FLTOY
+---
+INFO:
+ - 'natbib'           = No numbering; reference in 'References' section starts with the authors' names
+ - 'numbered_squares' = Reference in 'References' section starts with, e.g., '[1]'
+ - 'number_with_dot'  = Reference in 'References' section starts with, e.g., '1.'
+Enter a supported bibliography numbering (['natbib', 'numbered_squares', 'number_with_dot']): numbered_squares
+---
+INFO:
+ - 'numeric'           = A number placed inside square brackets (e.g., [28])
+                      -> Multiple references are separated by a comma (e.g., [28,29])
+ - 'authoryear_round'  = Authors' names and the year places insince round brackets (e.g., (Dignum et al., 2025))
+                      -> Multiple references are separated by a semicolon (e.g., (Dignum et al. 2025; Caliskan et al. 2017))
+                      -> Please note that the author and year are *not* separated
+ - 'authoryear_square' = Authors' names and the year places insince square brackets (e.g., [Dignum et al., 2025])
+                      -> Multiple references are separated by a comma (e.g., [Dignum et al., 2025, Caliskan et al., 2017])
+                      -> Please note that the author and year are also separated by a comma
+Enter a supported referencing template (['numeric', 'authoryear_round', 'authoryear_square']): numeric
+##########################################################
+# Starting Structure Check
+##########################################################
+- Found Introduction on page 1
+- Found following heading '2 - Preliminaries' on page 2
+- Found following heading '3 - Geometric Imbalance' on page 3
+- Found following heading '4 - Method' on page 5
+- Found following heading '5 - Experiment' on page 8
+- Found following heading '6 - Related Work' on page 10
+- Found following heading '7 - Conclusion and Future Work' on page 10
+=> Found references/literature section on page 11
+- Found first appendix 'A - Notations' on page 17
+- Found following appendix 'B - Comprehensive Related Works' on page 18
+- Found following appendix 'C - Proof of Theorem 1' on page 20
+- Found following appendix 'D - Proof of Theorem 2' on page 22
+- Found following appendix 'E - Visualization and Analysis of Geometric Imbalance' on page 23
+- Found following appendix 'F - Analysis of Geometric Imbalance under Varying Class Imbalance' on page 25
+- Found following appendix 'G - Distinction Between Geometric Imbalance and Topology Imbalance' on page 27
+- Found following appendix 'H - Proof of Theorem 3' on page 28
+- Found following appendix 'I - Comprehensive Experimental Results' on page 29
+- Found following appendix 'J - Comprehensive Abaltion Study' on page 41
+- Found following appendix 'K - Experimental Setup' on page 50
+- Found following appendix 'L - Pseudocode of Our Algorithm' on page 53
+##########################################################
+# Starting Literature Check
+##########################################################
+Checking references on pages: 11 -- 17
+All found references: 75
+-> Warning: Could not parse year in reference 'K.6 Configuration . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51 L Pseudocode of Our Algorithm'!
+-----------
+ -> Parsed references DataFrame:
+   ref_id                                            authors  ... link  valid
+0       1  Arindam Banerjee, Inderjit S Dhillon, Joydeep ...  ...        None
+1       2  Tian Bian, Yifan Niu, Heng Chang, Divin Yan, J...  ...        None
+2       3       Jiarui Cai, Yizhou Wang, and Jenq-Neng Hwang  ...        None
+3       4  Kaidi Cao, Colin Wei, Adrien Gaidon, Nikos Are...  ...        None
+4       5  Nitesh V Chawla, Kevin W Bowyer, Lawrence O Ha...  ...        None
+..    ...                                                ...  ...  ...    ...
+70     71  Boyan Zhou, Quan Cui, Xiu-Shen Wei, and Zhao-M...  ...        None
+71     72                      Mengting Zhou and Zhiguo Gong  ...        None
+72     73                       Zhi-Hua Zhou and Xu-Ying Liu  ...        None
+73     74  Yihong Zhu, Junxian Li, Xianfeng Han, Shirui P...  ...        None
+74                                         K 6 Configuration  ...        None
+
+[75 rows x 10 columns]
+- Checking reference 1/75:
+  -> INFO: Now checking 10 results for matching title: 'Clustering on the unit hypersphere using von mises-fisher distributions'
+       -> INFO: All authors matched!
+- Checking reference 2/75:
+  -> INFO: Now checking 8 results for matching title: 'Hierarchical graph latent diffusion model for conditional molecule generation'
+       -> INFO: All authors matched!
+- Checking reference 3/75:
+  -> INFO: Now checking 1 results for matching title: 'Ace: Ally complementary experts for solving long-tailed recognition in one-shot'
+       -> INFO: All authors matched!
+- Checking reference 4/75:
+  -> INFO: Now checking 10 results for matching title: 'Learning imbalanced datasets with label-distribution-aware margin loss'
+       -> INFO: All authors matched!
+- Checking reference 5/75:
+  -> INFO: Now checking 10 results for matching title: 'Smote: synthetic minority over-sampling technique'
+       -> INFO: All authors matched!
+- Checking reference 6/75:
+  -> INFO: Now checking 10 results for matching title: 'Topologyimbalance learning for semi-supervised node classification'
+  -> WARNING: None of the 10 results matched the expected title!
+  -> INFO: Now checking 4 results for matching title: 'Topologyimbalance learning for semi-supervised node classification'
+  -> WARNING: None of the 4 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Topologyimbalance+learning+for+semi-supervised+node+classification manually and check the results.
+        -> Author(s): Deli Chen, Yankai Lin, Guangxiang Zhao, Xuancheng Ren, Peng Li, Jie Zhou, and Xu Sun
+        -> Title:     Topologyimbalance learning for semi-supervised node classification
+        -> Year:      2021
+     -> Manual search was skipped by the user.
+- Checking reference 7/75:
+  -> INFO: Now checking 8 results for matching title: 'A unified framework against topology and class imbalance'
+       -> INFO: All authors matched!
+- Checking reference 8/75:
+  -> INFO: Now checking 1 results for matching title: 'Consistency training with learnable data augmentation for graph anomaly detection with limited supervision'
+       -> INFO: All authors matched!
+- Checking reference 9/75:
+  -> INFO: Now checking 4 results for matching title: 'Overcoming graph topology imbalance for inductive and scalable semi-supervised learning'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2023) does not match expected year (2024)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 10/75:
+  -> INFO: Now checking 1 results for matching title: 'A decision-theoretic generalization of on-line learning and an application to boosting'
+       -> INFO: All authors matched!
+- Checking reference 11/75:
+  -> INFO: Now checking 10 results for matching title: 'Deep embedded clustering with perturbation guidance'
+  -> WARNING: None of the 10 results matched the expected title!
+  -> INFO: Now checking 1 results for matching title: 'Deep embedded clustering with perturbation guidance'
+  -> WARNING: None of the 1 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Deep+embedded+clustering+with+perturbation+guidance manually and check the results.
+        -> Author(s): Kamran Ghasedi Dizaji, Amir Herandi, Cheng Deng, Weidong Cai, and Heng Huang
+        -> Title:     Deep embedded clustering with perturbation guidance
+        -> Year:      2017
+     -> Manual search was skipped by the user.
+- Checking reference 12/75:
+  -> INFO: Now checking 10 results for matching title: 'Inductive representation learning on large graphs'
+       -> INFO: All authors matched!
+- Checking reference 13/75:
+  -> INFO: Now checking 10 results for matching title: 'Borderline-smote: a new over-sampling method in imbalanced data sets learning'
+       -> INFO: All authors matched!
+- Checking reference 14/75:
+  -> INFO: Now checking 7 results for matching title: 'von mises-fisher mixture model-based deep learning: Application to face verification'
+       -> INFO: All authors matched!
+- Checking reference 15/75:
+  -> INFO: Now checking 2 results for matching title: 'Delving deep into rectifiers: Surpassing human-level performance on imagenet classification'
+       -> INFO: All authors matched!
+- Checking reference 16/75:
+  -> INFO: Now checking 10 results for matching title: 'Disentangling label distribution for long-tailed visual recognition'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2020) does not match expected year (2021)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 17/75:
+  -> INFO: Now checking 10 results for matching title: 'Open graph benchmark: Datasets for machine learning on graphs'
+       -> INFO: All authors matched!
+- Checking reference 18/75:
+  -> INFO: Now checking 10 results for matching title: 'The class imbalance problem: A systematic study'
+       -> INFO: All authors matched!
+- Checking reference 19/75:
+  -> INFO: Now checking 10 results for matching title: 'Bayes’ theorem'
+  -> WARNING: None of the 10 results matched the expected title!
+  -> INFO: Now checking 60 results for matching title: 'Bayes’ theorem'
+  -> WARNING: None of the 60 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Bayes’+theorem manually and check the results.
+        -> Author(s): James Joyce
+        -> Title:     Bayes’ theorem
+        -> Year:      2003
+     -> Manual search was skipped by the user.
+- Checking reference 20/75:
+  -> INFO: Now checking 5 results for matching title: 'Decoupling representation and classifier for long-tailed recognition'
+       -> INFO: All authors matched!
+- Checking reference 21/75:
+  -> INFO: Now checking 10 results for matching title: 'Some probabilistic properties of bessel functions'
+       -> INFO: All authors matched!
+- Checking reference 22/75:
+  -> INFO: Now checking 10 results for matching title: 'Adam: A method for stochastic optimization'
+       -> INFO: All authors matched!
+- Checking reference 23/75:
+  -> INFO: Now checking 10 results for matching title: 'Semi-supervised classification with graph convolutional networks'
+       -> INFO: All authors matched!
+- Checking reference 24/75:
+  -> INFO: Now checking 10 results for matching title: 'Deeper insights into graph convolutional networks for semi-supervised learning'
+       -> INFO: All authors matched!
+- Checking reference 25/75:
+  -> INFO: Now checking 1 results for matching title: 'Iceberg: Debiased self-training for class-imbalanced node classification'
+       -> INFO: All authors matched!
+- Checking reference 26/75:
+  -> INFO: Now checking 10 results for matching title: 'Large-margin softmax loss for convolutional neural networks'
+       -> INFO: All authors matched!
+- Checking reference 27/75:
+  -> INFO: Now checking 10 results for matching title: 'Sphereface: Deep hypersphere embedding for face recognition'
+       -> WARNING: Not all 6 authors from the found ref. were matched (only 6)
+                   Unmatched authors = ''
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 28/75:
+  -> INFO: Now checking 10 results for matching title: 'Exploratory undersampling for class-imbalance learning'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2009) does not match expected year (2008)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 29/75:
+  -> INFO: Now checking 1 results for matching title: 'Pick and choose: a gnn-based imbalanced learning approach for fraud detection'
+       -> INFO: All authors matched!
+- Checking reference 30/75:
+  -> INFO: Now checking 10 results for matching title: 'Class-imbalanced graph learning without class rebalancing'
+       -> INFO: All authors matched!
+- Checking reference 31/75:
+  -> INFO: Now checking 1 results for matching title: 'Mesa: boost ensemble imbalanced learning with meta-sampler'
+       -> INFO: All authors matched!
+- Checking reference 32/75:
+  -> INFO: Now checking 2 results for matching title: 'An adaptive autoregressive diffusion approach to design active humanized antibodies and nanobodies'
+       -> INFO: All named authors matched; rest may fall under 'et al.'.
+- Checking reference 33/75:
+  -> INFO: Now checking 10 results for matching title: 'Long-tail learning via logit adjustment'
+       -> INFO: All authors matched!
+- Checking reference 34/75:
+  -> INFO: Now checking 2 results for matching title: 'Graphens: Neighbor-aware ego network synthesis for class-imbalanced node classification'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2022) does not match expected year (2021)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 35/75:
+  -> INFO: Now checking 10 results for matching title: 'Class-balancing diffusion models'
+       -> INFO: All authors matched!
+- Checking reference 36/75:
+  -> INFO: Now checking 10 results for matching title: 'Imgagn: Imbalanced network embedding via generative adversarial graph networks'
+       -> INFO: All authors matched!
+- Checking reference 37/75:
+  -> INFO: Now checking 10 results for matching title: 'Balanced meta-softmax for long-tailed visual recognition'
+       -> INFO: All named authors matched; rest may fall under 'et al.'.
+- Checking reference 38/75:
+  -> INFO: Now checking 10 results for matching title: 'Learning representations by backpropagating errors'
+  -> WARNING: None of the 10 results matched the expected title!
+  => ERROR loading dblp result as JSON: 'hit'
+     -> dblp search was done with these keywords: ['Rumelhart', 'Hinton', 'Williams', '1986']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Learning+representations+by+backpropagating+errors manually and check the results.
+        -> Author(s): David E Rumelhart, Geoffrey E Hinton, and Ronald J Williams
+        -> Title:     Learning representations by backpropagating errors
+        -> Year:      1986
+     -> Manual search was skipped by the user.
+- Checking reference 39/75:
+  -> INFO: Now checking 1 results for matching title: 'Smote–ipf: Addressing the noisy and borderline examples problem in imbalanced classification by a re-sampling method with filtering'
+       -> INFO: All authors matched!
+- Checking reference 40/75:
+  -> INFO: Now checking 10 results for matching title: 'Pitfalls of graph neural network evaluation'
+       -> INFO: All authors matched!
+- Checking reference 41/75:
+  -> INFO: Now checking 10 results for matching title: 'Multi-class imbalanced graph convolutional network learning'
+       -> INFO: All authors matched!
+- Checking reference 42/75:
+  -> INFO: Now checking 10 results for matching title: 'An instance level analysis of data complexity'
+       -> INFO: All authors matched!
+- Checking reference 43/75:
+  -> INFO: Now checking 1 results for matching title: 'Rge: A repulsive graph rectification for node classification via influence'
+       -> INFO: All authors matched!
+- Checking reference 44/75:
+  -> INFO: Now checking 2 results for matching title: 'Tam: Topology-aware margin loss for class-imbalanced node classification'
+       -> INFO: All authors matched!
+- Checking reference 45/75:
+  -> INFO: Now checking 2 results for matching title: 'Multi-stage self-supervised learning for graph convolutional networks on graphs with few labeled nodes'
+  -> WARNING: None of the 2 results matched the expected title!
+  -> INFO: Now checking 98 results for matching title: 'Multi-stage self-supervised learning for graph convolutional networks on graphs with few labeled nodes'
+  -> WARNING: None of the 98 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Multi-stage+self-supervised+learning+for+graph+convolutional+networks+on+graphs+with+few+labeled+nodes manually and check the results.
+        -> Author(s): Ke Sun, Zhouchen Lin, and Zhanxing Zhu
+        -> Title:     Multi-stage self-supervised learning for graph convolutional networks on graphs with few labeled nodes
+        -> Year:      2020
+     -> Manual search was skipped by the user.
+- Checking reference 46/75:
+  -> INFO: Now checking 1 results for matching title: 'Position-aware structure learning for graph topology-imbalance by relieving under-reaching and over-squashing'
+       -> INFO: All authors matched!
+- Checking reference 47/75:
+  -> INFO: Now checking 1 results for matching title: 'Long-tailed classification by keeping the good and removing the bad momentum causal effect'
+       -> INFO: All authors matched!
+- Checking reference 48/75:
+  -> INFO: Now checking 10 results for matching title: 'Svms modeling for highly imbalanced classification'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2009) does not match expected year (2008)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 49/75:
+  -> INFO: Now checking 10 results for matching title: 'Posterior re-calibration for imbalanced datasets'
+       -> INFO: All authors matched!
+- Checking reference 50/75:
+  -> INFO: Now checking 10 results for matching title: 'Graph attention networks'
+       -> WARNING: Not all 6 authors from the found ref. were matched (only 5)
+                   Unmatched authors = 'Velickovic'
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 51/75:
+  -> INFO: Now checking 10 results for matching title: 'Additive margin softmax for face verification'
+       -> INFO: All authors matched!
+- Checking reference 52/75:
+  -> INFO: Now checking 1 results for matching title: 'Rsg: A simple but effective module for learning imbalanced datasets'
+       -> INFO: All authors matched!
+- Checking reference 53/75:
+  -> INFO: Now checking 10 results for matching title: 'Adaptive class suppression loss for long-tail object detection'
+       -> INFO: All authors matched!
+- Checking reference 54/75:
+  -> INFO: Now checking 10 results for matching title: 'Community-entropy based graph structure learning for topologyimbalance'
+  -> WARNING: None of the 10 results matched the expected title!
+  -> INFO: Now checking 1000 results for matching title: 'Community-entropy based graph structure learning for topologyimbalance'
+  -> WARNING: None of the 1000 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Community-entropy+based+graph+structure+learning+for+topologyimbalance manually and check the results.
+        -> Author(s): Xinyi Wang, Ling Guo, and Hui Yan
+        -> Title:     Community-entropy based graph structure learning for topologyimbalance
+        -> Year:      2025
+     -> Manual search was skipped by the user.
+- Checking reference 55/75:
+  -> INFO: Now checking 6 results for matching title: 'Long-tailed recognition by routing diverse distribution-aware experts'
+       -> INFO: All authors matched!
+- Checking reference 56/75:
+  -> INFO: Now checking 1 results for matching title: 'A topological perspective on demystifying gnn-based link prediction performance'
+       -> INFO: All authors matched!
+- Checking reference 57/75:
+  -> INFO: Now checking 3 results for matching title: 'Network embedding with completelyimbalanced labels'
+  -> WARNING: None of the 3 results matched the expected title!
+  -> INFO: Now checking 2 results for matching title: 'Network embedding with completelyimbalanced labels'
+  -> WARNING: None of the 2 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Network+embedding+with+completelyimbalanced+labels manually and check the results.
+        -> Author(s): Zheng Wang, Xiaojun Ye, Chaokun Wang, Jian Cui, and S Yu Philip
+        -> Title:     Network embedding with completelyimbalanced labels
+        -> Year:      2020
+     -> Manual search was skipped by the user.
+- Checking reference 58/75:
+  -> INFO: Now checking 10 results for matching title: 'A similarity measure for indefinite rankings'
+       -> INFO: All authors matched!
+- Checking reference 59/75:
+  -> INFO: Now checking 10 results for matching title: 'Learning with partially absorbing random walks'
+       -> INFO: All authors matched!
+- Checking reference 60/75:
+  -> INFO: Now checking 10 results for matching title: 'Mitigating label noise on graph via topological sample selection'
+       -> INFO: All authors matched!
+- Checking reference 61/75:
+  -> INFO: Now checking 10 results for matching title: 'Class-weighted classification: Trade-offs and robust approaches'
+       -> INFO: All authors matched!
+- Checking reference 62/75:
+  -> INFO: Now checking 10 results for matching title: 'Training class-imbalanced diffusion model via overlap optimization'
+       -> INFO: All authors matched!
+- Checking reference 63/75:
+  -> INFO: Now checking 4 results for matching title: 'Rethinking semi-supervised imbalanced node classification from bias-variance decomposition'
+       -> INFO: All authors matched!
+- Checking reference 64/75:
+  -> INFO: Now checking 10 results for matching title: 'Revisiting semi-supervised learning with graph embeddings'
+       -> WARNING: Not all 3 authors from the found ref. were matched (only 2)
+                   Unmatched authors = 'Salakhutdinov'
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 65/75:
+  -> INFO: Now checking 10 results for matching title: 'Graphsaint: Graph sampling based inductive learning method'
+       -> INFO: All authors matched!
+- Checking reference 66/75:
+  -> INFO: Now checking 10 results for matching title: 'Scr: Training graph neural networks with consistency regularization'
+       -> INFO: All authors matched!
+- Checking reference 67/75:
+  -> INFO: Now checking 3 results for matching title: 'Bim: improving graph neural networks with balanced influence maximization'
+       -> INFO: All authors matched!
+- Checking reference 68/75:
+  -> INFO: Now checking 2 results for matching title: 'Topoimb: Toward topology-level imbalance in learning from graphs'
+       -> INFO: All authors matched!
+- Checking reference 69/75:
+  -> INFO: Now checking 10 results for matching title: 'Graphsmote: Imbalanced node classification on graphs with graph neural networks'
+       -> INFO: All authors matched!
+- Checking reference 70/75:
+  => ERROR: Semantic Scholar didn't find any results to parse!
+     -> Semantic Scholar search was done for the title: Hyperbolic and spherical embeddings for long-tail entities
+  -> WARNING: No results were found through the dblp search!
+  -> INFO: Now checking 2 results for matching title: 'Hyperbolic and spherical embeddings for long-tail entities'
+  -> WARNING: None of the 2 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Hyperbolic+and+spherical+embeddings+for+long-tail+entities manually and check the results.
+        -> Author(s): Ming Zhong, Han Liu, Weizhu Zhang, Houyu Wang, Xiang Li, Maosong Sun, and Xu Han
+        -> Title:     Hyperbolic and spherical embeddings for long-tail entities
+        -> Year:      2021
+     -> Manual search was skipped by the user.
+- Checking reference 71/75:
+  -> INFO: Now checking 3 results for matching title: 'Bbn: Bilateral-branch network with cumulative learning for long-tailed visual recognition'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2019) does not match expected year (2020)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 72/75:
+  -> INFO: Now checking 1 results for matching title: 'Graphsr: A data augmentation algorithm for imbalanced node classification'
+       -> INFO: All authors matched!
+- Checking reference 73/75:
+  -> INFO: Now checking 10 results for matching title: 'Training cost-sensitive neural networks with methods addressing the class imbalance problem'
+  -> WARNING: None of the 10 results matched the expected title!
+  -> INFO: Now checking 135 results for matching title: 'Training cost-sensitive neural networks with methods addressing the class imbalance problem'
+  -> WARNING: None of the 135 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Training+cost-sensitive+neural+networks+with+methods+addressing+the+class+imbalance+problem manually and check the results.
+        -> Author(s): Zhi-Hua Zhou and Xu-Ying Liu
+        -> Title:     Training cost-sensitive neural networks with methods addressing the class imbalance problem
+        -> Year:      2005
+     -> Manual search was skipped by the user.
+- Checking reference 74/75:
+  -> INFO: Now checking 10 results for matching title: 'Spectral contrastive graph clustering'
+  -> WARNING: None of the 10 results matched the expected title!
+  -> INFO: Now checking 2 results for matching title: 'Spectral contrastive graph clustering'
+  -> WARNING: None of the 2 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Spectral+contrastive+graph+clustering manually and check the results.
+        -> Author(s): Yihong Zhu, Junxian Li, Xianfeng Han, Shirui Pan, Liang Yao, and Chengqi Wang
+        -> Title:     Spectral contrastive graph clustering
+        -> Year:      2022
+     -> Manual search was skipped by the user.
+- Checking reference 75/75:
+  -> WARNING: Skipping search (due to not enough info) for reference titled ''
+           -> Author(s): K 6 Configuration
+           -> Year: 0
+-> Starting the sorting of mismatching entries!
+##########################################################
+# Starting Unicode Check
+##########################################################
+-> Invalid unicode use found on p. 2: ˆv∈N(v) αvˆvh(l−1)
+-> Invalid unicode use found on p. 2: + αvvh(l−1)
+-> Invalid unicode use found on p. 2: v are then projected onto the riemannian manifold Sd−1 using ˜h(l)
+-> Invalid unicode use found on p. 2: the riemannian manifold Sd−1. Each class is parameterized by a compactness κi ∈R+ and a
+-> Invalid unicode use found on p. 2: 2 −1
+-> Invalid unicode use found on p. 2: 2 −1(κ) is
+-> Invalid unicode use found on p. 2: entropy of the predictions for ui is defined as H(uj) = −PC
+-> Invalid unicode use found on p. 3: uj ∈Sd−1 produced by the l-th layer of a GNN. Let {˜µc ∈Sd−1}C
+-> Invalid unicode use found on p. 3: uj −˜µyuj
+-> Invalid unicode use found on p. 3: C1̸=C2 ∥˜µC1 −˜µC2∥2 .
+-> Invalid unicode use found on p. 3: uj −˜µyuj
+-> Invalid unicode use found on p. 3: ∥˜µC1 −˜µC2∥2 .
+-> Invalid unicode use found on p. 3: uj −˜µCi
+-> Invalid unicode use found on p. 3: C1̸=C2 ∥˜µC1 −˜µC2∥2.
+-> Invalid unicode use found on p. 6: = max{rm, 1−rm}·Sm+min{rm, 1−rm}·Tm. This
+-> Invalid unicode use found on p. 7: defined as GIu = βu−δu
+-> Invalid unicode use found on p. 16: Geometric Imbalance index: GIu = βu−δu
+-> Invalid unicode use found on p. 19: = (1 −βi) · h(c)
+-> Invalid unicode use found on p. 19: uj −˜µyuj
+-> Invalid unicode use found on p. 19: ∥˜µc1 −˜µc2∥2 .
+-> Invalid unicode use found on p. 19: Using cos(x, y) ≈1 −1
+-> Invalid unicode use found on p. 19: 2∥x −y∥2 for unit vectors:
+-> Invalid unicode use found on p. 19: −κ
+-> Invalid unicode use found on p. 19: 2 ∥˜huj −˜µi∥2
+-> Invalid unicode use found on p. 19: −κ
+-> Invalid unicode use found on p. 19: 2 ∥˜huj −˜µk∥2
+-> Invalid unicode use found on p. 20: ∥˜huj −˜µi∥2 · e−κ
+-> Invalid unicode use found on p. 20: 2 ∥˜huj −˜µi∥2.
+-> Invalid unicode use found on p. 20: Upper bound: Suppose for most classes i ̸= yuj, the distance ∥˜huj −˜µi∥2 ≈Dinter/C, and for the
+-> Invalid unicode use found on p. 20: −κ
+-> Invalid unicode use found on p. 20: −κ
+-> Invalid unicode use found on p. 20: + (C −1) · exp
+-> Invalid unicode use found on p. 20: −κ
+-> Invalid unicode use found on p. 20: mie−κ
+-> Invalid unicode use found on p. 20: ≤log C −
+-> Invalid unicode use found on p. 20: 2C2 (Dinter −Dintra)/Dinter + o(1),
+-> Invalid unicode use found on p. 20: ˆH ≤log C −
+-> Invalid unicode use found on p. 20: Dinter −Dintra
+-> Invalid unicode use found on p. 20: yuj ≈1 −ε and puj
+-> Invalid unicode use found on p. 20: i̸=yuj ≈ε/(C −1) with
+-> Invalid unicode use found on p. 20: H(uj) ≈−(1 −ε) log(1 −ε) −ε log
+-> Invalid unicode use found on p. 20: C −1
+-> Invalid unicode use found on p. 20: ≥ε log(C −1) ≥κ
+-> Invalid unicode use found on p. 20: where the last inequality holds since ε ∝e−κ(Dinter−Dintra) decays with class separation.
+-> Invalid unicode use found on p. 20: ˆH ≥log C −κ
+-> Invalid unicode use found on p. 20: log C −
+-> Invalid unicode use found on p. 20: Dinter −Dintra
+-> Invalid unicode use found on p. 20: ≥ˆH ≥log C −κ
+-> Invalid unicode use found on p. 21: ˜huj −˜µyuj
+-> Invalid unicode use found on p. 21: c1̸=c2 ∥˜µc1 −˜µc2∥2 ,
+-> Invalid unicode use found on p. 21: = (1 −βi) · h(c)
+-> Invalid unicode use found on p. 21: −˜µc∥2 ≥β2
+-> Invalid unicode use found on p. 21: −˜µc∥2.
+-> Invalid unicode use found on p. 21: G(uj) ∝∥˜huj −˜µyuj ∥2 ∝β2
+-> Invalid unicode use found on p. 21: c1̸=c2 ∥˜µc1 −˜µc2∥2 is constant under
+-> Invalid unicode use found on p. 27: = max{rm, 1 −rm} · Sm + min{rm, 1 −rm} · Tm,
+-> Invalid unicode use found on p. 27: max{rm, 1 −rm} = 1 −rm,
+-> Invalid unicode use found on p. 27: min{rm, 1 −rm} = rm.
+-> Invalid unicode use found on p. 27: rm→0 ((1 −rm) · Sm + rm · Tm)
+-> Invalid unicode use found on p. 27: max{rm, 1 −rm} = rm,
+-> Invalid unicode use found on p. 27: min{rm, 1 −rm} = 1 −rm.
+-> Invalid unicode use found on p. 27: rm→1 (rm · Sm + (1 −rm) · Tm)
+-> Invalid unicode use found on p. 52: Train GNN fg on current labeled set Li−1.
+-> Invalid unicode use found on p. 52: = max{rm, 1 −rm} · Sm + min{rm, 1 −rm} · Tm.
+-> Invalid unicode use found on p. 52: Compute GI index: GIu = βu−δu
+##########################################################
+# Starting Reference-Bibliography-Comparision
+##########################################################
+-> Processing set references in the doc's text... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Processed 1298 sentences on 11 pages -> Avg. of 130.8 sentences per page
+-> Warning: Reference '2' never used in the document's text.
+-> Warning: Reference '3' never used in the document's text.
+-> Warning: Reference '4' never used in the document's text.
+-> Warning: Reference '5' never used in the document's text.
+-> Warning: Reference '7' never used in the document's text.
+-> Warning: Reference '8' never used in the document's text.
+-> Warning: Reference '9' never used in the document's text.
+-> Warning: Reference '10' never used in the document's text.
+-> Warning: Reference '13' never used in the document's text.
+-> Warning: Reference '15' never used in the document's text.
+-> Warning: Reference '20' never used in the document's text.
+-> Warning: Reference '22' never used in the document's text.
+-> Warning: Reference '28' never used in the document's text.
+-> Warning: Reference '30' never used in the document's text.
+-> Warning: Reference '31' never used in the document's text.
+-> Warning: Reference '32' never used in the document's text.
+-> Warning: Reference '33' never used in the document's text.
+-> Warning: Reference '35' never used in the document's text.
+-> Warning: Reference '38' never used in the document's text.
+-> Warning: Reference '39' never used in the document's text.
+-> Warning: Reference '42' never used in the document's text.
+-> Warning: Reference '43' never used in the document's text.
+-> Warning: Reference '46' never used in the document's text.
+-> Warning: Reference '47' never used in the document's text.
+-> Warning: Reference '48' never used in the document's text.
+-> Warning: Reference '49' never used in the document's text.
+-> Warning: Reference '52' never used in the document's text.
+-> Warning: Reference '53' never used in the document's text.
+-> Warning: Reference '54' never used in the document's text.
+-> Warning: Reference '55' never used in the document's text.
+-> Warning: Reference '56' never used in the document's text.
+-> Warning: Reference '60' never used in the document's text.
+-> Warning: Reference '61' never used in the document's text.
+-> Warning: Reference '62' never used in the document's text.
+-> Warning: Reference '66' never used in the document's text.
+-> Warning: Reference '68' never used in the document's text.
+-> Warning: Reference '71' never used in the document's text.
+-> Warning: Reference '73' never used in the document's text.
+-> Warning: Reference '' never used in the document's text.
+---
+-> Missing an abstract for reference with index 0 (Ref. ID = 1); Skipping LLM check...
+-> Missing an abstract for reference with index 1 (Ref. ID = 2); Skipping LLM check...
+-> Missing an abstract for reference with index 2 (Ref. ID = 3); Skipping LLM check...
+-> Missing an abstract for reference with index 3 (Ref. ID = 4); Skipping LLM check...
+-> Missing an abstract for reference with index 4 (Ref. ID = 5); Skipping LLM check...
+-> Missing an abstract for reference with index 5 (Ref. ID = 6); Skipping LLM check...
+-> Missing an abstract for reference with index 6 (Ref. ID = 7); Skipping LLM check...
+-> Missing an abstract for reference with index 7 (Ref. ID = 8); Skipping LLM check...
+-> Missing an abstract for reference with index 8 (Ref. ID = 9); Skipping LLM check...
+-> Missing an abstract for reference with index 9 (Ref. ID = 10); Skipping LLM check...
+-> Missing an abstract for reference with index 10 (Ref. ID = 11); Skipping LLM check...
+-> Missing an abstract for reference with index 11 (Ref. ID = 12); Skipping LLM check...
+-> Missing an abstract for reference with index 12 (Ref. ID = 13); Skipping LLM check...
+-> Missing an abstract for reference with index 13 (Ref. ID = 14); Skipping LLM check...
+-> Missing an abstract for reference with index 14 (Ref. ID = 15); Skipping LLM check...
+  // LLM calling counter = 1
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 16 (Ref. ID = 17); Skipping LLM check...
+-> Missing an abstract for reference with index 17 (Ref. ID = 18); Skipping LLM check...
+-> Missing an abstract for reference with index 18 (Ref. ID = 19); Skipping LLM check...
+-> Missing an abstract for reference with index 19 (Ref. ID = 20); Skipping LLM check...
+-> Missing an abstract for reference with index 20 (Ref. ID = 21); Skipping LLM check...
+-> Missing an abstract for reference with index 21 (Ref. ID = 22); Skipping LLM check...
+-> Missing an abstract for reference with index 22 (Ref. ID = 23); Skipping LLM check...
+-> Missing an abstract for reference with index 23 (Ref. ID = 24); Skipping LLM check...
+-> Missing an abstract for reference with index 24 (Ref. ID = 25); Skipping LLM check...
+-> Missing an abstract for reference with index 25 (Ref. ID = 26); Skipping LLM check...
+  // LLM calling counter = 2
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 27 (Ref. ID = 28); Skipping LLM check...
+-> Missing an abstract for reference with index 28 (Ref. ID = 29); Skipping LLM check...
+-> Missing an abstract for reference with index 29 (Ref. ID = 30); Skipping LLM check...
+-> Missing an abstract for reference with index 30 (Ref. ID = 31); Skipping LLM check...
+-> Missing an abstract for reference with index 31 (Ref. ID = 32); Skipping LLM check...
+-> Missing an abstract for reference with index 32 (Ref. ID = 33); Skipping LLM check...
+-> Missing an abstract for reference with index 33 (Ref. ID = 34); Skipping LLM check...
+-> Missing an abstract for reference with index 34 (Ref. ID = 35); Skipping LLM check...
+-> Missing an abstract for reference with index 35 (Ref. ID = 36); Skipping LLM check...
+-> Missing an abstract for reference with index 36 (Ref. ID = 37); Skipping LLM check...
+-> Missing an abstract for reference with index 37 (Ref. ID = 38); Skipping LLM check...
+-> Missing an abstract for reference with index 38 (Ref. ID = 39); Skipping LLM check...
+-> Missing an abstract for reference with index 39 (Ref. ID = 40); Skipping LLM check...
+-> Missing an abstract for reference with index 40 (Ref. ID = 41); Skipping LLM check...
+-> Missing an abstract for reference with index 41 (Ref. ID = 42); Skipping LLM check...
+-> Missing an abstract for reference with index 42 (Ref. ID = 43); Skipping LLM check...
+-> Missing an abstract for reference with index 43 (Ref. ID = 44); Skipping LLM check...
+-> Missing an abstract for reference with index 44 (Ref. ID = 45); Skipping LLM check...
+-> Missing an abstract for reference with index 45 (Ref. ID = 46); Skipping LLM check...
+-> Missing an abstract for reference with index 46 (Ref. ID = 47); Skipping LLM check...
+-> Missing an abstract for reference with index 47 (Ref. ID = 48); Skipping LLM check...
+-> Missing an abstract for reference with index 48 (Ref. ID = 49); Skipping LLM check...
+  // LLM calling counter = 3
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 50 (Ref. ID = 51); Skipping LLM check...
+-> Missing an abstract for reference with index 51 (Ref. ID = 52); Skipping LLM check...
+-> Missing an abstract for reference with index 52 (Ref. ID = 53); Skipping LLM check...
+-> Missing an abstract for reference with index 53 (Ref. ID = 54); Skipping LLM check...
+-> Missing an abstract for reference with index 54 (Ref. ID = 55); Skipping LLM check...
+-> Missing an abstract for reference with index 55 (Ref. ID = 56); Skipping LLM check...
+-> Missing an abstract for reference with index 56 (Ref. ID = 57); Skipping LLM check...
+-> Missing an abstract for reference with index 57 (Ref. ID = 58); Skipping LLM check...
+-> Missing an abstract for reference with index 58 (Ref. ID = 59); Skipping LLM check...
+-> Missing an abstract for reference with index 59 (Ref. ID = 60); Skipping LLM check...
+-> Missing an abstract for reference with index 60 (Ref. ID = 61); Skipping LLM check...
+-> Missing an abstract for reference with index 61 (Ref. ID = 62); Skipping LLM check...
+-> Missing an abstract for reference with index 62 (Ref. ID = 63); Skipping LLM check...
+  // LLM calling counter = 4
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 64 (Ref. ID = 65); Skipping LLM check...
+-> Missing an abstract for reference with index 65 (Ref. ID = 66); Skipping LLM check...
+-> Missing an abstract for reference with index 66 (Ref. ID = 67); Skipping LLM check...
+-> Missing an abstract for reference with index 67 (Ref. ID = 68); Skipping LLM check...
+-> Missing an abstract for reference with index 68 (Ref. ID = 69); Skipping LLM check...
+-> Missing an abstract for reference with index 69 (Ref. ID = 70); Skipping LLM check...
+-> WARNING: Reference with index 70 (Ref. ID = 71) has no associated sentence!
+-> Missing an abstract for reference with index 71 (Ref. ID = 72); Skipping LLM check...
+-> Missing an abstract for reference with index 72 (Ref. ID = 73); Skipping LLM check...
+-> Missing an abstract for reference with index 73 (Ref. ID = 74); Skipping LLM check...
+-> Missing an abstract for reference with index 74 (Ref. ID = ); Skipping LLM check...
+###############################
+# Starting Ranking Check
+###############################
+-> Loading rankings and iterating them; please wait, this might take a minute!
+  -> Warning: A parsed outlet title is empty. Skipping this one.
+-> Now checking the JQ proceedings:
+  -> Processing initial jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 5 matches in this ranking!
+-> Now checking the JQ jounrals:
+  -> Processing initial jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 9 matches in this ranking!
+-> Now checking the CORE A+ - B rankings:
+  -> Processing initial core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 9 matches in this ranking!
+-> Now checking the CORE C rankings:
+  -> Processing initial core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 5 matches in this ranking!
+-> Now checking the remaining CORE rankings:
+  -> Processing initial core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 4 matches in this ranking!
+-> Now checking the journal impact factors:
+  -> Processing initial impact_factor check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 150 matches in this ranking!
+-> Fallback activated. Now matching the JQ proceedings and the parsed outlets using an LLM:
+  // LLM calling counter = 5
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the JQ jounrals and the parsed outlets using an LLM:
+  // LLM calling counter = 6
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the CORE A+ - B rankings and the parsed outlets using an LLM:
+  // LLM calling counter = 7
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the CORE C rankings and the parsed outlets using an LLM:
+  // LLM calling counter = 8
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the remaining CORE rankings and the parsed outlets using an LLM:
+  // LLM calling counter = 9
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+###############################
+# Starting Author Check
+###############################
+-> Saved chapter_fig on try 1
+-> Saved lit_fig on try 1
+-> Saved rank_fig on try 1
+---
+FINISHED!
+ -> Results saved to C:...\PAU - All  GPTZero NeurIPS Paper with H\20 Geometric Imbalance in Semi-Supervised Node Classification\PAU_results.md
+```

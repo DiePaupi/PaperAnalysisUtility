@@ -1,0 +1,1710 @@
+# Paper Analysis Utility - Results
+
+Paper: AI-Generated Video Detection via Perceptual Straightening.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/35 AI-Generated Video Detection/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 2 (ca. 1 pages)
+2) 'Related work: detecting AI–generated videos' -- p. 3 (ca. 0 pages)
+3) 'Perceptual straightening definition' -- p. 3 (ca. 1 pages)
+4) 'Perceptual straightening of natural videos in DINOv2' -- p. 4 (ca. 1 pages)
+5) 'Analyzing characteristics of perceptual trajectories' -- p. 5 (ca. 1 pages)
+6) 'Video classifier to detect AI-generated content' -- p. 6 (ca. 1 pages)
+7) 'Benchmark results' -- p. 7 (ca. 2 pages)
+8) 'Discussion' -- p. 9 (ca. 1 pages)
+9) 'References' -- p. 10 (ca. 6 pages)
+9) 'AI Video Generation' -- p. 16 (ca. 0 pages)
+10) 'Qualitative and Quantitative Analysis' -- p. 16 (ca. 0 pages)
+11) 'Ablation Studies' -- p. 16 (ca. 0 pages)
+12) 'Computational Environment' -- p. 16 (ca. 0 pages)
+13) 'Dataset Licenses and Sources' -- p. 16 (ca. 5 pages)
+13) 'Dataset Licenses and Sources' -- p. 21 (ca. 0 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/12=0.00%
+		- Invalid uses: 12/12=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 2: defined as ∆zi = zi+1 −zi, for i = 1, . . . , T −1. The magnitude of this displacement, which we
+		- Page 3: i = 1, . . . , T −2. The curvature θi (Equation 1), defined for each discrete step i along the trajectory
+		- Page 3: (ranging from 1 to T −2, where T is the total number of sampled frames), is computed from the cosine
+		- Page 3: 2-second window is suitable for the videos considered in Section 7 (≈2 −5s long with 12 −30 FPS),
+		- Page 3: with an temporal based sample frame of ∆t = 2s/(24 −1). Nevertheless, we hypothesize that using
+		- Page 4: significantly larger mean curvature difference (∆θ = θAI −θNat) between their trajectories.
+		- Page 4: T −1
+		- Page 4: T −1
+		- Page 4: i(di −µd)2
+		- Page 4: (d): t = −14.27, p = 5.53 × 10−46; Curvature (θ): t = −44.02, p ≈0. An ANOVA comparing
+		- Page 5: [3] and Sora [60]). We sample frames and we obtain the signals of distance {di}T −1
+		- Page 5: i }T −2
+- Non-breaking spaces:
+	- Stats:
+		- Valid uses: 1/4=25.00%
+		- Invalid uses: 3/4=75.00%
+	- Lines containing invalid non-breaking spaces:
+		- Page 7: 2AFC Acc. (%)
+		- Page 7: Gemini 1.5 Pro
+
+
+## References not in Bibliography
+
+> [!NOTE]
+> The sentences listed below contain references that were not found in the 'References' section.
+> *Please note that this list may contain false positives as, e.g., the content of a normal bracket might have been mistaken for a reference, or a natural reference (Authorname in text and year in brackets) might have been mismatched.*
+
+-  Following [1, 2], the curvature θi of the representation trajectory is defined as the angle between successive displacement vectors, ∆zi and ∆zi+1: θi = Curvature z }| { arccos[ Consecutive Displacement z}|{ ∆zi · Consecutive Displacement z }| { ∆zi+1 ∥∆zi∥2 | {z } Temporal Distance (di) ∥∆zi+1∥2 | {z } Temporal Distance (di+1) | {z } Cosine similarity between ∆zi and ∆zi+1 ], (1) zi zi+1 zi+2 θi ∆zi ∆zi+1 Figure 3: Trajectory curvature Eq
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 9
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 78
+	- Full reference: `[78] Carl Vondrick, Hamed Pirsiavash, and Antonio Torralba. Generating videos with scene dynamics. In Advances in Neural Information Processing Systems, 2016.`
+- Parsed Ref. ID: 79
+	- Full reference: `[79] Mohammad Babaeizadeh, Chelsea Finn, Dumitru Erhan, Roy H Campbell, and Sergey Levine. Stochastic variational video prediction. arXiv preprint arXiv:1710.11252, 2017.`
+- Parsed Ref. ID: 80
+	- Full reference: `[80] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. Highresolution image synthesis with latent diffusion models. arXiv preprint arXiv:2112.10752, 2021.`
+- Parsed Ref. ID: 81
+	- Full reference: `[81] Jonathan Ho, William Chan, Chitwan Saharia, Jay Whang, Ruiqi Gao, Alexey Gritsenko, Diederik P. Kingma, Ben Poole, Mohammad Norouzi, David J. Fleet, and Tim Salimans. Imagen video: High definition video generation with diffusion models, 2022. URL https://arxiv.org/abs/2210.02303.`
+- Parsed Ref. ID: 82
+	- Full reference: `[82] Jiahao Shao, Yuanbo Yang, Hongyu Zhou, Youmin Zhang, Yujun Shen, Matteo Poggi, and Yiyi Liao. Learning temporally consistent video depth from video diffusion priors. CoRR, abs/2406.01493, 2024. URL https://doi.org/10.48550/arXiv.2406.01493.`
+- Parsed Ref. ID: 83
+	- Full reference: `[83] Dan Kondratyuk, Lijun Yu, Xiuye Gu, José Lezama, Jonathan Huang, Grant Schindler, Rachel Hornung, Vighnesh Birodkar, Jimmy Yan, Ming-Chang Chiu, Krishna Somandepalli, Hassan Akbari, Yair Alon, Yong Cheng, Josh Dillon, Agrim Gupta, Meera Hahn, Anja Hauth, David Hendon, Alonso Martinez, David Minnen, Mikhail Sirotenko, Kihyuk Sohn, Xuan Yang, Hartwig Adam, Ming-Hsuan Yang, Irfan Essa, Huisheng Wang, David A. Ross, Bryan Seybold, and Lu Jiang. Videopoet: A large language model for zero-shot video generation, 2024. URL https://arxiv.org/abs/2312.14125.`
+- Parsed Ref. ID: 84
+	- Full reference: `[84] Bingyi Kang, Yang Yue, Rui Lu, Zhijie Lin, Yang Zhao, Kaixin Wang, Gao Huang, and Jiashi Feng. How far is video generation from world model: A physical law perspective, 2024. URL https://arxiv.org/abs/2411.02385.`
+- Parsed Ref. ID: 85
+	- Full reference: `[85] David Ha and Jürgen Schmidhuber. World models. Zenodo, 2018. doi: 10.5281/ZENODO. 1207631. URL https://zenodo.org/record/1207631.`
+- Parsed Ref. ID: 86
+	- Full reference: `[86] Xiaofeng Wang, Zheng Zhu, Guan Huang, Boyuan Wang, Xinze Chen, and Jiwen Lu. Worlddreamer: Towards general world models for video generation via predicting masked tokens, 2024. URL https://arxiv.org/abs/2401.09985.Appendix Contents`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Wang Y.: 6
+- Zhang Y.: 5
+- Huang G.: 4
+- Li Y.: 4
+- Simoncelli E.: 3
+- He Y.: 3
+- Chen X.: 3
+- Liu Z.: 3
+- Zisserman A.: 3
+- Feichtenhofer C.: 3
+- Wang X.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/35 AI-Generated Video Detection/literature_validation_results_fig.jpg]]
+
+References section starts on page 10.
+
+- No link provided: $50/86=58.14\%$
+- Unchecked links: $7/86=8.14\%$
+- Valid links: $0/86=0.00\%$
+- Invalid link: $29/86=33.72\%$
+	- Invalid entries:
+		=> total = 29
+		- \[8\] Mengyu Chu, You Xie, Jonas Mayer, Laura Leal-Taixé, and Nils Thuerey. Learning temporal coherence via self-supervision for gan-based video generation. ACM Trans. Graph., 39(4), August 2020. ISSN 0730-0301. doi: 10.1145/3386569.3392457. URL https://doi.org/10.1145/3386569.3392457.
+			-> Returned with status code 404!
+		- \[14\] Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby. An image is worth 16x16 words: Transformers for image recognition at scale, 2021. URL https://arxiv.org/abs/2010.11929.
+			-> Returned with status code 404!
+		- \[16\] Zhengzhe Liu, Xiaojuan Qi, and Philip Torr. Global texture enhancement for fake face detection in the wild, 2020. URL https://arxiv.org/abs/2002.00133.
+			-> Returned with status code 404!
+		- \[17\] Zhenliang Ni, Qiangyu Yan, Mouxiao Huang, Tianning Yuan, Yehui Tang, Hailin Hu, Xinghao Chen, and Yunhe Wang. Genvidbench: A challenging benchmark for detecting ai-generated video, 2025. URL https://arxiv.org/abs/2501.11340.
+			-> Returned with status code 404!
+		- \[18\] Zhiyuan Yan, Yong Zhang, Xinhang Yuan, Siwei Lyu, and Baoyuan Wu. Deepfakebench: A comprehensive benchmark of deepfake detection, 2023. URL https://arxiv.org/abs/2307.01426.
+			-> Returned with status code 404!
+		- \[23\] Eghbal Hosseini and Evelina Fedorenko. Large language models implicitly learn to straighten neural sentence trajectories to construct a predictive representation of natural language. In A. Oh, T. Naumann, A. Globerson, K. Saenko, M. Hardt, and S. Levine, editors, Advances in Neural Information Processing Systems, volume 36, pages 43918–43930. Curran Associates, Inc., 2023. URL https://proceedings.neurips.cc/paper_files/paper/2023/file/88dddaf430b5bc38ab8228902bb61821-Paper-Conference.pdf.
+			-> Returned with status code 404!
+		- \[26\] Saman Motamed, Laura Culp, Kevin Swersky, Priyank Jaini, and Robert Geirhos. Do generative video models understand physical principles?, 2025. URL https://arxiv.org/abs/2501.09038.
+			-> Returned with status code 404!
+		- \[27\] You-Ming Chang, Chen Yeh, Wei-Chen Chiu, and Ning Yu. Antifakeprompt: Prompt-tuned vision-language models are fake image detectors, 2024. URL https://arxiv.org/abs/2310.17419.
+			-> Returned with status code 404!
+		- \[28\] Sheng-Yu Wang, Oliver Wang, Richard Zhang, Andrew Owens, and Alexei A. Efros. Cnngenerated images are surprisingly easy to spot... for now, 2020. URL https://arxiv.org/abs/1912.11035.
+			-> Returned with status code 404!
+		- \[29\] Chandler Timm Doloriel and Ngai-Man Cheung. Frequency masking for universal deepfake detection, 2024. URL https://arxiv.org/abs/2401.06506.
+			-> Returned with status code 404!
+		- \[30\] Joel Frank, Thorsten Eisenhofer, Lea Schönherr, Asja Fischer, Dorothea Kolossa, and Thorsten Holz. Leveraging frequency analysis for deep fake image recognition, 2020. URL https://arxiv.org/abs/2003.08685.
+			-> Returned with status code 404!
+		- \[32\] Xiuli Bi, Bo Liu, Fan Yang, Bin Xiao, Weisheng Li, Gao Huang, and Pamela C. Cosman. Detecting generated images by real images only, 2023. URL https://arxiv.org/abs/2311.00962.
+			-> Returned with status code 404!
+		- \[33\] Utkarsh Ojha, Yuheng Li, and Yong Jae Lee. Towards universal fake image detectors that generalize across generative models, 2024. URL https://arxiv.org/abs/2302.10174.
+			-> Returned with status code 404!
+		- \[45\] Ed Pizzi, Giorgos Kordopatis-Zilos, Hiral Patel, Gheorghe Postelnicu, Sugosh Nagavara Ravindra, Akshay Gupta, Symeon Papadopoulos, Giorgos Tolias, and Matthijs Douze. The 2023 video similarity dataset and challenge. Comput. Vis. Image Underst., 243:103997, 2024. URL https://doi.org/10.1016/j.cviu.2024.103997.
+			-> Returned with status code 404!
+		- \[46\] Uriel Singer, Adam Polyak, Thomas Hayes, Xi Yin, Jie An, Songyang Zhang, Qiyuan Hu, Harry Yang, Oron Ashual, Oran Gafni, Devi Parikh, Sonal Gupta, and Yaniv Taigman. Make-a-video: Text-to-video generation without text-video data, 2022. URL https://arxiv.org/abs/2209.14792.
+			-> Returned with status code 404!
+		- \[47\] Jiuniu Wang, Hangjie Yuan, Dayou Chen, Yingya Zhang, Xiang Wang, and Shiwei Zhang. Modelscope text-to-video technical report, 2023. URL https://arxiv.org/abs/2308.06571.
+			-> Returned with status code 404!
+		- \[48\] OpenAI. Sora: Video generation models as world simulators. https://openai.com, 2024.
+			-> Link caused an exception!
+		- \[58\] Levon Khachatryan, Andranik Movsisyan, Vahram Tadevosyan, Roberto Henschel, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi. Text2video-zero: Text-to-image diffusion models are zero-shot video generators, 2023. URL https://arxiv.org/abs/2303.13439.
+			-> Returned with status code 404!
+		- \[59\] Haoxin Chen, Yong Zhang, Xiaodong Cun, Menghan Xia, Xintao Wang, Chao Weng, and Ying Shan. Videocrafter2: Overcoming data limitations for high-quality video diffusion models, 2024. URL https://arxiv.org/abs/2401.09047.
+			-> Returned with status code 404!
+		- \[61\] Gemini Team, Petko Georgiev, and 1133 other authors. Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context, 2024. URL https://arxiv.org/abs/2403.05530.
+			-> Returned with status code 404!
+		- \[62\] Huiwen Chang, Han Zhang, Jarred Barber, AJ Maschinot, Jose Lezama, Lu Jiang, MingHsuan Yang, Kevin Murphy, William T. Freeman, Michael Rubinstein, Yuanzhen Li, and Dilip Krishnan. Muse: Text-to-image generation via masked generative transformers, 2023. URL https://arxiv.org/abs/2301.00704.
+			-> Returned with status code 404!
+		- \[64\] Wenyi Hong, Ming Ding, Wendi Zheng, Xinghan Liu, and Jie Tang. Cogvideo: Large-scale pretraining for text-to-video generation via transformers, 2022. URL https://arxiv.org/abs/2205.15868.
+			-> Returned with status code 404!
+		- \[65\] Zhengqing Yuan, Yixin Liu, Yihan Cao, Weixiang Sun, Haolong Jia, Ruoxi Chen, Zhaoxu Li, Bin Lin, Li Yuan, Lifang He, Chi Wang, Yanfang Ye, and Lichao Sun. Mora: Enabling generalist video generation via a multi-agent framework, 2024. URL https://arxiv.org/abs/2403.13248.
+			-> Returned with status code 404!
+		- \[75\] Christian Internò, Elena Raponi, Niki van Stein, Thomas Bäck, Markus Olhofer, Yaochu Jin, and Barbara Hammer. Federated hybrid model pruning through loss landscape exploration, 2025. URL https://arxiv.org/abs/2405.10271.
+			-> Returned with status code 404!
+		- \[81\] Jonathan Ho, William Chan, Chitwan Saharia, Jay Whang, Ruiqi Gao, Alexey Gritsenko, Diederik P. Kingma, Ben Poole, Mohammad Norouzi, David J. Fleet, and Tim Salimans. Imagen video: High definition video generation with diffusion models, 2022. URL https://arxiv.org/abs/2210.02303.
+			-> Returned with status code 404!
+		- \[82\] Jiahao Shao, Yuanbo Yang, Hongyu Zhou, Youmin Zhang, Yujun Shen, Matteo Poggi, and Yiyi Liao. Learning temporally consistent video depth from video diffusion priors. CoRR, abs/2406.01493, 2024. URL https://doi.org/10.48550/arXiv.2406.01493.
+			-> Returned with status code 404!
+		- \[83\] Dan Kondratyuk, Lijun Yu, Xiuye Gu, José Lezama, Jonathan Huang, Grant Schindler, Rachel Hornung, Vighnesh Birodkar, Jimmy Yan, Ming-Chang Chiu, Krishna Somandepalli, Hassan Akbari, Yair Alon, Yong Cheng, Josh Dillon, Agrim Gupta, Meera Hahn, Anja Hauth, David Hendon, Alonso Martinez, David Minnen, Mikhail Sirotenko, Kihyuk Sohn, Xuan Yang, Hartwig Adam, Ming-Hsuan Yang, Irfan Essa, Huisheng Wang, David A. Ross, Bryan Seybold, and Lu Jiang. Videopoet: A large language model for zero-shot video generation, 2024. URL https://arxiv.org/abs/2312.14125.
+			-> Returned with status code 404!
+		- \[84\] Bingyi Kang, Yang Yue, Rui Lu, Zhijie Lin, Yang Zhao, Kaixin Wang, Gao Huang, and Jiashi Feng. How far is video generation from world model: A physical law perspective, 2024. URL https://arxiv.org/abs/2411.02385.
+			-> Returned with status code 404!
+		- \[86\] Xiaofeng Wang, Zheng Zhu, Guan Huang, Boyuan Wang, Xinze Chen, and Jiwen Lu. Worlddreamer: Towards general world models for video generation via predicting masked tokens, 2024. URL https://arxiv.org/abs/2401.09985.Appendix Contents
+			-> Returned with status code 404!
+
+- Different links: $1/86=1.16\%$
+	- *Please note that if no link was provided, a found link will also show up in this statistic!*
+	- Different links:
+		=> total = 1
+		- \[16\] Zhengzhe Liu, Xiaojuan Qi, and Philip Torr. Global texture enhancement for fake face detection in the wild, 2020. URL https://arxiv.org/abs/2002.00133.
+			-> CHECK - Authors (0001) did not match found information: https://openaccess.thecvf.com/content_CVPR_2020/html/Liu_Global_Texture_Enhancement_for_Fake_Face_Detection_in_the_Wild_CVPR_2020_paper.html; https://openaccess.thecvf.com/content_CVPR_2020/html/Liu_Global_Texture_Enhancement_for_Fake_Face_Detection_in_the_Wild_CVPR_2020_paper.html
+
+- Successful searches: $32/86=37.21\%$
+- Skipped searches: $0/86=0.00\%$
+- Mismatching infos: $13/86=15.12\%$
+	- **Entries with mismatching author information:**
+		=> total = 5
+		- `[5] Yaohui Wang, Xinyuan Chen, Xin Ma, Shangchen Zhou, Ziqi Huang, Yi Wang, Ceyuan Yang, Yinan He, Jiashuo Yu, Peiqing Yang, et al. Lavie: High-quality video generation with cascaded latent diffusion models. arXiv preprint arXiv:2309.15103, 2023.`
+			- Authors (Guo, Wu, Si, Jiang, Loy, Dai, Lin, Qiao, Liu) did not match found publication titled 'LaVie: High-Quality Video Generation with Cascaded Latent Diffusion Models'
+		- `[8] Mengyu Chu, You Xie, Jonas Mayer, Laura Leal-Taixé, and Nils Thuerey. Learning temporal coherence via self-supervision for gan-based video generation. ACM Trans. Graph., 39(4), August 2020. ISSN 0730-0301. doi: 10.1145/3386569.3392457. URL https://doi.org/10.1145/3386569.3392457.`
+			- Authors (Leal-Taix'e) did not match found publication titled 'Learning temporal coherence via self-supervision for GAN-based video generation'
+		- `[14] Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby. An image is worth 16x16 words: Transformers for image recognition at scale, 2021. URL https://arxiv.org/abs/2010.11929.`
+			- Authors (0003, 0001) did not match found publication titled 'An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.'
+		- `[16] Zhengzhe Liu, Xiaojuan Qi, and Philip Torr. Global texture enhancement for fake face detection in the wild, 2020. URL https://arxiv.org/abs/2002.00133.`
+			- Authors (0001) did not match found information: https://openaccess.thecvf.com/content_CVPR_2020/html/Liu_Global_Texture_Enhancement_for_Fake_Face_Detection_in_the_Wild_CVPR_2020_paper.html
+		- `[70] Kristof Meding, Dominik Janzing, Bernhard Schölkopf, and Felix A Wichmann. Perceiving the arrow of time in autoregressive motion. Advances in Neural Information Processing Systems, 32, 2019.`
+			- Authors (Scholkopf) did not match found publication titled 'Perceiving the arrow of time in autoregressive motion'
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 8
+		- `[7] Sergey Tulyakov, Ming-Yu Liu, Xiaodong Yang, and Jan Kautz. Mocogan: Decomposing motion and content for video generation. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2018.`
+			- Year (2017) does not match expected year (2018)
+		- `[19] Md Asikuzzaman and Mark R Pickering. An overview of digital video watermarking. IEEE Transactions on Circuits and Systems for Video Technology, 28(9):2131–2153, 2017.`
+			- Year (2018) does not match expected year (2017)
+		- `[34] Ji Lin, Chuang Gan, and Song Han. Tsm: Temporal shift module for efficient video understanding. In Proceedings of the IEEE/CVF international conference on computer vision, pages 7083–7093, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[36] Christoph Feichtenhofer, Haoqi Fan, Jitendra Malik, and Kaiming He. Slowfast networks for video recognition. In Proceedings of the IEEE international conference on computer vision, pages 6202–6211, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[38] Yanghao Li, Chao-Yuan Wu, Haoqi Fan, Karttikeya Mangalam, Bo Xiong, Jitendra Malik, and Christoph Feichtenhofer. Mvitv2: Improved multiscale vision transformers for classification and detection. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 4804–4814, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[39] Ze Liu, Jia Ning, Yue Cao, Yixuan Wei, Zheng Zhang, Stephen Lin, and Han Hu. Video swin transformer. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 3202–3211, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[45] Ed Pizzi, Giorgos Kordopatis-Zilos, Hiral Patel, Gheorghe Postelnicu, Sugosh Nagavara Ravindra, Akshay Gupta, Symeon Papadopoulos, Giorgos Tolias, and Matthijs Douze. The 2023 video similarity dataset and challenge. Comput. Vis. Image Underst., 243:103997, 2024. URL https://doi.org/10.1016/j.cviu.2024.103997.`
+			- Year (2023) does not match expected year (2024)
+		- `[52] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 770–778, 2016.`
+			- Year (2015) does not match expected year (2016)
+- No entry found: $41/86=47.67\%$
+	- Unfound entries:
+		=> total = 41
+		- \[3\] Wenhao Wang and Yi Yang. Vidprom: A million-scale real prompt-gallery dataset for text-tovideo diffusion models, 2024. URL https://openreview.net/forum?id=pYNl76onJL.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!
+		- \[9\] Wentao Lei, Jinting Wang, Fengji Ma, Guanjie Huang, and Li Liu. Exploring the evolution of physics cognition in video generation. arXiv preprint arXiv:2503.21765, 2024.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: None of the 25 results matched the expected title!
+		- \[15\] Mika Westerlund. Deepfakes and synthetic media: The state of play, potential societal impacts, and policy responses. Journal of Cyber Policy, 8(2):213–234, 2023. doi: 10.1080/23738871. 2023.2285230.
+			-> WARNING: No results were found through the dblp search! | WARNING: None of the 33 results matched the expected title!
+		- \[17\] Zhenliang Ni, Qiangyu Yan, Mouxiao Huang, Tianning Yuan, Yehui Tang, Hailin Hu, Xinghao Chen, and Yunhe Wang. Genvidbench: A challenging benchmark for detecting ai-generated video, 2025. URL https://arxiv.org/abs/2501.11340.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[18\] Zhiyuan Yan, Yong Zhang, Xinhang Yuan, Siwei Lyu, and Baoyuan Wu. Deepfakebench: A comprehensive benchmark of deepfake detection, 2023. URL https://arxiv.org/abs/2307.01426.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[25\] M. Oquab et al. Dinov2: Learning robust visual representations without supervision. arXiv preprint arXiv:2304.07166, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[26\] Saman Motamed, Laura Culp, Kevin Swersky, Priyank Jaini, and Robert Geirhos. Do generative video models understand physical principles?, 2025. URL https://arxiv.org/abs/2501.09038.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[27\] You-Ming Chang, Chen Yeh, Wei-Chen Chiu, and Ning Yu. Antifakeprompt: Prompt-tuned vision-language models are fake image detectors, 2024. URL https://arxiv.org/abs/2310.17419.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[28\] Sheng-Yu Wang, Oliver Wang, Richard Zhang, Andrew Owens, and Alexei A. Efros. Cnngenerated images are surprisingly easy to spot... for now, 2020. URL https://arxiv.org/abs/1912.11035.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[29\] Chandler Timm Doloriel and Ngai-Man Cheung. Frequency masking for universal deepfake detection, 2024. URL https://arxiv.org/abs/2401.06506.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[30\] Joel Frank, Thorsten Eisenhofer, Lea Schönherr, Asja Fischer, Dorothea Kolossa, and Thorsten Holz. Leveraging frequency analysis for deep fake image recognition, 2020. URL https://arxiv.org/abs/2003.08685.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[32\] Xiuli Bi, Bo Liu, Fan Yang, Bin Xiao, Weisheng Li, Gao Huang, and Pamela C. Cosman. Detecting generated images by real images only, 2023. URL https://arxiv.org/abs/2311.00962.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[33\] Utkarsh Ojha, Yuheng Li, and Yong Jae Lee. Towards universal fake image detectors that generalize across generative models, 2024. URL https://arxiv.org/abs/2302.10174.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[40\] Jiahui Liu and et al. Tall–swin: Thumbnail layout transformer for generalised deepfake video detection. In ICCV, 2023.==
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[43\] Gedas Bertasius, Heng Wang, and Lorenzo Torresani. Is space-time attention all you need for video understanding? In ICML, 2021.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[44\] Pika Labs Team. Pika labs. Generative ai platform for creating video and visual content., 2024. URL https://pikalabs.com.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[46\] Uriel Singer, Adam Polyak, Thomas Hayes, Xi Yin, Jie An, Songyang Zhang, Qiyuan Hu, Harry Yang, Oron Ashual, Oran Gafni, Devi Parikh, Sonal Gupta, and Yaniv Taigman. Make-a-video: Text-to-video generation without text-video data, 2022. URL https://arxiv.org/abs/2209.14792.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[47\] Jiuniu Wang, Hangjie Yuan, Dayou Chen, Yingya Zhang, Xiang Wang, and Shiwei Zhang. Modelscope text-to-video technical report, 2023. URL https://arxiv.org/abs/2308.06571.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[48\] OpenAI. Sora: Video generation models as world simulators. https://openai.com, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[49\] Runway Team. Runway. Platform for ai-powered video editing and generative media creations, 2024. URL https://runwayml.com.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[55\] Jean-Bastien Grill, Florian Strub, Florent Altché, Corentin Tallec, Pierre Richemond, Elena Buchatskaya, Carl Doersch, Bernardo Avila Pires, Zhaohan Guo, Mohammad Gheshlaghi Azar, et al. Bootstrap your own latent-a new approach to self-supervised learning. Advances in neural information processing systems, 33:21271–21284, 2020.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[57\] Y. Chen et al. Videocrafter: A diffusion-based toolkit for high-quality video generation. arXiv preprint arXiv:2303.XXXXX, 2023.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[58\] Levon Khachatryan, Andranik Movsisyan, Vahram Tadevosyan, Roberto Henschel, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi. Text2video-zero: Text-to-image diffusion models are zero-shot video generators, 2023. URL https://arxiv.org/abs/2303.13439.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[59\] Haoxin Chen, Yong Zhang, Xiaodong Cun, Menghan Xia, Xintao Wang, Chao Weng, and Ying Shan. Videocrafter2: Overcoming data limitations for high-quality video diffusion models, 2024. URL https://arxiv.org/abs/2401.09047.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[60\] OpenAI. Sora: OpenAI’s Multimodal Agent. Sora: A review on background, technology, limitations, and opportunities of large vision models, 2024. URL https://openai.com/index/sora/.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[61\] Gemini Team, Petko Georgiev, and 1133 other authors. Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context, 2024. URL https://arxiv.org/abs/2403.05530.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[62\] Huiwen Chang, Han Zhang, Jarred Barber, AJ Maschinot, Jose Lezama, Lu Jiang, MingHsuan Yang, Kevin Murphy, William T. Freeman, Michael Rubinstein, Yuanzhen Li, and Dilip Krishnan. Muse: Text-to-image generation via masked generative transformers, 2023. URL https://arxiv.org/abs/2301.00704.
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[63\] Christian Blattmann et al. Stable video diffusion. arXiv preprint arXiv:2304.XXXX, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[64\] Wenyi Hong, Ming Ding, Wendi Zheng, Xinghan Liu, and Jie Tang. Cogvideo: Large-scale pretraining for text-to-video generation via transformers, 2022. URL https://arxiv.org/abs/2205.15868.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[65\] Zhengqing Yuan, Yixin Liu, Yihan Cao, Weixiang Sun, Haolong Jia, Ruoxi Chen, Zhaoxu Li, Bin Lin, Li Yuan, Lifang He, Chi Wang, Yanfang Ye, and Lichao Sun. Mora: Enabling generalist video generation via a multi-agent framework, 2024. URL https://arxiv.org/abs/2403.13248.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[72\] Ahmet Yi˘gitalp Tulga. The Malicious Exploitation of Deepfake Technology: Political Manipulation, Disinformation, and Privacy Violations in Taiwan. Global Taiwan Brief, May 2025. URL https://globaltaiwan.org/2025/05/the-malicious-exploitation-of-deepfake-technology/.Accessed May 2025.Actual author name should be verified from the source.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[73\] Ahmet Tulga. Fraud attempts with deepfakes have increased by 2137% over the last three years. Technical report, Signicat Press Releases, February 2025. Accessed May 2025.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[74\] Madeeha Masood, Mehar Guri, S L V Swetha Nadimpalli, Yan Ju, Siwei Lyu, and Ajita Rattani. Data-Driven Fairness Generalization for Deepfake Detection, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[75\] Christian Internò, Elena Raponi, Niki van Stein, Thomas Bäck, Markus Olhofer, Yaochu Jin, and Barbara Hammer. Federated hybrid model pruning through loss landscape exploration, 2025. URL https://arxiv.org/abs/2405.10271.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[77\] Eliza Bird, Harry Surden, and Alex Saveliev. Adoption of Watermarking for Generative AI Systems in Practice and Implications under the new EU AI Act, 2025.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[80\] Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. Highresolution image synthesis with latent diffusion models. arXiv preprint arXiv:2112.10752, 2021.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[81\] Jonathan Ho, William Chan, Chitwan Saharia, Jay Whang, Ruiqi Gao, Alexey Gritsenko, Diederik P. Kingma, Ben Poole, Mohammad Norouzi, David J. Fleet, and Tim Salimans. Imagen video: High definition video generation with diffusion models, 2022. URL https://arxiv.org/abs/2210.02303.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[83\] Dan Kondratyuk, Lijun Yu, Xiuye Gu, José Lezama, Jonathan Huang, Grant Schindler, Rachel Hornung, Vighnesh Birodkar, Jimmy Yan, Ming-Chang Chiu, Krishna Somandepalli, Hassan Akbari, Yair Alon, Yong Cheng, Josh Dillon, Agrim Gupta, Meera Hahn, Anja Hauth, David Hendon, Alonso Martinez, David Minnen, Mikhail Sirotenko, Kihyuk Sohn, Xuan Yang, Hartwig Adam, Ming-Hsuan Yang, Irfan Essa, Huisheng Wang, David A. Ross, Bryan Seybold, and Lu Jiang. Videopoet: A large language model for zero-shot video generation, 2024. URL https://arxiv.org/abs/2312.14125.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[84\] Bingyi Kang, Yang Yue, Rui Lu, Zhijie Lin, Yang Zhao, Kaixin Wang, Gao Huang, and Jiashi Feng. How far is video generation from world model: A physical law perspective, 2024. URL https://arxiv.org/abs/2411.02385.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[85\] David Ha and Jürgen Schmidhuber. World models. Zenodo, 2018. doi: 10.5281/ZENODO. 1207631. URL https://zenodo.org/record/1207631.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[86\] Xiaofeng Wang, Zheng Zhu, Guan Huang, Boyuan Wang, Xinze Chen, and Jiwen Lu. Worlddreamer: Towards general world models for video generation via predicting masked tokens, 2024. URL https://arxiv.org/abs/2401.09985.Appendix Contents
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/35 AI-Generated Video Detection/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 15
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 4
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 4
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in neural information processing systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE conference on computer vision and pattern recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- International Conference on Machine Learning
+	- Parsed as: International conference on machine learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- 5: Unlocking multimodal understanding across millions of tokens of context
+	- References literatures count from this outlet: 1
+- Platform for ai-powered video editing and generative media creations
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: International conference on learning representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Sora: A review on background, technology, limitations
+	- References literatures count from this outlet: 1
+- Digital Society & Virtual Governance, 1:72–88
+	- References literatures count from this outlet: 1
+- Annual Meeting of the Cognitive Science Society
+	- Parsed as: CogSci
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = B
+	- References literatures count from this outlet: 1
+- Generative ai platform for creating video and visual content. 
+	- References literatures count from this outlet: 1
+- Global Taiwan Brief
+	- References literatures count from this outlet: 1
+- Technical report, Signicat Press Releases
+	- References literatures count from this outlet: 1
+- IEEE International Joint Conference on Neural Networks
+	- Parsed as: 2024 International Joint Conference on Neural Networks
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = B
+	- References literatures count from this outlet: 1
+- Corrosion Communications
+	- Parsed as: CoRR
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 9.4
+	- References literatures count from this outlet: 1
+- Comput.  Vis.  Image Underst.
+	- References literatures count from this outlet: 1
+- NATURE NEUROSCIENCE
+	- Parsed as: Nature neuroscience
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 19.5
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: ICCV
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Nature Communications
+	- Parsed as: Nature communications
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 15.2
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE international conference on computer vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE/CVF international conference on computer vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- . .  for now
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: The Thirty-eighth Annual Conference on Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: A  Oh, T  Naumann, A  Globerson, K  Saenko, M  Hardt, and S  Levine, editors, Advances in Neural Information Processing Systems, volume 36,
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE JOURNAL ON SELECTED AREAS IN COMMUNICATIONS
+	- Parsed as: IEEE Journal on Selected areas in Communications
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 16.8
+	- References literatures count from this outlet: 1
+- NATURE REVIEWS MICROBIOLOGY
+	- Parsed as: Nature
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 102.8
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO TECHNOLOGY
+	- Parsed as: IEEE Transactions on Circuits and Systems for Video Technology
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 8.1
+	- References literatures count from this outlet: 1
+- Journal of Cyber Policy,
+	- References literatures count from this outlet: 1
+- ACM Trans Graph ,
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Zenodo
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Olivier J Hénaff, Robbe LT Goris, and Eero P Simoncelli*
+	- Normalized Authors: `['Hénaff O.', 'Goris R.', 'Simoncelli E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Perceptual straightening of natural videos*
+	- Year: *2019*
+	- Outlet: *Nature neuroscience*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Olivier J Hénaff, Yoon Bai, Julie A Charlton, Ian Nauhaus, Eero P Simoncelli, and Robbe LT Goris*
+	- Normalized Authors: `['Hénaff O.', 'Bai Y.', 'Charlton J.', 'Nauhaus I.', 'Simoncelli E.', 'Goris R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Primary visual cortex straightens natural video trajectories*
+	- Year: *2021*
+	- Outlet: *Nature communications*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Wenhao Wang and Yi Yang*
+	- Normalized Authors: `['Wang W.', 'Yang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vidprom: A million-scale real prompt-gallery dataset for text-tovideo diffusion models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://openreview.net/forum?id=pYNl76onJL.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Yingqing He, Tianyu Yang, Yong Zhang, Ying Shan, and Qifeng Chen*
+	- Normalized Authors: `['He Y.', 'Yang T.', 'Zhang Y.', 'Shan Y.', 'Chen Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Latent video diffusion models for high-fidelity long video generation*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Yaohui Wang, Xinyuan Chen, Xin Ma, Shangchen Zhou, Ziqi Huang, Yi Wang, Ceyuan Yang, Yinan He, Jiashuo Yu, Peiqing Yang, et al*
+	- Normalized Authors: `['Wang Y.', 'Chen X.', 'Ma X.', 'Zhou S.', 'Huang Z.', 'Wang Y.', 'Yang C.', 'He Y.', 'Yu J.', 'Yang P.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Lavie: High-quality video generation with cascaded latent diffusion models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Guo, Wu, Si, Jiang, Loy, Dai, Lin, Qiao, Liu) did not match found publication titled 'LaVie: High-Quality Video Generation with Cascaded Latent Diffusion Models'*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Pengyuan Zhou, Lin Wang, Zhi Liu, Yanbin Hao, Pan Hui, Sasu Tarkoma, and Jussi Kangasharju*
+	- Normalized Authors: `['Zhou P.', 'Wang L.', 'Liu Z.', 'Hao Y.', 'Hui P.', 'Tarkoma S.', 'Kangasharju J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A survey on generative ai and llm for video generation, understanding, and streaming*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Sergey Tulyakov, Ming-Yu Liu, Xiaodong Yang, and Jan Kautz*
+	- Normalized Authors: `['Tulyakov S.', 'Liu M.', 'Yang X.', 'Kautz J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mocogan: Decomposing motion and content for video generation*
+	- Year: *2018*
+	- Outlet: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2017) does not match expected year (2018)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Mengyu Chu, You Xie, Jonas Mayer, Laura Leal-Taixé, and Nils Thuerey*
+	- Normalized Authors: `['Chu M.', 'Xie Y.', 'Mayer J.', 'Leal-Taixé L.', 'Thuerey N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning temporal coherence via self-supervision for gan-based video generation*
+	- Year: *2020*
+	- Outlet: *ACM Trans Graph ,*
+	- Link: *https://doi.org/10.1145/3386569.3392457.*
+	- **Valid?**: *CHECK - Authors (Leal-Taix'e) did not match found publication titled 'Learning temporal coherence via self-supervision for GAN-based video generation'*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Wentao Lei, Jinting Wang, Fengji Ma, Guanjie Huang, and Li Liu*
+	- Normalized Authors: `['Lei W.', 'Wang J.', 'Ma F.', 'Huang G.', 'Liu L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Exploring the evolution of physics cognition in video generation*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: None of the 25 results matched the expected title!*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Neelu Madan, Andreas Møgelmose, Rajat Modi, Yogesh S  Rawat, and Thomas B  Moeslund*
+	- Normalized Authors: `['Madan N.', 'Møgelmose A.', 'Modi R.', 'Rawat Y.', 'Moeslund T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Foundation models for video understanding: A survey*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Yimu Wang, Xuye Liu, Wei Pang, Li Ma, Shuai Yuan, Paul Debevec, and Ning Yu*
+	- Normalized Authors: `['Wang Y.', 'Liu X.', 'Pang W.', 'Ma L.', 'Yuan S.', 'Debevec P.', 'Yu N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Survey of video diffusion models: Foundations, implementations, and applications*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Jonathan Ho, Ajay Jain, and Pieter Abbeel*
+	- Normalized Authors: `['Ho J.', 'Jain A.', 'Abbeel P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Denoising diffusion probabilistic models*
+	- Year: *2020*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin*
+	- Normalized Authors: `['Vaswani A.', 'Shazeer N.', 'Parmar N.', 'Uszkoreit J.', 'Jones L.', 'Gomez A.', 'Kaiser Ł.', 'Polosukhin I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Attention is all you need*
+	- Year: *2017*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, Dirk Weissenborn, Xiaohua Zhai, Thomas Unterthiner, Mostafa Dehghani, Matthias Minderer, Georg Heigold, Sylvain Gelly, Jakob Uszkoreit, and Neil Houlsby*
+	- Normalized Authors: `['Dosovitskiy A.', 'Beyer L.', 'Kolesnikov A.', 'Weissenborn D.', 'Zhai X.', 'Unterthiner T.', 'Dehghani M.', 'Minderer M.', 'Heigold G.', 'Gelly S.', 'Uszkoreit J.', 'Houlsby N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *An image is worth 16x16 words: Transformers for image recognition at scale.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2010.11929.*
+	- **Valid?**: *CHECK - Authors (0003, 0001) did not match found publication titled 'An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale.'*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Mika Westerlund*
+	- Normalized Authors: `['Westerlund M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deepfakes and synthetic media: The state of play, potential societal impacts, and policy responses*
+	- Year: *2023*
+	- Outlet: *Journal of Cyber Policy,*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: None of the 33 results matched the expected title!*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Zhengzhe Liu, Xiaojuan Qi, and Philip Torr*
+	- Normalized Authors: `['Liu Z.', 'Qi X.', 'Torr P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Global texture enhancement for fake face detection in the wild.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://openaccess.thecvf.com/content_CVPR_2020/html/Liu_Global_Texture_Enhancement_for_Fake_Face_Detection_in_the_Wild_CVPR_2020_paper.html*
+	- **Valid?**: *CHECK - Authors (0001) did not match found information: https://openaccess.thecvf.com/content_CVPR_2020/html/Liu_Global_Texture_Enhancement_for_Fake_Face_Detection_in_the_Wild_CVPR_2020_paper.html*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Zhenliang Ni, Qiangyu Yan, Mouxiao Huang, Tianning Yuan, Yehui Tang, Hailin Hu, Xinghao Chen, and Yunhe Wang*
+	- Normalized Authors: `['Ni Z.', 'Yan Q.', 'Huang M.', 'Yuan T.', 'Tang Y.', 'Hu H.', 'Chen X.', 'Wang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Genvidbench: A challenging benchmark for detecting ai-generated video.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2501.11340.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Zhiyuan Yan, Yong Zhang, Xinhang Yuan, Siwei Lyu, and Baoyuan Wu*
+	- Normalized Authors: `['Yan Z.', 'Zhang Y.', 'Yuan X.', 'Lyu S.', 'Wu B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deepfakebench: A comprehensive benchmark of deepfake detection.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2307.01426.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Md Asikuzzaman and Mark R Pickering*
+	- Normalized Authors: `['Asikuzzaman M.', 'Pickering M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *An overview of digital video watermarking*
+	- Year: *2017*
+	- Outlet: *IEEE Transactions on Circuits and Systems for Video Technology*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2017)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Sumanth Dathathri, Abigail See, Sumedh Ghaisas, Po-Sen Huang, Rob McAdam, Johannes Welbl, Vandana Bachani, Alex Kaskasoli, Robert Stanforth, Tatiana Matejovicova, et al*
+	- Normalized Authors: `['Dathathri S.', 'See A.', 'Ghaisas S.', 'Huang P.', 'McAdam R.', 'Welbl J.', 'Bachani V.', 'Kaskasoli A.', 'Stanforth R.', 'Matejovicova T.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Scalable watermarking for identifying large language model outputs*
+	- Year: *2024*
+	- Outlet: *Nature*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Scott Craver, Nasir Memon, B-L Yeo, and Minerva M Yeung*
+	- Normalized Authors: `['Craver S.', 'Memon N.', 'Yeo B.', 'Yeung M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Resolving rightful ownerships with invisible watermarking techniques: Limitations, attacks, and implications*
+	- Year: *1998*
+	- Outlet: *IEEE Journal on Selected areas in Communications*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Hanlin Zhang, Benjamin L  Edelman, Danilo Francati, Daniele Venturi, Giuseppe Ateniese, and Boaz Barak*
+	- Normalized Authors: `['Zhang H.', 'Edelman B.', 'Francati D.', 'Venturi D.', 'Ateniese G.', 'Barak B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Watermarks in the sand: Impossibility of strong watermarking for generative models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Eghbal Hosseini and Evelina Fedorenko*
+	- Normalized Authors: `['Hosseini E.', 'Fedorenko E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Large language models implicitly learn to straighten neural sentence trajectories to construct a predictive representation of natural language*
+	- Year: *2023*
+	- Outlet: *A  Oh, T  Naumann, A  Globerson, K  Saenko, M  Hardt, and S  Levine, editors, Advances in Neural Information Processing Systems, volume 36,*
+	- Link: *https://proceedings.neurips.cc/paper_files/paper/2023/file/88dddaf430b5bc38ab8228902bb61821-Paper-Conference.pdf.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Xueyan Niu, Cristina Savin, and Eero P Simoncelli*
+	- Normalized Authors: `['Niu X.', 'Savin C.', 'Simoncelli E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning predictable and robust neural representations by straightening image sequences*
+	- Year: *2024*
+	- Outlet: *The Thirty-eighth Annual Conference on Neural Information Processing Systems*
+	- Link: *https://openreview.net/forum?id=fYfliutfHX.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *M  Oquab et al*
+	- Normalized Authors: `['Oquab M.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Dinov2: Learning robust visual representations without supervision*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Saman Motamed, Laura Culp, Kevin Swersky, Priyank Jaini, and Robert Geirhos*
+	- Normalized Authors: `['Motamed S.', 'Culp L.', 'Swersky K.', 'Jaini P.', 'Geirhos R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Do generative video models understand physical principles?.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2501.09038.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *You-Ming Chang, Chen Yeh, Wei-Chen Chiu, and Ning Yu*
+	- Normalized Authors: `['Chang Y.', 'Yeh C.', 'Chiu W.', 'Yu N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Antifakeprompt: Prompt-tuned vision-language models are fake image detectors.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2310.17419.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Sheng-Yu Wang, Oliver Wang, Richard Zhang, Andrew Owens, and Alexei A  Efros*
+	- Normalized Authors: `['Wang S.', 'Wang O.', 'Zhang R.', 'Owens A.', 'Efros A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cnngenerated images are surprisingly easy to spot*
+	- Year: *2020*
+	- Outlet: *. .  for now*
+	- Link: *https://arxiv.org/abs/1912.11035.*
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Chandler Timm Doloriel and Ngai-Man Cheung*
+	- Normalized Authors: `['Doloriel C.', 'Cheung N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Frequency masking for universal deepfake detection.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2401.06506.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Joel Frank, Thorsten Eisenhofer, Lea Schönherr, Asja Fischer, Dorothea Kolossa, and Thorsten Holz*
+	- Normalized Authors: `['Frank J.', 'Eisenhofer T.', 'Schönherr L.', 'Fischer A.', 'Kolossa D.', 'Holz T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Leveraging frequency analysis for deep fake image recognition.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2003.08685.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Chuangchuang Tan, Yao Zhao, Shikui Wei, Guanghua Gu, and Yunchao Wei*
+	- Normalized Authors: `['Tan C.', 'Zhao Y.', 'Wei S.', 'Gu G.', 'Wei Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning on gradients: Generalized artifacts representation for gan-generated images detection*
+	- Year: *2023*
+	- Outlet: *2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Xiuli Bi, Bo Liu, Fan Yang, Bin Xiao, Weisheng Li, Gao Huang, and Pamela C  Cosman*
+	- Normalized Authors: `['Bi X.', 'Liu B.', 'Yang F.', 'Xiao B.', 'Li W.', 'Huang G.', 'Cosman P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Detecting generated images by real images only.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2311.00962.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Utkarsh Ojha, Yuheng Li, and Yong Jae Lee*
+	- Normalized Authors: `['Ojha U.', 'Li Y.', 'Lee Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards universal fake image detectors that generalize across generative models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2302.10174.*
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Ji Lin, Chuang Gan, and Song Han*
+	- Normalized Authors: `['Lin J.', 'Gan C.', 'Han S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tsm: Temporal shift module for efficient video understanding*
+	- Year: *2019*
+	- Outlet: *Proceedings of the IEEE/CVF international conference on computer vision*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Joao Carreira and Andrew Zisserman*
+	- Normalized Authors: `['Carreira J.', 'Zisserman A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Quo vadis, action recognition? a new model and the kinetics dataset*
+	- Year: *2017*
+	- Outlet: *proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Christoph Feichtenhofer, Haoqi Fan, Jitendra Malik, and Kaiming He*
+	- Normalized Authors: `['Feichtenhofer C.', 'Fan H.', 'Malik J.', 'He K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Slowfast networks for video recognition*
+	- Year: *2019*
+	- Outlet: *Proceedings of the IEEE international conference on computer vision*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Christoph Feichtenhofer*
+	- Normalized Authors: `['Feichtenhofer C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *X3d: Expanding architectures for efficient video recognition*
+	- Year: *2020*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Yanghao Li, Chao-Yuan Wu, Haoqi Fan, Karttikeya Mangalam, Bo Xiong, Jitendra Malik, and Christoph Feichtenhofer*
+	- Normalized Authors: `['Li Y.', 'Wu C.', 'Fan H.', 'Mangalam K.', 'Xiong B.', 'Malik J.', 'Feichtenhofer C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mvitv2: Improved multiscale vision transformers for classification and detection*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Ze Liu, Jia Ning, Yue Cao, Yixuan Wei, Zheng Zhang, Stephen Lin, and Han Hu*
+	- Normalized Authors: `['Liu Z.', 'Ning J.', 'Cao Y.', 'Wei Y.', 'Zhang Z.', 'Lin S.', 'Hu H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Video swin transformer*
+	- Year: *2022*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Jiahui Liu and et al*
+	- Normalized Authors: `['Liu J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Tall–swin: Thumbnail layout transformer for generalised deepfake video detection*
+	- Year: *2023*
+	- Outlet: *ICCV*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Ceyuan Yang, Yinghao Xu, Jianping Shi, Bo Dai, and Bolei Zhou*
+	- Normalized Authors: `['Yang C.', 'Xu Y.', 'Shi J.', 'Dai B.', 'Zhou B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Temporal pyramid network for action recognition*
+	- Year: *2020*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Kunchang Li, Yali Wang, Yinan He, Yizhuo Li, Yi Wang, Limin Wang, and Yu Qiao*
+	- Normalized Authors: `['Li K.', 'Wang Y.', 'He Y.', 'Li Y.', 'Wang Y.', 'Wang L.', 'Qiao Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Uniformerv2: Spatiotemporal learning by arming image vits with video uniformer*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Gedas Bertasius, Heng Wang, and Lorenzo Torresani*
+	- Normalized Authors: `['Bertasius G.', 'Wang H.', 'Torresani L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Is space-time attention all you need for video understanding? In ICML.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Pika Labs Team*
+	- Normalized Authors: `['Team P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Pika labs*
+	- Year: *2024*
+	- Outlet: *Generative ai platform for creating video and visual content. *
+	- Link: *https://pikalabs.com.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Ed Pizzi, Giorgos Kordopatis-Zilos, Hiral Patel, Gheorghe Postelnicu, Sugosh Nagavara Ravindra, Akshay Gupta, Symeon Papadopoulos, Giorgos Tolias, and Matthijs Douze*
+	- Normalized Authors: `['Pizzi E.', 'Kordopatis-Zilos G.', 'Patel H.', 'Postelnicu G.', 'Ravindra S.', 'Gupta A.', 'Papadopoulos S.', 'Tolias G.', 'Douze M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The 2023 video similarity dataset and challenge*
+	- Year: *2024*
+	- Outlet: *Comput.  Vis.  Image Underst.*
+	- Link: *https://doi.org/10.1016/j.cviu.2024.103997.*
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Uriel Singer, Adam Polyak, Thomas Hayes, Xi Yin, Jie An, Songyang Zhang, Qiyuan Hu, Harry Yang, Oron Ashual, Oran Gafni, Devi Parikh, Sonal Gupta, and Yaniv Taigman*
+	- Normalized Authors: `['Singer U.', 'Polyak A.', 'Hayes T.', 'Yin X.', 'An J.', 'Zhang S.', 'Hu Q.', 'Yang H.', 'Ashual O.', 'Gafni O.', 'Parikh D.', 'Gupta S.', 'Taigman Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Make-a-video: Text-to-video generation without text-video data.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2209.14792.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Jiuniu Wang, Hangjie Yuan, Dayou Chen, Yingya Zhang, Xiang Wang, and Shiwei Zhang*
+	- Normalized Authors: `['Wang J.', 'Yuan H.', 'Chen D.', 'Zhang Y.', 'Wang X.', 'Zhang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Modelscope text-to-video technical report.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2308.06571.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *OpenAI*
+	- Normalized Authors: `['OpenAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sora: Video generation models as world simulators*
+	- Year: *0*
+	- Outlet: **
+	- Link: *https://openai.com,*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Runway Team*
+	- Normalized Authors: `['Team R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Runway*
+	- Year: *2024*
+	- Outlet: *Platform for ai-powered video editing and generative media creations*
+	- Link: *https://runwayml.com.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Alex Krizhevsky, Ilya Sutskever, and Geoffrey E Hinton*
+	- Normalized Authors: `['Krizhevsky A.', 'Sutskever I.', 'Hinton G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Imagenet classification with deep convolutional neural networks*
+	- Year: *2012*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Karen Simonyan and Andrew Zisserman*
+	- Normalized Authors: `['Simonyan K.', 'Zisserman A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Very deep convolutional networks for large-scale image recognition*
+	- Year: *2014*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun*
+	- Normalized Authors: `['He K.', 'Zhang X.', 'Ren S.', 'Sun J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep residual learning for image recognition*
+	- Year: *2016*
+	- Outlet: *Proceedings of the IEEE conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2015) does not match expected year (2016)*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Robert Geirhos, Patricia Rubisch, Claudio Michaelis, Matthias Bethge, Felix A Wichmann, and Wieland Brendel*
+	- Normalized Authors: `['Geirhos R.', 'Rubisch P.', 'Michaelis C.', 'Bethge M.', 'Wichmann F.', 'Brendel W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Imagenet-trained cnns are biased towards texture; increasing shape bias improves accuracy and robustness*
+	- Year: *2018*
+	- Outlet: *International conference on learning representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Ting Chen, Simon Kornblith, Mohammad Norouzi, and Geoffrey Hinton*
+	- Normalized Authors: `['Chen T.', 'Kornblith S.', 'Norouzi M.', 'Hinton G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A simple framework for contrastive learning of visual representations*
+	- Year: *2020*
+	- Outlet: *International conference on machine learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Jean-Bastien Grill, Florian Strub, Florent Altché, Corentin Tallec, Pierre Richemond, Elena Buchatskaya, Carl Doersch, Bernardo Avila Pires, Zhaohan Guo, Mohammad Gheshlaghi Azar, et al*
+	- Normalized Authors: `['Grill J.', 'Strub F.', 'Altché F.', 'Tallec C.', 'Richemond P.', 'Buchatskaya E.', 'Doersch C.', 'Pires B.', 'Guo Z.', 'Azar M.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Bootstrap your own latent-a new approach to self-supervised learning*
+	- Year: *2020*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, et al*
+	- Normalized Authors: `['Radford A.', 'Kim J.', 'Hallacy C.', 'Ramesh A.', 'Goh G.', 'Agarwal S.', 'Sastry G.', 'Askell A.', 'Mishkin P.', 'Clark J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Learning transferable visual models from natural language supervision*
+	- Year: *2021*
+	- Outlet: *International conference on machine learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Y  Chen et al*
+	- Normalized Authors: `['Chen Y.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Videocrafter: A diffusion-based toolkit for high-quality video generation*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Levon Khachatryan, Andranik Movsisyan, Vahram Tadevosyan, Roberto Henschel, Zhangyang Wang, Shant Navasardyan, and Humphrey Shi*
+	- Normalized Authors: `['Khachatryan L.', 'Movsisyan A.', 'Tadevosyan V.', 'Henschel R.', 'Wang Z.', 'Navasardyan S.', 'Shi H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Text2video-zero: Text-to-image diffusion models are zero-shot video generators.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2303.13439.*
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Haoxin Chen, Yong Zhang, Xiaodong Cun, Menghan Xia, Xintao Wang, Chao Weng, and Ying Shan*
+	- Normalized Authors: `['Chen H.', 'Zhang Y.', 'Cun X.', 'Xia M.', 'Wang X.', 'Weng C.', 'Shan Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Videocrafter2: Overcoming data limitations for high-quality video diffusion models.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2401.09047.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *OpenAI*
+	- Normalized Authors: `['OpenAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sora: OpenAI’s Multimodal Agent*
+	- Year: *2024*
+	- Outlet: *Sora: A review on background, technology, limitations*
+	- Link: *https://openai.com/index/sora/.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Gemini Team, Petko Georgiev, and 1133 other authors*
+	- Normalized Authors: `['Team G.', 'Georgiev P.', 'authors 1.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gemini 1*
+	- Year: *2024*
+	- Outlet: *5: Unlocking multimodal understanding across millions of tokens of context*
+	- Link: *https://arxiv.org/abs/2403.05530.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Huiwen Chang, Han Zhang, Jarred Barber, AJ Maschinot, Jose Lezama, Lu Jiang, MingHsuan Yang, Kevin Murphy, William T  Freeman, Michael Rubinstein, Yuanzhen Li, and Dilip Krishnan*
+	- Normalized Authors: `['Chang H.', 'Zhang H.', 'Barber J.', 'Maschinot A.', 'Lezama J.', 'Jiang L.', 'Yang M.', 'Murphy K.', 'Freeman W.', 'Rubinstein M.', 'Li Y.', 'Krishnan D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Muse: Text-to-image generation via masked generative transformers.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2301.00704.*
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Christian Blattmann et al*
+	- Normalized Authors: `['Blattmann C.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Stable video diffusion*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Wenyi Hong, Ming Ding, Wendi Zheng, Xinghan Liu, and Jie Tang*
+	- Normalized Authors: `['Hong W.', 'Ding M.', 'Zheng W.', 'Liu X.', 'Tang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cogvideo: Large-scale pretraining for text-to-video generation via transformers.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2205.15868.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Zhengqing Yuan, Yixin Liu, Yihan Cao, Weixiang Sun, Haolong Jia, Ruoxi Chen, Zhaoxu Li, Bin Lin, Li Yuan, Lifang He, Chi Wang, Yanfang Ye, and Lichao Sun*
+	- Normalized Authors: `['Yuan Z.', 'Liu Y.', 'Cao Y.', 'Sun W.', 'Jia H.', 'Chen R.', 'Li Z.', 'Lin B.', 'Yuan L.', 'He L.', 'Wang C.', 'Ye Y.', 'Sun L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mora: Enabling generalist video generation via a multi-agent framework.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2403.13248.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *David Klindt, Lukas Schott, Yash Sharma, Ivan Ustyuzhaninov, Wieland Brendel, Matthias Bethge, and Dylan Paiton*
+	- Normalized Authors: `['Klindt D.', 'Schott L.', 'Sharma Y.', 'Ustyuzhaninov I.', 'Brendel W.', 'Bethge M.', 'Paiton D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards nonlinear disentanglement in natural data with temporal sparse coding*
+	- Year: *2020*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Sarah Schwettmann, Jason Fischer, Josh Tenenbaum, and Nancy Kanwisher*
+	- Normalized Authors: `['Schwettmann S.', 'Fischer J.', 'Tenenbaum J.', 'Kanwisher N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Evidence for an intuitive physics engine in the human brain*
+	- Year: *2018*
+	- Outlet: *CogSci*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *David Danks*
+	- Normalized Authors: `['Danks D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The psychology of causal perception and reasoning*
+	- Year: *2009*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 69:**
+	- Ref. ID: *69*
+	- Authors: *Donglai Wei, Joseph J Lim, Andrew Zisserman, and William T Freeman*
+	- Normalized Authors: `['Wei D.', 'Lim J.', 'Zisserman A.', 'Freeman W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning and using the arrow of time*
+	- Year: *2018*
+	- Outlet: *Proceedings of the IEEE conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 70:**
+	- Ref. ID: *70*
+	- Authors: *Kristof Meding, Dominik Janzing, Bernhard Schölkopf, and Felix A Wichmann*
+	- Normalized Authors: `['Meding K.', 'Janzing D.', 'Schölkopf B.', 'Wichmann F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Perceiving the arrow of time in autoregressive motion*
+	- Year: *2019*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Scholkopf) did not match found publication titled 'Perceiving the arrow of time in autoregressive motion'*
+- **Number 71:**
+	- Ref. ID: *71*
+	- Authors: *Sophia LI*
+	- Normalized Authors: `['LI S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The social harms of ai-generated fake news: Addressing deepfake and ai political manipulation*
+	- Year: *2025*
+	- Outlet: *Digital Society & Virtual Governance, 1:72–88*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 72:**
+	- Ref. ID: *72*
+	- Authors: *Ahmet Yi˘gitalp Tulga*
+	- Normalized Authors: `['Tulga A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The Malicious Exploitation of Deepfake Technology: Political Manipulation, Disinformation, and Privacy Violations in Taiwan*
+	- Year: *2025*
+	- Outlet: *Global Taiwan Brief*
+	- Link: *https://globaltaiwan.org/2025/05/the-malicious-exploitation-of-deepfake-technology/.Accessed*
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 73:**
+	- Ref. ID: *73*
+	- Authors: *Ahmet Tulga*
+	- Normalized Authors: `['Tulga A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Fraud attempts with deepfakes have increased by 2137% over the last three years*
+	- Year: *2025*
+	- Outlet: *Technical report, Signicat Press Releases*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 74:**
+	- Ref. ID: *74*
+	- Authors: *Madeeha Masood, Mehar Guri, S L V Swetha Nadimpalli, Yan Ju, Siwei Lyu, and Ajita Rattani*
+	- Normalized Authors: `['Masood M.', 'Guri M.', 'Nadimpalli S.', 'Ju Y.', 'Lyu S.', 'Rattani A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Data-Driven Fairness Generalization for Deepfake Detection.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 75:**
+	- Ref. ID: *75*
+	- Authors: *Christian Internò, Elena Raponi, Niki van Stein, Thomas Bäck, Markus Olhofer, Yaochu Jin, and Barbara Hammer*
+	- Normalized Authors: `['Internò C.', 'Raponi E.', 'Stein N.', 'Bäck T.', 'Olhofer M.', 'Jin Y.', 'Hammer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Federated hybrid model pruning through loss landscape exploration.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2405.10271.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 76:**
+	- Ref. ID: *76*
+	- Authors: *Christian Internò, Markus Olhofer, Yaochu Jin, and Barbara Hammer*
+	- Normalized Authors: `['Internò C.', 'Olhofer M.', 'Jin Y.', 'Hammer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Federated loss exploration for improved convergence on non-iid data*
+	- Year: *2024*
+	- Outlet: *2024 International Joint Conference on Neural Networks*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 77:**
+	- Ref. ID: *77*
+	- Authors: *Eliza Bird, Harry Surden, and Alex Saveliev*
+	- Normalized Authors: `['Bird E.', 'Surden H.', 'Saveliev A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adoption of Watermarking for Generative AI Systems in Practice and Implications under the new EU AI Act.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 78:**
+	- Ref. ID: *78*
+	- Authors: *Carl Vondrick, Hamed Pirsiavash, and Antonio Torralba*
+	- Normalized Authors: `['Vondrick C.', 'Pirsiavash H.', 'Torralba A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Generating videos with scene dynamics*
+	- Year: *2016*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 79:**
+	- Ref. ID: *79*
+	- Authors: *Mohammad Babaeizadeh, Chelsea Finn, Dumitru Erhan, Roy H Campbell, and Sergey Levine*
+	- Normalized Authors: `['Babaeizadeh M.', 'Finn C.', 'Erhan D.', 'Campbell R.', 'Levine S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Stochastic variational video prediction*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 80:**
+	- Ref. ID: *80*
+	- Authors: *Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer*
+	- Normalized Authors: `['Rombach R.', 'Blattmann A.', 'Lorenz D.', 'Esser P.', 'Ommer B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Highresolution image synthesis with latent diffusion models*
+	- Year: *2021*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 81:**
+	- Ref. ID: *81*
+	- Authors: *Jonathan Ho, William Chan, Chitwan Saharia, Jay Whang, Ruiqi Gao, Alexey Gritsenko, Diederik P  Kingma, Ben Poole, Mohammad Norouzi, David J  Fleet, and Tim Salimans*
+	- Normalized Authors: `['Ho J.', 'Chan W.', 'Saharia C.', 'Whang J.', 'Gao R.', 'Gritsenko A.', 'Kingma D.', 'Poole B.', 'Norouzi M.', 'Fleet D.', 'Salimans T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Imagen video: High definition video generation with diffusion models.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2210.02303.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 82:**
+	- Ref. ID: *82*
+	- Authors: *Jiahao Shao, Yuanbo Yang, Hongyu Zhou, Youmin Zhang, Yujun Shen, Matteo Poggi, and Yiyi Liao*
+	- Normalized Authors: `['Shao J.', 'Yang Y.', 'Zhou H.', 'Zhang Y.', 'Shen Y.', 'Poggi M.', 'Liao Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning temporally consistent video depth from video diffusion priors*
+	- Year: *2024*
+	- Outlet: *CoRR*
+	- Link: *https://doi.org/10.48550/arXiv.2406.01493.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 83:**
+	- Ref. ID: *83*
+	- Authors: *Dan Kondratyuk, Lijun Yu, Xiuye Gu, José Lezama, Jonathan Huang, Grant Schindler, Rachel Hornung, Vighnesh Birodkar, Jimmy Yan, Ming-Chang Chiu, Krishna Somandepalli, Hassan Akbari, Yair Alon, Yong Cheng, Josh Dillon, Agrim Gupta, Meera Hahn, Anja Hauth, David Hendon, Alonso Martinez, David Minnen, Mikhail Sirotenko, Kihyuk Sohn, Xuan Yang, Hartwig Adam, Ming-Hsuan Yang, Irfan Essa, Huisheng Wang, David A  Ross, Bryan Seybold, and Lu Jiang*
+	- Normalized Authors: `['Kondratyuk D.', 'Yu L.', 'Gu X.', 'Lezama J.', 'Huang J.', 'Schindler G.', 'Hornung R.', 'Birodkar V.', 'Yan J.', 'Chiu M.', 'Somandepalli K.', 'Akbari H.', 'Alon Y.', 'Cheng Y.', 'Dillon J.', 'Gupta A.', 'Hahn M.', 'Hauth A.', 'Hendon D.', 'Martinez A.', 'Minnen D.', 'Sirotenko M.', 'Sohn K.', 'Yang X.', 'Adam H.', 'Yang M.', 'Essa I.', 'Wang H.', 'Ross D.', 'Seybold B.', 'Jiang L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Videopoet: A large language model for zero-shot video generation.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2312.14125.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 84:**
+	- Ref. ID: *84*
+	- Authors: *Bingyi Kang, Yang Yue, Rui Lu, Zhijie Lin, Yang Zhao, Kaixin Wang, Gao Huang, and Jiashi Feng*
+	- Normalized Authors: `['Kang B.', 'Yue Y.', 'Lu R.', 'Lin Z.', 'Zhao Y.', 'Wang K.', 'Huang G.', 'Feng J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *How far is video generation from world model: A physical law perspective.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2411.02385.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 85:**
+	- Ref. ID: *85*
+	- Authors: *David Ha and Jürgen Schmidhuber*
+	- Normalized Authors: `['Ha D.', 'Schmidhuber J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *World models*
+	- Year: *2018*
+	- Outlet: *Zenodo*
+	- Link: *https://zenodo.org/record/1207631.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 86:**
+	- Ref. ID: *86*
+	- Authors: *Xiaofeng Wang, Zheng Zhu, Guan Huang, Boyuan Wang, Xinze Chen, and Jiwen Lu*
+	- Normalized Authors: `['Wang X.', 'Zhu Z.', 'Huang G.', 'Wang B.', 'Chen X.', 'Lu J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Worlddreamer: Towards general world models for video generation via predicting masked tokens.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2401.09985.Appendix*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*, generative adversarial networks, variational autoencoders) struggled with fidelity and temporal coherence [7–9]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*Watermarking is one option but relies on model operators’ goodwill and can be circumvented [19–22]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 39
+- '*23 VideoSwin [39] 62*'
+	- This flag is for the paper with Ref. ID = 39
+- '*15 VideoSwin [39] 57*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Concurrently, 50,000 natural videos are randomly chosen from DVSC2023 [45]*'
+	- This flag is for the paper with Ref. ID = 45
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*1 Introduction Generative AI has significantly advanced in synthesizing realistic video content [4–6]*'
+	- This flag is for the paper with Ref. ID = 5
+- '*, generative adversarial networks, variational autoencoders) struggled with fidelity and temporal coherence [7–9]*'
+	- This flag is for the paper with Ref. ID = 8
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*] TSM [34] 70*'
+	- This flag is for the paper with Ref. ID = 34
+- '*90 SlowFast [36] 12*'
+	- This flag is for the paper with Ref. ID = 36
+- '*] SlowFast [36] 81*'
+	- This flag is for the paper with Ref. ID = 36
+- '*09 MVIT V2 [38] 76*'
+	- This flag is for the paper with Ref. ID = 38
+- '*4 Perceptual straightening of natural videos in DINOv2 Pixel Domain DINOv2 Representation Domain Figure 4: t-SNE embeddings of curvature trajectories for 1,000 videos from the VideoProM dataset [3]: 500 natural and 500 AI-generated (125 each from Pika [44], VideoCrafter2 [45], Text2VideoZero [46], and ModelScope [47]; 24 frames/video)*'
+	- This flag is for the paper with Ref. ID = 45
+- '*A comparative analysis of eight vision encoders-AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself-confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 52
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*Inspired by the “perceptual straightening” hypothesis [1, 2]—which suggests real-world video trajectories become more straight in neural representation domain—we analyze deviations from this expected geometric property*'
+	- This flag is for the paper with Ref. ID = 1
+- '*According to the perceptual straightening hypothesis, natural inputs map to straight paths in neural representations while unnatural sequences form curved trajectories [1, 2]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*This has been verified in neuroscience, psychophysics, on CNNs and LLMs [1, 23]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*While ANNs may not perfectly replicate biological straightening [1, 2, 24], we expect their learned representations to show AI-generated videos as more curved in activation space than real videos*'
+	- This flag is for the paper with Ref. ID = 1
+- '*According to the temporal straightening hypothesis, biological visual systems simplify the processing of dynamic stimuli by transforming curved temporal trajectories into straightened trajectories of internal representations [1, 2]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Following [1, 2], the curvature θi of the representation trajectory is defined as the angle between successive displacement vectors, ∆zi and ∆zi+1: θi = Curvature z }| { arccos[ Consecutive Displacement z}|{ ∆zi · Consecutive Displacement z }| { ∆zi+1 ∥∆zi∥2 | {z } Temporal Distance (di) ∥∆zi+1∥2 | {z } Temporal Distance (di+1) | {z } Cosine similarity between ∆zi and ∆zi+1 ], (1) zi zi+1 zi+2 θi ∆zi ∆zi+1 Figure 3: Trajectory curvature Eq*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Each xi is resized to 224 × 224 pixels and normalized to [0, 1]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*We here propose using simple statistics such as the angle between video frame representations, inspired by the perceptual straightening hypothesis from neuroscience [1], to distinguish natural from generated videos*'
+	- This flag is for the paper with Ref. ID = 1
+- '*The finding that natural videos trace straighter paths than AIgenerated ones in a frozen vision transformer dovetails with the perceptual straightening phenomenon reported in perceptual decision tasks and brain recordings [1, 2]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Inspired by the “perceptual straightening” hypothesis [1, 2]—which suggests real-world video trajectories become more straight in neural representation domain—we analyze deviations from this expected geometric property*'
+	- This flag is for the paper with Ref. ID = 2
+- '*According to the perceptual straightening hypothesis, natural inputs map to straight paths in neural representations while unnatural sequences form curved trajectories [1, 2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*While ANNs may not perfectly replicate biological straightening [1, 2, 24], we expect their learned representations to show AI-generated videos as more curved in activation space than real videos*'
+	- This flag is for the paper with Ref. ID = 2
+- '*According to the temporal straightening hypothesis, biological visual systems simplify the processing of dynamic stimuli by transforming curved temporal trajectories into straightened trajectories of internal representations [1, 2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Although the raw pixel trajectories of natural videos are highly curved, the neural representations in the human visual system become straightened to support efficient temporal prediction and processing[2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Following [1, 2], the curvature θi of the representation trajectory is defined as the angle between successive displacement vectors, ∆zi and ∆zi+1: θi = Curvature z }| { arccos[ Consecutive Displacement z}|{ ∆zi · Consecutive Displacement z }| { ∆zi+1 ∥∆zi∥2 | {z } Temporal Distance (di) ∥∆zi+1∥2 | {z } Temporal Distance (di+1) | {z } Cosine similarity between ∆zi and ∆zi+1 ], (1) zi zi+1 zi+2 θi ∆zi ∆zi+1 Figure 3: Trajectory curvature Eq*'
+	- This flag is for the paper with Ref. ID = 2
+- '*The finding that natural videos trace straighter paths than AIgenerated ones in a frozen vision transformer dovetails with the perceptual straightening phenomenon reported in perceptual decision tasks and brain recordings [1, 2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*63% AUROC on the VidProM benchmark [3]), substantially outperforming existing image- and video-based methods*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Detecting AI videos is more challenging than AI generated image due to temporal consistency requirements that necessitate thorough analysis across frames [3, 17]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*We demonstrate through extensive experiments on diverse benchmarks (VidProM [3], GenVidBench [17], and Physics-IQ [26]) and models, that ReStraV improve detection accuracy that often surpasses state-of-the-art (SoTA) methods*'
+	- This flag is for the paper with Ref. ID = 3
+- '*4 Perceptual straightening of natural videos in DINOv2 Pixel Domain DINOv2 Representation Domain Figure 4: t-SNE embeddings of curvature trajectories for 1,000 videos from the VideoProM dataset [3]: 500 natural and 500 AI-generated (125 each from Pika [44], VideoCrafter2 [45], Text2VideoZero [46], and ModelScope [47]; 24 frames/video)*'
+	- This flag is for the paper with Ref. ID = 3
+- '*This figure visualizes t-SNE embeddings of video curvature trajectories from the VideoProM dataset [3], including natural videos and synthetic ones from various generators (such as Pika [44], VideoCraft2 [57], Text2Video-Zero [58], and ModelScope [47])*'
+	- This flag is for the paper with Ref. ID = 3
+- '*We select 50,000 AI-generated samples (10,000 each from Pika [44], VideoCraft2 [59], Text2VideoZero [58], ModelScope [3], and Sora [60]) from VideoProM [3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*We select 50,000 AI-generated samples (10,000 each from Pika [44], VideoCraft2 [59], Text2VideoZero [58], ModelScope [3], and Sora [60]) from VideoProM [3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Class priors are identical, and each subset is balanced among five AI models (Pika [44], VideoCraft2 [59], Text2Video-Zero [58], ModelScope [3] and Sora [60])*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Table 1: Performance and inference time of ReStraV’s classifiers, balanced 50k/50k natural/AI-generated video test set from VideoProM [3], cf*'
+	- This flag is for the paper with Ref. ID = 3
+- '*SoTA image-based detectors on VidProM [3]; B) Vs*'
+	- This flag is for the paper with Ref. ID = 3
+- '*SoTA video detectors on VidProM [3] (evaluating “seen”, “unseen”, and “future” generator scenarios) and on the GenVidBench [17] dataset (in “cross-source”/“generator” (M) scenarios and its “Plants” hard task subclass (P)); C) Vs*'
+	- This flag is for the paper with Ref. ID = 3
+- '*We use a balanced test set (40,000 real videos; 10,000 AI-generated for each of four models: Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope [47], replicating [3]’s implementation*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Table 2 summarizes the results from [3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*image-based detectors on VidProM [3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*We compare ReStraV against the widely recognized VideoSwinTiny [40] (implementation from [17]) on the VidProM [3], with data setup following Section 7*'
+	- This flag is for the paper with Ref. ID = 3
+- '*VideoSwin [40] fake video detection on VidProM[3]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*1 Introduction Generative AI has significantly advanced in synthesizing realistic video content [4–6]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*1 Introduction Generative AI has significantly advanced in synthesizing realistic video content [4–6]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*Robust strategies to detect AI-generated content are therefore urgently needed [6, 11, 16]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*, generative adversarial networks, variational autoencoders) struggled with fidelity and temporal coherence [7–9]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*However, rapidly evolving large-scale foundation models have introduced sophisticated generative techniques [10, 11]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*However, rapidly evolving large-scale foundation models have introduced sophisticated generative techniques [10, 11]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Robust strategies to detect AI-generated content are therefore urgently needed [6, 11, 16]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*These methods, often diffusion models [12] and transformer-based architectures [13, 14], can produce near-photorealistic videos from text or initial frames*'
+	- This flag is for the paper with Ref. ID = 12
+- '*These methods, often diffusion models [12] and transformer-based architectures [13, 14], can produce near-photorealistic videos from text or initial frames*'
+	- This flag is for the paper with Ref. ID = 13
+- '*These methods, often diffusion models [12] and transformer-based architectures [13, 14], can produce near-photorealistic videos from text or initial frames*'
+	- This flag is for the paper with Ref. ID = 14
+- '*As these systems improve, the ability to easily generate convincing synthetic videos raises pressing concerns about malicious manipulation and fabricated visual media [15]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Broader Impacts AI-generated video increasingly fuels fake news and disinformation [15, 71, 72]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Key strategies include careful contextual deployment, rigorous bias auditing and debiasing efforts [74], promoting media literacy [15], and advancing complementary methods like robust content watermarking [20]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Robust strategies to detect AI-generated content are therefore urgently needed [6, 11, 16]*'
+	- This flag is for the paper with Ref. ID = 16
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 16
+- '*97 Gram-Net [16] 84*'
+	- This flag is for the paper with Ref. ID = 16
+- '*Detecting AI videos is more challenging than AI generated image due to temporal consistency requirements that necessitate thorough analysis across frames [3, 17]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*We demonstrate through extensive experiments on diverse benchmarks (VidProM [3], GenVidBench [17], and Physics-IQ [26]) and models, that ReStraV improve detection accuracy that often surpasses state-of-the-art (SoTA) methods*'
+	- This flag is for the paper with Ref. ID = 17
+- '*SoTA video detectors on VidProM [3] (evaluating “seen”, “unseen”, and “future” generator scenarios) and on the GenVidBench [17] dataset (in “cross-source”/“generator” (M) scenarios and its “Plants” hard task subclass (P)); C) Vs*'
+	- This flag is for the paper with Ref. ID = 17
+- '*We compare ReStraV against the widely recognized VideoSwinTiny [40] (implementation from [17]) on the VidProM [3], with data setup following Section 7*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Plants (P) task, the most challenging subset from [17]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Baseline’s results from [17]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*SoTA video based methods on the GenVidBench [17]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*, face-swapping irregularities), may not generalize to diverse generative methods [18]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Watermarking is one option but relies on model operators’ goodwill and can be circumvented [19–22]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Key strategies include careful contextual deployment, rigorous bias auditing and debiasing efforts [74], promoting media literacy [15], and advancing complementary methods like robust content watermarking [20]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*Watermarking is one option but relies on model operators’ goodwill and can be circumvented [19–22]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*Watermarking is one option but relies on model operators’ goodwill and can be circumvented [19–22]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*However, deploying detection technologies like ReStraV faces an "arms race" with evolving generation methods (see Limitations; also [22])*'
+	- This flag is for the paper with Ref. ID = 22
+- '*This has been verified in neuroscience, psychophysics, on CNNs and LLMs [1, 23]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*While ANNs may not perfectly replicate biological straightening [1, 2, 24], we expect their learned representations to show AI-generated videos as more curved in activation space than real videos*'
+	- This flag is for the paper with Ref. ID = 24
+- '*We surmise synthetic videos exhibit curvature patterns deviating from the lower curvature trajectories of real events, supported by differing ANN representational dynamics for natural versus artificial videos [24], as illustrated in Fig*'
+	- This flag is for the paper with Ref. ID = 24
+- '*Although the learned representations of ANNs like DINOv2 may not fully straighten natural video trajectories [24], their activation dynamics exhibit significant and informative differences between natural and AI-generated videos*'
+	- This flag is for the paper with Ref. ID = 24
+- '*To test this hypothesis, we use the DINOv2 ViT-S/14 pretrained visual encoder [25], chosen for its sensitivity to generative artifacts (Fig*'
+	- This flag is for the paper with Ref. ID = 25
+- '*We show the approach yields a reliable “fake video” signal across vision encoders, even those not trained on video data; DINOv2’s [25] self-supervised representations excel without task-specific tuning*'
+	- This flag is for the paper with Ref. ID = 25
+- '*These preprocessed frames are then encoded by the DINOv2 ViT-S/14 model [25]*'
+	- This flag is for the paper with Ref. ID = 25
+- '*A comparative analysis of eight vision encoders—AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself—confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 25
+- '*, DINOv2 [25]) may cause fairness issues across diverse content [74]*'
+	- This flag is for the paper with Ref. ID = 25
+- '*We demonstrate through extensive experiments on diverse benchmarks (VidProM [3], GenVidBench [17], and Physics-IQ [26]) and models, that ReStraV improve detection accuracy that often surpasses state-of-the-art (SoTA) methods*'
+	- This flag is for the paper with Ref. ID = 26
+- '*2A uses natural videos from the Physics-IQ benchmark [26] and synthetic replicas (generated using models like Sora [48], Pika [44], and Runway2 [49]), where each natural-synthetic pair is matched one-to-one in terms of starting scene/objects and duration to isolate generative artifacts*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Evaluated on paired natural videos from the Physics-IQ benchmark [26] and corresponding synthetic videos, DINOv2 reveals a significantly larger mean curvature difference (∆θ = θAI −θNat) between their trajectories*'
+	- This flag is for the paper with Ref. ID = 26
+- '*5 Pro [61]) on the Physics-IQ dataset [26]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Gemini results from [26]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*We report [26]’s evaluation using a two-alternative forced-choice (2AFC) paradigm (a gold-standard psychophysical protocol)*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Motamed et al [26] report results for a vision-language model (VLM), Gemini 1*'
+	- This flag is for the paper with Ref. ID = 26
+- '*We evaluate ReStraV in the same setting, comparing against reported numbers [26]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Accuracy ↑(%) mAP ↑(%) Method Pika VC2 T2VZ MS Avg Pika VC2 T2VZ MS Avg CNNSpot [27] 51*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Baseline methods achieve moderate accuracies (45%–62%), with LNP [31] and Fusing [28] showing lower values*'
+	- This flag is for the paper with Ref. ID = 28
+- '*99 Fusing [28] 50*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 29
+- '*82 FreDect [29] 50*'
+	- This flag is for the paper with Ref. ID = 29
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 30
+- '*08 GIA [30] 53*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Baseline methods achieve moderate accuracies (45%–62%), with LNP [31] and Fusing [28] showing lower values*'
+	- This flag is for the paper with Ref. ID = 31
+- '*73 LNP [31] 43*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 32
+- '*70 DFD [32] 50*'
+	- This flag is for the paper with Ref. ID = 32
+- '*Many early detection efforts, including several image-based detectors benchmarked in our work (CNNSpot [27], Fusing [28], Gram-Net [16], FreDect [29], GIA [30], LNP [31], DFD [32], UnivFD [33], focused on spatial or frequency-domain artifacts within individual frames*'
+	- This flag is for the paper with Ref. ID = 33
+- '*20 UnivFD [33] 49*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 35
+- '*66 I3D [35] 8*'
+	- This flag is for the paper with Ref. ID = 35
+- '*30 I3D [35] 39*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 37
+- '*40 X3D [37] 92*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 40
+- '*We compare ReStraV against the widely recognized VideoSwinTiny [40] (implementation from [17]) on the VidProM [3], with data setup following Section 7*'
+	- This flag is for the paper with Ref. ID = 40
+- '*VideoSwin [40] fake video detection on VidProM[3]*'
+	- This flag is for the paper with Ref. ID = 40
+- '*Condition VideoSwin [40] ReStraV (MLP) Seen generators Acc: 77*'
+	- This flag is for the paper with Ref. ID = 40
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 41
+- '*86 TPN [41] 43*'
+	- This flag is for the paper with Ref. ID = 41
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 42
+- '*24 UniFormer V2 [42] 13*'
+	- This flag is for the paper with Ref. ID = 42
+- '*Dedicated video detectors, such as adapted action recognition models (TSM [34], I3D [35], SlowFast [36]) and Transformer-based architectures (X3D [37], MVIT-V2 [38], VideoSwin [39, 40], TPN [41], UniFormer-V2 [42], TimeSformer [43], aim to learn motion anomalies and temporal inconsistencies*'
+	- This flag is for the paper with Ref. ID = 43
+- '*76 TimeSformer [43] 77*'
+	- This flag is for the paper with Ref. ID = 43
+- '*4 Perceptual straightening of natural videos in DINOv2 Pixel Domain DINOv2 Representation Domain Figure 4: t-SNE embeddings of curvature trajectories for 1,000 videos from the VideoProM dataset [3]: 500 natural and 500 AI-generated (125 each from Pika [44], VideoCrafter2 [45], Text2VideoZero [46], and ModelScope [47]; 24 frames/video)*'
+	- This flag is for the paper with Ref. ID = 44
+- '*2A uses natural videos from the Physics-IQ benchmark [26] and synthetic replicas (generated using models like Sora [48], Pika [44], and Runway2 [49]), where each natural-synthetic pair is matched one-to-one in terms of starting scene/objects and duration to isolate generative artifacts*'
+	- This flag is for the paper with Ref. ID = 44
+- '*This figure visualizes t-SNE embeddings of video curvature trajectories from the VideoProM dataset [3], including natural videos and synthetic ones from various generators (such as Pika [44], VideoCraft2 [57], Text2Video-Zero [58], and ModelScope [47])*'
+	- This flag is for the paper with Ref. ID = 44
+- '*We select 50,000 AI-generated samples (10,000 each from Pika [44], VideoCraft2 [59], Text2VideoZero [58], ModelScope [3], and Sora [60]) from VideoProM [3]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Class priors are identical, and each subset is balanced among five AI models (Pika [44], VideoCraft2 [59], Text2Video-Zero [58], ModelScope [3] and Sora [60])*'
+	- This flag is for the paper with Ref. ID = 44
+- '*We use a balanced test set (40,000 real videos; 10,000 AI-generated for each of four models: Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope [47], replicating [3]’s implementation*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Detectors are trained on videos from Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope 7*'
+	- This flag is for the paper with Ref. ID = 44
+- '*5% for Pika [44], 94*'
+	- This flag is for the paper with Ref. ID = 44
+- '*4 Perceptual straightening of natural videos in DINOv2 Pixel Domain DINOv2 Representation Domain Figure 4: t-SNE embeddings of curvature trajectories for 1,000 videos from the VideoProM dataset [3]: 500 natural and 500 AI-generated (125 each from Pika [44], VideoCrafter2 [45], Text2VideoZero [46], and ModelScope [47]; 24 frames/video)*'
+	- This flag is for the paper with Ref. ID = 46
+- '*We use a balanced test set (40,000 real videos; 10,000 AI-generated for each of four models: Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope [47], replicating [3]’s implementation*'
+	- This flag is for the paper with Ref. ID = 46
+- '*, VC2 [59] and T2VZ [46]), which are then used for testing*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Detectors are trained on videos from Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope 7*'
+	- This flag is for the paper with Ref. ID = 46
+- '*4 Perceptual straightening of natural videos in DINOv2 Pixel Domain DINOv2 Representation Domain Figure 4: t-SNE embeddings of curvature trajectories for 1,000 videos from the VideoProM dataset [3]: 500 natural and 500 AI-generated (125 each from Pika [44], VideoCrafter2 [45], Text2VideoZero [46], and ModelScope [47]; 24 frames/video)*'
+	- This flag is for the paper with Ref. ID = 47
+- '*This figure visualizes t-SNE embeddings of video curvature trajectories from the VideoProM dataset [3], including natural videos and synthetic ones from various generators (such as Pika [44], VideoCraft2 [57], Text2Video-Zero [58], and ModelScope [47])*'
+	- This flag is for the paper with Ref. ID = 47
+- '*We use a balanced test set (40,000 real videos; 10,000 AI-generated for each of four models: Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope [47], replicating [3]’s implementation*'
+	- This flag is for the paper with Ref. ID = 47
+- '*[47], and tested on MuseV [62], Stable Video Diffusion (SVD) [63], CogVideo [64], and Mora [65]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*2A uses natural videos from the Physics-IQ benchmark [26] and synthetic replicas (generated using models like Sora [48], Pika [44], and Runway2 [49]), where each natural-synthetic pair is matched one-to-one in terms of starting scene/objects and duration to isolate generative artifacts*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Future generators: To simulate encountering a novel advanced model, ReStraV (trained on older generators) is tested on Sora [48]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*32 Future generators (Sora [48]) Acc: 60*'
+	- This flag is for the paper with Ref. ID = 48
+- '*2A uses natural videos from the Physics-IQ benchmark [26] and synthetic replicas (generated using models like Sora [48], Pika [44], and Runway2 [49]), where each natural-synthetic pair is matched one-to-one in terms of starting scene/objects and duration to isolate generative artifacts*'
+	- This flag is for the paper with Ref. ID = 49
+- '*9% for Runway [49], and 99*'
+	- This flag is for the paper with Ref. ID = 49
+- '*A comparative analysis of eight vision encoders—AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself—confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 50
+- '*A comparative analysis of eight vision encoders—AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself—confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 51
+- '*A comparative analysis of eight vision encoders—AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself—confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 53
+- '*A comparative analysis of eight vision encoders—AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself—confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 54
+- '*A comparative analysis of eight vision encoders—AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself—confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 55
+- '*A comparative analysis of eight vision encoders—AlexNet [50], VGG-16 [51], ResNet-50 [52], SIN-ResNet-50 [53], SimCLR-R50 [54], BYOL-R50 [55], CLIP (ViT-B/32) [56], and DINOv2 (ViT-S/14) [25] itself—confirms its superiority (Fig*'
+	- This flag is for the paper with Ref. ID = 56
+- '*This figure visualizes t-SNE embeddings of video curvature trajectories from the VideoProM dataset [3], including natural videos and synthetic ones from various generators (such as Pika [44], VideoCraft2 [57], Text2Video-Zero [58], and ModelScope [47])*'
+	- This flag is for the paper with Ref. ID = 57
+- '*We use a balanced test set (40,000 real videos; 10,000 AI-generated for each of four models: Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope [47], replicating [3]’s implementation*'
+	- This flag is for the paper with Ref. ID = 57
+- '*Detectors are trained on videos from Pika [44], VideoCraft2 [57], Text2Video-Zero [46], ModelScope 7*'
+	- This flag is for the paper with Ref. ID = 57
+- '*This figure visualizes t-SNE embeddings of video curvature trajectories from the VideoProM dataset [3], including natural videos and synthetic ones from various generators (such as Pika [44], VideoCraft2 [57], Text2Video-Zero [58], and ModelScope [47])*'
+	- This flag is for the paper with Ref. ID = 58
+- '*We select 50,000 AI-generated samples (10,000 each from Pika [44], VideoCraft2 [59], Text2VideoZero [58], ModelScope [3], and Sora [60]) from VideoProM [3]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Class priors are identical, and each subset is balanced among five AI models (Pika [44], VideoCraft2 [59], Text2Video-Zero [58], ModelScope [3] and Sora [60])*'
+	- This flag is for the paper with Ref. ID = 58
+- '*78 Unseen generators ([58, 59] ) Acc: 62*'
+	- This flag is for the paper with Ref. ID = 58
+- '*We select 50,000 AI-generated samples (10,000 each from Pika [44], VideoCraft2 [59], Text2VideoZero [58], ModelScope [3], and Sora [60]) from VideoProM [3]*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Class priors are identical, and each subset is balanced among five AI models (Pika [44], VideoCraft2 [59], Text2Video-Zero [58], ModelScope [3] and Sora [60])*'
+	- This flag is for the paper with Ref. ID = 59
+- '*, VC2 [59] and T2VZ [46]), which are then used for testing*'
+	- This flag is for the paper with Ref. ID = 59
+- '*78 Unseen generators ([58, 59] ) Acc: 62*'
+	- This flag is for the paper with Ref. ID = 59
+- '*We select 50,000 AI-generated samples (10,000 each from Pika [44], VideoCraft2 [59], Text2VideoZero [58], ModelScope [3], and Sora [60]) from VideoProM [3]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Class priors are identical, and each subset is balanced among five AI models (Pika [44], VideoCraft2 [59], Text2Video-Zero [58], ModelScope [3] and Sora [60])*'
+	- This flag is for the paper with Ref. ID = 60
+- '*5 Pro [61]) on the Physics-IQ dataset [26]*'
+	- This flag is for the paper with Ref. ID = 61
+- '*[61], on this dataset: Gemini identifies Runway and Pika videos with reasonable accuracy (74*'
+	- This flag is for the paper with Ref. ID = 61
+- '*[47], and tested on MuseV [62], Stable Video Diffusion (SVD) [63], CogVideo [64], and Mora [65]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*[47], and tested on MuseV [62], Stable Video Diffusion (SVD) [63], CogVideo [64], and Mora [65]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*[47], and tested on MuseV [62], Stable Video Diffusion (SVD) [63], CogVideo [64], and Mora [65]*'
+	- This flag is for the paper with Ref. ID = 64
+- '*[47], and tested on MuseV [62], Stable Video Diffusion (SVD) [63], CogVideo [64], and Mora [65]*'
+	- This flag is for the paper with Ref. ID = 65
+- '*Prior work found that temporal transitions in natural videos latent representations follow highly sparse distributions [66]*'
+	- This flag is for the paper with Ref. ID = 66
+- '*Our results imply that even task-agnostic, self-supervised networks acquire a comparable inductive bias—suggesting a shared computational pressure, across biological and artificial systems, to encode “intuitive physics” in a geometry that favors smooth temporal trajectories [67]*'
+	- This flag is for the paper with Ref. ID = 67
+- '*The arrow of time [68–70] can be a strong signal, but our current metric is completely invariant to a reversal of time*'
+	- This flag is for the paper with Ref. ID = 68
+- '*The arrow of time [68–70] can be a strong signal, but our current metric is completely invariant to a reversal of time*'
+	- This flag is for the paper with Ref. ID = 69
+- '*The arrow of time [68–70] can be a strong signal, but our current metric is completely invariant to a reversal of time*'
+	- This flag is for the paper with Ref. ID = 70
+- '*Broader Impacts AI-generated video increasingly fuels fake news and disinformation [15, 71, 72]*'
+	- This flag is for the paper with Ref. ID = 71
+- '*Broader Impacts AI-generated video increasingly fuels fake news and disinformation [15, 71, 72]*'
+	- This flag is for the paper with Ref. ID = 72
+- '*, a reported 2137% rise in financial sector attempts over three years [73]), efficient detection methods like ReStraV are important*'
+	- This flag is for the paper with Ref. ID = 73
+- '*, DINOv2 [25]) may cause fairness issues across diverse content [74]*'
+	- This flag is for the paper with Ref. ID = 74
+- '*Key strategies include careful contextual deployment, rigorous bias auditing and debiasing efforts [74], promoting media literacy [15], and advancing complementary methods like robust content watermarking [20]*'
+	- This flag is for the paper with Ref. ID = 74
+- '*Moreover, to ensure that detection tools themselves do not infringe on user privacy when deployed at scale, they can be developed and trained using privacy-by-design principles such as Federated Learning [75, 76]*'
+	- This flag is for the paper with Ref. ID = 75
+- '*Moreover, to ensure that detection tools themselves do not infringe on user privacy when deployed at scale, they can be developed and trained using privacy-by-design principles such as Federated Learning [75, 76]*'
+	- This flag is for the paper with Ref. ID = 76
+- '*The importance of such measures is increasingly highlighted by policy trends, such as those related to content provenance and the EU AI Act [77], all vital for a trustworthy digital ecosystem*'
+	- This flag is for the paper with Ref. ID = 77
+

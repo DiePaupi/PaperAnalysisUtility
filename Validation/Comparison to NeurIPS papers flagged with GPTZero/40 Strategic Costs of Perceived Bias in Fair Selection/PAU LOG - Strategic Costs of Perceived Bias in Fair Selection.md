@@ -1,0 +1,1189 @@
+
+```
+Enter the path to the PDF file: "C:...\PAU - All  GPTZero NeurIPS Paper with H\40 Strategic Costs of Perceived Bias in Fair Selection\Strategic Costs of Perceived Bias in Fair Selection.pdf"
+---
+INFO:
+ - 'springer' = Has two headerlines to skip (1st = Shortitle/Author; 2nd = page number)
+ - 'acm'      = Has no headerlines to skip
+Enter a supported formatting template (['springer', 'acm']): acm
+---
+INFO:
+ - 'LFflTOY' = Lastname, Firstname (firstletter), Title, Outlet, Year
+            -> This is, for example, used by Springer Nature
+ - 'LFflYTO' = Lastname, Firstname (firstletter), Year, Title, Outlet
+            -> This is, for example, used by the AAAI/ACM Conference
+ - 'FLYTO'   = Firstname, Lastname, Year, Title, Outlet
+            -> This is, for example, used by ACM
+ - 'FLTOY'  = Firstname, Lastname, Title, Outlet, Year
+            -> This is, for example, used by the NeurIPS Conference
+Enter a supported bibliography layout (['LFflTOY', 'LFflYTO', 'FLYTO', 'FLTOY']): FLTOY           
+---
+INFO:
+ - 'natbib'           = No numbering; reference in 'References' section starts with the authors' names
+ - 'numbered_squares' = Reference in 'References' section starts with, e.g., '[1]'
+ - 'number_with_dot'  = Reference in 'References' section starts with, e.g., '1.'
+Enter a supported bibliography numbering (['natbib', 'numbered_squares', 'number_with_dot']): numbered_squares
+---
+INFO:
+ - 'numeric'           = A number placed inside square brackets (e.g., [28])
+                      -> Multiple references are separated by a comma (e.g., [28,29])
+ - 'authoryear_round'  = Authors' names and the year places insince round brackets (e.g., (Dignum et al., 2025))
+                      -> Multiple references are separated by a semicolon (e.g., (Dignum et al. 2025; Caliskan et al. 2017))
+                      -> Please note that the author and year are *not* separated
+ - 'authoryear_square' = Authors' names and the year places insince square brackets (e.g., [Dignum et al., 2025])
+                      -> Multiple references are separated by a comma (e.g., [Dignum et al., 2025, Caliskan et al., 2017])
+                      -> Please note that the author and year are also separated by a comma
+Enter a supported referencing template (['numeric', 'authoryear_round', 'authoryear_square']): numeric
+##########################################################
+# Starting Structure Check
+##########################################################
+- Found Introduction on page 2
+- Found following heading '2 - Related work' on page 2
+- Found following heading '3 - Model and metrics' on page 2
+- Found following heading '4 - Theoretical results: Nash equilibrium and metrics for large n' on page 2
+- Found following heading '5 - Analysis: metric behavior and intervention design' on page 2
+- Found following heading '6 - Proof of Theorem 4.1: two-group contest' on page 2
+- Found following heading '7 - Omitted details for uniform distribution analysis from Sections 4 and 5' on page 2
+- Found following heading '8 - Conclusion, limitations, and future work' on page 2
+=> Found references/literature section on page 35
+- Found first appendix 'A - Comparison of the two-group contest with relevant models' on page 41
+- Found following appendix 'B - Illustrative examples for the two-group case' on page 42
+- Found following appendix 'C - Analysis of finite NE policies in the uniform distribution case' on page 43
+- Found following appendix 'D - Other bias models and analysis of metrics for their Nash equilibrium' on page 45
+- Found following appendix 'E - Additional details to Section 5' on page 51
+##########################################################
+# Starting Literature Check
+##########################################################
+Checking references on pages: 35 -- 41
+All found references: 90
+-----------
+ -> Parsed references DataFrame:
+   ref_id                                            authors  ... link  valid
+0       1                 Erwin Amann and Wolfgang Leininger  ...        None
+1       2  Jiafu An, Difang Huang, Chen Lin, and Mingzhu Tai  ...        None
+2       3                                      Kenneth Arrow  ...        None
+3       4                                    Kenneth J Arrow  ...        None
+4       5                      Jackie Baek and Ali Makhdoumi  ...        None
+..    ...                                                ...  ...  ...    ...
+85     86                                       Lyss Welding  ...        None
+86     87                  Christine Wennerås and Agnes Wold  ...        None
+87     88                                       Rick Wicklin  ...        None
+88     89                                        Jazzlin Yee  ...        None
+89     90                                           Feng Zhu  ...        None
+
+[90 rows x 10 columns]
+- Checking reference 1/90:
+  -> INFO: Now checking 10 results for matching title: 'Asymmetric all-pay auctions with incomplete information: The two-player case'
+       -> INFO: All authors matched!
+- Checking reference 2/90:
+  -> INFO: Now checking 1 results for matching title: 'Measuring gender and racial biases in large language models: Intersectional evidence from automated resume evaluation'
+       -> INFO: All authors matched!
+- Checking reference 3/90:
+  -> INFO: Now checking 10 results for matching title: 'The theory of discrimination'
+       -> INFO: All authors matched!
+- Checking reference 4/90:
+  => ERROR: Semantic Scholar didn't find any results to parse!
+     -> Semantic Scholar search was done for the title: What has economics to say about racial discrimination? Journal of Economic Perspectives, 12(2):91–100, June.
+  -> WARNING: No results were found through the dblp search!
+  -> INFO: Now checking 8 results for matching title: 'What has economics to say about racial discrimination? Journal of Economic Perspectives, 12(2):91–100, June.'
+  -> WARNING: None of the 8 results matched the expected title!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=What+has+economics+to+say+about+racial+discrimination?+Journal+of+Economic+Perspectives%2C+12(2):91–100%2C+June. manually and check the results.
+        -> Author(s): Kenneth J Arrow
+        -> Title:     What has economics to say about racial discrimination? Journal of Economic Perspectives, 12(2):91–100, June.
+        -> Year:      1998
+     -> Manual search was skipped by the user.
+- Checking reference 5/90:
+  -> INFO: Now checking 10 results for matching title: 'The feedback loop of statistical discrimination'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2025) does not match expected year (2023)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 6/90:
+  -> Checking if provided link is pingable: http://www.fairmlbook.org
+  -> INFO: Now checking 10 results for matching title: 'Fairness and Machine Learning'
+  -> WARNING: None of the 10 results matched the expected title!
+  => ERROR loading dblp result as JSON: 'hit'
+     -> dblp search was done with these keywords: ['Barocas', 'Hardt', 'Narayanan', '2019']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=http://www.fairmlbook.org manually and check the results.
+        -> Author(s): Solon Barocas, Moritz Hardt, and Arvind Narayanan
+        -> Title:     Fairness and Machine Learning
+        -> Year:      2019
+     -> Manual search was skipped by the user.
+- Checking reference 7/90:
+  -> INFO: Now checking 3 results for matching title: 'The symmetric multiple prize all-pay auction with complete information'
+       -> INFO: All authors matched!
+- Checking reference 8/90:
+  -> INFO: Now checking 10 results for matching title: 'Joint seat allocation: An algorithmic perspective.'
+  -> WARNING: None of the 10 results matched the expected title!
+  => ERROR loading dblp result as JSON: 'hit'
+     -> dblp search was done with these keywords: ['Baswana', 'Chakrabarti', 'Kamakoti', 'Kanoria', 'Kumar', 'Patange', 'Chandran', '2015']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Joint+seat+allocation:+An+algorithmic+perspective. manually and check the results.
+        -> Author(s): Surender Baswana, Partha P Chakrabarti, V Kamakoti, Yash Kanoria, Ashok Kumar, Utkarsh Patange, and Sharat Chandran
+        -> Title:     Joint seat allocation: An algorithmic perspective.
+        -> Year:      2015
+     -> Manual search was skipped by the user.
+- Checking reference 9/90:
+  -> INFO: Now checking 1 results for matching title: 'Equal Opportunity in Online Classification with Partial Feedback'
+       -> INFO: All authors matched!
+- Checking reference 10/90:
+  -> INFO: Now checking 10 results for matching title: 'The Economics of Discrimination'
+  -> WARNING: None of the 10 results matched the expected title!
+  -> Failed to query dblp API. Status code: 429
+  => ERROR loading dblp result as JSON: Expecting value: line 1 column 1 (char 0)
+     -> dblp search was done with these keywords: ['Becker', '2010']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=The+Economics+of+Discrimination manually and check the results.
+        -> Author(s): Gary S Becker
+        -> Title:     The Economics of Discrimination
+        -> Year:      2010
+     -> Manual search was skipped by the user.
+- Checking reference 11/90:
+  -> INFO: Now checking 10 results for matching title: 'The Economics of Women, Men, and Work'
+       -> INFO: All authors matched!
+       -> WARNING: Year (1987) does not match expected year (2014)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 12/90:
+  -> INFO: Now checking 10 results for matching title: 'The gender wage gap: Extent, trends, and explanations'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2017) does not match expected year (2016)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 13/90:
+  -> INFO: Now checking 10 results for matching title: 'What Works: Gender Equality by Design'
+  -> WARNING: None of the 10 results matched the expected title!
+  => ERROR: Reaching dblp failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  => ERROR loading dblp result as JSON: Expecting value: line 1 column 1 (char 0)
+     -> dblp search was done with these keywords: ['Bohnet', '2016']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=What+Works:+Gender+Equality+by+Design manually and check the results.
+        -> Author(s): Iris Bohnet
+        -> Title:     What Works: Gender Equality by Design
+        -> Year:      2016
+     -> Manual search was skipped by the user.
+- Checking reference 14/90:
+  -> INFO: Now checking 10 results for matching title: 'Optimum statistical estimation with strategic data sources'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2014) does not match expected year (2015)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 15/90:
+  -> INFO: Now checking 10 results for matching title: 'The paradox of meritocracy in organizations'
+       -> INFO: All authors matched!
+- Checking reference 16/90:
+  -> INFO: Now checking 1 results for matching title: 'The Effect of the Rooney Rule on Implicit Bias in the Long Term'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2020) does not match expected year (2021)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 17/90:
+  -> INFO: Now checking 6 results for matching title: 'Multiwinner voting with fairness constraints'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2017) does not match expected year (2018)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 18/90:
+  -> INFO: Now checking 10 results for matching title: 'Bias in evaluation processes: An optimization-based model'
+       -> INFO: All authors matched!
+- Checking reference 19/90:
+  -> INFO: Now checking 1 results for matching title: 'Interventions for ranking in the presence of implicit bias'
+       -> INFO: All authors matched!
+- Checking reference 20/90:
+  -> INFO: Now checking 10 results for matching title: 'Auctions with unique equilibria'
+       -> INFO: All authors matched!
+- Checking reference 21/90:
+  
+  
+...
+
+
+- Checking reference 85/90:
+  -> INFO: Now checking 1 results for matching title: 'Differential treatment and the winner’s effort in contests with incomplete information'
+       -> INFO: All authors matched!
+       -> WARNING: Year (2022) does not match expected year (2023)!
+  -> INFO: No perfect match found; taking the next best!
+- Checking reference 86/90:
+  -> INFO: Now checking 10 results for matching title: 'Women in higher education: Facts & statistics.'
+  -> WARNING: None of the 10 results matched the expected title!
+  => ERROR: Reaching dblp failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  => ERROR loading dblp result as JSON: Expecting value: line 1 column 1 (char 0)
+     -> dblp search was done with these keywords: ['Welding', '2023']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Women+in+higher+education:+Facts+&+statistics. manually and check the results.
+        -> Author(s): Lyss Welding
+        -> Title:     Women in higher education: Facts & statistics.
+        -> Year:      2023
+     -> Manual search was skipped by the user.
+- Checking reference 87/90:
+  -> INFO: Now checking 10 results for matching title: 'Nepotism and Sexism in Peer-Review'
+       -> INFO: All authors matched!
+- Checking reference 88/90:
+  -> INFO: Now checking 10 results for matching title: 'The truncated normal distribution in sas'
+  -> WARNING: None of the 10 results matched the expected title!
+  => ERROR: Reaching dblp failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  => ERROR loading dblp result as JSON: Expecting value: line 1 column 1 (char 0)
+     -> dblp search was done with these keywords: ['Wicklin', '2013']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=The+truncated+normal+distribution+in+sas manually and check the results.
+        -> Author(s): Rick Wicklin
+        -> Title:     The truncated normal distribution in sas
+        -> Year:      2013
+     -> Manual search was skipped by the user.
+- Checking reference 89/90:
+  -> INFO: Now checking 2 results for matching title: 'Opinion: Females are underrepresented in computer science.'
+  -> WARNING: None of the 2 results matched the expected title!
+  => ERROR: Reaching dblp failed: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+  => ERROR loading dblp result as JSON: Expecting value: line 1 column 1 (char 0)
+     -> dblp search was done with these keywords: ['Yee', '2022']
+  -> WARNING: No results were found through the dblp search!
+     -> You could also open https://scholar.google.com/scholar?hl=en&q=Opinion:+Females+are+underrepresented+in+computer+science. manually and check the results.
+        -> Author(s): Jazzlin Yee
+        -> Title:     Opinion: Females are underrepresented in computer science.
+        -> Year:      2022
+     -> Manual search was skipped by the user.
+- Checking reference 90/90:
+  -> INFO: Now checking 3 results for matching title: 'On optimal favoritism in all-pay contests'
+       -> INFO: All authors matched!
+-> Starting the sorting of mismatching entries!
+##########################################################
+# Starting Unicode Check
+##########################################################
+-> Invalid unicode use found on p. 5: of size (1 −α)n and a disadvantaged group G2 of size αn, where α ∈(0, 1). Each agent i ∈Gℓ
+-> Invalid unicode use found on p. 5: fi(vi, ai, ei; s1, . . . , sn) = I(m(si) among top k) · vi −(si −ai) = I(si among top k) · vi −(si −ai),
+-> Invalid unicode use found on p. 5: Pi(e; ai, A−i) = P (e + ai is among the top k scores of {Aj(θj) + aj}j̸=i ∪{e + ai}) ,
+-> Invalid unicode use found on p. 5: πi(vi, ai, e; A−i) = Esj[fi(vi, ai, e; s1, . . . , sn)] = Pi(e; ai, A−i) · vi −e.
+-> Invalid unicode use found on p. 5: πi(v, a, e; A−i) ≤πi(v, a, Ai(v, a); A−i).
+-> Invalid unicode use found on p. 6: (I(i selected) · vi −ei).
+-> Invalid unicode use found on p. 7: πi(v, a, e; A−i) ≤πi(v, a, Ai(v, a); A−i) + ε.
+-> Invalid unicode use found on p. 7: (1 −α)F1(ζ) + αF2(ζ) = 1 −c.
+-> Invalid unicode use found on p. 7: Define s(v, a) := 0 if v + a < t and s(v, a) := max {t −a, 0} if v + a ≥t
+-> Invalid unicode use found on p. 7: domain Ωℓ+ Ωa. Consequently, the combined CDF (1 −α)F1 + αF2 must also be strictly monotonic
+-> Invalid unicode use found on p. 7: decision based on their combined valuation and initial ability v + a: either exert effort max{t −a, 0}
+-> Invalid unicode use found on p. 7: plays a central role in this decision. It is chosen such that a fraction 1 −c of the agent population
+-> Invalid unicode use found on p. 8: pℓ(v)Fa(ζ −v)dv.
+-> Invalid unicode use found on p. 8: (1 −α)
+-> Invalid unicode use found on p. 8: p1(v)Fa(ζ −v)dv + α
+-> Invalid unicode use found on p. 8: αp2(v)Fa(ζ −v)dv = 1 −c.
+-> Invalid unicode use found on p. 8: (1 −α)
+-> Invalid unicode use found on p. 8: p1(v) · Fa(ζ −v)dv + α
+-> Invalid unicode use found on p. 8: ρ)Fa(ζ −v)dv = 1 −c.
+-> Invalid unicode use found on p. 8: ρ for v ∈[0, ρ] and Fa(ζ −v) = min{1, (ζ −v)+} (Here,
+-> Invalid unicode use found on p. 8: (1 −α) · min{1, (ζ −v)+}dv +
+-> Invalid unicode use found on p. 8: ρ · min{1, (ζ −v)+}dv = 1 −c.
+-> Invalid unicode use found on p. 8: t = 2 −2√c if ρ < 1 −2√c and t = 1 + 3ρ
+-> Invalid unicode use found on p. 8: 1 + ρ −
+-> Invalid unicode use found on p. 8: 4cρ(1 + ρ) −ρ(1 −ρ)2
+-> Invalid unicode use found on p. 8: if ρ ≥1 −2√c.
+-> Invalid unicode use found on p. 8: Note that, while t is the same for both groups, it may happen that t > 1 + ρ (when ρ < 1 −2√c),
+-> Invalid unicode use found on p. 8: pa is a point mass at 0. Here, t can be explicitly calculated: If α+c−1 > 0 and ρ <
+-> Invalid unicode use found on p. 8: (α + c −1)/α,
+-> Invalid unicode use found on p. 8: α/(α + c −1) otherwise, t =
+-> Invalid unicode use found on p. 8: (1 −α + αρ2)/c.
+-> Invalid unicode use found on p. 8: non-decreasing, with F(−∞) = 0 and F(∞) = 1.
+-> Invalid unicode use found on p. 9: rR(A) = 1 −F1(t/ρ)
+-> Invalid unicode use found on p. 9: 1 −F1(t) , rS(A) =
+-> Invalid unicode use found on p. 9: t/ρ(v −t/ρ)p2(v)dv
+-> Invalid unicode use found on p. 9: t (v −t)p1(v)dv
+-> Invalid unicode use found on p. 9: policy takes the form s(n) = 0 for v < t −O(
+-> Invalid unicode use found on p. 10: density p, where the NE policy converges to a threshold function s(v) = F −1
+-> Invalid unicode use found on p. 10: p (1−c) if v ≥F −1
+-> Invalid unicode use found on p. 10: p (1−c)
+-> Invalid unicode use found on p. 10: mixture density p = (1 −α)p1 + αp2 supported on Ω1 ∪Ω2. As n →∞, the contest becomes
+-> Invalid unicode use found on p. 10: indistinguishable from the undifferentiated case with p, yielding the same threshold t = F −1
+-> Invalid unicode use found on p. 10: p (1 −c)
+-> Invalid unicode use found on p. 10: by exerting a small effort e = 0.01, achieving a winning probability Pi(e; A−i) ≈0.5 and obtaining
+-> Invalid unicode use found on p. 10: −i ) →0 for
+-> Invalid unicode use found on p. 10: v ≥t −
+-> Invalid unicode use found on p. 10: −i ) ≤
+-> Invalid unicode use found on p. 10: F −1
+-> Invalid unicode use found on p. 10: 1 (F1(t) −
+-> Invalid unicode use found on p. 10: log n/n), F −1
+-> Invalid unicode use found on p. 10: 2 (F2(t) −
+-> Invalid unicode use found on p. 10: and set s(n)(v) = t if v ≥t −∆n, 0 otherwise (see Theorem 6.2). We find that limn→∞∆n = t,
+-> Invalid unicode use found on p. 10: −i ) →0 if
+-> Invalid unicode use found on p. 10: CDF (1−α)F1(v)+αF2(v) may not be strictly monotonic over Ω1 ∪Ω2. For instance, if α = c = 0.5,
+-> Invalid unicode use found on p. 10: p1 is uniform on Ω1 = [0, 1] and p2 is uniform on Ω2 = [2, 3], then (1 −α)F1(1) + αF2(1) =
+-> Invalid unicode use found on p. 10: (1 −α)F1(2) + αF2(2) = 0.5 = 1 −c. Consequently, there may exist two distinct points t1 = 1 and
+-> Invalid unicode use found on p. 12: [0, ρ], and pa a point mass at 0. Let A be the NE policy as n →∞. Let ρc := 1 −
+-> Invalid unicode use found on p. 12: 1−α. Then:
+-> Invalid unicode use found on p. 12: t = 1 −
+-> Invalid unicode use found on p. 12: 1 −α
+-> Invalid unicode use found on p. 12: ρ(1 −c)
+-> Invalid unicode use found on p. 12: ρ −αρ + α
+-> Invalid unicode use found on p. 12: rR(A) = ρ −αρ + α + c −1
+-> Invalid unicode use found on p. 12: α −αρ + cρ
+-> Invalid unicode use found on p. 12: rS(A) = ρ(ρ −αρ + α + c −1)2
+-> Invalid unicode use found on p. 12: (α −αρ + cρ)2
+-> Invalid unicode use found on p. 12: As in Equation (5), Proposition 5.1 reveals a sharp threshold at ρ = 1 −
+-> Invalid unicode use found on p. 12: 1−α. When ρ < 1 −
+-> Invalid unicode use found on p. 12: 1−α,
+-> Invalid unicode use found on p. 13: cost-effective intervention design. We allow two interventions: increasing ρ by ∆ρ ∈[0, 1 −ρ], and
+-> Invalid unicode use found on p. 13: increasing c by ∆c ∈[0, 1 −c]. Let rR(∆ρ, ∆c) denote the representation ratio under the NE policy
+-> Invalid unicode use found on p. 13: (1) Resource cost of increasing ρ. Let f : [0, 1 −ρ] →R≥0 be monotonic, modeling the institutional
+-> Invalid unicode use found on p. 13: g(∆ρ, ∆c) = m(t(ρ, c)) −m(t(ρ + ∆ρ, c + ∆c)),
+-> Invalid unicode use found on p. 13: ∆ρ∈[0,1−ρ], ∆c∈[0,1−c]
+-> Invalid unicode use found on p. 13: robs = rR(A) = 1 −(1 −c)(1 −ρ)
+-> Invalid unicode use found on p. 13: α −αρ + cρ .
+-> Invalid unicode use found on p. 13: g(∆ρ, ∆c) = t(ρ, c) −t(ρ + ∆ρ, c + ∆c). This yields the objective:
+-> Invalid unicode use found on p. 13: −[t(ρ + ∆ρ, c + ∆c) −t(ρ, c)] ,
+-> Invalid unicode use found on p. 14: ∆ρ∈[0,1−ρ],∆c∈[0,1−c] 5∆1.1
+-> Invalid unicode use found on p. 14: −(ρ + ∆ρ)(1 −c −∆c)
+-> Invalid unicode use found on p. 14: (1 −α)(ρ + ∆ρ) + α
+-> Invalid unicode use found on p. 14: s.t. (1 −α)(ρ + ∆ρ) + α + c + ∆c −1
+-> Invalid unicode use found on p. 14: α −α(ρ + ∆ρ) + (c + ∆c)(ρ + ∆ρ) ≥τ
+-> Invalid unicode use found on p. 14: ρ + ∆ρ ≥1 −c + ∆c
+-> Invalid unicode use found on p. 14: 1 −α .
+-> Invalid unicode use found on p. 15: G1, G2 with |G1| = (1 −α)n and |G2| = αn. The valuations of agents in G1 come from the density
+-> Invalid unicode use found on p. 15: (1 −c)n distinct agents j with s(vj) < s(v). (We ignore the issue that there may be ties for this
+-> Invalid unicode use found on p. 15: Pi(s(v); A−i) =
+-> Invalid unicode use found on p. 15: n−1
+-> Invalid unicode use found on p. 15: j=(1−c)n
+-> Invalid unicode use found on p. 15: n −1
+-> Invalid unicode use found on p. 15: vj(1 −v)n−1−j.
+-> Invalid unicode use found on p. 15: Hence, its expected payoff is πi(v, s(v); A−i) = Pi(s(v); A−i) · v −s(v). (See Section 3 for notation).
+-> Invalid unicode use found on p. 15: A key observation is that the calculation of Pi(s(v); A−i) only depends on density p1 and v, and is
+-> Invalid unicode use found on p. 16: an NE, then it must satisfy that for any other effort e, πi(v, s(v); A−i) ≥πi(v, e; A−i). This follows
+-> Invalid unicode use found on p. 16: i(v, s(v); A−i) = P ′
+-> Invalid unicode use found on p. 16: i(s(v); A−i)·v−s′(v) = 0.
+-> Invalid unicode use found on p. 16: As noted above, Pi(s(v); A−i) does not depend on s, so we get a simple differential equation involving
+-> Invalid unicode use found on p. 16: Pn−1
+-> Invalid unicode use found on p. 16: j=(1−c)n
+-> Invalid unicode use found on p. 16: n−1
+-> Invalid unicode use found on p. 16: vj(1 −v)n−1−j′ · v. Thus,
+-> Invalid unicode use found on p. 16: s(v) = (1 −c) ·
+-> Invalid unicode use found on p. 16: j=(1−c)n+1
+-> Invalid unicode use found on p. 16: vj(1 −v)n−j
+-> Invalid unicode use found on p. 16: s(v) := Qp(v) · v −
+-> Invalid unicode use found on p. 16: where Qp(v) = Pn−1
+-> Invalid unicode use found on p. 16: i=n−k
+-> Invalid unicode use found on p. 16: n−1
+-> Invalid unicode use found on p. 16:  · Fp(v)i · (1 −Fp(v))n−i−1 for any v ∈Ω. We also note that the
+-> Invalid unicode use found on p. 16: To see this, recall that for the uniform distribution, s(v) = (1 −c) · Pn
+-> Invalid unicode use found on p. 16: j=(1−c)n+1
+-> Invalid unicode use found on p. 16: vj(1 −v)n−j.
+-> Invalid unicode use found on p. 16: Chernoff bound that as n →∞, s(v) →1 −c for any v > 1 −c and s(v) →0 for any v < 1 −c. This
+-> Invalid unicode use found on p. 16: s(v) = F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c) if v ≥F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c) and s(v) = 0 otherwise. The threshold F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c) guarantees
+-> Invalid unicode use found on p. 16: that the expected fraction of agents that put in a nonzero effort is 1 −F1(F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c)) = c. The
+-> Invalid unicode use found on p. 16: rationale for s(v) = F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c) when v is above the threshold is twofold: 1) agents would not exert
+-> Invalid unicode use found on p. 16: effort beyond their valuation, ensuring s(F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c)) ≤F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c), and 2) agents with valuations
+-> Invalid unicode use found on p. 16: below F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c) are disincentivized from participating, leading to s(F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c)) ≥F −1
+-> Invalid unicode use found on p. 16: 1 (1 −c).
+-> Invalid unicode use found on p. 17: is 1 −F1(t1). Hence, if 1 −F1(t1) <
+-> Invalid unicode use found on p. 17: 1−α, fewer than cn agents in G1 get selected. Thus, agents
+-> Invalid unicode use found on p. 17: Through this reduction in effort, they can gain an additional payoff of t1 −t2, which violates the
+-> Invalid unicode use found on p. 17: stability condition. A similar argument holds for G2 when 1 −F1(t1) >
+-> Invalid unicode use found on p. 17: 1−α. Thus, t1 > t2 leads
+-> Invalid unicode use found on p. 17: an undifferentiated one whose density p = (1 −α)p1 + αp2, supported on the domain Ω1 ∪Ω2. In
+-> Invalid unicode use found on p. 17: increasingly indistinguishable as n grows, leading to the same limiting threshold t = F −1
+-> Invalid unicode use found on p. 17: p (1 −c).
+-> Invalid unicode use found on p. 17: there exists a unique solution t ∈Ω1 ∪Ω2 for the following equation: (1 −α)F1(ζ) + αF2(ζ) = 1 −c,
+-> Invalid unicode use found on p. 17: Ωℓ+Ωa. For any ζ, ζ′ ∈(Ω1∪Ω2)+Ωa with ζ < ζ′, if (1−α)F1(ζ)+αF2(ζ) = (1−α)F1(ζ′)+αF2(ζ′),
+-> Invalid unicode use found on p. 17: connected domain assumption. Hence, (1 −α)F1(ζ) + αF2(ζ) is strictly monotonic across domain
+-> Invalid unicode use found on p. 18: at 0. Recall that the threshold t = 1 −c = 0.5. Then, in expectation, 0.5n agents have valuations
+-> Invalid unicode use found on p. 18: selected, i.e., Pi(e; A−i) ≈0.5. Since s(v) = 0, the probability Pi(Ai(v); A−i) = 0. Thus, we have
+-> Invalid unicode use found on p. 18: πi(v, e; A−i) −πi(v, Ai(v); A−i) = Pi(e; A−i) · v −e −0 ≈0.2 ∗0.5 −0.01 ≫0.
+-> Invalid unicode use found on p. 18: threshold functions s(n). These proxies aim to ensure that the winning probability Pi(e; A−i) ≈0
+-> Invalid unicode use found on p. 18: −i ) →0.
+-> Invalid unicode use found on p. 18: −i ) ≈0 essentially involves guaranteeing that the probability of having fewer than
+-> Invalid unicode use found on p. 18: log n/n = o(1), we define the policy s(n)(v) as follows: s(n)(v) = t if v ≥t−
+-> Invalid unicode use found on p. 18: −i ) is
+-> Invalid unicode use found on p. 18: F −1
+-> Invalid unicode use found on p. 18: 1 (F1(t) −
+-> Invalid unicode use found on p. 18: log n/n), F −1
+-> Invalid unicode use found on p. 18: 2 (F2(t) −
+-> Invalid unicode use found on p. 18: Consequently, we define the policy s(n) as follows: s(n)(v) = t if v ≥t−∆n and s(n)(v) = 0 otherwise
+-> Invalid unicode use found on p. 18: such a ∆n ensures that (1 −α)F1(∆n) + αF2(∆n) ≤1 −(c +
+-> Invalid unicode use found on p. 18: −i ) ≤n−(1−α) + n−α
+-> Invalid unicode use found on p. 18: if e < t (see Lemma 6.4). The factors n−(1−α) and n−α derive from concentration bounds applicable
+-> Invalid unicode use found on p. 19: the amount of effort s(n)(v, a) = max {t −a, 0} if v ≥t −∆n.
+-> Invalid unicode use found on p. 19: equation (1 −α)F1(ζ) + αF2(ζ) = 1 −c (the uniqueness of t is ensured by Lemma 6.1). Since
+-> Invalid unicode use found on p. 19: • If both F1(t) > 0 and F2(t) > 0, let nt be the smallest integer such that Fℓ(t) −
+-> Invalid unicode use found on p. 19: • If F1(t) > 0 and F2(t) = 0, let nt be the smallest integer such that F1(t) −
+-> Invalid unicode use found on p. 19: • If F1(t) = 0 and F2(t) > 0, let nt be the smallest integer such that F2(t) −
+-> Invalid unicode use found on p. 19: F −1
+-> Invalid unicode use found on p. 19: 1 (F1(t) −
+-> Invalid unicode use found on p. 19: ), F −1
+-> Invalid unicode use found on p. 19: 2 (F2(t) −
+-> Invalid unicode use found on p. 19: • If F1(t) > 0 and F2(t) = 0, let ∆n := F −1
+-> Invalid unicode use found on p. 19: 1 (F1(t) −
+-> Invalid unicode use found on p. 19: • Otherwise if F1(t) = 0 and F2(t) > 0, let ∆n := F −1
+-> Invalid unicode use found on p. 19: 2 (F2(t) −
+-> Invalid unicode use found on p. 19: 4If the inverse function F −1
+-> Invalid unicode use found on p. 19: (Fℓ(t) −
+-> Invalid unicode use found on p. 20: Let t ∈Ω1 ∪Ω2 be a unique solution of the equation (1 −α)F1(v) + αF2(v) = 1 −c (the uniqueness
+-> Invalid unicode use found on p. 20: max{t −a, 0}
+-> Invalid unicode use found on p. 20: −i ) under policy A(n); summarized
+-> Invalid unicode use found on p. 20: For simplicity, we first assume that pa is a point mass at 0, such that policies depend solely on valuations. In this case, s(v, a), Pi(e; a, A−i), π(v, a, e; A−i) are simplified to s(v), Pi(e; A−i), π(v, e; A−i)
+-> Invalid unicode use found on p. 20: ℓ∈[m] αℓFℓ(ζ) = 1 −c, where for any ζ ∈R≥0, Fℓ(ζ) =
+-> Invalid unicode use found on p. 21: We have 0 = g(L) < 1 −c < g(U) = 1. Thus, there must exist a unique point t ∈(S
+-> Invalid unicode use found on p. 21: such that g(t) = 1 −c. This completes the proof.
+-> Invalid unicode use found on p. 21: −i ) = 1 if e ≥t; and Pi(e; A(n)
+-> Invalid unicode use found on p. 21: −i ) ≤n−α + n−(1−α) if e < t.
+-> Invalid unicode use found on p. 21: Pi(e; A−i) for the undifferentiated contest.
+-> Invalid unicode use found on p. 21: n−1
+-> Invalid unicode use found on p. 21: i=n−k
+-> Invalid unicode use found on p. 21: n −1
+-> Invalid unicode use found on p. 21: · F1(v)i · (1 −F1(v))n−i−1 =
+-> Invalid unicode use found on p. 21: n−1
+-> Invalid unicode use found on p. 21: i=n−k
+-> Invalid unicode use found on p. 21: B(n −1, i, F1(v)),
+-> Invalid unicode use found on p. 21: xk(1 −x)n−k is the Bernstein polynomial.
+-> Invalid unicode use found on p. 21: (v) represents the probability that, when sampling n −1 independent and
+-> Invalid unicode use found on p. 21: identically distributed (i.i.d.) values v1, . . . , vn−1 from distribution p1, the value v ranks among the
+-> Invalid unicode use found on p. 21: top k values in the set {v1, . . . , vn−1, v}. Given its algebraic significance, the function Q(n,k)
+-> Invalid unicode use found on p. 21: can be used to compute Pi(e; A−i) for the undifferentiated contest in the following sense.
+-> Invalid unicode use found on p. 21: v across the domain Ω. Then for every i ∈[n] and v ∈Ω, we have Pi(Ai(v); A−i) = Q(n,k)
+-> Invalid unicode use found on p. 22: Proof. By symmetric, we only need to prove the lemma for i = n, i.e., proving Pn(An(v); A−n) =
+-> Invalid unicode use found on p. 22: (v). Let v1, . . . , vn−1 be i.i.d. samples from p1. Since Ai is strictly monotonically increasing to v
+-> Invalid unicode use found on p. 22: across domain Ω, we note that the sequence v, v1, . . . , vn−1 should have the same order as the sequence
+-> Invalid unicode use found on p. 22: An(v), A1(v1), . . . , An−1(vn−1). Hence, An(v) is among the top k of {A1(v1), . . . , An−1(vn−1), An(v)}
+-> Invalid unicode use found on p. 22: if and only if v is among the top k of {v1, . . . , vn−1, v}. By the definition of winning probabilities and
+-> Invalid unicode use found on p. 22: Definition 6.3, this implies that Pn(An(v); A−n) = Q(n,k)
+-> Invalid unicode use found on p. 22: F −1
+-> Invalid unicode use found on p. 22: 1 (F1(t) −
+-> Invalid unicode use found on p. 22: ), F −1
+-> Invalid unicode use found on p. 22: 2 (F2(t) −
+-> Invalid unicode use found on p. 22: be that there are at least (1 −F1(t))(1 −α)n agents in G1 \ {i} that put in effort
+-> Invalid unicode use found on p. 22: be that there are at least (1 −F2(t)) · αn agents in G2 \ {i} that put in
+-> Invalid unicode use found on p. 22: (1 −F1(t))(1 −α)n + (1 −F2(t)) · αn = cn.
+-> Invalid unicode use found on p. 22: −i ) ≥Pr
+-> Invalid unicode use found on p. 22: ≥1 −Pr
+-> Invalid unicode use found on p. 22: −Pr
+-> Invalid unicode use found on p. 22: −i ) = 1, it suffices to show that Pr
+-> Invalid unicode use found on p. 22: −i ) = 1
+-> Invalid unicode use found on p. 22: −i ) ≤1 −Pr
+-> Invalid unicode use found on p. 22: = 1 −Pr
+-> Invalid unicode use found on p. 22: −i ) ≤n−α + n−(1−α), it suffices to show that Pr
+-> Invalid unicode use found on p. 22: ≥1 −n−(1−α) and
+-> Invalid unicode use found on p. 22: ≥1 −n−α.
+-> Invalid unicode use found on p. 22: . Note that there are at least (1 −α)n agents in G1 ∪{i}. Also, note
+-> Invalid unicode use found on p. 22: Now consider the undifferentiated contest among G1 ∪{i} with k1 = (1 −F1(t))(1 −α)n and density
+-> Invalid unicode use found on p. 22: 1 −Q(|G1∪{i}|,k1)
+-> Invalid unicode use found on p. 22: 1 −Q((1−α)n,k1)
+-> Invalid unicode use found on p. 22: 1 −Q((1−α)n,k1)
+-> Invalid unicode use found on p. 22: (F −1
+-> Invalid unicode use found on p. 22: 1 (F1(t) −
+-> Invalid unicode use found on p. 22: 1 −
+-> Invalid unicode use found on p. 22: (1−α)n−1
+-> Invalid unicode use found on p. 22: j=(1−α)n−1−k1
+-> Invalid unicode use found on p. 22: B((1 −α)n −1, j, F1(t) −
+-> Invalid unicode use found on p. 23: Let X1, . . . , Xn be (1 −α)n −1 i.i.d.
+-> Invalid unicode use found on p. 23: F1(t)−
+-> Invalid unicode use found on p. 23: and otherwise Xi = 1. We note that P(1−α)n−1
+-> Invalid unicode use found on p. 23: j=(1−α)n−1−k1 B((1−α)n−1, j, F1(t)−
+-> Invalid unicode use found on p. 23: i∈[n−1] Xi ≤k1 −1. Also note that
+-> Invalid unicode use found on p. 23: i∈[(1−α)n−1]
+-> Invalid unicode use found on p. 23: = ((1 −α)n −1) · (1 −F1(t) +
+-> Invalid unicode use found on p. 23: (1−α)n−1
+-> Invalid unicode use found on p. 23: j=(1−α)n−1−k1
+-> Invalid unicode use found on p. 23: B((1 −α)n −1, j, F1(t) −
+-> Invalid unicode use found on p. 23: i∈[(1−α)n−1]
+-> Invalid unicode use found on p. 23: Xi ≤k1 −1
+-> Invalid unicode use found on p. 23: i∈[(1−α)n−1]
+-> Invalid unicode use found on p. 23: i∈[(1−α)n−1]
+-> Invalid unicode use found on p. 23: −(1 −α)n ·
+-> Invalid unicode use found on p. 23: e−2(1−α)2n log n
+-> Invalid unicode use found on p. 23: (1−α)n−1
+-> Invalid unicode use found on p. 23: ≤n−(1−α).
+-> Invalid unicode use found on p. 23: ≥1 −n−(1−α). By a similar argument,
+-> Invalid unicode use found on p. 23: ≥1 −n−α. Overall, we prove that Pi(e; A(n)
+-> Invalid unicode use found on p. 23: −i ) ≤n−α + n−(1−α) when
+-> Invalid unicode use found on p. 23: εn = (n−α + n−(1−α))∆n + t −∆n.
+-> Invalid unicode use found on p. 23: −i ) −πi(v, A(n)
+-> Invalid unicode use found on p. 23: −i ).
+-> Invalid unicode use found on p. 23: −i ) = v −e if e ≥t; and πi(v, e; A(n)
+-> Invalid unicode use found on p. 23: −i ) ≤(n−α + n−(1−α))v −e if e < t.
+-> Invalid unicode use found on p. 23: −i ) = πi(v, 0; A(n)
+-> Invalid unicode use found on p. 23: −i ) = 0, which implies that
+-> Invalid unicode use found on p. 23: −i ) −πi(v, A(n)
+-> Invalid unicode use found on p. 23: −i ) ≤
+-> Invalid unicode use found on p. 23: (n−α + n−(1−α))v −e ≤(n−α + n−(1−α))∆n
+-> Invalid unicode use found on p. 23: v −e ≤0
+-> Invalid unicode use found on p. 23: −i ) = πi(v, t; A(n)
+-> Invalid unicode use found on p. 23: −i ) = v −t, which implies that
+-> Invalid unicode use found on p. 23: −i ) −πi(u, A(n)
+-> Invalid unicode use found on p. 23: −i ) ≤
+-> Invalid unicode use found on p. 23: (n−α + n−(1−α))v −e + t −v
+-> Invalid unicode use found on p. 23: t −e ≤0
+-> Invalid unicode use found on p. 23: (n−α + n−(1−α))v −e + t −v ≤(n−α + n−(1−α))∆n + t −∆n.
+-> Invalid unicode use found on p. 23: −i ) −πi(v, A(n)
+-> Invalid unicode use found on p. 23: −i ) ≤(n−α + n−(1−α))∆n + t −∆n = εn.
+-> Invalid unicode use found on p. 24: By Lemma 6.6, A(n) is a εn-NE policy, where εn = (n−α + n−(1−α))∆n + t −∆n.
+-> Invalid unicode use found on p. 24: n→∞(n−α + n−(1−α))∆n + t −∆n = 0,
+-> Invalid unicode use found on p. 24: Thus, the probability of an agent in G1 getting selected is 1 −F1(t1). Hence, if 1 −F1(t1) <
+-> Invalid unicode use found on p. 24: 1−α,
+-> Invalid unicode use found on p. 24: additional payoff of t1 −t2, which violates the stability condition. A similar argument holds for G2
+-> Invalid unicode use found on p. 24: when 1 −F1(t1) >
+-> Invalid unicode use found on p. 24: 1−α. Thus, A′ is not an NE when t1 > t2. Similarly, we can prove that A′ is not
+-> Invalid unicode use found on p. 24: than 0 instead of 0. Through this increase in effort, it can gain an additional payoff of t′ −ε. Thus,
+-> Invalid unicode use found on p. 24: A′ is not an NE. Similarly, we can prove that A′ is not an NE if (1 −α)F1(t) + αF2(t) < 1 −c.
+-> Invalid unicode use found on p. 24: Thus, for an NE policy, t must be the solution of (1 −α)F1(v) + αF2(v) = 1 −c. By Lemma 6.1,
+-> Invalid unicode use found on p. 24: the equation (1 −α)F1(v) + αF2(v) = 1 −c has a unique solution. Thus, A′ = A, which proves the
+-> Invalid unicode use found on p. 24: v + a ≥t is willing to put in should be s(v, a) = max{t −a, 0} instead of t. This is because t
+-> Invalid unicode use found on p. 24: ei ≥0. The agent’s score is given by m(ei + ai), and their expected payoff is Pivi −κiei. It is
+-> Invalid unicode use found on p. 25: ℓ∈[m] αℓFℓ(ζ) = 1 −c. The infinite NE policy (3) extends to:
+-> Invalid unicode use found on p. 25: κ + a < t and s(v) := max {t −a, 0} if v
+-> Invalid unicode use found on p. 25: belong to G1 with probability 1 −α and belong to G2 with probability α independently. Let the
+-> Invalid unicode use found on p. 25: is random and the valuation density of each agent is identical, say p = (1 −α)p1 + αp2. Thus,
+-> Invalid unicode use found on p. 26: n−1
+-> Invalid unicode use found on p. 26: n−1−i
+-> Invalid unicode use found on p. 26: j=(1−c)n−i
+-> Invalid unicode use found on p. 26: n −1
+-> Invalid unicode use found on p. 26: n −1 −i
+-> Invalid unicode use found on p. 26: Fs1(v)i(1 −Fs1(v))(1−α)n−1−iFs2(v)j(1 −Fs2(v))αn−j.
+-> Invalid unicode use found on p. 26: n−1
+-> Invalid unicode use found on p. 26: i=(1−c)n
+-> Invalid unicode use found on p. 26: n −1
+-> Invalid unicode use found on p. 26: Fs(v)i(1 −Fs(v))n−1−i.
+-> Invalid unicode use found on p. 26: where every real number in the interval [0, 1 −α] corresponds to an agent in G1 and in the interval
+-> Invalid unicode use found on p. 26: (1 −α, 1] corresponds to an agent in G2. For simplicity, we still assume that pa is a point mass at 0.
+-> Invalid unicode use found on p. 26: supported on a domain Ωℓ⊆R≥0 for ℓ= 1, 2. Let every real number in the interval [0, 1 −α]
+-> Invalid unicode use found on p. 26: correspond to an agent in group G1, and in the interval (1 −α, 1] correspond to an agent in group
+-> Invalid unicode use found on p. 26: represented by the real number i−1
+-> Invalid unicode use found on p. 26: n−1. Agent i belongs to group G1 if 1 ≤i ≤(1 −α)n and to group
+-> Invalid unicode use found on p. 27: • For any t ∈[0, 1 −α], |
+-> Invalid unicode use found on p. 27: 0 dx −
+-> Invalid unicode use found on p. 27: |{i∈G1: i−1
+-> Invalid unicode use found on p. 27: n−1≤t}|
+-> Invalid unicode use found on p. 27: • For any t ∈(1 −α, 1], |
+-> Invalid unicode use found on p. 27: t dx −
+-> Invalid unicode use found on p. 27: |{i∈G2: i−1
+-> Invalid unicode use found on p. 27: n−1≥t}|
+-> Invalid unicode use found on p. 27: Note that the agents in gn can be captured by a uniform distribution µn over real numbers i−1
+-> Invalid unicode use found on p. 27: n−1
+-> Invalid unicode use found on p. 27: Proof of Theorem 6.8. Let n0 = ⌈ε−1⌉. Then we have n ≥ε−1. For any t ∈[0, 1 −α], we have
+-> Invalid unicode use found on p. 27: dx −
+-> Invalid unicode use found on p. 27: i ∈G1 : i−1
+-> Invalid unicode use found on p. 27: n−1 ≤t
+-> Invalid unicode use found on p. 27: t −⌊(n −1)t + 1⌋
+-> Invalid unicode use found on p. 27: t −t
+-> Invalid unicode use found on p. 27: n ≤⌊(n −1)t + 1⌋
+-> Invalid unicode use found on p. 27: ≤t + 1 −t
+-> Invalid unicode use found on p. 27: dx −
+-> Invalid unicode use found on p. 27: i ∈G1 : i−1
+-> Invalid unicode use found on p. 27: n−1 ≤t
+-> Invalid unicode use found on p. 27: n, 1 −t
+-> Invalid unicode use found on p. 27: ∈[0,1−α]
+-> Invalid unicode use found on p. 27: n≥ε−1
+-> Invalid unicode use found on p. 27: Similarly, for any t ∈(1 −α, 1], we can prove that
+-> Invalid unicode use found on p. 27: t dx −
+-> Invalid unicode use found on p. 27: |{i∈G2: i−1
+-> Invalid unicode use found on p. 27: n−1≥t}|
+-> Invalid unicode use found on p. 27: n−1
+-> Invalid unicode use found on p. 27: i=(1−c)n
+-> Invalid unicode use found on p. 27: n −1
+-> Invalid unicode use found on p. 27: F(v)i(1 −F(v))n−1−i,
+-> Invalid unicode use found on p. 28: where F is the CDF of the joint density (1 −α)p1 + αp2. Recall that t is the unique solution to the
+-> Invalid unicode use found on p. 28: F(v) = (1 −α)F1(v) + αF2(v) = 1 −c,
+-> Invalid unicode use found on p. 28: i.e., t = F −1(1 −c). Then through a straightforward calculation, it follows that p1(v) = 1 for v > t
+-> Invalid unicode use found on p. 28: p1(v)v −s(v) ≥P(s−1(e))v −e.
+-> Invalid unicode use found on p. 28: rR(A) = 1 −F1(t/ρ)
+-> Invalid unicode use found on p. 28: 1 −F1(t) , rS(A) =
+-> Invalid unicode use found on p. 28: t/ρ(v −t/ρ)p2(v)dv
+-> Invalid unicode use found on p. 28: t (v −t)p1(v)dv
+-> Invalid unicode use found on p. 29: (1 −α)F1(ζ) + αF1(ζ
+-> Invalid unicode use found on p. 29: ρ) = 1 −c.
+-> Invalid unicode use found on p. 29: Let f(ζ) = (1 −α)F1(ζ) + αF1( ζ
+-> Invalid unicode use found on p. 29: decreasing function of ρ. Thus, the solution t increases with ρ. Since Fa(ζ −ρv) ≥Fa(ζ −v), f(ζ)
+-> Invalid unicode use found on p. 29: Evi,ai[|S ∩G1|] = (1 −α)n(1 −F1(t)) and Evi,ai[|S ∩G2|] = αn(1 −F2(t)).
+-> Invalid unicode use found on p. 29: (1 −α)n
+-> Invalid unicode use found on p. 29: = 1 −F1(t) and E[R2(A)] = Evi,ai[|S ∩G2|]
+-> Invalid unicode use found on p. 29: = 1 −F2(t).
+-> Invalid unicode use found on p. 29: = 1 −F2(t)
+-> Invalid unicode use found on p. 29: 1 −F1(t) = 1 −F1(t/ρ)
+-> Invalid unicode use found on p. 29: 1 −F1(t) .
+-> Invalid unicode use found on p. 29: Pr [||S ∩Gℓ| −Evi,ai[|S ∩Gℓ|]| ≥t · Evi,ai[|S ∩Gℓ|]] ≤2e−
+-> Invalid unicode use found on p. 29: n), we have Pr [||S ∩Gℓ| −Evi,ai[|S ∩Gℓ|]| ≥t · Evi,ai[|S ∩Gℓ|]] →0.
+-> Invalid unicode use found on p. 29: increasing with ρ. We know that 1 −F1(t) is a monotonically decreasing function of ρ. Since
+-> Invalid unicode use found on p. 29: 1 −F2(t) = 1−c−(1−α)(1−F1(t))
+-> Invalid unicode use found on p. 29: , we know that 1 −F2(t) is monotonically increasing with ρ. Thus,
+-> Invalid unicode use found on p. 29: rR(A) = 1−F1(t/ρ)
+-> Invalid unicode use found on p. 29: 1−F1(t)
+-> Invalid unicode use found on p. 30: (I(i selected) · vi −ei)] =
+-> Invalid unicode use found on p. 30: (v −t)pℓ(v)dv.
+-> Invalid unicode use found on p. 30: (v −t)p1(v
+-> Invalid unicode use found on p. 30: (ρv −t)p1(v)dv ≤E[S1(A)].
+-> Invalid unicode use found on p. 30: (v−t)p2(v)dv
+-> Invalid unicode use found on p. 30: (v−t)p1(v)dv. Since p2(v) = 1
+-> Invalid unicode use found on p. 30: t (v −t)p2(v)dv
+-> Invalid unicode use found on p. 30: t (v −t)p1(v)dv =
+-> Invalid unicode use found on p. 30: t/ρ(v −t/ρ)p1(v)dv
+-> Invalid unicode use found on p. 30: t (v −t)p1(v)dv
+-> Invalid unicode use found on p. 30: x (v −x)p1(x)dx, which
+-> Invalid unicode use found on p. 30: that p1(v) = 1 −ε for v ∈[0, 0.5] ∪[1.5, 2] and p1(v) = ε for v ∈(0.5, 1.5). Then F1(v) = (1 −ε)v
+-> Invalid unicode use found on p. 30: for v ∈[0, 0.5], 0.5 −ε + εv for v ∈(0.5, 1.5), and (1 −ε)v + 2ε −1. By Theorem 4.2, we have
+-> Invalid unicode use found on p. 30: rR(A) = 1−F1(t/ρ)
+-> Invalid unicode use found on p. 30: 1−F1(t) . Then in this case, rR(A) = 1−(1−ε)/2
+-> Invalid unicode use found on p. 30: 1−(1−ε)/4 ≈2
+-> Invalid unicode use found on p. 30: 1−(1−ε)/2
+-> Invalid unicode use found on p. 31: 1 −F2(t)
+-> Invalid unicode use found on p. 31: 1 −F1(t), 1 −F1(t)
+-> Invalid unicode use found on p. 31: 1 −F2(t)
+-> Invalid unicode use found on p. 31: Ω2 min{v, ζ −t}p2(v)pa(ζ −v)dvdζ
+-> Invalid unicode use found on p. 31: Ω1 min{v, ζ −t}p1(v)pa(ζ −v)dvdζ ,
+-> Invalid unicode use found on p. 31: Ω1 min{v, ζ −t}p1(v)pa(ζ −v)dvdζ
+-> Invalid unicode use found on p. 31: Ω2 min{v, ζ −t}p2(v)pa(ζ −v)dvdζ
+-> Invalid unicode use found on p. 31: RV(A) = 1 −α
+-> Invalid unicode use found on p. 31: 1 −c
+-> Invalid unicode use found on p. 31: m(max{t −ζ + v, 0})p1(v)pa(ζ −v)dvdζ
+-> Invalid unicode use found on p. 31: 1 −c
+-> Invalid unicode use found on p. 31: m(max{t −ζ + v, 0})p1(v)pa(ζ −v)dvdζ.
+-> Invalid unicode use found on p. 31: 0 (1 −α) · min{1, (ζ −v)+}dv +
+-> Invalid unicode use found on p. 31: ρ · min{1, (ζ −v)+}dv = 1 −c. Then if
+-> Invalid unicode use found on p. 31: 0 < c ≤1−α
+-> Invalid unicode use found on p. 31: 2 −
+-> Invalid unicode use found on p. 31: 1 −α,
+-> Invalid unicode use found on p. 31: ρ < 1 −
+-> Invalid unicode use found on p. 31: 1−α,
+-> Invalid unicode use found on p. 31: 2 −α + α/ρ
+-> Invalid unicode use found on p. 31: 1 −α + α/ρ −
+-> Invalid unicode use found on p. 31: 2c(1 −α + α/ρ) −α(1 −α)(1 −ρ)2/ρ
+-> Invalid unicode use found on p. 31: 1 −α + α/ρ
+-> Invalid unicode use found on p. 31: ρ ≥1 −
+-> Invalid unicode use found on p. 31: 1−α,
+-> Invalid unicode use found on p. 31: if 1−α
+-> Invalid unicode use found on p. 31: 2 −α + α/ρ
+-> Invalid unicode use found on p. 31: 1 −α + α/ρ −
+-> Invalid unicode use found on p. 31: 2c(1 −α + α/ρ) −α(1 −α)(1 −ρ)2/ρ
+-> Invalid unicode use found on p. 31: 1 −α + α/ρ
+-> Invalid unicode use found on p. 31: ρ < 2c−1+α
+-> Invalid unicode use found on p. 31: −
+-> Invalid unicode use found on p. 31: 1 −α +
+-> Invalid unicode use found on p. 31: α2 + (1 −α)(2 + αρ −2c)
+-> Invalid unicode use found on p. 31: 1 −α
+-> Invalid unicode use found on p. 31: ρ ≥2c−1+α
+-> Invalid unicode use found on p. 31: −
+-> Invalid unicode use found on p. 31: 1 −α +
+-> Invalid unicode use found on p. 31: α2 + (1 −α)(2 + αρ −2c)
+-> Invalid unicode use found on p. 31: 1 −α
+-> Invalid unicode use found on p. 31: ρ < −α+√
+-> Invalid unicode use found on p. 31: α2+8(1−α)(1−c)
+-> Invalid unicode use found on p. 31: 2(1−α)
+-> Invalid unicode use found on p. 31: 2(1 −c)
+-> Invalid unicode use found on p. 31: 1 −α + α/ρ,
+-> Invalid unicode use found on p. 31: ρ ≥−α+√
+-> Invalid unicode use found on p. 31: α2+8(1−α)(1−c)
+-> Invalid unicode use found on p. 31: 2(1−α)
+-> Invalid unicode use found on p. 31: 0 (1 −α) · min{1, (ζ −v)+}dv +
+-> Invalid unicode use found on p. 31: ρ · min{1, (ζ −v)+}dv. We first note that
+-> Invalid unicode use found on p. 31: min{1, (ζ −v)+}, we also have the following equation:
+-> Invalid unicode use found on p. 31: min{1, (ζ −v)+} =
+-> Invalid unicode use found on p. 31: ζ −v,
+-> Invalid unicode use found on p. 32: (1 −α)(ζ −v) |ζ
+-> Invalid unicode use found on p. 32: ρ (ζ −v) |ζ
+-> Invalid unicode use found on p. 32: (1 −α)(ζ −v) |ζ
+-> Invalid unicode use found on p. 32: ρ (ζ −v) |ρ
+-> Invalid unicode use found on p. 32: (1 −α)
+-> Invalid unicode use found on p. 32: ζ −1 + (ζ −v) |ζ
+-> Invalid unicode use found on p. 32: ζ−1
+-> Invalid unicode use found on p. 32: ζ −1 + (ζ −v) |ρ
+-> Invalid unicode use found on p. 32: ζ−1
+-> Invalid unicode use found on p. 32: (1 −α)
+-> Invalid unicode use found on p. 32: ζ −1 + (ζ −v) |ζ
+-> Invalid unicode use found on p. 32: ζ−1
+-> Invalid unicode use found on p. 32: Thus, f is a piecewise-polynomial function of ζ. Solving f(ζ) = 1 −c results in Corollary 7.4.
+-> Invalid unicode use found on p. 32: t = 1 −
+-> Invalid unicode use found on p. 32: 1 −α if ρ < 1 −
+-> Invalid unicode use found on p. 32: 1−α and t =
+-> Invalid unicode use found on p. 32: ρ(1 −c)
+-> Invalid unicode use found on p. 32: ρ −αρ + α if ρ ≥1 −
+-> Invalid unicode use found on p. 32: 1−α.
+-> Invalid unicode use found on p. 32: rR(A) = 0 if ρ < 1 −
+-> Invalid unicode use found on p. 32: 1−α and rR(A) = ρ −αρ + α + c −1
+-> Invalid unicode use found on p. 32: α −αρ + cρ
+-> Invalid unicode use found on p. 32: if ρ ≥1 −
+-> Invalid unicode use found on p. 32: 1−α.
+-> Invalid unicode use found on p. 32: rS(A) = 0 if ρ < 1 −
+-> Invalid unicode use found on p. 32: 1−α and rS(A) = ρ(ρ −αρ + α + c −1)2
+-> Invalid unicode use found on p. 32: (α −αρ + cρ)2
+-> Invalid unicode use found on p. 32: if ρ ≥1 −
+-> Invalid unicode use found on p. 32: 1−α.
+-> Invalid unicode use found on p. 32: Let g(v) = (1 −α)v +
+-> Invalid unicode use found on p. 32: Plugging v = ρ into the equation, we obtain that ρ = 1 −
+-> Invalid unicode use found on p. 32: 1−α which is an inflection point of t.
+-> Invalid unicode use found on p. 32: Then if solution t > ρ, we have that t is the solution of the equation (1 −α)v + α = 1 −c, implying
+-> Invalid unicode use found on p. 32: that t = 1 −
+-> Invalid unicode use found on p. 32: 1−α. The condition for this case is ρ < 1 −
+-> Invalid unicode use found on p. 32: 1−α = t. Otherwise if solution t ≤ρ, we
+-> Invalid unicode use found on p. 32: have that t is the solution of the equation (1 −α)v + α v
+-> Invalid unicode use found on p. 32: ρ = 1 −c, implying that t =
+-> Invalid unicode use found on p. 32: ρ(1−c)
+-> Invalid unicode use found on p. 32: ρ−αρ+α. The
+-> Invalid unicode use found on p. 32: condition for this case is ρ ≥1 −
+-> Invalid unicode use found on p. 32: 1−α. This completes the proof for t.
+-> Invalid unicode use found on p. 32: 1−min
+-> Invalid unicode use found on p. 32: 1−t
+-> Invalid unicode use found on p. 32: Note that when ρ ≥1 −
+-> Invalid unicode use found on p. 32: 1−α, we have
+-> Invalid unicode use found on p. 32: rR(A) = ρ −αρ + α + c −1
+-> Invalid unicode use found on p. 32: α −αρ + cρ
+-> Invalid unicode use found on p. 32: = 1 −(1 −c)(1 −ρ)
+-> Invalid unicode use found on p. 32: α −αρ + cρ .
+-> Invalid unicode use found on p. 32: f(ρ, c, α) = 1 −(1 −c)(1 −ρ)
+-> Invalid unicode use found on p. 32: α −αρ + cρ .
+-> Invalid unicode use found on p. 32: X(ρ, c, α) = (1 −c)(1 −ρ),
+-> Invalid unicode use found on p. 32: Y (ρ, c, α) = α −αρ + cρ.
+-> Invalid unicode use found on p. 33: Then when ρ ≥1 −
+-> Invalid unicode use found on p. 33: 1−α, we have
+-> Invalid unicode use found on p. 33: f(ρ, c, α) = 1 −X
+-> Invalid unicode use found on p. 33: ∂ρ = (1 −c)Y + (c −α)X
+-> Invalid unicode use found on p. 33: = c(1 −c)
+-> Invalid unicode use found on p. 33: ∂c = (1 −ρ)Y + ρX
+-> Invalid unicode use found on p. 33: ∂α = 1 −ρ
+-> Invalid unicode use found on p. 33: Thus, rR(A) is monotonically increasing with ρ, c, α when ρ ≥1 −
+-> Invalid unicode use found on p. 33: 1−α. Moreover, the threshold
+-> Invalid unicode use found on p. 33: 1 −
+-> Invalid unicode use found on p. 33: 1−α is monotonically decreasing with c, α. Thus, we conclude that rR(A) is a monotonically
+-> Invalid unicode use found on p. 40: non-target group with probability 1 −µ, independently of the other agents. The ability of an
+-> Invalid unicode use found on p. 40: and independently from the joint distribution µF + (1 −µ)G. Let H be the CDF of this joint
+-> Invalid unicode use found on p. 40: by Pn−1
+-> Invalid unicode use found on p. 40: i=n−k
+-> Invalid unicode use found on p. 40: n−1
+-> Invalid unicode use found on p. 40: H(v)i(1 −H(v))n−1−i, which is the same for each agent, thereby resulting in a
+-> Invalid unicode use found on p. 40: n−1
+-> Invalid unicode use found on p. 40: n−1−i
+-> Invalid unicode use found on p. 40: j=n−k−i
+-> Invalid unicode use found on p. 40: n −1
+-> Invalid unicode use found on p. 40: n −1 −i
+-> Invalid unicode use found on p. 40: F1(v)i(1 −F1(v))(1−α)n−1−iF2(v)j(1 −F2(v))αn−j.
+-> Invalid unicode use found on p. 40: n−1
+-> Invalid unicode use found on p. 40: n−1−i
+-> Invalid unicode use found on p. 40: j=n−k−i
+-> Invalid unicode use found on p. 40: n −1
+-> Invalid unicode use found on p. 40: n −1 −i
+-> Invalid unicode use found on p. 40: F1(v)i(1 −F1(v))(1−α)n−iF2(v)j(1 −F2(v))αn−1−j.
+-> Invalid unicode use found on p. 41: n−1
+-> Invalid unicode use found on p. 41: n−1−i
+-> Invalid unicode use found on p. 41: j=(1−c)n−i
+-> Invalid unicode use found on p. 41: n −1
+-> Invalid unicode use found on p. 41: n −1 −i
+-> Invalid unicode use found on p. 41: Fs1(v)i(1 −Fs1(v))(1−α)n−1−iFs2(v)j(1 −Fs2(v))αn−j.
+-> Invalid unicode use found on p. 41: n−1
+-> Invalid unicode use found on p. 41: n−1−i
+-> Invalid unicode use found on p. 41: j=(1−c)n−i
+-> Invalid unicode use found on p. 41: n −1
+-> Invalid unicode use found on p. 41: n −1 −i
+-> Invalid unicode use found on p. 41: Fs1(v)i(1 −Fs1(v))(1−α)n−iFs2(v)j(1 −Fs2(v))αn−1−j.
+-> Invalid unicode use found on p. 41: n−1
+-> Invalid unicode use found on p. 41: i=(1−c)n
+-> Invalid unicode use found on p. 41: n −1
+-> Invalid unicode use found on p. 41: Fs(v)i(1 −Fs(v))n−1−i.
+-> Invalid unicode use found on p. 41: its winning probability P1 = A−1
+-> Invalid unicode use found on p. 41: 5 and its payoff is π1(v, e; A2) = A−1
+-> Invalid unicode use found on p. 41: v −e. Similarly, if agent 2
+-> Invalid unicode use found on p. 41: puts in effort e, its winning probability P2 = A−1
+-> Invalid unicode use found on p. 41: 1 (e) and payoff is π2(v, e; A1) = A−1
+-> Invalid unicode use found on p. 41: 1 (e)v −e. Then,
+-> Invalid unicode use found on p. 41: by the stability condition (1), we have ∂πℓ(v,e;A3−ℓ)
+-> Invalid unicode use found on p. 41: 2(A−1
+-> Invalid unicode use found on p. 41: 1(A−1
+-> Invalid unicode use found on p. 41: ρ + 1vρ+1; and ∀v ∈Ω2, A2(v) = ρ−1/ρ
+-> Invalid unicode use found on p. 41: A2(v) = ρ1+1/ρvρ−1/ρ ≤ρ1+1/ρρρ−1/ρ = ρ1+ρ ≤1,
+-> Invalid unicode use found on p. 41: 5Here, we assume A−1
+-> Invalid unicode use found on p. 42: 0.25 −RVρ
+-> Invalid unicode use found on p. 42: = 1 −ρ
+-> Invalid unicode use found on p. 42: 1. We first update the effort set Et based on the policies s(t−1)
+-> Invalid unicode use found on p. 42: 2. Next, we update the policy for group G1 using the policy s(t−1)
+-> Invalid unicode use found on p. 43: (Lines 9–19). Specifically, we set p1 = 1−v in Lines 9 and 12, consistent with the monotonicity
+-> Invalid unicode use found on p. 43: 3. We then update the policy for group G2 based on the policy s(t−1)
+-> Invalid unicode use found on p. 43: ℓ(v) −s(t−1)
+-> Invalid unicode use found on p. 43: ℓ(v) −s(t−1)
+-> Invalid unicode use found on p. 44: can be directly translated into the policy form: s(n) = 0 for v < t −O(
+-> Invalid unicode use found on p. 44: v ≥t −O(
+-> Invalid unicode use found on p. 44: Intuitively, s1(v) increases from approximately 0 to approximately t as v increases from t−
+-> Invalid unicode use found on p. 44: log n/n. If an agent in G2 exerts an effort of t(1−
+-> Invalid unicode use found on p. 44: This observation motivates the choice of setting s2(v) = t(1 −
+-> Invalid unicode use found on p. 44: rather than 0, to generate positive profits when v > t(1 −
+-> Invalid unicode use found on p. 44: log n/n)/95%. As a result, if t(1 −
+-> Invalid unicode use found on p. 44: ≥0.05, then s2(t) ≥t(1 −
+-> Invalid unicode use found on p. 44: ρ(b−a) and again, Ev∼p2[v] = ρ · a+b
+-> Invalid unicode use found on p. 45: 1 −
+-> Invalid unicode use found on p. 45: 1 −α,
+-> Invalid unicode use found on p. 45: ρ < 1 −
+-> Invalid unicode use found on p. 45: 1 −α,
+-> Invalid unicode use found on p. 45: ρ (1 −c)
+-> Invalid unicode use found on p. 45: ρ −ρ α + α,
+-> Invalid unicode use found on p. 45: 1+e−50(v−θ)
+-> Invalid unicode use found on p. 45: s(t−1)
+-> Invalid unicode use found on p. 45: , beste ←laste, p1 ←1 −v and p2 ←maxv′∈V (2):s(t−1)
+-> Invalid unicode use found on p. 45: ρ−v′
+-> Invalid unicode use found on p. 45: p(1)(beste) ←Pk−1
+-> Invalid unicode use found on p. 45: 1(1 −p1)n1−1−b
+-> Invalid unicode use found on p. 45: a−b
+-> Invalid unicode use found on p. 45: pa−b
+-> Invalid unicode use found on p. 45: (1 −p1)n2−a+b
+-> Invalid unicode use found on p. 45: p1 ←1 −v and p2 ←maxv′∈V (2):s(t−1)
+-> Invalid unicode use found on p. 45: ρ−v′
+-> Invalid unicode use found on p. 45: p(1)(e) ←Pk−1
+-> Invalid unicode use found on p. 45: 1(1 −p1)n1−1−b
+-> Invalid unicode use found on p. 45: a−b
+-> Invalid unicode use found on p. 45: pa−b
+-> Invalid unicode use found on p. 45: (1 −p1)n2−a+b
+-> Invalid unicode use found on p. 45: pay ←p(1)(e) v −e
+-> Invalid unicode use found on p. 45: if pay > p(1)(beste) v −beste then
+-> Invalid unicode use found on p. 45: ←s(t−1)
+-> Invalid unicode use found on p. 45: 1 −s(t−1)
+-> Invalid unicode use found on p. 45: 1 (v′)≥beste 1 −v and p2 ←ρ−v′
+-> Invalid unicode use found on p. 45: p(2)(beste) ←Pk−1
+-> Invalid unicode use found on p. 45: 1(1 −p1)n1−b
+-> Invalid unicode use found on p. 45: a−b
+-> Invalid unicode use found on p. 45: pa−b
+-> Invalid unicode use found on p. 45: (1 −p1)n2−1−a+b
+-> Invalid unicode use found on p. 45: 1 (v′)≥beste 1 −v and p2 ←ρ−v′
+-> Invalid unicode use found on p. 45: p(2)(e) ←Pk−1
+-> Invalid unicode use found on p. 45: 1(1 −p1)n1−b
+-> Invalid unicode use found on p. 45: a−b
+-> Invalid unicode use found on p. 45: pa−b
+-> Invalid unicode use found on p. 45: (1 −p1)n2−1−a+b
+-> Invalid unicode use found on p. 45: pay ←p(2)(e) v −e
+-> Invalid unicode use found on p. 45: if pay > p(2)(beste) v −beste then
+-> Invalid unicode use found on p. 45: ←s(t−1)
+-> Invalid unicode use found on p. 45: 2 −s(t−1)
+-> Invalid unicode use found on p. 48: ϕ( −ρµ
+-> Invalid unicode use found on p. 48: σ )−ϕ( 1−ρµ
+-> Invalid unicode use found on p. 48: Φ( 1−ρµ
+-> Invalid unicode use found on p. 48: )−Φ( −ρµ
+-> Invalid unicode use found on p. 49: (1 −α) · ϕ(v−µ
+-> Invalid unicode use found on p. 49: σ ) −ϕ(1−µ
+-> Invalid unicode use found on p. 49: Φ( 1−µ
+-> Invalid unicode use found on p. 49: σ ) −Φ( −µ
+-> Invalid unicode use found on p. 49: σ ) + α · ϕ(v−ρµ
+-> Invalid unicode use found on p. 49: ) −ϕ(1−ρµ
+-> Invalid unicode use found on p. 49: Φ( 1−ρµ
+-> Invalid unicode use found on p. 49: ) −Φ( −ρµ
+-> Invalid unicode use found on p. 49: σ ) = 1 −c.
+-> Invalid unicode use found on p. 51: rR(ρ, c, α) = 1 −(1 −c)(1 −ρ)
+-> Invalid unicode use found on p. 51: α −αρ + cρ ,
+-> Invalid unicode use found on p. 51: 0.671 = 1 −
+-> Invalid unicode use found on p. 51: (1 −0.268)(1 −ρ)
+-> Invalid unicode use found on p. 51: 0.228 −0.228ρ + 0.268ρ.
+-> Invalid unicode use found on p. 51: 0.329 = 0.732(1 −ρ)
+-> Invalid unicode use found on p. 51: 0.329(0.228 + 0.04ρ) = 0.732(1 −ρ).
+-> Invalid unicode use found on p. 51: 0.0749 + 0.01316ρ = 0.732 −0.732ρ.
+-> Invalid unicode use found on p. 53: (1 −α)F1(ζ) + αF2(ζ) = 1 −c.
+-> Invalid unicode use found on p. 53: sℓ(v, a) = 0 if v + a < t −yℓ
+-> Invalid unicode use found on p. 53: t −yℓ
+-> Invalid unicode use found on p. 53: −a, 0
+-> Invalid unicode use found on p. 53: if v + a ≥t −yℓ
+-> Invalid unicode use found on p. 53: Moreover, the threshold t−y2
+-> Invalid unicode use found on p. 53: agent i ∈Gℓ(ℓ= 1, 2) with valuation-ability pair (vi, ai) ∈Ωℓ× Ωa, if its valuation vi ≥t−yℓ
+-> Invalid unicode use found on p. 53: xℓ−ai,
+-> Invalid unicode use found on p. 53: t −yℓ
+-> Invalid unicode use found on p. 53: −ai, 0
+-> Invalid unicode use found on p. 53: Regarding the monotonicity of t−y2
+-> Invalid unicode use found on p. 53: the solution t must increase, resulting in a higher threshold t−y1
+-> Invalid unicode use found on p. 53: get selected. Then the threshold t−y2
+-> Invalid unicode use found on p. 54: to put in efforts due to lower valuation threshold t−y2
+-> Invalid unicode use found on p. 54: F2(t2) = 1 −c.
+-> Invalid unicode use found on p. 54: (1 −α)F1(t) + αF2(t) = 1 −c.
+##########################################################
+# Starting Reference-Bibliography-Comparision
+##########################################################
+-> Warning: Bracket content ['0', ' ρ'] on p. 6 could not be matched to a reference.
+   -> Sentence:  For instance, if p1 is uniform on [0, 1], then p2 is uniform on [0, ρ]
+-> Warning: Bracket content ['0', ' ρ'] on p. 7 could not be matched to a reference.
+   -> Sentence:  Let density p1 of agent 1 be the uniform distribution on Ω1 = [0, 1] and p2 of agent 2 be the ρ-biased version of
+p1 supported on Ω2 = [0, ρ]
+-> Warning: Bracket content ['0', ' ρ'] on p. 9 could not be matched to a reference.
+   -> Sentence:  Let p1 be uniform on Ω1 = [0, 1], p2 be uniform on Ω2 = [0, ρ], and pa be uniform on Ωa = [0, 1]
+-> Warning: Bracket content ['0', ' ρ'] on p. 9 could not be matched to a reference.
+   -> Sentence:  Since p1(v) = 1 for v ∈[0, 1], p2(v) = 1 ρ for v ∈[0, ρ] and Fa(ζ −v) = min{1, (ζ −v)+} (Here, x+ = max{0, x}), 
+Equation (2) reduces to Z 1 0 (1 −α) · min{1, (ζ −v)+}dv + Z ρ 0 α ρ · min{1, (ζ −v)+}dv = 1 −c
+-> Warning: Bracket content ['0', ' ρ'] on p. 11 could not be matched to a reference.
+   -> Sentence:  Focusing on the uniform case where p1 is Unif[0, 1] and p2 is the ρ-biased version supported on [0, ρ], the 
+second idea is that in the limit n →∞, NE stability requires t1 = t2 = t
+-> Warning: Bracket content ['0', ' ρ'] on p. 12 could not be matched to a reference.
+   -> Sentence:  We adopt the setting from Section 4: p1 is uniform on [0, 1], p2 is its ρ-biased variant, uniform on [0, ρ], and 
+pa is a point mass at 0
+-> Warning: Bracket content ['0', ' ρ'] on p. 13 could not be matched to a reference.
+   -> Sentence: [0, ρ], and pa a point mass at 0
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', ' 1 −ρ']
+-> Warning: Bracket content ['0', ' 1 −ρ'] on p. 14 could not be matched to a reference.
+   -> Sentence:  We allow two interventions: increasing ρ by ∆ρ ∈[0, 1 −ρ], and increasing c by ∆c ∈[0, 1 −c]
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', ' 1 −c']
+-> Warning: Bracket content ['0', ' 1 −c'] on p. 14 could not be matched to a reference.
+   -> Sentence:  We allow two interventions: increasing ρ by ∆ρ ∈[0, 1 −ρ], and increasing c by ∆c ∈[0, 1 −c]
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', ' 1 −ρ']
+-> Warning: Bracket content ['0', ' 1 −ρ'] on p. 14 could not be matched to a reference.
+   -> Sentence:  Let f : [0, 1 −ρ] →R≥0 be monotonic, modeling the institutional cost of boosting valuation
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', '1−ρ']
+-> Warning: Bracket content ['0', '1−ρ'] on p. 14 could not be matched to a reference.
+   -> Sentence:  We formalize the intervention design as: min ∆ρ∈[0,1−ρ], ∆c∈[0,1−c] f(∆ρ) + g(∆ρ, ∆c) s
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', '1−c']
+-> Warning: Bracket content ['0', '1−c'] on p. 14 could not be matched to a reference.
+   -> Sentence:  We formalize the intervention design as: min ∆ρ∈[0,1−ρ], ∆c∈[0,1−c] f(∆ρ) + g(∆ρ, ∆c) s
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['t(ρ + ∆ρ', ' c + ∆c) −t(ρ', ' c)']
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', '1−ρ']
+-> Warning: Bracket content ['0', '1−ρ'] on p. 15 could not be matched to a reference.
+   -> Sentence:  min ∆ρ∈[0,1−ρ],∆c∈[0,1−c] 5∆1
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', '1−c']
+-> Warning: Bracket content ['0', '1−c'] on p. 15 could not be matched to a reference.
+   -> Sentence:  min ∆ρ∈[0,1−ρ],∆c∈[0,1−c] 5∆1
+-> Warning: Bracket content ['0', ' ρ'] on p. 17 could not be matched to a reference.
+   -> Sentence:  Going back to the setting when p1 is the density of the uniform distribution over [0, 1] and p2 = p2 is the 
+density of the uniform distribution over [0, ρ], first observe that as ρ →0, t2 →0
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['n−1']
+-> Warning: Bracket content ['n−1'] on p. 24 could not be matched to a reference.
+   -> Sentence:  We note that P(1−α)n−1 j=(1−α)n−1−k1 B((1−α)n−1, j, F1(t)− q log n n ) is equivalent to the probability that P 
+i∈[n−1] Xi ≤k1 −1
+-> Warning: Numeric reference range was split into != 2 parts: ['(1−α)n−1']
+-> Warning: Bracket content ['(1−α)n−1'] on p. 24 could not be matched to a reference.
+   -> Sentence:  Also note that E   X i∈[(1−α)n−1] Xi  = ((1 −α)n −1) · (1 −F1(t) + s log n n )
+-> Warning: Numeric reference range was split into != 2 parts: ['(1−α)n−1']
+-> Warning: Bracket content ['(1−α)n−1'] on p. 24 could not be matched to a reference.
+   -> Sentence:  (14) Then by the Chernoff bound, we have (1−α)n−1 X j=(1−α)n−1−k1 B((1 −α)n −1, j, F1(t) − s log n n ) = Pr   X
+i∈[(1−α)n−1] Xi ≤k1 −1   ≤ Pr   X i∈[(1−α)n−1] Xi ≤E   X i∈[(1−α)n−1] Xi  −(1 −α)n · s log n n   (Eq
+-> Warning: Numeric reference range was split into != 2 parts: ['(1−α)n−1']
+-> Warning: Bracket content ['(1−α)n−1'] on p. 24 could not be matched to a reference.
+   -> Sentence:  (14) Then by the Chernoff bound, we have (1−α)n−1 X j=(1−α)n−1−k1 B((1 −α)n −1, j, F1(t) − s log n n ) = Pr   X
+i∈[(1−α)n−1] Xi ≤k1 −1   ≤ Pr   X i∈[(1−α)n−1] Xi ≤E   X i∈[(1−α)n−1] Xi  −(1 −α)n · s log n n   (Eq
+-> Warning: Numeric reference range was split into != 2 parts: ['(1−α)n−1']
+-> Warning: Bracket content ['(1−α)n−1'] on p. 24 could not be matched to a reference.
+   -> Sentence:  (14) Then by the Chernoff bound, we have (1−α)n−1 X j=(1−α)n−1−k1 B((1 −α)n −1, j, F1(t) − s log n n ) = Pr   X
+i∈[(1−α)n−1] Xi ≤k1 −1   ≤ Pr   X i∈[(1−α)n−1] Xi ≤E   X i∈[(1−α)n−1] Xi  −(1 −α)n · s log n n   (Eq
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', ' 1 −α']
+-> Warning: Bracket content ['0', ' 1 −α'] on p. 27 could not be matched to a reference.
+   -> Sentence:  To increase the understanding of the infinite case, we propose the following infinite version of the two-group 
+contest, where every real number in the interval [0, 1 −α] corresponds to an agent in G1 and in the interval (1 −α, 1] corresponds
+to an agent in G2
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', ' 1 −α']
+-> Warning: Bracket content ['0', ' 1 −α'] on p. 27 could not be matched to a reference.
+   -> Sentence:  Let every real number in the interval [0, 1 −α] correspond to an agent in group G1, and in the interval (1 −α, 1]
+correspond to an agent in group G2
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', ' 1 −α']
+-> Warning: Bracket content ['0', ' 1 −α'] on p. 28 could not be matched to a reference.
+   -> Sentence:  gn converges to g in the following sense: For any ε > 0, there exists a sufficiently large n0 such that for all n
+≥n0, • For any t ∈[0, 1 −α], | R t 0 dx − |{i∈G1: i−1 n−1≤t}| n | ≤ε, i
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', ' 1 −α']
+-> Warning: Bracket content ['0', ' 1 −α'] on p. 28 could not be matched to a reference.
+   -> Sentence:  For any t ∈[0, 1 −α], we have  Z t 0 dx − | n i ∈G1 : i−1 n−1 ≤t o | n  = t −⌊(n −1)t + 1⌋ n  and t −t n ≤⌊(n 
+−1)t + 1⌋ n ≤t + 1 −t n 
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['0', '1−α']
+-> Warning: Bracket content ['0', '1−α'] on p. 28 could not be matched to a reference.
+   -> Sentence:  We conclude that  Z t 0 dx − | n i ∈G1 : i−1 n−1 ≤t o | n  ≤max  t n, 1 −t n ∈[0,1−α] ≤ 1 n n≥ε−1 ≤ ε
+-> Warning: Bracket content ['|S ∩G1|'] on p. 30 could not be matched to a reference.
+   -> Sentence:  Then the linearity of expectation yields: Evi,ai[|S ∩G1|] = (1 −α)n(1 −F1(t)) and Evi,ai[|S ∩G2|] = αn(1 −F2(t))
+-> Warning: Bracket content ['|S ∩G2|'] on p. 30 could not be matched to a reference.
+   -> Sentence:  Then the linearity of expectation yields: Evi,ai[|S ∩G1|] = (1 −α)n(1 −F1(t)) and Evi,ai[|S ∩G2|] = αn(1 −F2(t))
+-> Warning: Bracket content ['R1(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This translates to: E[R1(A)] = Evi,ai[|S ∩G1|] (1 −α)n = 1 −F1(t) and E[R2(A)] = Evi,ai[|S ∩G2|] αn = 1 −F2(t)
+-> Warning: Bracket content ['|S ∩G1|'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This translates to: E[R1(A)] = Evi,ai[|S ∩G1|] (1 −α)n = 1 −F1(t) and E[R2(A)] = Evi,ai[|S ∩G2|] αn = 1 −F2(t)
+-> Warning: Bracket content ['R2(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This translates to: E[R1(A)] = Evi,ai[|S ∩G1|] (1 −α)n = 1 −F1(t) and E[R2(A)] = Evi,ai[|S ∩G2|] αn = 1 −F2(t)
+-> Warning: Bracket content ['|S ∩G2|'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This translates to: E[R1(A)] = Evi,ai[|S ∩G1|] (1 −α)n = 1 −F1(t) and E[R2(A)] = Evi,ai[|S ∩G2|] αn = 1 −F2(t)
+-> Warning: Bracket content ['R2(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  Thus, we have E[R2(A)] ≤ E[R1(A)]
+-> Warning: Bracket content ['R1(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  Thus, we have E[R2(A)] ≤ E[R1(A)]
+-> Warning: Bracket content ['R1(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  As n →∞, it suffices to prove that rR(A) →min E[R1(A)] E[R2(A)], E[R2(A)] E[R1(A)]  1 −F2(t) 1 −F1(t) = 1 
+−F1(t/ρ) 1 −F1(t) 
+-> Warning: Bracket content ['R2(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  As n →∞, it suffices to prove that rR(A) →min E[R1(A)] E[R2(A)], E[R2(A)] E[R1(A)]  1 −F2(t) 1 −F1(t) = 1 
+−F1(t/ρ) 1 −F1(t) 
+-> Warning: Bracket content ['R2(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  As n →∞, it suffices to prove that rR(A) →min E[R1(A)] E[R2(A)], E[R2(A)] E[R1(A)]  1 −F2(t) 1 −F1(t) = 1 
+−F1(t/ρ) 1 −F1(t) 
+-> Warning: Bracket content ['R1(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  As n →∞, it suffices to prove that rR(A) →min E[R1(A)] E[R2(A)], E[R2(A)] E[R1(A)]  1 −F2(t) 1 −F1(t) = 1 
+−F1(t/ρ) 1 −F1(t) 
+-> Warning: Bracket content ['|S ∩G1|'] on p. 30 could not be matched to a reference.
+   -> Sentence:  We first note that |S ∩Gℓ| is highly concentrated at Evi,ai[|S ∩G1|] since all agents in Gℓare i
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['||S ∩Gℓ| −Evi', 'ai[|S ∩Gℓ|']
+-> Warning: Numeric reference range couldn't be parsed as Integers: ['||S ∩Gℓ| −Evi', 'ai[|S ∩Gℓ|']
+-> Warning: Bracket content ['R1(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This implies that as n →∞, rR(A) = Evi,ai  min R2(A) R1(A), R1(A) R2(A) min E[R1(A)] E[R2(A)], E[R2(A)] 
+E[R1(A)] hich completes the proof of the formula of rR(A)
+-> Warning: Bracket content ['R2(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This implies that as n →∞, rR(A) = Evi,ai  min R2(A) R1(A), R1(A) R2(A) min E[R1(A)] E[R2(A)], E[R2(A)] 
+E[R1(A)] hich completes the proof of the formula of rR(A)
+-> Warning: Bracket content ['R2(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This implies that as n →∞, rR(A) = Evi,ai  min R2(A) R1(A), R1(A) R2(A) min E[R1(A)] E[R2(A)], E[R2(A)] 
+E[R1(A)] hich completes the proof of the formula of rR(A)
+-> Warning: Bracket content ['R1(A)'] on p. 30 could not be matched to a reference.
+   -> Sentence:  This implies that as n →∞, rR(A) = Evi,ai  min R2(A) R1(A), R1(A) R2(A) min E[R1(A)] E[R2(A)], E[R2(A)] 
+E[R1(A)] hich completes the proof of the formula of rR(A)
+-> Warning: Bracket content ['S1(A)'] on p. 31 could not be matched to a reference.
+   -> Sentence:  By a similar argument as for rR(A), we first have that as n →∞, rS(A) →min E[S1(A)] E[S2(A)], E[S2(A)] E[S1(A)] 
+-> Warning: Bracket content ['S2(A)'] on p. 31 could not be matched to a reference.
+   -> Sentence:  By a similar argument as for rR(A), we first have that as n →∞, rS(A) →min E[S1(A)] E[S2(A)], E[S2(A)] E[S1(A)] 
+-> Warning: Bracket content ['S2(A)'] on p. 31 could not be matched to a reference.
+   -> Sentence:  By a similar argument as for rR(A), we first have that as n →∞, rS(A) →min E[S1(A)] E[S2(A)], E[S2(A)] E[S1(A)] 
+-> Warning: Bracket content ['S1(A)'] on p. 31 could not be matched to a reference.
+   -> Sentence:  By a similar argument as for rR(A), we first have that as n →∞, rS(A) →min E[S1(A)] E[S2(A)], E[S2(A)] E[S1(A)] 
+-> Warning: Numeric reference range couldn't be parsed as Integers: [' 1 |Gℓ| X i∈Gℓ (I(i selected) · vi −ei)']
+-> Warning: Bracket content [' 1 |Gℓ| X i∈Gℓ (I(i selected) · vi −ei)'] on p. 31 could not be matched to a reference.
+   -> Sentence:  Also note that E[Sℓ(A)] = E[ 1 |Gℓ| X i∈Gℓ (I(i selected) · vi −ei)] = Z ∞ t (v −t)pℓ(v)dv
+-> Warning: Bracket content ['S2(A)'] on p. 31 could not be matched to a reference.
+   -> Sentence:  Then we have E[S2(A)] = 1 ρ Z ∞ t (v −t)p1(v ρ)dv = Z ∞ t ρ (ρv −t)p1(v)dv ≤E[S1(A)]
+-> Warning: Bracket content ['S1(A)'] on p. 31 could not be matched to a reference.
+   -> Sentence:  Then we have E[S2(A)] = 1 ρ Z ∞ t (v −t)p1(v ρ)dv = Z ∞ t ρ (ρv −t)p1(v)dv ≤E[S1(A)]
+-> Warning: Bracket content ['0', ' ρ'] on p. 32 could not be matched to a reference.
+   -> Sentence:  Let p1 be uniform on [0, 1], p2 be uniform on [0, ρ], and pa be uniform on [0, 1]
+-> Warning: Bracket content ['0', ' ρ'] on p. 33 could not be matched to a reference.
+   -> Sentence:  Let p1 be uniform on [0, 1], p2 be uniform on [0, ρ], and pa be a point mass at 0
+-> Processing set references in the doc's text... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Processed 1890 sentences on 35 pages -> Avg. of 56.588235294117645 sentences per page
+-> Warning: Reference '71' never used in the document's text.
+-> Warning: Reference '88' never used in the document's text.
+---
+-> Missing an abstract for reference with index 0 (Ref. ID = 1); Skipping LLM check...
+-> Missing an abstract for reference with index 1 (Ref. ID = 2); Skipping LLM check...
+-> Missing an abstract for reference with index 2 (Ref. ID = 3); Skipping LLM check...
+-> Missing an abstract for reference with index 3 (Ref. ID = 4); Skipping LLM check...
+  // LLM calling counter = 1
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 5 (Ref. ID = 6); Skipping LLM check...
+-> Missing an abstract for reference with index 6 (Ref. ID = 7); Skipping LLM check...
+-> Missing an abstract for reference with index 7 (Ref. ID = 8); Skipping LLM check...
+-> Missing an abstract for reference with index 8 (Ref. ID = 9); Skipping LLM check...
+-> Missing an abstract for reference with index 9 (Ref. ID = 10); Skipping LLM check...
+-> Missing an abstract for reference with index 10 (Ref. ID = 11); Skipping LLM check...
+  // LLM calling counter = 2
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 12 (Ref. ID = 13); Skipping LLM check...
+  // LLM calling counter = 3
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 14 (Ref. ID = 15); Skipping LLM check...
+  // LLM calling counter = 4
+  -> Automatic parsing of LLM list worked!
+  // LLM calling counter = 5
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 17 (Ref. ID = 18); Skipping LLM check...
+-> Missing an abstract for reference with index 18 (Ref. ID = 19); Skipping LLM check...
+-> Missing an abstract for reference with index 19 (Ref. ID = 20); Skipping LLM check...
+-> Missing an abstract for reference with index 20 (Ref. ID = 21); Skipping LLM check...
+-> Missing an abstract for reference with index 21 (Ref. ID = 22); Skipping LLM check...
+-> Missing an abstract for reference with index 22 (Ref. ID = 23); Skipping LLM check...
+-> Missing an abstract for reference with index 23 (Ref. ID = 24); Skipping LLM check...
+-> Missing an abstract for reference with index 24 (Ref. ID = 25); Skipping LLM check...
+-> Missing an abstract for reference with index 25 (Ref. ID = 26); Skipping LLM check...
+-> Missing an abstract for reference with index 26 (Ref. ID = 27); Skipping LLM check...
+-> Missing an abstract for reference with index 27 (Ref. ID = 28); Skipping LLM check...
+-> Missing an abstract for reference with index 28 (Ref. ID = 29); Skipping LLM check...
+-> Missing an abstract for reference with index 29 (Ref. ID = 30); Skipping LLM check...
+-> Missing an abstract for reference with index 30 (Ref. ID = 31); Skipping LLM check...
+-> Missing an abstract for reference with index 31 (Ref. ID = 32); Skipping LLM check...
+-> Missing an abstract for reference with index 32 (Ref. ID = 33); Skipping LLM check...
+-> Missing an abstract for reference with index 33 (Ref. ID = 34); Skipping LLM check...
+-> Missing an abstract for reference with index 34 (Ref. ID = 35); Skipping LLM check...
+-> Missing an abstract for reference with index 35 (Ref. ID = 36); Skipping LLM check...
+-> Missing an abstract for reference with index 36 (Ref. ID = 37); Skipping LLM check...
+-> Missing an abstract for reference with index 37 (Ref. ID = 38); Skipping LLM check...
+-> Missing an abstract for reference with index 38 (Ref. ID = 39); Skipping LLM check...
+-> Missing an abstract for reference with index 39 (Ref. ID = 40); Skipping LLM check...
+-> Missing an abstract for reference with index 40 (Ref. ID = 41); Skipping LLM check...
+-> Missing an abstract for reference with index 41 (Ref. ID = 42); Skipping LLM check...
+-> Missing an abstract for reference with index 42 (Ref. ID = 43); Skipping LLM check...
+  // LLM calling counter = 6
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 44 (Ref. ID = 45); Skipping LLM check...
+-> Missing an abstract for reference with index 45 (Ref. ID = 46); Skipping LLM check...
+  // LLM calling counter = 7
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 47 (Ref. ID = 48); Skipping LLM check...
+-> Missing an abstract for reference with index 48 (Ref. ID = 49); Skipping LLM check...
+-> Missing an abstract for reference with index 49 (Ref. ID = 50); Skipping LLM check...
+-> Missing an abstract for reference with index 50 (Ref. ID = 51); Skipping LLM check...
+-> Missing an abstract for reference with index 51 (Ref. ID = 52); Skipping LLM check...
+-> Missing an abstract for reference with index 52 (Ref. ID = 53); Skipping LLM check...
+-> Missing an abstract for reference with index 53 (Ref. ID = 54); Skipping LLM check...
+-> Missing an abstract for reference with index 54 (Ref. ID = 55); Skipping LLM check...
+-> Missing an abstract for reference with index 55 (Ref. ID = 56); Skipping LLM check...
+-> Missing an abstract for reference with index 56 (Ref. ID = 57); Skipping LLM check...
+-> Missing an abstract for reference with index 57 (Ref. ID = 58); Skipping LLM check...
+-> Missing an abstract for reference with index 58 (Ref. ID = 59); Skipping LLM check...
+  // LLM calling counter = 8
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 60 (Ref. ID = 61); Skipping LLM check...
+-> Missing an abstract for reference with index 61 (Ref. ID = 62); Skipping LLM check...
+-> Missing an abstract for reference with index 62 (Ref. ID = 63); Skipping LLM check...
+-> Missing an abstract for reference with index 63 (Ref. ID = 64); Skipping LLM check...
+-> Missing an abstract for reference with index 64 (Ref. ID = 65); Skipping LLM check...
+-> Missing an abstract for reference with index 65 (Ref. ID = 66); Skipping LLM check...
+-> Missing an abstract for reference with index 66 (Ref. ID = 67); Skipping LLM check...
+-> Missing an abstract for reference with index 67 (Ref. ID = 68); Skipping LLM check...
+-> Missing an abstract for reference with index 68 (Ref. ID = 69); Skipping LLM check...
+-> Missing an abstract for reference with index 69 (Ref. ID = 70); Skipping LLM check...
+-> Missing an abstract for reference with index 70 (Ref. ID = 71); Skipping LLM check...
+-> Missing an abstract for reference with index 71 (Ref. ID = 72); Skipping LLM check...
+  // LLM calling counter = 9
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 73 (Ref. ID = 74); Skipping LLM check...
+-> Missing an abstract for reference with index 74 (Ref. ID = 75); Skipping LLM check...
+-> Missing an abstract for reference with index 75 (Ref. ID = 76); Skipping LLM check...
+-> Missing an abstract for reference with index 76 (Ref. ID = 77); Skipping LLM check...
+-> Missing an abstract for reference with index 77 (Ref. ID = 78); Skipping LLM check...
+-> Missing an abstract for reference with index 78 (Ref. ID = 79); Skipping LLM check...
+-> Missing an abstract for reference with index 79 (Ref. ID = 80); Skipping LLM check...
+-> Missing an abstract for reference with index 80 (Ref. ID = 81); Skipping LLM check...
+-> Missing an abstract for reference with index 81 (Ref. ID = 82); Skipping LLM check...
+-> Missing an abstract for reference with index 82 (Ref. ID = 83); Skipping LLM check...
+-> Missing an abstract for reference with index 83 (Ref. ID = 84); Skipping LLM check...
+  // LLM calling counter = 10
+  -> Automatic parsing of LLM list worked!
+-> Missing an abstract for reference with index 85 (Ref. ID = 86); Skipping LLM check...
+-> Missing an abstract for reference with index 86 (Ref. ID = 87); Skipping LLM check...
+-> Missing an abstract for reference with index 87 (Ref. ID = 88); Skipping LLM check...
+-> Missing an abstract for reference with index 88 (Ref. ID = 89); Skipping LLM check...
+-> Missing an abstract for reference with index 89 (Ref. ID = 90); Skipping LLM check...
+###############################
+# Starting Ranking Check
+###############################
+-> Loading rankings and iterating them; please wait, this might take a minute!
+  -> Warning: A parsed outlet title is empty. Skipping this one.
+-> Now checking the JQ proceedings:
+  -> Processing initial jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 6 matches in this ranking!
+-> Now checking the JQ jounrals:
+  -> Processing initial jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 32 matches in this ranking!
+-> Now checking the CORE A+ - B rankings:
+  -> Processing initial core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 97 matches in this ranking!
+-> Now checking the CORE C rankings:
+  -> Processing initial core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 81 matches in this ranking!
+-> Now checking the remaining CORE rankings:
+  -> Processing initial core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 36 matches in this ranking!
+-> Now checking the journal impact factors:
+  -> Processing initial impact_factor check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+  -> Found 4502 matches in this ranking!
+-> Fallback activated. Now matching the JQ proceedings and the parsed outlets using an LLM:
+  // LLM calling counter = 11
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the JQ jounrals and the parsed outlets using an LLM:
+  // LLM calling counter = 12
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM jq_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the CORE A+ - B rankings and the parsed outlets using an LLM:
+  // LLM calling counter = 13
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the CORE C rankings and the parsed outlets using an LLM:
+  // LLM calling counter = 14
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+-> Now matching the remaining CORE rankings and the parsed outlets using an LLM:
+  // LLM calling counter = 15
+  -> Automatic parsing of LLM DF worked!
+  -> Processing LLM core_ranking check... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+###############################
+# Starting Author Check
+###############################
+-> Saved chapter_fig on try 1
+-> Saved lit_fig on try 1
+-> Saved rank_fig on try 1
+---
+FINISHED!
+ -> Results saved to C:...\PAU - All  GPTZero NeurIPS Paper with H\40 Strategic Costs of Perceived Bias in Fair Selection\PAU_results.md
+```

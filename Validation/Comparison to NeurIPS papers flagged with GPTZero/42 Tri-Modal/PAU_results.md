@@ -1,0 +1,1378 @@
+# Paper Analysis Utility - Results
+
+Paper: A Tri-Modal Multi-Agent Responsive Framework for Comprehensive 3D Object Annotation.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/42 Tri-Modal/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 2 pages)
+2) 'Related Works' -- p. 3 (ca. 1 pages)
+3) 'Methodology' -- p. 4 (ca. 3 pages)
+4) 'Experiments' -- p. 7 (ca. 2 pages)
+5) 'Conclusion' -- p. 9 (ca. 1 pages)
+6) 'References' -- p. 10 (ca. 4 pages)
+6) 'Analysis of GPU Memory Usage and Computing Efficiency' -- p. 14 (ca. 1 pages)
+7) 'Isolating the Benefits of Multi-Agent Collaboration' -- p. 15 (ca. 1 pages)
+8) 'Justification for MAB-based Aggregation in Tri-MARF' -- p. 16 (ca. 2 pages)
+9) 'Exploring Tri-MARF for 3D Scene Annotation' -- p. 18 (ca. 2 pages)
+10) 'Cost Calculation and Analysis' -- p. 20 (ca. 0 pages)
+11) 'Detailed Ablation Studies' -- p. 20 (ca. 10 pages)
+12) 'Details of Human Evaluation' -- p. 30 (ca. 2 pages)
+13) 'Robustness Evaluation Under Occlusion' -- p. 32 (ca. 0 pages)
+14) 'Additional Details of all the experiments' -- p. 32 (ca. 2 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/24=0.00%
+		- Invalid uses: 24/24=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 5: si := (1 −α) · Sconf,i + α · wi, where α ∈[0, 1] controls the balance between text similarity and
+		- Page 5: (na−1),ˆra+ra
+		- Page 16: view based on the highest composite score si = (1 −α) · Sconf,i + α · wi (detailed in
+		- Page 25: −(α−µ1)2
+		- Page 25: −(α−µ2)2
+		- Page 25: −(α −µ1)2
+		- Page 25: −(α −µ2)2
+		- Page 25: (α −µ2)2
+		- Page 25: −(α −µ1)2
+		- Page 25: −1
+		- Page 25: −µ2
+		- Page 25: −µ2
+		- Page 25: −2 ln
+		- Page 25: 0.152 −
+		- Page 25: 0.12 = 44.44 −100 = −55.56,
+		- Page 25: 0.12 −0.35
+		- Page 25: = 2(65 −15.56) = 98.89,
+		- Page 25: 0.152 −0.652
+		- Page 25: 0.12 −2 ln
+		- Page 25: = 5.4444 −42.25 −2(0.4055) = −37.6166.
+		- Page 26: α = −B ±
+		- Page 26: B2 −4AC
+		- Page 26: ∆= 98.892 −4(−55.56)(−37.6166) = 1425.4625,
+		- Page 28: Theoretically, α = 0.557 balances partially overlapping distributions (µ1 −µ2 = 0.3 <
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+All references stated in the 'References' section were also used at least once in the document's (main) text.
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Zhang J.: 15
+- Wang K.: 10
+- Wang J.: 7
+- Cai K.: 7
+- Fan Y.: 7
+- Chang A.: 6
+- Guibas L.: 6
+- Su H.: 6
+- Yi L.: 6
+- Johnson J.: 5
+- Savarese S.: 5
+- Funkhouser T.: 4
+- Savva M.: 4
+- Song S.: 4
+- Xiao J.: 4
+- Yu F.: 4
+- Hanrahan P.: 3
+- Huang Q.: 3
+- Li Z.: 3
+- Luo T.: 3
+- Rockwell C.: 3
+- Lee H.: 3
+- Wu T.: 3
+- Huang Z.: 3
+- Yao J.: 3
+- Liu N.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/42 Tri-Modal/literature_validation_results_fig.jpg]]
+
+References section starts on page 10.
+
+- No link provided: $80/80=100.00\%$
+- Unchecked links: $0/80=0.00\%$
+- Valid links: $0/80=0.00\%$
+- Invalid link: $0/80=0.00\%$
+
+- Different links: $1/80=1.25\%$
+	- *Please note that if no link was provided, a found link will also show up in this statistic!*
+	- Different links:
+		=> total = 1
+		- \[4\] Marwa Chafii, Salmane Naoumi, Reda Alami, Ebtesam Almazrouei, Mehdi Bennis, and Merouane Debbah. Emergent communication in multi-agent reinforcement learning for future wireless networks, 2023.
+			-> Found: Years matched; reference (https://doi.org/10.1109/IOTM.001.2300102) checks out :); https://doi.org/10.1109/IOTM.001.2300102
+
+- Successful searches: $19/80=23.75\%$
+- Skipped searches: $0/80=0.00\%$
+- Mismatching infos: $7/80=8.75\%$
+	- **Entries with mismatching author information:**
+		=> total = 2
+		- `[30] Arsalan Mousavian, Alexander Toshev, Marek Fišer, Jana Košecká, Ayzaan Wahid, and James Davidson. Visual representations for semantic target driven navigation. In ICRA, pages 8846–8852, 2019.`
+			- Authors () did not match found publication titled 'Visual Representations for Semantic Target Driven Navigation'
+		- `[58] Le Xue, Mingfei Gao, Chen Xing, Roberto Martín-Martín, Jiajun Wu, Caiming Xiong, Ran Xu, Juan Carlos Niebles, and Silvio Savarese. Ulip: Learning a unified representation of language, images, and point clouds for 3d understanding. In CVPR, pages 1179–1189, 2023.`
+			- Authors (Mart'in-Mart'in) did not match found publication titled 'ULIP: Learning a Unified Representation of Language, Images, and Point Clouds for 3D Understanding'
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 5
+		- `[12] Matt Deitke, Dustin Schwenk, Jordi Salvador, Luca Weihs, Oscar Michel, Eli VanderBilt, Ludwig Schmidt, Kiana Ehsanit, Aniruddha Kembhavi, and Ali Farhadi. Objaverse: A universe of annotated 3d objects. In 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pages 13142–13153, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[15] Peng Gao, Zhengkai Jiang, Haoxuan You, Pan Lu, Steven C. H. Hoi, Xiaogang Wang, and Hongsheng Li. Dynamic fusion with intra- and inter-modality attention flow for visual question answering. In CVPR, pages 6632–6641, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[19] Justin Johnson, Andrej Karpathy, and Li Fei-Fei. DenseCap: Fully convolutional localization networks for dense captioning. In CVPR, pages 4565–4574, 2016.`
+			- Year (2015) does not match expected year (2016)
+		- `[29] Kaichun Mo, Shilin Zhu, Angel X. Chang, Li Yi, Subarna Tripathi, Leonidas J. Guibas, and Hao Su. Partnet: A large-scale benchmark for fine-grained and hierarchical part-level 3d object understanding. In CVPR, pages 909–918, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[77] Changgang Zheng, Shufan Yang, Juan Marcelo Parra-Ullauri, Antonio Garcia-Dominguez, and Nelly Bencomo. Reward-reinforced generative adversarial networks for multi-agent systems. IEEE Transactions on Emerging Topics in Computational Intelligence, 6(3):479–488, 2022.`
+			- Year (2021) does not match expected year (2022)
+- No entry found: $54/80=67.50\%$
+	- Unfound entries:
+		=> total = 54
+		- ==\[1\] Erfan Aghasian, Shai Avidan, Piotr Dollar, and Justin Johnson. Hierarchical protocols for multi-agent 3d scene understanding. In CVPR, pages 7664–7673, 2021.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[3\] Shaofeng Cai, Yao Shu, Wei Wang, and Beng Chin Ooi. Dynamic routing networks, 2020.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[5\] Angel X. Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu. Shapenet: An information-rich 3d model repository, 2015.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[6\] Angel X. Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu. Shapenet: An information-rich 3d model repository, 2015.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[7\] Angel X. Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang3, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu. Shapenet: An information-rich 3d model repository, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[9\] Jasmine Collins, Shubham Goel, Kenan Deng, Achleshwar Luthra, Leon Xu, Erhan Gundogdu, Xi Zhang, Tomas F. Yago Vicente, Thomas Dideriksen, Himanshu Arora, Matthieu Guillaumin, and Jitendra Malik. Abo: Dataset and benchmarks for real-world 3d object understanding, 2022.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[10\] Angela Dai, Angel X. Chang, Manolis Savva, Maciej Halber, Thomas Funkhouser, and Matthias Nießner. Scannet: Richly-annotated 3d reconstructions of indoor scenes, 2017.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[14\] Yasutaka Furukawa and Carlos Hernández. 2015.
+			-> Search skipped due to not enough information!
+		- \[16\] Judy Hoffman, Mehryar Mohri, and Ningshan Zhang. Algorithms and theory for multiple-source adaptation, 2018.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[17\] Yining Hong, Haoyu Zhen, Peihao Chen, Shuhong Zheng, Yilun Du, Zhenfang Chen, and Chuang Gan. 3d-llm: Injecting the 3d world into large language models, 2023.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[18\] S. S. Hotegni, M. Berkemeier, and S. Peitz. Multi-objective optimization for sparse deep multi-task learning, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[20\] Rishabh Kabra, Loic Matthey, Alexander Lerchner, and Niloy J. Mitra. Leveraging vlm-based pipelines to annotate 3d objects, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[21\] Wonjae Kim, Bokyung Son, and Ildoo Kim. Vilt: Vision-and-language transformer without convolution or region supervision, 2021.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[22\] Hanxiao Liu, Karen Simonyan, and Yiming Yang. Darts: Differentiable architecture search, 2019.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[23\] Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. Roberta: A robustly optimized bert pretraining approach, 2019.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[24\] Tiange Luo, Chris Rockwell, Honglak Lee, and Justin Johnson. Scalable 3d captioning with pretrained models, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[25\] Tiange Luo, Chris Rockwell, Honglak Lee, and Justin Johnson. Scalable 3d captioning with pretrained models, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[26\] Tiange Luo, Chris Rockwell, Honglak Lee, and Justin Johnson. Scalable 3d captioning with pretrained models, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[28\] Kaichun Mo, Shilin Zhu, Angel X. Chang, Li Yi, Subarna Tripathi, Leonidas J. Guibas, and Hao Su. Partnet: A large-scale benchmark for fine-grained and hierarchical part-level 3d object understanding, 2018.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[32\] Gaku Narita, Takashi Seno, Tomoya Ishikawa, and Yohsuke Kaji. Panopticfusion: Online volumetric semantic mapping at the level of stuff and things, 2019.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[33\] OpenAI. Gpt-4 technical report, 2024.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[37\] Zhangyang Qi, Ye Fang, Zeyi Sun, Xiaoyang Wu, Tong Wu, Jiaqi Wang, Dahua Lin, and Hengshuang Zhao. Gpt4point: A unified framework for point-language understanding and generation, 2023.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[38\] Jie Qin, Shuaihang Yuan, Jiaxin Chen, Boulbaba Ben Amor, Yi Fang, Nhat Hoang-Xuan, Chi-Bien Chu, Khoi-Nguyen Nguyen-Ngoc, Thien-Tri Cao, Nhat-Khang Ngo, Tuan-Luc Huynh, Hai-Dang Nguyen, Minh-Triet Tran, Haoyang Luo, Jianning Wang, Zheng Zhang, Zihao Xin, Yang Wang, Feng Wang, Ying Tang, Haiqin Chen, Yan Wang, Qunying Zhou, Ji Zhang, and Hongyuan Wang. Shrec’22 track: Sketch-based 3d shape retrieval in the wild, 2022.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[39\] Qwen. Qwen2.5 technical report, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[40\] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, and Ilya Sutskever. Learning transferable visual models from natural language supervision, 2021.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[41\] Pradeep Ravikumar, Martin J. Wainwright, and John D. Lafferty. High-dimensional ising model selection using l1-regularized logistic regression. The Annals of Statistics, 38(3), 2010.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[43\] Arup Kumar Sadhu and Amit Konar. Improve Convergence Speed of Multi-Agent Q-Learning for Cooperative Task Planning, pages 111–166. 2021.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[44\] Arup Kumar Sadhu and Amit Konar. Consensus Q-Learning for Multi-agent Cooperative Planning, pages 167–182. 2021.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[45\] Sayan Deb Sarkar, Ondrej Miksik, Marc Pollefeys, Daniel Barath, and Iro Armeni. Crossover: 3d scene cross-modal alignment, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[46\] Lennart Schneider, Bernd Bischl, and Janek Thomas. Multi-objective optimization of performance and interpretability of tabular supervised machine learning models, 2023.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[48\] Aleksandrs Slivkins. 2019.
+			-> Search skipped due to not enough information!
+		- \[49\] S. Talukdar. Multi-agent systems. In IEEE Power Engineering Society General Meeting, 2004., pages 59–60 Vol.1, 2004.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[51\] Guoqin Tang, Qingxuan Jia, Zeyuan Huang, Gang Chen, Ning Ji, and Zhipeng Yao. 3d-grounded visionlanguage framework for robotic task planning: Automated prompt synthesis and supervised reasoning, 2025.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[52\] Jinzhou Tang, Jusheng Zhang, Qinhan Lv, Sidi Liu, Jing Yang, Chengpei Tang, and Keze Wang. Hiva: Self-organized hierarchical variable agent via goal-driven semantic-topological evolution, 2025.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[56\] Zhirong Wu, Shuran Song, Aditya Khosla, Fisher Yu, Linguang Zhang, Xiaoou Tang, and Jianxiong Xiao. 3d shapenets: A deep representation for volumetric shapes, 2015.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[59\] Le Xue, Ning Yu, Shu Zhang, Artemis Panagopoulou, Junnan Li, Roberto Martín-Martín, Jiajun Wu, Caiming Xiong, Ran Xu, Juan Carlos Niebles, and Silvio Savarese. Ulip-2: Towards scalable multimodal pre-training for 3d understanding, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[60\] Jiawei Yao, Jusheng Zhang, Xiaochao Pan, Tong Wu, and Canran Xiao. Depthssc: Monocular 3d semantic scene completion via depth-spatial alignment and voxel adaptation, 2024.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[61\] Jiawei Yao, Jusheng Zhang, Xiaochao Pan, Tong Wu, and Canran Xiao. Depthssc: Monocular 3d semantic scene completion via depth-spatial alignment and voxel adaptation, 2024.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[62\] Mao Ye, Gregory P. Meyer, Yuning Chai, and Qiang Liu. Efficient transformer-based 3d object detection with dynamic token halting, 2023.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[64\] Da Zhang, Junwei Han, Long Zhao, Deyu Meng, and Yi Yang. Deep reinforcement learning for visual object tracking. IEEE TNNLS, 29(11):5119–5131, 2018.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[65\] J. Zhang and X. Li. Multi-agent systems for distributed problem solving: A framework for task decomposition and coordination. Procedia Computer Science, 55:1131–1138, 2015.==
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[66\] Jingwei Zhang, Lei Tai, Ming Liu, Joschka Boedecker, and Wolfram Burgard. Neural slam: Learning to explore with external memory, 2020.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[67\] Jusheng Zhang, Kaitong Cai, Yijia Fan, Ningyuan Liu, and Keze Wang. Mat-agent: Adaptive multi-agent training optimization, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[68\] Jusheng Zhang, Kaitong Cai, Yijia Fan, Jian Wang, and Keze Wang. Cf-vlm:counterfactual vision-language fine-tuning, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[69\] Jusheng Zhang, Kaitong Cai, Jing Yang, and Keze Wang. Learning dynamics of vlm finetuning, 2025.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[70\] Jusheng Zhang, Kaitong Cai, Qinglin Zeng, Ningyuan Liu, Stephen Fan, Ziliang Chen, and Keze Wang. Failure-driven workflow refinement, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[71\] Jusheng Zhang, Yijia Fan, Kaitong Cai, Zimeng Huang, Xiaofei Sun, Jian Wang, Chengpei Tang, and Keze Wang. Drdiff: Dynamic routing diffusion with hierarchical attention for breaking the efficiency-quality trade-off, 2025.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[72\] Jusheng Zhang, Yijia Fan, Kaitong Cai, Xiaofei Sun, and Keze Wang. Osc: Cognitive orchestration through dynamic knowledge alignment in multi-agent llm collaboration, 2025.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[73\] Jusheng Zhang, Yijia Fan, Kaitong Cai, and Keze Wang. Kolmogorov-arnold fourier networks, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[74\] Jusheng Zhang, Yijia Fan, Wenjun Lin, Ruiqi Chen, Haoyi Jiang, Wenhao Chai, Jian Wang, and Keze Wang. Gam-agent: Game-theoretic and uncertainty-aware collaboration for complex visual reasoning, 2025.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[75\] Jusheng Zhang, Zimeng Huang, Yijia Fan, Ningyuan Liu, Mingyan Li, Zhuojie Yang, Jiawei Yao, Jian Wang, and Keze Wang. Kabb: Knowledge-aware bayesian bandits for dynamic expert coordination in multi-agent systems, 2025.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[76\] Renrui Zhang, Ziyu Guo, Wei Zhang, Kunchang Li, Xupeng Miao, Bin Cui, Yu Qiao, Peng Gao, and Hongsheng Li. Pointclip: Point cloud understanding by clip, 2021.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[79\] Junsheng Zhou, Jinsheng Wang, Baorui Ma, Yu-Shen Liu, Tiejun Huang, and Xinlong Wang. Uni3d: Exploring unified 3d representation at scale, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[80\] Luowei Zhou, Chenliang Xu, and Jason J. Corso. Towards automatic learning of procedures from web instructional videos, 2017.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/42 Tri-Modal/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: CVPR
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 7
+- IEEE TMM
+	- References literatures count from this outlet: 2
+- 2023 12th Mediterranean Conference on Embedded Computing
+	- References literatures count from this outlet: 2
+- IEEE Power Engineering Society General Meeting, 2004 
+	- References literatures count from this outlet: 1
+- Procedia Computer Science
+	- References literatures count from this outlet: 1
+- IEEE TNNLS
+	- References literatures count from this outlet: 1
+- ACM TOG
+	- References literatures count from this outlet: 1
+- 2023 35th Chinese Control and Decision Conference
+	- References literatures count from this outlet: 1
+- The Knowledge Engineering Review
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems. Curran Associates
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- 2019 IEEE International Conference on Agents
+	- References literatures count from this outlet: 1
+- The Annals of Statistics
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: ICML
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Foundations and Trends in Machine Learning
+	- Parsed as: Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 25.2
+	- References literatures count from this outlet: 1
+- ACL,
+	- References literatures count from this outlet: 1
+- 2015 International Symposium on Agents, Multi-Agent Systems and Robotics
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Robotics and Automation
+	- Parsed as: ICRA
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- COMMUNICATIONS OF THE ACM
+	- Parsed as: Communications of the ACM
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 12.0
+	- References literatures count from this outlet: 1
+- 2019 IEEE Intelligent Transportation Systems Conference
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE Transactions on Emerging Topics in Computational Intelligence
+	- Parsed as: IEEE Transactions on Emerging Topics in Computational Intelligence
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 5.2
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Erfan Aghasian, Shai Avidan, Piotr Dollar, and Justin Johnson*
+	- Normalized Authors: `['Aghasian E.', 'Avidan S.', 'Dollar P.', 'Johnson J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Hierarchical protocols for multi-agent 3d scene understanding*
+	- Year: *2021*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Peter Auer, Nicolò Cesa-Bianchi, and Paul Fischer*
+	- Normalized Authors: `['Auer P.', 'Cesa-Bianchi N.', 'Fischer P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Finite-time analysis of the multiarmed bandit problem*
+	- Year: *2002*
+	- Outlet: *Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Shaofeng Cai, Yao Shu, Wei Wang, and Beng Chin Ooi*
+	- Normalized Authors: `['Cai S.', 'Shu Y.', 'Wang W.', 'Ooi B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dynamic routing networks.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Marwa Chafii, Salmane Naoumi, Reda Alami, Ebtesam Almazrouei, Mehdi Bennis, and Merouane Debbah*
+	- Normalized Authors: `['Chafii M.', 'Naoumi S.', 'Alami R.', 'Almazrouei E.', 'Bennis M.', 'Debbah M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Emergent communication in multi-agent reinforcement learning for future wireless networks.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://doi.org/10.1109/IOTM.001.2300102*
+	- **Valid?**: *Found: Years matched; reference (https://doi.org/10.1109/IOTM.001.2300102) checks out :)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Angel X Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu*
+	- Normalized Authors: `['Chang A.', 'Funkhouser T.', 'Guibas L.', 'Hanrahan P.', 'Huang Q.', 'Li Z.', 'Savarese S.', 'Savva M.', 'Song S.', 'Su H.', 'Xiao J.', 'Yi L.', 'Yu F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Shapenet: An information-rich 3d model repository.*
+	- Year: *2015*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Angel X Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu*
+	- Normalized Authors: `['Chang A.', 'Funkhouser T.', 'Guibas L.', 'Hanrahan P.', 'Huang Q.', 'Li Z.', 'Savarese S.', 'Savva M.', 'Song S.', 'Su H.', 'Xiao J.', 'Yi L.', 'Yu F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Shapenet: An information-rich 3d model repository.*
+	- Year: *2015*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Angel X Chang, Thomas Funkhouser, Leonidas Guibas, Pat Hanrahan, Qixing Huang3, Zimo Li, Silvio Savarese, Manolis Savva, Shuran Song, Hao Su, Jianxiong Xiao, Li Yi, and Fisher Yu*
+	- Normalized Authors: `['Chang A.', 'Funkhouser T.', 'Guibas L.', 'Hanrahan P.', 'Huang3 Q.', 'Li Z.', 'Savarese S.', 'Savva M.', 'Song S.', 'Su H.', 'Xiao J.', 'Yi L.', 'Yu F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Shapenet: An information-rich 3d model repository.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Xinlei Chen, Li-Jia Li, Li Fei-Fei, and Abhinav Gupta*
+	- Normalized Authors: `['Chen X.', 'Li L.', 'Fei-Fei L.', 'Gupta A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Iterative visual reasoning beyond convolutions*
+	- Year: *2018*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Jasmine Collins, Shubham Goel, Kenan Deng, Achleshwar Luthra, Leon Xu, Erhan Gundogdu, Xi Zhang, Tomas F Yago Vicente, Thomas Dideriksen, Himanshu Arora, Matthieu Guillaumin, and Jitendra Malik*
+	- Normalized Authors: `['Collins J.', 'Goel S.', 'Deng K.', 'Luthra A.', 'Xu L.', 'Gundogdu E.', 'Zhang X.', 'Vicente T.', 'Dideriksen T.', 'Arora H.', 'Guillaumin M.', 'Malik J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Abo: Dataset and benchmarks for real-world 3d object understanding.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Angela Dai, Angel X Chang, Manolis Savva, Maciej Halber, Thomas Funkhouser, and Matthias Nießner*
+	- Normalized Authors: `['Dai A.', 'Chang A.', 'Savva M.', 'Halber M.', 'Funkhouser T.', 'Nießner M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scannet: Richly-annotated 3d reconstructions of indoor scenes.*
+	- Year: *2017*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Matt Deitke, Ruoshi Liu, Matthew Wallingford, Huong Ngo, Oscar Michel, Aditya Kusupati, Alan Fan, Christian Laforte, Vikram Voleti, Samir Yitzhak Gadre, Eli VanderBilt, Aniruddha Kembhavi, Carl Vondrick, Georgia Gkioxari, Kiana Ehsani, Ludwig Schmidt, and Ali Farhadi*
+	- Normalized Authors: `['Deitke M.', 'Liu R.', 'Wallingford M.', 'Ngo H.', 'Michel O.', 'Kusupati A.', 'Fan A.', 'Laforte C.', 'Voleti V.', 'Gadre S.', 'VanderBilt E.', 'Kembhavi A.', 'Vondrick C.', 'Gkioxari G.', 'Ehsani K.', 'Schmidt L.', 'Farhadi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Objaverse-XL: A universe of 10m+ 3d objects*
+	- Year: *2023*
+	- Outlet: *Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Matt Deitke, Dustin Schwenk, Jordi Salvador, Luca Weihs, Oscar Michel, Eli VanderBilt, Ludwig Schmidt, Kiana Ehsanit, Aniruddha Kembhavi, and Ali Farhadi*
+	- Normalized Authors: `['Deitke M.', 'Schwenk D.', 'Salvador J.', 'Weihs L.', 'Michel O.', 'VanderBilt E.', 'Schmidt L.', 'Ehsanit K.', 'Kembhavi A.', 'Farhadi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Objaverse: A universe of annotated 3d objects*
+	- Year: *2023*
+	- Outlet: *2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Jian Deng and Krzysztof Czarnecki*
+	- Normalized Authors: `['Deng J.', 'Czarnecki K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mlod: A multi-view 3d object detection based on robust feature fusion method*
+	- Year: *2019*
+	- Outlet: *2019 IEEE Intelligent Transportation Systems Conference*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Yasutaka Furukawa and Carlos Hernández*
+	- Normalized Authors: `['Furukawa Y.', 'Hernández C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *.*
+	- Year: *2015*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *None*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Peng Gao, Zhengkai Jiang, Haoxuan You, Pan Lu, Steven C H Hoi, Xiaogang Wang, and Hongsheng Li*
+	- Normalized Authors: `['Gao P.', 'Jiang Z.', 'You H.', 'Lu P.', 'Hoi S.', 'Wang X.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dynamic fusion with intra- and inter-modality attention flow for visual question answering*
+	- Year: *2019*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Judy Hoffman, Mehryar Mohri, and Ningshan Zhang*
+	- Normalized Authors: `['Hoffman J.', 'Mohri M.', 'Zhang N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Algorithms and theory for multiple-source adaptation.*
+	- Year: *2018*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Yining Hong, Haoyu Zhen, Peihao Chen, Shuhong Zheng, Yilun Du, Zhenfang Chen, and Chuang Gan*
+	- Normalized Authors: `['Hong Y.', 'Zhen H.', 'Chen P.', 'Zheng S.', 'Du Y.', 'Chen Z.', 'Gan C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d-llm: Injecting the 3d world into large language models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *S S Hotegni, M Berkemeier, and S Peitz*
+	- Normalized Authors: `['Hotegni S.', 'Berkemeier M.', 'Peitz S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-objective optimization for sparse deep multi-task learning.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Justin Johnson, Andrej Karpathy, and Li Fei-Fei*
+	- Normalized Authors: `['Johnson J.', 'Karpathy A.', 'Fei-Fei L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *DenseCap: Fully convolutional localization networks for dense captioning*
+	- Year: *2016*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2015) does not match expected year (2016)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Rishabh Kabra, Loic Matthey, Alexander Lerchner, and Niloy J Mitra*
+	- Normalized Authors: `['Kabra R.', 'Matthey L.', 'Lerchner A.', 'Mitra N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Leveraging vlm-based pipelines to annotate 3d objects.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Wonjae Kim, Bokyung Son, and Ildoo Kim*
+	- Normalized Authors: `['Kim W.', 'Son B.', 'Kim I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vilt: Vision-and-language transformer without convolution or region supervision.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Hanxiao Liu, Karen Simonyan, and Yiming Yang*
+	- Normalized Authors: `['Liu H.', 'Simonyan K.', 'Yang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Darts: Differentiable architecture search.*
+	- Year: *2019*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov*
+	- Normalized Authors: `['Liu Y.', 'Ott M.', 'Goyal N.', 'Du J.', 'Joshi M.', 'Chen D.', 'Levy O.', 'Lewis M.', 'Zettlemoyer L.', 'Stoyanov V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Roberta: A robustly optimized bert pretraining approach.*
+	- Year: *2019*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Tiange Luo, Chris Rockwell, Honglak Lee, and Justin Johnson*
+	- Normalized Authors: `['Luo T.', 'Rockwell C.', 'Lee H.', 'Johnson J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scalable 3d captioning with pretrained models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Tiange Luo, Chris Rockwell, Honglak Lee, and Justin Johnson*
+	- Normalized Authors: `['Luo T.', 'Rockwell C.', 'Lee H.', 'Johnson J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scalable 3d captioning with pretrained models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Tiange Luo, Chris Rockwell, Honglak Lee, and Justin Johnson*
+	- Normalized Authors: `['Luo T.', 'Rockwell C.', 'Lee H.', 'Johnson J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scalable 3d captioning with pretrained models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Pattie Maes*
+	- Normalized Authors: `['Maes P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Agents that reduce work and information overload*
+	- Year: *1994*
+	- Outlet: *Communications of the ACM*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Kaichun Mo, Shilin Zhu, Angel X Chang, Li Yi, Subarna Tripathi, Leonidas J Guibas, and Hao Su*
+	- Normalized Authors: `['Mo K.', 'Zhu S.', 'Chang A.', 'Yi L.', 'Tripathi S.', 'Guibas L.', 'Su H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Partnet: A large-scale benchmark for fine-grained and hierarchical part-level 3d object understanding.*
+	- Year: *2018*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Kaichun Mo, Shilin Zhu, Angel X Chang, Li Yi, Subarna Tripathi, Leonidas J Guibas, and Hao Su*
+	- Normalized Authors: `['Mo K.', 'Zhu S.', 'Chang A.', 'Yi L.', 'Tripathi S.', 'Guibas L.', 'Su H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Partnet: A large-scale benchmark for fine-grained and hierarchical part-level 3d object understanding*
+	- Year: *2019*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Arsalan Mousavian, Alexander Toshev, Marek Fišer, Jana Košecká, Ayzaan Wahid, and James Davidson*
+	- Normalized Authors: `['Mousavian A.', 'Toshev A.', 'Fišer M.', 'Košecká J.', 'Wahid A.', 'Davidson J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Visual representations for semantic target driven navigation*
+	- Year: *2019*
+	- Outlet: *ICRA*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Visual Representations for Semantic Target Driven Navigation'*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Nurul Ai'zah Musa, Mohd Zaliman Mohd Yusoff, Roslan Ismail, and Yunus Yusoff*
+	- Normalized Authors: `['Musa N.', 'Yusoff M.', 'Ismail R.', 'Yusoff Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Issues and challenges of forensics analysis of agents’ behavior in multi-agent systems: A critical review*
+	- Year: *2015*
+	- Outlet: *2015 International Symposium on Agents, Multi-Agent Systems and Robotics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Gaku Narita, Takashi Seno, Tomoya Ishikawa, and Yohsuke Kaji*
+	- Normalized Authors: `['Narita G.', 'Seno T.', 'Ishikawa T.', 'Kaji Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Panopticfusion: Online volumetric semantic mapping at the level of stuff and things.*
+	- Year: *2019*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *OpenAI*
+	- Normalized Authors: `['OpenAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gpt-4 technical report.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu*
+	- Normalized Authors: `['Papineni K.', 'Roukos S.', 'Ward T.', 'Zhu W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Bleu: a method for automatic evaluation of machine translation*
+	- Year: *2002*
+	- Outlet: *ACL,*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Damjan Pecioski, Viktor Gavriloski, Simona Domazetovska, and Anastasija Ignjatovska*
+	- Normalized Authors: `['Pecioski D.', 'Gavriloski V.', 'Domazetovska S.', 'Ignjatovska A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *An overview of reinforcement learning techniques*
+	- Year: *2023*
+	- Outlet: *2023 12th Mediterranean Conference on Embedded Computing*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Damjan Pecioski, Viktor Gavriloski, Simona Domazetovska, and Anastasija Ignjatovska*
+	- Normalized Authors: `['Pecioski D.', 'Gavriloski V.', 'Domazetovska S.', 'Ignjatovska A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *An overview of reinforcement learning techniques*
+	- Year: *2023*
+	- Outlet: *2023 12th Mediterranean Conference on Embedded Computing*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Zhangyang Qi, Ye Fang, Zeyi Sun, Xiaoyang Wu, Tong Wu, Jiaqi Wang, Dahua Lin, and Hengshuang Zhao*
+	- Normalized Authors: `['Qi Z.', 'Fang Y.', 'Sun Z.', 'Wu X.', 'Wu T.', 'Wang J.', 'Lin D.', 'Zhao H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gpt4point: A unified framework for point-language understanding and generation.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Jie Qin, Shuaihang Yuan, Jiaxin Chen, Boulbaba Ben Amor, Yi Fang, Nhat Hoang-Xuan, Chi-Bien Chu, Khoi-Nguyen Nguyen-Ngoc, Thien-Tri Cao, Nhat-Khang Ngo, Tuan-Luc Huynh, Hai-Dang Nguyen, Minh-Triet Tran, Haoyang Luo, Jianning Wang, Zheng Zhang, Zihao Xin, Yang Wang, Feng Wang, Ying Tang, Haiqin Chen, Yan Wang, Qunying Zhou, Ji Zhang, and Hongyuan Wang*
+	- Normalized Authors: `['Qin J.', 'Yuan S.', 'Chen J.', 'Amor B.', 'Fang Y.', 'Hoang-Xuan N.', 'Chu C.', 'Nguyen-Ngoc K.', 'Cao T.', 'Ngo N.', 'Huynh T.', 'Nguyen H.', 'Tran M.', 'Luo H.', 'Wang J.', 'Zhang Z.', 'Xin Z.', 'Wang Y.', 'Wang F.', 'Tang Y.', 'Chen H.', 'Wang Y.', 'Zhou Q.', 'Zhang J.', 'Wang H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Shrec’22 track: Sketch-based 3d shape retrieval in the wild.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Qwen*
+	- Normalized Authors: `['Qwen']`
+	- Authors contain 'et al.': *False*
+	- Title: *Qwen2.5 technical report.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, and Ilya Sutskever*
+	- Normalized Authors: `['Radford A.', 'Kim J.', 'Hallacy C.', 'Ramesh A.', 'Goh G.', 'Agarwal S.', 'Sastry G.', 'Askell A.', 'Mishkin P.', 'Clark J.', 'Krueger G.', 'Sutskever I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning transferable visual models from natural language supervision.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Pradeep Ravikumar, Martin J Wainwright, and John D Lafferty*
+	- Normalized Authors: `['Ravikumar P.', 'Wainwright M.', 'Lafferty J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *High-dimensional ising model selection using l1-regularized logistic regression*
+	- Year: *2010*
+	- Outlet: *The Annals of Statistics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Damien Robert, Bruno Vallet, and Loic Landrieu*
+	- Normalized Authors: `['Robert D.', 'Vallet B.', 'Landrieu L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning multi-view aggregation in the wild for large-scale 3d semantic segmentation*
+	- Year: *2022*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Arup Kumar Sadhu and Amit Konar*
+	- Normalized Authors: `['Sadhu A.', 'Konar A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Improve Convergence Speed of Multi-Agent Q-Learning for Cooperative Task Planning, pages 111–166*
+	- Year: *2021*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Arup Kumar Sadhu and Amit Konar*
+	- Normalized Authors: `['Sadhu A.', 'Konar A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Consensus Q-Learning for Multi-agent Cooperative Planning, pages 167–182*
+	- Year: *2021*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Sayan Deb Sarkar, Ondrej Miksik, Marc Pollefeys, Daniel Barath, and Iro Armeni*
+	- Normalized Authors: `['Sarkar S.', 'Miksik O.', 'Pollefeys M.', 'Barath D.', 'Armeni I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Crossover: 3d scene cross-modal alignment.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Lennart Schneider, Bernd Bischl, and Janek Thomas*
+	- Normalized Authors: `['Schneider L.', 'Bischl B.', 'Thomas J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-objective optimization of performance and interpretability of tabular supervised machine learning models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *David Silver, Guy Lever, Nicolas Heess, Thomas Degris, Daan Wierstra, and Martin Riedmiller*
+	- Normalized Authors: `['Silver D.', 'Lever G.', 'Heess N.', 'Degris T.', 'Wierstra D.', 'Riedmiller M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deterministic policy gradient algorithms*
+	- Year: *2014*
+	- Outlet: *ICML*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Aleksandrs Slivkins*
+	- Normalized Authors: `['Slivkins A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *.*
+	- Year: *2019*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *None*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *S Talukdar*
+	- Normalized Authors: `['Talukdar S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-agent systems*
+	- Year: *2004*
+	- Outlet: *IEEE Power Engineering Society General Meeting, 2004 *
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Jin Tanda, Ahmed Moustafa, and Takayuki Ito*
+	- Normalized Authors: `['Tanda J.', 'Moustafa A.', 'Ito T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cooperative behavior by multi-agent reinforcement learning with abstractive communication*
+	- Year: *2019*
+	- Outlet: *2019 IEEE International Conference on Agents*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Guoqin Tang, Qingxuan Jia, Zeyuan Huang, Gang Chen, Ning Ji, and Zhipeng Yao*
+	- Normalized Authors: `['Tang G.', 'Jia Q.', 'Huang Z.', 'Chen G.', 'Ji N.', 'Yao Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d-grounded visionlanguage framework for robotic task planning: Automated prompt synthesis and supervised reasoning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Jinzhou Tang, Jusheng Zhang, Qinhan Lv, Sidi Liu, Jing Yang, Chengpei Tang, and Keze Wang*
+	- Normalized Authors: `['Tang J.', 'Zhang J.', 'Lv Q.', 'Liu S.', 'Yang J.', 'Tang C.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Hiva: Self-organized hierarchical variable agent via goal-driven semantic-topological evolution.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Ł ukasz Kaiser, and Illia Polosukhin*
+	- Normalized Authors: `['Vaswani A.', 'Shazeer N.', 'Parmar N.', 'Uszkoreit J.', 'Jones L.', 'Gomez A.', 'Kaiser Ł.', 'Polosukhin I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Attention is all you need*
+	- Year: *2017*
+	- Outlet: *Advances in Neural Information Processing Systems. Curran Associates*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Wenwen Wei, Ping Wei, Jialu Qin, Zhimin Liao, Shuaijie Wang, Xiang Cheng, Meiqin Liu, and Nanning Zheng*
+	- Normalized Authors: `['Wei W.', 'Wei P.', 'Qin J.', 'Liao Z.', 'Wang S.', 'Cheng X.', 'Liu M.', 'Zheng N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d scene graph generation from point clouds*
+	- Year: *2024*
+	- Outlet: *IEEE TMM*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Michael Wooldridge and Nicholas R Jennings*
+	- Normalized Authors: `['Wooldridge M.', 'Jennings N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Intelligent agents: theory and practice*
+	- Year: *1995*
+	- Outlet: *The Knowledge Engineering Review*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Zhirong Wu, Shuran Song, Aditya Khosla, Fisher Yu, Linguang Zhang, Xiaoou Tang, and Jianxiong Xiao*
+	- Normalized Authors: `['Wu Z.', 'Song S.', 'Khosla A.', 'Yu F.', 'Zhang L.', 'Tang X.', 'Xiao J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *3d shapenets: A deep representation for volumetric shapes.*
+	- Year: *2015*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Chi Xu, Hui Zhang, and Ya Zhang*
+	- Normalized Authors: `['Xu C.', 'Zhang H.', 'Zhang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-agent reinforcement learning with distributed targeted multi-agent communication*
+	- Year: *2023*
+	- Outlet: *2023 35th Chinese Control and Decision Conference*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Le Xue, Mingfei Gao, Chen Xing, Roberto Martín-Martín, Jiajun Wu, Caiming Xiong, Ran Xu, Juan Carlos Niebles, and Silvio Savarese*
+	- Normalized Authors: `['Xue L.', 'Gao M.', 'Xing C.', 'Martín-Martín R.', 'Wu J.', 'Xiong C.', 'Xu R.', 'Niebles J.', 'Savarese S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ulip: Learning a unified representation of language, images, and point clouds for 3d understanding*
+	- Year: *2023*
+	- Outlet: *CVPR*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Mart'in-Mart'in) did not match found publication titled 'ULIP: Learning a Unified Representation of Language, Images, and Point Clouds for 3D Understanding'*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Le Xue, Ning Yu, Shu Zhang, Artemis Panagopoulou, Junnan Li, Roberto Martín-Martín, Jiajun Wu, Caiming Xiong, Ran Xu, Juan Carlos Niebles, and Silvio Savarese*
+	- Normalized Authors: `['Xue L.', 'Yu N.', 'Zhang S.', 'Panagopoulou A.', 'Li J.', 'Martín-Martín R.', 'Wu J.', 'Xiong C.', 'Xu R.', 'Niebles J.', 'Savarese S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ulip-2: Towards scalable multimodal pre-training for 3d understanding.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Jiawei Yao, Jusheng Zhang, Xiaochao Pan, Tong Wu, and Canran Xiao*
+	- Normalized Authors: `['Yao J.', 'Zhang J.', 'Pan X.', 'Wu T.', 'Xiao C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Depthssc: Monocular 3d semantic scene completion via depth-spatial alignment and voxel adaptation.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Jiawei Yao, Jusheng Zhang, Xiaochao Pan, Tong Wu, and Canran Xiao*
+	- Normalized Authors: `['Yao J.', 'Zhang J.', 'Pan X.', 'Wu T.', 'Xiao C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Depthssc: Monocular 3d semantic scene completion via depth-spatial alignment and voxel adaptation.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Mao Ye, Gregory P Meyer, Yuning Chai, and Qiang Liu*
+	- Normalized Authors: `['Ye M.', 'Meyer G.', 'Chai Y.', 'Liu Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Efficient transformer-based 3d object detection with dynamic token halting.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Li Yi, Vladimir G Kim, Duygu Ceylan, I-Chao Shen, Mengyan Yan, Hao Su, Cewu Lu, Qixing Huang, Alla Sheffer, and Leonidas Guibas*
+	- Normalized Authors: `['Yi L.', 'Kim V.', 'Ceylan D.', 'Shen I.', 'Yan M.', 'Su H.', 'Lu C.', 'Huang Q.', 'Sheffer A.', 'Guibas L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A scalable active framework for region annotation in 3D shape collections*
+	- Year: *2016*
+	- Outlet: *ACM TOG*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Da Zhang, Junwei Han, Long Zhao, Deyu Meng, and Yi Yang*
+	- Normalized Authors: `['Zhang D.', 'Han J.', 'Zhao L.', 'Meng D.', 'Yang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep reinforcement learning for visual object tracking*
+	- Year: *2018*
+	- Outlet: *IEEE TNNLS*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *J Zhang and X Li*
+	- Normalized Authors: `['Zhang J.', 'Li X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-agent systems for distributed problem solving: A framework for task decomposition and coordination*
+	- Year: *2015*
+	- Outlet: *Procedia Computer Science*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Jingwei Zhang, Lei Tai, Ming Liu, Joschka Boedecker, and Wolfram Burgard*
+	- Normalized Authors: `['Zhang J.', 'Tai L.', 'Liu M.', 'Boedecker J.', 'Burgard W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Neural slam: Learning to explore with external memory.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Jusheng Zhang, Kaitong Cai, Yijia Fan, Ningyuan Liu, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Cai K.', 'Fan Y.', 'Liu N.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mat-agent: Adaptive multi-agent training optimization.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *Jusheng Zhang, Kaitong Cai, Yijia Fan, Jian Wang, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Cai K.', 'Fan Y.', 'Wang J.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cf-vlm:counterfactual vision-language fine-tuning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 69:**
+	- Ref. ID: *69*
+	- Authors: *Jusheng Zhang, Kaitong Cai, Jing Yang, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Cai K.', 'Yang J.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning dynamics of vlm finetuning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 70:**
+	- Ref. ID: *70*
+	- Authors: *Jusheng Zhang, Kaitong Cai, Qinglin Zeng, Ningyuan Liu, Stephen Fan, Ziliang Chen, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Cai K.', 'Zeng Q.', 'Liu N.', 'Fan S.', 'Chen Z.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Failure-driven workflow refinement.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 71:**
+	- Ref. ID: *71*
+	- Authors: *Jusheng Zhang, Yijia Fan, Kaitong Cai, Zimeng Huang, Xiaofei Sun, Jian Wang, Chengpei Tang, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Fan Y.', 'Cai K.', 'Huang Z.', 'Sun X.', 'Wang J.', 'Tang C.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Drdiff: Dynamic routing diffusion with hierarchical attention for breaking the efficiency-quality trade-off.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 72:**
+	- Ref. ID: *72*
+	- Authors: *Jusheng Zhang, Yijia Fan, Kaitong Cai, Xiaofei Sun, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Fan Y.', 'Cai K.', 'Sun X.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Osc: Cognitive orchestration through dynamic knowledge alignment in multi-agent llm collaboration.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 73:**
+	- Ref. ID: *73*
+	- Authors: *Jusheng Zhang, Yijia Fan, Kaitong Cai, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Fan Y.', 'Cai K.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Kolmogorov-arnold fourier networks.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 74:**
+	- Ref. ID: *74*
+	- Authors: *Jusheng Zhang, Yijia Fan, Wenjun Lin, Ruiqi Chen, Haoyi Jiang, Wenhao Chai, Jian Wang, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Fan Y.', 'Lin W.', 'Chen R.', 'Jiang H.', 'Chai W.', 'Wang J.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gam-agent: Game-theoretic and uncertainty-aware collaboration for complex visual reasoning.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 75:**
+	- Ref. ID: *75*
+	- Authors: *Jusheng Zhang, Zimeng Huang, Yijia Fan, Ningyuan Liu, Mingyan Li, Zhuojie Yang, Jiawei Yao, Jian Wang, and Keze Wang*
+	- Normalized Authors: `['Zhang J.', 'Huang Z.', 'Fan Y.', 'Liu N.', 'Li M.', 'Yang Z.', 'Yao J.', 'Wang J.', 'Wang K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Kabb: Knowledge-aware bayesian bandits for dynamic expert coordination in multi-agent systems.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 76:**
+	- Ref. ID: *76*
+	- Authors: *Renrui Zhang, Ziyu Guo, Wei Zhang, Kunchang Li, Xupeng Miao, Bin Cui, Yu Qiao, Peng Gao, and Hongsheng Li*
+	- Normalized Authors: `['Zhang R.', 'Guo Z.', 'Zhang W.', 'Li K.', 'Miao X.', 'Cui B.', 'Qiao Y.', 'Gao P.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Pointclip: Point cloud understanding by clip.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 77:**
+	- Ref. ID: *77*
+	- Authors: *Changgang Zheng, Shufan Yang, Juan Marcelo Parra-Ullauri, Antonio Garcia-Dominguez, and Nelly Bencomo*
+	- Normalized Authors: `['Zheng C.', 'Yang S.', 'Parra-Ullauri J.', 'Garcia-Dominguez A.', 'Bencomo N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reward-reinforced generative adversarial networks for multi-agent systems*
+	- Year: *2022*
+	- Outlet: *IEEE Transactions on Emerging Topics in Computational Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 78:**
+	- Ref. ID: *78*
+	- Authors: *Huasong Zhong, Jingyuan Chen, Chen Shen, Hanwang Zhang, Jianqiang Huang, and Xian-Sheng Hua*
+	- Normalized Authors: `['Zhong H.', 'Chen J.', 'Shen C.', 'Zhang H.', 'Huang J.', 'Hua X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Self-adaptive neural module transformer for visual question answering*
+	- Year: *2021*
+	- Outlet: *IEEE TMM*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 79:**
+	- Ref. ID: *79*
+	- Authors: *Junsheng Zhou, Jinsheng Wang, Baorui Ma, Yu-Shen Liu, Tiejun Huang, and Xinlong Wang*
+	- Normalized Authors: `['Zhou J.', 'Wang J.', 'Ma B.', 'Liu Y.', 'Huang T.', 'Wang X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Uni3d: Exploring unified 3d representation at scale.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 80:**
+	- Ref. ID: *80*
+	- Authors: *Luowei Zhou, Chenliang Xu, and Jason J Corso*
+	- Normalized Authors: `['Zhou L.', 'Xu C.', 'Corso J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Towards automatic learning of procedures from web instructional videos.*
+	- Year: *2017*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*As shown in Figure 2, our Tri-MARF consists of four stages to progressively refine and integrate annotation information: Data Preparation Stage: 3D objects are sourced from datasets like Objaverse [12, 11], generating multi-view 2D images and point cloud features to capture structural details; Initial VLM Annotation Stage: A vision-language model (VLM) agent generates preliminary descriptions for each viewpoint*'
+	- This flag is for the paper with Ref. ID = 12
+- '*4 Experiments We rigorously evaluate our Tri-MARF across four experiments to validate its 3D understanding capabilities: (1) Caption quality is assessed on Objaverse-LVIS [12], Objaverse-XL [11], and ABO [9] via A/B testing against human annotations and automated metrics (CLIPScore, ViLT [21] retrieval)*'
+	- This flag is for the paper with Ref. ID = 12
+- '*Multi-modal fusion research has advanced through adaptive weighting mechanisms based on reinforcement learning principles [16], particularly in vision-language tasks where modality importance varies contextually [15, 70]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*For scene comprehension, Wei et al [54] proposed 3D scene graph generation frameworks, Johnson et al [19]’s DenseCap system demonstrats the importance of specialized roles for image annotation, and Cai et al [3] and Liu et al [22] explored dynamic agent routing to enhance system adaptability*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Chang et al [7] established ShapeNet, Mo et al [29] developed PartNet, Yi et al [63] focused on semantic segmentation, and Savva et al [38, 60] contributed SHREC benchmarks*'
+	- This flag is for the paper with Ref. ID = 29
+- '*Reinforcement Learning for Decision Making in Vision Systems has employed reinforcement learning to optimize viewpoint selection in 3D environments [30], complemented by advances in exploration strategies that improve training efficiency for visual perception tasks [66]*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Existing approaches, which typically rely on vision-language models, often encounter hallucination problems and description inconsistencies [76, 58, 68]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Recent vision-language models transformed this landscape: ULIP [58] bridged 3D point clouds and text, PointCLIP [76] adapted CLIP for point clouds, while [45] introduced cross-modal embeddings and Zeng et al [51] explored prompt engineering*'
+	- This flag is for the paper with Ref. ID = 58
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Integrating multi-agent systems with reinforcement learning offers numerous advantages [50, 35, 57, 69], including robustness, adaptability, and enhanced performance in tackling complex problems [36, 77]*'
+	- This flag is for the paper with Ref. ID = 77
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 30
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*Unlike 2D annotation, 3D annotation faces unique difficulties: increased spatial relationship complexity, occlusion issues [13, 1, 32, 71], and viewpoint variations affecting cross-view consistency [45]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Deng et al [47] and Zhong et al [78] showed improved robustness through viewpoint integration, while Aghasian et al [1] developed hierarchical protocols for agent collaboration, and Chafii et al [4] implemented emergent communication between agents*'
+	- This flag is for the paper with Ref. ID = 1
+- '*The final weighted score is: si := (1 −α) · Sconf,i + α · wi, where α ∈[0, 1] controls the balance between text similarity and image-text similarity*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Recently, multiarmed bandit algorithms [48], including upper confidence bound strategies that balance exploration and exploitation [2], have been well researched*'
+	- This flag is for the paper with Ref. ID = 2
+- '*For scene comprehension, Wei et al [54] proposed 3D scene graph generation frameworks, Johnson et al [19]’s DenseCap system demonstrats the importance of specialized roles for image annotation, and Cai et al [3] and Liu et al [22] explored dynamic agent routing to enhance system adaptability*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Deng et al [47] and Zhong et al [78] showed improved robustness through viewpoint integration, while Aghasian et al [1] developed hierarchical protocols for agent collaboration, and Chafii et al [4] implemented emergent communication between agents*'
+	- This flag is for the paper with Ref. ID = 4
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 5
+- '*, ShapeNet-Core[6], ScanNet[10], and ModelNet40[56], and randomly selected 500 samples from each dataset to form a test set with balanced category distribution*'
+	- This flag is for the paper with Ref. ID = 6
+- '*Chang et al [7] established ShapeNet, Mo et al [29] developed PartNet, Yi et al [63] focused on semantic segmentation, and Savva et al [38, 60] contributed SHREC benchmarks*'
+	- This flag is for the paper with Ref. ID = 7
+- '*These approaches have proven effective for content selection in visual applications [80] and have been extended to contextual settings where visual representations inform decision-making [8]*'
+	- This flag is for the paper with Ref. ID = 8
+- '*4 Experiments We rigorously evaluate our Tri-MARF across four experiments to validate its 3D understanding capabilities: (1) Caption quality is assessed on Objaverse-LVIS [12], Objaverse-XL [11], and ABO [9] via A/B testing against human annotations and automated metrics (CLIPScore, ViLT [21] retrieval)*'
+	- This flag is for the paper with Ref. ID = 9
+- '*, ShapeNet-Core[6], ScanNet[10], and ModelNet40[56], and randomly selected 500 samples from each dataset to form a test set with balanced category distribution*'
+	- This flag is for the paper with Ref. ID = 10
+- '*As shown in Figure 2, our Tri-MARF consists of four stages to progressively refine and integrate annotation information: Data Preparation Stage: 3D objects are sourced from datasets like Objaverse [12, 11], generating multi-view 2D images and point cloud features to capture structural details; Initial VLM Annotation Stage: A vision-language model (VLM) agent generates preliminary descriptions for each viewpoint*'
+	- This flag is for the paper with Ref. ID = 11
+- '*4 Experiments We rigorously evaluate our Tri-MARF across four experiments to validate its 3D understanding capabilities: (1) Caption quality is assessed on Objaverse-LVIS [12], Objaverse-XL [11], and ABO [9] via A/B testing against human annotations and automated metrics (CLIPScore, ViLT [21] retrieval)*'
+	- This flag is for the paper with Ref. ID = 11
+- '*Unlike 2D annotation, 3D annotation faces unique difficulties: increased spatial relationship complexity, occlusion issues [13, 1, 32, 71], and viewpoint variations affecting cross-view consistency [45]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Maes et al [27] established the foundational concept of collaborating agents, Zhong et al [78] demonstrated that specialists outperform monolithic models, and Deng et al [13] introduced multi-agent approaches to 3D scene understanding*'
+	- This flag is for the paper with Ref. ID = 13
+- '*The existing methods struggle to maintain perspective consistency when using multi-view information and often overlook inherent geometric information by relying solely on 2D images [42, 14]*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Multi-modal fusion research has advanced through adaptive weighting mechanisms based on reinforcement learning principles [16], particularly in vision-language tasks where modality importance varies contextually [15, 70]*'
+	- This flag is for the paper with Ref. ID = 16
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 17
+- '*The existing methods primarily use single large-scale models without leveraging multi-agent collaboration, creating challenges with complex scenes [26, 17, 20, 74, 52, 72]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*3D-LLM [17] attempts to solve this via specialized objectives, while [32] developed a complex scene understanding method*'
+	- This flag is for the paper with Ref. ID = 17
+- '*The captions of our Tri-MARF are compared with those from Cap3D, ScoreAgg, ULIP-2 [59], PointCLIP [76], 3D-LLM [17], GPT4Point [37], human annotations, and metadata in terms of quality and efficiency*'
+	- This flag is for the paper with Ref. ID = 17
+- '*, accuracy, completeness, consistency [64, 46, 41], and efficiency [18]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*The existing methods primarily use single large-scale models without leveraging multi-agent collaboration, creating challenges with complex scenes [26, 17, 20, 74, 52, 72]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*(2) Type inference accuracy on Objaverse-LVIS is compared against CAP3D [25], ScoreAgg [20], and Human Annotation using GPT-4o [33] scoring and human validation*'
+	- This flag is for the paper with Ref. ID = 20
+- '*4 Experiments We rigorously evaluate our Tri-MARF across four experiments to validate its 3D understanding capabilities: (1) Caption quality is assessed on Objaverse-LVIS [12], Objaverse-XL [11], and ABO [9] via A/B testing against human annotations and automated metrics (CLIPScore, ViLT [21] retrieval)*'
+	- This flag is for the paper with Ref. ID = 21
+- '*For scene comprehension, Wei et al [54] proposed 3D scene graph generation frameworks, Johnson et al [19]’s DenseCap system demonstrats the importance of specialized roles for image annotation, and Cai et al [3] and Liu et al [22] explored dynamic agent routing to enhance system adaptability*'
+	- This flag is for the paper with Ref. ID = 22
+- '*For each view, five candidate responses are produced, and a RoBERT [23] model clusters these using DBSCAN to yield the text description for that perspective; Reinforcement Learning-Based Information Aggregation Stage: We introduce an agent based on a multi-armed bandit [48] with an upper confidence bound algorithm to aggregate candidate descriptions from different views into a coherent, high-confidence global description*'
+	- This flag is for the paper with Ref. ID = 23
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 24
+- '*(2) Type inference accuracy on Objaverse-LVIS is compared against CAP3D [25], ScoreAgg [20], and Human Annotation using GPT-4o [33] scoring and human validation*'
+	- This flag is for the paper with Ref. ID = 25
+- '*The existing methods primarily use single large-scale models without leveraging multi-agent collaboration, creating challenges with complex scenes [26, 17, 20, 74, 52, 72]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Cap3D [26] pioneered synthetic-to-real transfer but struggled with cross-view consistency*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Maes et al [27] established the foundational concept of collaborating agents, Zhong et al [78] demonstrated that specialists outperform monolithic models, and Deng et al [13] introduced multi-agent approaches to 3D scene understanding*'
+	- This flag is for the paper with Ref. ID = 27
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 28
+- '*However, a central challenge in multi-agent systems lies in effectively coordinating the decisions of diverse agents [31, 67], particularly under uncertainty and conflicting information*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Unlike 2D annotation, 3D annotation faces unique difficulties: increased spatial relationship complexity, occlusion issues [13, 1, 32, 71], and viewpoint variations affecting cross-view consistency [45]*'
+	- This flag is for the paper with Ref. ID = 32
+- '*3D-LLM [17] attempts to solve this via specialized objectives, while [32] developed a complex scene understanding method*'
+	- This flag is for the paper with Ref. ID = 32
+- '*(2) Type inference accuracy on Objaverse-LVIS is compared against CAP3D [25], ScoreAgg [20], and Human Annotation using GPT-4o [33] scoring and human validation*'
+	- This flag is for the paper with Ref. ID = 33
+- '*The evaluation uses a variety of complementary indicators, including CLIPScore, ViLT retrieval rate (R@5), BLEU-4 [34], and A/B test scores, to comprehensively measure the semantic consistency, retrieval ability, text fluency, 8*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Integrating multi-agent systems with reinforcement learning offers numerous advantages [50, 35, 57, 69], including robustness, adaptability, and enhanced performance in tackling complex problems [36, 77]*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Integrating multi-agent systems with reinforcement learning offers numerous advantages [50, 35, 57, 69], including robustness, adaptability, and enhanced performance in tackling complex problems [36, 77]*'
+	- This flag is for the paper with Ref. ID = 36
+- '*The captions of our Tri-MARF are compared with those from Cap3D, ScoreAgg, ULIP-2 [59], PointCLIP [76], 3D-LLM [17], GPT4Point [37], human annotations, and metadata in terms of quality and efficiency*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Chang et al [7] established ShapeNet, Mo et al [29] developed PartNet, Yi et al [63] focused on semantic segmentation, and Savva et al [38, 60] contributed SHREC benchmarks*'
+	- This flag is for the paper with Ref. ID = 38
+- '*5 [39]*'
+	- This flag is for the paper with Ref. ID = 39
+- '*5-VL-72B-Instruct[39] that mirrors expert visual analysis*'
+	- This flag is for the paper with Ref. ID = 39
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 40
+- '*This agent is trained using a composite reward function incorporating VLM confidence scores and CLIP [40] similarity between images and generated captions to dynamically balance exploration and exploitation and optimizing cross-view description consistency through continuous learning; Gating Stage: Cosine similarity between aggregated text and 3D point cloud is computed via an encoder [53], with a threshold determining 2*'
+	- This flag is for the paper with Ref. ID = 40
+- '*1 Relevance Weighting Next, our Tri-MARF evaluates how well each candidate description is grounded in the actual image using CLIP[40]*'
+	- This flag is for the paper with Ref. ID = 40
+- '*, accuracy, completeness, consistency [64, 46, 41], and efficiency [18]*'
+	- This flag is for the paper with Ref. ID = 41
+- '*The existing methods struggle to maintain perspective consistency when using multi-view information and often overlook inherent geometric information by relying solely on 2D images [42, 14]*'
+	- This flag is for the paper with Ref. ID = 42
+- '*By dynamically learning optimal policies, reinforcement learning techniques [43, 44] enable the system to continuously refine and optimize collaborative decision-making, surpassing the limitations of predefined rules*'
+	- This flag is for the paper with Ref. ID = 43
+- '*By dynamically learning optimal policies, reinforcement learning techniques [43, 44] enable the system to continuously refine and optimize collaborative decision-making, surpassing the limitations of predefined rules*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Unlike 2D annotation, 3D annotation faces unique difficulties: increased spatial relationship complexity, occlusion issues [13, 1, 32, 71], and viewpoint variations affecting cross-view consistency [45]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Recent vision-language models transformed this landscape: ULIP [58] bridged 3D point clouds and text, PointCLIP [76] adapted CLIP for point clouds, while [45] introduced cross-modal embeddings and Zeng et al [51] explored prompt engineering*'
+	- This flag is for the paper with Ref. ID = 45
+- '*, accuracy, completeness, consistency [64, 46, 41], and efficiency [18]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Deng et al [47] and Zhong et al [78] showed improved robustness through viewpoint integration, while Aghasian et al [1] developed hierarchical protocols for agent collaboration, and Chafii et al [4] implemented emergent communication between agents*'
+	- This flag is for the paper with Ref. ID = 47
+- '*For each view, five candidate responses are produced, and a RoBERT [23] model clusters these using DBSCAN to yield the text description for that perspective; Reinforcement Learning-Based Information Aggregation Stage: We introduce an agent based on a multi-armed bandit [48] with an upper confidence bound algorithm to aggregate candidate descriptions from different views into a coherent, high-confidence global description*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Recently, multiarmed bandit algorithms [48], including upper confidence bound strategies that balance exploration and exploitation [2], have been well researched*'
+	- This flag is for the paper with Ref. ID = 48
+- '*addressing the task from multiple specialized perspectives [49, 55, 65]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*Integrating multi-agent systems with reinforcement learning offers numerous advantages [50, 35, 57, 69], including robustness, adaptability, and enhanced performance in tackling complex problems [36, 77]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Recent vision-language models transformed this landscape: ULIP [58] bridged 3D point clouds and text, PointCLIP [76] adapted CLIP for point clouds, while [45] introduced cross-modal embeddings and Zeng et al [51] explored prompt engineering*'
+	- This flag is for the paper with Ref. ID = 51
+- '*The existing methods primarily use single large-scale models without leveraging multi-agent collaboration, creating challenges with complex scenes [26, 17, 20, 74, 52, 72]*'
+	- This flag is for the paper with Ref. ID = 52
+- '*This agent is trained using a composite reward function incorporating VLM confidence scores and CLIP [40] similarity between images and generated captions to dynamically balance exploration and exploitation and optimizing cross-view description consistency through continuous learning; Gating Stage: Cosine similarity between aggregated text and 3D point cloud is computed via an encoder [53], with a threshold determining 2*'
+	- This flag is for the paper with Ref. ID = 53
+- '*For scene comprehension, Wei et al [54] proposed 3D scene graph generation frameworks, Johnson et al [19]’s DenseCap system demonstrats the importance of specialized roles for image annotation, and Cai et al [3] and Liu et al [22] explored dynamic agent routing to enhance system adaptability*'
+	- This flag is for the paper with Ref. ID = 54
+- '*addressing the task from multiple specialized perspectives [49, 55, 65]*'
+	- This flag is for the paper with Ref. ID = 55
+- '*, ShapeNet-Core[6], ScanNet[10], and ModelNet40[56], and randomly selected 500 samples from each dataset to form a test set with balanced category distribution*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Integrating multi-agent systems with reinforcement learning offers numerous advantages [50, 35, 57, 69], including robustness, adaptability, and enhanced performance in tackling complex problems [36, 77]*'
+	- This flag is for the paper with Ref. ID = 57
+- '*The captions of our Tri-MARF are compared with those from Cap3D, ScoreAgg, ULIP-2 [59], PointCLIP [76], 3D-LLM [17], GPT4Point [37], human annotations, and metadata in terms of quality and efficiency*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Chang et al [7] established ShapeNet, Mo et al [29] developed PartNet, Yi et al [63] focused on semantic segmentation, and Savva et al [38, 60] contributed SHREC benchmarks*'
+	- This flag is for the paper with Ref. ID = 60
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 61
+- '*In complex 3D annotation tasks, a single model often struggles to balance these goals effectively [62], akin to a solitary expert lacking proficiency across all domains*'
+	- This flag is for the paper with Ref. ID = 62
+- '*Chang et al [7] established ShapeNet, Mo et al [29] developed PartNet, Yi et al [63] focused on semantic segmentation, and Savva et al [38, 60] contributed SHREC benchmarks*'
+	- This flag is for the paper with Ref. ID = 63
+- '*, accuracy, completeness, consistency [64, 46, 41], and efficiency [18]*'
+	- This flag is for the paper with Ref. ID = 64
+- '*addressing the task from multiple specialized perspectives [49, 55, 65]*'
+	- This flag is for the paper with Ref. ID = 65
+- '*Reinforcement Learning for Decision Making in Vision Systems has employed reinforcement learning to optimize viewpoint selection in 3D environments [30], complemented by advances in exploration strategies that improve training efficiency for visual perception tasks [66]*'
+	- This flag is for the paper with Ref. ID = 66
+- '*However, a central challenge in multi-agent systems lies in effectively coordinating the decisions of diverse agents [31, 67], particularly under uncertainty and conflicting information*'
+	- This flag is for the paper with Ref. ID = 67
+- '*Existing approaches, which typically rely on vision-language models, often encounter hallucination problems and description inconsistencies [76, 58, 68]*'
+	- This flag is for the paper with Ref. ID = 68
+- '*Integrating multi-agent systems with reinforcement learning offers numerous advantages [50, 35, 57, 69], including robustness, adaptability, and enhanced performance in tackling complex problems [36, 77]*'
+	- This flag is for the paper with Ref. ID = 69
+- '*Multi-modal fusion research has advanced through adaptive weighting mechanisms based on reinforcement learning principles [16], particularly in vision-language tasks where modality importance varies contextually [15, 70]*'
+	- This flag is for the paper with Ref. ID = 70
+- '*Unlike 2D annotation, 3D annotation faces unique difficulties: increased spatial relationship complexity, occlusion issues [13, 1, 32, 71], and viewpoint variations affecting cross-view consistency [45]*'
+	- This flag is for the paper with Ref. ID = 71
+- '*The existing methods primarily use single large-scale models without leveraging multi-agent collaboration, creating challenges with complex scenes [26, 17, 20, 74, 52, 72]*'
+	- This flag is for the paper with Ref. ID = 72
+- '*Recent advances [73, 75] demonstrate the ongoing evolution of these approaches for complex decision-making tasks*'
+	- This flag is for the paper with Ref. ID = 73
+- '*The existing methods primarily use single large-scale models without leveraging multi-agent collaboration, creating challenges with complex scenes [26, 17, 20, 74, 52, 72]*'
+	- This flag is for the paper with Ref. ID = 74
+- '*Recent advances [73, 75] demonstrate the ongoing evolution of these approaches for complex decision-making tasks*'
+	- This flag is for the paper with Ref. ID = 75
+- '*Existing approaches, which typically rely on vision-language models, often encounter hallucination problems and description inconsistencies [76, 58, 68]*'
+	- This flag is for the paper with Ref. ID = 76
+- '*Recent vision-language models transformed this landscape: ULIP [58] bridged 3D point clouds and text, PointCLIP [76] adapted CLIP for point clouds, while [45] introduced cross-modal embeddings and Zeng et al [51] explored prompt engineering*'
+	- This flag is for the paper with Ref. ID = 76
+- '*The captions of our Tri-MARF are compared with those from Cap3D, ScoreAgg, ULIP-2 [59], PointCLIP [76], 3D-LLM [17], GPT4Point [37], human annotations, and metadata in terms of quality and efficiency*'
+	- This flag is for the paper with Ref. ID = 76
+- '*Maes et al [27] established the foundational concept of collaborating agents, Zhong et al [78] demonstrated that specialists outperform monolithic models, and Deng et al [13] introduced multi-agent approaches to 3D scene understanding*'
+	- This flag is for the paper with Ref. ID = 78
+- '*Deng et al [47] and Zhong et al [78] showed improved robustness through viewpoint integration, while Aghasian et al [1] developed hierarchical protocols for agent collaboration, and Chafii et al [4] implemented emergent communication between agents*'
+	- This flag is for the paper with Ref. ID = 78
+- '*1 Introduction 3D object annotation is crucial in computer vision, providing semantic labels for 3D data across autonomous driving [30, 5, 28, 24, 17, 40, 79, 61], robotics, and AR applications*'
+	- This flag is for the paper with Ref. ID = 79
+- '*(3) The effect of selecting different numbers of viewpoints on the annotation quality is used to justify why we choose 6 viewpoints instead of 8 viewpoints in the previous work [79]*'
+	- This flag is for the paper with Ref. ID = 79
+- '*These approaches have proven effective for content selection in visual applications [80] and have been extended to contextual settings where visual representations inform decision-making [8]*'
+	- This flag is for the paper with Ref. ID = 80
+

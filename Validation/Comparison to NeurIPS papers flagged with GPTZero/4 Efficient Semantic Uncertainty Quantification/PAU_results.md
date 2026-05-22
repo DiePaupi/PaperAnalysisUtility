@@ -1,0 +1,1287 @@
+# Paper Analysis Utility - Results
+
+Paper: Efficient semantic uncertainty quantification in language models via diversity-steered sampling.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/4 Efficient Semantic Uncertainty Quantification/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 1 pages)
+2) 'Estimating the predictive uncertainty of free-form responses' -- p. 2 (ca. 1 pages)
+3) 'Methods' -- p. 3 (ca. 4 pages)
+4) 'Related Work' -- p. 7 (ca. 1 pages)
+5) 'Experiments' -- p. 8 (ca. 1 pages)
+6) 'Discussion and limitations' -- p. 9 (ca. 1 pages)
+7) 'Conclusion' -- p. 10 (ca. 1 pages)
+8) 'References' -- p. 11 (ca. 5 pages)
+A) 'Extension to masked diffusion models' -- p. 16 (ca. 1 pages)
+B) 'Additional implementation details' -- p. 17 (ca. 2 pages)
+C) 'Qualitative case studies' -- p. 19 (ca. 2 pages)
+D) 'Mutual information results' -- p. 21 (ca. 0 pages)
+E) 'Variance reduction with control variates' -- p. 21 (ca. 1 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 1/33=3.03%
+		- Invalid uses: 32/33=96.97%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 1: = −
+		- Page 2: log q(yt|y<t) = log p(yt|y<t) −λ max
+		- Page 3: ℓ′(next) ←ℓ(next) −λπ
+		- Page 3: log q(y(t)|y(t+1)) = log p(y(t)|y(t+1)) −λ max
+		- Page 5: ˆH = −
+		- Page 6: Denote Yi = −log ˆp(c(s(i))), where c(s(i)) is the cluster containing s(i). The estimator in Equation 10 is then PN
+		- Page 6: i=1 ˜wiYi. Now define Xi = −log p(s(i)), and let X′
+		- Page 6: i = Xi−µX and Y ′
+		- Page 6: i = Yi−µY
+		- Page 6: −α
+		- Page 6: ˜wi,jointYi −αMI
+		- Page 8: numbers are mean±std over 5 jackknife samples of size 200. The symbol “−” indicates that the
+		- Page 15: for t = T−1 downto 0 do
+		- Page 15: ℓ′(next) ←ℓ(next) −λπ
+		- Page 16: pair, (ii) all proper prefixes of the hypothesis (lengths 1 . . . Lh −1) each followed by [TRUNC], and
+		- Page 16: (iii) all proper prefixes of the premise (lengths 1 . . . Lp −1) similarly tagged. A single example with
+		- Page 16: tokenized lengths (Lp, Lh) thus contributes 1 + (Lh −1) + (Lp −1) training instances, covering
+		- Page 17: s∈S E(y≤t, s) −Etarget
+		- Page 17: Var{ ˆH} −Vtarget
+		- Page 17: defined by 1 −E(si, sj) for every pair si, sj of iteratively prompted responses (see Equation 6 for
+		- Page 20: h(Zi) −α
+		- Page 20: g(Zi) −µg
+		- Page 20: is unbiased, because Ep[g(Z) −µg] = 0.
+		- Page 20: g = Var[g(Z)], and σhg = Cov[h(Z), g(Z)]. Writing H = h(Z) −µ and G =
+		- Page 20: g(Z) −µg, we have
+		- Page 20: H −αG
+		- Page 20: h −2α σhg + α2σ2
+		- Page 21: −2σhg + 2ασ2
+		- Page 21: h (1 −ρ2),
+		- Page 21: σhσg is the correlation between h and g, so variance is reduced by the factor 1 −ρ2 such
+		- Page 21: i = Xi −µX with Xi = −log p(s(i))
+		- Page 21: are strongly correlated with the negative cluster probabilities Yi = −log ˆp(c(s(i))), being based on
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 2
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 43
+	- Full reference: `[43] Mikel Artetxe, Gorka Labaka, and Eneko Agirre. Learning principled bilingual mappings of word embeddings while preserving monolingual invariance. In Jian Su, Kevin Duh, and Xavier Carreras (eds.), Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pp. 2289–2294, Austin, Texas, November 2016. Association for Computational Linguistics. doi: 10.18653/v1/D16-1250. URL https://aclanthology.org/D16-1250/.`
+- Parsed Ref. ID: 65
+	- Full reference: `[65] Ilya Loshchilov and Frank Hutter. Decoupled weight decay regularization. arXiv preprint arXiv:1711.05101, 2017. Technical Appendices and Supplementary Material A`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Manning C.: 4
+- Bowman S.: 3
+- Zettlemoyer L.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/4 Efficient Semantic Uncertainty Quantification/literature_validation_results_fig.jpg]]
+
+References section starts on page 11.
+
+- No link provided: $57/65=87.69\%$
+- Unchecked links: $6/65=9.23\%$
+- Valid links: $0/65=0.00\%$
+- Invalid link: $2/65=3.08\%$
+	- Invalid entries:
+		=> total = 2
+		- \[30\] Jie Ren, Yao Zhao, Tu Vu, Peter J. Liu, and Balaji Lakshminarayanan. Self-evaluation improves selective generation in large language models. In Javier Antorán, Arno Blaas, Kelly Buchanan, Fan Feng, Vincent Fortuin, Sahra Ghalebikesabi, Andreas Kriegler, Ian Mason, David Rohde, Francisco J. R. Ruiz, Tobias Uelwer, Yubin Xie, and Rui Yang (eds.), Proceedings on "I Can’t Believe It’s Not Better: Failure Modes in the Age of Foundation Models" at NeurIPS 2023 Workshops, volume 239 of Proceedings of Machine Learning Research, pp. 49–64. PMLR, 16 Dec 2023. URL https://proceedings.mlr.press/v239/ren23a.html.
+			-> Returned with status code 404!
+		- \[60\] AI@Meta. Llama 3 model card. 2024. URL https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md.
+			-> Returned with status code 404!
+
+- Different links: $0/65=0.00\%$
+
+- Successful searches: $19/65=29.23\%$
+- Skipped searches: $0/65=0.00\%$
+- Mismatching infos: $20/65=30.77\%$
+	- **Entries with mismatching author information:**
+		=> total = 9
+		- `[2] Yasin Abbasi Yadkori, Ilja Kuzborskij, András György, and Csaba Szepesvári. To believe or not to believe your llm. arXiv preprint arXiv:2406.02543, 2024.`
+			- Authors (Abbasi-Yadkori, Szepesv'ari) did not match found publication titled 'To Believe or Not to Believe Your LLM'
+		- `[18] Andrey Malinin, David Uthoff, Roman Heil, Yaya Li, and Mark Gales. Ensemble distribution distillation. International Conference on Learning Representations (ICLR), 2020.`
+			- Authors (Mlodozeniec) did not match found publication titled 'Ensemble Distribution Distillation'
+		- `[19] Hao Jiang, Bo Pang, Wei Ding, Jian Xu, and Lawrence Carin. To trust or not to trust a classifier. In International Conference on Learning Representations (ICLR), 2021.`
+			- Authors (Kim, Gupta) did not match found publication titled 'To Trust Or Not To Trust A Classifier'
+		- `[29] Deep Ganguli, Amanda Askell, Nicholas Schiefer, Thomas I. Liao, Kamil˙e Lukoši¯ut˙e, Anna Chen, Anna Goldie, Azalia Mirhoseini, Catherine Olsson, Danny Hernandez, Dawn Drain, Dustin Li, Eli Tran-Johnson, Ethan Perez, Jackson Kernion, Jamie Kerr, Jared Mueller, Joshua Landau, Kamal Ndousse, Karina Nguyen, Liane Lovitt, Michael Sellitto, Nelson Elhage, Noemi Mercado, Nova DasSarma, Oliver Rausch, Robert Lasenby, Robin Larson, Sam Ringer, Sandipan Kundu, Saurav Kadavath, Scott Johnston, Shauna Kravec, Sheer El Showk, Tamera Lanham, Timothy Telleen-Lawton, Tom Henighan, Tristan Hume, Yuntao Bai, Zac HatfieldDodds, Ben Mann, Dario Amodei, Nicholas Joseph, Sam McCandlish, Tom Brown, Christopher Olah, Jack Clark, Samuel R. Bowman, and Jared Kaplan. The capacity for moral self-correction in large language models. arXiv, 2302.07459, 2023.`
+			- Authors (Lukovsiut.e, Hatfield-Dodds) did not match found publication titled 'The Capacity for Moral Self-Correction in Large Language Models'
+		- `[51] Richard Socher, Eric H. Huang, Jeffrey Pennin, Christopher D. Manning, and Andrew Y. Ng. Dynamic pooling and unfolding recursive autoencoders for paraphrase detection. In Advances in Neural Information Processing Systems (NeurIPS), volume 24, pp. 801–809, 2011.`
+			- Authors (Pennington) did not match found publication titled 'Dynamic Pooling and Unfolding Recursive Autoencoders for Paraphrase Detection'
+		- `[57] Sewon Min, Mike Lewis, and Daniel Jurafsky. Ambigqa: Answering ambiguous open-domain questions. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 7582–7601, 2020.`
+			- Authors (Michael, Hajishirzi, Zettlemoyer) did not match found publication titled 'AmbigQA: Answering Ambiguous Open-domain Questions'
+		- `[58] S. Zhang, S. Roller, N. Goyal, M. Artetxe, M. Chen, S. Chen, M. Dewan, M. Diab, Y. Jiang, J. Kos, et al. Opt: Open pre-trained transformer language models. arXiv preprint arXiv:2205.01068, 2022.`
+			- Authors (Li, Lin, Mihaylov, Ott, Shleifer, Shuster, Simig, Koura, Sridhar, Wang, Zettlemoyer) did not match found publication titled 'OPT: Open Pre-trained Transformer Language Models'
+		- `[59] Hugo Touvron, Thibaut Martin, Kevin Stone, Marie-Anne Lachaux, Timothée Albert, et al. Llama: Open and efficient foundation language models. arXiv preprint arXiv:2302.13971, 2023.`
+			- Authors (Lavril, Izacard, Martinet, Lacroix, Rozière, Goyal, Hambro, Azhar, Rodriguez, Joulin, Grave, Lample) did not match found publication titled 'LLaMA: Open and Efficient Foundation Language Models'
+		- `[62] Ilia Kulikov, Alexander Miller, Kyunghyun Cho, and Jason Weston. Importance of search and evaluation strategies in neural dialogue modeling. pp. 76–87, 01 2019. doi: 10.18653/v1/ W19-8609.`
+			- Authors () did not match found publication titled 'Importance of Search and Evaluation Strategies in Neural Dialogue Modeling'
+	- **Entries with mismatching years (where the difference is > 1 year):**
+		=> total = 1
+		- `[39] Ashwin K Vijayakumar, Michael Cogswell, Ramprasath R. Selvaraju, Qing Sun, Stefan Lee, David Crandall, and Dhruv Batra. Diverse beam search: Decoding diverse solutions from neural sequence models. arXiv, 1610.02424, 2018.`
+			- Year (2016) does not match expected year (2018)
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 10
+		- `[11] Adina Williams, Nikita Nangia, and Samuel R. Bowman. A broad-coverage challenge corpus for sentence understanding through inference. In Proceedings of NAACL-HLT, 2018.`
+			- Year (2017) does not match expected year (2018)
+		- `[12] Pengcheng He, Weizhu Liu, Jianfeng Gao, and Weizhu Chen. Deberta: Decoding-enhanced bert with disentangled attention. In International Conference on Learning Representations (ICLR), 2021.`
+			- Year (2020) does not match expected year (2021)
+		- `[15] Yarin Gal and Zoubin Ghahramani. Dropout as a bayesian approximation: Representing model uncertainty in deep learning. In International Conference on Machine Learning (ICML), 2016.`
+			- Year (2015) does not match expected year (2016)
+		- `[16] Balaji Lakshminarayanan, Alexander Pritzel, and Charles Blundell. Simple and scalable predictive uncertainty estimation using deep ensembles. In Advances in Neural Information Processing Systems (NeurIPS), volume 30, 2017.`
+			- Year (2016) does not match expected year (2017)
+		- `[33] Jinhao Duan, Hao Cheng, Shiqi Wang, Alex Zavalny, Chenan Wang, Renjing Xu, Bhavya Kailkhura, and Kaidi Xu. Shifting attention to relevance: Towards the predictive uncertainty quantification of free-form large language models. In Lun-Wei Ku, Andre Martins, and Vivek Srikumar (eds.), Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 5050–5063, Bangkok, Thailand, August 2024. Association for Computational Linguistics. doi: 10.18653/v1/2024.acl-long.276. URL https://aclanthology.org/2024.acl-long.276/.`
+			- Year (2023) does not match expected year (2024)
+		- `[40] Xiang Lisa Li, Ari Holtzman, Daniel Fried, Percy Liang, Jason Eisner, Tatsunori Hashimoto, Luke Zettlemoyer, and Mike Lewis. Contrastive decoding: Open-ended text generation as optimization. In Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki (eds.), Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 12286–12312, Toronto, Canada, July 2023. Association for Computational Linguistics.`
+			- Year (2022) does not match expected year (2023)
+		- `[41] Jiwei Li, Michel Galley, Chris Brockett, Jianfeng Gao, and Bill Dolan. A diversity-promoting objective function for neural conversation models. In Kevin Knight, Ani Nenkova, and Owen Rambow (eds.), Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp. 110–119, San Diego, California, June 2016. Association for Computational Linguistics.`
+			- Year (2015) does not match expected year (2016)
+		- `[47] Ion Androutsopoulos and Prodromos Malakasiotis. A survey of paraphrasing and textual entailment methods. Journal of Artificial Intelligence Research, 38:135–187, 2010.`
+			- Year (2009) does not match expected year (2010)
+		- `[55] Sunil Reddy, Danqi Chen, and Christopher D. Manning. Coqa: A conversational question answering challenge. In Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL), pp. 1944–1954, 2019.`
+			- Year (2018) does not match expected year (2019)
+		- `[56] Stephanie Lin, Jacob Hilton, and Owain Evans. TruthfulQA: Measuring how models mimic human falsehoods. In Smaranda Muresan, Preslav Nakov, and Aline Villavicencio (eds.), Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 3214–3252, Dublin, Ireland, May 2022. Association for Computational Linguistics. doi: 10.18653/v1/2022.acl-long.229. URL https://aclanthology.org/2022.acl-long.229/.`
+			- Year (2021) does not match expected year (2022)
+- No entry found: $26/65=40.00\%$
+	- Unfound entries:
+		=> total = 26
+		- ==\[4\] Franz Aichberger, Lily Chen, and John Smith. Semantically diverse language generation. In International Conference on Learning Representations (ICLR), 2025.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[5\] Jacob Austin and et al. Diffuseq: Sequence to sequence text generation with diffusion models. In ICLR, 2022.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: None of the 335 results matched the expected title!
+		- ==\[6\] Nuo Lou and et al. Dsp: Diffusion-based span prediction for masked text modeling. arXiv preprint arXiv:2305.XXXX, 2023.==
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: None of the 998 results matched the expected title!
+		- ==\[7\] Sheng Shi and et al. Maskgpt: Uniform denoising diffusion for language. arXiv preprint arXiv:2401.XXXX, 2024.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[8\] A. Sahoo and et al. inatk: Iterative noise aware text denoising. arXiv preprint arXiv:2402.XXXX, 2024.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[9\] X. Ou and et al. Tuqdm: Token unmasking with quantized diffusion models. In ACL, 2024.==
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[10\] Yuxin Nie and et al. Llada: Large language auto-diffusion for accelerated denoising. arXiv preprint arXiv:2403.XXXX, 2024.
+			-> WARNING: None of the 9 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[14\] Mandar Joshi, Eunsol Choi, Daniel S. Weld, and Luke Zettlemoyer. Triviaqa: A large scale distantly supervised challenge for reading comprehension. In Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL), pp. 1601–1611, 2017.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[20\] Yayati Desai and Gregory Durrett. Calibration of text generation models. In Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 4690–4697, 2020.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[21\] Maria Glushkova, Shiori Kobayashi, and Junichi Suzuki. Uncertainty estimation in neural text regression. In Findings of the Association for Computational Linguistics: EMNLP 2021, pp. 4567–4576, 2021.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[22\] Yichao Wang, Bowen Zhou, Adam Lopez, and Benjamin Snyder. Uncertainty quantification in abstractive summarization. In Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (ACL), pp. 1234–1245, 2022.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[24\] Jason Lin, Stephen Roller, Ashwin Stewart, and Luke Zettlemoyer. Teaching language models to script their confidence. In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 123–135, 2022.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[25\] Srinivasan Kadavath, Urvashi Khandelwal, Alec Radford, and Noam Shazeer. Answer me this: Self-verifying large language models. In arXiv preprint arXiv:2205.05407, 2022.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[26\] Sam Mielke, Elif Akyürek, and Ondˇrej Dusek. Evaluating the reliability of self-assessment in language models. In Findings of the Association for Computational Linguistics: EMNLP 2020, pp. 4320–4330, 2020.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[27\] Mohit Jain, Ethan Perez, and James Glass. Learning to predict confidence for language models. In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 245–256, 2021.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[28\] Roi Cohen, Mor Geva, Jonathan Berant, and Amir Globerson. Crawling the internal knowledgebase of language models. In Andreas Vlachos and Isabelle Augenstein (eds.), Findings of the Association for Computational Linguistics: EACL 2023, pp. 1856–1869, Dubrovnik, Croatia, May 2023. Association for Computational Linguistics.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[35\] Alexandros N. Angelopoulos, Stephen Bates, and Caroline Uhler. Conformal prediction in neural forecasting. In Proceedings of the 37th Conference on Uncertainty in Artificial Intelligence (UAI), pp. 23–33, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[36\] Shauli Ravfogel, Shachar Zalmanski, and Yoav Goldberg. Well-calibrated language models can be produced with small calibration sets. In Findings of the Association for Computational Linguistics: ACL 2023, pp. 1572–1583, 2023.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[48\] Shyam Fernando and Mark Stevenson. Semantic similarity based on lexical substitution. In Proceedings of ACL-08: HLT, pp. 756–764, 2008.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[49\] Asma Issa, George Mohler, and John Johnson. Paraphrase identification using deep contextualized representations. In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 517–526, 2018.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[50\] Lei Yu, Jimmy Dumsmyr, and Kevin Knight. Deep paraphrase identification. In Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP), pp. 650–655, 2014.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[52\] Yi Tay, Kelvin Fu, Kai Wu, Ivan Casanueva, Jianfeng Liu, Byron Wallace, Shuohang Wang, Bajrang Singh, and Julian McAuley. Reasoning with heterogeneous graph representations for knowledge-aware question answering. In Findings of the Association for Computational Linguistics: ACL 2021, pp. 3497–3506, 2021.==
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[53\] Alex Wang, Rishi Bommasani, Dan Hendrycks, Daniel Song, and Zhilin Zhang. Efficient fewshot learning with efl: A single transformer for all tasks. In arXiv preprint arXiv:2107.13586, 2021.==
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[60\] AI@Meta. Llama 3 model card. 2024. URL https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[61\] Augustine Kong. A note on importance sampling using standardized weights. University of Chicago, Dept. of Statistics, Tech. Rep, 348:14, 1992.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[64\] Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al. Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning. arXiv preprint arXiv:2501.12948, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/4 Efficient Semantic Uncertainty Quantification/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 17
+- International Conference on Learning Representations
+	- Parsed as: International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 5
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- University of Chicago, Dept of Statistics, Tech Rep
+	- References literatures count from this outlet: 1
+- Proceedings of the Fourth Workshop on Statistical Machine Translation
+	- References literatures count from this outlet: 1
+- Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki (eds ), Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp 12286–12312, Toronto, Canada
+	- References literatures count from this outlet: 1
+- Kevin Knight, Ani Nenkova, and Owen Rambow (eds ), Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp 110–119, San Diego, California
+	- References literatures count from this outlet: 1
+- Computer Speech & Language
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Jian Su, Kevin Duh, and Xavier Carreras (eds ), Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pp 2289–2294, Austin, Texas
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: Anna Korhonen, David Traum, and Lluís Màrquez (eds ), Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pp 3752–3762, Florence, Italy
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Mech.  Transl.  Comput.  Linguistics
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: Proceedings of ACL-08: HLT
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- JOURNAL OF ARTIFICIAL INTELLIGENCE RESEARCH
+	- Parsed as: Journal of Artificial Intelligence Research
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.9
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Proceedings of the 41st International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems (NeurIPS), volume 24
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Findings of the Association for Computational Linguistics: ACL 2021
+	- References literatures count from this outlet: 1
+- North American Association for Computational Linguistics
+	- Parsed as: Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: Smaranda Muresan, Preslav Nakov, and Aline Villavicencio (eds ), Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp 3214–3252, Dublin, Ireland
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Conference in Uncertainty in Artificial Intelligence
+	- Parsed as: Proceedings of the 37th Conference on Uncertainty in Artificial Intelligence
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Findings of the Association for Computational Linguistics: ACL 2023
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Houda Bouamor, Juan Pino, and Kalika Bali (eds ), Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, pp 8392–8417, Singapore
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: ICLR
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: ACL
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- North American Association for Computational Linguistics
+	- Parsed as: Proceedings of NAACL-HLT
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Findings of the Association for Computational Linguistics: EMNLP 2021
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Houda Bouamor, Juan Pino, and Kalika Bali (eds ), Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, pp 12621–12640, Singapore
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Findings of the Association for Computational Linguistics: EMNLP 2020
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- European Association for Computational Linguistics
+	- Parsed as: Andreas Vlachos and Isabelle Augenstein (eds ), Findings of the Association for Computational Linguistics: EACL 2023, pp 1856–1869, Dubrovnik, Croatia
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Javier Antorán, Arno Blaas, Kelly Buchanan, Fan Feng, Vincent Fortuin, Sahra Ghalebikesabi, Andreas Kriegler, Ian Mason, David Rohde, Francisco J  R  Ruiz, Tobias Uelwer, Yubin Xie, and Rui Yang (eds ), Proceedings on "I Can’t Believe It’s Not Better: Failure Modes in the Age of Foundation Models" at NeurIPS 2023 Workshops, volume 239 of Proceedings of Machine Learning Research, pp 49–64 PMLR
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Houda Bouamor, Juan Pino, and Kalika Bali (eds ), Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, pp 5433–5442, Singapore
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Empirical Methods in Natural Language Processing
+	- Parsed as: Yaser Al-Onaizan, Mohit Bansal, and Yun-Nung Chen (eds ), Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, pp 10351–10368, Miami, Florida, USA
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: Lun-Wei Ku, Andre Martins, and Vivek Srikumar (eds ), Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp 5050–5063, Bangkok, Thailand
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Corrosion Communications
+	- Parsed as: CoRR
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 9.4
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Lorenz Kuhn, Yarin Gal, and Sebastian Farquhar*
+	- Normalized Authors: `['Kuhn L.', 'Gal Y.', 'Farquhar S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Semantic uncertainty: Linguistic invariances for uncertainty estimation in natural language generation*
+	- Year: *2023*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Yasin Abbasi Yadkori, Ilja Kuzborskij, András György, and Csaba Szepesvári*
+	- Normalized Authors: `['Yadkori Y.', 'Kuzborskij I.', 'György A.', 'Szepesvári C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *To believe or not to believe your llm*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Abbasi-Yadkori, Szepesv'ari) did not match found publication titled 'To Believe or Not to Believe Your LLM'*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Ari Holtzman, Jan Buys, Li Du, Maxwell Forbes, and Yejin Choi*
+	- Normalized Authors: `['Holtzman A.', 'Buys J.', 'Du L.', 'Forbes M.', 'Choi Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The curious case of neural text degeneration*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Franz Aichberger, Lily Chen, and John Smith*
+	- Normalized Authors: `['Aichberger F.', 'Chen L.', 'Smith J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Semantically diverse language generation*
+	- Year: *2025*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Jacob Austin and et al*
+	- Normalized Authors: `['Austin J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Diffuseq: Sequence to sequence text generation with diffusion models*
+	- Year: *2022*
+	- Outlet: *ICLR*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: None of the 335 results matched the expected title!*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Nuo Lou and et al*
+	- Normalized Authors: `['Lou N.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Dsp: Diffusion-based span prediction for masked text modeling*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: None of the 998 results matched the expected title!*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Sheng Shi and et al*
+	- Normalized Authors: `['Shi S.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Maskgpt: Uniform denoising diffusion for language*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *A  Sahoo and et al*
+	- Normalized Authors: `['Sahoo A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *inatk: Iterative noise aware text denoising*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *X  Ou and et al*
+	- Normalized Authors: `['Ou X.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Tuqdm: Token unmasking with quantized diffusion models*
+	- Year: *2024*
+	- Outlet: *ACL*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Yuxin Nie and et al*
+	- Normalized Authors: `['Nie Y.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Llada: Large language auto-diffusion for accelerated denoising*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 9 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Adina Williams, Nikita Nangia, and Samuel R  Bowman*
+	- Normalized Authors: `['Williams A.', 'Nangia N.', 'Bowman S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A broad-coverage challenge corpus for sentence understanding through inference*
+	- Year: *2018*
+	- Outlet: *Proceedings of NAACL-HLT*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2017) does not match expected year (2018)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Pengcheng He, Weizhu Liu, Jianfeng Gao, and Weizhu Chen*
+	- Normalized Authors: `['He P.', 'Liu W.', 'Gao J.', 'Chen W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deberta: Decoding-enhanced bert with disentangled attention*
+	- Year: *2021*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Alex Wang, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, and Samuel R Bowman*
+	- Normalized Authors: `['Wang A.', 'Singh A.', 'Michael J.', 'Hill F.', 'Levy O.', 'Bowman S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Glue: A multi-task benchmark and analysis platform for natural language understanding*
+	- Year: *2018*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Mandar Joshi, Eunsol Choi, Daniel S  Weld, and Luke Zettlemoyer*
+	- Normalized Authors: `['Joshi M.', 'Choi E.', 'Weld D.', 'Zettlemoyer L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Triviaqa: A large scale distantly supervised challenge for reading comprehension*
+	- Year: *2017*
+	- Outlet: *Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Yarin Gal and Zoubin Ghahramani*
+	- Normalized Authors: `['Gal Y.', 'Ghahramani Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dropout as a bayesian approximation: Representing model uncertainty in deep learning*
+	- Year: *2016*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2015) does not match expected year (2016)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Balaji Lakshminarayanan, Alexander Pritzel, and Charles Blundell*
+	- Normalized Authors: `['Lakshminarayanan B.', 'Pritzel A.', 'Blundell C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Simple and scalable predictive uncertainty estimation using deep ensembles*
+	- Year: *2017*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2016) does not match expected year (2017)*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Andrey Malinin and Mark Gales*
+	- Normalized Authors: `['Malinin A.', 'Gales M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Predictive uncertainty estimation via prior networks*
+	- Year: *2018*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Andrey Malinin, David Uthoff, Roman Heil, Yaya Li, and Mark Gales*
+	- Normalized Authors: `['Malinin A.', 'Uthoff D.', 'Heil R.', 'Li Y.', 'Gales M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ensemble distribution distillation*
+	- Year: *2020*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Mlodozeniec) did not match found publication titled 'Ensemble Distribution Distillation'*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Hao Jiang, Bo Pang, Wei Ding, Jian Xu, and Lawrence Carin*
+	- Normalized Authors: `['Jiang H.', 'Pang B.', 'Ding W.', 'Xu J.', 'Carin L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *To trust or not to trust a classifier*
+	- Year: *2021*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Kim, Gupta) did not match found publication titled 'To Trust Or Not To Trust A Classifier'*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Yayati Desai and Gregory Durrett*
+	- Normalized Authors: `['Desai Y.', 'Durrett G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Calibration of text generation models*
+	- Year: *2020*
+	- Outlet: *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Maria Glushkova, Shiori Kobayashi, and Junichi Suzuki*
+	- Normalized Authors: `['Glushkova M.', 'Kobayashi S.', 'Suzuki J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Uncertainty estimation in neural text regression*
+	- Year: *2021*
+	- Outlet: *Findings of the Association for Computational Linguistics: EMNLP 2021*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Yichao Wang, Bowen Zhou, Adam Lopez, and Benjamin Snyder*
+	- Normalized Authors: `['Wang Y.', 'Zhou B.', 'Lopez A.', 'Snyder B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Uncertainty quantification in abstractive summarization*
+	- Year: *2022*
+	- Outlet: *Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Sarah Wiegreffe, Matthew Finlayson, Oyvind Tafjord, Peter Clark, and Ashish Sabharwal*
+	- Normalized Authors: `['Wiegreffe S.', 'Finlayson M.', 'Tafjord O.', 'Clark P.', 'Sabharwal A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Increasing probability mass on answer choices does not always improve accuracy*
+	- Year: *2023*
+	- Outlet: *Houda Bouamor, Juan Pino, and Kalika Bali (eds ), Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, pp 8392–8417, Singapore*
+	- Link: *https://aclanthology.org/2023.emnlp-main.522/.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Jason Lin, Stephen Roller, Ashwin Stewart, and Luke Zettlemoyer*
+	- Normalized Authors: `['Lin J.', 'Roller S.', 'Stewart A.', 'Zettlemoyer L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Teaching language models to script their confidence*
+	- Year: *2022*
+	- Outlet: *Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Srinivasan Kadavath, Urvashi Khandelwal, Alec Radford, and Noam Shazeer*
+	- Normalized Authors: `['Kadavath S.', 'Khandelwal U.', 'Radford A.', 'Shazeer N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Answer me this: Self-verifying large language models*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Sam Mielke, Elif Akyürek, and Ondˇrej Dusek*
+	- Normalized Authors: `['Mielke S.', 'Akyürek E.', 'Dusek O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Evaluating the reliability of self-assessment in language models*
+	- Year: *2020*
+	- Outlet: *Findings of the Association for Computational Linguistics: EMNLP 2020*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Mohit Jain, Ethan Perez, and James Glass*
+	- Normalized Authors: `['Jain M.', 'Perez E.', 'Glass J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning to predict confidence for language models*
+	- Year: *2021*
+	- Outlet: *Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Roi Cohen, Mor Geva, Jonathan Berant, and Amir Globerson*
+	- Normalized Authors: `['Cohen R.', 'Geva M.', 'Berant J.', 'Globerson A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Crawling the internal knowledgebase of language models*
+	- Year: *2023*
+	- Outlet: *Andreas Vlachos and Isabelle Augenstein (eds ), Findings of the Association for Computational Linguistics: EACL 2023, pp 1856–1869, Dubrovnik, Croatia*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Deep Ganguli, Amanda Askell, Nicholas Schiefer, Thomas I  Liao, Kamil˙e Lukoši¯ut˙e, Anna Chen, Anna Goldie, Azalia Mirhoseini, Catherine Olsson, Danny Hernandez, Dawn Drain, Dustin Li, Eli Tran-Johnson, Ethan Perez, Jackson Kernion, Jamie Kerr, Jared Mueller, Joshua Landau, Kamal Ndousse, Karina Nguyen, Liane Lovitt, Michael Sellitto, Nelson Elhage, Noemi Mercado, Nova DasSarma, Oliver Rausch, Robert Lasenby, Robin Larson, Sam Ringer, Sandipan Kundu, Saurav Kadavath, Scott Johnston, Shauna Kravec, Sheer El Showk, Tamera Lanham, Timothy Telleen-Lawton, Tom Henighan, Tristan Hume, Yuntao Bai, Zac HatfieldDodds, Ben Mann, Dario Amodei, Nicholas Joseph, Sam McCandlish, Tom Brown, Christopher Olah, Jack Clark, Samuel R  Bowman, and Jared Kaplan*
+	- Normalized Authors: `['Ganguli D.', 'Askell A.', 'Schiefer N.', 'Liao T.', 'Lukoši¯ut˙e K.', 'Chen A.', 'Goldie A.', 'Mirhoseini A.', 'Olsson C.', 'Hernandez D.', 'Drain D.', 'Li D.', 'Tran-Johnson E.', 'Perez E.', 'Kernion J.', 'Kerr J.', 'Mueller J.', 'Landau J.', 'Ndousse K.', 'Nguyen K.', 'Lovitt L.', 'Sellitto M.', 'Elhage N.', 'Mercado N.', 'DasSarma N.', 'Rausch O.', 'Lasenby R.', 'Larson R.', 'Ringer S.', 'Kundu S.', 'Kadavath S.', 'Johnston S.', 'Kravec S.', 'Showk S.', 'Lanham T.', 'Telleen-Lawton T.', 'Henighan T.', 'Hume T.', 'Bai Y.', 'HatfieldDodds Z.', 'Mann B.', 'Amodei D.', 'Joseph N.', 'McCandlish S.', 'Brown T.', 'Olah C.', 'Clark J.', 'Bowman S.', 'Kaplan J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The capacity for moral self-correction in large language models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Lukovsiut.e, Hatfield-Dodds) did not match found publication titled 'The Capacity for Moral Self-Correction in Large Language Models'*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Jie Ren, Yao Zhao, Tu Vu, Peter J  Liu, and Balaji Lakshminarayanan*
+	- Normalized Authors: `['Ren J.', 'Zhao Y.', 'Vu T.', 'Liu P.', 'Lakshminarayanan B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Self-evaluation improves selective generation in large language models*
+	- Year: *2023*
+	- Outlet: *Javier Antorán, Arno Blaas, Kelly Buchanan, Fan Feng, Vincent Fortuin, Sahra Ghalebikesabi, Andreas Kriegler, Ian Mason, David Rohde, Francisco J  R  Ruiz, Tobias Uelwer, Yubin Xie, and Rui Yang (eds ), Proceedings on "I Can’t Believe It’s Not Better: Failure Modes in the Age of Foundation Models" at NeurIPS 2023 Workshops, volume 239 of Proceedings of Machine Learning Research, pp 49–64 PMLR*
+	- Link: *https://proceedings.mlr.press/v239/ren23a.html.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Katherine Tian, Eric Mitchell, Allan Zhou, Archit Sharma, Rafael Rafailov, Huaxiu Yao, Chelsea Finn, and Christopher Manning*
+	- Normalized Authors: `['Tian K.', 'Mitchell E.', 'Zhou A.', 'Sharma A.', 'Rafailov R.', 'Yao H.', 'Finn C.', 'Manning C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Just ask for calibration: Strategies for eliciting calibrated confidence scores from language models fine-tuned with human feedback*
+	- Year: *2023*
+	- Outlet: *Houda Bouamor, Juan Pino, and Kalika Bali (eds ), Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, pp 5433–5442, Singapore*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Zhen Lin, Shubhendu Trivedi, and Jimeng Sun*
+	- Normalized Authors: `['Lin Z.', 'Trivedi S.', 'Sun J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Contextualized sequence likelihood: Enhanced confidence scores for natural language generation*
+	- Year: *2024*
+	- Outlet: *Yaser Al-Onaizan, Mohit Bansal, and Yun-Nung Chen (eds ), Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, pp 10351–10368, Miami, Florida, USA*
+	- Link: *https://aclanthology.org/2024.emnlp-main.578/.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Jinhao Duan, Hao Cheng, Shiqi Wang, Alex Zavalny, Chenan Wang, Renjing Xu, Bhavya Kailkhura, and Kaidi Xu*
+	- Normalized Authors: `['Duan J.', 'Cheng H.', 'Wang S.', 'Zavalny A.', 'Wang C.', 'Xu R.', 'Kailkhura B.', 'Xu K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Shifting attention to relevance: Towards the predictive uncertainty quantification of free-form large language models*
+	- Year: *2024*
+	- Outlet: *Lun-Wei Ku, Andre Martins, and Vivek Srikumar (eds ), Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp 5050–5063, Bangkok, Thailand*
+	- Link: *https://aclanthology.org/2024.acl-long.276/.*
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Roi Cohen, May Hamri, Mor Geva, and Amir Globerson*
+	- Normalized Authors: `['Cohen R.', 'Hamri M.', 'Geva M.', 'Globerson A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *LM vs LM: Detecting factual errors via cross examination*
+	- Year: *2023*
+	- Outlet: *Houda Bouamor, Juan Pino, and Kalika Bali (eds ), Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, pp 12621–12640, Singapore*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Alexandros N  Angelopoulos, Stephen Bates, and Caroline Uhler*
+	- Normalized Authors: `['Angelopoulos A.', 'Bates S.', 'Uhler C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Conformal prediction in neural forecasting*
+	- Year: *2023*
+	- Outlet: *Proceedings of the 37th Conference on Uncertainty in Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Shauli Ravfogel, Shachar Zalmanski, and Yoav Goldberg*
+	- Normalized Authors: `['Ravfogel S.', 'Zalmanski S.', 'Goldberg Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Well-calibrated language models can be produced with small calibration sets*
+	- Year: *2023*
+	- Outlet: *Findings of the Association for Computational Linguistics: ACL 2023*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Gustaf Ahdritz, Tian Qin, Nikhil Vyas, Boaz Barak, and Benjamin L Edelman*
+	- Normalized Authors: `['Ahdritz G.', 'Qin T.', 'Vyas N.', 'Barak B.', 'Edelman B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Distinguishing the knowable from the unknowable with language models*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Daniel D  Johnson, Daniel Tarlow, David Duvenaud, and Chris J  Maddison*
+	- Normalized Authors: `['Johnson D.', 'Tarlow D.', 'Duvenaud D.', 'Maddison C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Experts don’t cheat: learning what you don’t know by predicting pairs*
+	- Year: *2024*
+	- Outlet: *Proceedings of the 41st International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Ashwin K Vijayakumar, Michael Cogswell, Ramprasath R  Selvaraju, Qing Sun, Stefan Lee, David Crandall, and Dhruv Batra*
+	- Normalized Authors: `['Vijayakumar A.', 'Cogswell M.', 'Selvaraju R.', 'Sun Q.', 'Lee S.', 'Crandall D.', 'Batra D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Diverse beam search: Decoding diverse solutions from neural sequence models*
+	- Year: *2018*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2016) does not match expected year (2018)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Xiang Lisa Li, Ari Holtzman, Daniel Fried, Percy Liang, Jason Eisner, Tatsunori Hashimoto, Luke Zettlemoyer, and Mike Lewis*
+	- Normalized Authors: `['Li X.', 'Holtzman A.', 'Fried D.', 'Liang P.', 'Eisner J.', 'Hashimoto T.', 'Zettlemoyer L.', 'Lewis M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Contrastive decoding: Open-ended text generation as optimization*
+	- Year: *2023*
+	- Outlet: *Anna Rogers, Jordan Boyd-Graber, and Naoaki Okazaki (eds ), Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp 12286–12312, Toronto, Canada*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Jiwei Li, Michel Galley, Chris Brockett, Jianfeng Gao, and Bill Dolan*
+	- Normalized Authors: `['Li J.', 'Galley M.', 'Brockett C.', 'Gao J.', 'Dolan B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A diversity-promoting objective function for neural conversation models*
+	- Year: *2016*
+	- Outlet: *Kevin Knight, Ani Nenkova, and Owen Rambow (eds ), Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, pp 110–119, San Diego, California*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2015) does not match expected year (2016)*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Yik-Cheung Tam*
+	- Normalized Authors: `['Tam Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Cluster-based beam search for pointer-generator chatbot grounded by knowledge*
+	- Year: *2020*
+	- Outlet: *Computer Speech & Language*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Mikel Artetxe, Gorka Labaka, and Eneko Agirre*
+	- Normalized Authors: `['Artetxe M.', 'Labaka G.', 'Agirre E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning principled bilingual mappings of word embeddings while preserving monolingual invariance*
+	- Year: *2016*
+	- Outlet: *Jian Su, Kevin Duh, and Xavier Carreras (eds ), Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing, pp 2289–2294, Austin, Texas*
+	- Link: *https://aclanthology.org/D16-1250/.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Daphne Ippolito, Reno Kriz, João Sedoc, Maria Kustikova, and Chris Callison-Burch*
+	- Normalized Authors: `['Ippolito D.', 'Kriz R.', 'Sedoc J.', 'Kustikova M.', 'Callison-Burch C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Comparison of diverse decoding methods from conditional language models*
+	- Year: *2019*
+	- Outlet: *Anna Korhonen, David Traum, and Lluís Màrquez (eds ), Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics, pp 3752–3762, Florence, Italy*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Peter W Culicover*
+	- Normalized Authors: `['Culicover P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Paraphrase generation and information retrieval from stored text*
+	- Year: *1968*
+	- Outlet: *Mech.  Transl.  Comput.  Linguistics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Sebastian Pado, Michel Galley, Daniel Jurafsky, and Christopher D Manning*
+	- Normalized Authors: `['Pado S.', 'Galley M.', 'Jurafsky D.', 'Manning C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Machine translation evaluation with textual entailment features*
+	- Year: *2009*
+	- Outlet: *Proceedings of the Fourth Workshop on Statistical Machine Translation*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Ion Androutsopoulos and Prodromos Malakasiotis*
+	- Normalized Authors: `['Androutsopoulos I.', 'Malakasiotis P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A survey of paraphrasing and textual entailment methods*
+	- Year: *2010*
+	- Outlet: *Journal of Artificial Intelligence Research*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2009) does not match expected year (2010)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Shyam Fernando and Mark Stevenson*
+	- Normalized Authors: `['Fernando S.', 'Stevenson M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Semantic similarity based on lexical substitution*
+	- Year: *2008*
+	- Outlet: *Proceedings of ACL-08: HLT*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Asma Issa, George Mohler, and John Johnson*
+	- Normalized Authors: `['Issa A.', 'Mohler G.', 'Johnson J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Paraphrase identification using deep contextualized representations*
+	- Year: *2018*
+	- Outlet: *Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Lei Yu, Jimmy Dumsmyr, and Kevin Knight*
+	- Normalized Authors: `['Yu L.', 'Dumsmyr J.', 'Knight K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep paraphrase identification*
+	- Year: *2014*
+	- Outlet: *Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Richard Socher, Eric H  Huang, Jeffrey Pennin, Christopher D  Manning, and Andrew Y  Ng*
+	- Normalized Authors: `['Socher R.', 'Huang E.', 'Pennin J.', 'Manning C.', 'Ng A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dynamic pooling and unfolding recursive autoencoders for paraphrase detection*
+	- Year: *2011*
+	- Outlet: *Advances in Neural Information Processing Systems (NeurIPS), volume 24*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Pennington) did not match found publication titled 'Dynamic Pooling and Unfolding Recursive Autoencoders for Paraphrase Detection'*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Yi Tay, Kelvin Fu, Kai Wu, Ivan Casanueva, Jianfeng Liu, Byron Wallace, Shuohang Wang, Bajrang Singh, and Julian McAuley*
+	- Normalized Authors: `['Tay Y.', 'Fu K.', 'Wu K.', 'Casanueva I.', 'Liu J.', 'Wallace B.', 'Wang S.', 'Singh B.', 'McAuley J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reasoning with heterogeneous graph representations for knowledge-aware question answering*
+	- Year: *2021*
+	- Outlet: *Findings of the Association for Computational Linguistics: ACL 2021*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Alex Wang, Rishi Bommasani, Dan Hendrycks, Daniel Song, and Zhilin Zhang*
+	- Normalized Authors: `['Wang A.', 'Bommasani R.', 'Hendrycks D.', 'Song D.', 'Zhang Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Efficient fewshot learning with efl: A single transformer for all tasks*
+	- Year: *2021*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Zhen Lin, Shubhendu Trivedi, and Jimeng Sun*
+	- Normalized Authors: `['Lin Z.', 'Trivedi S.', 'Sun J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Generating with confidence: Uncertainty quantification for black-box large language models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Sunil Reddy, Danqi Chen, and Christopher D  Manning*
+	- Normalized Authors: `['Reddy S.', 'Chen D.', 'Manning C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Coqa: A conversational question answering challenge*
+	- Year: *2019*
+	- Outlet: *Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2019)*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Stephanie Lin, Jacob Hilton, and Owain Evans*
+	- Normalized Authors: `['Lin S.', 'Hilton J.', 'Evans O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *TruthfulQA: Measuring how models mimic human falsehoods*
+	- Year: *2022*
+	- Outlet: *Smaranda Muresan, Preslav Nakov, and Aline Villavicencio (eds ), Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp 3214–3252, Dublin, Ireland*
+	- Link: *https://aclanthology.org/2022.acl-long.229/.*
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Sewon Min, Mike Lewis, and Daniel Jurafsky*
+	- Normalized Authors: `['Min S.', 'Lewis M.', 'Jurafsky D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ambigqa: Answering ambiguous open-domain questions*
+	- Year: *2020*
+	- Outlet: *Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Michael, Hajishirzi, Zettlemoyer) did not match found publication titled 'AmbigQA: Answering Ambiguous Open-domain Questions'*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *S  Zhang, S  Roller, N  Goyal, M  Artetxe, M  Chen, S  Chen, M  Dewan, M  Diab, Y  Jiang, J  Kos, et al*
+	- Normalized Authors: `['Zhang S.', 'Roller S.', 'Goyal N.', 'Artetxe M.', 'Chen M.', 'Chen S.', 'Dewan M.', 'Diab M.', 'Jiang Y.', 'Kos J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Opt: Open pre-trained transformer language models*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Li, Lin, Mihaylov, Ott, Shleifer, Shuster, Simig, Koura, Sridhar, Wang, Zettlemoyer) did not match found publication titled 'OPT: Open Pre-trained Transformer Language Models'*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Hugo Touvron, Thibaut Martin, Kevin Stone, Marie-Anne Lachaux, Timothée Albert, et al*
+	- Normalized Authors: `['Touvron H.', 'Martin T.', 'Stone K.', 'Lachaux M.', 'Albert T.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Llama: Open and efficient foundation language models*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Lavril, Izacard, Martinet, Lacroix, Rozière, Goyal, Hambro, Azhar, Rodriguez, Joulin, Grave, Lample) did not match found publication titled 'LLaMA: Open and Efficient Foundation Language Models'*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *AI@Meta*
+	- Normalized Authors: `['AI@Meta']`
+	- Authors contain 'et al.': *False*
+	- Title: *Llama 3 model card*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://github.com/meta-llama/llama3/blob/main/MODEL_CARD.md.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Augustine Kong*
+	- Normalized Authors: `['Kong A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A note on importance sampling using standardized weights*
+	- Year: *1992*
+	- Outlet: *University of Chicago, Dept of Statistics, Tech Rep*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Ilia Kulikov, Alexander Miller, Kyunghyun Cho, and Jason Weston*
+	- Normalized Authors: `['Kulikov I.', 'Miller A.', 'Cho K.', 'Weston J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Importance of search and evaluation strategies in neural dialogue modeling*
+	- Year: *2019*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'Importance of Search and Evaluation Strategies in Neural Dialogue Modeling'*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov*
+	- Normalized Authors: `['Schulman J.', 'Wolski F.', 'Dhariwal P.', 'Radford A.', 'Klimov O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Proximal policy optimization algorithms*
+	- Year: *2017*
+	- Outlet: *CoRR*
+	- Link: *http://arxiv.org/abs/1707.06347.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al*
+	- Normalized Authors: `['Guo D.', 'Yang D.', 'Zhang H.', 'Song J.', 'Zhang R.', 'Xu R.', 'Zhu Q.', 'Ma S.', 'Wang P.', 'Bi X.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Ilya Loshchilov and Frank Hutter*
+	- Normalized Authors: `['Loshchilov I.', 'Hutter F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Decoupled weight decay regularization*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*For example, semantic entropy has been proposed to quantify aleatoric uncertainty by clustering generated outputs into semantic equivalence classes [1], while mutual information computed via iterative prompting has been used to lower-bound certain forms of epistemic uncertainty [2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*(8) In this section, we illustrate how importance reweighting and semantic clustering interact for the purpose of estimating SE [1] and MI [2], proxies of aleatoric and epistemic uncertainty, respectively*'
+	- This flag is for the paper with Ref. ID = 2
+- '*We use the MI proxy introduced by Yadkori et al [2, Algorithm 2], restricted here to the pairwise case n=2, as a worked example of how one can quantify epistemic uncertainty with our semantically–diverse sample set*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Each response token sequence is mapped to a semantic cluster c(i) j ∈C using the NLI-reported bidirectional entailment score [1], rather than using the F1 score [14] as originally done in Yadkori et al [2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Recent work, however, suggests that one can probe it with a single fixed network by measuring the consistency of multiple answers it produces to the same query [37, 38, 2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*5 Experiments We evaluate our diversity-promoting sampling scheme for estimating SE [1] and MI [2]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*not enough information")*'
+	- This flag is for the paper with Ref. ID = 11
+- '*not enough information")*'
+	- This flag is for the paper with Ref. ID = 11
+- '*not enough information")*'
+	- This flag is for the paper with Ref. ID = 11
+- '*DeBERTa-large-MNLI [12]) and freezing all of its existing parameters*'
+	- This flag is for the paper with Ref. ID = 12
+- '*3% of the model parameters (around 3M parameters) in the case of DeBERTa-large-MNLI [12]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*“not paraphrases” classifiers [12, 52, 53]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*In brief, clustering works by querying the DeBERTa-large-MNLI model [12], finetuned on the NLI dataset MNLI [11], on every pair of sampled responses*'
+	- This flag is for the paper with Ref. ID = 12
+- '*Common approaches for uncertainty quantification in vision and classification tasks include Monte Carlo dropout [15], deep ensembles [16], and prior networks [17, 18]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Common approaches for uncertainty quantification in vision and classification tasks include Monte Carlo dropout [15], deep ensembles [16], and prior networks [17, 18]*'
+	- This flag is for the paper with Ref. ID = 16
+- '*Common approaches for uncertainty quantification in vision and classification tasks include Monte Carlo dropout [15], deep ensembles [16], and prior networks [17, 18]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Our ARM baselines include (1) standard IID sampling with temperatures τ ∈{1, 2}, (2) diverse beam search (DBS) [39] with a penalty hyperparameter of 0*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Consistent with Aichberger et al [4], we find that semanticsagnostic heuristics such as simple temperature scaling or DBS [39] are insufficient to fully explore the semantic space*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Cluster-based beam search methods apply semantic clustering to prune beam candidates and diversify subsequent selections [41, 42], but this heavily depends on initial candidate diversity*'
+	- This flag is for the paper with Ref. ID = 41
+- '*Casting semantic equivalence as bidirectional entailment dates back to early linguistics work [45] and was later adopted in NLP [46, 47]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*We perform experiments on four question-answering (QA) benchmark datasets covering both closed-book and open-book tasks: 907 validation matched instances with shorter stories from CoQA [55], a closed-book abstractive QA; 1,000 instances from the validation no-context reading comprehension split of TriviaQA [14], a closed-book extractive QA; 800 instances from the validation split of TruthfulQA [56], a closed-book generative QA; and the light validation split of AmbigQA [57], an open-book open-domain QA*'
+	- This flag is for the paper with Ref. ID = 55
+- '*We perform experiments on four question-answering (QA) benchmark datasets covering both closed-book and open-book tasks: 907 validation matched instances with shorter stories from CoQA [55], a closed-book abstractive QA; 1,000 instances from the validation no-context reading comprehension split of TriviaQA [14], a closed-book extractive QA; 800 instances from the validation split of TruthfulQA [56], a closed-book generative QA; and the light validation split of AmbigQA [57], an open-book open-domain QA*'
+	- This flag is for the paper with Ref. ID = 56
+- '*We perform experiments on four question-answering (QA) benchmark datasets covering both closed-book and open-book tasks: 907 validation matched instances with shorter stories from CoQA [55], a closed-book abstractive QA; 1,000 instances from the validation no-context reading comprehension split of TriviaQA [14], a closed-book extractive QA; 800 instances from the validation split of TruthfulQA [56], a closed-book generative QA; and the light validation split of AmbigQA [57], an open-book open-domain QA*'
+	- This flag is for the paper with Ref. ID = 57
+- '*7B, OPT-13B [58]4 for comparisons with prior work [1, 4, 33]; LLaMA 3 8B-Instruct [59, 60], as a modern instruction-finetuned backbone; and LLaDA 8B-Instruct [10], an instruction-finetuned MDM*'
+	- This flag is for the paper with Ref. ID = 58
+- '*7B, OPT-13B [58]4 for comparisons with prior work [1, 4, 33]; LLaMA 3 8B-Instruct [59, 60], as a modern instruction-finetuned backbone; and LLaDA 8B-Instruct [10], an instruction-finetuned MDM*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Our method can be viewed as prioritizing the former; we enforce diversity sequentially in the running sample set [62], at the expense of computation time that grows linearly with N*'
+	- This flag is for the paper with Ref. ID = 62
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*Attention values may contain information about relevance or confidence [32, 33]*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Diverse beam search (DBS) introduces diversity heuristics within beam search optimization [39]*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Contrastive decoding enlists a secondary, weaker language model whose output tokens are penalized to encourage diverse token selection by the primary model [40]*'
+	- This flag is for the paper with Ref. ID = 40
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*While these methods have also been adapted for text classification and regression in NLP [19–22], their extension to free-form NLG presents specific challenges due to semantic invariances inherent in generated text [1, 23]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 29
+- '*7B, OPT-13B [58]4 for comparisons with prior work [1, 4, 33]; LLaMA 3 8B-Instruct [59, 60], as a modern instruction-finetuned backbone; and LLaDA 8B-Instruct [10], an instruction-finetuned MDM*'
+	- This flag is for the paper with Ref. ID = 33
+- '*We suspect SDLG’s weaker rank correlation may be due to our 4We omit OPT-30B, as the marginal AUROC improvement relative to OPT-13B has been insignificant [4, 33]*'
+	- This flag is for the paper with Ref. ID = 33
+- '*Dataset Model Vanilla (τ = 1) τ = 2 DBS [39] SDLG [4] Ours CoQA OPT-6*'
+	- This flag is for the paper with Ref. ID = 39
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*For example, semantic entropy has been proposed to quantify aleatoric uncertainty by clustering generated outputs into semantic equivalence classes [1], while mutual information computed via iterative prompting has been used to lower-bound certain forms of epistemic uncertainty [2]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*As observed by Aichberger et al [4], the first term on the right, H  p(c | x, θ)  = − X c∈C p(c | x, θ) log p(c | x, θ), (3) 1The original presentation [1] used the biased estimator, p(c | x, θ) = P y∈c p(y | x, θ)*'
+	- This flag is for the paper with Ref. ID = 1
+- '*is the aleatoric semantic uncertainty, also called semantic entropy (SE) [1]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*For MDMs, we randomly select the masking probability uniformly in [0, 1] and independently replace tokens with [MASK] with that probability*'
+	- This flag is for the paper with Ref. ID = 1
+- '*(8) In this section, we illustrate how importance reweighting and semantic clustering interact for the purpose of estimating SE [1] and MI [2], proxies of aleatoric and epistemic uncertainty, respectively*'
+	- This flag is for the paper with Ref. ID = 1
+- '*(9) This yields the importance-weighted version [4] of SE [1] in Equation 3: ˆH = − X c∈C ˆp(c) log ˆp(c)*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Each response token sequence is mapped to a semantic cluster c(i) j ∈C using the NLI-reported bidirectional entailment score [1], rather than using the F1 score [14] as originally done in Yadkori et al [2]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*While these methods have also been adapted for text classification and regression in NLP [19–22], their extension to free-form NLG presents specific challenges due to semantic invariances inherent in generated text [1, 23]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Semantic entropy [1] offers an unsupervised method that clusters multiple outputs into semantic equivalence classes based on bidirectional entailment and then computes entropy on these clusters*'
+	- This flag is for the paper with Ref. ID = 1
+- '*The entailment probability from NLI models has been used to cluster LLM generations into meaning-equivalent sets, enabling unsupervised uncertainty estimation [1, 4, 54]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*5 Experiments We evaluate our diversity-promoting sampling scheme for estimating SE [1] and MI [2]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Estimation is performed on top of the semantic clusters created using Kuhn et al [1, Algorithm 1]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Table 1: AUROC of SE [1] computed on generations from various sampling schemes*'
+	- This flag is for the paper with Ref. ID = 1
+- '*7B, OPT-13B [58]4 for comparisons with prior work [1, 4, 33]; LLaMA 3 8B-Instruct [59, 60], as a modern instruction-finetuned backbone; and LLaDA 8B-Instruct [10], an instruction-finetuned MDM*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Diversity-oriented heuristics such as temperature scaling or nucleus sampling [3], on the other hand, do not account for semantics*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Sampling heuristics aimed at enhancing output diversity, such as temperature scaling, top-k, and nucleus sampling [3] do not account for semantics*'
+	- This flag is for the paper with Ref. ID = 3
+- '*More recently, Aichberger et al [4] proposed a method that steers generation toward semantic diversity, though it relies on token substitutions and remains restricted to autoregressive models (ARMs)*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Following Aichberger et al [4], we define the distribution over semantic clusters c ∈C by marginalizing over all output sequences y: p(c | x, θ) = Z 1[y ∈c | x, θ] p(y | x, θ)dy, which can be approximated with the MC estimator1, ˆp(c | x, θ) ≈1 N N X i=1 1[y(i) ∈c], y(1),*'
+	- This flag is for the paper with Ref. ID = 4
+- '*The total predictive uncertainty can then be written as the expected cross-entropy between two independent draws of the model’s distribution [4]: E˜θ  CE  p(c|x, θ) ; p(c|x, ˜θ)  | {z } total = H  p(c|x, θ)  | {z } aleatoric + E˜θ h KL  p(c|x, θ) 
+
+ p(c|x, ˜θ) i | {z } epistemic , (2) where CE(·; ·) is the cross entropy, H(·) is the shannon entropy, and E˜θ := E˜θ∼p(·|D) denotes expectation over the weight posterior*'
+	- This flag is for the paper with Ref. ID = 4
+- '*As observed by Aichberger et al [4], the first term on the right, H  p(c | x, θ)  = − X c∈C p(c | x, θ) log p(c | x, θ), (3) 1The original presentation [1] used the biased estimator, p(c | x, θ) = P y∈c p(y | x, θ)*'
+	- This flag is for the paper with Ref. ID = 4
+- '*(9) This yields the importance-weighted version [4] of SE [1] in Equation 3: ˆH = − X c∈C ˆp(c) log ˆp(c)*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Semantically Diverse Language Generation (SDLG) substitutes the most informative token in a fully generated sample and allows standard sampling to proceed from that token onward [4]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*The entailment probability from NLI models has been used to cluster LLM generations into meaning-equivalent sets, enabling unsupervised uncertainty estimation [1, 4, 54]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*As observed by Aichberger et al [4], it is common to employ diversity heuristics during sampling without correcting for the introduced bias with principled importance reweighting [e*'
+	- This flag is for the paper with Ref. ID = 4
+- '*5, and (3) our re-implementation of SDLG [4], where we handle the differing vocabularies of the base LLM and NLI by decoding each OPT/LLaMA token to its raw string and then re-tokenizing that string with the DeBERTa NLI tokenizer, so that substitution candidates and gradient attributions live in the same NLI embedding space*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Dataset Model Vanilla (τ = 1) τ = 2 DBS [39] SDLG [4] Ours CoQA OPT-6*'
+	- This flag is for the paper with Ref. ID = 4
+- '*7B, OPT-13B [58]4 for comparisons with prior work [1, 4, 33]; LLaMA 3 8B-Instruct [59, 60], as a modern instruction-finetuned backbone; and LLaDA 8B-Instruct [10], an instruction-finetuned MDM*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Consistent with Aichberger et al [4], we find that semanticsagnostic heuristics such as simple temperature scaling or DBS [39] are insufficient to fully explore the semantic space*'
+	- This flag is for the paper with Ref. ID = 4
+- '*We suspect SDLG’s weaker rank correlation may be due to our 4We omit OPT-30B, as the marginal AUROC improvement relative to OPT-13B has been insignificant [4, 33]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*These models extend masked language modeling by learning iterative denoising schedules to progressively resolve masked spans [5–10]*'
+	- This flag is for the paper with Ref. ID = 5
+- '*These models extend masked language modeling by learning iterative denoising schedules to progressively resolve masked spans [5–10]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*These models extend masked language modeling by learning iterative denoising schedules to progressively resolve masked spans [5–10]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*These models extend masked language modeling by learning iterative denoising schedules to progressively resolve masked spans [5–10]*'
+	- This flag is for the paper with Ref. ID = 8
+- '*These models extend masked language modeling by learning iterative denoising schedules to progressively resolve masked spans [5–10]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*These models extend masked language modeling by learning iterative denoising schedules to progressively resolve masked spans [5–10]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*7B, OPT-13B [58]4 for comparisons with prior work [1, 4, 33]; LLaMA 3 8B-Instruct [59, 60], as a modern instruction-finetuned backbone; and LLaDA 8B-Instruct [10], an instruction-finetuned MDM*'
+	- This flag is for the paper with Ref. ID = 10
+- '*To our knowledge, this is the first framework that (1) applies to both ARM and MDM decoding paradigms (including recent models such as LLaMA-v3 [60] and LLaDA [10]), (2) has been demonstrated on both aleatoric and epistemic proxies, and (3) requires no gradient access to the NLI or the base LLM*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Figure 2: Predictions of the finetuned NLI at each truncated point of the hypothesis, on two examples from the GLUE MNLI validation_matched split [13]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Premise: i’m not sure what the overnight low was Figure 3: Predictions of the finetuned NLI at each masking percentage of the hypothesis, on two examples from the GLUE MNLI validation_matched split [13]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Each response token sequence is mapped to a semantic cluster c(i) j ∈C using the NLI-reported bidirectional entailment score [1], rather than using the F1 score [14] as originally done in Yadkori et al [2]*'
+	- This flag is for the paper with Ref. ID = 14
+- '*We perform experiments on four question-answering (QA) benchmark datasets covering both closed-book and open-book tasks: 907 validation matched instances with shorter stories from CoQA [55], a closed-book abstractive QA; 1,000 instances from the validation no-context reading comprehension split of TriviaQA [14], a closed-book extractive QA; 800 instances from the validation split of TruthfulQA [56], a closed-book generative QA; and the light validation split of AmbigQA [57], an open-book open-domain QA*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Common approaches for uncertainty quantification in vision and classification tasks include Monte Carlo dropout [15], deep ensembles [16], and prior networks [17, 18]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Predictive entropy quantifies the token-level entropy of the predictive distribution [17]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*While these methods have also been adapted for text classification and regression in NLP [19–22], their extension to free-form NLG presents specific challenges due to semantic invariances inherent in generated text [1, 23]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*While these methods have also been adapted for text classification and regression in NLP [19–22], their extension to free-form NLG presents specific challenges due to semantic invariances inherent in generated text [1, 23]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*While these methods have also been adapted for text classification and regression in NLP [19–22], their extension to free-form NLG presents specific challenges due to semantic invariances inherent in generated text [1, 23]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*While these methods have also been adapted for text classification and regression in NLP [19–22], their extension to free-form NLG presents specific challenges due to semantic invariances inherent in generated text [1, 23]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 24
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 25
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 26
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Several studies have proposed prompting or fine-tuning language models to explicitly articulate their confidence levels [24–31], though this typically requires additional supervision*'
+	- This flag is for the paper with Ref. ID = 31
+- '*Attention values may contain information about relevance or confidence [32, 33]*'
+	- This flag is for the paper with Ref. ID = 32
+- '*Alternatively, cross-examination leverages a secondary language model to evaluate uncertainty in another model’s outputs [34]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Complementary strategies, such as conformal prediction, can provide bounds on hallucinations under stronger theoretical assumptions [35, 36]*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Complementary strategies, such as conformal prediction, can provide bounds on hallucinations under stronger theoretical assumptions [35, 36]*'
+	- This flag is for the paper with Ref. ID = 36
+- '*Recent work, however, suggests that one can probe it with a single fixed network by measuring the consistency of multiple answers it produces to the same query [37, 38, 2]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Recent work, however, suggests that one can probe it with a single fixed network by measuring the consistency of multiple answers it produces to the same query [37, 38, 2]*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Cluster-based beam search methods apply semantic clustering to prune beam candidates and diversify subsequent selections [41, 42], but this heavily depends on initial candidate diversity*'
+	- This flag is for the paper with Ref. ID = 42
+- '*For comparative analyses of diversity-enhancing decoding strategies, see Ippolito et al [44]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Casting semantic equivalence as bidirectional entailment dates back to early linguistics work [45] and was later adopted in NLP [46, 47]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Casting semantic equivalence as bidirectional entailment dates back to early linguistics work [45] and was later adopted in NLP [46, 47]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Early methods relied on lexical overlap [48, 49] or vector embedding similarities [50, 51]*'
+	- This flag is for the paper with Ref. ID = 48
+- '*Early methods relied on lexical overlap [48, 49] or vector embedding similarities [50, 51]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*Early methods relied on lexical overlap [48, 49] or vector embedding similarities [50, 51]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Early methods relied on lexical overlap [48, 49] or vector embedding similarities [50, 51]*'
+	- This flag is for the paper with Ref. ID = 51
+- '*“not paraphrases” classifiers [12, 52, 53]*'
+	- This flag is for the paper with Ref. ID = 52
+- '*“not paraphrases” classifiers [12, 52, 53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*The entailment probability from NLI models has been used to cluster LLM generations into meaning-equivalent sets, enabling unsupervised uncertainty estimation [1, 4, 54]*'
+	- This flag is for the paper with Ref. ID = 54
+- '*7B, OPT-13B [58]4 for comparisons with prior work [1, 4, 33]; LLaMA 3 8B-Instruct [59, 60], as a modern instruction-finetuned backbone; and LLaDA 8B-Instruct [10], an instruction-finetuned MDM*'
+	- This flag is for the paper with Ref. ID = 60
+- '*To our knowledge, this is the first framework that (1) applies to both ARM and MDM decoding paradigms (including recent models such as LLaMA-v3 [60] and LLaDA [10]), (2) has been demonstrated on both aleatoric and epistemic proxies, and (3) requires no gradient access to the NLI or the base LLM*'
+	- This flag is for the paper with Ref. ID = 60
+- '*We also evaluate the average number of clusters and the effective sample size (ESS) [61] of the importance weights relative to N=16*'
+	- This flag is for the paper with Ref. ID = 61
+- '*Looking ahead, the same logit–repulsion plus self-normalized importance-weighting scheme can, in principle, be embedded inside on-policy RL fine-tuning methods such as Proximal Policy Optimization (PPO) [63] and its grouped-reward variant GRPO [64]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*Looking ahead, the same logit–repulsion plus self-normalized importance-weighting scheme can, in principle, be embedded inside on-policy RL fine-tuning methods such as Proximal Policy Optimization (PPO) [63] and its grouped-reward variant GRPO [64]*'
+	- This flag is for the paper with Ref. ID = 64
+

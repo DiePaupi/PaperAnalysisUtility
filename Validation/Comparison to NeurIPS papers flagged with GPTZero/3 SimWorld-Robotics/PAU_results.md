@@ -1,0 +1,1250 @@
+# Paper Analysis Utility - Results
+
+Paper: SimWorld-Robotics Synthesizing Photorealistic and.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/3 SimWorld-Robotics/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 2 pages)
+2) 'Related Work' -- p. 3 (ca. 1 pages)
+3) 'SimWorld-Robotics' -- p. 4 (ca. 2 pages)
+4) 'Multimodal Robot Navigation Benchmark' -- p. 6 (ca. 3 pages)
+5) 'Multi-Robot Search Benchmark' -- p. 9 (ca. 1 pages)
+6) 'Conclusion' -- p. 10 (ca. 1 pages)
+7) 'References' -- p. 11 (ca. 5 pages)
+A) 'SimWorld-Robotics Details' -- p. 16 (ca. 4 pages)
+B) 'Benchmark Comparison' -- p. 20 (ca. 1 pages)
+C) 'SIMWORLD-MMNAV' -- p. 21 (ca. 7 pages)
+D) 'SIMWORLD-MRS' -- p. 28 (ca. 3 pages)
+E) 'Qualitative Examples' -- p. 31 (ca. 4 pages)
+F) 'Code Availability Statement' -- p. 35 (ca. 0 pages)
+G) 'LLM Usage Statement' -- p. 35 (ca. 6 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/8=0.00%
+		- Invalid uses: 8/8=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 20: forward, move backward, move left, move right, turn left (−90◦), turn right (+90◦), or stay still.
+		- Page 21: (d0 −dT
+		- Page 21: 5 for i ←2 to k −1 do
+		- Page 21: if θi ̸= θi−1 then
+		- Page 21: Vmove ←capture visual cue at ni−1 with orientation θi−1;
+		- Page 21: Imove ←generate Move Along the Road instruction using a landmark near ni−1;
+		- Page 21: θi−1 and θi;
+		- Page 28: (D0 −DT
+
+
+## References not in Bibliography
+
+All references used in the document's text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used.
+> -> Total = 7
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 5
+	- Full reference: `[5] Abhijat Biswas, Allan Wang, Gustavo Silvera, Aaron Steinfeld, and Henny Admoni. Socnavbench: A grounded simulation testing framework for evaluating social navigation, 2021. URL https://arxiv.org/abs/2103.00047.`
+- Parsed Ref. ID: 6
+	- Full reference: `[6] Greg Brockman, Vicki Cheung, Ludwig Pettersson, Jonas Schneider, John Schulman, Jie Tang, and Wojciech Zaremba. Openai gym, 2016. URL https://arxiv.org/abs/1606.01540.`
+- Parsed Ref. ID: 12
+	- Full reference: `[12] Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. Qlora: Efﬁcient ﬁnetuning of quantized llms, 2023. URL https://arxiv.org/abs/2305.14314.`
+- Parsed Ref. ID: 24
+	- Full reference: `[24] Linh Kästner, Volodymyir Shcherbyna, Huajian Zeng, Tuan Anh Le, Maximilian Ho-Kyoung Schreff, Halid Osmaev, Nam Truong Tran, Diego Diaz, Jan Golebiowski, Harold Soh, and Jens Lambrecht. Arena 3.0: Advancing social navigation in collaborative and highly dynamic environments, 2024. URL https://arxiv.org/abs/2406.00837.`
+- Parsed Ref. ID: 42
+	- Full reference: `[42] Yuankai Qi, Qi Wu, Peter Anderson, Xin Wang, William Yang Wang, Chunhua Shen, and Anton van den Hengel. Reverie: Remote embodied visual referring expression in real indoor environments, 2020. URL https://arxiv.org/abs/1904.10151.`
+- Parsed Ref. ID: 43
+	- Full reference: `[43] Weichao Qiu, Fangwei Zhong, Yi Zhang, Siyuan Qiao, Zihao Xiao, Tae Soo Kim, and Yizhou Wang. Unrealcv: Virtual worlds for computer vision. In Proceedings of the 25th ACM International Conference on Multimedia, MM ’17, page 12211224, New York, NY, USA, 2017. Association for Computing Machinery. ISBN 9781450349062. doi: 10.1145/3123266.3129396. URL https://doi.org/10.1145/3123266.3129396.`
+- Parsed Ref. ID: 54
+	- Full reference: `[54] Edwin B. Wilson. Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association, 22(158):209–212, 1927. ISSN 01621459, 1537274X. URL http://www.jstor.org/stable/2276774.`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Mottaghi R.: 5
+- Wang Y.: 5
+- Anderson P.: 4
+- Wu Q.: 4
+- Wang J.: 4
+- Wang P.: 4
+- Zhang Y.: 4
+- Li Q.: 4
+- Batra D.: 4
+- Lingelbach M.: 4
+- Torralba A.: 4
+- Fei-Fei L.: 4
+- Savarese S.: 4
+- Chang A.: 3
+- Chaplot D.: 3
+- Koltun V.: 3
+- Malik J.: 3
+- Savva M.: 3
+- Hengel A.: 3
+- Chen K.: 3
+- Song S.: 3
+- Tang J.: 3
+- Zhu Y.: 3
+- Zhang H.: 3
+- Chen Z.: 3
+- Wang W.: 3
+- Liu Z.: 3
+- Wang X.: 3
+- Han W.: 3
+- Zettlemoyer L.: 3
+- Gan C.: 3
+- Kim K.: 3
+- Tenenbaum J.: 3
+- Gupta A.: 3
+- Zhang Z.: 3
+- Chen Y.: 3
+- Li C.: 3
+- Xia F.: 3
+- Martín-Martín R.: 3
+- Srivastava S.: 3
+- Gokmen C.: 3
+- Liu C.: 3
+- Gweon H.: 3
+- Wu J.: 3
+- He J.: 3
+- Zhou B.: 3
+- Puig X.: 3
+- Wang Z.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/3 SimWorld-Robotics/literature_validation_results_fig.jpg]]
+
+References section starts on page 11.
+
+- No link provided: $18/63=28.57\%$
+- Unchecked links: $3/63=4.76\%$
+- Valid links: $0/63=0.00\%$
+- Invalid link: $42/63=66.67\%$
+	- Invalid entries:
+		=> total = 42
+		- \[1\] Peter Anderson, Angel Chang, Devendra Singh Chaplot, Alexey Dosovitskiy, Saurabh Gupta, Vladlen Koltun, Jana Kosecka, Jitendra Malik, Roozbeh Mottaghi, Manolis Savva, and Amir R. Zamir. On evaluation of embodied navigation agents, 2018. URL https://arxiv.org/abs/1807.06757.
+			-> Returned with status code 404!
+		- \[3\] Peter Anderson, Qi Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko Sünderhauf, Ian Reid, Stephen Gould, and Anton van den Hengel. Vision-and-language navigation: Interpreting visuallygrounded navigation instructions in real environments, 2018. URL https://arxiv.org/abs/1711.07280.
+			-> Returned with status code 404!
+		- \[5\] Abhijat Biswas, Allan Wang, Gustavo Silvera, Aaron Steinfeld, and Henny Admoni. Socnavbench: A grounded simulation testing framework for evaluating social navigation, 2021. URL https://arxiv.org/abs/2103.00047.
+			-> Returned with status code 404!
+		- \[6\] Greg Brockman, Vicki Cheung, Ludwig Pettersson, Jonas Schneider, John Schulman, Jie Tang, and Wojciech Zaremba. Openai gym, 2016. URL https://arxiv.org/abs/1606.01540.
+			-> Returned with status code 404!
+		- \[7\] Angel Chang, Angela Dai, Thomas Funkhouser, Maciej Halber, Matthias NieSSner, Manolis Savva, Shuran Song, Andy Zeng, and Yinda Zhang. Matterport3d: Learning from rgb-d data in indoor environments, 2017. URL https://arxiv.org/abs/1709.06158.
+			-> Returned with status code 404!
+		- \[8\] Howard Chen, Alane Suhr, Dipendra Misra, Noah Snavely, and Yoav Artzi. Touchdown: Natural language navigation and spatial reasoning in visual street environments, 2020. URL https://arxiv.org/abs/1811.12354.
+			-> Returned with status code 404!
+		- \[9\] Zhe Chen, Weiyun Wang, Yue Cao, Yangzhou Liu, Zhangwei Gao, Erfei Cui, Jinguo Zhu, Shenglong Ye, Hao Tian, Zhaoyang Liu, Lixin Gu, Xuehui Wang, Qingyun Li, Yimin Ren, Zixuan Chen, Jiapeng Luo, Jiahao Wang, Tan Jiang, Bo Wang, Conghui He, Botian Shi, Xingcheng Zhang, Han Lv, Yi Wang, Wenqi Shao, Pei Chu, Zhongying Tu, Tong He, Zhiyong Wu, Huipeng Deng, Jiaye Ge, Kai Chen, Kaipeng Zhang, Limin Wang, Min Dou, Lewei Lu, Xizhou Zhu, Tong Lu, Dahua Lin, Yu Qiao, Jifeng Dai, and Wenhai Wang. Expanding performance boundaries of opensource multimodal models with model, data, and test-time scaling, 2025. URL https://arxiv.org/abs/2412.05271.
+			-> Returned with status code 404!
+		- \[11\] Matt Deitke, Winson Han, Alvaro Herrasti, Aniruddha Kembhavi, Eric Kolve, Roozbeh Mottaghi, Jordi Salvador, Dustin Schwenk, Eli VanderBilt, Matthew Wallingford, Luca Weihs, Mark Yatskar, and Ali Farhadi. Robothor: An open simulation-to-real embodied ai platform, 2020. URL https://arxiv.org/abs/2004.06799.
+			-> Returned with status code 404!
+		- \[12\] Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. Qlora: Efﬁcient ﬁnetuning of quantized llms, 2023. URL https://arxiv.org/abs/2305.14314.
+			-> Returned with status code 404!
+		- \[14\] Yue Fan, Winson Chen, Tongzhou Jiang, Chun Zhou, Yi Zhang, and Xin Eric Wang. Aerial vision-and-dialog navigation, 2023. URL https://arxiv.org/abs/2205.12219.
+			-> Returned with status code 404!
+		- \[15\] Chuang Gan, Jeremy Schwartz, Seth Alter, Damian Mrowca, Martin Schrimpf, James Traer, Julian De Freitas, Jonas Kubilius, Abhishek Bhandwaldar, Nick Haber, Megumi Sano, Kuno Kim, Elias Wang, Michael Lingelbach, Aidan Curtis, Kevin Feigelis, Daniel M. Bear, Dan Gutfreund, David Cox, Antonio Torralba, James J. DiCarlo, Joshua B. Tenenbaum, Josh H. McDermott, and Daniel L. K. Yamins. Threedworld: A platform for interactive multi-modal physical simulation, 2021. URL https://arxiv.org/abs/2007.04954.
+			-> Returned with status code 404!
+		- \[16\] Chuang Gan, Siyuan Zhou, Jeremy Schwartz, Seth Alter, Abhishek Bhandwaldar, Dan Gutfreund, Daniel L. K. Yamins, James J DiCarlo, Josh McDermott, Antonio Torralba, and Joshua B. Tenenbaum. The threedworld transport challenge: A visually guided task-and-motion planning benchmark for physically realistic embodied ai, 2021. URL https://arxiv.org/abs/2103.14025.
+			-> Returned with status code 404!
+		- \[17\] Chen Gao, Baining Zhao, Weichen Zhang, Jinzhu Mao, Jun Zhang, Zhiheng Zheng, Fanhang Man, Jianjie Fang, Zile Zhou, Jinqiang Cui, Xinlei Chen, and Yong Li. Embodiedcity: A benchmark platform for embodied agent in real-world city environment, 2024. URL https://arxiv.org/abs/2410.09604.
+			-> Returned with status code 404!
+		- \[18\] Peter Hart, Nils Nilsson, and Bertram Raphael. A formal basis for the heuristic determination of minimum cost paths. IEEE Transactions on Systems Science and Cybernetics, 4(2):100–107, 1968. doi: 10.1109/tssc.1968.300136. URL https://doi.org/10.1109/tssc.1968.300136.
+			-> Returned with status code 404!
+		- \[19\] Pengcheng He, Jianfeng Gao, and Weizhu Chen. Debertav3: Improving deberta using electrastyle pre-training with gradient-disentangled embedding sharing, 2023. URL https://arxiv.org/abs/2111.09543.
+			-> Returned with status code 404!
+		- \[21\] Yunfan Jiang, Agrim Gupta, Zichen Zhang, Guanzhi Wang, Yongqiang Dou, Yanjun Chen, Li Fei-Fei, Anima Anandkumar, Yuke Zhu, and Linxi Fan. Vima: General robot manipulation with multimodal prompts, 2023. URL https://arxiv.org/abs/2210.03094.
+			-> Returned with status code 404!
+		- \[22\] Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Matt Deitke, Kiana Ehsani, Daniel Gordon, Yuke Zhu, Aniruddha Kembhavi, Abhinav Gupta, and Ali Farhadi. Ai2-thor: An interactive 3d environment for visual ai, 2022. URL https://arxiv.org/abs/1712.05474.
+			-> Returned with status code 404!
+		- \[23\] Jacob Krantz, Erik Wijmans, Arjun Majumdar, Dhruv Batra, and Stefan Lee. Beyond the navgraph: Vision-and-language navigation in continuous environments, 2020. URL https://arxiv.org/abs/2004.02857.
+			-> Returned with status code 404!
+		- \[24\] Linh Kästner, Volodymyir Shcherbyna, Huajian Zeng, Tuan Anh Le, Maximilian Ho-Kyoung Schreff, Halid Osmaev, Nam Truong Tran, Diego Diaz, Jan Golebiowski, Harold Soh, and Jens Lambrecht. Arena 3.0: Advancing social navigation in collaborative and highly dynamic environments, 2024. URL https://arxiv.org/abs/2406.00837.
+			-> Returned with status code 404!
+		- \[27\] Chengshu Li, Fei Xia, Roberto Martín-Martín, Michael Lingelbach, Sanjana Srivastava, Bokui Shen, Kent Vainio, Cem Gokmen, Gokul Dharan, Tanish Jain, Andrey Kurenkov, C. Karen Liu, Hyowon Gweon, Jiajun Wu, Li Fei-Fei, and Silvio Savarese. igibson 2.0: Object-centric simulation for robot learning of everyday household tasks, 2021. URL https://arxiv.org/abs/2108.03272.
+			-> Returned with status code 404!
+		- \[28\] Chengshu Li, Ruohan Zhang, Josiah Wong, Cem Gokmen, Sanjana Srivastava, Roberto MartínMartín, Chen Wang, Gabrael Levine, Michael Lingelbach, Jiankai Sun, Mona Anvari, Minjune Hwang, Manasi Sharma, Arman Aydin, Dhruva Bansal, Samuel Hunter, Kyu-Young Kim, Alan Lou, Caleb R Matthews, Ivan Villa-Renteria, Jerry Huayang Tang, Claire Tang, Fei Xia, Silvio Savarese, Hyowon Gweon, Karen Liu, Jiajun Wu, and Li Fei-Fei. Behavior-1k: A benchmark for embodied ai with 1,000 everyday activities and realistic simulation. In Karen Liu, Dana Kulic, and Jeff Ichnowski, editors, Proceedings of The 6th Conference on Robot Learning, volume 205 of Proceedings of Machine Learning Research, pages 80–93. PMLR, 14–18 Dec 2023. URL https://proceedings.mlr.press/v205/li23a.html.
+			-> Returned with status code 404!
+		- \[29\] Heng Li, Minghan Li, Zhi-Qi Cheng, Yifei Dong, Yuxuan Zhou, Jun-Yan He, Qi Dai, Teruko Mitamura, and Alexander G. Hauptmann. Human-aware vision-andlanguage navigation: Bridging simulation to reality with dynamic human interactions. In A. Globerson, L. Mackey, D. Belgrave, A. Fan, U. Paquet, J. Tomczak, and C. Zhang, editors, Advances in Neural Information Processing Systems, volume 37, pages 119411–119442. Curran Associates, Inc., 2024. URL https://proceedings.neurips.cc/paper_files/paper/2024/file/d8087deaf34bb07ddd41c65f8a9fe9b5-Paper-Datasets_and_Benchmarks_Track.pdf.
+			-> Returned with status code 404!
+		- \[31\] Shubo Liu, Hongsheng Zhang, Yuankai Qi, Peng Wang, Yaning Zhang, and Qi Wu. Aerialvln: Vision-and-language navigation for uavs, 2023. URL https://arxiv.org/abs/2308.06735.
+			-> Returned with status code 404!
+		- \[34\] Oier Mees, Lukas Hermann, Erick Rosete-Beas, and Wolfram Burgard. Calvin: A benchmark for language-conditioned policy learning for long-horizon robot manipulation tasks, 2022. URL https://arxiv.org/abs/2112.03227.
+			-> Returned with status code 404!
+		- \[35\] Tongzhou Mu, Zhan Ling, Fanbo Xiang, Derek Yang, Xuanlin Li, Stone Tao, Zhiao Huang, Zhiwei Jia, and Hao Su. Maniskill: Generalizable manipulation skill benchmark with large-scale demonstrations, 2021. URL https://arxiv.org/abs/2107.14483.
+			-> Returned with status code 404!
+		- \[36\] OpenAI. Gpt-4o system card, 2024. URL https://arxiv.org/abs/2410.21276.
+			-> Returned with status code 404!
+		- \[37\] Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Mahmoud Assran, Nicolas Ballas, Wojciech Galuba, Russell Howes, Po-Yao Huang, Shang-Wen Li, Ishan Misra, Michael Rabbat, Vasu Sharma, Gabriel Synnaeve, Hu Xu, Hervé Jegou, Julien Mairal, Patrick Labatut, Armand Joulin, and Piotr Bojanowski. Dinov2: Learning robust visual features without supervision, 2024. URL https://arxiv.org/abs/2304.07193.
+			-> Returned with status code 404!
+		- \[38\] Xavier Puig, Kevin Ra, Marko Boben, Jiaman Li, Tingwu Wang, Sanja Fidler, and Antonio Torralba. Virtualhome: Simulating household activities via programs, 2018. URL https://arxiv.org/abs/1806.07011.
+			-> Returned with status code 404!
+		- \[40\] Xavier Puig, Eric Undersander, Andrew Szot, Mikael Dallaire Cote, Tsung-Yen Yang, Ruslan Partsey, Ruta Desai, Alexander William Clegg, Michal Hlavac, So Yeon Min, Vladimír Vondru, Theophile Gervet, Vincent-Pierre Berges, John M. Turner, Oleksandr Maksymets, Zsolt Kira, Mrinal Kalakrishnan, Jitendra Malik, Devendra Singh Chaplot, Unnat Jain, Dhruv Batra, Akshara Rai, and Roozbeh Mottaghi. Habitat 3.0: A co-habitat for humans, avatars and robots, 2023. URL https://arxiv.org/abs/2310.13724.
+			-> Returned with status code 404!
+		- \[41\] Claudia Pérez-D’Arpino, Can Liu, Patrick Goebel, Roberto Martín-Martín, and Silvio Savarese. Robot navigation in constrained pedestrian environments using reinforcement learning, 2020. URL https://arxiv.org/abs/2010.08600.
+			-> Returned with status code 404!
+		- \[42\] Yuankai Qi, Qi Wu, Peter Anderson, Xin Wang, William Yang Wang, Chunhua Shen, and Anton van den Hengel. Reverie: Remote embodied visual referring expression in real indoor environments, 2020. URL https://arxiv.org/abs/1904.10151.
+			-> Returned with status code 404!
+		- \[43\] Weichao Qiu, Fangwei Zhong, Yi Zhang, Siyuan Qiao, Zihao Xiao, Tae Soo Kim, and Yizhou Wang. Unrealcv: Virtual worlds for computer vision. In Proceedings of the 25th ACM International Conference on Multimedia, MM ’17, page 12211224, New York, NY, USA, 2017. Association for Computing Machinery. ISBN 9781450349062. doi: 10.1145/3123266.3129396. URL https://doi.org/10.1145/3123266.3129396.
+			-> Returned with status code 404!
+		- \[44\] Shital Shah, Debadeepta Dey, Chris Lovett, and Ashish Kapoor. Airsim: High-ﬁdelity visual and physical simulation for autonomous vehicles, 2017. URL https://arxiv.org/abs/1705.05065.
+			-> Returned with status code 404!
+		- \[46\] Sanjana Srivastava, Chengshu Li, Michael Lingelbach, Roberto Martín-Martín, Fei Xia, Kent Vainio, Zheng Lian, Cem Gokmen, Shyamal Buch, C. Karen Liu, Silvio Savarese, Hyowon Gweon, Jiajun Wu, and Li Fei-Fei. Behavior: Benchmark for everyday household activities in virtual, interactive, and ecological environments, 2021. URL https://arxiv.org/abs/2108.03332.
+			-> Returned with status code 404!
+		- \[47\] Andrew Szot, Alex Clegg, Eric Undersander, Erik Wijmans, Yili Zhao, John Turner, Noah Maestre, Mustafa Mukadam, Devendra Chaplot, Oleksandr Maksymets, Aaron Gokaslan, Vladimir Vondrus, Sameer Dharur, Franziska Meier, Wojciech Galuba, Angel Chang, Zsolt Kira, Vladlen Koltun, Jitendra Malik, Manolis Savva, and Dhruv Batra. Habitat 2.0: Training home assistants to rearrange their habitat, 2022. URL https://arxiv.org/abs/2106.14405.
+			-> Returned with status code 404!
+		- \[48\] Gemini Team. Gemini: A family of highly capable multimodal models, 2025. URL https://arxiv.org/abs/2312.11805.
+			-> Returned with status code 404!
+		- \[50\] Jesse Thomason, Michael Murray, Maya Cakmak, and Luke Zettlemoyer. Vision-and-dialog navigation, 2019. URL https://arxiv.org/abs/1907.04957.
+			-> Returned with status code 404!
+		- \[52\] Hanqing Wang, Jiahe Chen, Wensi Huang, Qingwei Ben, Tai Wang, Boyu Mi, Tao Huang, Siheng Zhao, Yilun Chen, Sizhe Yang, Peizhou Cao, Wenye Yu, Zichao Ye, Jialun Li, Junfeng Long, Zirui Wang, Huiling Wang, Ying Zhao, Zhongying Tu, Yu Qiao, Dahua Lin, and Jiangmiao Pang. Grutopia: Dream general robots in a city at scale, 2024. URL https://arxiv.org/abs/2407.10943.
+			-> Returned with status code 404!
+		- \[56\] Wayne Wu, Honglin He, Jack He, Yiran Wang, Chenda Duan, Zhizheng Liu, Quanyi Li, and Bolei Zhou. Metaurban: An embodied ai simulation platform for urban micromobility, 2024. URL https://arxiv.org/abs/2407.08725.
+			-> Returned with status code 404!
+		- \[57\] Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. React: Synergizing reasoning and acting in language models, 2023. URL https://arxiv.org/abs/2210.03629.
+			-> Returned with status code 404!
+		- \[59\] Shengqiang Zhang, Philipp Wicke, LütﬁKerem enel, Luis Figueredo, Abdeldjallil Naceri, Sami Haddadin, Barbara Plank, and Hinrich Schütze. Lohoravens: A long-horizon languageconditioned benchmark for robotic tabletop manipulation, 2023. URL https://arxiv.org/abs/2310.12020.
+			-> Returned with status code 404!
+		- \[62\] Qinhong Zhou, Hongxin Zhang, Xiangye Lin, Zheyuan Zhang, Yutian Chen, Wenjun Liu, Zunzhe Zhang, Sunli Chen, Lixing Fang, Qiushi Lyu, Xinyu Sun, Jincheng Yang, Zeyuan Wang, Bao Chi Dang, Zhehuan Chen, Daksha Ladia, Jiageng Liu, and Chuang Gan. Virtual community: An open world for humans, robots, and society, 2025. URL https://arxiv.org/abs/2508.14893.
+			-> Returned with status code 404!
+
+- Different links: $0/63=0.00\%$
+
+- Successful searches: $7/63=11.11\%$
+- Skipped searches: $0/63=0.00\%$
+- Mismatching infos: $6/63=9.52\%$
+	- **Entries with mismatching author information:**
+		=> total = 5
+		- `[1] Peter Anderson, Angel Chang, Devendra Singh Chaplot, Alexey Dosovitskiy, Saurabh Gupta, Vladlen Koltun, Jana Kosecka, Jitendra Malik, Roozbeh Mottaghi, Manolis Savva, and Amir R. Zamir. On evaluation of embodied navigation agents, 2018. URL https://arxiv.org/abs/1807.06757.`
+			- Authors (0001, 0001) did not match found publication titled 'On Evaluation of Embodied Navigation Agents.'
+		- `[10] Abhishek Das, Georgia Gkioxari, Stefan Lee, Devi Parikh, and Dhruv Batra. Where are you? localization from embodied dialog. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2018.`
+			- Authors (Hahn, Krantz, Rehg, Anderson) did not match found publication titled 'Where Are You? Localization from Embodied Dialog'
+		- `[28] Chengshu Li, Ruohan Zhang, Josiah Wong, Cem Gokmen, Sanjana Srivastava, Roberto MartínMartín, Chen Wang, Gabrael Levine, Michael Lingelbach, Jiankai Sun, Mona Anvari, Minjune Hwang, Manasi Sharma, Arman Aydin, Dhruva Bansal, Samuel Hunter, Kyu-Young Kim, Alan Lou, Caleb R Matthews, Ivan Villa-Renteria, Jerry Huayang Tang, Claire Tang, Fei Xia, Silvio Savarese, Hyowon Gweon, Karen Liu, Jiajun Wu, and Li Fei-Fei. Behavior-1k: A benchmark for embodied ai with 1,000 everyday activities and realistic simulation. In Karen Liu, Dana Kulic, and Jeff Ichnowski, editors, Proceedings of The 6th Conference on Robot Learning, volume 205 of Proceedings of Machine Learning Research, pages 80–93. PMLR, 14–18 Dec 2023. URL https://proceedings.mlr.press/v205/li23a.html.`
+			- Authors (Martín-Martín) did not match found publication titled 'BEHAVIOR-1K: A Benchmark for Embodied AI with 1, 000 Everyday Activities and Realistic Simulation'
+		- `[30] Quanyi Li, Zhenghao Peng, Lan Feng, Qihang Zhang, Zhenghai Xue, and Bolei Zhou. Metadrive: Composing diverse driving scenarios for generalizable reinforcement learning. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2022.`
+			- Authors () did not match found publication titled 'MetaDrive: Composing Diverse Driving Scenarios for Generalizable Reinforcement Learning'
+		- `[53] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, et al. Qwen2-vl: Enhancing vision-language model’s perception of the world at any resolution. arXiv preprint arXiv:2409.12191, 2024.`
+			- Authors (Dang, Du, Ren, Men, Zhou, Zhou) did not match found publication titled 'Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution'
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 1
+		- `[45] Mohit Shridhar, Jesse Thomason, Daniel Gordon, Yonatan Bisk, Winson Han, Roozbeh Mottaghi, Luke Zettlemoyer, and Dieter Fox. Alfred: A benchmark for interpreting grounded instructions for everyday tasks. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), June 2020.`
+			- Year (2019) does not match expected year (2020)
+- No entry found: $50/63=79.37\%$
+	- Unfound entries:
+		=> total = 50
+		- \[2\] Peter Anderson, Qi Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko Sünderhauf, Ian Reid, Stephen Gould, and Anton Van Den Hengel. Vision-and-language navigation: Interpreting visuallygrounded navigation instructions in real environments. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 3674–3683, 2018.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[3\] Peter Anderson, Qi Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko Sünderhauf, Ian Reid, Stephen Gould, and Anton van den Hengel. Vision-and-language navigation: Interpreting visuallygrounded navigation instructions in real environments, 2018. URL https://arxiv.org/abs/1711.07280.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[4\] Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu, Mingkun Yang, Zhaohai Li, Jianqiang Wan, Pengfei Wang, Wei Ding, Zheren Fu, Yiheng Xu, Jiabo Ye, Xi Zhang, Tianbao Xie, Zesen Cheng, Hang Zhang, Zhibo Yang, Haiyang Xu, and Junyang Lin. Qwen2.5-vl technical report. arXiv preprint arXiv:2502.13923, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[5\] Abhijat Biswas, Allan Wang, Gustavo Silvera, Aaron Steinfeld, and Henny Admoni. Socnavbench: A grounded simulation testing framework for evaluating social navigation, 2021. URL https://arxiv.org/abs/2103.00047.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[6\] Greg Brockman, Vicki Cheung, Ludwig Pettersson, Jonas Schneider, John Schulman, Jie Tang, and Wojciech Zaremba. Openai gym, 2016. URL https://arxiv.org/abs/1606.01540.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[7\] Angel Chang, Angela Dai, Thomas Funkhouser, Maciej Halber, Matthias NieSSner, Manolis Savva, Shuran Song, Andy Zeng, and Yinda Zhang. Matterport3d: Learning from rgb-d data in indoor environments, 2017. URL https://arxiv.org/abs/1709.06158.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[8\] Howard Chen, Alane Suhr, Dipendra Misra, Noah Snavely, and Yoav Artzi. Touchdown: Natural language navigation and spatial reasoning in visual street environments, 2020. URL https://arxiv.org/abs/1811.12354.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[9\] Zhe Chen, Weiyun Wang, Yue Cao, Yangzhou Liu, Zhangwei Gao, Erfei Cui, Jinguo Zhu, Shenglong Ye, Hao Tian, Zhaoyang Liu, Lixin Gu, Xuehui Wang, Qingyun Li, Yimin Ren, Zixuan Chen, Jiapeng Luo, Jiahao Wang, Tan Jiang, Bo Wang, Conghui He, Botian Shi, Xingcheng Zhang, Han Lv, Yi Wang, Wenqi Shao, Pei Chu, Zhongying Tu, Tong He, Zhiyong Wu, Huipeng Deng, Jiaye Ge, Kai Chen, Kaipeng Zhang, Limin Wang, Min Dou, Lewei Lu, Xizhou Zhu, Tong Lu, Dahua Lin, Yu Qiao, Jifeng Dai, and Wenhai Wang. Expanding performance boundaries of opensource multimodal models with model, data, and test-time scaling, 2025. URL https://arxiv.org/abs/2412.05271.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[11\] Matt Deitke, Winson Han, Alvaro Herrasti, Aniruddha Kembhavi, Eric Kolve, Roozbeh Mottaghi, Jordi Salvador, Dustin Schwenk, Eli VanderBilt, Matthew Wallingford, Luca Weihs, Mark Yatskar, and Ali Farhadi. Robothor: An open simulation-to-real embodied ai platform, 2020. URL https://arxiv.org/abs/2004.06799.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[12\] Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer. Qlora: Efﬁcient ﬁnetuning of quantized llms, 2023. URL https://arxiv.org/abs/2305.14314.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[14\] Yue Fan, Winson Chen, Tongzhou Jiang, Chun Zhou, Yi Zhang, and Xin Eric Wang. Aerial vision-and-dialog navigation, 2023. URL https://arxiv.org/abs/2205.12219.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[15\] Chuang Gan, Jeremy Schwartz, Seth Alter, Damian Mrowca, Martin Schrimpf, James Traer, Julian De Freitas, Jonas Kubilius, Abhishek Bhandwaldar, Nick Haber, Megumi Sano, Kuno Kim, Elias Wang, Michael Lingelbach, Aidan Curtis, Kevin Feigelis, Daniel M. Bear, Dan Gutfreund, David Cox, Antonio Torralba, James J. DiCarlo, Joshua B. Tenenbaum, Josh H. McDermott, and Daniel L. K. Yamins. Threedworld: A platform for interactive multi-modal physical simulation, 2021. URL https://arxiv.org/abs/2007.04954.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[16\] Chuang Gan, Siyuan Zhou, Jeremy Schwartz, Seth Alter, Abhishek Bhandwaldar, Dan Gutfreund, Daniel L. K. Yamins, James J DiCarlo, Josh McDermott, Antonio Torralba, and Joshua B. Tenenbaum. The threedworld transport challenge: A visually guided task-and-motion planning benchmark for physically realistic embodied ai, 2021. URL https://arxiv.org/abs/2103.14025.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[17\] Chen Gao, Baining Zhao, Weichen Zhang, Jinzhu Mao, Jun Zhang, Zhiheng Zheng, Fanhang Man, Jianjie Fang, Zile Zhou, Jinqiang Cui, Xinlei Chen, and Yong Li. Embodiedcity: A benchmark platform for embodied agent in real-world city environment, 2024. URL https://arxiv.org/abs/2410.09604.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[19\] Pengcheng He, Jianfeng Gao, and Weizhu Chen. Debertav3: Improving deberta using electrastyle pre-training with gradient-disentangled embedding sharing, 2023. URL https://arxiv.org/abs/2111.09543.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[21\] Yunfan Jiang, Agrim Gupta, Zichen Zhang, Guanzhi Wang, Yongqiang Dou, Yanjun Chen, Li Fei-Fei, Anima Anandkumar, Yuke Zhu, and Linxi Fan. Vima: General robot manipulation with multimodal prompts, 2023. URL https://arxiv.org/abs/2210.03094.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[22\] Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Matt Deitke, Kiana Ehsani, Daniel Gordon, Yuke Zhu, Aniruddha Kembhavi, Abhinav Gupta, and Ali Farhadi. Ai2-thor: An interactive 3d environment for visual ai, 2022. URL https://arxiv.org/abs/1712.05474.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[23\] Jacob Krantz, Erik Wijmans, Arjun Majumdar, Dhruv Batra, and Stefan Lee. Beyond the navgraph: Vision-and-language navigation in continuous environments, 2020. URL https://arxiv.org/abs/2004.02857.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[24\] Linh Kästner, Volodymyir Shcherbyna, Huajian Zeng, Tuan Anh Le, Maximilian Ho-Kyoung Schreff, Halid Osmaev, Nam Truong Tran, Diego Diaz, Jan Golebiowski, Harold Soh, and Jens Lambrecht. Arena 3.0: Advancing social navigation in collaborative and highly dynamic environments, 2024. URL https://arxiv.org/abs/2406.00837.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[25\] Firstname Lastname and Others. Drivlme: A large-scale multi-agent driving benchmark, 2023. URL or arXiv ID to be updated.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[26\] Firstname Lastname and Others. Robotslang: Grounded natural language for multi-robot object search, 2024. To appear.==
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[27\] Chengshu Li, Fei Xia, Roberto Martín-Martín, Michael Lingelbach, Sanjana Srivastava, Bokui Shen, Kent Vainio, Cem Gokmen, Gokul Dharan, Tanish Jain, Andrey Kurenkov, C. Karen Liu, Hyowon Gweon, Jiajun Wu, Li Fei-Fei, and Silvio Savarese. igibson 2.0: Object-centric simulation for robot learning of everyday household tasks, 2021. URL https://arxiv.org/abs/2108.03272.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[29\] Heng Li, Minghan Li, Zhi-Qi Cheng, Yifei Dong, Yuxuan Zhou, Jun-Yan He, Qi Dai, Teruko Mitamura, and Alexander G. Hauptmann. Human-aware vision-andlanguage navigation: Bridging simulation to reality with dynamic human interactions. In A. Globerson, L. Mackey, D. Belgrave, A. Fan, U. Paquet, J. Tomczak, and C. Zhang, editors, Advances in Neural Information Processing Systems, volume 37, pages 119411–119442. Curran Associates, Inc., 2024. URL https://proceedings.neurips.cc/paper_files/paper/2024/file/d8087deaf34bb07ddd41c65f8a9fe9b5-Paper-Datasets_and_Benchmarks_Track.pdf.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[31\] Shubo Liu, Hongsheng Zhang, Yuankai Qi, Peng Wang, Yaning Zhang, and Qi Wu. Aerialvln: Vision-and-language navigation for uavs, 2023. URL https://arxiv.org/abs/2308.06735.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[33\] Ziqiao Ma, Ben VanDerPloeg, Cristian-Paul Bara, Yidong Huang, Eui-In Kim, Felix Gervits, Matthew Marge, and Joyce Y. Chai. Dorothie: Spoken dialogue for handling unexpected situations in interactive autonomous driving agents, 2022.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[34\] Oier Mees, Lukas Hermann, Erick Rosete-Beas, and Wolfram Burgard. Calvin: A benchmark for language-conditioned policy learning for long-horizon robot manipulation tasks, 2022. URL https://arxiv.org/abs/2112.03227.
+			-> WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[35\] Tongzhou Mu, Zhan Ling, Fanbo Xiang, Derek Yang, Xuanlin Li, Stone Tao, Zhiao Huang, Zhiwei Jia, and Hao Su. Maniskill: Generalizable manipulation skill benchmark with large-scale demonstrations, 2021. URL https://arxiv.org/abs/2107.14483.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[36\] OpenAI. Gpt-4o system card, 2024. URL https://arxiv.org/abs/2410.21276.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[37\] Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Mahmoud Assran, Nicolas Ballas, Wojciech Galuba, Russell Howes, Po-Yao Huang, Shang-Wen Li, Ishan Misra, Michael Rabbat, Vasu Sharma, Gabriel Synnaeve, Hu Xu, Hervé Jegou, Julien Mairal, Patrick Labatut, Armand Joulin, and Piotr Bojanowski. Dinov2: Learning robust visual features without supervision, 2024. URL https://arxiv.org/abs/2304.07193.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[38\] Xavier Puig, Kevin Ra, Marko Boben, Jiaman Li, Tingwu Wang, Sanja Fidler, and Antonio Torralba. Virtualhome: Simulating household activities via programs, 2018. URL https://arxiv.org/abs/1806.07011.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[39\] Xavier Puig, Tianmin Shu, Shuang Li, Zilin Wang, Yuan-Hong Liao, Joshua B Tenenbaum, Sanja Fidler, and Antonio Torralba. Watch-and-help: A challenge for social perception and humanai collaboration. arXiv preprint arXiv:2010.09890, 2020.
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[40\] Xavier Puig, Eric Undersander, Andrew Szot, Mikael Dallaire Cote, Tsung-Yen Yang, Ruslan Partsey, Ruta Desai, Alexander William Clegg, Michal Hlavac, So Yeon Min, Vladimír Vondru, Theophile Gervet, Vincent-Pierre Berges, John M. Turner, Oleksandr Maksymets, Zsolt Kira, Mrinal Kalakrishnan, Jitendra Malik, Devendra Singh Chaplot, Unnat Jain, Dhruv Batra, Akshara Rai, and Roozbeh Mottaghi. Habitat 3.0: A co-habitat for humans, avatars and robots, 2023. URL https://arxiv.org/abs/2310.13724.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[41\] Claudia Pérez-D’Arpino, Can Liu, Patrick Goebel, Roberto Martín-Martín, and Silvio Savarese. Robot navigation in constrained pedestrian environments using reinforcement learning, 2020. URL https://arxiv.org/abs/2010.08600.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[42\] Yuankai Qi, Qi Wu, Peter Anderson, Xin Wang, William Yang Wang, Chunhua Shen, and Anton van den Hengel. Reverie: Remote embodied visual referring expression in real indoor environments, 2020. URL https://arxiv.org/abs/1904.10151.
+			-> WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[44\] Shital Shah, Debadeepta Dey, Chris Lovett, and Ashish Kapoor. Airsim: High-ﬁdelity visual and physical simulation for autonomous vehicles, 2017. URL https://arxiv.org/abs/1705.05065.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[46\] Sanjana Srivastava, Chengshu Li, Michael Lingelbach, Roberto Martín-Martín, Fei Xia, Kent Vainio, Zheng Lian, Cem Gokmen, Shyamal Buch, C. Karen Liu, Silvio Savarese, Hyowon Gweon, Jiajun Wu, and Li Fei-Fei. Behavior: Benchmark for everyday household activities in virtual, interactive, and ecological environments, 2021. URL https://arxiv.org/abs/2108.03332.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[47\] Andrew Szot, Alex Clegg, Eric Undersander, Erik Wijmans, Yili Zhao, John Turner, Noah Maestre, Mustafa Mukadam, Devendra Chaplot, Oleksandr Maksymets, Aaron Gokaslan, Vladimir Vondrus, Sameer Dharur, Franziska Meier, Wojciech Galuba, Angel Chang, Zsolt Kira, Vladlen Koltun, Jitendra Malik, Manolis Savva, and Dhruv Batra. Habitat 2.0: Training home assistants to rearrange their habitat, 2022. URL https://arxiv.org/abs/2106.14405.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[48\] Gemini Team. Gemini: A family of highly capable multimodal models, 2025. URL https://arxiv.org/abs/2312.11805.
+			-> WARNING: None of the 8 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[49\] Gemma Team. Gemma 3. 2025. URL https://goo.gle/Gemma3Report.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[50\] Jesse Thomason, Michael Murray, Maya Cakmak, and Luke Zettlemoyer. Vision-and-dialog navigation, 2019. URL https://arxiv.org/abs/1907.04957.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[51\] Nathan Tsoi, Alec Xiang, Peter Yu, Samuel S. Sohn, Greg Schwartz, Subashri Ramesh, Mohamed Hussein, Anjali W. Gupta, Mubbasir Kapadia, and Marynel Vázquez. Sean 2.0: Formalizing and generating social situations for robot navigation. IEEE Robotics and Automation Letters, pages 1–8, 2022. doi: 10.1109/LRA.2022.3196783.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[52\] Hanqing Wang, Jiahe Chen, Wensi Huang, Qingwei Ben, Tai Wang, Boyu Mi, Tao Huang, Siheng Zhao, Yilun Chen, Sizhe Yang, Peizhou Cao, Wenye Yu, Zichao Ye, Jialun Li, Junfeng Long, Zirui Wang, Huiling Wang, Ying Zhao, Zhongying Tu, Yu Qiao, Dahua Lin, and Jiangmiao Pang. Grutopia: Dream general robots in a city at scale, 2024. URL https://arxiv.org/abs/2407.10943.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[55\] Wayne Wu, Honglin He, Jack He, Yiran Wang, Chenda Duan, Zhizheng Liu, Quanyi Li, and Bolei Zhou. Metaurban: An embodied ai simulation platform for urban micromobility, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[56\] Wayne Wu, Honglin He, Jack He, Yiran Wang, Chenda Duan, Zhizheng Liu, Quanyi Li, and Bolei Zhou. Metaurban: An embodied ai simulation platform for urban micromobility, 2024. URL https://arxiv.org/abs/2407.08725.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[57\] Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao. React: Synergizing reasoning and acting in language models, 2023. URL https://arxiv.org/abs/2210.03629.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[58\] Yifan Yin, Zhengtao Han, Shivam Aarya, Shuhang Xu, Jianxin Wang, Jiawei Peng, Angtian Wang, Alan Yuille, and Tianmin Shu. Partinstruct: Part-level instruction following for ﬁne-grained robot manipulation. In 7th Robot Learning Workshop: Towards Robots with Human-Level Abilities, 2025. URL https://openreview.net/forum?id=Kb4fDvJBlj.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[59\] Shengqiang Zhang, Philipp Wicke, LütﬁKerem enel, Luis Figueredo, Abdeldjallil Naceri, Sami Haddadin, Barbara Plank, and Hinrich Schütze. Lohoravens: A long-horizon languageconditioned benchmark for robotic tabletop manipulation, 2023. URL https://arxiv.org/abs/2310.12020.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[60\] Mandi Zhao, Shreeya Jain, and Shuran Song. Roco: Dialectic multi-robot collaboration with large language models, 2023.
+			-> WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[62\] Qinhong Zhou, Hongxin Zhang, Xiangye Lin, Zheyuan Zhang, Yutian Chen, Wenjun Liu, Zunzhe Zhang, Sunli Chen, Lixing Fang, Qiushi Lyu, Xinyu Sun, Jincheng Yang, Zeyuan Wang, Bao Chi Dang, Zhehuan Chen, Daksha Ladia, Jiageng Liu, and Chuang Gan. Virtual community: An open world for humans, robots, and society, 2025. URL https://arxiv.org/abs/2508.14893.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[63\] Yan Zhuang*, Jiawei Ren*, Xiaokang Ye*, Xuhong He, Zijun Gao, Ryan Wu, Mrinaal Dogra, Cassie Zhang, Kai Kim, Bertt Wolﬁnger, Ziqiao Ma, Tianmin Shu†, Zhiting Hu†, and Lianhui Qin†. Simworld: An open-ended realistic simulator for autonomous agents in physical and social worlds, 2025.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/3 SimWorld-Robotics/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 5
+- IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE
+	- Parsed as: IEEE Transactions on Pattern Analysis and Machine Intelligence
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 18.0
+	- References literatures count from this outlet: 1
+- JOURNAL OF THE AMERICAN STATISTICAL ASSOCIATION
+	- Parsed as: Journal of the American Statistical Association
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 2.8
+	- References literatures count from this outlet: 1
+- 0: Formalizing and generating social situations for robot navigation IEEE Robotics and Automation Letters,
+	- References literatures count from this outlet: 1
+- 0: Training home assistants to rearrange their habitat
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Proceedings of the 25th ACM International Conference on Multimedia, MM ’17, page 12211224, New York, NY
+	- References literatures count from this outlet: 1
+- 0: A co-habitat for humans
+	- References literatures count from this outlet: 1
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: NeurIPS
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- A  Globerson, L  Mackey, D  Belgrave, A  Fan, U  Paquet, J  Tomczak, and C  Zhang, editors, Advances in Neural Information Processing Systems, volume 37,
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE conference on computer vision and pattern recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Karen Liu, Dana Kulic, and Jeff Ichnowski, editors, Proceedings of The 6th Conference on Robot Learning, volume 205 of Proceedings of Machine Learning Research,
+	- References literatures count from this outlet: 1
+- 0: Object-centric simulation for robot learning of everyday household tasks
+	- References literatures count from this outlet: 1
+- 0: Advancing social navigation in collaborative and highly dynamic environments
+	- References literatures count from this outlet: 1
+- IEEE Transactions on Systems Science and Cybernetics,
+	- References literatures count from this outlet: 1
+- Proceedings of the 1st Annual Conference on Robot Learning
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- 7th Robot Learning Workshop: Towards Robots with Human-Level Abilities
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Peter Anderson, Angel Chang, Devendra Singh Chaplot, Alexey Dosovitskiy, Saurabh Gupta, Vladlen Koltun, Jana Kosecka, Jitendra Malik, Roozbeh Mottaghi, Manolis Savva, and Amir R  Zamir*
+	- Normalized Authors: `['Anderson P.', 'Chang A.', 'Chaplot D.', 'Dosovitskiy A.', 'Gupta S.', 'Koltun V.', 'Kosecka J.', 'Malik J.', 'Mottaghi R.', 'Savva M.', 'Zamir A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *On evaluation of embodied navigation agents.*
+	- Year: *2018*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1807.06757.*
+	- **Valid?**: *CHECK - Authors (0001, 0001) did not match found publication titled 'On Evaluation of Embodied Navigation Agents.'*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Peter Anderson, Qi Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko Sünderhauf, Ian Reid, Stephen Gould, and Anton Van Den Hengel*
+	- Normalized Authors: `['Anderson P.', 'Wu Q.', 'Teney D.', 'Bruce J.', 'Johnson M.', 'Sünderhauf N.', 'Reid I.', 'Gould S.', 'Hengel A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vision-and-language navigation: Interpreting visuallygrounded navigation instructions in real environments*
+	- Year: *2018*
+	- Outlet: *Proceedings of the IEEE conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Peter Anderson, Qi Wu, Damien Teney, Jake Bruce, Mark Johnson, Niko Sünderhauf, Ian Reid, Stephen Gould, and Anton van den Hengel*
+	- Normalized Authors: `['Anderson P.', 'Wu Q.', 'Teney D.', 'Bruce J.', 'Johnson M.', 'Sünderhauf N.', 'Reid I.', 'Gould S.', 'Hengel A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vision-and-language navigation: Interpreting visuallygrounded navigation instructions in real environments.*
+	- Year: *2018*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1711.07280.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Shuai Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, Sibo Song, Kai Dang, Peng Wang, Shijie Wang, Jun Tang, Humen Zhong, Yuanzhi Zhu, Mingkun Yang, Zhaohai Li, Jianqiang Wan, Pengfei Wang, Wei Ding, Zheren Fu, Yiheng Xu, Jiabo Ye, Xi Zhang, Tianbao Xie, Zesen Cheng, Hang Zhang, Zhibo Yang, Haiyang Xu, and Junyang Lin*
+	- Normalized Authors: `['Bai S.', 'Chen K.', 'Liu X.', 'Wang J.', 'Ge W.', 'Song S.', 'Dang K.', 'Wang P.', 'Wang S.', 'Tang J.', 'Zhong H.', 'Zhu Y.', 'Yang M.', 'Li Z.', 'Wan J.', 'Wang P.', 'Ding W.', 'Fu Z.', 'Xu Y.', 'Ye J.', 'Zhang X.', 'Xie T.', 'Cheng Z.', 'Zhang H.', 'Yang Z.', 'Xu H.', 'Lin J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Qwen2*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Abhijat Biswas, Allan Wang, Gustavo Silvera, Aaron Steinfeld, and Henny Admoni*
+	- Normalized Authors: `['Biswas A.', 'Wang A.', 'Silvera G.', 'Steinfeld A.', 'Admoni H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Socnavbench: A grounded simulation testing framework for evaluating social navigation.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2103.00047.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Greg Brockman, Vicki Cheung, Ludwig Pettersson, Jonas Schneider, John Schulman, Jie Tang, and Wojciech Zaremba*
+	- Normalized Authors: `['Brockman G.', 'Cheung V.', 'Pettersson L.', 'Schneider J.', 'Schulman J.', 'Tang J.', 'Zaremba W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Openai gym.*
+	- Year: *2016*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1606.01540.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Angel Chang, Angela Dai, Thomas Funkhouser, Maciej Halber, Matthias NieSSner, Manolis Savva, Shuran Song, Andy Zeng, and Yinda Zhang*
+	- Normalized Authors: `['Chang A.', 'Dai A.', 'Funkhouser T.', 'Halber M.', 'NieSSner M.', 'Savva M.', 'Song S.', 'Zeng A.', 'Zhang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Matterport3d: Learning from rgb-d data in indoor environments.*
+	- Year: *2017*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1709.06158.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Howard Chen, Alane Suhr, Dipendra Misra, Noah Snavely, and Yoav Artzi*
+	- Normalized Authors: `['Chen H.', 'Suhr A.', 'Misra D.', 'Snavely N.', 'Artzi Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Touchdown: Natural language navigation and spatial reasoning in visual street environments.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1811.12354.*
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Zhe Chen, Weiyun Wang, Yue Cao, Yangzhou Liu, Zhangwei Gao, Erfei Cui, Jinguo Zhu, Shenglong Ye, Hao Tian, Zhaoyang Liu, Lixin Gu, Xuehui Wang, Qingyun Li, Yimin Ren, Zixuan Chen, Jiapeng Luo, Jiahao Wang, Tan Jiang, Bo Wang, Conghui He, Botian Shi, Xingcheng Zhang, Han Lv, Yi Wang, Wenqi Shao, Pei Chu, Zhongying Tu, Tong He, Zhiyong Wu, Huipeng Deng, Jiaye Ge, Kai Chen, Kaipeng Zhang, Limin Wang, Min Dou, Lewei Lu, Xizhou Zhu, Tong Lu, Dahua Lin, Yu Qiao, Jifeng Dai, and Wenhai Wang*
+	- Normalized Authors: `['Chen Z.', 'Wang W.', 'Cao Y.', 'Liu Y.', 'Gao Z.', 'Cui E.', 'Zhu J.', 'Ye S.', 'Tian H.', 'Liu Z.', 'Gu L.', 'Wang X.', 'Li Q.', 'Ren Y.', 'Chen Z.', 'Luo J.', 'Wang J.', 'Jiang T.', 'Wang B.', 'He C.', 'Shi B.', 'Zhang X.', 'Lv H.', 'Wang Y.', 'Shao W.', 'Chu P.', 'Tu Z.', 'He T.', 'Wu Z.', 'Deng H.', 'Ge J.', 'Chen K.', 'Zhang K.', 'Wang L.', 'Dou M.', 'Lu L.', 'Zhu X.', 'Lu T.', 'Lin D.', 'Qiao Y.', 'Dai J.', 'Wang W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Expanding performance boundaries of opensource multimodal models with model, data, and test-time scaling.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2412.05271.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Abhishek Das, Georgia Gkioxari, Stefan Lee, Devi Parikh, and Dhruv Batra*
+	- Normalized Authors: `['Das A.', 'Gkioxari G.', 'Lee S.', 'Parikh D.', 'Batra D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Where are you? localization from embodied dialog*
+	- Year: *2018*
+	- Outlet: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Hahn, Krantz, Rehg, Anderson) did not match found publication titled 'Where Are You? Localization from Embodied Dialog'*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Matt Deitke, Winson Han, Alvaro Herrasti, Aniruddha Kembhavi, Eric Kolve, Roozbeh Mottaghi, Jordi Salvador, Dustin Schwenk, Eli VanderBilt, Matthew Wallingford, Luca Weihs, Mark Yatskar, and Ali Farhadi*
+	- Normalized Authors: `['Deitke M.', 'Han W.', 'Herrasti A.', 'Kembhavi A.', 'Kolve E.', 'Mottaghi R.', 'Salvador J.', 'Schwenk D.', 'VanderBilt E.', 'Wallingford M.', 'Weihs L.', 'Yatskar M.', 'Farhadi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robothor: An open simulation-to-real embodied ai platform.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2004.06799.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer*
+	- Normalized Authors: `['Dettmers T.', 'Pagnoni A.', 'Holtzman A.', 'Zettlemoyer L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Qlora: Efﬁcient ﬁnetuning of quantized llms.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2305.14314.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Alexey Dosovitskiy, German Ros, Felipe Codevilla, Antonio Lopez, and Vladlen Koltun*
+	- Normalized Authors: `['Dosovitskiy A.', 'Ros G.', 'Codevilla F.', 'Lopez A.', 'Koltun V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *CARLA: An open urban driving simulator*
+	- Year: *2017*
+	- Outlet: *Proceedings of the 1st Annual Conference on Robot Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Yue Fan, Winson Chen, Tongzhou Jiang, Chun Zhou, Yi Zhang, and Xin Eric Wang*
+	- Normalized Authors: `['Fan Y.', 'Chen W.', 'Jiang T.', 'Zhou C.', 'Zhang Y.', 'Wang X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Aerial vision-and-dialog navigation.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2205.12219.*
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Chuang Gan, Jeremy Schwartz, Seth Alter, Damian Mrowca, Martin Schrimpf, James Traer, Julian De Freitas, Jonas Kubilius, Abhishek Bhandwaldar, Nick Haber, Megumi Sano, Kuno Kim, Elias Wang, Michael Lingelbach, Aidan Curtis, Kevin Feigelis, Daniel M  Bear, Dan Gutfreund, David Cox, Antonio Torralba, James J  DiCarlo, Joshua B  Tenenbaum, Josh H  McDermott, and Daniel L  K  Yamins*
+	- Normalized Authors: `['Gan C.', 'Schwartz J.', 'Alter S.', 'Mrowca D.', 'Schrimpf M.', 'Traer J.', 'Freitas J.', 'Kubilius J.', 'Bhandwaldar A.', 'Haber N.', 'Sano M.', 'Kim K.', 'Wang E.', 'Lingelbach M.', 'Curtis A.', 'Feigelis K.', 'Bear D.', 'Gutfreund D.', 'Cox D.', 'Torralba A.', 'DiCarlo J.', 'Tenenbaum J.', 'McDermott J.', 'Yamins D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Threedworld: A platform for interactive multi-modal physical simulation.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2007.04954.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Chuang Gan, Siyuan Zhou, Jeremy Schwartz, Seth Alter, Abhishek Bhandwaldar, Dan Gutfreund, Daniel L  K  Yamins, James J DiCarlo, Josh McDermott, Antonio Torralba, and Joshua B  Tenenbaum*
+	- Normalized Authors: `['Gan C.', 'Zhou S.', 'Schwartz J.', 'Alter S.', 'Bhandwaldar A.', 'Gutfreund D.', 'Yamins D.', 'DiCarlo J.', 'McDermott J.', 'Torralba A.', 'Tenenbaum J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The threedworld transport challenge: A visually guided task-and-motion planning benchmark for physically realistic embodied ai.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2103.14025.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Chen Gao, Baining Zhao, Weichen Zhang, Jinzhu Mao, Jun Zhang, Zhiheng Zheng, Fanhang Man, Jianjie Fang, Zile Zhou, Jinqiang Cui, Xinlei Chen, and Yong Li*
+	- Normalized Authors: `['Gao C.', 'Zhao B.', 'Zhang W.', 'Mao J.', 'Zhang J.', 'Zheng Z.', 'Man F.', 'Fang J.', 'Zhou Z.', 'Cui J.', 'Chen X.', 'Li Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Embodiedcity: A benchmark platform for embodied agent in real-world city environment.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2410.09604.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Peter Hart, Nils Nilsson, and Bertram Raphael*
+	- Normalized Authors: `['Hart P.', 'Nilsson N.', 'Raphael B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A formal basis for the heuristic determination of minimum cost paths*
+	- Year: *1968*
+	- Outlet: *IEEE Transactions on Systems Science and Cybernetics,*
+	- Link: *https://doi.org/10.1109/tssc.1968.300136.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Pengcheng He, Jianfeng Gao, and Weizhu Chen*
+	- Normalized Authors: `['He P.', 'Gao J.', 'Chen W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Debertav3: Improving deberta using electrastyle pre-training with gradient-disentangled embedding sharing.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2111.09543.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Harshit Jain and Priyal Babel*
+	- Normalized Authors: `['Jain H.', 'Babel P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A comprehensive survey of pid and pure pursuit control algorithms for autonomous vehicle navigation*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Yunfan Jiang, Agrim Gupta, Zichen Zhang, Guanzhi Wang, Yongqiang Dou, Yanjun Chen, Li Fei-Fei, Anima Anandkumar, Yuke Zhu, and Linxi Fan*
+	- Normalized Authors: `['Jiang Y.', 'Gupta A.', 'Zhang Z.', 'Wang G.', 'Dou Y.', 'Chen Y.', 'Fei-Fei L.', 'Anandkumar A.', 'Zhu Y.', 'Fan L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vima: General robot manipulation with multimodal prompts.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2210.03094.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Matt Deitke, Kiana Ehsani, Daniel Gordon, Yuke Zhu, Aniruddha Kembhavi, Abhinav Gupta, and Ali Farhadi*
+	- Normalized Authors: `['Kolve E.', 'Mottaghi R.', 'Han W.', 'VanderBilt E.', 'Weihs L.', 'Herrasti A.', 'Deitke M.', 'Ehsani K.', 'Gordon D.', 'Zhu Y.', 'Kembhavi A.', 'Gupta A.', 'Farhadi A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ai2-thor: An interactive 3d environment for visual ai.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1712.05474.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Jacob Krantz, Erik Wijmans, Arjun Majumdar, Dhruv Batra, and Stefan Lee*
+	- Normalized Authors: `['Krantz J.', 'Wijmans E.', 'Majumdar A.', 'Batra D.', 'Lee S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Beyond the navgraph: Vision-and-language navigation in continuous environments.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2004.02857.*
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Linh Kästner, Volodymyir Shcherbyna, Huajian Zeng, Tuan Anh Le, Maximilian Ho-Kyoung Schreff, Halid Osmaev, Nam Truong Tran, Diego Diaz, Jan Golebiowski, Harold Soh, and Jens Lambrecht*
+	- Normalized Authors: `['Kästner L.', 'Shcherbyna V.', 'Zeng H.', 'Le T.', 'Schreff M.', 'Osmaev H.', 'Tran N.', 'Diaz D.', 'Golebiowski J.', 'Soh H.', 'Lambrecht J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Arena 3*
+	- Year: *2024*
+	- Outlet: *0: Advancing social navigation in collaborative and highly dynamic environments*
+	- Link: *https://arxiv.org/abs/2406.00837.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Firstname Lastname and Others*
+	- Normalized Authors: `['Lastname F.', 'Others']`
+	- Authors contain 'et al.': *False*
+	- Title: *Drivlme: A large-scale multi-agent driving benchmark.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Firstname Lastname and Others*
+	- Normalized Authors: `['Lastname F.', 'Others']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robotslang: Grounded natural language for multi-robot object search.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Chengshu Li, Fei Xia, Roberto Martín-Martín, Michael Lingelbach, Sanjana Srivastava, Bokui Shen, Kent Vainio, Cem Gokmen, Gokul Dharan, Tanish Jain, Andrey Kurenkov, C  Karen Liu, Hyowon Gweon, Jiajun Wu, Li Fei-Fei, and Silvio Savarese*
+	- Normalized Authors: `['Li C.', 'Xia F.', 'Martín-Martín R.', 'Lingelbach M.', 'Srivastava S.', 'Shen B.', 'Vainio K.', 'Gokmen C.', 'Dharan G.', 'Jain T.', 'Kurenkov A.', 'Liu C.', 'Gweon H.', 'Wu J.', 'Fei-Fei L.', 'Savarese S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *igibson 2*
+	- Year: *2021*
+	- Outlet: *0: Object-centric simulation for robot learning of everyday household tasks*
+	- Link: *https://arxiv.org/abs/2108.03272.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Chengshu Li, Ruohan Zhang, Josiah Wong, Cem Gokmen, Sanjana Srivastava, Roberto MartínMartín, Chen Wang, Gabrael Levine, Michael Lingelbach, Jiankai Sun, Mona Anvari, Minjune Hwang, Manasi Sharma, Arman Aydin, Dhruva Bansal, Samuel Hunter, Kyu-Young Kim, Alan Lou, Caleb R Matthews, Ivan Villa-Renteria, Jerry Huayang Tang, Claire Tang, Fei Xia, Silvio Savarese, Hyowon Gweon, Karen Liu, Jiajun Wu, and Li Fei-Fei*
+	- Normalized Authors: `['Li C.', 'Zhang R.', 'Wong J.', 'Gokmen C.', 'Srivastava S.', 'MartínMartín R.', 'Wang C.', 'Levine G.', 'Lingelbach M.', 'Sun J.', 'Anvari M.', 'Hwang M.', 'Sharma M.', 'Aydin A.', 'Bansal D.', 'Hunter S.', 'Kim K.', 'Lou A.', 'Matthews C.', 'Villa-Renteria I.', 'Tang J.', 'Tang C.', 'Xia F.', 'Savarese S.', 'Gweon H.', 'Liu K.', 'Wu J.', 'Fei-Fei L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Behavior-1k: A benchmark for embodied ai with 1,000 everyday activities and realistic simulation*
+	- Year: *2023*
+	- Outlet: *Karen Liu, Dana Kulic, and Jeff Ichnowski, editors, Proceedings of The 6th Conference on Robot Learning, volume 205 of Proceedings of Machine Learning Research,*
+	- Link: *https://proceedings.mlr.press/v205/li23a.html.*
+	- **Valid?**: *CHECK - Authors (Martín-Martín) did not match found publication titled 'BEHAVIOR-1K: A Benchmark for Embodied AI with 1, 000 Everyday Activities and Realistic Simulation'*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Heng Li, Minghan Li, Zhi-Qi Cheng, Yifei Dong, Yuxuan Zhou, Jun-Yan He, Qi Dai, Teruko Mitamura, and Alexander G  Hauptmann*
+	- Normalized Authors: `['Li H.', 'Li M.', 'Cheng Z.', 'Dong Y.', 'Zhou Y.', 'He J.', 'Dai Q.', 'Mitamura T.', 'Hauptmann A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Human-aware vision-andlanguage navigation: Bridging simulation to reality with dynamic human interactions*
+	- Year: *2024*
+	- Outlet: *A  Globerson, L  Mackey, D  Belgrave, A  Fan, U  Paquet, J  Tomczak, and C  Zhang, editors, Advances in Neural Information Processing Systems, volume 37,*
+	- Link: *https://proceedings.neurips.cc/paper_files/paper/2024/file/d8087deaf34bb07ddd41c65f8a9fe9b5-Paper-Datasets_and_Benchmarks_Track.pdf.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Quanyi Li, Zhenghao Peng, Lan Feng, Qihang Zhang, Zhenghai Xue, and Bolei Zhou*
+	- Normalized Authors: `['Li Q.', 'Peng Z.', 'Feng L.', 'Zhang Q.', 'Xue Z.', 'Zhou B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Metadrive: Composing diverse driving scenarios for generalizable reinforcement learning*
+	- Year: *2022*
+	- Outlet: *IEEE Transactions on Pattern Analysis and Machine Intelligence*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'MetaDrive: Composing Diverse Driving Scenarios for Generalizable Reinforcement Learning'*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Shubo Liu, Hongsheng Zhang, Yuankai Qi, Peng Wang, Yaning Zhang, and Qi Wu*
+	- Normalized Authors: `['Liu S.', 'Zhang H.', 'Qi Y.', 'Wang P.', 'Zhang Y.', 'Wu Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Aerialvln: Vision-and-language navigation for uavs.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2308.06735.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Ryan Lowe, Yi Wu, Aviv Tamar, Jean Harb, Pieter Abbeel, and Igor Mordatch*
+	- Normalized Authors: `['Lowe R.', 'Wu Y.', 'Tamar A.', 'Harb J.', 'Abbeel P.', 'Mordatch I.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-agent actor-critic for mixed cooperative-competitive environments*
+	- Year: *2017*
+	- Outlet: *NeurIPS*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Ziqiao Ma, Ben VanDerPloeg, Cristian-Paul Bara, Yidong Huang, Eui-In Kim, Felix Gervits, Matthew Marge, and Joyce Y  Chai*
+	- Normalized Authors: `['Ma Z.', 'VanDerPloeg B.', 'Bara C.', 'Huang Y.', 'Kim E.', 'Gervits F.', 'Marge M.', 'Chai J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dorothie: Spoken dialogue for handling unexpected situations in interactive autonomous driving agents.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Oier Mees, Lukas Hermann, Erick Rosete-Beas, and Wolfram Burgard*
+	- Normalized Authors: `['Mees O.', 'Hermann L.', 'Rosete-Beas E.', 'Burgard W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Calvin: A benchmark for language-conditioned policy learning for long-horizon robot manipulation tasks.*
+	- Year: *2022*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2112.03227.*
+	- **Valid?**: *WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Tongzhou Mu, Zhan Ling, Fanbo Xiang, Derek Yang, Xuanlin Li, Stone Tao, Zhiao Huang, Zhiwei Jia, and Hao Su*
+	- Normalized Authors: `['Mu T.', 'Ling Z.', 'Xiang F.', 'Yang D.', 'Li X.', 'Tao S.', 'Huang Z.', 'Jia Z.', 'Su H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Maniskill: Generalizable manipulation skill benchmark with large-scale demonstrations.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2107.14483.*
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *OpenAI*
+	- Normalized Authors: `['OpenAI']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gpt-4o system card.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2410.21276.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Maxime Oquab, Timothée Darcet, Théo Moutakanni, Huy Vo, Marc Szafraniec, Vasil Khalidov, Pierre Fernandez, Daniel Haziza, Francisco Massa, Alaaeldin El-Nouby, Mahmoud Assran, Nicolas Ballas, Wojciech Galuba, Russell Howes, Po-Yao Huang, Shang-Wen Li, Ishan Misra, Michael Rabbat, Vasu Sharma, Gabriel Synnaeve, Hu Xu, Hervé Jegou, Julien Mairal, Patrick Labatut, Armand Joulin, and Piotr Bojanowski*
+	- Normalized Authors: `['Oquab M.', 'Darcet T.', 'Moutakanni T.', 'Vo H.', 'Szafraniec M.', 'Khalidov V.', 'Fernandez P.', 'Haziza D.', 'Massa F.', 'El-Nouby A.', 'Assran M.', 'Ballas N.', 'Galuba W.', 'Howes R.', 'Huang P.', 'Li S.', 'Misra I.', 'Rabbat M.', 'Sharma V.', 'Synnaeve G.', 'Xu H.', 'Jegou H.', 'Mairal J.', 'Labatut P.', 'Joulin A.', 'Bojanowski P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dinov2: Learning robust visual features without supervision.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2304.07193.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Xavier Puig, Kevin Ra, Marko Boben, Jiaman Li, Tingwu Wang, Sanja Fidler, and Antonio Torralba*
+	- Normalized Authors: `['Puig X.', 'Ra K.', 'Boben M.', 'Li J.', 'Wang T.', 'Fidler S.', 'Torralba A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Virtualhome: Simulating household activities via programs.*
+	- Year: *2018*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1806.07011.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Xavier Puig, Tianmin Shu, Shuang Li, Zilin Wang, Yuan-Hong Liao, Joshua B Tenenbaum, Sanja Fidler, and Antonio Torralba*
+	- Normalized Authors: `['Puig X.', 'Shu T.', 'Li S.', 'Wang Z.', 'Liao Y.', 'Tenenbaum J.', 'Fidler S.', 'Torralba A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Watch-and-help: A challenge for social perception and humanai collaboration*
+	- Year: *2020*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Xavier Puig, Eric Undersander, Andrew Szot, Mikael Dallaire Cote, Tsung-Yen Yang, Ruslan Partsey, Ruta Desai, Alexander William Clegg, Michal Hlavac, So Yeon Min, Vladimír Vondru, Theophile Gervet, Vincent-Pierre Berges, John M  Turner, Oleksandr Maksymets, Zsolt Kira, Mrinal Kalakrishnan, Jitendra Malik, Devendra Singh Chaplot, Unnat Jain, Dhruv Batra, Akshara Rai, and Roozbeh Mottaghi*
+	- Normalized Authors: `['Puig X.', 'Undersander E.', 'Szot A.', 'Cote M.', 'Yang T.', 'Partsey R.', 'Desai R.', 'Clegg A.', 'Hlavac M.', 'Min S.', 'Vondru V.', 'Gervet T.', 'Berges V.', 'Turner J.', 'Maksymets O.', 'Kira Z.', 'Kalakrishnan M.', 'Malik J.', 'Chaplot D.', 'Jain U.', 'Batra D.', 'Rai A.', 'Mottaghi R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Habitat 3*
+	- Year: *2023*
+	- Outlet: *0: A co-habitat for humans*
+	- Link: *https://arxiv.org/abs/2310.13724.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Claudia Pérez-D'Arpino, Can Liu, Patrick Goebel, Roberto Martín-Martín, and Silvio Savarese*
+	- Normalized Authors: `["Pérez-D'Arpino C.", 'Liu C.', 'Goebel P.', 'Martín-Martín R.', 'Savarese S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robot navigation in constrained pedestrian environments using reinforcement learning.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2010.08600.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Yuankai Qi, Qi Wu, Peter Anderson, Xin Wang, William Yang Wang, Chunhua Shen, and Anton van den Hengel*
+	- Normalized Authors: `['Qi Y.', 'Wu Q.', 'Anderson P.', 'Wang X.', 'Wang W.', 'Shen C.', 'Hengel A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reverie: Remote embodied visual referring expression in real indoor environments.*
+	- Year: *2020*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1904.10151.*
+	- **Valid?**: *WARNING: None of the 7 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Weichao Qiu, Fangwei Zhong, Yi Zhang, Siyuan Qiao, Zihao Xiao, Tae Soo Kim, and Yizhou Wang*
+	- Normalized Authors: `['Qiu W.', 'Zhong F.', 'Zhang Y.', 'Qiao S.', 'Xiao Z.', 'Kim T.', 'Wang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Unrealcv: Virtual worlds for computer vision*
+	- Year: *2017*
+	- Outlet: *Proceedings of the 25th ACM International Conference on Multimedia, MM ’17, page 12211224, New York, NY*
+	- Link: *https://doi.org/10.1145/3123266.3129396.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Shital Shah, Debadeepta Dey, Chris Lovett, and Ashish Kapoor*
+	- Normalized Authors: `['Shah S.', 'Dey D.', 'Lovett C.', 'Kapoor A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Airsim: High-ﬁdelity visual and physical simulation for autonomous vehicles.*
+	- Year: *2017*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1705.05065.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Mohit Shridhar, Jesse Thomason, Daniel Gordon, Yonatan Bisk, Winson Han, Roozbeh Mottaghi, Luke Zettlemoyer, and Dieter Fox*
+	- Normalized Authors: `['Shridhar M.', 'Thomason J.', 'Gordon D.', 'Bisk Y.', 'Han W.', 'Mottaghi R.', 'Zettlemoyer L.', 'Fox D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Alfred: A benchmark for interpreting grounded instructions for everyday tasks*
+	- Year: *2020*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2019) does not match expected year (2020)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Sanjana Srivastava, Chengshu Li, Michael Lingelbach, Roberto Martín-Martín, Fei Xia, Kent Vainio, Zheng Lian, Cem Gokmen, Shyamal Buch, C  Karen Liu, Silvio Savarese, Hyowon Gweon, Jiajun Wu, and Li Fei-Fei*
+	- Normalized Authors: `['Srivastava S.', 'Li C.', 'Lingelbach M.', 'Martín-Martín R.', 'Xia F.', 'Vainio K.', 'Lian Z.', 'Gokmen C.', 'Buch S.', 'Liu C.', 'Savarese S.', 'Gweon H.', 'Wu J.', 'Fei-Fei L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Behavior: Benchmark for everyday household activities in virtual, interactive, and ecological environments.*
+	- Year: *2021*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2108.03332.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Andrew Szot, Alex Clegg, Eric Undersander, Erik Wijmans, Yili Zhao, John Turner, Noah Maestre, Mustafa Mukadam, Devendra Chaplot, Oleksandr Maksymets, Aaron Gokaslan, Vladimir Vondrus, Sameer Dharur, Franziska Meier, Wojciech Galuba, Angel Chang, Zsolt Kira, Vladlen Koltun, Jitendra Malik, Manolis Savva, and Dhruv Batra*
+	- Normalized Authors: `['Szot A.', 'Clegg A.', 'Undersander E.', 'Wijmans E.', 'Zhao Y.', 'Turner J.', 'Maestre N.', 'Mukadam M.', 'Chaplot D.', 'Maksymets O.', 'Gokaslan A.', 'Vondrus V.', 'Dharur S.', 'Meier F.', 'Galuba W.', 'Chang A.', 'Kira Z.', 'Koltun V.', 'Malik J.', 'Savva M.', 'Batra D.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Habitat 2*
+	- Year: *2022*
+	- Outlet: *0: Training home assistants to rearrange their habitat*
+	- Link: *https://arxiv.org/abs/2106.14405.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Gemini Team*
+	- Normalized Authors: `['Team G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gemini: A family of highly capable multimodal models.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2312.11805.*
+	- **Valid?**: *WARNING: None of the 8 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Gemma Team*
+	- Normalized Authors: `['Team G.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Gemma 3*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://goo.gle/Gemma3Report.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Jesse Thomason, Michael Murray, Maya Cakmak, and Luke Zettlemoyer*
+	- Normalized Authors: `['Thomason J.', 'Murray M.', 'Cakmak M.', 'Zettlemoyer L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Vision-and-dialog navigation.*
+	- Year: *2019*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/1907.04957.*
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Nathan Tsoi, Alec Xiang, Peter Yu, Samuel S  Sohn, Greg Schwartz, Subashri Ramesh, Mohamed Hussein, Anjali W  Gupta, Mubbasir Kapadia, and Marynel Vázquez*
+	- Normalized Authors: `['Tsoi N.', 'Xiang A.', 'Yu P.', 'Sohn S.', 'Schwartz G.', 'Ramesh S.', 'Hussein M.', 'Gupta A.', 'Kapadia M.', 'Vázquez M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sean 2*
+	- Year: *2022*
+	- Outlet: *0: Formalizing and generating social situations for robot navigation IEEE Robotics and Automation Letters,*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Hanqing Wang, Jiahe Chen, Wensi Huang, Qingwei Ben, Tai Wang, Boyu Mi, Tao Huang, Siheng Zhao, Yilun Chen, Sizhe Yang, Peizhou Cao, Wenye Yu, Zichao Ye, Jialun Li, Junfeng Long, Zirui Wang, Huiling Wang, Ying Zhao, Zhongying Tu, Yu Qiao, Dahua Lin, and Jiangmiao Pang*
+	- Normalized Authors: `['Wang H.', 'Chen J.', 'Huang W.', 'Ben Q.', 'Wang T.', 'Mi B.', 'Huang T.', 'Zhao S.', 'Chen Y.', 'Yang S.', 'Cao P.', 'Yu W.', 'Ye Z.', 'Li J.', 'Long J.', 'Wang Z.', 'Wang H.', 'Zhao Y.', 'Tu Z.', 'Qiao Y.', 'Lin D.', 'Pang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Grutopia: Dream general robots in a city at scale.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2407.10943.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, et al*
+	- Normalized Authors: `['Wang P.', 'Bai S.', 'Tan S.', 'Wang S.', 'Fan Z.', 'Bai J.', 'Chen K.', 'Liu X.', 'Wang J.', 'Ge W.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Qwen2-vl: Enhancing vision-language model’s perception of the world at any resolution*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Dang, Du, Ren, Men, Zhou, Zhou) did not match found publication titled 'Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution'*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Edwin B  Wilson*
+	- Normalized Authors: `['Wilson E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Probable inference, the law of succession, and statistical inference*
+	- Year: *1927*
+	- Outlet: *Journal of the American Statistical Association*
+	- Link: *http://www.jstor.org/stable/2276774.*
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Wayne Wu, Honglin He, Jack He, Yiran Wang, Chenda Duan, Zhizheng Liu, Quanyi Li, and Bolei Zhou*
+	- Normalized Authors: `['Wu W.', 'He H.', 'He J.', 'Wang Y.', 'Duan C.', 'Liu Z.', 'Li Q.', 'Zhou B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Metaurban: An embodied ai simulation platform for urban micromobility.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Wayne Wu, Honglin He, Jack He, Yiran Wang, Chenda Duan, Zhizheng Liu, Quanyi Li, and Bolei Zhou*
+	- Normalized Authors: `['Wu W.', 'He H.', 'He J.', 'Wang Y.', 'Duan C.', 'Liu Z.', 'Li Q.', 'Zhou B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Metaurban: An embodied ai simulation platform for urban micromobility.*
+	- Year: *2024*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2407.08725.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao*
+	- Normalized Authors: `['Yao S.', 'Zhao J.', 'Yu D.', 'Du N.', 'Shafran I.', 'Narasimhan K.', 'Cao Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *React: Synergizing reasoning and acting in language models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2210.03629.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Yifan Yin, Zhengtao Han, Shivam Aarya, Shuhang Xu, Jianxin Wang, Jiawei Peng, Angtian Wang, Alan Yuille, and Tianmin Shu*
+	- Normalized Authors: `['Yin Y.', 'Han Z.', 'Aarya S.', 'Xu S.', 'Wang J.', 'Peng J.', 'Wang A.', 'Yuille A.', 'Shu T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Partinstruct: Part-level instruction following for ﬁne-grained robot manipulation*
+	- Year: *2025*
+	- Outlet: *7th Robot Learning Workshop: Towards Robots with Human-Level Abilities*
+	- Link: *https://openreview.net/forum?id=Kb4fDvJBlj.*
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Shengqiang Zhang, Philipp Wicke, LütﬁKerem enel, Luis Figueredo, Abdeldjallil Naceri, Sami Haddadin, Barbara Plank, and Hinrich Schütze*
+	- Normalized Authors: `['Zhang S.', 'Wicke P.', 'enel L.', 'Figueredo L.', 'Naceri A.', 'Haddadin S.', 'Plank B.', 'Schütze H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Lohoravens: A long-horizon languageconditioned benchmark for robotic tabletop manipulation.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2310.12020.*
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Mandi Zhao, Shreeya Jain, and Shuran Song*
+	- Normalized Authors: `['Zhao M.', 'Jain S.', 'Song S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Roco: Dialectic multi-robot collaboration with large language models.*
+	- Year: *2023*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 5 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Fangwei Zhong, Kui Wu, Churan Wang, Hao Chen, Hai Ci, Zhoujun Li, and Yizhou Wang*
+	- Normalized Authors: `['Zhong F.', 'Wu K.', 'Wang C.', 'Chen H.', 'Ci H.', 'Li Z.', 'Wang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Unrealzoo: Enriching photo-realistic virtual worlds for embodied ai*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Qinhong Zhou, Hongxin Zhang, Xiangye Lin, Zheyuan Zhang, Yutian Chen, Wenjun Liu, Zunzhe Zhang, Sunli Chen, Lixing Fang, Qiushi Lyu, Xinyu Sun, Jincheng Yang, Zeyuan Wang, Bao Chi Dang, Zhehuan Chen, Daksha Ladia, Jiageng Liu, and Chuang Gan*
+	- Normalized Authors: `['Zhou Q.', 'Zhang H.', 'Lin X.', 'Zhang Z.', 'Chen Y.', 'Liu W.', 'Zhang Z.', 'Chen S.', 'Fang L.', 'Lyu Q.', 'Sun X.', 'Yang J.', 'Wang Z.', 'Dang B.', 'Chen Z.', 'Ladia D.', 'Liu J.', 'Gan C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Virtual community: An open world for humans, robots, and society.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: *https://arxiv.org/abs/2508.14893.*
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Yan Zhuang*, Jiawei Ren*, Xiaokang Ye*, Xuhong He, Zijun Gao, Ryan Wu, Mrinaal Dogra, Cassie Zhang, Kai Kim, Bertt Wolﬁnger, Ziqiao Ma, Tianmin Shu†, Zhiting Hu†, and Lianhui Qin†*
+	- Normalized Authors: `['Zhuang* Y.', 'Ren* J.', 'Ye* X.', 'He X.', 'Gao Z.', 'Wu R.', 'Dogra M.', 'Zhang C.', 'Kim K.', 'Wolﬁnger B.', 'Ma Z.', 'Shu† T.', 'Hu† Z.', 'Qin† L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Simworld: An open-ended realistic simulator for autonomous agents in physical and social worlds.*
+	- Year: *2025*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: No results were found through the dblp search!*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*Where Are You? [10] frames localization as a two-party dialogue, but the robots do not physically navigate to meet each other through a large environment*'
+	- This flag is for the paper with Ref. ID = 10
+- '*Unlike previous simulators [13, 55, 30]that focus on a speciﬁc type of embodied agent-such as autonomous vehicles, robots, or humans-and mainly support control over that particular agent type, our simulator simultaneously supports all three major categories*'
+	- This flag is for the paper with Ref. ID = 30
+- '*Project website: SimWorld-Robotics 1 Introduction There has been tremendous progress in engineering general-purpose robotics that can follow human instructions and perform open-ended tasks [3, 29, 16, 28, 45], thanks to the advances in robot foundation models*'
+	- This flag is for the paper with Ref. ID = 45
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*We evaluate navigation performance in the easy setting through three key metrics: (1) Success Rate (SR) [1] measures the percentage of goal arrivals, (2) Subtask SR [45] tracks the ratio of completed subtasks, (3) Distance Progress [50] evaluates instruction-following by the relative reduction in distance to the goal*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Inspired by the recent success of large vision-language models (VLMs) on navigation tasks [53], we evaluate multiple recent VLMs as backbones using ReAct [57], including GPT-4o, GPT-o3, GPT-o3-pro [36], Gemini 2*'
+	- This flag is for the paper with Ref. ID = 53
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*More recent city simulators, such as MetaDrive [30], MetaUrban [56], signiﬁcantly improve the scalability*'
+	- This flag is for the paper with Ref. ID = 30
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- None
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*We evaluate navigation performance in the easy setting through three key metrics: (1) Success Rate (SR) [1] measures the percentage of goal arrivals, (2) Subtask SR [45] tracks the ratio of completed subtasks, (3) Distance Progress [50] evaluates instruction-following by the relative reduction in distance to the goal*'
+	- This flag is for the paper with Ref. ID = 1
+- '*For instance, Touchdown [8] explores city navigation via language alone in a static street view setting, and R2R [2] focuses on multi-step instructions in household tasks*'
+	- This flag is for the paper with Ref. ID = 2
+- '*Project website: SimWorld-Robotics 1 Introduction There has been tremendous progress in engineering general-purpose robotics that can follow human instructions and perform open-ended tasks [3, 29, 16, 28, 45], thanks to the advances in robot foundation models*'
+	- This flag is for the paper with Ref. ID = 3
+- '*5 [4], Gemma 3 [49] and InternVL [9]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*For instance, Touchdown [8] explores city navigation via language alone in a static street view setting, and R2R [2] focuses on multi-step instructions in household tasks*'
+	- This flag is for the paper with Ref. ID = 8
+- '*5 [4], Gemma 3 [49] and InternVL [9]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*Training these models requires a large amount of data, much of which can be generated in high-ﬁdelity embodied simulators, such as Habitat 3 [40], RoboTHOR [11], TDW [15], VirtualHome [38], Virtual Community [62] and BEHAVIOR [28]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*For instance, well-known simulators such as AirSim [44], CARLA [13] mainly focus on autonomous driving domains*'
+	- This flag is for the paper with Ref. ID = 13
+- '*There have been outdoor simulators [13, 44, 55, 17, 52, 14] that provide more open-ended tasks, facilitate more complicated dynamics, but face challenges in reality and multi-agent parallelism*'
+	- This flag is for the paper with Ref. ID = 13
+- '*CARLA[13] is a ﬂexible simulator dedicated to autonomous driving*'
+	- This flag is for the paper with Ref. ID = 13
+- '*CARLA [13] × ✓ × 2 × ✓ ✓ ✓ AirSim [44] × ✓ × 2 × ✓ ✓ ✓ MetaUrban [56] ✓ × × 2 ✓ × × ✓ EmbodiedCity [17] × × × 2 ✓ × × × Grutopia [52] × ✓ × × ✓ × × × AerialVLN [31] × ✓ × × ✓ × × × UnrealZoo [61] × ✓ ✓ 10 ✓ ✓ ✓ ✓ SWR (Ours) ✓ ✓ ✓ 26 ✓ ✓ ✓ ✓ Our simulator places the robot in a photorealistic, dynamically populated urban environment, evaluating not only multimodal instruction following but also the robots ability to adapt to real-time social cues and navigate amidst human agents in a safe, rule-aware manner*'
+	- This flag is for the paper with Ref. ID = 13
+- '*Unlike previous simulators [13, 55, 30]that focus on a speciﬁc type of embodied agent—such as autonomous vehicles, robots, or humans—and mainly support control over that particular agent type, our simulator simultaneously supports all three major categories*'
+	- This flag is for the paper with Ref. ID = 13
+- '*There have been outdoor simulators [13, 44, 55, 17, 52, 14] that provide more open-ended tasks, facilitate more complicated dynamics, but face challenges in reality and multi-agent parallelism*'
+	- This flag is for the paper with Ref. ID = 14
+- '*Training these models requires a large amount of data, much of which can be generated in high-ﬁdelity embodied simulators, such as Habitat 3 [40], RoboTHOR [11], TDW [15], VirtualHome [38], Virtual Community [62] and BEHAVIOR [28]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*Project website: SimWorld-Robotics 1 Introduction There has been tremendous progress in engineering general-purpose robotics that can follow human instructions and perform open-ended tasks [3, 29, 16, 28, 45], thanks to the advances in robot foundation models*'
+	- This flag is for the paper with Ref. ID = 16
+- '*There have been outdoor simulators [13, 44, 55, 17, 52, 14] that provide more open-ended tasks, facilitate more complicated dynamics, but face challenges in reality and multi-agent parallelism*'
+	- This flag is for the paper with Ref. ID = 17
+- '*EmbodiedCity [17] provides an arena for embodied AI with realistic urban settings and enriched agent control*'
+	- This flag is for the paper with Ref. ID = 17
+- '*CARLA [13] × ✓ × 2 × ✓ ✓ ✓ AirSim [44] × ✓ × 2 × ✓ ✓ ✓ MetaUrban [56] ✓ × × 2 ✓ × × ✓ EmbodiedCity [17] × × × 2 ✓ × × × Grutopia [52] × ✓ × × ✓ × × × AerialVLN [31] × ✓ × × ✓ × × × UnrealZoo [61] × ✓ ✓ 10 ✓ ✓ ✓ ✓ SWR (Ours) ✓ ✓ ✓ 26 ✓ ✓ ✓ ✓ Our simulator places the robot in a photorealistic, dynamically populated urban environment, evaluating not only multimodal instruction following but also the robots ability to adapt to real-time social cues and navigate amidst human agents in a safe, rule-aware manner*'
+	- This flag is for the paper with Ref. ID = 17
+- '*Based on SWR, we construct the SimWorld-20k dataset, including 100 training maps with an average area of 2 km2 and 200 oracle trajectories generated by A* [18] for 200 training tasks, whose average length is greater than 2*'
+	- This flag is for the paper with Ref. ID = 18
+- '*We also test a hybrid baseline, HybridGPT, where GPT-4o is used as a high-level decision maker and A* [18] is used as a low-level motion planner*'
+	- This flag is for the paper with Ref. ID = 18
+- '*For RL baselines, we train a multimodal policy model, VLA-RL, with DeBERTav3 [19] as language encoding and DINOv2 [37] as visual encoding, following VLN-CE [23]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Vehicle motion is governed by a feedback-based model using a PID controller, with empirically tuned parameters for realistic acceleration, braking, and turning dynamics [20]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*For RL baselines, we train a multimodal policy model, VLA-RL, with DeBERTav3 [19] as language encoding and DINOv2 [37] as visual encoding, following VLN-CE [23]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*DriVLMe [25] simulates city-scale trafﬁc with many vehicles, but lacks any verbal communication between robots*'
+	- This flag is for the paper with Ref. ID = 25
+- '*RobotSlang [26] evaluates robot communication but is restricted to small environments*'
+	- This flag is for the paper with Ref. ID = 26
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*Project website: SimWorld-Robotics 1 Introduction There has been tremendous progress in engineering general-purpose robotics that can follow human instructions and perform open-ended tasks [3, 29, 16, 28, 45], thanks to the advances in robot foundation models*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Training these models requires a large amount of data, much of which can be generated in high-ﬁdelity embodied simulators, such as Habitat 3 [40], RoboTHOR [11], TDW [15], VirtualHome [38], Virtual Community [62] and BEHAVIOR [28]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*Project website: SimWorld-Robotics 1 Introduction There has been tremendous progress in engineering general-purpose robotics that can follow human instructions and perform open-ended tasks [3, 29, 16, 28, 45], thanks to the advances in robot foundation models*'
+	- This flag is for the paper with Ref. ID = 29
+- '*AerialVLN [31] serves as a highly photorealistic urban landscape for UAV navigation*'
+	- This flag is for the paper with Ref. ID = 31
+- '*CARLA [13] × ✓ × 2 × ✓ ✓ ✓ AirSim [44] × ✓ × 2 × ✓ ✓ ✓ MetaUrban [56] ✓ × × 2 ✓ × × ✓ EmbodiedCity [17] × × × 2 ✓ × × × Grutopia [52] × ✓ × × ✓ × × × AerialVLN [31] × ✓ × × ✓ × × × UnrealZoo [61] × ✓ ✓ 10 ✓ ✓ ✓ ✓ SWR (Ours) ✓ ✓ ✓ 26 ✓ ✓ ✓ ✓ Our simulator places the robot in a photorealistic, dynamically populated urban environment, evaluating not only multimodal instruction following but also the robots ability to adapt to real-time social cues and navigate amidst human agents in a safe, rule-aware manner*'
+	- This flag is for the paper with Ref. ID = 31
+- '*We assess multi-agent navigation performance through two principal metrics: (1) Collaborative Success Rate (CSR) [32] measures the percentage of tasks completed successfully before meeting; (2) Task Progress averages, across robots, the fraction of their shortestpath distance that is covered by the end of an episode*'
+	- This flag is for the paper with Ref. ID = 32
+- '*DOROTHIE [33] introduces spoken dialogue for an ego vehicle, yet involves just one controllable agent*'
+	- This flag is for the paper with Ref. ID = 33
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 35
+- '*Inspired by the recent success of large vision-language models (VLMs) on navigation tasks [53], we evaluate multiple recent VLMs as backbones using ReAct [57], including GPT-4o, GPT-o3, GPT-o3-pro [36], Gemini 2*'
+	- This flag is for the paper with Ref. ID = 36
+- '*For RL baselines, we train a multimodal policy model, VLA-RL, with DeBERTav3 [19] as language encoding and DINOv2 [37] as visual encoding, following VLN-CE [23]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*Training these models requires a large amount of data, much of which can be generated in high-ﬁdelity embodied simulators, such as Habitat 3 [40], RoboTHOR [11], TDW [15], VirtualHome [38], Virtual Community [62] and BEHAVIOR [28]*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Unlike synchronous designs [38] where agents must wait for others to complete their actions, SWR allows asynchronous control, enabling each agent to act independently*'
+	- This flag is for the paper with Ref. ID = 38
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 39
+- '*Training these models requires a large amount of data, much of which can be generated in high-ﬁdelity embodied simulators, such as Habitat 3 [40], RoboTHOR [11], TDW [15], VirtualHome [38], Virtual Community [62] and BEHAVIOR [28]*'
+	- This flag is for the paper with Ref. ID = 40
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 40
+- '*1, prior benchmarks on vision-and-language navigation have tackled instruction following, but typically in static indoor scenes or street panoramas using only textual descriptions[41]*'
+	- This flag is for the paper with Ref. ID = 41
+- '*For instance, well-known simulators such as AirSim [44], CARLA [13] mainly focus on autonomous driving domains*'
+	- This flag is for the paper with Ref. ID = 44
+- '*There have been outdoor simulators [13, 44, 55, 17, 52, 14] that provide more open-ended tasks, facilitate more complicated dynamics, but face challenges in reality and multi-agent parallelism*'
+	- This flag is for the paper with Ref. ID = 44
+- '*AirSim [44] focuses on simulation for drone control*'
+	- This flag is for the paper with Ref. ID = 44
+- '*CARLA [13] × ✓ × 2 × ✓ ✓ ✓ AirSim [44] × ✓ × 2 × ✓ ✓ ✓ MetaUrban [56] ✓ × × 2 ✓ × × ✓ EmbodiedCity [17] × × × 2 ✓ × × × Grutopia [52] × ✓ × × ✓ × × × AerialVLN [31] × ✓ × × ✓ × × × UnrealZoo [61] × ✓ ✓ 10 ✓ ✓ ✓ ✓ SWR (Ours) ✓ ✓ ✓ 26 ✓ ✓ ✓ ✓ Our simulator places the robot in a photorealistic, dynamically populated urban environment, evaluating not only multimodal instruction following but also the robots ability to adapt to real-time social cues and navigate amidst human agents in a safe, rule-aware manner*'
+	- This flag is for the paper with Ref. ID = 44
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 47
+- '*5 Flash [48], Qwen-VL 2*'
+	- This flag is for the paper with Ref. ID = 48
+- '*5 [4], Gemma 3 [49] and InternVL [9]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*We evaluate navigation performance in the easy setting through three key metrics: (1) Success Rate (SR) [1] measures the percentage of goal arrivals, (2) Subtask SR [45] tracks the ratio of completed subtasks, (3) Distance Progress [50] evaluates instruction-following by the relative reduction in distance to the goal*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Recent embodied simulators mostly focus on the indoor environment, mainly designed for household robots [7, 51, 38, 39, 15, 40, 22, 28]*'
+	- This flag is for the paper with Ref. ID = 51
+- '*There have been outdoor simulators [13, 44, 55, 17, 52, 14] that provide more open-ended tasks, facilitate more complicated dynamics, but face challenges in reality and multi-agent parallelism*'
+	- This flag is for the paper with Ref. ID = 52
+- '*Grutopia [52] offers a large-scale annotated scene dataset for general service robot tasks*'
+	- This flag is for the paper with Ref. ID = 52
+- '*CARLA [13] × ✓ × 2 × ✓ ✓ ✓ AirSim [44] × ✓ × 2 × ✓ ✓ ✓ MetaUrban [56] ✓ × × 2 ✓ × × ✓ EmbodiedCity [17] × × × 2 ✓ × × × Grutopia [52] × ✓ × × ✓ × × × AerialVLN [31] × ✓ × × ✓ × × × UnrealZoo [61] × ✓ ✓ 10 ✓ ✓ ✓ ✓ SWR (Ours) ✓ ✓ ✓ 26 ✓ ✓ ✓ ✓ Our simulator places the robot in a photorealistic, dynamically populated urban environment, evaluating not only multimodal instruction following but also the robots ability to adapt to real-time social cues and navigate amidst human agents in a safe, rule-aware manner*'
+	- This flag is for the paper with Ref. ID = 52
+- '*Compared to MetaUrban [55], the most recent urban simulator supporting procedural city generation, SWR offers environments that are 100× larger in area and episodes that are over 1*'
+	- This flag is for the paper with Ref. ID = 55
+- '*There have been outdoor simulators [13, 44, 55, 17, 52, 14] that provide more open-ended tasks, facilitate more complicated dynamics, but face challenges in reality and multi-agent parallelism*'
+	- This flag is for the paper with Ref. ID = 55
+- '*MetaUrban [55] features a wide range of micromobility tasks on the pedestrian, creating a highly complex urban environment*'
+	- This flag is for the paper with Ref. ID = 55
+- '*Unlike previous simulators [13, 55, 30]that focus on a speciﬁc type of embodied agent—such as autonomous vehicles, robots, or humans—and mainly support control over that particular agent type, our simulator simultaneously supports all three major categories*'
+	- This flag is for the paper with Ref. ID = 55
+- '*More recent city simulators, such as MetaDrive [30], MetaUrban [56], signiﬁcantly improve the scalability*'
+	- This flag is for the paper with Ref. ID = 56
+- '*CARLA [13] × ✓ × 2 × ✓ ✓ ✓ AirSim [44] × ✓ × 2 × ✓ ✓ ✓ MetaUrban [56] ✓ × × 2 ✓ × × ✓ EmbodiedCity [17] × × × 2 ✓ × × × Grutopia [52] × ✓ × × ✓ × × × AerialVLN [31] × ✓ × × ✓ × × × UnrealZoo [61] × ✓ ✓ 10 ✓ ✓ ✓ ✓ SWR (Ours) ✓ ✓ ✓ 26 ✓ ✓ ✓ ✓ Our simulator places the robot in a photorealistic, dynamically populated urban environment, evaluating not only multimodal instruction following but also the robots ability to adapt to real-time social cues and navigate amidst human agents in a safe, rule-aware manner*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Inspired by the recent success of large vision-language models (VLMs) on navigation tasks [53], we evaluate multiple recent VLMs as backbones using ReAct [57], including GPT-4o, GPT-o3, GPT-o3-pro [36], Gemini 2*'
+	- This flag is for the paper with Ref. ID = 57
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 58
+- '*However, current embodied simulators for robotics have been focused on tabletop [35, 58, 34, 21, 59] or household tasks [47, 28, 27, 46, 45]*'
+	- This flag is for the paper with Ref. ID = 59
+- '*RoCo [60] studies cooperative manipulation on tabletop tasks, without the need for environmental exploration*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Following the collaboration paradigm of ROCO [60], we enable robots to discuss a joint plan for concrete rendezvous behavior using a VLM*'
+	- This flag is for the paper with Ref. ID = 60
+- '*CARLA [13] × ✓ × 2 × ✓ ✓ ✓ AirSim [44] × ✓ × 2 × ✓ ✓ ✓ MetaUrban [56] ✓ × × 2 ✓ × × ✓ EmbodiedCity [17] × × × 2 ✓ × × × Grutopia [52] × ✓ × × ✓ × × × AerialVLN [31] × ✓ × × ✓ × × × UnrealZoo [61] × ✓ ✓ 10 ✓ ✓ ✓ ✓ SWR (Ours) ✓ ✓ ✓ 26 ✓ ✓ ✓ ✓ Our simulator places the robot in a photorealistic, dynamically populated urban environment, evaluating not only multimodal instruction following but also the robots ability to adapt to real-time social cues and navigate amidst human agents in a safe, rule-aware manner*'
+	- This flag is for the paper with Ref. ID = 61
+- '*Training these models requires a large amount of data, much of which can be generated in high-ﬁdelity embodied simulators, such as Habitat 3 [40], RoboTHOR [11], TDW [15], VirtualHome [38], Virtual Community [62] and BEHAVIOR [28]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*3 SimWorld-Robotics Built upon SimWorld [63], SimWorld-Robotics (SWR) introduces key extensions including procedural city generation, a trafﬁc system, and support for an additional embodied agent: the quadruped robot*'
+	- This flag is for the paper with Ref. ID = 63
+

@@ -87,7 +87,7 @@ def check_ranking_for_outlets(ranking_df: pd.DataFrame, title_col: str, rating_c
                         matches += 1
                         if o_row[ranking_type] == 'unknown':
                             outlets_df.at[o_index, 'outlet_name'] = r_title
-                            outlets_df.at[o_index, ranking_type] = r_row[rating_col].strip()
+                            outlets_df.at[o_index, ranking_type] = str(r_row[rating_col]).strip()
                         #else:
                             #print(f"  -> outlets_df['{ranking_type}'] already has an entry for {r_title}! Skipping!")
                 else:

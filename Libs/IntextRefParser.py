@@ -44,7 +44,6 @@ import Libs.UnicodeChecker as uc
 ###############################################################################
 
 NEVER_ASK_FOR_PERMISSION = True
-EDUCATED_GUESS_ON_SENTENCES_PER_PAGE = 27
 
 # NOTE: The numeric reference style is defined by being a number within square
 #       brackets, e.g., "[1]" or "[245]"

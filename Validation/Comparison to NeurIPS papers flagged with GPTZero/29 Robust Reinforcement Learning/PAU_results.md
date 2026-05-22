@@ -1,0 +1,1594 @@
+# Paper Analysis Utility - Results
+
+Paper: Robust Reinforcement Learning in Finance Modeling.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/29 Robust Reinforcement Learning/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 2 pages)
+2) 'Preliminaries: Robust Reinforcement Learning' -- p. 3 (ca. 1 pages)
+3) 'Modeling Market Impact with Elliptic Uncertainty Sets' -- p. 4 (ca. 4 pages)
+4) 'Experiments' -- p. 8 (ca. 2 pages)
+5) 'Conclusion & Broader Impact' -- p. 10 (ca. 0 pages)
+6) 'References' -- p. 10 (ca. 5 pages)
+A) 'Backgrounds' -- p. 15 (ca. 2 pages)
+B) 'Worst-Case Uncertainty under ℓp-Ellipse Uncertainty Sets' -- p. 17 (ca. 11 pages)
+C) 'Experiment Details' -- p. 28 (ca. 3 pages)
+D) 'Limitations' -- p. 31 (ca. 0 pages)
+E) 'Additional Supplementary Materials' -- p. 31 (ca. 3 pages)
+
+
+## Unicode Character Usage
+
+No invalid seeming Unicode characters found in the document.
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 9
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 85
+	- Full reference: `[85] Stephen Boyd and Lieven Vandenberghe. Convex Optimization. Cambridge University Press, 2004.`
+- Parsed Ref. ID: 86
+	- Full reference: `[86] Stephen Roman. Advanced Linear Algebra. Graduate Texts in Mathematics. Springer, third edition, 2008.`
+- Parsed Ref. ID: 87
+	- Full reference: `[87] Neal Parikh, Stephen Boyd, et al. Proximal algorithms. Foundations and trends® in Optimization, 1(3):127–239, 2014.`
+- Parsed Ref. ID: 88
+	- Full reference: `[88] Jonathan M. Borwein and Adrian S. Lewis. Convex Analysis and Nonlinear Optimization: Theory and Examples. Springer, 2 edition, 2006.`
+- Parsed Ref. ID: 89
+	- Full reference: `[89] John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov. Proximal policy optimization algorithms. arXiv preprint arXiv:1707.06347, 2017.`
+- Parsed Ref. ID: 90
+	- Full reference: `[90] Shaocong Ma, Yi Zhou, and Shaofeng Zou. Variance-reduced off-policy tdc learning: Non-asymptotic convergence analysis. Advances in neural information processing systems, 33:14796–14806, 2020.`
+- Parsed Ref. ID: 91
+	- Full reference: `[91] Shaocong Ma, Ziyi Chen, Yi Zhou, and Shaofeng Zou. Greedy-gq with variance reduction: Finite-time analysis and improved complexity. arXiv preprint arXiv:2103.16377, 2021.`
+- Parsed Ref. ID: 92
+	- Full reference: `[92] Yi Zhou, Shaocong Ma, et al. Stochastic optimization methods for policy evaluation in reinforcement learning. Foundations and Trends® in Optimization, 6(3):145–192, 2024.`
+- Parsed Ref. ID: 93
+	- Full reference: `[93] Shengbo Wang, Nian Si, Jose Blanchet, and Zhengyuan Zhou. Sample complexity of variance-reduced distributionally robust q-learning. Journal of Machine Learning Research, 25(341):1–77, 2024. Appendix Table of Contents A`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Zhou Y.: 6
+- Zou S.: 5
+- Ma S.: 5
+- Li Y.: 4
+- Wang J.: 4
+- Wang Y.: 3
+- Chen Z.: 3
+- Lu M.: 3
+- Blanchet J.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/29 Robust Reinforcement Learning/literature_validation_results_fig.jpg]]
+
+References section starts on page 10.
+
+- No link provided: $92/93=98.92\%$
+- Unchecked links: $0/93=0.00\%$
+- Valid links: $0/93=0.00\%$
+- Invalid link: $1/93=1.08\%$
+	- Invalid entries:
+		=> total = 1
+		- \[65\] Antoine Ragel. Reinforcement Learning for Systematic Market Making Strategies. PhD thesis, Université Paris-Saclay, 2024. Available at https://theses.hal.science/tel-04913317v1.
+			-> Returned with status code 404!
+
+- Different links: $0/93=0.00\%$
+
+- Successful searches: $45/93=48.39\%$
+- Skipped searches: $0/93=0.00\%$
+- Mismatching infos: $20/93=21.51\%$
+	- **Entries with mismatching author information:**
+		=> total = 5
+		- `[7] Carlos Betancourt and Wen-Hui Chen. Deep reinforcement learning for portfolio management of markets with a dynamic number of assets. Expert Systems with Applications, 164:114002, 2021.`
+			- Authors (Baca) did not match found publication titled 'Deep reinforcement learning for portfolio management of markets with a dynamic number of assets'
+		- `[14] Hyunmin Cho and Hyun Joon Shin. Trading strategies using reinforcement learning. Journal of the Korea Academia-Industrial cooperation Society, 22(1):123–130, 2021.`
+			- Authors (조현민, 경영공학과) did not match found publication titled 'Trading Strategies Using Reinforcement Learning'
+		- `[67] Mohammed Amin Abdullah, Hang Ren, Haitham Bou Ammar, Vladimir Milenkovic, Rui Luo, Mingtian Zhang, and Jun Wang. Wasserstein robust reinforcement learning. arXiv preprint arXiv:1907.13196, 2019.`
+			- Authors (Bou-Ammar) did not match found publication titled 'Wasserstein Robust Reinforcement Learning'
+		- `[73] Kaiqing Zhang, Zhuoran Yang, and Tamer Basar. Networked multi-agent reinforcement learning in continuous spaces. In 2018 IEEE conference on decision and control (CDC), pages 2771–2776. IEEE, 2018.`
+			- Authors (Başar) did not match found publication titled 'Networked Multi-Agent Reinforcement Learning in Continuous Spaces'
+		- `[74] Bin Hu, Kaiqing Zhang, Na Li, Mehran Mesbahi, Maryam Fazel, and Tamer Ba¸sar. Toward a theoretical foundation of policy optimization for learning control policies. Annual Review of Control, Robotics, and Autonomous Systems, 6(1):123–158, 2023.`
+			- Authors (Başar) did not match found publication titled 'Toward a Theoretical Foundation of Policy Optimization for Learning Control Policies'
+	- **Entries with mismatching years (where the difference is > 1 year):**
+		=> total = 2
+		- `[1] Ben Hambly, Renyuan Xu, and Huining Yang. Recent advances in reinforcement learning in finance. Mathematical Finance, 33(3):437–503, 2023.`
+			- Year (2021) does not match expected year (2023)
+		- `[69] John C Duchi and Hongseok Namkoong. Learning models with uniform performance via distributionally robust optimization. The Annals of Statistics, 49(3):1378–1406, 2021.`
+			- Year (2018) does not match expected year (2021)
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 12
+		- `[3] Sebastian Jaimungal, Silvana M Pesenti, Ye Sheng Wang, and Hariom Tatsat. Robust risk-aware reinforcement learning. SIAM Journal on Financial Mathematics, 13(1):213–226, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[9] Min-Yuh Day, Ching-Ying Yang, and Yensen Ni. Portfolio dynamic trading strategies using deep reinforcement learning. Soft Computing, 28(15):8715–8730, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[20] Olivier Guéant, Charles-Albert Lehalle, and Joaquin Fernandez-Tapia. Dealing with the inventory risk: a solution to the market making problem. Mathematics and Financial Economics, 7(4):477–507, 2013.`
+			- Year (2012) does not match expected year (2013)
+		- `[36] Guanlin Liu, Zhihan Zhou, Han Liu, and Lifeng Lai. Efficient action robust reinforcement learning with probabilistic policy execution uncertainty. Transactions on Machine Learning Research, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[47] Runyu Zhang, Yang Hu, and Na Li. Soft robust MDPs and risk-sensitive MDPs: Equivalence, policy gradient, and sample complexity. In The Twelfth International Conference on Learning Representations, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[48] Zifan Wu, Chao Yu, Chen Chen, Jianye Hao, and Hankz Hankui Zhuo. Plan to predict: Learning an uncertainty-foreseeing model for model-based reinforcement learning. Advances in Neural Information Processing Systems, 35:15849–15861, 2022.`
+			- Year (2023) does not match expected year (2022)
+		- `[50] Qiuhao Wang, Chin Pang Ho, and Marek Petrik. Policy gradient in robust mdps with global convergence guarantee. In International Conference on Machine Learning, pages 35763–35797. PMLR, 2023.`
+			- Year (2022) does not match expected year (2023)
+		- `[62] Junjie Li, Yang Liu, Weiqing Liu, Shikai Fang, Lewen Wang, Chang Xu, and Jiang Bian. Mars: a financial market simulation engine powered by generative foundation model. In The Thirteenth International Conference on Learning Representations, 2025.`
+			- Year (2024) does not match expected year (2025)
+		- `[68] Yufei Kuang, Miao Lu, Jie Wang, Qi Zhou, Bin Li, and Houqiang Li. Learning robust policy against disturbance in transition dynamics via state-conservative policy optimization. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 36–7, pages 7247–7254, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[71] Yanwei Jia and Xun Yu Zhou. Policy gradient and actor-critic learning in continuous time and space: Theory and algorithms. Journal of Machine Learning Research, 23(275):1–50, 2022.`
+			- Year (2021) does not match expected year (2022)
+		- `[87] Neal Parikh, Stephen Boyd, et al. Proximal algorithms. Foundations and trends® in Optimization, 1(3):127–239, 2014.`
+			- Year (2013) does not match expected year (2014)
+		- `[93] Shengbo Wang, Nian Si, Jose Blanchet, and Zhengyuan Zhou. Sample complexity of variance-reduced distributionally robust q-learning. Journal of Machine Learning Research, 25(341):1–77, 2024. Appendix Table of Contents A`
+			- Year (2023) does not match expected year (2024)
+	- **Other mismatches:**
+		=> total = 1
+		- `[65] Antoine Ragel. Reinforcement Learning for Systematic Market Making Strategies. PhD thesis, Université Paris-Saclay, 2024. Available at https://theses.hal.science/tel-04913317v1.`
+			- Year (0) does not match expected year (2024)
+- No entry found: $28/93=30.11\%$
+	- Unfound entries:
+		=> total = 28
+		- \[2\] Nikolaos Pippas, Cagatay Turkay, and Elliot A Ludvig. The evolution of reinforcement learning in quantitative finance. arXiv preprint arXiv:2408.10932, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[5\] Xiaochuan Shi, Yihua Zhou, and Lei Wu. Robust reinforcement learning for portfolio management via competition and cooperation strategies, 2023. ICLR 2024 Conference Withdrawn Submission.
+			-> WARNING: No results were found through the dblp search! | WARNING: None of the 289 results matched the expected title!
+		- \[12\] WARAMETH NUIPIAN, PHAYUNG MEESAD, et al. Dynamic Portfolio Management with Deep Reinforcement Learning. PhD thesis, King Mongkut’s University of Technology North Bangkok, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[13\] Farzan Soleymani and Eric Paquet. Financial portfolio optimization with online deep reinforcement learning and restricted stacked autoencoder—deepbreath. Expert Systems with Applications, 156:113456, 2020.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[17\] Ji-Heon Park, Jae-Hwan Kim, and Jun-Ho Huh. Deep reinforcement learning robots for algorithmic trading: Considering stock market conditions and us interest rates. IEEE Access, 12:20705–20725, 2024.
+			-> WARNING: None of the 1 results matched the expected title! | WARNING: None of the 8 results matched the expected title!
+		- ==\[23\] Kyung Hyun Park, Hyeong Jin Kim, and Woo Chang Kim. Deep reinforcement learning for limit order book-based market making. Expert Systems with Applications, 169:114338, 2021.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!
+		- ==\[24\] Pierre Casgrain, Anirudh Kulkarni, and Nicholas Watters. Learning to trade with continuous action spaces: Application to market making. arXiv preprint arXiv:2303.08603, 2023.==
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[25\] Petter N Kolm, Sebastian Krügel, and Sergiy V Zadorozhnyi. Reinforcement learning for optimal hedging. The Journal of Trading, 14(4):4–17, 2019.==
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[26\] Hans Buehler, Lukas Gonon, Josef Teichmann, and Ben Wood. Deep hedging. Quantitative Finance, 19(8):1271–1291, 2019.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[27\] H Cao, Y Wang, and Y Zhang. Risk-averse reinforcement learning for optimal option hedging. Journal of Computational Finance, 24(2):1–31, 2020.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- ==\[28\] W L Chan and R O Shelton. Can machine learning improve delta hedging? Journal of Derivatives, 9(1):39–56, 2001.==
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- ==\[29\] Z Ning and Y K Kwok. Q-learning for option pricing and hedging with transaction costs. Applied Economics, 52(55):6033–6048, 2020.==
+			-> WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!
+		- \[31\] Robert Almgren and Neil Chriss. Optimal execution of portfolio transactions. Journal of Risk, 3:5–40, 2001.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[32\] Anna A Obizhaeva and Jiang Wang. Optimal trading strategy and supply/demand dynamics. Journal of Financial markets, 16(1):1–32, 2013.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[33\] Bence Tóth, Zoltán Eisler, and J-P Bouchaud. The square-root impace law also holds for option markets. Wilmott, 2016(85):70–73, 2016.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[42\] Wei Shen, Xiaoying Zhang, Yuanshun Yao, Rui Zheng, Hongyi Guo, and Yang Liu. Robust rlhf with noisy rewards. In International Conference on Learning Representations, 2025. Withdrawn submission.
+			-> WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[44\] Pierre Clavier, Laixi Shi, Erwan Le Pennec, Eric Mazumdar, Adam Wierman, and Matthieu Geist. Nearoptimal distributionally robust reinforcement learning with general l_p norms. Advances in Neural Information Processing Systems, 37:1750–1810, 2024.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[52\] Shaocong Ma, Ziyi Chen, Yi Zhou, and Heng Huang. Rectified robust policy optimization for modeluncertain constrained reinforcement learning without strong duality. Transactions on Machine Learning Research, 2025.
+			-> WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[53\] Ruihong Huang and Tomas Polak. Lobster: Limit order book reconstruction system. Available at SSRN 1977207, 2011.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[59\] Tianlang He, Keyan Lu, Chang Xu, and Jiang Bian. Multi-agent reinforcement learning in a realistic limit order book market simulation. In Proceedings of the 20th International Conference on Autonomous Agents and MultiAgent Systems (AAMAS), pages 464–472, 2020.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[63\] Martin D. Gould, Mason A. Porter, Stacy Williams, Mark McDonald, Daniel J. Fenn, and Sam D. Howison. Limit order books. Quantitative Finance, 13(11):1709–1742, 2013.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[64\] Avraam Tsantekidis, Nikolaos Passalis, Anastasios Tefas, Juho Kanniainen, Moncef Gabbouj, and Alexandros Iosifidis. Forecasting stock prices from limit order book using convolutional neural networks. In 2017 IEEE 19th Conference on Business Informatics (CBI), volume 1, pages 7–12. IEEE, 2017.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[70\] Richard S Sutton, Andrew G Barto, et al. Reinforcement learning. Journal of Cognitive Neuroscience, 11(1):126–134, 1999.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[75\] Elena Smirnova, Elvis Dohmatob, and Jérémie Mary. Distributionally robust reinforcement learning. arXiv preprint arXiv:1902.08708, 2019.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[77\] Yiting He, Zhishuai Liu, Weixin Wang, and Pan Xu. Sample complexity of distributionally robust offdynamics reinforcement learning with online interaction. In Forty-second International Conference on Machine Learning, 2025.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[80\] Miao Lu, Han Zhong, Tong Zhang, and Jose Blanchet. Distributionally robust reinforcement learning with interactive data collection: Fundamental hardness and near-optimal algorithms. Advances in Neural Information Processing Systems, 37:12528–12580, 2024.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[86\] Stephen Roman. Advanced Linear Algebra. Graduate Texts in Mathematics. Springer, third edition, 2008.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[88\] Jonathan M. Borwein and Adrian S. Lewis. Convex Analysis and Nonlinear Optimization: Theory and Examples. Springer, 2 edition, 2006.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/29 Robust Reinforcement Learning/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 21
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 8
+- EXPERT SYSTEMS WITH APPLICATIONS
+	- Parsed as: Expert Systems with Applications
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 6.8
+	- References literatures count from this outlet: 4
+- IEEE Access
+	- Parsed as: IEEE Access
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.2
+	- References literatures count from this outlet: 3
+- JOURNAL OF MACHINE LEARNING RESEARCH
+	- Parsed as: Journal of Machine Learning Research
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 5.0
+	- References literatures count from this outlet: 3
+- Quantitative Finance and Economics
+	- Parsed as: Quantitative Finance
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 2.4
+	- References literatures count from this outlet: 3
+- MATHEMATICAL FINANCE
+	- Parsed as: Mathematical Finance
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 2.4
+	- References literatures count from this outlet: 2
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in neural information processing systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- Transactions on Machine Learning Research
+	- References literatures count from this outlet: 2
+- International Conference on Learning Representations
+	- Parsed as: International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- PhD thesis
+	- References literatures count from this outlet: 2
+- IEEE Transactions on Neural Networks and Learning Systems
+	- Parsed as: IEEE transactions on neural Networks
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 8.0
+	- References literatures count from this outlet: 1
+- 2018 IEEE conference on decision and control
+	- References literatures count from this outlet: 1
+- 2016 IEEE Symposium Series on Computational Intelligence
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: The Thirteenth International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Business Informatics (IEEE CBI)
+	- Parsed as: 2017 IEEE 19th Conference on Business Informatics (CBI), volume 1
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = C
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proceedings of the AAAI Conference on Artificial Intelligence, volume 36–7
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- The Annals of Statistics
+	- References literatures count from this outlet: 1
+- JOURNAL OF COGNITIVE NEUROSCIENCE
+	- Parsed as: Journal of Cognitive Neuroscience
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 2.8
+	- References literatures count from this outlet: 1
+- Conference in Uncertainty in Artificial Intelligence
+	- Parsed as: Uncertainty in Artificial Intelligence
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Annual Review of Control, Robotics, and Autonomous Systems
+	- References literatures count from this outlet: 1
+- Climate Risk Management
+	- Parsed as: Risk
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = C
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 4.7
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: Forty-second International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Artificial Intelligence and Statistics
+	- Parsed as: International Conference on Artificial Intelligence and Statistics
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- MATHEMATICS OF OPERATIONS RESEARCH
+	- Parsed as: Mathematics of Operations Research
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 1.8
+	- References literatures count from this outlet: 1
+- Available at SSRN 4824172
+	- References literatures count from this outlet: 1
+- Cambridge University Press
+	- References literatures count from this outlet: 1
+- Graduate Texts in Mathematics.  Springer
+	- References literatures count from this outlet: 1
+- Foundations and trends® in Optimization
+	- References literatures count from this outlet: 1
+- Springer
+	- References literatures count from this outlet: 1
+- International Joint Conference on Autonomous Agents and Multiagent Systems (previously the International Conference on Multiagent Systems, ICMAS, changed in 2000)
+	- Parsed as: Proceedings of the 20th International Conference on Autonomous Agents and MultiAgent Systems
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Available at SSRN 1977207
+	- References literatures count from this outlet: 1
+- Science China-Information Sciences
+	- Parsed as: Information Sciences
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = C
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = National: USA
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 6.8
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Mathematics and Financial Economics
+	- Parsed as: Mathematics and Financial Economics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 0.9
+	- References literatures count from this outlet: 1
+- Oxford University Press, Oxford
+	- References literatures count from this outlet: 1
+- The Journal of Trading
+	- References literatures count from this outlet: 1
+- Journal of the Korea Academia-Industrial cooperation Society
+	- References literatures count from this outlet: 1
+- Journal of Computational Finance
+	- Parsed as: Journal of Computational Finance
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 0.5
+	- References literatures count from this outlet: 1
+- American Economic Journal-Applied Economics
+	- Parsed as: Applied Economics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 6.1
+	- References literatures count from this outlet: 1
+- Applied Mathematical Finance
+	- References literatures count from this outlet: 1
+- Journal of Risk Finance
+	- Parsed as: Journal of Risk
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 4.5
+	- References literatures count from this outlet: 1
+- JOURNAL OF FINANCIAL MARKETS
+	- Parsed as: Journal of Financial markets
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 2.1
+	- References literatures count from this outlet: 1
+- Wilmott
+	- References literatures count from this outlet: 1
+- International Joint Conference on Artificial Intelligence
+	- Parsed as: IJCAI
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- 2019 amity international conference on artificial intelligence
+	- References literatures count from this outlet: 1
+- APPLIED SOFT COMPUTING
+	- Parsed as: Soft Computing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = National: Poland
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 6.0
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: ICLR
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: The Twelfth International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- SIAM Journal on Financial Mathematics
+	- Parsed as: SIAM Journal on Financial Mathematics
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 1.7
+	- References literatures count from this outlet: 1
+- Foundations and Trends® in Optimization
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Ben Hambly, Renyuan Xu, and Huining Yang*
+	- Normalized Authors: `['Hambly B.', 'Xu R.', 'Yang H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Recent advances in reinforcement learning in finance*
+	- Year: *2023*
+	- Outlet: *Mathematical Finance*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2023)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Nikolaos Pippas, Cagatay Turkay, and Elliot A Ludvig*
+	- Normalized Authors: `['Pippas N.', 'Turkay C.', 'Ludvig E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The evolution of reinforcement learning in quantitative finance*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Sebastian Jaimungal, Silvana M Pesenti, Ye Sheng Wang, and Hariom Tatsat*
+	- Normalized Authors: `['Jaimungal S.', 'Pesenti S.', 'Wang Y.', 'Tatsat H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust risk-aware reinforcement learning*
+	- Year: *2022*
+	- Outlet: *SIAM Journal on Financial Mathematics*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Pengqian Yu, Joon Sern Lee, Ilya Kulyatin, Zekun Shi, and Sakyasingha Dasgupta*
+	- Normalized Authors: `['Yu P.', 'Lee J.', 'Kulyatin I.', 'Shi Z.', 'Dasgupta S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Model-based deep reinforcement learning for dynamic portfolio optimization*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Xiaochuan Shi, Yihua Zhou, and Lei Wu*
+	- Normalized Authors: `['Shi X.', 'Zhou Y.', 'Wu L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust reinforcement learning for portfolio management via competition and cooperation strategies, 2023*
+	- Year: *2024*
+	- Outlet: *ICLR*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: None of the 289 results matched the expected title!*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Philip Ndikum and Serge Ndikum*
+	- Normalized Authors: `['Ndikum P.', 'Ndikum S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Advancing investment frontiers: Industry-grade deep reinforcement learning for portfolio optimization*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Carlos Betancourt and Wen-Hui Chen*
+	- Normalized Authors: `['Betancourt C.', 'Chen W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep reinforcement learning for portfolio management of markets with a dynamic number of assets*
+	- Year: *2021*
+	- Outlet: *Expert Systems with Applications*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Baca) did not match found publication titled 'Deep reinforcement learning for portfolio management of markets with a dynamic number of assets'*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Amine Mohamed Aboussalah and Chi-Guhn Lee*
+	- Normalized Authors: `['Aboussalah A.', 'Lee C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Continuous control with stacked deep dynamic recurrent reinforcement learning for portfolio optimization*
+	- Year: *2020*
+	- Outlet: *Expert Systems with Applications*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Min-Yuh Day, Ching-Ying Yang, and Yensen Ni*
+	- Normalized Authors: `['Day M.', 'Yang C.', 'Ni Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Portfolio dynamic trading strategies using deep reinforcement learning*
+	- Year: *2024*
+	- Outlet: *Soft Computing*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Yuh-Jong Hu and Shang-Jen Lin*
+	- Normalized Authors: `['Hu Y.', 'Lin S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep reinforcement learning for optimizing finance portfolio management*
+	- Year: *2019*
+	- Outlet: *2019 amity international conference on artificial intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Angelos Filos*
+	- Normalized Authors: `['Filos A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reinforcement learning for portfolio management*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *WARAMETH NUIPIAN, PHAYUNG MEESAD, et al*
+	- Normalized Authors: `['NUIPIAN W.', 'MEESAD P.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Dynamic Portfolio Management with Deep Reinforcement Learning*
+	- Year: *2025*
+	- Outlet: *PhD thesis*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Farzan Soleymani and Eric Paquet*
+	- Normalized Authors: `['Soleymani F.', 'Paquet E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Financial portfolio optimization with online deep reinforcement learning and restricted stacked autoencoder—deepbreath*
+	- Year: *2020*
+	- Outlet: *Expert Systems with Applications*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Hyunmin Cho and Hyun Joon Shin*
+	- Normalized Authors: `['Cho H.', 'Shin H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Trading strategies using reinforcement learning*
+	- Year: *2021*
+	- Outlet: *Journal of the Korea Academia-Industrial cooperation Society*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (조현민, 경영공학과) did not match found publication titled 'Trading Strategies Using Reinforcement Learning'*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *John Moody and Matthew Saffell*
+	- Normalized Authors: `['Moody J.', 'Saffell M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning to trade via direct reinforcement*
+	- Year: *2001*
+	- Outlet: *IEEE transactions on neural Networks*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Yang Li, Wanshan Zheng, and Zibin Zheng*
+	- Normalized Authors: `['Li Y.', 'Zheng W.', 'Zheng Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep robust reinforcement learning for practical algorithmic trading*
+	- Year: *2019*
+	- Outlet: *IEEE Access*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Ji-Heon Park, Jae-Hwan Kim, and Jun-Ho Huh*
+	- Normalized Authors: `['Park J.', 'Kim J.', 'Huh J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep reinforcement learning robots for algorithmic trading: Considering stock market conditions and us interest rates*
+	- Year: *2024*
+	- Outlet: *IEEE Access*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 1 results matched the expected title! | WARNING: None of the 8 results matched the expected title!*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Yasmeen Ansari, Sadaf Yasmin, Sheneela Naz, Hira Zaffar, Zeeshan Ali, Jihoon Moon, and Seungmin Rho*
+	- Normalized Authors: `['Ansari Y.', 'Yasmin S.', 'Naz S.', 'Zaffar H.', 'Ali Z.', 'Moon J.', 'Rho S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A deep reinforcement learning-based decision support system for automated stock market trading*
+	- Year: *2022*
+	- Outlet: *IEEE Access*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *Xing Wu, Haolei Chen, Jianjia Wang, Luigi Troiano, Vincenzo Loia, and Hamido Fujita*
+	- Normalized Authors: `['Wu X.', 'Chen H.', 'Wang J.', 'Troiano L.', 'Loia V.', 'Fujita H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adaptive stock trading strategies with deep reinforcement learning methods*
+	- Year: *2020*
+	- Outlet: *Information Sciences*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Olivier Guéant, Charles-Albert Lehalle, and Joaquin Fernandez-Tapia*
+	- Normalized Authors: `['Guéant O.', 'Lehalle C.', 'Fernandez-Tapia J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Dealing with the inventory risk: a solution to the market making problem*
+	- Year: *2013*
+	- Outlet: *Mathematics and Financial Economics*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2012) does not match expected year (2013)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *Joel Hasbrouck*
+	- Normalized Authors: `['Hasbrouck J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Empirical Market Microstructure: The Institutions, Economics, and Econometrics of Securities Trading*
+	- Year: *2007*
+	- Outlet: *Oxford University Press, Oxford*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Zihao Zhang, Stefan Zohren, and Stephen Roberts*
+	- Normalized Authors: `['Zhang Z.', 'Zohren S.', 'Roberts S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep reinforcement learning for trading*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Kyung Hyun Park, Hyeong Jin Kim, and Woo Chang Kim*
+	- Normalized Authors: `['Park K.', 'Kim H.', 'Kim W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep reinforcement learning for limit order book-based market making*
+	- Year: *2021*
+	- Outlet: *Expert Systems with Applications*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Pierre Casgrain, Anirudh Kulkarni, and Nicholas Watters*
+	- Normalized Authors: `['Casgrain P.', 'Kulkarni A.', 'Watters N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning to trade with continuous action spaces: Application to market making*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Petter N Kolm, Sebastian Krügel, and Sergiy V Zadorozhnyi*
+	- Normalized Authors: `['Kolm P.', 'Krügel S.', 'Zadorozhnyi S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reinforcement learning for optimal hedging*
+	- Year: *2019*
+	- Outlet: *The Journal of Trading*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Hans Buehler, Lukas Gonon, Josef Teichmann, and Ben Wood*
+	- Normalized Authors: `['Buehler H.', 'Gonon L.', 'Teichmann J.', 'Wood B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep hedging*
+	- Year: *2019*
+	- Outlet: *Quantitative Finance*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *H Cao, Y Wang, and Y Zhang*
+	- Normalized Authors: `['Cao H.', 'Wang Y.', 'Zhang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Risk-averse reinforcement learning for optimal option hedging*
+	- Year: *2020*
+	- Outlet: *Journal of Computational Finance*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *W L Chan and R O Shelton*
+	- Normalized Authors: `['Chan W.', 'Shelton R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Can machine learning improve delta hedging? Journal of Derivatives, 9(1):39–56.*
+	- Year: *2001*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Z Ning and Y K Kwok*
+	- Normalized Authors: `['Ning Z.', 'Kwok Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Q-learning for option pricing and hedging with transaction costs*
+	- Year: *2020*
+	- Outlet: *Applied Economics*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: No results were found through the dblp search!*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *David Wu and Sebastian Jaimungal*
+	- Normalized Authors: `['Wu D.', 'Jaimungal S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust risk-aware option hedging*
+	- Year: *2023*
+	- Outlet: *Applied Mathematical Finance*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Robert Almgren and Neil Chriss*
+	- Normalized Authors: `['Almgren R.', 'Chriss N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Optimal execution of portfolio transactions*
+	- Year: *2001*
+	- Outlet: *Journal of Risk*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Anna A Obizhaeva and Jiang Wang*
+	- Normalized Authors: `['Obizhaeva A.', 'Wang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Optimal trading strategy and supply/demand dynamics*
+	- Year: *2013*
+	- Outlet: *Journal of Financial markets*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Bence Tóth, Zoltán Eisler, and J-P Bouchaud*
+	- Normalized Authors: `['Tóth B.', 'Eisler Z.', 'Bouchaud J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The square-root impace law also holds for option markets*
+	- Year: *2016*
+	- Outlet: *Wilmott*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Yan Li, Guanghui Lan, and Tuo Zhao*
+	- Normalized Authors: `['Li Y.', 'Lan G.', 'Zhao T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *First-order policy optimization for robust markov decision process*
+	- Year: *2022*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Yike Li, Yunzhe Tian, Endong Tong, Wenjia Niu, and Jiqiang Liu*
+	- Normalized Authors: `['Li Y.', 'Tian Y.', 'Tong E.', 'Niu W.', 'Liu J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust reinforcement learning via progressive task sequence*
+	- Year: *2023*
+	- Outlet: *IJCAI*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Guanlin Liu, Zhihan Zhou, Han Liu, and Lifeng Lai*
+	- Normalized Authors: `['Liu G.', 'Zhou Z.', 'Liu H.', 'Lai L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Efficient action robust reinforcement learning with probabilistic policy execution uncertainty*
+	- Year: *2024*
+	- Outlet: *Transactions on Machine Learning Research*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Yue Wang and Shaofeng Zou*
+	- Normalized Authors: `['Wang Y.', 'Zou S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Online robust reinforcement learning with model uncertainty*
+	- Year: *2021*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *Shangding Gu, Laixi Shi, Muning Wen, Ming Jin, Eric Mazumdar, Yuejie Chi, Adam Wierman, and Costas Spanos*
+	- Normalized Authors: `['Gu S.', 'Shi L.', 'Wen M.', 'Jin M.', 'Mazumdar E.', 'Chi Y.', 'Wierman A.', 'Spanos C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust gymnasium: A unified modular benchmark for robust reinforcement learning*
+	- Year: *2025*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *Lerrel Pinto, James Davidson, Rahul Sukthankar, and Abhinav Gupta*
+	- Normalized Authors: `['Pinto L.', 'Davidson J.', 'Sukthankar R.', 'Gupta A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust adversarial reinforcement learning*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Kishan Panaganti, Zaiyan Xu, Dileep Kalathil, and Mohammad Ghavamzadeh*
+	- Normalized Authors: `['Panaganti K.', 'Xu Z.', 'Kalathil D.', 'Ghavamzadeh M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust reinforcement learning using offline data*
+	- Year: *2022*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Minghong Fang, Xilong Wang, and Neil Zhenqiang Gong*
+	- Normalized Authors: `['Fang M.', 'Wang X.', 'Gong N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Provably robust federated reinforcement learning*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Wei Shen, Xiaoying Zhang, Yuanshun Yao, Rui Zheng, Hongyi Guo, and Yang Liu*
+	- Normalized Authors: `['Shen W.', 'Zhang X.', 'Yao Y.', 'Zheng R.', 'Guo H.', 'Liu Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust rlhf with noisy rewards*
+	- Year: *2025*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 6 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Shaocong Ma, Ziyi Chen, Shaofeng Zou, and Yi Zhou*
+	- Normalized Authors: `['Ma S.', 'Chen Z.', 'Zou S.', 'Zhou Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Decentralized robust v-learning for solving markov games with model uncertainty*
+	- Year: *2023*
+	- Outlet: *Journal of Machine Learning Research*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Pierre Clavier, Laixi Shi, Erwan Le Pennec, Eric Mazumdar, Adam Wierman, and Matthieu Geist*
+	- Normalized Authors: `['Clavier P.', 'Shi L.', 'Pennec E.', 'Mazumdar E.', 'Wierman A.', 'Geist M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Nearoptimal distributionally robust reinforcement learning with general l_p norms*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Navdeep Kumar, Kfir Levy, Kaixin Wang, and Shie Mannor*
+	- Normalized Authors: `['Kumar N.', 'Levy K.', 'Wang K.', 'Mannor S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *An efficient solution to s-rectangular robust markov decision processes*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Navdeep Kumar, Esther Derman, Matthieu Geist, Kfir Y Levy, and Shie Mannor*
+	- Normalized Authors: `['Kumar N.', 'Derman E.', 'Geist M.', 'Levy K.', 'Mannor S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Policy gradient for rectangular robust markov decision processes*
+	- Year: *2023*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Runyu Zhang, Yang Hu, and Na Li*
+	- Normalized Authors: `['Zhang R.', 'Hu Y.', 'Li N.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Soft robust MDPs and risk-sensitive MDPs: Equivalence, policy gradient, and sample complexity*
+	- Year: *2024*
+	- Outlet: *The Twelfth International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Zifan Wu, Chao Yu, Chen Chen, Jianye Hao, and Hankz Hankui Zhuo*
+	- Normalized Authors: `['Wu Z.', 'Yu C.', 'Chen C.', 'Hao J.', 'Zhuo H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Plan to predict: Learning an uncertainty-foreseeing model for model-based reinforcement learning*
+	- Year: *2022*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2022)*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Ruida Zhou, Tao Liu, Min Cheng, Dileep Kalathil, PR Kumar, and Chao Tian*
+	- Normalized Authors: `['Zhou R.', 'Liu T.', 'Cheng M.', 'Kalathil D.', 'Kumar P.', 'Tian C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Natural actor-critic for robust reinforcement learning with function approximation*
+	- Year: *2023*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Qiuhao Wang, Chin Pang Ho, and Marek Petrik*
+	- Normalized Authors: `['Wang Q.', 'Ho C.', 'Petrik M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Policy gradient in robust mdps with global convergence guarantee*
+	- Year: *2023*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2023)*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Zhongchang Sun, Sihong He, Fei Miao, and Shaofeng Zou*
+	- Normalized Authors: `['Sun Z.', 'He S.', 'Miao F.', 'Zou S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Policy optimization for robust average reward mdps*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Shaocong Ma, Ziyi Chen, Yi Zhou, and Heng Huang*
+	- Normalized Authors: `['Ma S.', 'Chen Z.', 'Zhou Y.', 'Huang H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Rectified robust policy optimization for modeluncertain constrained reinforcement learning without strong duality*
+	- Year: *2025*
+	- Outlet: *Transactions on Machine Learning Research*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 4 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Ruihong Huang and Tomas Polak*
+	- Normalized Authors: `['Huang R.', 'Polak T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Lobster: Limit order book reconstruction system*
+	- Year: *2011*
+	- Outlet: *Available at SSRN 1977207*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Jean-Philippe Bouchaud, Julien Kockelkoren, and Zoltan Eisler*
+	- Normalized Authors: `['Bouchaud J.', 'Kockelkoren J.', 'Eisler Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The price impact of order book events: Market orders, limit orders and cancellations*
+	- Year: *2009*
+	- Outlet: *Quantitative Finance*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Jim Gatheral, Alexander Schied, and Aleksey Slynko*
+	- Normalized Authors: `['Gatheral J.', 'Schied A.', 'Slynko A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Transient linear price impact and fredholm integral equations*
+	- Year: *2012*
+	- Outlet: *Mathematical Finance*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Leonardo Berti, Bardh Prenkaj, and Paola Velardi*
+	- Normalized Authors: `['Berti L.', 'Prenkaj B.', 'Velardi P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Trades: Generating realistic market simulations with diffusion models*
+	- Year: *2025*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Robert Almgren, Chee Thum, Emmanuel Hauptmann, and Hong Li*
+	- Normalized Authors: `['Almgren R.', 'Thum C.', 'Hauptmann E.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Direct estimation of equity market impact*
+	- Year: *2005*
+	- Outlet: *Risk*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *Anastasia Bugaenko*
+	- Normalized Authors: `['Bugaenko A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Empirical study of market impact conditional on order-flow imbalance*
+	- Year: *2020*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Tianlang He, Keyan Lu, Chang Xu, and Jiang Bian*
+	- Normalized Authors: `['He T.', 'Lu K.', 'Xu C.', 'Bian J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-agent reinforcement learning in a realistic limit order book market simulation*
+	- Year: *2020*
+	- Outlet: *Proceedings of the 20th International Conference on Autonomous Agents and MultiAgent Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Andrew Todd, Peter Beling, William Scherer, and Steve Y  Yang*
+	- Normalized Authors: `['Todd A.', 'Beling P.', 'Scherer W.', 'Yang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Agent-based financial markets: A review of the methodology and domain*
+	- Year: *2016*
+	- Outlet: *2016 IEEE Symposium Series on Computational Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Shen Gao, Yuntao Wen, Minghang Zhu, Jianing Wei, Yuhan Cheng, Qunzi Zhang, and Shuo Shang*
+	- Normalized Authors: `['Gao S.', 'Wen Y.', 'Zhu M.', 'Wei J.', 'Cheng Y.', 'Zhang Q.', 'Shang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Simulating financial market via large language model based agents*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Junjie Li, Yang Liu, Weiqing Liu, Shikai Fang, Lewen Wang, Chang Xu, and Jiang Bian*
+	- Normalized Authors: `['Li J.', 'Liu Y.', 'Liu W.', 'Fang S.', 'Wang L.', 'Xu C.', 'Bian J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mars: a financial market simulation engine powered by generative foundation model*
+	- Year: *2025*
+	- Outlet: *The Thirteenth International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2024) does not match expected year (2025)*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Martin D  Gould, Mason A  Porter, Stacy Williams, Mark McDonald, Daniel J  Fenn, and Sam D  Howison*
+	- Normalized Authors: `['Gould M.', 'Porter M.', 'Williams S.', 'McDonald M.', 'Fenn D.', 'Howison S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Limit order books*
+	- Year: *2013*
+	- Outlet: *Quantitative Finance*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Avraam Tsantekidis, Nikolaos Passalis, Anastasios Tefas, Juho Kanniainen, Moncef Gabbouj, and Alexandros Iosifidis*
+	- Normalized Authors: `['Tsantekidis A.', 'Passalis N.', 'Tefas A.', 'Kanniainen J.', 'Gabbouj M.', 'Iosifidis A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Forecasting stock prices from limit order book using convolutional neural networks*
+	- Year: *2017*
+	- Outlet: *2017 IEEE 19th Conference on Business Informatics (CBI), volume 1*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Antoine Ragel*
+	- Normalized Authors: `['Ragel A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Reinforcement Learning for Systematic Market Making Strategies*
+	- Year: *2024*
+	- Outlet: *PhD thesis*
+	- Link: *https://theses.hal.science/tel-04913317v1.*
+	- **Valid?**: *CHECK - Year (0) does not match expected year (2024)*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Zhenglong Li, Vincent Tam, and Kwan L  Yeung*
+	- Normalized Authors: `['Li Z.', 'Tam V.', 'Yeung K.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Developing a multi-agent and self-adaptive framework with deep reinforcement learning for dynamic portfolio risk management*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Mohammed Amin Abdullah, Hang Ren, Haitham Bou Ammar, Vladimir Milenkovic, Rui Luo, Mingtian Zhang, and Jun Wang*
+	- Normalized Authors: `['Abdullah M.', 'Ren H.', 'Ammar H.', 'Milenkovic V.', 'Luo R.', 'Zhang M.', 'Wang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Wasserstein robust reinforcement learning*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Bou-Ammar) did not match found publication titled 'Wasserstein Robust Reinforcement Learning'*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *Yufei Kuang, Miao Lu, Jie Wang, Qi Zhou, Bin Li, and Houqiang Li*
+	- Normalized Authors: `['Kuang Y.', 'Lu M.', 'Wang J.', 'Zhou Q.', 'Li B.', 'Li H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning robust policy against disturbance in transition dynamics via state-conservative policy optimization*
+	- Year: *2022*
+	- Outlet: *Proceedings of the AAAI Conference on Artificial Intelligence, volume 36–7*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 69:**
+	- Ref. ID: *69*
+	- Authors: *John C Duchi and Hongseok Namkoong*
+	- Normalized Authors: `['Duchi J.', 'Namkoong H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning models with uniform performance via distributionally robust optimization*
+	- Year: *2021*
+	- Outlet: *The Annals of Statistics*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2018) does not match expected year (2021)*
+- **Number 70:**
+	- Ref. ID: *70*
+	- Authors: *Richard S Sutton, Andrew G Barto, et al*
+	- Normalized Authors: `['Sutton R.', 'Barto A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Reinforcement learning*
+	- Year: *1999*
+	- Outlet: *Journal of Cognitive Neuroscience*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 71:**
+	- Ref. ID: *71*
+	- Authors: *Yanwei Jia and Xun Yu Zhou*
+	- Normalized Authors: `['Jia Y.', 'Zhou X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Policy gradient and actor-critic learning in continuous time and space: Theory and algorithms*
+	- Year: *2022*
+	- Outlet: *Journal of Machine Learning Research*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2021) does not match expected year (2022)*
+- **Number 72:**
+	- Ref. ID: *72*
+	- Authors: *Huaqing Xiong, Tengyu Xu, Lin Zhao, Yingbin Liang, and Wei Zhang*
+	- Normalized Authors: `['Xiong H.', 'Xu T.', 'Zhao L.', 'Liang Y.', 'Zhang W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deterministic policy gradient: Convergence analysis*
+	- Year: *2022*
+	- Outlet: *Uncertainty in Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 73:**
+	- Ref. ID: *73*
+	- Authors: *Kaiqing Zhang, Zhuoran Yang, and Tamer Basar*
+	- Normalized Authors: `['Zhang K.', 'Yang Z.', 'Basar T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Networked multi-agent reinforcement learning in continuous spaces*
+	- Year: *2018*
+	- Outlet: *2018 IEEE conference on decision and control*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Başar) did not match found publication titled 'Networked Multi-Agent Reinforcement Learning in Continuous Spaces'*
+- **Number 74:**
+	- Ref. ID: *74*
+	- Authors: *Bin Hu, Kaiqing Zhang, Na Li, Mehran Mesbahi, Maryam Fazel, and Tamer Ba¸sar*
+	- Normalized Authors: `['Hu B.', 'Zhang K.', 'Li N.', 'Mesbahi M.', 'Fazel M.', 'Ba¸sar T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Toward a theoretical foundation of policy optimization for learning control policies*
+	- Year: *2023*
+	- Outlet: *Annual Review of Control, Robotics, and Autonomous Systems*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Başar) did not match found publication titled 'Toward a Theoretical Foundation of Policy Optimization for Learning Control Policies'*
+- **Number 75:**
+	- Ref. ID: *75*
+	- Authors: *Elena Smirnova, Elvis Dohmatob, and Jérémie Mary*
+	- Normalized Authors: `['Smirnova E.', 'Dohmatob E.', 'Mary J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Distributionally robust reinforcement learning*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 76:**
+	- Ref. ID: *76*
+	- Authors: *Jose Blanchet, Miao Lu, Tong Zhang, and Han Zhong*
+	- Normalized Authors: `['Blanchet J.', 'Lu M.', 'Zhang T.', 'Zhong H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Double pessimism is provably efficient for distributionally robust offline reinforcement learning: Generic algorithm and robust partial coverage*
+	- Year: *2023*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 77:**
+	- Ref. ID: *77*
+	- Authors: *Yiting He, Zhishuai Liu, Weixin Wang, and Pan Xu*
+	- Normalized Authors: `['He Y.', 'Liu Z.', 'Wang W.', 'Xu P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sample complexity of distributionally robust offdynamics reinforcement learning with online interaction*
+	- Year: *2025*
+	- Outlet: *Forty-second International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 78:**
+	- Ref. ID: *78*
+	- Authors: *Yan Li and Alexander Shapiro*
+	- Normalized Authors: `['Li Y.', 'Shapiro A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Rectangularity and duality of distributionally robust markov decision processes*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 79:**
+	- Ref. ID: *79*
+	- Authors: *Zhishuai Liu and Pan Xu*
+	- Normalized Authors: `['Liu Z.', 'Xu P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Distributionally robust off-dynamics reinforcement learning: Provable efficiency with linear function approximation*
+	- Year: *2024*
+	- Outlet: *International Conference on Artificial Intelligence and Statistics*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 80:**
+	- Ref. ID: *80*
+	- Authors: *Miao Lu, Han Zhong, Tong Zhang, and Jose Blanchet*
+	- Normalized Authors: `['Lu M.', 'Zhong H.', 'Zhang T.', 'Blanchet J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Distributionally robust reinforcement learning with interactive data collection: Fundamental hardness and near-optimal algorithms*
+	- Year: *2024*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 81:**
+	- Ref. ID: *81*
+	- Authors: *Wolfram Wiesemann, Daniel Kuhn, and Berç Rustem*
+	- Normalized Authors: `['Wiesemann W.', 'Kuhn D.', 'Rustem B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Robust markov decision processes*
+	- Year: *2013*
+	- Outlet: *Mathematics of Operations Research*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 82:**
+	- Ref. ID: *82*
+	- Authors: *Carlo Zarattini, Andrew Aziz, and Andrea Barbon*
+	- Normalized Authors: `['Zarattini C.', 'Aziz A.', 'Barbon A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Beat the market: An effective intraday momentum strategy for s&p500 etf (spy)*
+	- Year: *2024*
+	- Outlet: *Available at SSRN 4824172*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 83:**
+	- Ref. ID: *83*
+	- Authors: *Greg Brockman, Vicki Cheung, Ludwig Pettersson, Jonas Schneider, John Schulman, Jie Tang, and Wojciech Zaremba*
+	- Normalized Authors: `['Brockman G.', 'Cheung V.', 'Pettersson L.', 'Schneider J.', 'Schulman J.', 'Tang J.', 'Zaremba W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Openai gym*
+	- Year: *2016*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 84:**
+	- Ref. ID: *84*
+	- Authors: *Mark Towers, Ariel Kwiatkowski, Jordan Terry, John U Balis, Gianluca De Cola, Tristan Deleu, Manuel Goulao, Andreas Kallinteris, Markus Krimmel, Arjun KG, et al*
+	- Normalized Authors: `['Towers M.', 'Kwiatkowski A.', 'Terry J.', 'Balis J.', 'Cola G.', 'Deleu T.', 'Goulao M.', 'Kallinteris A.', 'Krimmel M.', 'KG A.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Gymnasium: A standard interface for reinforcement learning environments*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 85:**
+	- Ref. ID: *85*
+	- Authors: *Stephen Boyd and Lieven Vandenberghe*
+	- Normalized Authors: `['Boyd S.', 'Vandenberghe L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Convex Optimization*
+	- Year: *2004*
+	- Outlet: *Cambridge University Press*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 86:**
+	- Ref. ID: *86*
+	- Authors: *Stephen Roman*
+	- Normalized Authors: `['Roman S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Advanced Linear Algebra*
+	- Year: *2008*
+	- Outlet: *Graduate Texts in Mathematics.  Springer*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 87:**
+	- Ref. ID: *87*
+	- Authors: *Neal Parikh, Stephen Boyd, et al*
+	- Normalized Authors: `['Parikh N.', 'Boyd S.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Proximal algorithms*
+	- Year: *2014*
+	- Outlet: *Foundations and trends® in Optimization*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2013) does not match expected year (2014)*
+- **Number 88:**
+	- Ref. ID: *88*
+	- Authors: *Jonathan M  Borwein and Adrian S  Lewis*
+	- Normalized Authors: `['Borwein J.', 'Lewis A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Convex Analysis and Nonlinear Optimization: Theory and Examples*
+	- Year: *2006*
+	- Outlet: *Springer*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 89:**
+	- Ref. ID: *89*
+	- Authors: *John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov*
+	- Normalized Authors: `['Schulman J.', 'Wolski F.', 'Dhariwal P.', 'Radford A.', 'Klimov O.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Proximal policy optimization algorithms*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 90:**
+	- Ref. ID: *90*
+	- Authors: *Shaocong Ma, Yi Zhou, and Shaofeng Zou*
+	- Normalized Authors: `['Ma S.', 'Zhou Y.', 'Zou S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Variance-reduced off-policy tdc learning: Non-asymptotic convergence analysis*
+	- Year: *2020*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 91:**
+	- Ref. ID: *91*
+	- Authors: *Shaocong Ma, Ziyi Chen, Yi Zhou, and Shaofeng Zou*
+	- Normalized Authors: `['Ma S.', 'Chen Z.', 'Zhou Y.', 'Zou S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Greedy-gq with variance reduction: Finite-time analysis and improved complexity*
+	- Year: *2021*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 92:**
+	- Ref. ID: *92*
+	- Authors: *Yi Zhou, Shaocong Ma, et al*
+	- Normalized Authors: `['Zhou Y.', 'Ma S.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Stochastic optimization methods for policy evaluation in reinforcement learning*
+	- Year: *2024*
+	- Outlet: *Foundations and Trends® in Optimization*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 93:**
+	- Ref. ID: *93*
+	- Authors: *Shengbo Wang, Nian Si, Jose Blanchet, and Zhengyuan Zhou*
+	- Normalized Authors: `['Wang S.', 'Si N.', 'Blanchet J.', 'Zhou Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sample complexity of variance-reduced distributionally robust q-learning*
+	- Year: *2024*
+	- Outlet: *Journal of Machine Learning Research*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 48
+- '*However, robust RL becomes computationally intractable when the uncertainty set is highly irregular [34, 50, 45, 46]*'
+	- This flag is for the paper with Ref. ID = 50
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 62
+- '*Other works include uncertainty sets based on the Wasserstein metric and f-divergence, which have also received considerable attention [67–69]*'
+	- This flag is for the paper with Ref. ID = 67
+- '*Other works include uncertainty sets based on the Wasserstein metric and f-divergence, which have also received considerable attention [67–69]*'
+	- This flag is for the paper with Ref. ID = 68
+- '*Other works include uncertainty sets based on the Wasserstein metric and f-divergence, which have also received considerable attention [67–69]*'
+	- This flag is for the paper with Ref. ID = 69
+- '*This assumption avoids the technical complications arising from continuous or hybrid spaces, which, although explored in some prior work [71–74], remain analytically open without imposing additional assumptions, especially for robust RL problems*'
+	- This flag is for the paper with Ref. ID = 71
+- '*This assumption avoids the technical complications arising from continuous or hybrid spaces, which, although explored in some prior work [71–74], remain analytically open without imposing additional assumptions, especially for robust RL problems*'
+	- This flag is for the paper with Ref. ID = 73
+- '*This assumption avoids the technical complications arising from continuous or hybrid spaces, which, although explored in some prior work [71–74], remain analytically open without imposing additional assumptions, especially for robust RL problems*'
+	- This flag is for the paper with Ref. ID = 74
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*RL’s appeal in finance lies in its ability to learn adaptive strategies directly from data, without strong market assumptions [1]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 3
+- '*Jaimungal et al [3] propose a robust reinforcement learning framework based on rank-dependent utility to address uncertainty in financial decision-making, demonstrating the effectiveness of robust RL in portfolio allocation, benchmark strategy optimization, and statistical arbitrage*'
+	- This flag is for the paper with Ref. ID = 3
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 7
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 36
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 47
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 50
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 62
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 65
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 2
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 4
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 5
+- '*Shi et al [5] formulate portfolio optimization as a robust RL problem to enhance resilience*'
+	- This flag is for the paper with Ref. ID = 5
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 8
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 9
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 10
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 13
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 14
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 15
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 16
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 17
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 19
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 20
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 22
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 24
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 25
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 28
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 29
+- '*1 Introduction Reinforcement learning (RL) has emerged as a promising decision-making framework for quantitative trading strategies [1, 2], including portfolio optimization [3–13], automatic trading [3, 14–19], market making [20–24], and option hedging [25–30]*'
+	- This flag is for the paper with Ref. ID = 30
+- '*We et al [30] extend robust risk-aware RL to manage the risks associated with path-dependent financial derivatives, showcasing its effectiveness in complex hedging scenarios*'
+	- This flag is for the paper with Ref. ID = 30
+- '*One of the primary challenges in training a robust and consistently profitable RL agent lies in handling the market impact [31–33]; that is, the influence of the agent’s own trades on asset prices in the deployed environment*'
+	- This flag is for the paper with Ref. ID = 31
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 31
+- '*One of the primary challenges in training a robust and consistently profitable RL agent lies in handling the market impact [31–33]; that is, the influence of the agent’s own trades on asset prices in the deployed environment*'
+	- This flag is for the paper with Ref. ID = 32
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 32
+- '*One of the primary challenges in training a robust and consistently profitable RL agent lies in handling the market impact [31–33]; that is, the influence of the agent’s own trades on asset prices in the deployed environment*'
+	- This flag is for the paper with Ref. ID = 33
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 34
+- '*However, robust RL becomes computationally intractable when the uncertainty set is highly irregular [34, 50, 45, 46]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*A standard approach applies the robust policy gradient formula [34]: ∇θV πpsq “ Es„dπθ ,a„πθ rQπθps, aq∇θ log πθpa|sqs , where dπθ is the stationary distribution induced by πθ, and Qπθ denotes the robust Q-function*'
+	- This flag is for the paper with Ref. ID = 34
+- '*, [45, 46, 34])*'
+	- This flag is for the paper with Ref. ID = 34
+- '*As shown by [81, 34], when γ P p0, 1q, the robust Bellman operator is a contraction operator, which admits the unique fixed point as the robust value function V π P V*'
+	- This flag is for the paper with Ref. ID = 34
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 35
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 37
+- '*The R-contamination model [37] defines an uncertainty set as a sphere of radius R centered around the nominal transition kernel, admitting analytical solutions for robust policy evaluation*'
+	- This flag is for the paper with Ref. ID = 37
+- '*The ℓp-norm uncertainty set [45, 46] and the R-contamination model [37] are popular as the solution u˚ is closed-form*'
+	- This flag is for the paper with Ref. ID = 37
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 38
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 39
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 40
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 41
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 42
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 43
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 44
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 45
+- '*However, robust RL becomes computationally intractable when the uncertainty set is highly irregular [34, 50, 45, 46]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*The ℓp-norm uncertainty sets are also widely studied due to their closed-form solutions [45, 46]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Throughout this paper, we assume the parameter of uncertainty set is chosen appropriately such that all elements in the robust transition model is well-defined [45, 46]*'
+	- This flag is for the paper with Ref. ID = 45
+- '*To avoid this scenario, we include the following regular condition, which is also presented in the ℓp-norm uncertainty set literature [45, 46]: Assumption 3*'
+	- This flag is for the paper with Ref. ID = 45
+- '*, [45, 46, 34])*'
+	- This flag is for the paper with Ref. ID = 45
+- '*The ℓp-norm uncertainty set [45, 46] and the R-contamination model [37] are popular as the solution u˚ is closed-form*'
+	- This flag is for the paper with Ref. ID = 45
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 46
+- '*However, robust RL becomes computationally intractable when the uncertainty set is highly irregular [34, 50, 45, 46]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*The ℓp-norm uncertainty sets are also widely studied due to their closed-form solutions [45, 46]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*Throughout this paper, we assume the parameter of uncertainty set is chosen appropriately such that all elements in the robust transition model is well-defined [45, 46]*'
+	- This flag is for the paper with Ref. ID = 46
+- '*To avoid this scenario, we include the following regular condition, which is also presented in the ℓp-norm uncertainty set literature [45, 46]: Assumption 3*'
+	- This flag is for the paper with Ref. ID = 46
+- '*, [45, 46, 34])*'
+	- This flag is for the paper with Ref. ID = 46
+- '*The ℓp-norm uncertainty set [45, 46] and the R-contamination model [37] are popular as the solution u˚ is closed-form*'
+	- This flag is for the paper with Ref. ID = 46
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 49
+- '*The integral probability metric (IPM) and double-sampling uncertainty sets have been shown to allow efficient computation [49]*'
+	- This flag is for the paper with Ref. ID = 49
+- '*[49])*'
+	- This flag is for the paper with Ref. ID = 49
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 51
+- '*To address this central question, we adopt the framework of robust RL [34–52], which is designed to handle model misspecification; that is, the mismatch between the training and deployment environments*'
+	- This flag is for the paper with Ref. ID = 52
+- '*Figure 1: Market impact illustration using AMZN stock on June 21, 2012, based on 5-level LOBSTER data [53]*'
+	- This flag is for the paper with Ref. ID = 53
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 54
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 55
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 56
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 56
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 57
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 58
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 59
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 60
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 60
+- '*By applying high-fidelity market simulators, often built upon limit order book (LOB) dynamics [31, 32, 54–56], trade-level data [57, 58], or large-scale agent-based simulators [59–62], it captures more detailed market microstructure and reduces the gap between the simulated and the real trading environments*'
+	- This flag is for the paper with Ref. ID = 61
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 61
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 64
+- '*Prominent approaches to incorporating market impact into backtesting include agent-based simulation frameworks [59–62], data-driven LOB reconstruction models [63, 64, 56], and hybrid systems that integrate historical data replay with synthetic order flow generation [65, 66]*'
+	- This flag is for the paper with Ref. ID = 66
+- '*2 Preliminaries: Robust Reinforcement Learning We focus on the discounted infinite-horizon Markov Decision Processes (MDPs) [70], formally defined as a five-tuple pS, A, P, r, γq, where S and A denote the state and action spaces2, respectively*'
+	- This flag is for the paper with Ref. ID = 70
+- '*This assumption avoids the technical complications arising from continuous or hybrid spaces, which, although explored in some prior work [71–74], remain analytically open without imposing additional assumptions, especially for robust RL problems*'
+	- This flag is for the paper with Ref. ID = 72
+- '*One potential solution is incorporating f-divergence or distributionally robust RL techniques [75–80]*'
+	- This flag is for the paper with Ref. ID = 75
+- '*One potential solution is incorporating f-divergence or distributionally robust RL techniques [75–80]*'
+	- This flag is for the paper with Ref. ID = 76
+- '*One potential solution is incorporating f-divergence or distributionally robust RL techniques [75–80]*'
+	- This flag is for the paper with Ref. ID = 77
+- '*One potential solution is incorporating f-divergence or distributionally robust RL techniques [75–80]*'
+	- This flag is for the paper with Ref. ID = 78
+- '*One potential solution is incorporating f-divergence or distributionally robust RL techniques [75–80]*'
+	- This flag is for the paper with Ref. ID = 79
+- '*One potential solution is incorporating f-divergence or distributionally robust RL techniques [75–80]*'
+	- This flag is for the paper with Ref. ID = 80
+- '*As shown by [81, 34], when γ P p0, 1q, the robust Bellman operator is a contraction operator, which admits the unique fixed point as the robust value function V π P V*'
+	- This flag is for the paper with Ref. ID = 81
+- '*The non-RL baseline is chosen as the momentum strategy [82], which is designed based on the empirical observation where assets that have performed well in the recent past are more likely to continue performing well in the near future*'
+	- This flag is for the paper with Ref. ID = 82
+- '*Training and Evaluation of RL Agents We implement a Gym-like RL environment [83, 84] constructed on historical data, with full environment details provided in Section C*'
+	- This flag is for the paper with Ref. ID = 83
+- '*Training and Evaluation of RL Agents We implement a Gym-like RL environment [83, 84] constructed on historical data, with full environment details provided in Section C*'
+	- This flag is for the paper with Ref. ID = 84
+

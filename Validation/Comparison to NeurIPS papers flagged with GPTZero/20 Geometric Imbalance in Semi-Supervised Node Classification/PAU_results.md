@@ -1,0 +1,1425 @@
+# Paper Analysis Utility - Results
+
+Paper: Geometric Imbalance in Semi-Supervised Node Classification.pdf
+
+
+## Document Structure
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/20 Geometric Imbalance in Semi-Supervised Node Classification/chapter_fig.jpg]]
+
+1) 'Introduction' -- p. 1 (ca. 1 pages)
+2) 'Preliminaries' -- p. 2 (ca. 1 pages)
+3) 'Geometric Imbalance' -- p. 3 (ca. 2 pages)
+4) 'Method' -- p. 5 (ca. 3 pages)
+5) 'Experiment' -- p. 8 (ca. 2 pages)
+6) 'Related Work' -- p. 10 (ca. 0 pages)
+7) 'Conclusion and Future Work' -- p. 10 (ca. 1 pages)
+8) 'References' -- p. 11 (ca. 6 pages)
+A) 'Notations' -- p. 17 (ca. 1 pages)
+B) 'Comprehensive Related Works' -- p. 18 (ca. 2 pages)
+C) 'Proof of Theorem 1' -- p. 20 (ca. 2 pages)
+D) 'Proof of Theorem 2' -- p. 22 (ca. 1 pages)
+E) 'Visualization and Analysis of Geometric Imbalance' -- p. 23 (ca. 2 pages)
+F) 'Analysis of Geometric Imbalance under Varying Class Imbalance' -- p. 25 (ca. 2 pages)
+G) 'Distinction Between Geometric Imbalance and Topology Imbalance' -- p. 27 (ca. 1 pages)
+H) 'Proof of Theorem 3' -- p. 28 (ca. 1 pages)
+I) 'Comprehensive Experimental Results' -- p. 29 (ca. 12 pages)
+J) 'Comprehensive Abaltion Study' -- p. 41 (ca. 9 pages)
+K) 'Experimental Setup' -- p. 50 (ca. 3 pages)
+L) 'Pseudocode of Our Algorithm' -- p. 53 (ca. 7 pages)
+
+
+## Unicode Character Usage
+
+> [!NOTE]
+> *Please note that this list may contain false positives since this is feature is still in early stages of development.*
+
+- Dashes:
+	- Stats for minus signs ():
+		- Valid uses: 0/65=0.00%
+		- Invalid uses: 65/65=100.00%
+	- Sentences with invalid dashes:
+		- Lines containing invalid dashes:
+		- Page 2: ˆv∈N(v) αvˆvh(l−1)
+		- Page 2: + αvvh(l−1)
+		- Page 2: v are then projected onto the riemannian manifold Sd−1 using ˜h(l)
+		- Page 2: the riemannian manifold Sd−1. Each class is parameterized by a compactness κi ∈R+ and a
+		- Page 2: 2 −1
+		- Page 2: 2 −1(κ) is
+		- Page 2: entropy of the predictions for ui is defined as H(uj) = −PC
+		- Page 3: uj ∈Sd−1 produced by the l-th layer of a GNN. Let {˜µc ∈Sd−1}C
+		- Page 3: uj −˜µyuj
+		- Page 3: C1̸=C2 ∥˜µC1 −˜µC2∥2 .
+		- Page 3: uj −˜µyuj
+		- Page 3: ∥˜µC1 −˜µC2∥2 .
+		- Page 3: uj −˜µCi
+		- Page 3: C1̸=C2 ∥˜µC1 −˜µC2∥2.
+		- Page 6: = max{rm, 1−rm}·Sm+min{rm, 1−rm}·Tm. This
+		- Page 7: defined as GIu = βu−δu
+		- Page 16: Geometric Imbalance index: GIu = βu−δu
+		- Page 19: = (1 −βi) · h(c)
+		- Page 19: uj −˜µyuj
+		- Page 19: ∥˜µc1 −˜µc2∥2 .
+		- Page 19: Using cos(x, y) ≈1 −1
+		- Page 19: 2∥x −y∥2 for unit vectors:
+		- Page 19: −κ
+		- Page 19: 2 ∥˜huj −˜µi∥2
+		- Page 19: −κ
+		- Page 19: 2 ∥˜huj −˜µk∥2
+		- Page 20: ∥˜huj −˜µi∥2 · e−κ
+		- Page 20: 2 ∥˜huj −˜µi∥2.
+		- Page 20: Upper bound: Suppose for most classes i ̸= yuj, the distance ∥˜huj −˜µi∥2 ≈Dinter/C, and for the
+		- Page 20: −κ
+		- Page 20: −κ
+		- Page 20: + (C −1) · exp
+		- Page 20: −κ
+		- Page 20: mie−κ
+		- Page 20: ≤log C −
+		- Page 20: 2C2 (Dinter −Dintra)/Dinter + o(1),
+		- Page 20: ˆH ≤log C −
+		- Page 20: Dinter −Dintra
+		- Page 20: yuj ≈1 −ε and puj
+		- Page 20: i̸=yuj ≈ε/(C −1) with
+		- Page 20: H(uj) ≈−(1 −ε) log(1 −ε) −ε log
+		- Page 20: C −1
+		- Page 20: ≥ε log(C −1) ≥κ
+		- Page 20: where the last inequality holds since ε ∝e−κ(Dinter−Dintra) decays with class separation.
+		- Page 20: ˆH ≥log C −κ
+		- Page 20: log C −
+		- Page 20: Dinter −Dintra
+		- Page 20: ≥ˆH ≥log C −κ
+		- Page 21: ˜huj −˜µyuj
+		- Page 21: c1̸=c2 ∥˜µc1 −˜µc2∥2 ,
+		- Page 21: = (1 −βi) · h(c)
+		- Page 21: −˜µc∥2 ≥β2
+		- Page 21: −˜µc∥2.
+		- Page 21: G(uj) ∝∥˜huj −˜µyuj ∥2 ∝β2
+		- Page 21: c1̸=c2 ∥˜µc1 −˜µc2∥2 is constant under
+		- Page 27: = max{rm, 1 −rm} · Sm + min{rm, 1 −rm} · Tm,
+		- Page 27: max{rm, 1 −rm} = 1 −rm,
+		- Page 27: min{rm, 1 −rm} = rm.
+		- Page 27: rm→0 ((1 −rm) · Sm + rm · Tm)
+		- Page 27: max{rm, 1 −rm} = rm,
+		- Page 27: min{rm, 1 −rm} = 1 −rm.
+		- Page 27: rm→1 (rm · Sm + (1 −rm) · Tm)
+		- Page 52: Train GNN fg on current labeled set Li−1.
+		- Page 52: = max{rm, 1 −rm} · Sm + min{rm, 1 −rm} · Tm.
+		- Page 52: Compute GI index: GIu = βu−δu
+
+
+## References not in Bibliography
+
+All references used in the document's (main) text were also found in the 'References' section.
+
+
+## Unused References in Bibliography
+
+> [!NOTE]
+> The references listed below were listed in the 'References' section but never used in the document's main text (excluding appendices).
+> -> Total = 39
+> *Please note that this list may contain false positives as, e.g., the references ID (e.g., first author's lastname + year) was not correctly parsed or the in-text reference was not recognized due to linebreaks.*
+
+- Parsed Ref. ID: 2
+	- Full reference: `[2] Tian Bian, Yifan Niu, Heng Chang, Divin Yan, Junzhou Huang, Yu Rong, Tingyang Xu, Jia Li, and Hong Cheng. Hierarchical graph latent diffusion model for conditional molecule generation. In Proceedings of the 33rd ACM International Conference on Information and Knowledge Management, pages 130–140, 2024.`
+- Parsed Ref. ID: 3
+	- Full reference: `[3] Jiarui Cai, Yizhou Wang, and Jenq-Neng Hwang. Ace: Ally complementary experts for solving long-tailed recognition in one-shot. In Proceedings of the IEEE/CVF International Conference on Computer Vision, pages 112–121, 2021.`
+- Parsed Ref. ID: 4
+	- Full reference: `[4] Kaidi Cao, Colin Wei, Adrien Gaidon, Nikos Arechiga, and Tengyu Ma. Learning imbalanced datasets with label-distribution-aware margin loss. Advances in neural information processing systems, 32, 2019.`
+- Parsed Ref. ID: 5
+	- Full reference: `[5] Nitesh V Chawla, Kevin W Bowyer, Lawrence O Hall, and W Philip Kegelmeyer. Smote: synthetic minority over-sampling technique. Journal of artificial intelligence research, 16:321–357, 2002.`
+- Parsed Ref. ID: 7
+	- Full reference: `[7] Junyu Chen, Qianqian Xu, Zhiyong Yang, Xiaochun Cao, and Qingming Huang. A unified framework against topology and class imbalance. In Proceedings of the 30th ACM International Conference on Multimedia, pages 180–188, 2022.`
+- Parsed Ref. ID: 8
+	- Full reference: `[8] Nan Chen, Zemin Liu, Bryan Hooi, Bingsheng He, Rizal Fathony, Jun Hu, and Jia Chen. Consistency training with learnable data augmentation for graph anomaly detection with limited supervision. In The twelfth international conference on learning representations, 2024.`
+- Parsed Ref. ID: 9
+	- Full reference: `[9] Fadi Dornaika, Zoulfikar Ibrahim, and Alireza Bosaghzadeh. Overcoming graph topology imbalance for inductive and scalable semi-supervised learning. Applied Soft Computing, 151:111164, 2024.`
+- Parsed Ref. ID: 10
+	- Full reference: `[10] Yoav Freund and Robert E Schapire. A decision-theoretic generalization of on-line learning and an application to boosting. Journal of computer and system sciences, 55(1):119–139, 1997.`
+- Parsed Ref. ID: 13
+	- Full reference: `[13] Hui Han, Wen-Yuan Wang, and Bing-Huan Mao. Borderline-smote: a new over-sampling method in imbalanced data sets learning. In International conference on intelligent computing, pages 878–887. Springer, 2005.`
+- Parsed Ref. ID: 15
+	- Full reference: `[15] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Delving deep into rectifiers: Surpassing human-level performance on imagenet classification. In Proceedings of the IEEE international conference on computer vision, pages 1026–1034, 2015.`
+- Parsed Ref. ID: 20
+	- Full reference: `[20] Bingyi Kang, Saining Xie, Marcus Rohrbach, Zhicheng Yan, Albert Gordo, Jiashi Feng, and Yannis Kalantidis. Decoupling representation and classifier for long-tailed recognition. In International Conference on Learning Representations, 2019.`
+- Parsed Ref. ID: 22
+	- Full reference: `[22] Diederik P Kingma and Jimmy Ba. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014.`
+- Parsed Ref. ID: 28
+	- Full reference: `[28] Xu-Ying Liu, Jianxin Wu, and Zhi-Hua Zhou. Exploratory undersampling for class-imbalance learning. IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 39(2):539–550, 2008.`
+- Parsed Ref. ID: 30
+	- Full reference: `[30] Zhining Liu, Ruizhong Qiu, Zhichen Zeng, Hyunsik Yoo, David Zhou, Zhe Xu, Yada Zhu, Kommy Weldemariam, Jingrui He, and Hanghang Tong. Class-imbalanced graph learning without class rebalancing. arXiv preprint arXiv:2308.14181, 2023.`
+- Parsed Ref. ID: 31
+	- Full reference: `[31] Zhining Liu, Pengfei Wei, Jing Jiang, Wei Cao, Jiang Bian, and Yi Chang. Mesa: boost ensemble imbalanced learning with meta-sampler. Advances in Neural Information Processing Systems, 33:14463– 14474, 2020.`
+- Parsed Ref. ID: 32
+	- Full reference: `[32] Jian Ma, Fandi Wu, Tingyang Xu, Shaoyong Xu, Wei Liu, Liang Yan, Minghao Qu, Xiaoke Yang, Qifeng Bai, Junyu Xiao, et al. An adaptive autoregressive diffusion approach to design active humanized antibodies and nanobodies. Nature Machine Intelligence, pages 1–15, 2025.`
+- Parsed Ref. ID: 33
+	- Full reference: `[33] Aditya Krishna Menon, Sadeep Jayasumana, Ankit Singh Rawat, Himanshu Jain, Andreas Veit, and Sanjiv Kumar. Long-tail learning via logit adjustment. arXiv preprint arXiv:2007.07314, 2020.`
+- Parsed Ref. ID: 35
+	- Full reference: `[35] Yiming Qin, Huangjie Zheng, Jiangchao Yao, Mingyuan Zhou, and Ya Zhang. Class-balancing diffusion models. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 18434–18443, 2023.`
+- Parsed Ref. ID: 38
+	- Full reference: `[38] David E Rumelhart, Geoffrey E Hinton, and Ronald J Williams. Learning representations by backpropagating errors. nature, 323(6088):533–536, 1986.`
+- Parsed Ref. ID: 39
+	- Full reference: `[39] José A Sáez, Julián Luengo, Jerzy Stefanowski, and Francisco Herrera. Smote–ipf: Addressing the noisy and borderline examples problem in imbalanced classification by a re-sampling method with filtering. Information Sciences, 291:184–203, 2015.`
+- Parsed Ref. ID: 42
+	- Full reference: `[42] Michael R Smith, Tony Martinez, and Christophe Giraud-Carrier. An instance level analysis of data complexity. Machine learning, 95(2):225–256, 2014.`
+- Parsed Ref. ID: 43
+	- Full reference: `[43] Jaeyun Song, SungYub Kim, and Eunho Yang. Rge: A repulsive graph rectification for node classification via influence. In International Conference on Machine Learning, pages 32331–32348. PMLR, 2023.`
+- Parsed Ref. ID: 46
+	- Full reference: `[46] Qingyun Sun, Jianxin Li, Haonan Yuan, Xingcheng Fu, Hao Peng, Cheng Ji, Qian Li, and Philip S Yu. Position-aware structure learning for graph topology-imbalance by relieving under-reaching and over-squashing. In Proceedings of the 31st ACM International Conference on Information & Knowledge Management, pages 1848–1857, 2022.`
+- Parsed Ref. ID: 47
+	- Full reference: `[47] Kaihua Tang, Jianqiang Huang, and Hanwang Zhang. Long-tailed classification by keeping the good and removing the bad momentum causal effect. Advances in Neural Information Processing Systems, 33:1513–1524, 2020.`
+- Parsed Ref. ID: 48
+	- Full reference: `[48] Yuchun Tang, Yan-Qing Zhang, Nitesh V Chawla, and Sven Krasser. Svms modeling for highly imbalanced classification. IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 39(1):281–288, 2008.`
+- Parsed Ref. ID: 49
+	- Full reference: `[49] Junjiao Tian, Yen-Cheng Liu, Nathaniel Glaser, Yen-Chang Hsu, and Zsolt Kira. Posterior re-calibration for imbalanced datasets. Advances in Neural Information Processing Systems, 33:8101–8113, 2020.`
+- Parsed Ref. ID: 52
+	- Full reference: `[52] Jianfeng Wang, Thomas Lukasiewicz, Xiaolin Hu, Jianfei Cai, and Zhenghua Xu. Rsg: A simple but effective module for learning imbalanced datasets. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 3784–3793, 2021.`
+- Parsed Ref. ID: 53
+	- Full reference: `[53] Tong Wang, Yousong Zhu, Chaoyang Zhao, Wei Zeng, Jinqiao Wang, and Ming Tang. Adaptive class suppression loss for long-tail object detection. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 3103–3112, 2021.`
+- Parsed Ref. ID: 54
+	- Full reference: `[54] Xinyi Wang, Ling Guo, and Hui Yan. Community-entropy based graph structure learning for topologyimbalance. In ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 1–5. IEEE, 2025.`
+- Parsed Ref. ID: 55
+	- Full reference: `[55] Xudong Wang, Long Lian, Zhongqi Miao, Ziwei Liu, and Stella X Yu. Long-tailed recognition by routing diverse distribution-aware experts. arXiv preprint arXiv:2010.01809, 2020.`
+- Parsed Ref. ID: 56
+	- Full reference: `[56] Yu Wang, Tong Zhao, Yuying Zhao, Yunchao Liu, Xueqi Cheng, Neil Shah, and Tyler Derr. A topological perspective on demystifying gnn-based link prediction performance. arXiv preprint arXiv:2310.04612, 2023.`
+- Parsed Ref. ID: 60
+	- Full reference: `[60] Yuhao Wu, Jiangchao Yao, Xiaobo Xia, Jun Yu, Ruxin Wang, Bo Han, and Tongliang Liu. Mitigating label noise on graph via topological sample selection. arXiv preprint arXiv:2403.01942, 2024.`
+- Parsed Ref. ID: 61
+	- Full reference: `[61] Ziyu Xu, Chen Dan, Justin Khim, and Pradeep Ravikumar. Class-weighted classification: Trade-offs and robust approaches. In International Conference on Machine Learning, pages 10544–10554. PMLR, 2020.`
+- Parsed Ref. ID: 62
+	- Full reference: `[62] Divin Yan, Lu Qi, Vincent Tao Hu, Ming-Hsuan Yang, and Meng Tang. Training class-imbalanced diffusion model via overlap optimization. arXiv preprint arXiv:2402.10821, 2024.`
+- Parsed Ref. ID: 66
+	- Full reference: `[66] Chenhui Zhang, Yufei He, Yukuo Cen, Zhenyu Hou, Wenzheng Feng, Yuxiao Dong, Xu Cheng, Hongyun Cai, Feng He, and Jie Tang. Scr: Training graph neural networks with consistency regularization. arXiv preprint arXiv:2112.04319, 2021.`
+- Parsed Ref. ID: 68
+	- Full reference: `[68] Tianxiang Zhao, Dongsheng Luo, Xiang Zhang, and Suhang Wang. Topoimb: Toward topology-level imbalance in learning from graphs. In Learning on Graphs Conference, pages 37–1. PMLR, 2022.`
+- Parsed Ref. ID: 71
+	- Full reference: `[71] Boyan Zhou, Quan Cui, Xiu-Shen Wei, and Zhao-Min Chen. Bbn: Bilateral-branch network with cumulative learning for long-tailed visual recognition. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 9719–9728, 2020.`
+- Parsed Ref. ID: 73
+	- Full reference: `[73] Zhi-Hua Zhou and Xu-Ying Liu. Training cost-sensitive neural networks with methods addressing the class imbalance problem. IEEE Transactions on knowledge and data engineering, 18(1):63–77, 2005.`
+- Parsed Ref. ID: 
+	- Full reference: `K.6 Configuration . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51 L Pseudocode of Our Algorithm`
+
+
+## Frequently Referenced Authors
+
+> [!NOTE]
+> The following authors appear more than 2 times in the bibliography.
+> *Please note that only the lastname and the first letter of the first name are compared for counting.*
+
+- Liu Z.: 4
+- Zhao T.: 4
+- Liu W.: 4
+- Yan D.: 3
+- Li J.: 3
+- Zhang X.: 3
+- Liu H.: 3
+- Yang M.: 3
+- Liu Y.: 3
+- Xu Z.: 3
+- Zhu Y.: 3
+- Song J.: 3
+- Yang E.: 3
+
+
+## Reference Checker Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/20 Geometric Imbalance in Semi-Supervised Node Classification/literature_validation_results_fig.jpg]]
+
+References section starts on page 11.
+
+- No link provided: $75/75=100.00\%$
+- Unchecked links: $0/75=0.00\%$
+- Valid links: $0/75=0.00\%$
+- Invalid link: $0/75=0.00\%$
+
+- Different links: $0/75=0.00\%$
+
+- Successful searches: $55/75=73.33\%$
+- Skipped searches: $0/75=0.00\%$
+- Mismatching infos: $9/75=12.00\%$
+	- **Entries with mismatching author information:**
+		=> total = 3
+		- `[27] Weiyang Liu, Yandong Wen, Zhiding Yu, Meng Yang, Baochang Li, Bhiksha Raj, and Le Song. Sphereface: Deep hypersphere embedding for face recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR), page 212–220, 2017.`
+			- Authors () did not match found publication titled 'SphereFace: Deep Hypersphere Embedding for Face Recognition'
+		- `[50] Petar Veliˇckovi´c, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Lio, and Yoshua Bengio. Graph attention networks. arXiv preprint arXiv:1710.10903, 2017.`
+			- Authors (Velickovic) did not match found publication titled 'Graph Attention Networks'
+		- `[64] Zhilin Yang, William Cohen, and Ruslan Salakhudinov. Revisiting semi-supervised learning with graph embeddings. In International conference on machine learning, pages 40–48. PMLR, 2016.`
+			- Authors (Salakhutdinov) did not match found publication titled 'Revisiting Semi-Supervised Learning with Graph Embeddings'
+	- **Entries with mismatching years (where the difference is = 1 year):**
+		=> total = 6
+		- `[9] Fadi Dornaika, Zoulfikar Ibrahim, and Alireza Bosaghzadeh. Overcoming graph topology imbalance for inductive and scalable semi-supervised learning. Applied Soft Computing, 151:111164, 2024.`
+			- Year (2023) does not match expected year (2024)
+		- `[16] Youngkyu Hong, Seungju Han, Kwanghee Choi, Seokjun Seo, Beomsu Kim, and Buru Chang. Disentangling label distribution for long-tailed visual recognition. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 6626–6636, 2021.`
+			- Year (2020) does not match expected year (2021)
+		- `[28] Xu-Ying Liu, Jianxin Wu, and Zhi-Hua Zhou. Exploratory undersampling for class-imbalance learning. IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 39(2):539–550, 2008.`
+			- Year (2009) does not match expected year (2008)
+		- `[34] Joonhyung Park, Jaeyun Song, and Eunho Yang. Graphens: Neighbor-aware ego network synthesis for class-imbalanced node classification. In International Conference on Learning Representations, 2021.`
+			- Year (2022) does not match expected year (2021)
+		- `[48] Yuchun Tang, Yan-Qing Zhang, Nitesh V Chawla, and Sven Krasser. Svms modeling for highly imbalanced classification. IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics), 39(1):281–288, 2008.`
+			- Year (2009) does not match expected year (2008)
+		- `[71] Boyan Zhou, Quan Cui, Xiu-Shen Wei, and Zhao-Min Chen. Bbn: Bilateral-branch network with cumulative learning for long-tailed visual recognition. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 9719–9728, 2020.`
+			- Year (2019) does not match expected year (2020)
+- No entry found: $11/75=14.67\%$
+	- Unfound entries:
+		=> total = 11
+		- \[6\] Deli Chen, Yankai Lin, Guangxiang Zhao, Xuancheng Ren, Peng Li, Jie Zhou, and Xu Sun. Topologyimbalance learning for semi-supervised node classification. Advances in Neural Information Processing Systems, 34:29885–29897, 2021.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 4 results matched the expected title!
+		- \[11\] Kamran Ghasedi Dizaji, Amir Herandi, Cheng Deng, Weidong Cai, and Heng Huang. Deep embedded clustering with perturbation guidance. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 31, 2017.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!
+		- \[19\] James Joyce. Bayes’ theorem. 2003.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 60 results matched the expected title!
+		- \[38\] David E Rumelhart, Geoffrey E Hinton, and Ronald J Williams. Learning representations by backpropagating errors. nature, 323(6088):533–536, 1986.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!
+		- \[45\] Ke Sun, Zhouchen Lin, and Zhanxing Zhu. Multi-stage self-supervised learning for graph convolutional networks on graphs with few labeled nodes. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 34, pages 5892–5899, 2020.
+			-> WARNING: None of the 2 results matched the expected title! | WARNING: None of the 98 results matched the expected title!
+		- \[54\] Xinyi Wang, Ling Guo, and Hui Yan. Community-entropy based graph structure learning for topologyimbalance. In ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), pages 1–5. IEEE, 2025.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!
+		- \[57\] Zheng Wang, Xiaojun Ye, Chaokun Wang, Jian Cui, and S Yu Philip. Network embedding with completelyimbalanced labels. IEEE Transactions on Knowledge and Data Engineering, 33(11):3634–3647, 2020.
+			-> WARNING: None of the 3 results matched the expected title! | WARNING: None of the 2 results matched the expected title!
+		- ==\[70\] Ming Zhong, Han Liu, Weizhu Zhang, Houyu Wang, Xiang Li, Maosong Sun, and Xu Han. Hyperbolic and spherical embeddings for long-tail entities. In ACL, pages 5491–5501, 2021.==
+			-> WARNING: No results were found through the dblp search! | WARNING: None of the 2 results matched the expected title!
+		- \[73\] Zhi-Hua Zhou and Xu-Ying Liu. Training cost-sensitive neural networks with methods addressing the class imbalance problem. IEEE Transactions on knowledge and data engineering, 18(1):63–77, 2005.
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 135 results matched the expected title!
+		- ==\[74\] Yihong Zhu, Junxian Li, Xianfeng Han, Shirui Pan, Liang Yao, and Chengqi Wang. Spectral contrastive graph clustering. In International Conference on Learning Representations, 2022.== Appendix Table of Contents A Notations 17 B Comprehensive Related Works 18 C Proof of Theorem 1 20 D Proof of Theorem 2 22 E Visualization and Analysis of Geometric Imbalance 23 E.1 Experimental Setup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23 E.2 Results and Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23 F Analysis of Geometric Imbalance under Varying Class Imbalance 25 F.1 Experimental Setup . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 F.2 Quantitative Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 25 G Distinction Between Geometric Imbalance and Topology Imbalance 27 G.1 Geometric Imbalance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27 G.2 Topology Imbalance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27 G.3 Summary of Differences . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27 H Proof of Theorem 3 28 I Comprehensive Experimental Results 29 I.1 Comprehensive Results Under Varying Levels of Class Imbalance . . . . . . . . 29 I.2 Comprehensive Results on Natural Imbalanced Datasets . . . . . . . . . . . . . 29 I.3 Comprehensive Results On Large-Scale Natural Imbalanced Datasets . . . . . . 29 I.4 Experimental Results of Our Method with Less Training Rounds . . . . . . . . . 30 I.5 Adapting Our Framework to Imbalanced Image Classification . . . . . . . . . . 30 I.6 Analysis of Computational Complexity . . . . . . . . . . . . . . . . . . . . . . 31 I.7 Comparison of UNREAL and Recent Soft Pseudo-Labeling Methods . . . . . . 31 I.8 Experimental Results on Imbalanced Heterophilous Graphs. . . . . . . . . . . . 32 I.9 Comparison to General Self-Training Methods . . . . . . . . . . . . . . . . . . 33 J Comprehensive Abaltion Study 41 J.1 Analysis for Decoupling Representation and Classifier for Imbalance Node Classification. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 41 J.2 Detailed Analysis for DPAM . . . . . . . . . . . . . . . . . . . . . . . . . . . 42 J.3 Detailed Results and Analysis about Fluctuation of RBO Values in Node-reordering 43 J.4 Detailed Analysis for Node-Reordering and DGIS . . . . . . . . . . . . . . . . 44 J.5 Detailed Ablation Analysis . . . . . . . . . . . . . . . . . . . . . . . . . . . . 44 J.6 In-Depth Comparison between Self-Training and Our Method . . . . . . . . . . 44 K Experimental Setup 50 K.1 Imbalanced Datasets Construction . . . . . . . . . . . . . . . . . . . . . . . . . 50 K.2 Details of GNNs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 50 K.3 Evaluation Protocol . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51 K.4 Implementation Details . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51 K.5 Baselines . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+			-> WARNING: None of the 10 results matched the expected title! | WARNING: None of the 2 results matched the expected title!
+		- K.6 Configuration . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 51 L Pseudocode of Our Algorithm
+			-> Search skipped due to not enough information!
+
+
+
+## References Support for Statements
+
+> [!NOTE]
+> *Please note that only references with a retrieved abstract can be checked here.*
+> *You can find a complete list, including which sentences were skipped due to a missing abstract, at the bottom of the report.*
+
+**Sentences with references to papers that are thematically related / relevant but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically unrelated / irrelevant to the statement they are referenced in:**
+- None
+
+
+
+---
+## Outlet Rankings
+
+### Outlet Ranking Results
+
+![[Paper-Projekte/PQC/PAU - All  GPTZero NeurIPS Paper with H/20 Geometric Imbalance in Semi-Supervised Node Classification/ranking_results_fig.jpg]]
+
+### References and Their Rankings
+
+- arXiv
+	- References literatures count from this outlet: 15
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in neural information processing systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 5
+- Advances in Neural Information Processing Systems (was NIPS)
+	- Parsed as: Advances in Neural Information Processing Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 4
+- International Conference on Machine Learning
+	- Parsed as: International Conference on Machine Learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- International Conference on Learning Representations
+	- Parsed as: International Conference on Learning Representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF conference on computer vision and pattern recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 3
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 2
+- IEEE Transactions on Systems, Man, and Cybernetics: Systems
+	- Parsed as: IEEE Transactions on Systems, Man, and Cybernetics, Part B
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = C
+	- References literatures count from this outlet: 2
+- IEEE International Conference on Acoustics, Speech and Signal Processing
+	- Parsed as: ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = 4603
+	- References literatures count from this outlet: 1
+- Science China-Information Sciences
+	- Parsed as: Information Sciences
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = C
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = National: USA
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 6.8
+	- References literatures count from this outlet: 1
+- International Joint Conference on Artificial Intelligence
+	- Parsed as: Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Foundations and Trends in Machine Learning
+	- Parsed as: Machine learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 25.2
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proceedings of the AAAI Conference on Artificial Intelligence, volume 34
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- ACM International Conference on Information and Knowledge Management
+	- Parsed as: Proceedings of the 31st ACM International Conference on Information & Knowledge Management
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- IEEE SIGNAL PROCESSING LETTERS
+	- Parsed as: IEEE Signal Processing Letters
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.3
+	- References literatures count from this outlet: 1
+- JOURNAL OF MACHINE LEARNING RESEARCH
+	- Parsed as: Journal of Machine Learning Research
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 5.0
+	- References literatures count from this outlet: 1
+- NATURE REVIEWS MICROBIOLOGY
+	- Parsed as: nature
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 102.8
+	- References literatures count from this outlet: 1
+- ACM TRANSACTIONS ON INFORMATION SYSTEMS
+	- Parsed as: ACM Transactions on Information Systems
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 7.8
+	- References literatures count from this outlet: 1
+- International Conference on Machine Learning
+	- Parsed as: International conference on machine learning
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Data Engineering
+	- Parsed as: 2024 IEEE 40th International Conference on Data Engineering
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Learning on Graphs Conference
+	- References literatures count from this outlet: 1
+- ACM International Conference on Web Search and Data Mining
+	- Parsed as: Proceedings of the 14th ACM international conference on web search and data mining
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- Association for Computational Linguistics
+	- Parsed as: ACL
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proceedings of the AAAI Conference on Artificial Intelligence, volume 37
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING
+	- Parsed as: IEEE Transactions on knowledge and data engineering
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 9.5
+	- References literatures count from this outlet: 1
+- IEEE TRANSACTIONS ON KNOWLEDGE AND DATA ENGINEERING
+	- Parsed as: IEEE Transactions on Knowledge and Data Engineering
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 9.5
+	- References literatures count from this outlet: 1
+- International World Wide Web Conference
+	- Parsed as: Proceedings of the Web Conference 2021
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- ACM International Conference on Knowledge Discovery and Data Mining
+	- Parsed as: Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = B
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International conference on intelligent computing
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE/CVF International Conference on Computer Vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- JOURNAL OF ARTIFICIAL INTELLIGENCE RESEARCH
+	- Parsed as: Journal of artificial intelligence research
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 3.9
+	- References literatures count from this outlet: 1
+- ACM Multimedia
+	- Parsed as: Proceedings of the 30th ACM International Conference on Multimedia
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- International Conference on Learning Representations
+	- Parsed as: The twelfth international conference on learning representations
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- APPLIED SOFT COMPUTING
+	- Parsed as: Applied Soft Computing
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 6.0
+	- References literatures count from this outlet: 1
+- Journal of computer and system sciences
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Proceedings of the AAAI Conference on Artificial Intelligence
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- IEEE International Conference on Computer Vision
+	- Parsed as: Proceedings of the IEEE international conference on computer vision
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Nature Machine Intelligence
+	- Parsed as: Nature Machine Intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [Journal Impact Factor](https://clarivate.com/academia-government/scientific-and-academic-research/research-funding-analytics/journal-citation-reports/publishers/first-time-journal-citation-reports-inclusion-list-2025/) (without self cites) = 23.4
+	- References literatures count from this outlet: 1
+- Intelligent Data Analysis
+	- Parsed as: Intelligent data analysis
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = B
+	- References literatures count from this outlet: 1
+- The Annals of Probability
+	- References literatures count from this outlet: 1
+- National Conference of the American Association for Artificial Intelligence
+	- Parsed as: Thirty-Second AAAI conference on artificial intelligence
+	- [JQ Ranking](https://www.vhbonline.org/verband/wissenschaftliche-kommissionen/wirtschaftsinformatik/vhb-rating-2024-wirtschaftsinformatik) = A
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- Proceedings of the ACM on Web Conference 2025
+	- References literatures count from this outlet: 1
+- IEEE Conference on Computer Vision and Pattern Recognition
+	- Parsed as: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A*
+	- References literatures count from this outlet: 1
+- ACM International Conference on Information and Knowledge Management
+	- Parsed as: Proceedings of the 33rd ACM International Conference on Information and Knowledge Management
+	- [CORE Ranking](https://portal.core.edu.au/conf-ranks/?search=&by=all&source=ICORE2026&sort=arank&page=1) = A
+	- References literatures count from this outlet: 1
+- 51 L Pseudocode of Our Algorithm
+	- References literatures count from this outlet: 1
+
+
+
+---
+## Extracted References
+
+- **Number 1:**
+	- Ref. ID: *1*
+	- Authors: *Arindam Banerjee, Inderjit S Dhillon, Joydeep Ghosh, and Suvrit Sra*
+	- Normalized Authors: `['Banerjee A.', 'Dhillon I.', 'Ghosh J.', 'Sra S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Clustering on the unit hypersphere using von mises-fisher distributions*
+	- Year: *2005*
+	- Outlet: *Journal of Machine Learning Research*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 2:**
+	- Ref. ID: *2*
+	- Authors: *Tian Bian, Yifan Niu, Heng Chang, Divin Yan, Junzhou Huang, Yu Rong, Tingyang Xu, Jia Li, and Hong Cheng*
+	- Normalized Authors: `['Bian T.', 'Niu Y.', 'Chang H.', 'Yan D.', 'Huang J.', 'Rong Y.', 'Xu T.', 'Li J.', 'Cheng H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Hierarchical graph latent diffusion model for conditional molecule generation*
+	- Year: *2024*
+	- Outlet: *Proceedings of the 33rd ACM International Conference on Information and Knowledge Management*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 3:**
+	- Ref. ID: *3*
+	- Authors: *Jiarui Cai, Yizhou Wang, and Jenq-Neng Hwang*
+	- Normalized Authors: `['Cai J.', 'Wang Y.', 'Hwang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Ace: Ally complementary experts for solving long-tailed recognition in one-shot*
+	- Year: *2021*
+	- Outlet: *Proceedings of the IEEE/CVF International Conference on Computer Vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 4:**
+	- Ref. ID: *4*
+	- Authors: *Kaidi Cao, Colin Wei, Adrien Gaidon, Nikos Arechiga, and Tengyu Ma*
+	- Normalized Authors: `['Cao K.', 'Wei C.', 'Gaidon A.', 'Arechiga N.', 'Ma T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning imbalanced datasets with label-distribution-aware margin loss*
+	- Year: *2019*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 5:**
+	- Ref. ID: *5*
+	- Authors: *Nitesh V Chawla, Kevin W Bowyer, Lawrence O Hall, and W Philip Kegelmeyer*
+	- Normalized Authors: `['Chawla N.', 'Bowyer K.', 'Hall L.', 'Kegelmeyer W.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Smote: synthetic minority over-sampling technique*
+	- Year: *2002*
+	- Outlet: *Journal of artificial intelligence research*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 6:**
+	- Ref. ID: *6*
+	- Authors: *Deli Chen, Yankai Lin, Guangxiang Zhao, Xuancheng Ren, Peng Li, Jie Zhou, and Xu Sun*
+	- Normalized Authors: `['Chen D.', 'Lin Y.', 'Zhao G.', 'Ren X.', 'Li P.', 'Zhou J.', 'Sun X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Topologyimbalance learning for semi-supervised node classification*
+	- Year: *2021*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 4 results matched the expected title!*
+- **Number 7:**
+	- Ref. ID: *7*
+	- Authors: *Junyu Chen, Qianqian Xu, Zhiyong Yang, Xiaochun Cao, and Qingming Huang*
+	- Normalized Authors: `['Chen J.', 'Xu Q.', 'Yang Z.', 'Cao X.', 'Huang Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A unified framework against topology and class imbalance*
+	- Year: *2022*
+	- Outlet: *Proceedings of the 30th ACM International Conference on Multimedia*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 8:**
+	- Ref. ID: *8*
+	- Authors: *Nan Chen, Zemin Liu, Bryan Hooi, Bingsheng He, Rizal Fathony, Jun Hu, and Jia Chen*
+	- Normalized Authors: `['Chen N.', 'Liu Z.', 'Hooi B.', 'He B.', 'Fathony R.', 'Hu J.', 'Chen J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Consistency training with learnable data augmentation for graph anomaly detection with limited supervision*
+	- Year: *2024*
+	- Outlet: *The twelfth international conference on learning representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 9:**
+	- Ref. ID: *9*
+	- Authors: *Fadi Dornaika, Zoulfikar Ibrahim, and Alireza Bosaghzadeh*
+	- Normalized Authors: `['Dornaika F.', 'Ibrahim Z.', 'Bosaghzadeh A.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Overcoming graph topology imbalance for inductive and scalable semi-supervised learning*
+	- Year: *2024*
+	- Outlet: *Applied Soft Computing*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2023) does not match expected year (2024)*
+- **Number 10:**
+	- Ref. ID: *10*
+	- Authors: *Yoav Freund and Robert E Schapire*
+	- Normalized Authors: `['Freund Y.', 'Schapire R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A decision-theoretic generalization of on-line learning and an application to boosting*
+	- Year: *1997*
+	- Outlet: *Journal of computer and system sciences*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 11:**
+	- Ref. ID: *11*
+	- Authors: *Kamran Ghasedi Dizaji, Amir Herandi, Cheng Deng, Weidong Cai, and Heng Huang*
+	- Normalized Authors: `['Dizaji K.', 'Herandi A.', 'Deng C.', 'Cai W.', 'Huang H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deep embedded clustering with perturbation guidance*
+	- Year: *2017*
+	- Outlet: *Proceedings of the AAAI Conference on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1 results matched the expected title!*
+- **Number 12:**
+	- Ref. ID: *12*
+	- Authors: *Will Hamilton, Zhitao Ying, and Jure Leskovec*
+	- Normalized Authors: `['Hamilton W.', 'Ying Z.', 'Leskovec J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Inductive representation learning on large graphs*
+	- Year: *2017*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 13:**
+	- Ref. ID: *13*
+	- Authors: *Hui Han, Wen-Yuan Wang, and Bing-Huan Mao*
+	- Normalized Authors: `['Han H.', 'Wang W.', 'Mao B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Borderline-smote: a new over-sampling method in imbalanced data sets learning*
+	- Year: *2005*
+	- Outlet: *International conference on intelligent computing*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 14:**
+	- Ref. ID: *14*
+	- Authors: *Md Abul Hasnat, Julien Bohné, Jonathan Milgram, Stéphane Gentric, and Liming Chen*
+	- Normalized Authors: `['Hasnat M.', 'Bohné J.', 'Milgram J.', 'Gentric S.', 'Chen L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *von mises-fisher mixture model-based deep learning: Application to face verification*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 15:**
+	- Ref. ID: *15*
+	- Authors: *Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun*
+	- Normalized Authors: `['He K.', 'Zhang X.', 'Ren S.', 'Sun J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Delving deep into rectifiers: Surpassing human-level performance on imagenet classification*
+	- Year: *2015*
+	- Outlet: *Proceedings of the IEEE international conference on computer vision*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 16:**
+	- Ref. ID: *16*
+	- Authors: *Youngkyu Hong, Seungju Han, Kwanghee Choi, Seokjun Seo, Beomsu Kim, and Buru Chang*
+	- Normalized Authors: `['Hong Y.', 'Han S.', 'Choi K.', 'Seo S.', 'Kim B.', 'Chang B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Disentangling label distribution for long-tailed visual recognition*
+	- Year: *2021*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2020) does not match expected year (2021)*
+- **Number 17:**
+	- Ref. ID: *17*
+	- Authors: *Weihua Hu, Matthias Fey, Marinka Zitnik, Yuxiao Dong, Hongyu Ren, Bowen Liu, Michele Catasta, and Jure Leskovec*
+	- Normalized Authors: `['Hu W.', 'Fey M.', 'Zitnik M.', 'Dong Y.', 'Ren H.', 'Liu B.', 'Catasta M.', 'Leskovec J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Open graph benchmark: Datasets for machine learning on graphs*
+	- Year: *2020*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 18:**
+	- Ref. ID: *18*
+	- Authors: *Nathalie Japkowicz and Shaju Stephen*
+	- Normalized Authors: `['Japkowicz N.', 'Stephen S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *The class imbalance problem: A systematic study*
+	- Year: *2002*
+	- Outlet: *Intelligent data analysis*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 19:**
+	- Ref. ID: *19*
+	- Authors: *James Joyce*
+	- Normalized Authors: `['Joyce J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Bayes’ theorem*
+	- Year: *2003*
+	- Outlet: **
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 60 results matched the expected title!*
+- **Number 20:**
+	- Ref. ID: *20*
+	- Authors: *Bingyi Kang, Saining Xie, Marcus Rohrbach, Zhicheng Yan, Albert Gordo, Jiashi Feng, and Yannis Kalantidis*
+	- Normalized Authors: `['Kang B.', 'Xie S.', 'Rohrbach M.', 'Yan Z.', 'Gordo A.', 'Feng J.', 'Kalantidis Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Decoupling representation and classifier for long-tailed recognition*
+	- Year: *2019*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 21:**
+	- Ref. ID: *21*
+	- Authors: *John Kent*
+	- Normalized Authors: `['Kent J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Some probabilistic properties of bessel functions*
+	- Year: *1978*
+	- Outlet: *The Annals of Probability*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 22:**
+	- Ref. ID: *22*
+	- Authors: *Diederik P Kingma and Jimmy Ba*
+	- Normalized Authors: `['Kingma D.', 'Ba J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adam: A method for stochastic optimization*
+	- Year: *2014*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 23:**
+	- Ref. ID: *23*
+	- Authors: *Thomas N Kipf and Max Welling*
+	- Normalized Authors: `['Kipf T.', 'Welling M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Semi-supervised classification with graph convolutional networks*
+	- Year: *2016*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 24:**
+	- Ref. ID: *24*
+	- Authors: *Qimai Li, Zhichao Han, and Xiao-Ming Wu*
+	- Normalized Authors: `['Li Q.', 'Han Z.', 'Wu X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Deeper insights into graph convolutional networks for semi-supervised learning*
+	- Year: *2018*
+	- Outlet: *Thirty-Second AAAI conference on artificial intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 25:**
+	- Ref. ID: *25*
+	- Authors: *Zhixun Li, Dingshuo Chen, Tong Zhao, Daixin Wang, Hongrui Liu, Zhiqiang Zhang, Jun Zhou, and Jeffrey Xu Yu*
+	- Normalized Authors: `['Li Z.', 'Chen D.', 'Zhao T.', 'Wang D.', 'Liu H.', 'Zhang Z.', 'Zhou J.', 'Yu J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Iceberg: Debiased self-training for class-imbalanced node classification*
+	- Year: *2025*
+	- Outlet: *Proceedings of the ACM on Web Conference 2025*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 26:**
+	- Ref. ID: *26*
+	- Authors: *Weiyang Liu, Yandong Wen, Zhiding Yu, and Meng Yang*
+	- Normalized Authors: `['Liu W.', 'Wen Y.', 'Yu Z.', 'Yang M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Large-margin softmax loss for convolutional neural networks*
+	- Year: *2016*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 27:**
+	- Ref. ID: *27*
+	- Authors: *Weiyang Liu, Yandong Wen, Zhiding Yu, Meng Yang, Baochang Li, Bhiksha Raj, and Le Song*
+	- Normalized Authors: `['Liu W.', 'Wen Y.', 'Yu Z.', 'Yang M.', 'Li B.', 'Raj B.', 'Song L.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Sphereface: Deep hypersphere embedding for face recognition*
+	- Year: *2017*
+	- Outlet: *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Authors () did not match found publication titled 'SphereFace: Deep Hypersphere Embedding for Face Recognition'*
+- **Number 28:**
+	- Ref. ID: *28*
+	- Authors: *Xu-Ying Liu, Jianxin Wu, and Zhi-Hua Zhou*
+	- Normalized Authors: `['Liu X.', 'Wu J.', 'Zhou Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Exploratory undersampling for class-imbalance learning*
+	- Year: *2008*
+	- Outlet: *IEEE Transactions on Systems, Man, and Cybernetics, Part B*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2009) does not match expected year (2008)*
+- **Number 29:**
+	- Ref. ID: *29*
+	- Authors: *Yang Liu, Xiang Ao, Zidi Qin, Jianfeng Chi, Jinghua Feng, Hao Yang, and Qing He*
+	- Normalized Authors: `['Liu Y.', 'Ao X.', 'Qin Z.', 'Chi J.', 'Feng J.', 'Yang H.', 'He Q.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Pick and choose: a gnn-based imbalanced learning approach for fraud detection*
+	- Year: *2021*
+	- Outlet: *Proceedings of the Web Conference 2021*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 30:**
+	- Ref. ID: *30*
+	- Authors: *Zhining Liu, Ruizhong Qiu, Zhichen Zeng, Hyunsik Yoo, David Zhou, Zhe Xu, Yada Zhu, Kommy Weldemariam, Jingrui He, and Hanghang Tong*
+	- Normalized Authors: `['Liu Z.', 'Qiu R.', 'Zeng Z.', 'Yoo H.', 'Zhou D.', 'Xu Z.', 'Zhu Y.', 'Weldemariam K.', 'He J.', 'Tong H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Class-imbalanced graph learning without class rebalancing*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 31:**
+	- Ref. ID: *31*
+	- Authors: *Zhining Liu, Pengfei Wei, Jing Jiang, Wei Cao, Jiang Bian, and Yi Chang*
+	- Normalized Authors: `['Liu Z.', 'Wei P.', 'Jiang J.', 'Cao W.', 'Bian J.', 'Chang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mesa: boost ensemble imbalanced learning with meta-sampler*
+	- Year: *2020*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 32:**
+	- Ref. ID: *32*
+	- Authors: *Jian Ma, Fandi Wu, Tingyang Xu, Shaoyong Xu, Wei Liu, Liang Yan, Minghao Qu, Xiaoke Yang, Qifeng Bai, Junyu Xiao, et al*
+	- Normalized Authors: `['Ma J.', 'Wu F.', 'Xu T.', 'Xu S.', 'Liu W.', 'Yan L.', 'Qu M.', 'Yang X.', 'Bai Q.', 'Xiao J.']`
+	- Authors contain 'et al.': *True*
+	- Title: *An adaptive autoregressive diffusion approach to design active humanized antibodies and nanobodies*
+	- Year: *2025*
+	- Outlet: *Nature Machine Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 33:**
+	- Ref. ID: *33*
+	- Authors: *Aditya Krishna Menon, Sadeep Jayasumana, Ankit Singh Rawat, Himanshu Jain, Andreas Veit, and Sanjiv Kumar*
+	- Normalized Authors: `['Menon A.', 'Jayasumana S.', 'Rawat A.', 'Jain H.', 'Veit A.', 'Kumar S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Long-tail learning via logit adjustment*
+	- Year: *2020*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 34:**
+	- Ref. ID: *34*
+	- Authors: *Joonhyung Park, Jaeyun Song, and Eunho Yang*
+	- Normalized Authors: `['Park J.', 'Song J.', 'Yang E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Graphens: Neighbor-aware ego network synthesis for class-imbalanced node classification*
+	- Year: *2021*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2022) does not match expected year (2021)*
+- **Number 35:**
+	- Ref. ID: *35*
+	- Authors: *Yiming Qin, Huangjie Zheng, Jiangchao Yao, Mingyuan Zhou, and Ya Zhang*
+	- Normalized Authors: `['Qin Y.', 'Zheng H.', 'Yao J.', 'Zhou M.', 'Zhang Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Class-balancing diffusion models*
+	- Year: *2023*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 36:**
+	- Ref. ID: *36*
+	- Authors: *Liang Qu, Huaisheng Zhu, Ruiqi Zheng, Yuhui Shi, and Hongzhi Yin*
+	- Normalized Authors: `['Qu L.', 'Zhu H.', 'Zheng R.', 'Shi Y.', 'Yin H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Imgagn: Imbalanced network embedding via generative adversarial graph networks*
+	- Year: *2021*
+	- Outlet: *Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery & Data Mining*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 37:**
+	- Ref. ID: *37*
+	- Authors: *Jiawei Ren, Cunjun Yu, Xiao Ma, Haiyu Zhao, Shuai Yi, et al*
+	- Normalized Authors: `['Ren J.', 'Yu C.', 'Ma X.', 'Zhao H.', 'Yi S.']`
+	- Authors contain 'et al.': *True*
+	- Title: *Balanced meta-softmax for long-tailed visual recognition*
+	- Year: *2020*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 38:**
+	- Ref. ID: *38*
+	- Authors: *David E Rumelhart, Geoffrey E Hinton, and Ronald J Williams*
+	- Normalized Authors: `['Rumelhart D.', 'Hinton G.', 'Williams R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning representations by backpropagating errors*
+	- Year: *1986*
+	- Outlet: *nature*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: No results were found through the dblp search!*
+- **Number 39:**
+	- Ref. ID: *39*
+	- Authors: *José A Sáez, Julián Luengo, Jerzy Stefanowski, and Francisco Herrera*
+	- Normalized Authors: `['Sáez J.', 'Luengo J.', 'Stefanowski J.', 'Herrera F.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Smote–ipf: Addressing the noisy and borderline examples problem in imbalanced classification by a re-sampling method with filtering*
+	- Year: *2015*
+	- Outlet: *Information Sciences*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 40:**
+	- Ref. ID: *40*
+	- Authors: *Oleksandr Shchur, Maximilian Mumme, Aleksandar Bojchevski, and Stephan Günnemann*
+	- Normalized Authors: `['Shchur O.', 'Mumme M.', 'Bojchevski A.', 'Günnemann S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Pitfalls of graph neural network evaluation*
+	- Year: *2018*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 41:**
+	- Ref. ID: *41*
+	- Authors: *Min Shi, Yufei Tang, Xingquan Zhu, David Wilson, and Jianxun Liu*
+	- Normalized Authors: `['Shi M.', 'Tang Y.', 'Zhu X.', 'Wilson D.', 'Liu J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-class imbalanced graph convolutional network learning*
+	- Year: *2020*
+	- Outlet: *Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 42:**
+	- Ref. ID: *42*
+	- Authors: *Michael R Smith, Tony Martinez, and Christophe Giraud-Carrier*
+	- Normalized Authors: `['Smith M.', 'Martinez T.', 'Giraud-Carrier C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *An instance level analysis of data complexity*
+	- Year: *2014*
+	- Outlet: *Machine learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 43:**
+	- Ref. ID: *43*
+	- Authors: *Jaeyun Song, SungYub Kim, and Eunho Yang*
+	- Normalized Authors: `['Song J.', 'Kim S.', 'Yang E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Rge: A repulsive graph rectification for node classification via influence*
+	- Year: *2023*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 44:**
+	- Ref. ID: *44*
+	- Authors: *Jaeyun Song, Joonhyung Park, and Eunho Yang*
+	- Normalized Authors: `['Song J.', 'Park J.', 'Yang E.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Tam: Topology-aware margin loss for class-imbalanced node classification*
+	- Year: *2022*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 45:**
+	- Ref. ID: *45*
+	- Authors: *Ke Sun, Zhouchen Lin, and Zhanxing Zhu*
+	- Normalized Authors: `['Sun K.', 'Lin Z.', 'Zhu Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Multi-stage self-supervised learning for graph convolutional networks on graphs with few labeled nodes*
+	- Year: *2020*
+	- Outlet: *Proceedings of the AAAI Conference on Artificial Intelligence, volume 34*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 2 results matched the expected title! | WARNING: None of the 98 results matched the expected title!*
+- **Number 46:**
+	- Ref. ID: *46*
+	- Authors: *Qingyun Sun, Jianxin Li, Haonan Yuan, Xingcheng Fu, Hao Peng, Cheng Ji, Qian Li, and Philip S Yu*
+	- Normalized Authors: `['Sun Q.', 'Li J.', 'Yuan H.', 'Fu X.', 'Peng H.', 'Ji C.', 'Li Q.', 'Yu P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Position-aware structure learning for graph topology-imbalance by relieving under-reaching and over-squashing*
+	- Year: *2022*
+	- Outlet: *Proceedings of the 31st ACM International Conference on Information & Knowledge Management*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 47:**
+	- Ref. ID: *47*
+	- Authors: *Kaihua Tang, Jianqiang Huang, and Hanwang Zhang*
+	- Normalized Authors: `['Tang K.', 'Huang J.', 'Zhang H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Long-tailed classification by keeping the good and removing the bad momentum causal effect*
+	- Year: *2020*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 48:**
+	- Ref. ID: *48*
+	- Authors: *Yuchun Tang, Yan-Qing Zhang, Nitesh V Chawla, and Sven Krasser*
+	- Normalized Authors: `['Tang Y.', 'Zhang Y.', 'Chawla N.', 'Krasser S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Svms modeling for highly imbalanced classification*
+	- Year: *2008*
+	- Outlet: *IEEE Transactions on Systems, Man, and Cybernetics, Part B*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2009) does not match expected year (2008)*
+- **Number 49:**
+	- Ref. ID: *49*
+	- Authors: *Junjiao Tian, Yen-Cheng Liu, Nathaniel Glaser, Yen-Chang Hsu, and Zsolt Kira*
+	- Normalized Authors: `['Tian J.', 'Liu Y.', 'Glaser N.', 'Hsu Y.', 'Kira Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Posterior re-calibration for imbalanced datasets*
+	- Year: *2020*
+	- Outlet: *Advances in Neural Information Processing Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 50:**
+	- Ref. ID: *50*
+	- Authors: *Petar Veliˇckovi´c, Guillem Cucurull, Arantxa Casanova, Adriana Romero, Pietro Lio, and Yoshua Bengio*
+	- Normalized Authors: `['Veliˇckovi´c P.', 'Cucurull G.', 'Casanova A.', 'Romero A.', 'Lio P.', 'Bengio Y.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Graph attention networks*
+	- Year: *2017*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Velickovic) did not match found publication titled 'Graph Attention Networks'*
+- **Number 51:**
+	- Ref. ID: *51*
+	- Authors: *Feng Wang, Jian Cheng, Weiyang Liu, and Haijun Liu*
+	- Normalized Authors: `['Wang F.', 'Cheng J.', 'Liu W.', 'Liu H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Additive margin softmax for face verification*
+	- Year: *2018*
+	- Outlet: *IEEE Signal Processing Letters*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 52:**
+	- Ref. ID: *52*
+	- Authors: *Jianfeng Wang, Thomas Lukasiewicz, Xiaolin Hu, Jianfei Cai, and Zhenghua Xu*
+	- Normalized Authors: `['Wang J.', 'Lukasiewicz T.', 'Hu X.', 'Cai J.', 'Xu Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Rsg: A simple but effective module for learning imbalanced datasets*
+	- Year: *2021*
+	- Outlet: *Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 53:**
+	- Ref. ID: *53*
+	- Authors: *Tong Wang, Yousong Zhu, Chaoyang Zhao, Wei Zeng, Jinqiao Wang, and Ming Tang*
+	- Normalized Authors: `['Wang T.', 'Zhu Y.', 'Zhao C.', 'Zeng W.', 'Wang J.', 'Tang M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Adaptive class suppression loss for long-tail object detection*
+	- Year: *2021*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 54:**
+	- Ref. ID: *54*
+	- Authors: *Xinyi Wang, Ling Guo, and Hui Yan*
+	- Normalized Authors: `['Wang X.', 'Guo L.', 'Yan H.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Community-entropy based graph structure learning for topologyimbalance*
+	- Year: *2025*
+	- Outlet: *ICASSP 2025-2025 IEEE International Conference on Acoustics, Speech and Signal Processing*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 1000 results matched the expected title!*
+- **Number 55:**
+	- Ref. ID: *55*
+	- Authors: *Xudong Wang, Long Lian, Zhongqi Miao, Ziwei Liu, and Stella X Yu*
+	- Normalized Authors: `['Wang X.', 'Lian L.', 'Miao Z.', 'Liu Z.', 'Yu S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Long-tailed recognition by routing diverse distribution-aware experts*
+	- Year: *2020*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 56:**
+	- Ref. ID: *56*
+	- Authors: *Yu Wang, Tong Zhao, Yuying Zhao, Yunchao Liu, Xueqi Cheng, Neil Shah, and Tyler Derr*
+	- Normalized Authors: `['Wang Y.', 'Zhao T.', 'Zhao Y.', 'Liu Y.', 'Cheng X.', 'Shah N.', 'Derr T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A topological perspective on demystifying gnn-based link prediction performance*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 57:**
+	- Ref. ID: *57*
+	- Authors: *Zheng Wang, Xiaojun Ye, Chaokun Wang, Jian Cui, and S Yu Philip*
+	- Normalized Authors: `['Wang Z.', 'Ye X.', 'Wang C.', 'Cui J.', 'Philip S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Network embedding with completelyimbalanced labels*
+	- Year: *2020*
+	- Outlet: *IEEE Transactions on Knowledge and Data Engineering*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 3 results matched the expected title! | WARNING: None of the 2 results matched the expected title!*
+- **Number 58:**
+	- Ref. ID: *58*
+	- Authors: *William Webber, Alistair Moffat, and Justin Zobel*
+	- Normalized Authors: `['Webber W.', 'Moffat A.', 'Zobel J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *A similarity measure for indefinite rankings*
+	- Year: *2010*
+	- Outlet: *ACM Transactions on Information Systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 59:**
+	- Ref. ID: *59*
+	- Authors: *Xiao-Ming Wu, Zhenguo Li, Anthony So, John Wright, and Shih-Fu Chang*
+	- Normalized Authors: `['Wu X.', 'Li Z.', 'So A.', 'Wright J.', 'Chang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Learning with partially absorbing random walks*
+	- Year: *2012*
+	- Outlet: *Advances in neural information processing systems*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 60:**
+	- Ref. ID: *60*
+	- Authors: *Yuhao Wu, Jiangchao Yao, Xiaobo Xia, Jun Yu, Ruxin Wang, Bo Han, and Tongliang Liu*
+	- Normalized Authors: `['Wu Y.', 'Yao J.', 'Xia X.', 'Yu J.', 'Wang R.', 'Han B.', 'Liu T.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Mitigating label noise on graph via topological sample selection*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 61:**
+	- Ref. ID: *61*
+	- Authors: *Ziyu Xu, Chen Dan, Justin Khim, and Pradeep Ravikumar*
+	- Normalized Authors: `['Xu Z.', 'Dan C.', 'Khim J.', 'Ravikumar P.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Class-weighted classification: Trade-offs and robust approaches*
+	- Year: *2020*
+	- Outlet: *International Conference on Machine Learning*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 62:**
+	- Ref. ID: *62*
+	- Authors: *Divin Yan, Lu Qi, Vincent Tao Hu, Ming-Hsuan Yang, and Meng Tang*
+	- Normalized Authors: `['Yan D.', 'Qi L.', 'Hu V.', 'Yang M.', 'Tang M.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Training class-imbalanced diffusion model via overlap optimization*
+	- Year: *2024*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 63:**
+	- Ref. ID: *63*
+	- Authors: *Divin Yan, Gengchen Wei, Chen Yang, Shengzhong Zhang, and Zengfeng Huang*
+	- Normalized Authors: `['Yan D.', 'Wei G.', 'Yang C.', 'Zhang S.', 'Huang Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Rethinking semi-supervised imbalanced node classification from bias-variance decomposition*
+	- Year: *2023*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 64:**
+	- Ref. ID: *64*
+	- Authors: *Zhilin Yang, William Cohen, and Ruslan Salakhudinov*
+	- Normalized Authors: `['Yang Z.', 'Cohen W.', 'Salakhudinov R.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Revisiting semi-supervised learning with graph embeddings*
+	- Year: *2016*
+	- Outlet: *International conference on machine learning*
+	- Link: **
+	- **Valid?**: *CHECK - Authors (Salakhutdinov) did not match found publication titled 'Revisiting Semi-Supervised Learning with Graph Embeddings'*
+- **Number 65:**
+	- Ref. ID: *65*
+	- Authors: *Hanqing Zeng, Hongkuan Zhou, Ajitesh Srivastava, Rajgopal Kannan, and Viktor Prasanna*
+	- Normalized Authors: `['Zeng H.', 'Zhou H.', 'Srivastava A.', 'Kannan R.', 'Prasanna V.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Graphsaint: Graph sampling based inductive learning method*
+	- Year: *2019*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 66:**
+	- Ref. ID: *66*
+	- Authors: *Chenhui Zhang, Yufei He, Yukuo Cen, Zhenyu Hou, Wenzheng Feng, Yuxiao Dong, Xu Cheng, Hongyun Cai, Feng He, and Jie Tang*
+	- Normalized Authors: `['Zhang C.', 'He Y.', 'Cen Y.', 'Hou Z.', 'Feng W.', 'Dong Y.', 'Cheng X.', 'Cai H.', 'He F.', 'Tang J.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Scr: Training graph neural networks with consistency regularization*
+	- Year: *2021*
+	- Outlet: *arXiv*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 67:**
+	- Ref. ID: *67*
+	- Authors: *Wentao Zhang, Xinyi Gao, Ling Yang, Meng Cao, Ping Huang, Jiulong Shan, Hongzhi Yin, and Bin Cui*
+	- Normalized Authors: `['Zhang W.', 'Gao X.', 'Yang L.', 'Cao M.', 'Huang P.', 'Shan J.', 'Yin H.', 'Cui B.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Bim: improving graph neural networks with balanced influence maximization*
+	- Year: *2024*
+	- Outlet: *2024 IEEE 40th International Conference on Data Engineering*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 68:**
+	- Ref. ID: *68*
+	- Authors: *Tianxiang Zhao, Dongsheng Luo, Xiang Zhang, and Suhang Wang*
+	- Normalized Authors: `['Zhao T.', 'Luo D.', 'Zhang X.', 'Wang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Topoimb: Toward topology-level imbalance in learning from graphs*
+	- Year: *2022*
+	- Outlet: *Learning on Graphs Conference*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 69:**
+	- Ref. ID: *69*
+	- Authors: *Tianxiang Zhao, Xiang Zhang, and Suhang Wang*
+	- Normalized Authors: `['Zhao T.', 'Zhang X.', 'Wang S.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Graphsmote: Imbalanced node classification on graphs with graph neural networks*
+	- Year: *2021*
+	- Outlet: *Proceedings of the 14th ACM international conference on web search and data mining*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 70:**
+	- Ref. ID: *70*
+	- Authors: *Ming Zhong, Han Liu, Weizhu Zhang, Houyu Wang, Xiang Li, Maosong Sun, and Xu Han*
+	- Normalized Authors: `['Zhong M.', 'Liu H.', 'Zhang W.', 'Wang H.', 'Li X.', 'Sun M.', 'Han X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Hyperbolic and spherical embeddings for long-tail entities*
+	- Year: *2021*
+	- Outlet: *ACL*
+	- Link: **
+	- **Valid?**: *WARNING: No results were found through the dblp search! | WARNING: None of the 2 results matched the expected title!*
+- **Number 71:**
+	- Ref. ID: *71*
+	- Authors: *Boyan Zhou, Quan Cui, Xiu-Shen Wei, and Zhao-Min Chen*
+	- Normalized Authors: `['Zhou B.', 'Cui Q.', 'Wei X.', 'Chen Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Bbn: Bilateral-branch network with cumulative learning for long-tailed visual recognition*
+	- Year: *2020*
+	- Outlet: *Proceedings of the IEEE/CVF conference on computer vision and pattern recognition*
+	- Link: **
+	- **Valid?**: *CHECK - Year (2019) does not match expected year (2020)*
+- **Number 72:**
+	- Ref. ID: *72*
+	- Authors: *Mengting Zhou and Zhiguo Gong*
+	- Normalized Authors: `['Zhou M.', 'Gong Z.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Graphsr: A data augmentation algorithm for imbalanced node classification*
+	- Year: *2023*
+	- Outlet: *Proceedings of the AAAI Conference on Artificial Intelligence, volume 37*
+	- Link: **
+	- **Valid?**: *Found: Years matched; reference checks out :)*
+- **Number 73:**
+	- Ref. ID: *73*
+	- Authors: *Zhi-Hua Zhou and Xu-Ying Liu*
+	- Normalized Authors: `['Zhou Z.', 'Liu X.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Training cost-sensitive neural networks with methods addressing the class imbalance problem*
+	- Year: *2005*
+	- Outlet: *IEEE Transactions on knowledge and data engineering*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 135 results matched the expected title!*
+- **Number 74:**
+	- Ref. ID: *74*
+	- Authors: *Yihong Zhu, Junxian Li, Xianfeng Han, Shirui Pan, Liang Yao, and Chengqi Wang*
+	- Normalized Authors: `['Zhu Y.', 'Li J.', 'Han X.', 'Pan S.', 'Yao L.', 'Wang C.']`
+	- Authors contain 'et al.': *False*
+	- Title: *Spectral contrastive graph clustering*
+	- Year: *2022*
+	- Outlet: *International Conference on Learning Representations*
+	- Link: **
+	- **Valid?**: *WARNING: None of the 10 results matched the expected title! | WARNING: None of the 2 results matched the expected title!*
+- **Number 75:**
+	- Ref. ID: **
+	- Authors: *K 6 Configuration*
+	- Normalized Authors: `['Configuration K.']`
+	- Authors contain 'et al.': *False*
+	- Title: **
+	- Year: *0*
+	- Outlet: *51 L Pseudocode of Our Algorithm*
+	- Link: **
+	- **Valid?**: *None*
+
+
+
+---
+## Full List of Reference Support Check
+
+**Sentences with references to papers that are thematically related / relevant papers but REFUTE the statement they are referenced in:**
+- None
+
+**Sentences with references to papers that are thematically related / relevant papers that we had not enough info about to determine the stance on the statement they are referenced in:**
+- '*We also compare our method with cross-entropy loss with Re-Weighting (RW) [18], PC Softmax (PS) [16], and Balanced Softmax (BS) [37]*'
+	- This flag is for the paper with Ref. ID = 16
+- '*We conduct the analysis on the unit hyperspher (a simple riemannian manifold) because GNN embeddings by message passing are typically normalized before classification to ensure stability and improve training dynamics [23, 27]*'
+	- This flag is for the paper with Ref. ID = 27
+- '*We conduct evaluations under various benchmarking settings on 8 datasets-Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]-capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 64
+- '*We conduct evaluations under various benchmarking settings on 8 datasets-Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]-capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 64
+- '*We conduct evaluations under various benchmarking settings on 8 datasets-Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]-capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 64
+- '*For the citation networks (Cora, Citeseer, and Pubmed), we use the standard splits from [64] to create imbalance settings with ρ = 10 and ρ = 20*'
+	- This flag is for the paper with Ref. ID = 64
+
+**Sentences with references to papers that are thematically related / relevant papers that SUPPORT the statement they are referenced in:**
+- '*In graph semi-supervised learning [23, 50], graphs encode relationships between data points as edges, enabling information sharing across the graph structure*'
+	- This flag is for the paper with Ref. ID = 50
+
+
+**Sentences with references to papers that seem thematically unrelated / irrelevant:**
+- '*While GNNs have achieved remarkable success in various graph-based learning tasks [23, 50], their message passing mechanisms can amplify the negative impact of class imbalance, especially for minority classes*'
+	- This flag is for the paper with Ref. ID = 50
+- '*We evaluate the performance of our method on several mainstream GNN architectures, including GCN [23], GAT [50], and GraphSAGE [12]*'
+	- This flag is for the paper with Ref. ID = 50
+
+
+**Sentences with references to papers that we didn't have an abstract for to check against:**
+- '*It has been widely used to model directional data and has shown effectiveness in normalized embedding spaces [14, 1, 70]*'
+	- This flag is for the paper with Ref. ID = 1
+- '*Compared to oversampling [69, 34] or loss function engineering [6, 44], ST avoids the complexities of synthesizing new nodes or edges and thus is naturally well-suited for graphstructured data*'
+	- This flag is for the paper with Ref. ID = 6
+- '*It is worth noting that our proposed concept of geometric imbalance is fundamentally distinct from previously studied topology imbalance [6, 34]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*We evaluate our framework against several classic techniques and state-of-the-art methods for addressing imbalanced node classification, including GraphSMOTE (GS) [69], GraphENS (GE) [34], ReNode (RN) [6], TAM [44], GraphSR (GSR) [72], BIM [67]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 6
+- '*ReNode [6] reweights nodes based on their topological distances to class decision boundaries, while TAM [44] calibrates logits using local topology and class statistics*'
+	- This flag is for the paper with Ref. ID = 6
+- '*The strategy (K > C) has been commonly adopted in deep clustering and pseudo-labeling to improve separation in ambiguous regions [11, 74]*'
+	- This flag is for the paper with Ref. ID = 11
+- '*We evaluate the performance of our method on several mainstream GNN architectures, including GCN [23], GAT [50], and GraphSAGE [12]*'
+	- This flag is for the paper with Ref. ID = 12
+- '*This normalization maps embeddings onto a riemannian manifold, which is consistent with the assumptions of von Mises-Fisher (vMF) distribution [14]*'
+	- This flag is for the paper with Ref. ID = 14
+- '*It has been widely used to model directional data and has shown effectiveness in normalized embedding spaces [14, 1, 70]*'
+	- This flag is for the paper with Ref. ID = 14
+- '*We conduct evaluations under various benchmarking settings on 8 datasets—Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]—capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 17
+- '*We also compare our method with cross-entropy loss with Re-Weighting (RW) [18], PC Softmax (PS) [16], and Balanced Softmax (BS) [37]*'
+	- This flag is for the paper with Ref. ID = 18
+- '*Using Bayes’ theorem [19], the posterior probability p(yl = i|˜h(l) v ) is: pi v = p(yv = i|˜h(l) v ) = plabel D (i) · p(˜h(l) v |κi, ˜µi) PC j=1 plabel D (j) · p(˜h(l) v |κj, ˜µj)*'
+	- This flag is for the paper with Ref. ID = 19
+- '*Here, d is the dimensionality of the embedding space, and Ir(κ) denotes the modified Bessel function of the first kind of order r [21]*'
+	- This flag is for the paper with Ref. ID = 21
+- '*While GNNs have achieved remarkable success in various graph-based learning tasks [23, 50], their message passing mechanisms can amplify the negative impact of class imbalance, especially for minority classes*'
+	- This flag is for the paper with Ref. ID = 23
+- '*In graph semi-supervised learning [23, 50], graphs encode relationships between data points as edges, enabling information sharing across the graph structure*'
+	- This flag is for the paper with Ref. ID = 23
+- '*We conduct the analysis on the unit hyperspher (a simple riemannian manifold) because GNN embeddings by message passing are typically normalized before classification to ensure stability and improve training dynamics [23, 27]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*We evaluate the performance of our method on several mainstream GNN architectures, including GCN [23], GAT [50], and GraphSAGE [12]*'
+	- This flag is for the paper with Ref. ID = 23
+- '*Self-training methods [24, 59, 45] align well with this framework by iteratively incorporating pseudo-labeled data into the training process, thereby expanding the labeled set and improving the model’s performance on unlabeled data*'
+	- This flag is for the paper with Ref. ID = 24
+- '*However, despite its practical success, existing ST-based work for imbalanced node classification [72, 67, 25] lacks a principled theoretical and empirical understanding of self-training in imbalanced node classification scenarios, especially regarding its inherent limitations under severe imbalance*'
+	- This flag is for the paper with Ref. ID = 25
+- '*GraphSR [72] combines similarity-based filtering with reinforcement learning to select reliable pseudo-labeled nodes; BIM [67] frames the task as an influence maximization problem to balance class influence across receptive fields; and IceBerg [25] proposes a Double Balancing mechanism that simultaneously adjusts pseudo-label distributions and loss calibration, while disentangling GNN propagation for better supervision in few-shot regimes*'
+	- This flag is for the paper with Ref. ID = 25
+- '*The riemannian manifold further allows us to rigorously define and analyze geometric imbalance in terms of angular distances and class separation [26, 51]*'
+	- This flag is for the paper with Ref. ID = 26
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 29
+- '*1 Introduction Class imbalance is a prevalent challenge in real-world graph datasets, where the disproportionate distribution of class labels often hinders the effectiveness and fairness of Graph Neural Networks (GNNs) [69, 34]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*Compared to oversampling [69, 34] or loss function engineering [6, 44], ST avoids the complexities of synthesizing new nodes or edges and thus is naturally well-suited for graphstructured data*'
+	- This flag is for the paper with Ref. ID = 34
+- '*It is worth noting that our proposed concept of geometric imbalance is fundamentally distinct from previously studied topology imbalance [6, 34]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*To answer RQ1, we construct varying levels of class imbalance (ρ = 10, 20, 50, 100) settings on four datasets (Cora, Citeseer, Pubmed, and Amazon-Computers), following the methodology from [69, 34, 44]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*We evaluate our framework against several classic techniques and state-of-the-art methods for addressing imbalanced node classification, including GraphSMOTE (GS) [69], GraphENS (GE) [34], ReNode (RN) [6], TAM [44], GraphSR (GSR) [72], BIM [67]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 34
+- '*For example, GraphSMOTE [69] interpolates minority class embeddings and predicts new edges; ImGAGN [36] jointly generates node features and topology by modeling global minority distributions; and GraphENS [34] enhances diversity via ego-network mixing*'
+	- This flag is for the paper with Ref. ID = 34
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 36
+- '*For example, GraphSMOTE [69] interpolates minority class embeddings and predicts new edges; ImGAGN [36] jointly generates node features and topology by modeling global minority distributions; and GraphENS [34] enhances diversity via ego-network mixing*'
+	- This flag is for the paper with Ref. ID = 36
+- '*We also compare our method with cross-entropy loss with Re-Weighting (RW) [18], PC Softmax (PS) [16], and Balanced Softmax (BS) [37]*'
+	- This flag is for the paper with Ref. ID = 37
+- '*We conduct evaluations under various benchmarking settings on 8 datasets—Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]—capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 40
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 41
+- '*Compared to oversampling [69, 34] or loss function engineering [6, 44], ST avoids the complexities of synthesizing new nodes or edges and thus is naturally well-suited for graphstructured data*'
+	- This flag is for the paper with Ref. ID = 44
+- '*To answer RQ1, we construct varying levels of class imbalance (ρ = 10, 20, 50, 100) settings on four datasets (Cora, Citeseer, Pubmed, and Amazon-Computers), following the methodology from [69, 34, 44]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*We evaluate our framework against several classic techniques and state-of-the-art methods for addressing imbalanced node classification, including GraphSMOTE (GS) [69], GraphENS (GE) [34], ReNode (RN) [6], TAM [44], GraphSR (GSR) [72], BIM [67]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*We also test the performance of TAM when combined with different base models, including GE, RN, and BS, as described in [44]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 44
+- '*ReNode [6] reweights nodes based on their topological distances to class decision boundaries, while TAM [44] calibrates logits using local topology and class statistics*'
+	- This flag is for the paper with Ref. ID = 44
+- '*Self-training (ST) [59, 45], which iteratively incorporates high-confidence pseudo-labeled nodes into the training set, offers a simple yet effective approach for leveraging unlabeled data to address class imbalance*'
+	- This flag is for the paper with Ref. ID = 45
+- '*Self-training methods [24, 59, 45] align well with this framework by iteratively incorporating pseudo-labeled data into the training process, thereby expanding the labeled set and improving the model’s performance on unlabeled data*'
+	- This flag is for the paper with Ref. ID = 45
+- '*The riemannian manifold further allows us to rigorously define and analyze geometric imbalance in terms of angular distances and class separation [26, 51]*'
+	- This flag is for the paper with Ref. ID = 51
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 57
+- '*To combine the two rankings, we adopt Rank-Biased Overlap (RBO) [58], a metric that measures the agreement between two ranked lists, assigning higher weights to topranked elements*'
+	- This flag is for the paper with Ref. ID = 58
+- '*Self-training (ST) [59, 45], which iteratively incorporates high-confidence pseudo-labeled nodes into the training set, offers a simple yet effective approach for leveraging unlabeled data to address class imbalance*'
+	- This flag is for the paper with Ref. ID = 59
+- '*Self-training methods [24, 59, 45] align well with this framework by iteratively incorporating pseudo-labeled data into the training process, thereby expanding the labeled set and improving the model’s performance on unlabeled data*'
+	- This flag is for the paper with Ref. ID = 59
+- '*We conduct evaluations under various benchmarking settings on 8 datasets—Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]—capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 63
+- '*We conduct evaluations under various benchmarking settings on 8 datasets—Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]—capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 63
+- '*For Amazon-Computers, we generate splits with varying degrees of class imbalance (ρ = 10, 20, 50, 100) based on the procedure in [63]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*Here, random sampling is employed to construct training sets that reflect the original label distributions for Computers-Random and CS-Random, following the protocol in [63]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 63
+- '*We conduct evaluations under various benchmarking settings on 8 datasets—Cora [64], Citeseer [64], Pubmed [64], Amazon-Computers [40], Computers-Random [63], CS-Random [63], Flickr [65], and Ogbn-arxiv [17]—capturing a wide range of class imbalance scenarios*'
+	- This flag is for the paper with Ref. ID = 65
+- '*However, despite its practical success, existing ST-based work for imbalanced node classification [72, 67, 25] lacks a principled theoretical and empirical understanding of self-training in imbalanced node classification scenarios, especially regarding its inherent limitations under severe imbalance*'
+	- This flag is for the paper with Ref. ID = 67
+- '*We evaluate our framework against several classic techniques and state-of-the-art methods for addressing imbalanced node classification, including GraphSMOTE (GS) [69], GraphENS (GE) [34], ReNode (RN) [6], TAM [44], GraphSR (GSR) [72], BIM [67]*'
+	- This flag is for the paper with Ref. ID = 67
+- '*GraphSR [72] combines similarity-based filtering with reinforcement learning to select reliable pseudo-labeled nodes; BIM [67] frames the task as an influence maximization problem to balance class influence across receptive fields; and IceBerg [25] proposes a Double Balancing mechanism that simultaneously adjusts pseudo-label distributions and loss calibration, while disentangling GNN propagation for better supervision in few-shot regimes*'
+	- This flag is for the paper with Ref. ID = 67
+- '*1 Introduction Class imbalance is a prevalent challenge in real-world graph datasets, where the disproportionate distribution of class labels often hinders the effectiveness and fairness of Graph Neural Networks (GNNs) [69, 34]*'
+	- This flag is for the paper with Ref. ID = 69
+- '*Compared to oversampling [69, 34] or loss function engineering [6, 44], ST avoids the complexities of synthesizing new nodes or edges and thus is naturally well-suited for graphstructured data*'
+	- This flag is for the paper with Ref. ID = 69
+- '*To answer RQ1, we construct varying levels of class imbalance (ρ = 10, 20, 50, 100) settings on four datasets (Cora, Citeseer, Pubmed, and Amazon-Computers), following the methodology from [69, 34, 44]*'
+	- This flag is for the paper with Ref. ID = 69
+- '*We evaluate our framework against several classic techniques and state-of-the-art methods for addressing imbalanced node classification, including GraphSMOTE (GS) [69], GraphENS (GE) [34], ReNode (RN) [6], TAM [44], GraphSR (GSR) [72], BIM [67]*'
+	- This flag is for the paper with Ref. ID = 69
+- '*6 Related Work Class imbalance in graphs poses unique challenges due to the interplay between topology and feature distribution [41, 57, 69, 29, 36, 6, 34, 44, 63]*'
+	- This flag is for the paper with Ref. ID = 69
+- '*For example, GraphSMOTE [69] interpolates minority class embeddings and predicts new edges; ImGAGN [36] jointly generates node features and topology by modeling global minority distributions; and GraphENS [34] enhances diversity via ego-network mixing*'
+	- This flag is for the paper with Ref. ID = 69
+- '*It has been widely used to model directional data and has shown effectiveness in normalized embedding spaces [14, 1, 70]*'
+	- This flag is for the paper with Ref. ID = 70
+- '*However, despite its practical success, existing ST-based work for imbalanced node classification [72, 67, 25] lacks a principled theoretical and empirical understanding of self-training in imbalanced node classification scenarios, especially regarding its inherent limitations under severe imbalance*'
+	- This flag is for the paper with Ref. ID = 72
+- '*We evaluate our framework against several classic techniques and state-of-the-art methods for addressing imbalanced node classification, including GraphSMOTE (GS) [69], GraphENS (GE) [34], ReNode (RN) [6], TAM [44], GraphSR (GSR) [72], BIM [67]*'
+	- This flag is for the paper with Ref. ID = 72
+- '*GraphSR [72] combines similarity-based filtering with reinforcement learning to select reliable pseudo-labeled nodes; BIM [67] frames the task as an influence maximization problem to balance class influence across receptive fields; and IceBerg [25] proposes a Double Balancing mechanism that simultaneously adjusts pseudo-label distributions and loss calibration, while disentangling GNN propagation for better supervision in few-shot regimes*'
+	- This flag is for the paper with Ref. ID = 72
+- '*The strategy (K > C) has been commonly adopted in deep clustering and pseudo-labeling to improve separation in ambiguous regions [11, 74]*'
+	- This flag is for the paper with Ref. ID = 74
+
