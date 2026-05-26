@@ -228,7 +228,7 @@ def append_line_to_references(page_references, line):
     """
 
     if len(page_references) > 0:
-        last_reference = page_references[len(page_references)-1].lower()
+        last_reference = page_references[-1].lower()
         if "http" in last_reference:
             return line.strip()
         else:
@@ -260,6 +260,13 @@ def check_page_text(p_page_references, p_page_text, line_skip):
     prev_line = "" 
     sep = next((bl['author_separator'] for bl in supported_bib_layouts if bl['name'] == given_bib_layout), None)
     
+    # -> Years (e.g., "2019" or "2025b" must be succeded by a "." or ")"!)
+    YEAR_PATTERN = re.compile(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2}[a-z]?)(?=[\).])')
+    CONTINUATION_PATTERN = re.compile(
+                                r'((?:(?<=^)|(?<=[.:;,()])\s)in\b|\beditors\b|\beds\.|\burl\b|\bhttp|\bhttps|\bdoi\b|\bpages\b|\bpp\.\s|\bp\.\s|\bvolume\b|\bvol\.)',
+                                re.IGNORECASE
+                            )
+    
     # Skip first (and second) line, since this is the header, PDF author, or PDF page number
     for line_index in range(line_skip, len(page_lines)):
         # Ensure that the line is long enough to check for the reference schema, 
@@ -281,7 +288,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     if not page_references:
                         page_references.append(page_lines[line_index].strip())
                     else:
-                        page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
+                        page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
             
             elif given_bib_numbering == BIB_NUM_NUMBERED_SQUARES:
                 # Matches the ACM Template for references, where
@@ -290,7 +297,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     page_references.append(page_lines[line_index].strip())
                 elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3] == "]":
                     page_references.append(page_lines[line_index].strip())
-                elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3].isdigit and page_lines[line_index][4] == "]":
+                elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3].isdigit() and page_lines[line_index][4] == "]":
                     page_references.append(page_lines[line_index].strip())
                 # If this schema is not found, but we already have at least one reference,
                 # append the line to the last reference
@@ -298,13 +305,13 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     if not page_references:
                         page_references.append(page_lines[line_index].strip())
                     else:
-                        page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
+                        page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
 
             elif given_bib_numbering == BIB_NUM_NATBIB:
                 # Matches the AAAI/ACM Template for references, where
                 # each reference starts with the authornames
                 current_line = page_lines[line_index].strip()
-
+                
                 # Set first reference
                 if (not page_references) and (not prev_line):
                     if (not given_bib_layout.endswith('Y')) and sep == ',':
@@ -315,53 +322,68 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     continue
 
                 # Check for years in the current line (cl) and previous (pl)
-                year_cl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', current_line)
-                # If there is an "in" directly before the year, this most likely bbelongs to the outlet
+                year_cl = YEAR_PATTERN.search(current_line)
+                # If there is an "in" directly before the year, this most likely belongs to the outlet
                 if year_cl and year_cl.start()-2 >= 0:
                     if current_line[year_cl.start()-2:year_cl.start()+1].lower() == "in " \
                        or current_line[year_cl.start()-2:year_cl.start()+1].lower() == "n: ":
                         year_cl = None
-                year_pl = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_lines[line_index-1])
-                # If there is an "in" directly before the year, this most likely bbelongs to the outlet
+        
+                year_pl = YEAR_PATTERN.search(page_lines[line_index-1])
+                # If there is an "in" directly before the year, this most likely belongs to the outlet
                 if re.search(r'\bin\s', page_lines[line_index-1].lower()):
                     year_pl = None
 
-                # If both lines (previous and this) contain valid years -> new reference
-                if year_cl and year_pl:
+                # Check for line beginnings that strongly indicate a continuation
+                is_continuation = False
+                if current_line and (current_line[0].islower() or current_line[0].isdigit()):
+                    # Names like "vom Brocke" should't fall under the "first char is lower case"-rule
+                    if current_line[:4] in ["van ", "von ", "vom "]:
+                        pass
+                    else:
+                        is_continuation = True
+
+                # If both lines (previous and this) contain valid years and its likely not a continuation 
+                # -> Probably a new reference
+                if year_cl and year_pl and (not is_continuation):
                     page_references.append(current_line)
                     continue
                     
                 # Usual case, as a new reference starts with mostly multiple authors that
                 # are seperated by 'sep'
                 if sep == ";":
-                    # If the current line contains ; and the previous doesn't contain a ; nor a year
-                    if sep in current_line and sep not in page_lines[line_index-1] and not year_pl:
-                        page_references.append(current_line)
-                        continue
-                    # If the current line contains a year and the previous doesn't contain a ;
-                    elif year_cl and sep not in page_lines[line_index-1]:
-                        page_references.append(current_line)
-                        continue
                 
-                    year_pr = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\.', page_references[len(page_references)-1])
-                    ed_cl = re.search(r'\b(in\s|eds\.)', current_line.lower())
+                    year_pr = YEAR_PATTERN.search(page_references[-1])
+                    eds_in_cl = bool(CONTINUATION_PATTERN.search(current_line))
 
                     # If the current contains a ; and not "In " / "eds.", and the previous reference contains a year
                     # NOTE: Here, a line that should be added to the previous reference might be recognized as new
                     #       -> Its fine for about >85% of the cases, but yeah, can happen
-                    if sep in current_line and not ed_cl and year_pr:
+                    if sep in current_line and (not eds_in_cl) and year_pr:
                         # If a firstname is alone at the beginning, append to prev. ref.
-                        if current_line[1] == "." and (current_line[2] == " " or current_line[2] == ";"):
-                            page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                        if (current_line[1] == "." and (current_line[2] == " " or current_line[2] == ";")) \
+                            or is_continuation:
+                            page_references[-1] += append_line_to_references(page_references, current_line)
                         else:
                             page_references.append(current_line)
-                    # Otherwise, append to previous line's reference
                     else:
-                        page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                        # If the current line contains ; and the previous doesn't contain a ; nor a year
+                        if sep in current_line and (sep not in page_lines[line_index-1]) and (not year_pl) \
+                            and (not is_continuation) and (not eds_in_cl):
+                            page_references.append(current_line)
+                            continue
+                        # If the current line contains a year and the previous doesn't contain a ;
+                        # -> Probably a new reference (and not the end of lines of authors)
+                        elif year_cl and (sep not in page_lines[line_index-1]) \
+                            and (not is_continuation) and (not eds_in_cl):
+                            page_references.append(current_line)
+                            continue
+                        else:
+                            page_references[-1] += append_line_to_references(page_references, current_line)
                 
                 # If authors are separated by ,
                 elif sep == ",":
-                    year_pattern = re.compile(r'\b(18|19|20)\d{2}[a-z]?\b')
+                    #year_pattern = re.compile(r'\b(18|19|20)\d{2}[a-z]?\b')
 
                     # NOTE: This is a very generalized division and mostly only works if 
                     #       the year is actually at the end of the reference
@@ -369,48 +391,35 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                     if given_bib_layout.endswith('Y'):
                         # In natbib, we always start with the authors' names (capitalized), not a lower letter nor a number
                         if current_line[0].isdigit() or current_line[0].islower():
-                            page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                            page_references[-1] += append_line_to_references(page_references, current_line)
                         else:
-                            has_year_prev = bool(year_pattern.search(page_references[-1]))
-                            continuation_pattern = re.compile(
-                                r'^(in\b|editors\b|eds\.\b|url\b|http|https|doi\b|pages\b|pp\.\b|p\.\b|volume\b|vol\.)',
-                                re.IGNORECASE
-                            )
+                            has_year_prev = bool(YEAR_PATTERN.search(page_references[-1]))
 
                             looks_like_new_start = (
                                 current_line[0].isupper()
-                                and not continuation_pattern.search(current_line)
+                                and not CONTINUATION_PATTERN.search(current_line)
                                 and has_year_prev
                             )
 
                             if looks_like_new_start:
                                 page_references.append(current_line)
                             else:
-                                page_references[len(page_references)-1] += append_line_to_references(page_references, current_line)
+                                page_references[-1] += append_line_to_references(page_references, current_line)
                         
                     # Else if the year comes after the authors' names
-                    else: # TODO: There are still issues with this parsing (e.g., page numbers recognized for years)
+                    # TODO: There are still issues with this parsing (e.g., page numbers recognized for years)
+                    else: 
 
                         # Check if current_line is likely a continuation of the previous line
-                        is_continuation = False
                         if prev_line:
-                            if current_line and (current_line[0].islower() or current_line[0].isdigit()):
-                                is_continuation = True
-                            elif prev_line.strip().endswith("-") or prev_line.strip().endswith("–"):
+                            if prev_line.strip().endswith("-") or prev_line.strip().endswith("–"):
                                 is_continuation = True
 
                         # If the current_ref already has a year, and the current_line also contains a year,
                         # and the current_line is probably not a continuation
-                        current_ref_year = year_pattern.search(current_ref)
-                        cl_year = year_pattern.search(current_line)
+                        current_ref_year = YEAR_PATTERN.search(current_ref)
+                        cl_year = YEAR_PATTERN.search(current_line)
                         if current_ref_year and cl_year and (not is_continuation):
-                            # if previous line likely contains authors, move it to new reference
-                            #if prev_line and prev_line.count(",") >= 2 and current_ref.endswith(prev_line):
-                            #    current_ref = current_ref[:-len(prev_line)].strip() # TODO: does this make sense?
-                            #    if current_ref:
-                            #        page_references.append(current_ref)
-                            #    current_ref = prev_line + " " + current_line
-                            #else:
                             if current_ref:
                                 page_references.append(current_ref)
                             current_ref = current_line
@@ -449,7 +458,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 pass
             # Otherwise, append the rest to the last ref.
             else:
-                page_references[len(page_references)-1] += append_line_to_references(page_references, page_lines[line_index])
+                page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
 
     return page_references
 
@@ -944,20 +953,33 @@ def main(doc, ref_starting_page, references_ending_page, heading_after_reference
             ref_starting_index = page_text.find("Literature")
 
     else:
-        print(f"""Could not find 'References'/'Literature' on page {ref_starting_page}. 
-                Please check the page number and try inputting it manually:""")
+        print(f"Could not find 'References'/'Literature' on page {ref_starting_page}.")
+        print(" -> Please check the page number and try inputting it manually:")
         
         # Loop to give user the chance to retry if they messed up the inputs
         while True:
-            ref_starting_page = int(input(" -> Please enter the page number where the reference section starts: ").strip())
-            ref_section_name = input(" -> Please enter the name of the reference section (e.g., 'Literature'): ").strip()
+            try:
+                userinput_ref_starting_page = int(input("    Please enter the page number where the reference section starts: ").strip())
+                userinput_ref_section_name = input("    Please enter the name of the reference section (e.g., 'Literature'): ").strip()
+            except:
+                print(f"=> ERROR: Couldn't parse the given starting page number to an Integer ('{userinput_ref_starting_page}')!")
 
-            # Find the starting index of the reference section and cut the text before
-            if page_text.find(ref_section_name) != -1:
-                ref_starting_index = page_text.find(ref_section_name)
-                break
+            if isinstance(userinput_ref_starting_page, int) and userinput_ref_section_name:
+                page_text = doc[userinput_ref_starting_page-1].get_text()
+
+                # Find the starting index of the reference section and cut the text before
+                if page_text.find(userinput_ref_section_name.strip()) != -1:
+                    ref_starting_index = page_text.find(userinput_ref_section_name.strip())
+                    break
+                else:
+                    print(f"Could not find '{userinput_ref_section_name}' on page {userinput_ref_starting_page}...")
+                    retry = input(" -> If you want to retry, enter 'y' or 'yes': ").strip()
+                    if not (retry.lower() == "y" or retry.lower() == "yes"):
+                        # Since the references are essential, just quit the whole program
+                        print("Ok, thanks for trying. Good luck on your own! :)")
+                        sys.exit(0)
             else:
-                print(f"Could not find '{ref_section_name}' on page {ref_starting_page}...")
+                print(f" -> Error: The given section name '{userinput_ref_section_name}' seems to be empty or the given parge number couldn't be parsed to an Integer...")
                 retry = input(" -> If you want to retry, enter 'y' or 'yes': ").strip()
                 if not (retry.lower() == "y" or retry.lower() == "yes"):
                     # Since the references are essential, just quit the whole program

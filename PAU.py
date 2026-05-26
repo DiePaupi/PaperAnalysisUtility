@@ -34,6 +34,9 @@ import Libs.UnicodeChecker as uc
 # 'headings' contains thruples of (number, text, page_no) for each heading 
 #    found in the document
 headings = []
+# 'has_unnumbered_headings' indicates wether the given paper has unnumbered
+# headings (=True) or not (=False)
+has_unnumbered_headings = False
 # 'references_starting_page_no' is the page number where the references section
 #    starts; it is 0 if no references section was found
 references_starting_page_no = 0
@@ -218,24 +221,27 @@ def parse_unnumbered_headings(page_no: int, line: str, headings: list) -> list:
     line_lower = line.lower()
     if line_lower in ["related work", "related works",
                       "background", "literature review",
-                      "background and literature review",
+                      "background and literature review", "background & literature review",
                       "problem definition", "research questions",
-                      "problem definition and research questions"
-                      "methods", "methodology",
+                      "problem definition and research questions",
+                      "problem definition & research questions",
+                      "method", "methods", "methodology",
                       "research agenda", "survey", "survey methods",
-                      "data", "data and methods",
+                      "data", "data and methods", "data & methods",
                       "implementation", "implementation details", 
                       "experiments", "experimental setup", "case studies",
-                      "experimental setup and case studies",
-                      "results", "results and analysis",
-                      "discussion", "discussion and conclusion",
-                      "discussion and future work",
-                      "limitations", "limitations and future work",
+                      "experimental setup and case studies", "experimental setup & case studies",
+                      "evaluation", "evaluation and results", "evaluation & results",
+                      "results", "results and analysis", "results & analysis",
+                      "discussion", "discussion and conclusion", "discussion & conclusion",
+                      "discussion and future work", "discussion & future work",
+                      "limitations", "limitations and future work", "limitations & future work",
                       "implications", "theoretical implications",
                       "practical relevance",
                       "conclusion", "future work",
-                      "conclusion and future work",
+                      "conclusion and future work", "conclusion & future work",
                       "conclusion, limitations, and future work",
+                      "conclusion, limitations, & future work",
                       "ethical statement", "positionality statement",
                       "broader impact", "acknowledgments",
                       "neurips paper checklist"
@@ -244,8 +250,8 @@ def parse_unnumbered_headings(page_no: int, line: str, headings: list) -> list:
         print(f"- Found {line} on page {page_no + 1}")
         headings.append((len(headings)+1, line, page_no + 1))
     
-    # Check for "References" or "Literature" (case-insensitive)
-    elif line_lower in ["references", "literature"]:
+    # Check for "References" or "Literature" (case-sensitive!)
+    elif line in ["References", "Literature"] and references_starting_page_no == 0:
         print(f"=> Found references/literature section on page {page_no + 1}")
         headings.append((len(headings)+1, line, page_no + 1))
         references_starting_page_no = page_no + 1
@@ -257,6 +263,7 @@ def check_document_structure(doc):
     global formatting_template
     global supported_formatting_templates
     global headings
+    global has_unnumbered_headings
     global references_starting_page_no
     global references_ending_page_no
     global unicode_counter
@@ -326,6 +333,9 @@ def check_document_structure(doc):
                             headings.append((str(number), line, page_no + 1))
                         else:
                             numbered_headings = 0
+                            has_unnumbered_headings = True
+                            print(f"- Found {line} on page {page_no + 1}")
+                            headings.append(('1', line, page_no + 1))
                     else:
                         prefix = line[0:line.find("Introduction")]
                         if prefix.strip().isdigit():
@@ -733,6 +743,10 @@ def main():
         if not headings:
             f.write("No headings found in the document.\n\n\n")
         else:
+            if has_unnumbered_headings:
+                f.write("> [!NOTE]\n")
+                f.write("> *Please note that since the headings in this document are not numbered, there most likely are sections missing here!*\n")
+                f.write("\n")
             f.write(f"![[{chap_fig_path}]]\n")
             f.write("\n")
             for chapter in chapter_list:
