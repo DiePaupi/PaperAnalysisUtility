@@ -338,8 +338,20 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 is_continuation = False
                 if current_line and (current_line[0].islower() or current_line[0].isdigit()):
                     # Names like "vom Brocke" should't fall under the "first char is lower case"-rule
-                    if current_line[:4] in ["van ", "von ", "vom "]:
-                        pass
+                    if current_line[0].isalpha():
+                        is_prefix = False
+                        KNOWN_LASTNAME_PREFIXES = ac.get_known_lastname_prefixes()
+                        for prefix in KNOWN_LASTNAME_PREFIXES:
+                            # Check if the current_line is long enough to check for the prefix
+                            if len(current_line) > len(prefix) \
+                                and current_line[:len(prefix)+1] == prefix + " ":
+                                is_prefix = True
+                        # If it is indeed a lastname prefix: skip
+                        # Otherwise set is_continuation to True
+                        if is_prefix:
+                            pass
+                        else:
+                            is_continuation = True
                     else:
                         is_continuation = True
 
@@ -633,13 +645,13 @@ def parse_reference(ref: str) -> dict:
     authors = ''
     if given_bib_layout == LFTOY_BIB_STYLE:
         # E.g.: reference = "Meyer, C., Schneider, T.: Title. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024)."
-        m = re.search(r'\((\d{4})\)', ref)
+        m = re.search(r'\(((?:18|19|20)\d{2})\)', ref)
         if m:
             year = int(m.group(1))
             # Cleanup reference string (the year should be the last part)
             reference = reference[:m.start()-3].strip()
         else:
-            m = re.search(r'\s(\d{4})\)', ref)
+            m = re.search(r'\s((?:18|19|20)\d{2})', ref)
             if m:
                 year = int(m.group(1))
                 # Cleanup reference string (the year should be the last part)
@@ -791,23 +803,34 @@ def parse_reference(ref: str) -> dict:
     # NOTE: We need to get rid of points behind "et al." so the parsing 
     #       in the RefIntextChecker works
     if given_bib_numbering == BIB_NUM_NATBIB:
-        #author_year_sep = rit_c.get_given_ref_style_bib()["author_year_sep"]
+        # normalized_authors = ["Lastname F.", "Lastname F.", ...]
         if len(normalized_authors) == 0:
             print("-> WARNING: The normalized authors' list contains no entries!")
+
         elif len(normalized_authors) == 1:
-            first_author = normalized_authors[0].split()[0]
-            ref_id = f"{first_author} {year}"
-            # Old: ref_id = f"{first_author}{author_year_sep} {year}"
+            # Use parsed lastname minus the first letter of the firstname
+            # If that parsing didn't work (e.g., for "OpenAI") use the whole author string
+            single_author = normalized_authors[0]
+            if single_author[-1] == "." and single_author[-3] == " ":
+                single_author = single_author[:-3]
+            ref_id = f"{single_author} {year}"
+            
         elif len(normalized_authors) == 2:
-            first_author = normalized_authors[0].split()[0]
-            second_author = normalized_authors[1].split()[0]
+            first_author = normalized_authors[0]
+            if first_author[-1] == "." and first_author[-3] == " ":
+                first_author = first_author[:-3]
+            second_author = normalized_authors[1]
+            if second_author[-1] == "." and second_author[-3] == " ":
+                second_author = second_author[:-3]
+            # NOTE: The ref_id is always parsed with "and" as connector, not "&"
             ref_id = f"{first_author} and {second_author} {year}"
-            # Old: ref_id = f"{first_author} and {second_author}{author_year_sep} {year}"
-        # TODO: What if up to three authors (or more) are named?
+
+        # TODO: In some templates up to three authors (or more) are named...
         else:
-            first_author = normalized_authors[0].split()[0]
+            first_author = normalized_authors[0]
+            if first_author[-1] == "." and first_author[-3] == " ":
+                first_author = first_author[:-3]
             ref_id = f"{first_author} et al {year}"
-            # Old: ref_id = f"{first_author} et al{author_year_sep} {year}"
 
 
     # ---------------------------------------------------------------

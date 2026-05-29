@@ -37,6 +37,7 @@ import pandas as pd
 
 # Constants:
 MAX_AUTHOR_REFERENCES = 2
+KNOWN_LASTNAME_PREFIXES = {"van", "van der", "von", "vom", "de", "del", "di", "da", "le", "du", "la", "el", "al"}
 
 given_bib_type = {}
 
@@ -55,6 +56,9 @@ def set_given_bib_type(bib_type: dict):
 
 def get_frequent_author_threshold():
     return MAX_AUTHOR_REFERENCES
+
+def get_known_lastname_prefixes():
+    return KNOWN_LASTNAME_PREFIXES
 
 
 def normalize_authors_str(authors_str: str):
@@ -114,6 +118,7 @@ def extract_authors_commasep(authors_str: str):
     (only the first letters of the first names are kept).
     """
 
+    # parts = [L1, F1, L2, F2, ...]
     parts, contains_et_al = normalize_authors_str(authors_str)
     is_firstname_first = given_bib_type["is_firstname_first"]
 
@@ -126,12 +131,15 @@ def extract_authors_commasep(authors_str: str):
     for i in range(0, len(parts), 2):
         if i + 1 < len(parts):
             if is_firstname_first:
-                first_initial = parts[i]
+                first_initial = parts[i].strip()[0]
                 last = parts[i + 1]
             else:
                 last = parts[i]
-                first_initial = parts[i + 1]
-            authors_list.append(f"{last} {first_initial}")
+                first_initial = parts[i + 1].strip()[0]
+            authors_list.append(f"{last} {first_initial}.")
+        # Company names (e.g., "GPTZero") can be just appended
+        else:
+            authors_list.append(parts[i].strip())
     
     return authors_list, contains_et_al
 
@@ -151,21 +159,79 @@ def extract_authors_spacesep(authors_str: str):
     (only the first letters of the first names are kept).
     """
 
+    # authors_list = [F1 L1, F2 L2, ...]
     authors_list, contains_et_al = normalize_authors_str(authors_str)
     is_firstname_first = given_bib_type["is_firstname_first"]
     
     # Split full author name into: "Lastname F."
     normalized_authors = []
     for author in authors_list:
+        # parts = [F1, (p1,) (p2,) L1], where p1 and p2 are possible lastname prefixes
         parts = author.split()
-        if len(parts) >= 2:
+
+        # Normal case: [Firstname, Lastname] or [Lastname, Firstname]
+        if len(parts) == 2:
             if is_firstname_first:
-                first_initial = parts[0][0]
-                last_name = parts[-1]
+                first_initial = parts[0].strip()[0]
+                last_name = parts[-1].strip()
             else:
-                first_initial = parts[-1][0]
-                last_name = parts[0]
+                first_initial = parts[-1].strip()[0]
+                last_name = parts[0].strip()
             normalized_authors.append(f"{last_name} {first_initial}.")
+
+        # Could be either a name with a lastname preffix or a second first name
+        elif len(parts) == 3:
+            # Example: [Jan, vom, Brocke] or [vom, Brocke, Jan]
+            if parts[1].strip().lower() in KNOWN_LASTNAME_PREFIXES or parts[0].strip().lower() in KNOWN_LASTNAME_PREFIXES:
+                if is_firstname_first:
+                    first_initial = parts[0].strip()[0]
+                    last_name = f"{parts[1].strip()} {parts[2].strip()}"
+                else:
+                    first_initial = parts[2].strip()[0]
+                    last_name = f"{parts[0].strip()} {parts[1].strip()}"
+            # Example: [Anthony, J., Crowley] or [Crowley, Anthony, J.]
+            else:
+                if is_firstname_first:
+                    first_initial = parts[0].strip()[0]
+                    last_name = parts[-1].strip()
+                else:
+                    first_initial = parts[1].strip()[0]
+                    last_name = parts[0].strip()
+            normalized_authors.append(f"{last_name} {first_initial}.")
+
+        # Could be 1) a name with two lastname preffixes,
+        #          2) a name with two first names and a lastname prefix,
+        #          3) a name with three firstnames
+        elif len(parts) == 4:
+            # Example: [Renate, van, der, Molen] or [van, der, Molen, Renate]
+            if f"{parts[1].strip()} {parts[2].strip()}".lower() in KNOWN_LASTNAME_PREFIXES \
+                or f"{parts[0].strip()} {parts[1].strip()}".lower() in KNOWN_LASTNAME_PREFIXES:
+                if is_firstname_first:
+                    first_initial = parts[0].strip()[0]
+                    last_name = f"{parts[1].strip()} {parts[2].strip()} {parts[3].strip()}"
+                else:
+                    first_initial = parts[3].strip()[0]
+                    last_name = f"{parts[0].strip()} {parts[1].strip()} {parts[2].strip()}"
+            # Example: [Christoph, C., von, Egedy] or [von, Egedy, Christoph, C.]
+            elif parts[2].strip().lower() in KNOWN_LASTNAME_PREFIXES or parts[0].strip().lower() in KNOWN_LASTNAME_PREFIXES:
+                if is_firstname_first:
+                    first_initial = parts[0].strip()[0]
+                    last_name = f"{parts[2].strip()} {parts[3].strip()}"
+                else:
+                    first_initial = parts[2].strip()[0]
+                    last_name = f"{parts[0].strip()} {parts[1].strip()}"
+            # Example: [Thi, T., G., Tran] or [Tran, Thi, T., G.]
+            else:
+                if is_firstname_first:
+                    first_initial = parts[0].strip()[0]
+                    last_name = parts[3].strip()
+                else:
+                    first_initial = parts[1].strip()[0]
+                    last_name = parts[0].strip()
+
+            normalized_authors.append(f"{last_name} {first_initial}.")
+
+        # Extreme Example: "Willibrodus Martinus Pankratius 'Wil' van der Aalst" aka. "W. M. P. van der Aalst"
         else:
             print(f"-> Warning: Malformed author string: '{author}'")
             normalized_authors.append(author.strip())
