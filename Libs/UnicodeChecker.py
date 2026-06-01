@@ -79,6 +79,10 @@ unicode_characters = set().union(
 # Helper functions
 ###############################################################################
 
+def get_unicode_dashes():
+    return unicode_dashes
+
+
 def replace_all_unicode(input: str) -> str:
     input_str = copy.deepcopy(input)
 

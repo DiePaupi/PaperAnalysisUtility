@@ -448,7 +448,7 @@ def main():
     input_bib_numbering = input(f"Enter a supported bibliography numbering ({[t['name'] for t in supported_bib_numberings]}): ").strip().strip('"')
     res = next((bt for bt in supported_bib_numberings if bt['name'] == input_bib_numbering), None)
     if not res:
-        print(f"ERROR: Biblography numbering '{input_bib_layout}' not supported yet!")
+        print(f"ERROR: Biblography numbering '{input_bib_numbering}' not supported yet!")
         print(" -> The programm will exit now. :)")
         sys.exit(0)
     else:
@@ -955,6 +955,8 @@ def main():
         # Print the references DF using df.to_markdown(tablefmt="grid")
         f.write("\n## Extracted References\n\n")
         for index, row in extracted_references.iterrows():
+            f.write("- **Full reference as parsed:**\n")
+            f.write(f"	- *{row['full_reference']}*\n")
             f.write(f"- **Number {index + 1}:**\n")
             f.write(f"	- Ref. ID: *{row['ref_id']}*\n")
             f.write(f"	- Authors: *{row['authors']}*\n")

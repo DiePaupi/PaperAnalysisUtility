@@ -268,15 +268,28 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                             )
     
     # Skip first (and second) line, since this is the header, PDF author, or PDF page number
+    skip_next_line = False
     for line_index in range(line_skip, len(page_lines)):
+        if skip_next_line:
+            skip_next_line = False
+            continue
+
         # Ensure that the line is long enough to check for the reference schema, 
         # otherwise append it to the last reference if it exists
+        # -> Note: In number_with_dot formatting the number may be in an extra line, so the next line needs to be checked!
         if len(page_lines[line_index]) > 4:
 
+            # Matches the Springer Nature Template for references, where
+            # each reference starts with, e.g., "1. " or "12. "
             if given_bib_numbering == BIB_NUM_NUMBERED_WITH_DOT:
-                # Matches the Springer Nature Template for references, where
-                # each reference starts with, e.g., "1. " or "12. "
-                if page_lines[line_index][0].isdigit() and page_lines[line_index][1] == "." and page_lines[line_index][2] == " ":
+                # If no reference was recognized, add first ref to page_references
+                if not page_references:
+                    page_references.append(page_lines[line_index].strip())
+                # If the last ref ends with a dash, this is a continuation, so append to the last ref
+                elif page_references[-1][-1] in uc.get_unicode_dashes():
+                    page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
+                # Otherwise, check for the numbering schema
+                elif page_lines[line_index][0].isdigit() and page_lines[line_index][1] == "." and page_lines[line_index][2] == " ":
                     page_references.append(page_lines[line_index].strip())
                 elif page_lines[line_index][0].isdigit() and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "." and page_lines[line_index][3] == " ":
                     page_references.append(page_lines[line_index].strip())
@@ -285,14 +298,14 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 # If this schema is not found, but we already have at least one reference,
                 # append the line to the last reference
                 else:
-                    if not page_references:
-                        page_references.append(page_lines[line_index].strip())
-                    else:
-                        page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
+                    page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
             
+            # Matches the ACM Template for references, where
+            # each reference starts with the [xx]
             elif given_bib_numbering == BIB_NUM_NUMBERED_SQUARES:
-                # Matches the ACM Template for references, where
-                # each reference starts with the [xx]
+                # If no reference was recognized, add first ref to page_references
+                if not page_references:
+                    page_references.append(page_lines[line_index].strip())
                 if page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "]":
                     page_references.append(page_lines[line_index].strip())
                 elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3] == "]":
@@ -302,10 +315,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 # If this schema is not found, but we already have at least one reference,
                 # append the line to the last reference
                 else:
-                    if not page_references:
-                        page_references.append(page_lines[line_index].strip())
-                    else:
-                        page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
+                    page_references[-1] += append_line_to_references(page_references, page_lines[line_index])
 
             elif given_bib_numbering == BIB_NUM_NATBIB:
                 # Matches the AAAI/ACM Template for references, where
@@ -461,9 +471,31 @@ def check_page_text(p_page_references, p_page_text, line_skip):
             # Skip if line is empty
             if not page_lines[line_index]:
                 pass
-            # ?
-            elif line_index == line_skip:
-                page_references.append(page_lines[line_index].strip())
+            # If springer numbering (e.g., "1. ") is in an extra line and the reference starts afterwards
+            elif (len(page_lines[line_index].strip()) == 2 and (page_lines[line_index].strip()[0].isdigit() and page_lines[line_index].strip()[1] == ".")) \
+                or (len(page_lines[line_index].strip()) == 3 and (page_lines[line_index].strip()[:2].isdigit() and page_lines[line_index].strip()[2] == ".")) \
+                or (len(page_lines[line_index].strip()) == 4 and (page_lines[line_index].strip()[:3].isdigit() and page_lines[line_index].strip()[3] == ".")):
+                if line_index+1 < len(page_lines) and page_lines[line_index+1].strip():
+                    page_references.append(f"{page_lines[line_index].strip()} {page_lines[line_index+1].strip()}")
+                    skip_next_line = True
+                else:
+                    print("=> Warning: Found a line that looks like a springer numbering but the next line is empty!")
+                    print(f"   -> line_index = {line_index}, Line: '{page_lines[line_index]}'")
+                    page_references.append(page_lines[line_index].strip() + " ")
+            # If numbered_squares numbering (e.g., "[1]") is in an extra line and the reference starts afterwards
+            # -> Note: No need to check for numbered in the hundereds (e.g., "[101]"), since then the linelength would be > 4
+            elif (len(page_lines[line_index].strip()) == 3 and page_lines[line_index].strip()[0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "]") \
+                or (len(page_lines[line_index].strip()) == 4 and page_lines[line_index].strip()[0] == "[" and page_lines[line_index][1:3].isdigit() and page_lines[line_index][3] == "]"):
+                if line_index+1 < len(page_lines) and page_lines[line_index+1].strip():
+                    page_references.append(f"{page_lines[line_index].strip()} {page_lines[line_index+1].strip()}")
+                    skip_next_line = True
+                else:
+                    print("=> Warning: Found a line that looks like a numbered_squares numbering but the next line is empty!")
+                    print(f"   -> line_index = {line_index}, Line: '{page_lines[line_index]}'")
+                    page_references.append(page_lines[line_index].strip() + " ")
+            # Skip header lines
+            elif line_index <= line_skip:
+                pass
             # For the last two lines, check if this is a page no
             elif line_index >= len(page_lines)-3 \
                 and page_lines[line_index].isdigit():
@@ -622,6 +654,8 @@ def parse_reference(ref: str) -> dict:
         ref_after_link = reference[m.end() :].lower().strip()
         accessed_start_index = ref_after_link.find("accessed")
         if accessed_start_index != -1:
+            if accessed_start_index-5 >= 0 and ref_after_link[:accessed_start_index] == "last ":
+                accessed_start_index -= 5
             ref_after_link = ref_after_link[:accessed_start_index].strip()
 
         ref_before_link = reference[: m.start()].strip()
@@ -633,7 +667,7 @@ def parse_reference(ref: str) -> dict:
         ref_before_link = ref_before_link.replace("doi ", "").replace("DOI ", "").strip()
 
         reference = ref_before_link + " " + ref_after_link
-        reference = reference.strip()
+        reference = reference.strip(" ,.")
 
 
     # ---------------------------------------------------------------
@@ -645,17 +679,15 @@ def parse_reference(ref: str) -> dict:
     authors = ''
     if given_bib_layout == LFTOY_BIB_STYLE:
         # E.g.: reference = "Meyer, C., Schneider, T.: Title. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024)."
-        m = re.search(r'\(((?:18|19|20)\d{2})\)', ref)
+        m = re.search(r'\(((?:18|19|20)\d{2})\)', reference)
         if m:
             year = int(m.group(1))
             # Cleanup reference string (the year should be the last part)
-            reference = reference[:m.start()-3].strip()
+            reference = reference[:m.start()].strip(" (")
         else:
             m = re.search(r'\s((?:18|19|20)\d{2})', ref)
             if m:
                 year = int(m.group(1))
-                # Cleanup reference string (the year should be the last part)
-                reference = reference[:m.start()-2].strip()
             else:
                 print(f"-> Warning: Could not parse year in reference '{reference}'!")
         
@@ -668,7 +700,10 @@ def parse_reference(ref: str) -> dict:
             # Cleanup reference string
             reference = rest.strip()
             # E.g.: reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
-        # TODO: What else?
+        else:
+            print(f"-> Warning: Authors-Rest-Separator not found in reference '{reference}'! Using reference as author...")
+            authors = reference
+                    
     
     elif given_bib_layout == FLTOY_BIB_STYLE:
         # E.g.: reference = "Damjan Pecioski, Viktor Gavriloski, Simona Domazetovska, and Anastasija Ignjatovska. Title. In 2023 12th Mediterranean Conference on Embedded Computing (MECO), pages 1–4"
@@ -681,14 +716,13 @@ def parse_reference(ref: str) -> dict:
             year_starting_indexes = [y.start() for y in re.finditer(str(year), reference)]
             reference = reference[:year_starting_indexes[-1]].strip(" ,")
         else:
-            m = re.findall(r'\s(\d{4}).', reference)
+            m = re.findall(r'\s(\d{4}).', ref)
             if m:
                 year = int(m[-1])
                 # Cleanup reference string (the year should be the last part)
-                year_starting_indexes = [y.start() for y in re.finditer(str(year), reference)]
-                reference = reference[:year_starting_indexes[-1]].strip(" ,")
+                year_starting_indexes = [y.start() for y in re.finditer(str(year), ref)]
             else:
-                print(f"-> Warning: Could not parse year in reference '{reference}'!")
+                print(f"-> Warning: Could not parse year in reference '{ref}'!")
         
         separator = fltoy_bib["authors_rest_separator"]
         if separator in reference:
@@ -748,8 +782,12 @@ def parse_reference(ref: str) -> dict:
             year = int(m.group(1))
             # In AAAI/ACM & ACM bib style, the year comes directly after the authors
             authors = reference[: m.start()].strip()
-            authors = uc.replace_accent_marks(authors)
-            authors = uc.replace_all_unicode(authors)
+            if not authors:
+                print(f"-> Warning: Could not parse authors in reference '{reference}'! Using reference as author...")
+                authors = reference
+            else:
+                authors = uc.replace_accent_marks(authors)
+                authors = uc.replace_all_unicode(authors)
 
             # Cleanup reference string
             # E.g.: ACM-reference = ". Title. Qualitative Research in Psychology 3, 2 (Jan. 2006), 77–101."
@@ -762,7 +800,7 @@ def parse_reference(ref: str) -> dict:
         else:
             # Try to match a four digit year (starting with 18, 19, or 20) with a letter behind
             # -> e.g., 2019b
-            m = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2}[a-zA-Z]?)\b', reference)
+            m = re.search(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2}[a-zA-Z]?)\b', ref)
             if m:
                 year = str(m.group(1))
                 try:
@@ -771,8 +809,12 @@ def parse_reference(ref: str) -> dict:
                     print(f"-> Couldn't parse year to an Integer in reference '{reference}'!")
                 
                 authors = reference[: m.start()].strip()
-                authors = uc.replace_accent_marks(authors)
-                authors = uc.replace_all_unicode(authors)
+                if not authors:
+                    print(f"-> Warning: Could not parse authors in reference '{reference}'! Using reference as author...")
+                    authors = reference
+                else:
+                    authors = uc.replace_accent_marks(authors)
+                    authors = uc.replace_all_unicode(authors)
 
                 # Cleanup reference string
                 reference = reference[m.end():].strip().strip(").")
