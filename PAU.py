@@ -433,11 +433,36 @@ def main():
         if (not input_author_sep) or input_author_sep == "y":
             print("... Using default :)")
         elif len(input_author_sep.strip()) == 1:
-            ref_c.overwrite_given_bib_dict(input_author_sep)
+            ref_c.overwrite_given_bib_authorsep(input_author_sep.strip())
             print(f"... '{input_author_sep}' as author separator accepted!")
         else:
             print(f"... Sorry, '{input_author_sep}' doesn't seem to be a single char; using the default '{res['author_separator']}' as author separator!")
-            
+        
+        print("# PLEASE NOTE:")
+        if res['is_comma_sep']:
+            print(" -> The chosen bib layout uses separates first- and lastnames of one author by comma (e.g., 'Pekkala, T').")
+            input_comma_sep = input(f" => If that is correct, please press enter or type 'y', otherwise enter 'n' if only a space is used: ").strip().strip('"')
+        else:
+            print(" -> The chosen bib layout uses separates first- and lastnames of one author by only a space (e.g., 'Pekkala T').")
+            input_comma_sep = input(f" => If a space *is* used please type 'n', otherwise if a comma is used press enter or type 'y': ").strip().strip('"')
+        if (not input_comma_sep) or input_comma_sep == "y":
+            ref_c.overwrite_given_bib_commasep(True)
+            print(f"... Using a comma as authorname-separator!")
+        else:
+            ref_c.overwrite_given_bib_commasep(False)
+            print(f"... Using a space as authorname-separator!")
+    
+        print("# PLEASE NOTE:")
+        print(f" -> The chosen bib layout uses '{res['authors_rest_separator']}' to separate authors from the rest of the reference.")
+        input_authorrest_sep = input(f" => If that is correct, please press enter or type 'y', otherwise enter another author-separator to use: ").strip().strip('"')
+        if (not input_authorrest_sep) or input_authorrest_sep == "y":
+            print("... Using default :)")
+        elif len(input_authorrest_sep.strip()) == 1:
+            ref_c.overwrite_given_bib_author_rest_sep(input_authorrest_sep.strip())
+            print(f"... '{input_authorrest_sep}' as author-rest-separator accepted!")
+        else:
+            print(f"... Sorry, '{input_authorrest_sep}' doesn't seem to be a single char; using the default '{res['authors_rest_separator']}' as author-rest-separator!")
+
     
     print("---")
     print("INFO:")
@@ -955,8 +980,8 @@ def main():
         # Print the references DF using df.to_markdown(tablefmt="grid")
         f.write("\n## Extracted References\n\n")
         for index, row in extracted_references.iterrows():
-            f.write("- **Full reference as parsed:**\n")
-            f.write(f"	- *{row['full_reference']}*\n")
+            #f.write("- **Full reference as parsed:**\n")
+            #f.write(f"	- *{row['full_reference']}*\n")
             f.write(f"- **Number {index + 1}:**\n")
             f.write(f"	- Ref. ID: *{row['ref_id']}*\n")
             f.write(f"	- Authors: *{row['authors']}*\n")

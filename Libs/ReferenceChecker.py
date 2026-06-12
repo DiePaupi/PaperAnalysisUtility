@@ -84,7 +84,7 @@ given_line_skip = 0
 
 
 # LFTOY = Lastname, Firstname, Title, Outlet, Year
-# lastname_firstletter_title_outlet_year
+# lastname_firstname_title_outlet_year
 # E.g., Springer
 LFTOY_BIB_STYLE = "LFTOY"
 lftoy_bib = {
@@ -95,8 +95,8 @@ lftoy_bib = {
     "is_comma_sep": True
 }
 
-# LFYTO = Lastname, Firstname (firstletter), Year, Title, Outlet
-# lastname_firstletter_year_title_outlet
+# LFYTO = Lastname, Firstname, Year, Title, Outlet
+# lastname_firstname_year_title_outlet
 # E.g., AAAI/ACM
 LFYTO_BIB_STYLE = "LFYTO"
 lfyto_bib = {
@@ -202,10 +202,20 @@ def set_given_given_bib_numbering(bib_numbering: str):
     global given_bib_numbering
     given_bib_numbering = bib_numbering
 
-def overwrite_given_bib_dict(author_sep: str):
+def overwrite_given_bib_authorsep(author_sep: str):
     selected_bib_dict = next((bt for bt in supported_bib_layouts if bt['name'] == given_bib_layout), None)
     if selected_bib_dict:
         selected_bib_dict['author_separator'] = author_sep
+    
+def overwrite_given_bib_commasep(i_is_comma_sep: bool):
+    selected_bib_dict = next((bt for bt in supported_bib_layouts if bt['name'] == given_bib_layout), None)
+    if selected_bib_dict:
+        selected_bib_dict['is_comma_sep'] = i_is_comma_sep
+
+def overwrite_given_bib_author_rest_sep(author_rest_sep: str):
+    selected_bib_dict = next((bt for bt in supported_bib_layouts if bt['name'] == given_bib_layout), None)
+    if selected_bib_dict:
+        selected_bib_dict['authors_rest_separator'] = author_rest_sep
 
 
 # ----
@@ -306,7 +316,7 @@ def check_page_text(p_page_references, p_page_text, line_skip):
                 # If no reference was recognized, add first ref to page_references
                 if not page_references:
                     page_references.append(page_lines[line_index].strip())
-                if page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "]":
+                elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2] == "]":
                     page_references.append(page_lines[line_index].strip())
                 elif page_lines[line_index][0] == "[" and page_lines[line_index][1].isdigit() and page_lines[line_index][2].isdigit() and page_lines[line_index][3] == "]":
                     page_references.append(page_lines[line_index].strip())
@@ -518,6 +528,12 @@ def check_outlet(outlet: str) -> str:
         outlet = outlet[4:]
     elif outlet[0:3].lower() == "in ":
         outlet = outlet[3:]
+
+    # Delete everything before "eds."
+    # Example: "Mouratidis, H., Rolland, C (eds.) Advanced Information Systems Engineering"
+    if outlet.find("eds.") != -1:
+        eds_i = outlet.find("eds.")
+        outlet = outlet[eds_i+3:].strip(" (),")
     
     # Split a , to remove trailing page numbers
     if "," in outlet:
@@ -530,12 +546,8 @@ def check_outlet(outlet: str) -> str:
             else:
                 outlet = outlet_splitted[0].strip()
         else:
-            # Delete everything before "eds."
-            if outlet.find("eds.,") != -1:
-                eds_i = outlet.find("eds.,")
-                outlet = outlet[eds_i+5:].strip()
-
-            # 
+            # TODO: Does this make sense?
+            # Example: ???
             outlet_point_split = outlet.split(". ")
             temp_outlet = ""
             for part in outlet_point_split:
@@ -545,19 +557,20 @@ def check_outlet(outlet: str) -> str:
                 elif "event-place" in part.lower() or part.isnumeric():
                     pass
                 else:
-                 temp_outlet += " " + part
+                    temp_outlet += " " + part
             temp_outlet = temp_outlet.strip()
             outlet_splitted = temp_outlet.split(",")
             outlet = ','.join(outlet_splitted[:-1])
         
     
     # Remove specific page references
-    if "pp." in outlet:
-        outlet = outlet.split("pp.")[0].strip()
-    if "p." in outlet:
-        outlet = outlet.split("p.")[0].strip()
-    if "pages " in outlet:
-        outlet = outlet.split("pages ")[0].strip()
+    # Example: "Advanced Information Systems Engineering, pp 452–466 Springer, Berlin"
+    if " pp. " in outlet:
+        outlet = outlet.split(" pp. ")[0].strip(" ,")
+    elif " pp " in outlet:
+        outlet = outlet.split(" pp ")[0].strip(" ,")
+    elif "pages " in outlet:
+        outlet = outlet.split("pages ")[0].strip(" ,")
 
     # Remove tailing issue references "XX(X)"
     if "(" in outlet and ")" in outlet:
@@ -676,47 +689,26 @@ def parse_reference(ref: str) -> dict:
 
     # year and authors
     year = 0
-    authors = ''
-    if given_bib_layout == LFTOY_BIB_STYLE:
-        # E.g.: reference = "Meyer, C., Schneider, T.: Title. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024)."
-        m = re.search(r'\(((?:18|19|20)\d{2})\)', reference)
-        if m:
-            year = int(m.group(1))
-            # Cleanup reference string (the year should be the last part)
-            reference = reference[:m.start()].strip(" (")
-        else:
-            m = re.search(r'\s((?:18|19|20)\d{2})', ref)
-            if m:
-                year = int(m.group(1))
-            else:
-                print(f"-> Warning: Could not parse year in reference '{reference}'!")
-        
-        separator = lftoy_bib["authors_rest_separator"]
-        if separator in reference:
-            authors, rest = reference.split(separator, 1)
-            authors = uc.replace_accent_marks(authors.strip())
-            authors = uc.replace_all_unicode(authors)
-
-            # Cleanup reference string
-            reference = rest.strip()
-            # E.g.: reference = "Title. Journal of Synthetic Knowledge Studies 12(3), 145–162"
-        else:
-            print(f"-> Warning: Authors-Rest-Separator not found in reference '{reference}'! Using reference as author...")
-            authors = reference
-                    
+    authors = ''                  
     
-    elif given_bib_layout == FLTOY_BIB_STYLE:
+    if given_bib_layout == FLTOY_BIB_STYLE or given_bib_layout == LFTOY_BIB_STYLE:
+        # FLTOY
         # E.g.: reference = "Damjan Pecioski, Viktor Gavriloski, Simona Domazetovska, and Anastasija Ignjatovska. Title. In 2023 12th Mediterranean Conference on Embedded Computing (MECO), pages 1–4"
         #                 = "Anthropic. 3.5 Models and Computer Use, 2024."
+        # LFTOY
+        # E.g.: reference = "Meyer, C., Schneider, T.: Title. Journal of Synthetic Knowledge Studies 12(3), 145–162 (2024)."
+        #                 = "Ekpezu AO, Oinas-Kukkonen H, Wiafe I. Title. In: AMCIS 2023 Proceedings. AIS Electronic Library (AISeL), (2023)."
+        #                 = "Foster JM, Reddel HK, Usherwood T, et al. Title. Respir Med 2017; 129: 39–45."
 
         m = re.findall(r'(?:^|[\s,.;:(])((?:18|19|20)\d{2})\b', reference)
         if m:
+            # Take last year occurence (since maybe a year is also given in the outlet)
             year = int(m[-1])
             # Cleanup reference string (the year should be the last part)
             year_starting_indexes = [y.start() for y in re.finditer(str(year), reference)]
-            reference = reference[:year_starting_indexes[-1]].strip(" ,")
+            reference = reference[:year_starting_indexes[-1]].strip(" ,;.(")
         else:
-            m = re.findall(r'\s(\d{4}).', ref)
+            m = re.findall(r'\s((?:18|19|20)\d{2}).', ref)
             if m:
                 year = int(m[-1])
                 # Cleanup reference string (the year should be the last part)
@@ -724,9 +716,12 @@ def parse_reference(ref: str) -> dict:
             else:
                 print(f"-> Warning: Could not parse year in reference '{ref}'!")
         
-        separator = fltoy_bib["authors_rest_separator"]
-        if separator in reference:
+        if given_bib_layout == FLTOY_BIB_STYLE:
+            separator = fltoy_bib["authors_rest_separator"]
+        else:
+            separator = lftoy_bib["authors_rest_separator"]
 
+        if separator in reference:
             # If the separator here is a . we need to get rid of all other points
             if separator == ".":
                 # -> E.g., in names like "Anthony J. C."
@@ -738,7 +733,10 @@ def parse_reference(ref: str) -> dict:
                     reference_without_other_points += "" if leave_out_space else " "
                     # Check 
                     #   1) if its like "Anthony J. C." (["Anthony J", " C"]), leave the point out
-                    if (len(current_element) > 1 and current_element[-1].isupper() and current_element[-2] == " ") \
+                    #   TODO: This may fail for LFTOY (e.g., "Miettunen J, Oinas-Kukkonen H. Title")
+                    #         where the point is indeed the separator
+                    if given_bib_layout == FLTOY_BIB_STYLE \
+                        and (len(current_element) > 1 and current_element[-1].isupper() and current_element[-2] == " ") \
                         or (len(current_element) == 1 and current_element.isupper()):
                         reference_without_other_points += current_element
                         leave_out_space = False
@@ -886,31 +884,42 @@ def parse_reference(ref: str) -> dict:
     # E.g.: AAAI/ACM-reference = "Title. European Journal of Information Systems, 25(3): 252–273"
     # E.g.: NeurIPS-reference  = "Title. In 2023 12th Mediterranean Conference on Embedded Computing (MECO), pages 1–4"
 
-    # title ends with a period before the outlet (if present)
+    # Clean pssoible other points where the title should not be split at
+    reference = reference.replace("vs. ", "vs ")
+
+    # title ends with a period (or sometimes a questionmark) before
+    # the outlet (if present)
     if '. ' in reference:
         title, outlet = reference.split('. ', 1)
-        if title and outlet:
-            title = str(title).strip()
-            # Check a last accessed date was parsed as outlet
-            if "accessed:" in outlet.lower():
-                outlet = ""
-            elif "arxiv" in outlet.lower():
+    elif '? ' in reference:
+        title, outlet = reference.split('? ', 1)
+        title += "?"
+    else:
+        title = reference
+        outlet = ""
+    
+    if title and outlet:
+        title = title.strip()
+        # Check a last accessed date was parsed as outlet
+        if "accessed:" in outlet.lower():
+            outlet = ""
+        # Make arXiv uniform
+        elif "arxiv" in outlet.lower():
+            outlet = "arXiv"
+        else:
+            outlet = outlet.strip(" .()")
+            outlet = check_outlet(outlet)
+    else:
+        # TODO: Does this make sense?
+        # fallback: try to split on period
+        parts = reference.split('. ')
+        if parts:
+            title = str(parts[0].strip())
+            outlet = str(' '.join(parts[1:]).strip().rstrip('.'))
+            if "arxiv" in outlet.lower():
                 outlet = "arXiv"
             else:
-                outlet = str(outlet.strip().rstrip('.'))
                 outlet = check_outlet(outlet)
-        else:
-            # fallback: try to split on period
-            parts = reference.split('. ')
-            if parts:
-                title = str(parts[0].strip())
-                outlet = str(' '.join(parts[1:]).strip().rstrip('.'))
-                if "arxiv" in outlet.lower():
-                    outlet = "arXiv"
-                else:
-                    outlet = check_outlet(outlet)
-    else:
-        title = str(reference)
 
 
     return {
