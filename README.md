@@ -80,7 +80,8 @@ For each reference PAU verifies: title, authors, year, and link validity
 - UnicodeChecker → formatting quality detection
 - Main script → orchestrates the pipeline and generates the report
 
-<img width="5735" height="2573" alt="PAU_uml_v3" src="https://github.com/user-attachments/assets/cf58c98f-09b1-4dde-af3e-3b6cc6b5ef5d" />
+<img width="5735" height="2573" alt="PAU_uml_v4" src="https://github.com/user-attachments/assets/2515d997-c52c-4b60-9447-1ca5f748268e" />
+
 
 
 ---
@@ -132,11 +133,16 @@ openpyxl
 scholarly
 ```
 
-Optional components to be set in an ```.env```-file:
-- Semantic Scholar API access (```SEMANTIC_SCHOLAR_API_KEY```)
-- an LLM provider for citation validation
-    - CampusKI (```CKI_API_KEY```); the default
-    - OpenAI (```OPENAI_API_KEY```); to use, please set ```USE_CAMPUS_KI = False``` in the ```LLMCaller.py```
+> [!NOTE]
+> If you want to use all of PAU's functions, you'll need to provide LLM access by creating an `.env`-file in the `Libs` folder!
+> There, you can provide the following keys:
+> - an LLM provider for citation validation
+>     - CampusKI (`CKI_API_KEY`); the default
+>     - OpenAI (`OPENAI_API_KEY`); to use, please set `USE_CAMPUS_KI = False` in the `LLMCaller.py`
+> - Semantic Scholar API access (`SEMANTIC_SCHOLAR_API_KEY`)
+>
+> *Please note that this is completly optional! Per default, PAU will ask you to confirm LLM functionalities, where you can just deny. :)*
+
 
 
 ### 2. Run PAU
