@@ -7,7 +7,6 @@ import random
 from scholarly import scholarly, ProxyGenerator
 import time
 
-import Libs.AuthorsChecker as ac
 import Libs.DblpCaller as dblp_caller
 import Libs.SemanticScholarCaller as sem_scholar_caller
 import Libs.UnicodeChecker as uc
@@ -41,7 +40,7 @@ MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
 UNKNOWN = "unknown"
 
-NEVER_ASK_FOR_PERMISSION = True
+NEVER_ASK_FOR_PERMISSION = False
 skip_all_remaining_validations = False
 
 

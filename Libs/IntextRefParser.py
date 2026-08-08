@@ -43,8 +43,6 @@ import Libs.UnicodeChecker as uc
 # Gloal Variables
 ###############################################################################
 
-NEVER_ASK_FOR_PERMISSION = True
-
 # NOTE: The numeric reference style is defined by being a number within square
 #       brackets, e.g., "[1]" or "[245]"
 #    -> Multiple numbers are separated by a comma, e.g., "[3,14,82]"

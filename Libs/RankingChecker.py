@@ -23,7 +23,7 @@ from . import LLMCaller as ask_llm
 # Gloal Variables
 ###############################################################################
 
-NEVER_ASK_FOR_PERMISSION = True
+NEVER_ASK_FOR_PERMISSION = False
 
 
 
@@ -291,11 +291,15 @@ def main(references_df: pd.DataFrame):
     # Get all Excel Ranking Files
     #==========================================================================
     # Your current directory (including python script & all excel files)
-    current_dir = Path((os.getcwd()).replace('\\','/'))
-    print(f"- Current directory: {current_dir}")
-    sup_dir = os.path.split(current_dir)[0]
-    rankings_dir = os.path.join(sup_dir, 'Rankings')
-    print(f"  Rankings directory: {rankings_dir}")
+    
+    # NOTE: For testing I need to use a specific path
+    rankings_dir = Path("C:/Users/pauli/sciebo/Paupis_Folder/Paper/! LAUFEND/PAU/Rankings")
+
+    #current_dir = Path((os.getcwd()).replace('\\','/'))
+    #print(f"- Current directory: {current_dir}")
+    #sup_dir = os.path.split(current_dir)[0]
+    #rankings_dir = os.path.join(sup_dir, 'Rankings')
+    #print(f"  Rankings directory: {rankings_dir}")
 
     # Define all excel ranking file paths
 

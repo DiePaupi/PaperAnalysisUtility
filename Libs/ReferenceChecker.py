@@ -11,7 +11,6 @@ import time
 
 import Libs.AuthorsChecker as ac
 import Libs.BibSearcher as bib_searcher
-import Libs.RefIntextChecker as rit_c
 import Libs.UnicodeChecker as uc
 
 
@@ -75,7 +74,7 @@ import Libs.UnicodeChecker as uc
 # NOTE: MAX_SCHOLAR_ENTRIES_TO_CHECK needs to be >= 11
 MAX_SCHOLAR_ENTRIES_TO_CHECK = 25
 
-NEVER_ASK_FOR_PERMISSION = True
+NEVER_ASK_FOR_PERMISSION = False
 
 # Bibliography Layout Specifics
 given_bib_layout = ""

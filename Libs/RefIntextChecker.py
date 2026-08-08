@@ -32,40 +32,15 @@ import Libs.IntextRefParser as ref_parser
 # Gloal Variables
 ###############################################################################
 
-NEVER_ASK_FOR_PERMISSION = True
+NEVER_ASK_FOR_PERMISSION = False
 
 EDUCATED_GUESS_ON_SENTENCES_PER_PAGE = 27
 
 given_ref_style = ""
-# TODO: Ask user for just numeric vs author_year and then for the author_year_sep???
 
 # Referencing Style Specifics
 NUMERIC_REF_STYLE = "numeric"
-#numeric_referencing = {
-#    "name": NUMERIC_REF_STYLE,
-#    "opening_bracket": "[",
-#    "closing_bracket": "]",
-#    "separator": ",",
-#    "author_year_sep": ""
-#}
-# Referencing Style Specifics
 AUTHORYEAR_REF_STYLE = "authoryear"
-#AUTHORYEAR_RB_S_REF_STYLE = "authoryear_round"
-#authoryear_rb_s_referencing = {
-#    "name": AUTHORYEAR_RB_S_REF_STYLE,
-#    "opening_bracket": "(",
-#    "closing_bracket": ")",
-#    "separator": ";",
-#    "author_year_sep": "" #(Radford et al. 2023)
-#}
-#AUTHORYEAR_SB_C_REF_STYLE = "authoryear_square"
-#authoryear_sb_c_referencing = {
-#    "name": AUTHORYEAR_SB_C_REF_STYLE,
-#    "opening_bracket": "[",
-#    "closing_bracket": "]",
-#    "separator": ",",
-#    "author_year_sep": "," #[Arora et al., 2019a]
-#}
 supported_ref_templates = [NUMERIC_REF_STYLE, AUTHORYEAR_REF_STYLE]
 
 
