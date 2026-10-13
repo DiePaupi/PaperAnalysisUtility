@@ -32,18 +32,23 @@ This makes PAU useful for:
 
 > [!NOTE]
 > *PAU is available under the [CC BY-NC-SA](https://creativecommons.org/licenses/by-nc-sa/4.0/) licence.*
-> *If you want to reference PAU, please use the following BibLaTeX-citation:*
+> *If you want to reference PAU, please use the following citation:*
+> ```
+> Speckmann, P., Fischer, R., & Janiesch, C. (2026). Check and Trust with PAU: A Paper Analysis Utility for Automated Bibliographic Verification. Proceedings of the AAAI ACM Conference on AI, Ethics, and Society, 9(4), 2408–2420. https://doi.org/10.1609/aies.v9i4.43316
+> ```
+> 
+> *BibTeX export:*
 > ```
 > @inproceedings{
->     author    = {Speckmann, P. and Fischer, R. and Janiesch, C.},
+>     author    = {Speckmann, Pauline and Fischer, Raphael and Janiesch, Christian},
 >     title     = {{C}heck and {T}rust {W}ith {PAU}: {A} {P}aper {A}nalysis {U}tility for {A}utomated {B}ibliographic {V}erification},
->     booktitle = {Proceedings of the 9th AAAI/ACM conference on Artificial Intelligence, Ethics, and Society (AIES)},
+>     booktitle = {Proceedings of the AAAI/ACM conference on AI, Ethics, and Society (AIES)},
 >     location  = {Malmö, Sweden},
 >     year      = {2026},
->     volume    = {},
->     number    = {},
->     pages     = {},
->     doi       = {}
+>     volume    = {9},
+>     number    = {4},
+>     pages     = {2408--2420},
+>     doi       = {10.1609/aies.v9i4.43316}
 > }
 > ```
 
