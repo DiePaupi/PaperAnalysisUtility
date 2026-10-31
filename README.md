@@ -125,7 +125,7 @@ Supported bibliography layouts (as used in the 'References' section) include:
 
 ### 1. Install Dependencies
 
-PAU requires Python and several libraries. Please check the requirements.txt for details.
+PAU requires Python <= 3.11 and several libraries. Please check the requirements.txt for details.
 Typical dependencies include:
 
 ```
